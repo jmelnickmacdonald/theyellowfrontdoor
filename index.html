@@ -33,12 +33,12 @@ section { padding: var(--section-gap) 0; }
 .divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
 
 /* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(252,211,70,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
-.nav.scrolled { border-color: rgba(19,36,71,0.15); box-shadow: 0 2px 24px rgba(252,211,70,0.4); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); display: flex; flex-direction: column; align-items: center; padding-top: 10px; }
-.nav-logo { margin-bottom: 8px; }
-.nav-logo img { height: 64px; width: auto; display: block; }
-.nav-links-row { display: flex; align-items: center; gap: 32px; padding: 8px 0; border-top: 1px solid rgba(19,36,71,0.12); width: 100%; justify-content: center; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
+.nav.scrolled { border-color: rgba(255,255,255,0.08); box-shadow: 0 2px 24px rgba(19,36,71,0.4); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 8px var(--gutter) 0; display: flex; flex-direction: column; align-items: center; position: relative; }
+.nav-logo { margin-bottom: 0; }
+.nav-logo img { height: 60px; width: auto; display: block; border-radius: 50%; outline: 3px solid var(--yellow); outline-offset: 3px; }
+.nav-links-row { display: flex; align-items: center; gap: 32px; padding: 8px 24px; background: var(--yellow); width: 100%; justify-content: center; margin-top: 8px; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a { font-size: 13px; font-weight: 500; color: var(--navy); letter-spacing: 0.03em; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: rgba(19,36,71,0.55); }
@@ -46,7 +46,7 @@ section { padding: var(--section-gap) 0; }
 .nav-cta { background: var(--navy) !important; color: var(--paper) !important; padding: 7px 18px; font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.1em !important; text-transform: uppercase; border: none !important; }
 .nav-cta:hover { background: rgba(19,36,71,0.75) !important; }
 .nav-toggle { display: none; position: absolute; right: var(--gutter); top: 16px; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* HERO */
 .hero { padding-top: 56px; padding-bottom: 56px; text-align: center; background: var(--paper); }
@@ -63,7 +63,7 @@ section { padding: var(--section-gap) 0; }
 .btn-yellow:hover { background: var(--brass); }
 
 /* STREET SCENE */
-.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; }
+.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; margin-top: 120px; }
 .street-scene img { width: 100%; height: auto; display: block; }
 .scene-base { visibility: hidden; position: relative; }
 .scene-day, .scene-night { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.4s ease; }
@@ -131,11 +131,11 @@ body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
 /* NIGHT */
-body.is-night .nav { background: rgba(252,211,70,0.97); }
-body.is-night .nav.scrolled { border-color: rgba(255,255,255,0.07); }
+body.is-night .nav { background: var(--navy); }
+body.is-night .nav.scrolled { border-color: rgba(255,255,255,0.08); }
 body.is-night .nav-links a { color: var(--navy); }
 body.is-night .nav-links a:hover { color: rgba(19,36,71,0.6); }
-body.is-night .nav-toggle span { background: var(--navy); }
+body.is-night .nav-toggle span { background: var(--paper); }
 body.is-night .nav-cta { background: var(--navy) !important; color: var(--paper) !important; border-color: var(--navy) !important; }
 
 /* RESPONSIVE */
@@ -148,7 +148,7 @@ body.is-night .nav-cta { background: var(--navy) !important; color: var(--paper)
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 130px; left: 0; right: 0; background: #fcd346; padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(19,36,71,0.15); gap: 20px; z-index: 99; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 120px; left: 0; right: 0; background: var(--yellow); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(19,36,71,0.15); gap: 20px; z-index: 99; }
   body.is-night .nav-links.open { background: var(--navy); }
   .nav-toggle { display: flex; }
   .hero-actions { flex-direction: column; align-items: center; }
@@ -179,7 +179,7 @@ body.is-night .nav-cta { background: var(--navy) !important; color: var(--paper)
 </nav>
 
 <!-- STREET SCENE — immediately under nav -->
-<div class="street-scene" style="padding-top:130px;" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
+<div class="street-scene" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
   <img class="scene-base" src="hero_day.webp" alt="">
   <img class="scene-day" srcset="hero_day.webp 2080w, hero_day_2x.webp 4160w" sizes="100vw" src="hero_day.webp" alt="Daytime street scene — storefronts with a yellow front door at centre" loading="eager">
   <img class="scene-night" srcset="hero_night.webp 2080w, hero_night_2x.webp 4160w" sizes="100vw" src="hero_night.webp" alt="Nighttime street scene — warm glowing windows, yellow front door lit at centre" loading="eager">
