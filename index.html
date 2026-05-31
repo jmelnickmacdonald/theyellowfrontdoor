@@ -8,971 +8,164 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-
-/* ============================================================
-   MOTTERDAM — self-hosted accent font
-   ============================================================ */
 @font-face {
   font-family: 'Motterdam';
-  src: url('Motterdam.woff2') format('woff2'),
-       url('Motterdam.woff')  format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+  src: url('Motterdam.woff2') format('woff2'), url('Motterdam.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: swap;
 }
-
-/* ============================================================
-   TOKENS
-   ============================================================ */
 :root {
-  --ink:       #132447;
-  --paper:     #FFFCF4;
-  --yellow:    #F5C400;
-  --stone:     #D8D1C3;
-  --slate:     #596674;
-  --brass:     #D89A00;
-  --clay:      #B86B4B;
-  --paper-mid: #F5EFE0;
-  --sky:       #132447;
-
-  --f-accent: 'Motterdam', cursive;
-  --f-head:   'Montserrat', sans-serif;
-  --f-body:   'Montserrat', sans-serif;
-
-  --max:          1100px;
-  --gutter:       clamp(24px, 5vw, 80px);
-  --section-gap:  clamp(72px, 10vw, 120px);
+  --ink: #132447; --paper: #FFFCF4; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0; --navy: #132447;
+  --f-accent: 'Motterdam', cursive; --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
+  --max: 1100px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(64px, 9vw, 112px);
 }
-
-/* ============================================================
-   RESET + BASE
-   ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--f-body);
-  font-size: 16px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
-
-/* ============================================================
-   TYPOGRAPHY UTILITIES
-   ============================================================ */
-.eyebrow {
-  font-family: var(--f-body);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--slate);
-}
-
-.accent {
-  font-family: var(--f-accent);
-  font-weight: normal;
-}
-
-.section-title {
-  font-family: var(--f-head);
-  font-size: clamp(32px, 4.5vw, 48px);
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.section-intro {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--slate);
-  max-width: 580px;
-  margin-bottom: 48px;
-  font-weight: 300;
-}
-
-/* ============================================================
-   LAYOUT
-   ============================================================ */
-.container {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
-
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 section { padding: var(--section-gap) 0; }
+.eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
+.section-title { font-family: var(--f-head); font-size: clamp(30px, 4vw, 46px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+.section-intro { font-size: 16px; line-height: 1.8; color: var(--slate); max-width: 580px; margin-bottom: 48px; font-weight: 300; }
+.divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
 
-.divider {
-  border: none;
-  border-top: 1px solid var(--stone);
-  margin: 0;
-}
-
-/* ============================================================
-   NAV
-   ============================================================ */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: rgba(255,252,244,0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.nav.scrolled {
-  border-color: var(--stone);
-  box-shadow: 0 1px 24px rgba(7,23,43,0.07);
-}
-
-.nav-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.nav-logo-img {
-  height: 64px;
-  width: auto;
-  display: block;
-}
-
-.thesis-round-logo {
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.thesis-round-logo img {
-  width: 200px;
-  height: 200px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 50%;
-  background: #ffffff;
-  padding: 8px;
-  box-shadow: 0 0 0 4px rgba(255,255,255,0.15);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.nav-links a {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--slate);
-  letter-spacing: 0.03em;
-  transition: color 0.2s;
-}
-
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(252,211,70,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
+.nav.scrolled { border-color: rgba(19,36,71,0.15); box-shadow: 0 2px 24px rgba(252,211,70,0.4); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo img { height: 72px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--navy); letter-spacing: 0.03em; transition: color 0.2s; }
 .nav-links a:hover { color: var(--ink); }
-
-.nav-cta {
-  background: var(--ink) !important;
-  color: var(--paper) !important;
-  padding: 9px 20px;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase;
-  border: 2px solid var(--ink);
-  transition: background 0.2s !important;
-}
-
+.nav-cta { background: var(--ink) !important; color: var(--paper) !important; padding: 9px 20px; font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.08em !important; text-transform: uppercase; border: 2px solid var(--ink); }
 .nav-cta:hover { background: var(--slate) !important; border-color: var(--slate) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); }
 
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-  background: none;
-  border: none;
-}
+/* HERO */
+.hero { padding-top: 120px; padding-bottom: 40px; text-align: center; }
+.hero h1 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 10px; max-width: 680px; margin-left: auto; margin-right: auto; }
+.hero-accent-line { font-family: var(--f-accent); font-size: clamp(30px, 4.5vw, 58px); color: var(--slate); font-weight: normal; display: block; margin-bottom: 28px; line-height: 1.1; }
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--ink);
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero {
-  padding-top: 120px;
-  padding-bottom: 40px;
-  text-align: center;
-  position: relative;
-}
-
-.hero h1 {
-  font-family: var(--f-head);
-  font-size: clamp(28px, 4vw, 52px);
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 10px;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-accent-line {
-  font-family: var(--f-accent);
-  font-size: clamp(30px, 4.5vw, 58px);
-  color: var(--slate);
-  font-weight: normal;
-  display: block;
-  margin-bottom: 28px;
-  line-height: 1.1;
-}
-
-/* hero actions sit flush, no bottom margin needed */
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 0;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 14px 28px;
-  font-family: var(--f-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 2px solid var(--ink);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  text-decoration: none;
-}
-
+/* BUTTONS */
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; }
 .btn-primary:hover { background: var(--slate); border-color: var(--slate); }
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: var(--ink);
-  padding: 14px 28px;
-  font-family: var(--f-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 2px solid var(--stone);
-  cursor: pointer;
-  transition: border-color 0.2s;
-  text-decoration: none;
-}
-
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--stone); cursor: pointer; transition: border-color 0.2s; text-decoration: none; }
 .btn-secondary:hover { border-color: var(--ink); }
+.btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.btn-yellow:hover { background: var(--brass); }
 
-/* ============================================================
-   STREET SCENE
-   ============================================================ */
-.street-scene {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.street-scene img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
+/* STREET SCENE */
+.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; }
+.street-scene img { width: 100%; height: auto; display: block; }
 .scene-base { visibility: hidden; position: relative; }
+.scene-day, .scene-night { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.4s ease; }
+.scene-day { opacity: 1; } .scene-night { opacity: 0; }
+body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1; }
 
-.scene-day,
-.scene-night {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 1.4s ease;
-}
+/* THESIS */
+.thesis-top { background: var(--navy); padding: clamp(36px, 4vw, 56px) 0; text-align: center; }
+.thesis-top .eyebrow { color: var(--stone); margin-bottom: 12px; }
+.thesis-top p { font-size: clamp(15px, 1.6vw, 18px); font-weight: 300; line-height: 1.75; color: var(--stone); max-width: 520px; margin: 0 auto; }
 
-.scene-day  { opacity: 1; }
-.scene-night { opacity: 0; }
-
-body.is-night .scene-day  { opacity: 0; }
-body.is-night .scene-night { opacity: 1; }
-
-/* ============================================================
-   THESIS STRIP
-   ============================================================ */
-/* THESIS TOP — navy */
-.thesis-top {
-  background: #132447;
-  padding: clamp(40px, 5vw, 64px) 0;
-}
-
-.thesis-positioning {
-  text-align: center;
-}
-
-.thesis-positioning-text {
-  font-size: clamp(16px, 1.8vw, 20px);
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--stone);
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-/* THESIS BOTTOM — navy */
-.thesis-bottom {
-  background: #132447;
-  padding: clamp(56px, 8vw, 96px) 0;
-}
-
-.thesis-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
-}
-
-.thesis-claim {
-  font-family: var(--f-accent);
-  font-size: clamp(28px, 3.5vw, 42px);
-  font-weight: normal;
-  line-height: 1.25;
-  color: var(--paper);
-  border-left: 3px solid var(--yellow);
-  padding-left: 28px;
-}
-
-.thesis-body p {
-  font-size: 15px;
-  line-height: 1.85;
-  color: var(--stone);
-  margin-bottom: 16px;
-  font-weight: 300;
-}
-
+.thesis-bottom { background: var(--navy); padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid rgba(255,255,255,0.08); }
+.thesis-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.thesis-claim { font-family: var(--f-accent); font-size: clamp(28px, 3.5vw, 44px); font-weight: normal; line-height: 1.25; color: var(--paper); border-left: 3px solid var(--yellow); padding-left: 28px; }
+.thesis-body p { font-size: 15px; line-height: 1.85; color: var(--stone); margin-bottom: 16px; font-weight: 300; }
 .thesis-body p:last-child { margin-bottom: 0; }
 .thesis-body strong { color: var(--paper); font-weight: 500; }
 
-/* ============================================================
-   MENU SECTION
-   ============================================================ */
-.menu-section { background: var(--paper); }
+/* HOME TASTER */
+.taster-section { background: var(--paper); }
+.taster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); margin-top: 48px; margin-bottom: 40px; }
+.taster-card { background: var(--paper); padding: 32px 28px; transition: background 0.2s; }
+.taster-card:hover { background: var(--paper-mid); }
+.taster-name { font-family: var(--f-accent); font-size: 22px; color: var(--ink); margin-bottom: 8px; line-height: 1.2; }
+.taster-question { font-size: 13px; font-style: italic; font-weight: 300; color: var(--slate); margin-bottom: 12px; line-height: 1.5; border-left: 2px solid var(--yellow); padding-left: 12px; }
+.taster-desc { font-size: 13px; line-height: 1.65; color: var(--slate); font-weight: 300; }
 
-.drive-by-banner {
-  background: var(--paper-mid);
-  border: 1px solid var(--stone);
-  padding: 28px 36px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 28px;
-  align-items: center;
-  margin-bottom: 52px;
-}
+/* ABOUT TEASER */
+.about-teaser { background: var(--paper-mid); }
+.about-teaser-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-teaser-body p { font-size: 15px; line-height: 1.9; color: var(--ink); margin-bottom: 20px; font-weight: 300; }
+.about-teaser-body p:last-of-type { margin-bottom: 32px; }
+.about-teaser-pivot { font-family: var(--f-accent); font-size: 22px; color: var(--ink); border-left: 3px solid var(--yellow); padding: 14px 20px; margin: 28px 0; background: rgba(245,196,0,0.05); line-height: 1.4; }
+.about-teaser-card { background: var(--navy); padding: 36px; color: var(--paper); position: relative; overflow: hidden; }
+.about-teaser-card::after { content: ''; position: absolute; top: 0; right: 0; width: 4px; height: 100%; background: var(--yellow); }
+.about-card-name { font-family: var(--f-accent); font-size: 24px; color: var(--paper); margin-bottom: 4px; }
+.about-card-title { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); margin-bottom: 20px; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.about-tag { font-size: 10px; font-weight: 500; color: var(--stone); border: 1px solid rgba(216,209,195,0.25); padding: 4px 10px; }
+.about-card-detail { font-size: 13px; color: rgba(255,252,244,0.6); line-height: 1.65; font-weight: 300; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; }
 
-.drive-by-badge {
-  background: var(--yellow);
-  color: var(--ink);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  white-space: nowrap;
-}
-
-.drive-by-text h3 {
-  font-family: var(--f-accent);
-  font-size: 24px;
-  font-weight: normal;
-  color: var(--ink);
-  margin-bottom: 6px;
-  line-height: 1.1;
-}
-
-.drive-by-text p {
-  font-size: 14px;
-  color: var(--slate);
-  line-height: 1.6;
-  font-weight: 300;
-  max-width: 480px;
-}
-
-.menu-items { border-top: 1px solid var(--stone); }
-
-.menu-item {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 0 44px;
-  padding: 48px 0;
-  border-bottom: 1px solid var(--stone);
-  align-items: start;
-}
-
-.menu-num {
-  font-family: var(--f-body);
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--stone);
-  text-align: right;
-  padding-top: 10px;
-  letter-spacing: 0.1em;
-}
-
-.menu-name {
-  font-family: var(--f-accent);
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: normal;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
-  line-height: 1.1;
-}
-
-.menu-dot {
-  width: 7px;
-  height: 7px;
-  background: var(--yellow);
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-bottom: 1px;
-}
-
-.menu-subtitle {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 16px;
-}
-
-.menu-question {
-  font-family: var(--f-body);
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 300;
-  color: var(--ink);
-  border-left: 3px solid var(--yellow);
-  padding-left: 16px;
-  margin-bottom: 28px;
-  line-height: 1.5;
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 48px;
-}
-
-.menu-field-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 6px;
-}
-
-.menu-field-value {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--ink);
-  font-weight: 300;
-}
-
-/* ============================================================
-   PATHS
-   ============================================================ */
-.paths-section { background: var(--paper-mid); }
-
-.paths-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--stone);
-  border: 1px solid var(--stone);
-  margin-top: 52px;
-}
-
-.path-card {
-  background: var(--paper);
-  padding: 32px 28px;
-  transition: background 0.2s;
-}
-
-.path-card:hover { background: var(--paper-mid); }
-
-.path-card-name {
-  font-family: var(--f-accent);
-  font-size: 22px;
-  font-weight: normal;
-  color: var(--ink);
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.path-card-pieces {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--brass);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-}
-
-.path-card-desc {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--slate);
-  font-weight: 300;
-}
-
-/* ============================================================
-   ABOUT
-   ============================================================ */
-.about-section { background: var(--paper); }
-
-.about-inner {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 88px;
-  align-items: start;
-}
-
-.about-body p {
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--ink);
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-
-.about-body p:last-child { margin-bottom: 0; }
-
-.about-pivot {
-  font-family: var(--f-accent);
-  font-size: 22px;
-  font-weight: normal;
-  color: var(--ink);
-  border-left: 3px solid var(--yellow);
-  padding: 16px 24px;
-  margin: 36px 0;
-  line-height: 1.4;
-  background: rgba(245,196,0,0.04);
-}
-
-.about-sidebar { position: sticky; top: 96px; }
-
-.about-card {
-  background: var(--ink);
-  padding: 40px;
-  color: var(--paper);
-  position: relative;
-  overflow: hidden;
-}
-
-.about-card::after {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--yellow);
-}
-
-.about-card-name {
-  font-family: var(--f-accent);
-  font-size: 26px;
-  font-weight: normal;
-  color: var(--paper);
-  margin-bottom: 4px;
-  line-height: 1.2;
-}
-
-.about-card-title {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 28px;
-}
-
-.about-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
-}
-
-.about-tag {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--stone);
-  border: 1px solid rgba(216,209,195,0.25);
-  padding: 4px 10px;
-  letter-spacing: 0.05em;
-}
-
-.about-card hr {
-  border: none;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  margin: 20px 0;
-}
-
-.about-card-detail {
-  font-size: 13px;
-  color: rgba(255,252,244,0.6);
-  line-height: 1.65;
-  font-weight: 300;
-}
-
-/* ============================================================
-   CTA STRIP
-   ============================================================ */
-.cta-section {
-  background: var(--ink);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    90deg, transparent, transparent 79px,
-    rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px
-  );
-  pointer-events: none;
-}
-
+/* CTA */
+.cta-section { background: var(--navy); text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px); pointer-events: none; }
 .cta-inner { position: relative; z-index: 1; }
+.cta-dot { width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; margin: 0 auto 28px; }
+.cta-section h2 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--paper); letter-spacing: -0.02em; margin-bottom: 8px; }
+.cta-accent-text { font-family: var(--f-accent); font-size: clamp(30px, 4.5vw, 52px); color: var(--yellow); display: block; line-height: 1.1; margin-bottom: 20px; }
+.cta-section > div > p { font-size: 16px; color: rgba(255,252,244,0.65); max-width: 460px; margin: 0 auto 40px; line-height: 1.75; font-weight: 300; }
+.cta-note { margin-top: 16px; font-size: 11px; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; }
 
-.cta-dot {
-  width: 8px; height: 8px;
-  background: var(--yellow);
-  border-radius: 50%;
-  margin: 0 auto 28px;
-}
+/* FOOTER */
+.footer { background: var(--navy); padding: 48px 0 36px; }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
+.footer-logo { font-family: var(--f-accent); font-size: 22px; color: var(--paper); margin-bottom: 12px; }
+.footer-tagline { font-size: 13px; color: var(--stone); line-height: 1.65; font-weight: 300; max-width: 220px; }
+.footer-round-logo { display: flex; justify-content: center; align-items: center; }
+.footer-round-logo img { width: 120px; height: 120px; opacity: 0.85; }
+.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); margin-bottom: 16px; }
+.footer-nav-col a { display: block; font-size: 14px; color: rgba(255,252,244,0.55); margin-bottom: 10px; transition: color 0.2s; font-weight: 300; }
+.footer-nav-col a:hover { color: var(--paper); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
-.cta-section h2 {
-  font-family: var(--f-head);
-  font-size: clamp(30px, 4.5vw, 48px);
-  font-weight: 700;
-  color: var(--paper);
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-  line-height: 1.1;
-}
-
-.cta-accent-text {
-  font-family: var(--f-accent);
-  font-size: clamp(32px, 5vw, 54px);
-  color: var(--yellow);
-  display: block;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.cta-section p {
-  font-size: 16px;
-  color: rgba(255,252,244,0.65);
-  max-width: 460px;
-  margin: 0 auto 40px;
-  line-height: 1.75;
-  font-weight: 300;
-}
-
-.btn-yellow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--yellow);
-  color: var(--ink);
-  padding: 15px 32px;
-  font-family: var(--f-body);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
-  text-decoration: none;
-}
-
-.btn-yellow:hover { background: var(--brass); transform: translateY(-1px); }
-
-.cta-note {
-  margin-top: 16px;
-  font-size: 11px;
-  color: var(--slate);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
-.contact-section { background: var(--paper); }
-
-.contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 88px;
-  align-items: start;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.form-field label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--slate);
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  font-family: var(--f-body);
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--ink);
-  background: white;
-  border: 1px solid var(--stone);
-  padding: 12px 16px;
-  outline: none;
-  transition: border-color 0.2s;
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder { color: var(--stone); }
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus { border-color: var(--ink); }
-
-.form-field textarea { resize: vertical; min-height: 140px; }
-
-.form-field select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23596674' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
-  cursor: pointer;
-}
-
-.contact-info { padding-top: 8px; }
-
-.contact-info h3 {
-  font-family: var(--f-accent);
-  font-size: 30px;
-  font-weight: normal;
-  color: var(--ink);
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-
-.contact-info > p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--slate);
-  margin-bottom: 36px;
-  font-weight: 300;
-}
-
-.contact-detail {
-  display: flex;
-  gap: 16px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--stone);
-}
-
-.contact-detail:last-child { border-bottom: none; }
-
-.contact-dot {
-  width: 6px; height: 6px;
-  background: var(--yellow);
-  border-radius: 50%;
-  margin-top: 6px;
-  flex-shrink: 0;
-}
-
-.contact-detail-text { font-size: 14px; color: var(--ink); line-height: 1.6; font-weight: 300; }
-.contact-detail-text strong {
-  display: block;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer {
-  background: var(--ink);
-  padding: 36px 0;
-}
-
-.footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.footer-logo {
-  font-family: var(--f-accent);
-  font-size: 18px;
-  color: var(--paper);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-dot { width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; }
-
-.footer-links { display: flex; gap: 28px; }
-.footer-links a { font-size: 12px; font-weight: 400; color: var(--slate); transition: color 0.2s; letter-spacing: 0.05em; }
-.footer-links a:hover { color: var(--paper); }
-
-.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.08em; }
-
-/* ============================================================
-   NIGHT MODE
-   ============================================================ */
-body.is-night .nav { background: rgba(19,36,71,0.96); }
+/* NIGHT */
+body.is-night .nav { background: rgba(252,211,70,0.97); }
 body.is-night .nav.scrolled { border-color: rgba(255,255,255,0.07); }
-body.is-night .nav-links a { color: rgba(255,252,244,0.55); }
-body.is-night .nav-links a:hover { color: var(--paper); }
-body.is-night .nav-toggle span { background: var(--paper); }
-body.is-night .nav-cta { background: var(--yellow) !important; color: var(--ink) !important; border-color: var(--yellow) !important; }
+body.is-night .nav-links a { color: var(--navy); }
+body.is-night .nav-links a:hover { color: rgba(19,36,71,0.6); }
+body.is-night .nav-toggle span { background: var(--navy); }
+body.is-night .nav-cta { background: var(--navy) !important; color: var(--paper) !important; border-color: var(--navy) !important; }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* RESPONSIVE */
 @media (max-width: 960px) {
   .thesis-inner { grid-template-columns: 1fr; gap: 36px; }
-  .thesis-positioning { text-align: left; }
-  .about-inner { grid-template-columns: 1fr; }
-  .about-sidebar { position: static; }
-  .contact-inner { grid-template-columns: 1fr; }
-  .paths-grid { grid-template-columns: 1fr 1fr; }
-  .menu-item { grid-template-columns: 1fr; }
-  .menu-num { display: none; }
-  .menu-grid { grid-template-columns: 1fr; gap: 16px; }
-  .drive-by-banner { grid-template-columns: 1fr; gap: 16px; }
+  .about-teaser-inner { grid-template-columns: 1fr; }
+  .taster-grid { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-round-logo { justify-content: flex-start; }
 }
-
 @media (max-width: 640px) {
   .nav-links { display: none; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 68px; left: 0; right: 0;
-    background: var(--paper);
-    padding: 24px var(--gutter) 32px;
-    border-bottom: 1px solid var(--stone);
-    gap: 20px;
-    z-index: 99;
-  }
-  body.is-night .nav-links.open { background: var(--ink); }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: #fcd346; padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid var(--stone); gap: 20px; z-index: 99; }
+  body.is-night .nav-links.open { background: var(--navy); }
   .nav-toggle { display: flex; }
   .hero-actions { flex-direction: column; align-items: center; }
-  .form-row { grid-template-columns: 1fr; }
-  .paths-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
-  .footer-links { justify-content: center; flex-wrap: wrap; }
+  .taster-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
 }
-
 </style>
 </head>
-<body>
+<body data-page="home">
 
-<!-- NAV -->
-<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+<nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo" aria-label="The Yellow Front Door — home">
-      <img src="logo2.png" alt="The Yellow Front Door" class="nav-logo-img">
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
     </a>
-    <ul class="nav-links" id="nav-links" role="list">
-      <li><a href="#what-we-do">What We Do</a></li>
-      <li><a href="#menu">The Menu</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="lets-talk.html" class="nav-cta">Let's Talk</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -980,14 +173,14 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--ink)
   </div>
 </nav>
 
-<!-- HERO — tight, just headline + accent + buttons -->
-<section class="hero" id="top" aria-label="Hero">
+<!-- HERO -->
+<section class="hero" id="top">
   <div class="container">
     <h1>Your marketing brings them to the door.</h1>
     <span class="hero-accent-line">We make sure it's worth opening.</span>
     <div class="hero-actions">
-      <a href="#menu" class="btn-primary">See the menu</a>
-      <a href="#contact" class="btn-secondary">Start with a Drive-By →</a>
+      <a href="what-we-do.html" class="btn-primary">What We Do</a>
+      <a href="lets-talk.html" class="btn-secondary">Start with a Drive-By →</a>
     </div>
   </div>
 </section>
@@ -995,455 +188,142 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--ink)
 <!-- STREET SCENE -->
 <div class="street-scene" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
   <img class="scene-base" src="hero_day.webp" alt="">
-  <img class="scene-day"
-    srcset="hero_day.webp 2080w, hero_day_2x.webp 4160w"
-    sizes="100vw"
-    src="hero_day.webp"
-    alt="Illustrated daytime street scene — a row of small storefronts with a yellow front door at the centre"
-    loading="eager">
-  <img class="scene-night"
-    srcset="hero_night.webp 2080w, hero_night_2x.webp 4160w"
-    sizes="100vw"
-    src="hero_night.webp"
-    alt="Illustrated nighttime street scene — storefronts glowing warmly, yellow front door lit at centre"
-    loading="eager">
+  <img class="scene-day" srcset="hero_day.webp 2080w, hero_day_2x.webp 4160w" sizes="100vw" src="hero_day.webp" alt="Daytime street scene — storefronts with a yellow front door at centre" loading="eager">
+  <img class="scene-night" srcset="hero_night.webp 2080w, hero_night_2x.webp 4160w" sizes="100vw" src="hero_night.webp" alt="Nighttime street scene — warm glowing windows, yellow front door lit at centre" loading="eager">
 </div>
 
-<!-- THESIS TOP — navy, positioning blurb -->
-<div class="thesis-top" id="what-we-do">
+<!-- THESIS TOP — navy positioning -->
+<div class="thesis-top">
   <div class="container">
-    <div class="thesis-positioning">
-      <p class="eyebrow" style="color:var(--stone); margin-bottom:12px;">Marketing Studio &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <p class="thesis-positioning-text">A marketing studio for small businesses doing good work and trying to show up with the same care on the outside that they bring to the work itself.</p>
+    <p class="eyebrow" style="margin-bottom:12px;">Marketing Studio &nbsp;·&nbsp; Annapolis Valley, NS</p>
+    <p>Most businesses spend real money getting people to notice them. Ads, posts, content, visibility — and it all works better when there's something worth noticing on the other side.</p>
+  </div>
+</div>
+
+<!-- THESIS BOTTOM — navy claim -->
+<div class="thesis-bottom" id="what-we-do">
+  <div class="thesis-inner container">
+    <blockquote class="thesis-claim">
+      Getting found is not the same as being chosen.
+    </blockquote>
+    <div class="thesis-body">
+      <p>We want your marketing to convert. Not just to reach people — to actually turn the attention you're paying for into customers who choose you, come back, and tell people about you.</p>
+      <p>That happens a whole lot more reliably when the experience people land in is clear, current, and sounds like the business you've actually built. <strong>The website. The replies. The voice. The follow-up. The welcome email that lands in their inbox and makes them feel like they made the right call.</strong></p>
+      <p>We work on that part. Get it right, and everything you spend on visibility starts working harder. That's the whole idea.</p>
     </div>
   </div>
 </div>
 
-<!-- THESIS BOTTOM — white, logo + claim + body -->
-<div class="thesis-bottom" aria-labelledby="thesis-heading">
+<!-- TASTER — three menu items previewed -->
+<section class="taster-section">
   <div class="container">
-    <div class="thesis-inner">
-      <blockquote class="thesis-claim" id="thesis-heading">
-        <div class="thesis-round-logo">
-          <img src="roundlogo.png" alt="The Yellow Front Door">
-        </div>
-        Getting found is not the same as being chosen.
-      </blockquote>
-      <div class="thesis-body">
-        <p>Most marketing investment goes into visibility — ads, posts, reach, more traffic, more eyes. That work matters. But visibility only pays off if the experience people land in is clear enough, warm enough, and current enough to hold their attention.</p>
-        <p>The Yellow Front Door works on that experience. <strong>The website. The replies. The voice. The follow-up. The welcome email. The Google profile that loads before you do.</strong> The half of marketing that decides whether the rest of it was worth spending.</p>
-        <p>We start with the foundation. Once it's solid, more visibility makes sense — and we're happy to help with that too. But foundation first.</p>
+    <p class="eyebrow" style="margin-bottom:14px;">What we work on</p>
+    <h2 class="section-title">Start where it's leaking.</h2>
+    <p class="section-intro">No tiers, no packages, no Bronze Silver Gold. Each offering works on a different part of the customer-facing experience. Start with one thing or build across all of them.</p>
+
+    <div class="taster-grid">
+      <div class="taster-card">
+        <p class="taster-name">The First Look</p>
+        <p class="taster-question">Do you sound like yourself before anyone meets you?</p>
+        <p class="taster-desc">Voice, listings, and every place people encounter your business before they ever reach your website.</p>
+      </div>
+      <div class="taster-card">
+        <p class="taster-name">The Window</p>
+        <p class="taster-question">Does it invite people in?</p>
+        <p class="taster-desc">Your website and the path that leads to it — built to help the right people understand, trust, and say yes.</p>
+      </div>
+      <div class="taster-card">
+        <p class="taster-name">The Welcome Mat</p>
+        <p class="taster-question">Does the first moment feel right?</p>
+        <p class="taster-desc">The first 24 to 48 hours after someone arrives — welcome emails, replies, and the impression that sets the tone.</p>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- MENU -->
-<section class="menu-section" id="menu" aria-labelledby="menu-heading">
-  <div class="container">
-
-    <div style="margin-bottom:56px;">
-      <p class="eyebrow" style="margin-bottom:14px;">The menu</p>
-      <h2 class="section-title" id="menu-heading">Start where it's leaking.</h2>
-      <p class="section-intro">No tiers. No Bronze, Silver, or Gold. Each offering works on a different part of the customer-facing experience. Start with one thing, build across all of them, or let's take a look together and figure out where to begin.</p>
-    </div>
-
-    <!-- Drive-By -->
-    <div class="drive-by-banner" role="complementary" aria-label="The Drive-By — free first look">
-      <div><span class="drive-by-badge">Free</span></div>
-      <div class="drive-by-text">
-        <h3>The Drive-By</h3>
-        <p>Not sure where to start? Send us your website and a couple of places your business shows up online. We'll record a short, honest look at what someone encounters when they find you — and where we'd start. No pitch. Just a look.</p>
-      </div>
-      <a href="#contact" class="btn-secondary">Request yours →</a>
-    </div>
-
-    <!-- Menu items -->
-    <div class="menu-items" role="list">
-
-      <article class="menu-item" role="listitem">
-        <div class="menu-num" aria-hidden="true">01</div>
-        <div>
-          <h3 class="menu-name"><span class="menu-dot" aria-hidden="true"></span>The First Look</h3>
-          <p class="menu-subtitle">Voice, listings, and first impressions</p>
-          <p class="menu-question">Do you sound like yourself before anyone meets you?</p>
-          <div class="menu-grid">
-            <div>
-              <p class="menu-field-label">Best for</p>
-              <p class="menu-field-value">Your business feels scattered before people even reach your website — different surfaces, different voices, none of it quite matching who you actually are.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">What it does</p>
-              <p class="menu-field-value">Defines how your business sounds and rewrites every place it shows up in the world to match. Voice and presence, made consistent.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Can include</p>
-              <p class="menu-field-value">Voice and tone guide, Google Business Profile, social bios, directory listings, taglines, email signature, short descriptions.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Natural next step</p>
-              <p class="menu-field-value">Often leads into The Window or The Touch-Up.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="menu-item" role="listitem">
-        <div class="menu-num" aria-hidden="true">02</div>
-        <div>
-          <h3 class="menu-name"><span class="menu-dot" aria-hidden="true"></span>The Window</h3>
-          <p class="menu-subtitle">Website, landing pages, and the path in</p>
-          <p class="menu-question">Does it invite people in?</p>
-          <div class="menu-grid">
-            <div>
-              <p class="menu-field-label">Best for</p>
-              <p class="menu-field-value">People find you, but the website doesn't quite help them understand, trust, or take the next step.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">What it does</p>
-              <p class="menu-field-value">Clarifies the digital storefront and the path from interest to action. Makes it easier for the right people to say yes.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Can include</p>
-              <p class="menu-field-value">Website builds or refreshes, landing pages, contact forms, page copy, calls to action, search visibility basics.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Natural next step</p>
-              <p class="menu-field-value">Often pairs with The Welcome Mat.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="menu-item" role="listitem">
-        <div class="menu-num" aria-hidden="true">03</div>
-        <div>
-          <h3 class="menu-name"><span class="menu-dot" aria-hidden="true"></span>The Welcome Mat</h3>
-          <p class="menu-subtitle">First replies, welcome emails, and early follow-up</p>
-          <p class="menu-question">Does the first moment feel right?</p>
-          <div class="menu-grid">
-            <div>
-              <p class="menu-field-label">Best for</p>
-              <p class="menu-field-value">People inquire, sign up, or book — but the first thing they hear back feels thin, cold, or like it came from a different business entirely.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">What it does</p>
-              <p class="menu-field-value">Shapes the first 24 to 48 hours after someone arrives. The impression that sets the tone for everything that follows.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Can include</p>
-              <p class="menu-field-value">Welcome emails, inquiry replies, onboarding flows, auto-responders, confirmation messages, contact form follow-ups.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Natural next step</p>
-              <p class="menu-field-value">Pairs well with The Window and The Open Door.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="menu-item" role="listitem">
-        <div class="menu-num" aria-hidden="true">04</div>
-        <div>
-          <h3 class="menu-name"><span class="menu-dot" aria-hidden="true"></span>The Open Door</h3>
-          <p class="menu-subtitle">Newsletters, content, and ongoing relationship</p>
-          <p class="menu-question">Are you still showing up after the welcome?</p>
-          <div class="menu-grid">
-            <div>
-              <p class="menu-field-label">Best for</p>
-              <p class="menu-field-value">You have past customers, warm leads, or interested people who already know you — but no steady rhythm for staying connected with them.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">What it does</p>
-              <p class="menu-field-value">Builds the inside-the-relationship rhythms that keep the business present long after the first hello — for people who have already come in.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Can include</p>
-              <p class="menu-field-value">Newsletters, customer emails, content systems, retention sequences, recurring communication, light campaign planning.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Natural next step</p>
-              <p class="menu-field-value">Natural bridge into The Touch-Up.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="menu-item" role="listitem">
-        <div class="menu-num" aria-hidden="true">05</div>
-        <div>
-          <h3 class="menu-name"><span class="menu-dot" aria-hidden="true"></span>The Touch-Up</h3>
-          <p class="menu-subtitle">Monthly continuity and upkeep</p>
-          <p class="menu-question">Is anyone keeping it sharp?</p>
-          <div class="menu-grid">
-            <div>
-              <p class="menu-field-label">Best for</p>
-              <p class="menu-field-value">Things have been built, but no one is keeping them current, aligned, or reflective of the business as it continues to grow and change.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">What it does</p>
-              <p class="menu-field-value">Keeps the in-market experience from quietly drifting out of date. Maintains what has been built — light touch through full care.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Can include</p>
-              <p class="menu-field-value">Copy refreshes, small website edits, seasonal updates, voice checks, listing updates, offer updates, regular review.</p>
-            </div>
-            <div>
-              <p class="menu-field-label">Natural next step</p>
-              <p class="menu-field-value">The primary ongoing offer. Usually follows any build engagement.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
+    <div style="text-align:center;">
+      <a href="what-we-do.html" class="btn-primary">See everything we do →</a>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- PATHS -->
-<section class="paths-section" aria-labelledby="paths-heading">
-  <div class="container">
-    <p class="eyebrow" style="margin-bottom:14px;">Not sure where to start?</p>
-    <h2 class="section-title" id="paths-heading">Common starting points.</h2>
-    <p class="section-intro">These are the shapes the work tends to take. Not packages — just common combinations that solve recognisable problems.</p>
-
-    <div class="paths-grid" role="list">
-      <div class="path-card" role="listitem">
-        <p class="path-card-name">First impression reset</p>
-        <p class="path-card-pieces">The First Look + The Window</p>
-        <p class="path-card-desc">Public-facing presence feels scattered, outdated, or like a different business than the one you're actually running.</p>
-      </div>
-      <div class="path-card" role="listitem">
-        <p class="path-card-name">Inquiry flow fix</p>
-        <p class="path-card-pieces">The Window + The Welcome Mat</p>
-        <p class="path-card-desc">Getting traffic or inquiries but losing momentum somewhere between interest and action.</p>
-      </div>
-      <div class="path-card" role="listitem">
-        <p class="path-card-name">Customer communication rhythm</p>
-        <p class="path-card-pieces">The Welcome Mat + The Open Door</p>
-        <p class="path-card-desc">Need a better first hello and a reason to keep showing up after it.</p>
-      </div>
-      <div class="path-card" role="listitem">
-        <p class="path-card-name">Build and keep it current</p>
-        <p class="path-card-pieces">Any project + The Touch-Up</p>
-        <p class="path-card-desc">Want the pieces to stay aligned after the initial work is done, without having to manage it yourself.</p>
-      </div>
-      <div class="path-card" role="listitem">
-        <p class="path-card-name">The whole in-market experience</p>
-        <p class="path-card-pieces">All five, together</p>
-        <p class="path-card-desc">Want the full customer-facing path looked at as one connected thing. A recommended approach for businesses starting fresh or doing a full reset.</p>
-      </div>
-      <div class="path-card" style="background:var(--ink);" role="listitem">
-        <p class="path-card-name" style="color:var(--paper);">Still not sure?</p>
-        <p class="path-card-pieces" style="color:var(--brass);">Start with The Drive-By</p>
-        <p class="path-card-desc" style="color:rgba(255,252,244,0.6);">A free first look at your in-market experience. We'll tell you what we see and where we'd start. No commitment, no pitch.</p>
-        <a href="#contact" class="btn-yellow" style="margin-top:24px; font-size:11px; padding:11px 20px;">Request a Drive-By</a>
-      </div>
+<!-- ABOUT TEASER -->
+<section class="about-teaser">
+  <div class="about-teaser-inner container">
+    <div class="about-teaser-body">
+      <p class="eyebrow" style="margin-bottom:16px;">About</p>
+      <h2 class="section-title" style="margin-bottom:28px;">Built by someone who's been there.</h2>
+      <p>For about a decade, I ran a retail and custom sign business. Sales were good, customers were happy — and I was exhausted in a way that didn't quite make sense. My website was out of date. Booking was convoluted. I was paying for Facebook ads and radio spots and couldn't have told you if any of it was converting.</p>
+      <p class="about-teaser-pivot">Nobody told me that half the hustle was just friction.</p>
+      <p>The Yellow Front Door is the studio I wish had existed when I was the one with the outdated website and the marketing budget I couldn't account for.</p>
+      <a href="about.html" class="btn-secondary" style="margin-top:8px;">Meet Julianna →</a>
     </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ABOUT -->
-<section class="about-section" id="about" aria-labelledby="about-heading">
-  <div class="container">
-    <div class="about-inner">
-
-      <div class="about-body">
-        <p class="eyebrow" style="margin-bottom:16px;">About</p>
-        <h2 class="section-title" id="about-heading" style="margin-bottom:36px;">Julianna<br>Melnick-MacDonald</h2>
-
-        <p>For about a decade, I ran a retail and custom sign business — workshops, products, custom orders. Sales were good, customers were happy, and I was teaching full time and raising kids at the same time, which meant any given Tuesday involved approximately seventeen things happening at once and none of them going according to plan.</p>
-
-        <p>The business worked. The infrastructure around it was another story.</p>
-
-        <p>My website was perpetually out of date. Booking was more convoluted than it needed to be. I was paying for Facebook ads, radio spots, and every local visibility opportunity that crossed my desk, and honestly, my train was moving so fast I couldn't have told you whether any of it was converting. I was writing individual replies to every inquiry because building a template was always next week's job. I was doing three times the work I should have been and never getting ahead of the curve, because the friction was invisible to me until I was deep enough in to see it clearly.</p>
-
-        <p class="about-pivot">Nobody told me that half the hustle was just friction.</p>
-
-        <p>COVID reshuffled things — as it did for most of us. My family moved across the country, I stepped away from the classroom, and spent some time figuring out how best to put my actual skills to use. Turns out the thread running through all of it — teaching, running a business, writing, designing — was the same thing I'd been doing in different clothes for years: taking complicated, messy things and making them clear.</p>
-
-        <p>The Yellow Front Door is the studio I wish had existed when I was the one with the outdated website and the marketing budget I couldn't account for. It's built on a very specific understanding: that small business owners aren't failing at this because they don't care. They're failing because they're busy running an actual business, and the customer-facing infrastructure quietly falls behind while they do.</p>
-
-        <p>I work with a small number of clients at a time and I'll be straight with you about what I see. I won't sell you visibility work if your foundation isn't ready for it, and I'll tell you if the thing you think needs fixing isn't actually the thing that needs fixing.</p>
-
-        <p>If your business is doing good work and the outside isn't keeping up with the inside, that's exactly the conversation I'm built for.</p>
-      </div>
-
-      <div class="about-sidebar">
-        <div class="about-card">
-          <p class="about-card-name">Julianna Melnick-MacDonald</p>
-          <p class="about-card-title">Founder, The Yellow Front Door</p>
-          <div class="about-tags">
-            <span class="about-tag">Writer</span>
-            <span class="about-tag">Designer</span>
-            <span class="about-tag">Content Strategist</span>
-            <span class="about-tag">Former Educator</span>
-            <span class="about-tag">Small Business Owner</span>
-          </div>
-          <hr>
-          <p class="about-card-detail">Based in the Annapolis Valley, Nova Scotia. Working with small businesses across Canada.</p>
-          <hr>
-          <p class="about-card-detail">Founder of Fin &amp; Oak Bark Bakery and Raven House. Proof that small business chaos is a feature, not a bug.</p>
+    <div>
+      <div class="about-teaser-card">
+        <p class="about-card-name">Julianna Melnick-MacDonald</p>
+        <p class="about-card-title">Founder, The Yellow Front Door</p>
+        <div class="about-tags">
+          <span class="about-tag">Writer</span>
+          <span class="about-tag">Designer</span>
+          <span class="about-tag">Content Strategist</span>
+          <span class="about-tag">Former Educator</span>
+          <span class="about-tag">Small Business Owner</span>
         </div>
+        <p class="about-card-detail">Based in the Annapolis Valley, Nova Scotia. Working with small businesses across Canada.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- CTA STRIP -->
-<div class="cta-section" aria-label="Drive-By call to action">
+<!-- CTA -->
+<div class="cta-section">
   <div class="container cta-inner" style="padding-top:var(--section-gap); padding-bottom:var(--section-gap);">
     <div class="cta-dot" aria-hidden="true"></div>
     <h2>Want a free</h2>
     <span class="cta-accent-text">Drive-By?</span>
     <p>Send us your website and a couple of places your business shows up online. We'll record a short, honest look at what someone encounters when they find you — no pitch, no commitment, just a look.</p>
-    <a href="#contact" class="btn-yellow">Request your Drive-By</a>
+    <a href="lets-talk.html" class="btn-yellow">Request your Drive-By</a>
     <p class="cta-note">Free &nbsp;·&nbsp; No pitch &nbsp;·&nbsp; No commitment</p>
   </div>
 </div>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact" aria-labelledby="contact-heading">
-  <div class="container">
-    <div class="contact-inner">
-
-      <div>
-        <p class="eyebrow" style="margin-bottom:14px;">Get in touch</p>
-        <h2 class="section-title" id="contact-heading" style="margin-bottom:16px;">Let's take a look.</h2>
-        <p class="section-intro" style="margin-bottom:44px;">Tell us a little about your business and what you're noticing. We'll be in touch within two business days — usually sooner.</p>
-
-        <form class="contact-form" name="contact" netlify aria-label="Contact form">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-            </div>
-            <div class="form-field">
-              <label for="business">Business name</label>
-              <input type="text" id="business" name="business" placeholder="Smith & Co.">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.ca" required>
-          </div>
-          <div class="form-field">
-            <label for="website">Website (if you have one)</label>
-            <input type="url" id="website" name="website" placeholder="https://yourbusiness.ca">
-          </div>
-          <div class="form-field">
-            <label for="interest">Where would you like to start?</label>
-            <select id="interest" name="interest">
-              <option value="">Not sure yet — that's okay</option>
-              <option value="drive-by">A free Drive-By first</option>
-              <option value="first-look">The First Look</option>
-              <option value="window">The Window</option>
-              <option value="welcome-mat">The Welcome Mat</option>
-              <option value="open-door">The Open Door</option>
-              <option value="touch-up">The Touch-Up (monthly)</option>
-              <option value="everything">The whole in-market experience</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Tell us what you're noticing</label>
-            <textarea id="message" name="message" placeholder="What's feeling off? What prompted you to reach out? No need to be polished — just tell us what's going on."></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="width:fit-content; border:none; cursor:pointer;">Send it over →</button>
-        </form>
-      </div>
-
-      <div class="contact-info">
-        <h3>A few things worth knowing.</h3>
-        <p>The Yellow Front Door works with a small number of clients at a time. If we're not the right fit, or the timing isn't right, we'll say so — and we'll tell you what we think would actually help.</p>
-        <div class="contact-detail">
-          <div class="contact-dot" aria-hidden="true"></div>
-          <div class="contact-detail-text">
-            <strong>Response time</strong>
-            Within two business days, usually sooner.
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-dot" aria-hidden="true"></div>
-          <div class="contact-detail-text">
-            <strong>Based in</strong>
-            Annapolis Valley, Nova Scotia. Working with small businesses across Canada.
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-dot" aria-hidden="true"></div>
-          <div class="contact-detail-text">
-            <strong>Pricing</strong>
-            All engagements are scoped individually. We'll talk through what makes sense before anything is agreed to.
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-dot" aria-hidden="true"></div>
-          <div class="contact-detail-text">
-            <strong>The Drive-By</strong>
-            Free, no strings. If you're not sure where to start, that's exactly where we'd suggest starting.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
-<footer class="footer" role="contentinfo">
+<footer class="footer">
   <div class="footer-inner">
-    <div class="footer-logo">
-      <div class="footer-dot" aria-hidden="true"></div>
-      The Yellow Front Door
+    <div class="footer-top">
+      <div>
+        <p class="footer-logo">The Yellow Front Door</p>
+        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+      </div>
+      <div class="footer-round-logo">
+        <img src="roundlogo.png" alt="The Yellow Front Door">
+      </div>
+      <div class="footer-nav-col">
+        <h4>Studio</h4>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="the-proof.html">The Proof</a>
+        <a href="about.html">About</a>
+        <a href="lets-talk.html">Let's Talk</a>
+      </div>
     </div>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="#what-we-do">What We Do</a>
-      <a href="#menu">The Menu</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
   </div>
 </footer>
 
 <script>
 (function () {
-
-  // Day / Night
-  function applyTimeOfDay() {
-    var h = new Date().getHours();
-    document.body.classList.toggle('is-night', h >= 18 || h < 6);
-  }
-  applyTimeOfDay();
-  setInterval(applyTimeOfDay, 60000);
-
-  // Nav scroll state
+  function applyTimeOfDay() { var h = new Date().getHours(); document.body.classList.toggle('is-night', h >= 18 || h < 6); }
+  applyTimeOfDay(); setInterval(applyTimeOfDay, 60000);
   var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-
-  // Mobile nav
-  var toggle   = document.getElementById('nav-toggle');
-  var navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function () {
-    var open = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-  navLinks.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      navLinks.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
+  window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', function () { var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+  navLinks.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }); });
 })();
 </script>
-
 </body>
 </html>
