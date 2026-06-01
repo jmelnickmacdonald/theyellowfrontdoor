@@ -126,15 +126,15 @@ ul { list-style: none; }
 .btn-yellow:hover { background: var(--brass); }
 
 /* FOUNDATION SECTION */
-.foundation-section { background: var(--paper-mid); padding: var(--section-gap) 0; }
-.foundation-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; }
+.foundation-section { background: var(--paper); padding: var(--section-gap) 0; }
+.foundation-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(48px, 7vw, 96px); align-items: start; }
 .foundation-left h2 { font-family: var(--f-head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
 .foundation-left p { font-size: 15px; line-height: 1.85; color: var(--slate); font-weight: 300; margin-bottom: 16px; }
 .foundation-left p:last-child { margin-bottom: 0; }
 .foundation-list { border-top: 1px solid var(--stone); }
-.foundation-item { display: flex; align-items: baseline; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--stone); }
+.foundation-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--stone); }
 .foundation-item::before { content: ''; width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; align-self: center; }
-.foundation-item-name { font-size: 13px; font-weight: 600; color: var(--ink); min-width: 180px; }
+.foundation-item-name { font-size: 13px; font-weight: 600; color: var(--ink); min-width: 160px; white-space: nowrap; }
 .foundation-item-desc { font-size: 13px; color: var(--slate); font-weight: 300; line-height: 1.6; }
 
 /* CTA */
@@ -315,8 +315,9 @@ ul { list-style: none; }
     <div class="drive-by-inner">
       <span class="drive-by-badge">Free</span>
       <div class="drive-by-text">
+        <p style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); margin-bottom:8px;">Not sure where to start?</p>
         <h3>The Drive-By</h3>
-        <p>Not sure where to start? Send us your website and a couple of places your business shows up online. We'll record a short, honest look at what someone encounters when they find you — no pitch, no commitment.</p>
+        <p>Send us your website and a couple of places your business shows up online. We'll record a short, honest look at what someone encounters when they find you. No pitch, no commitment. Just a clear first look at what is working, what feels off, and where we would start.</p>
       </div>
       <a href="lets-talk.html" class="btn-outline-yellow">Request yours →</a>
     </div>
@@ -340,31 +341,31 @@ ul { list-style: none; }
         <div class="foundation-list">
           <div class="foundation-item">
             <span class="foundation-item-name">Social media strategy</span>
-            <span class="foundation-item-desc">A social presence that reflects the business — not just posts for the sake of posting.</span>
+            <span class="foundation-item-desc">A social presence that reflects the business, not just posts to fill the feed.</span>
           </div>
           <div class="foundation-item">
             <span class="foundation-item-name">Email campaigns</span>
-            <span class="foundation-item-desc">Campaigns that land because the voice is right and the offer is clear.</span>
+            <span class="foundation-item-desc">Emails that work because the voice is right, the offer is clear, and the next step makes sense.</span>
           </div>
           <div class="foundation-item">
             <span class="foundation-item-name">Launch campaigns</span>
-            <span class="foundation-item-desc">When you are ready to shout about something new, we help you do it right.</span>
+            <span class="foundation-item-desc">When you are ready to share something new, we help shape the message and bring it to the right people.</span>
           </div>
           <div class="foundation-item">
             <span class="foundation-item-name">Seasonal campaigns</span>
-            <span class="foundation-item-desc">Timely, on-brand, and worth opening.</span>
+            <span class="foundation-item-desc">Timely, on-brand campaigns that give people a reason to pay attention.</span>
           </div>
           <div class="foundation-item">
             <span class="foundation-item-name">Ad copy and landing pages</span>
-            <span class="foundation-item-desc">Copy that converts because it is clear, not because it is clever.</span>
+            <span class="foundation-item-desc">Clear, focused copy that gives the campaign somewhere strong to send people.</span>
           </div>
           <div class="foundation-item">
             <span class="foundation-item-name">Content strategy</span>
-            <span class="foundation-item-desc">A plan for what to say, when to say it, and where it goes.</span>
+            <span class="foundation-item-desc">A plan for what to say, when to say it, and where it belongs.</span>
           </div>
           <div class="foundation-item">
             <span class="foundation-item-name">Photography direction</span>
-            <span class="foundation-item-desc">Making sure the visuals match the voice and the brand you have built.</span>
+            <span class="foundation-item-desc">Creative guidance so the visuals match the voice, the offer, and the brand you have built.</span>
           </div>
         </div>
       </div>
@@ -422,11 +423,11 @@ ul { list-style: none; }
 
   // Interactive path
   var pathStops = [
-    { name: "The First Look", subtitle: "Before they come closer", copy: "Voice, listings, bios, short descriptions, and the places people encounter your business before they ever reach your website." },
-    { name: "The Window", subtitle: "When they look in", copy: "Website copy, landing pages, forms, and the path that helps people understand what you offer and what to do next." },
-    { name: "The Welcome Mat", subtitle: "The first hello", copy: "Inquiry replies, welcome emails, confirmations, and the first 24 to 48 hours after someone reaches out." },
-    { name: "The Open Door", subtitle: "After they say yes", copy: "Newsletters, customer emails, content rhythms, and the pieces that help people come back, remember you, and stay connected." },
-    { name: "The Touch-Up", subtitle: "As the business changes", copy: "Small updates, seasonal refreshes, copy fixes, listing reviews, and steady care that keeps the outside of the business current over time." }
+    { name: "The First Look", subtitle: "Before they come closer", copy: "Voice, listings, bios, short descriptions, and the places people encounter your business before they ever reach your website.", img: "neutral_hero.png" },
+    { name: "The Window", subtitle: "When they look in", copy: "Website copy, landing pages, forms, and the path that helps people understand what you offer and what to do next.", img: "neutral_hero.png" },
+    { name: "The Welcome Mat", subtitle: "The first hello", copy: "Inquiry replies, welcome emails, confirmations, and the first 24 to 48 hours after someone reaches out.", img: "neutral_hero.png" },
+    { name: "The Open Door", subtitle: "After they say yes", copy: "Newsletters, customer emails, content rhythms, and the pieces that help people stay connected, come back, and hear from you at the right time.", img: "opendoorhero.png" },
+    { name: "The Touch-Up", subtitle: "As the business changes", copy: "Small updates, seasonal refreshes, copy fixes, listing reviews, and steady care that keeps the outside of your business current over time.", img: "opendoorhero.png" }
   ];
 
   var step = 0;
@@ -458,9 +459,9 @@ ul { list-style: none; }
     prevBtn.style.opacity = step === 0 ? '0.45' : '1';
     nextBtn.textContent = step === pathStops.length - 1 ? 'Start a Drive-By →' : 'Next stop →';
     var doorOverlay = document.getElementById('path-door-overlay');
-    if (doorOverlay) {
-      doorOverlay.classList.toggle('is-open', step === 3);
-    }
+    if (doorOverlay) { doorOverlay.classList.toggle('is-open', step === 3); }
+    var streetImg = document.querySelector('.path-street-art');
+    if (streetImg) { streetImg.src = pathStops[step].img; }
   }
 
   nextBtn.addEventListener('click', function () {
