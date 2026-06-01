@@ -196,35 +196,6 @@ ul { list-style: none; }
   .path-car.is-hint { animation: none !important; }
 }
 
-/* DOOR OPEN ANIMATION */
-@keyframes doorSwing {
-  0%   { transform: perspective(400px) rotateY(0deg); }
-  50%  { transform: perspective(400px) rotateY(-28deg); }
-  100% { transform: perspective(400px) rotateY(-22deg); }
-}
-.path-street-art.door-open {
-  /* Can't animate SVG/img internals — use overlay instead */
-}
-.path-door-overlay {
-  position: absolute;
-  left: 50%;
-  bottom: 80px;
-  width: clamp(52px, 6.5vw, 88px);
-  height: clamp(96px, 12vw, 162px);
-  transform: translateX(-42%);
-  transform-origin: left center;
-  background: var(--yellow);
-  border: 2px solid rgba(19,36,71,0.4);
-  border-radius: 2px 2px 0 0;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  transform-origin: left bottom;
-}
-.path-door-overlay.is-open {
-  opacity: 1;
-  animation: doorSwing 0.5s ease forwards;
-}
 </style>
 </head>
 <body>
@@ -266,7 +237,6 @@ ul { list-style: none; }
     <div class="path-experience" aria-live="polite">
       <div class="path-visual">
         <img class="path-street-art" src="neutral_hero.png" alt="Line-art street scene">
-        <div class="path-door-overlay" id="path-door-overlay" aria-hidden="true"></div>
                 <div class="path-road" aria-hidden="true"></div>
         <div class="path-line" aria-hidden="true"></div>
         <div class="path-line-progress" id="path-line-progress" aria-hidden="true"></div>
@@ -315,9 +285,8 @@ ul { list-style: none; }
     <div class="drive-by-inner">
       <span class="drive-by-badge">Free</span>
       <div class="drive-by-text">
-        <p style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); margin-bottom:8px;">Not sure where to start?</p>
         <h3>The Drive-By</h3>
-        <p>Send us your website and a couple of places your business shows up online. We'll record a short, honest look at what someone encounters when they find you. No pitch, no commitment. Just a clear first look at what is working, what feels off, and where we would start.</p>
+        <p>Running a business means keeping a lot of plates spinning at once. If you are not sure which part of your customer-facing experience needs attention first, that is completely normal — and it is exactly what the Drive-By is for.</p><p style="margin-top:12px;">Send us your website and a couple of places your business shows up online. We will take a short, honest look and tell you what we see. No pitch, no pressure. Just another set of eyes helping you get a clearer picture of where things stand.</p><p style="margin-top:12px; font-style:italic; color:rgba(255,252,244,0.7); font-size:14px; font-weight:300;">Grab a coffee and let's chat. The door is always open.</p>
       </div>
       <a href="lets-talk.html" class="btn-outline-yellow">Request yours →</a>
     </div>
@@ -458,8 +427,6 @@ ul { list-style: none; }
     prevBtn.disabled = step === 0;
     prevBtn.style.opacity = step === 0 ? '0.45' : '1';
     nextBtn.textContent = step === pathStops.length - 1 ? 'Start a Drive-By →' : 'Next stop →';
-    var doorOverlay = document.getElementById('path-door-overlay');
-    if (doorOverlay) { doorOverlay.classList.toggle('is-open', step === 3); }
     var streetImg = document.querySelector('.path-street-art');
     if (streetImg) { streetImg.src = pathStops[step].img; }
   }
