@@ -31,7 +31,8 @@
   --section-gap: clamp(64px, 9vw, 112px);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body { background: var(--navy); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
@@ -57,18 +58,18 @@ section { padding: var(--section-gap) 0; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
-/* STREET SCENE */
-.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; margin-top: 72px; background: var(--navy); display: block; }
-.street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
-.scene-base { visibility: hidden; position: relative; display: block; width: 100%; }
+/* STREET SCENE — flush against nav, no gap */
+.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; margin-top: 72px; font-size: 0; background: var(--navy); }
+.street-scene img { width: 100%; height: auto; display: block; }
+.scene-base { visibility: hidden; width: 100%; display: block; }
 .scene-day, .scene-night { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.4s ease; }
 .scene-day { opacity: 1; } .scene-night { opacity: 0; }
 body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1; }
 
 /* HERO */
 .hero { padding: 56px 0 64px; background: var(--paper); text-align: center; }
-.hero-h1 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 12px; max-width: 720px; margin-left: auto; margin-right: auto; }
-.hero-accent-line { font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 48px); color: var(--slate); font-weight: normal; display: block; margin-bottom: 32px; line-height: 1.2; }
+.hero-h1 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 14px; max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero-accent-line { font-family: var(--f-accent); font-size: clamp(34px, 4.8vw, 64px); color: var(--slate); font-weight: normal; display: block; margin-bottom: 36px; line-height: 1.15; }
 .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
 /* BUTTONS */
@@ -80,12 +81,12 @@ body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1
 .btn-yellow:hover { background: var(--brass); }
 
 /* THESIS */
-.thesis-bottom { background: var(--navy); padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid rgba(255,255,255,0.08); }
-.thesis-graphic-split { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+.thesis-bottom { background: var(--navy); padding: clamp(48px, 7vw, 88px) 0; }
+.thesis-graphic-split { display: grid; grid-template-columns: 1fr 2fr; gap: 72px; align-items: center; }
 .thesis-graphic-split img { max-width: 100%; height: auto; display: block; }
-.thesis-body-centred p { font-size: 16px; line-height: 1.85; color: var(--stone); margin-bottom: 20px; font-weight: 300; text-align: left; }
-.thesis-body-centred p:last-child { margin-bottom: 0; }
-.thesis-body-centred strong { color: var(--paper); font-weight: 500; }
+.thesis-body-col p { font-size: 16px; line-height: 1.85; color: var(--stone); margin-bottom: 20px; font-weight: 300; }
+.thesis-body-col p:last-child { margin-bottom: 0; }
+.thesis-body-col strong { color: var(--paper); font-weight: 500; }
 .thesis-bridge { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; margin-top: 12px; }
 .yellow-underline { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M2 6 C30 2, 60 7, 100 5 C140 3, 170 7, 198 4' stroke='%23fcd346' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: bottom; background-size: 200px 8px; padding-bottom: 6px; }
 
@@ -138,20 +139,14 @@ body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
 /* NIGHT MODE */
-body.is-night .nav { background: var(--navy); }
 body.is-night .nav-links a { color: rgba(255,252,244,0.75); }
 body.is-night .nav-links a:hover { color: var(--paper); }
-body.is-night .nav-toggle span { background: var(--paper); }
 body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; }
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
-  .thesis-inner { grid-template-columns: 1fr; gap: 36px; }
-  .thesis-top-inner { grid-template-columns: 1fr; gap: 24px; }
-  .thesis-graphic-split { grid-template-columns: 1fr; gap: 36px; }
+  .thesis-graphic-split { grid-template-columns: 1fr; gap: 40px; }
   .about-teaser-inner { grid-template-columns: 1fr; }
-  .hero-split { grid-template-columns: 1fr; gap: 8px; }
-  .hero-right { text-align: left; }
   .taster-grid { grid-template-columns: 1fr 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-round-logo { justify-content: flex-start; }
@@ -186,7 +181,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
   </div>
 </nav>
 
-<!-- STREET SCENE — immediately under nav -->
+<!-- STREET SCENE — flush against nav -->
 <div class="street-scene" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
   <img class="scene-base" src="hero_day.webp" alt="">
   <img class="scene-day"
@@ -203,7 +198,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
     loading="eager">
 </div>
 
-<!-- HERO — centred -->
+<!-- HERO -->
 <section class="hero" id="top">
   <div class="container">
     <h1 class="hero-h1">Your marketing brings them to the door.</h1>
@@ -222,7 +217,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
       <div>
         <img src="bringingpeopletothedoor.png" alt="Bringing customers to the door is only part of the work">
       </div>
-      <div class="thesis-body-centred">
+      <div class="thesis-body-col">
         <p>Most small businesses spend a lot of time, money, and energy trying to stay visible and attract new customers. They run ads, post on social media, attend events, support community initiatives, send newsletters, network, and do what they can to stay front and centre with the people they want to reach.</p>
         <p><strong>But getting someone's attention is only the first step.</strong></p>
         <p>When someone visits your website, checks your Google profile, sends a message, fills out a form, or opens the first email from your business, they are looking for signs that they are in the right place. They want to understand what you offer, what to do next, and whether the business in front of them feels clear, current, and trustworthy.</p>
