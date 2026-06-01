@@ -67,12 +67,9 @@ section { padding: var(--section-gap) 0; }
 body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1; }
 
 /* HERO */
-.hero { padding: 56px 0 64px; background: var(--paper); margin-top: -2px; }
-.hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; margin-bottom: 28px; }
-.hero-left h1 { font-family: var(--f-head); font-size: clamp(28px, 3.8vw, 50px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; text-align: left; margin: 0; }
-.hero-right { text-align: right; padding-bottom: 4px; }
-.hero-accent-line { font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 46px); color: var(--slate); font-weight: normal; line-height: 1.2; display: block; }
-.hero-sub { font-size: clamp(14px, 1.4vw, 16px); line-height: 1.75; color: var(--slate); font-weight: 300; max-width: 580px; margin: 0 auto 36px; text-align: center; }
+.hero { padding: 56px 0 64px; background: var(--paper); margin-top: -2px; text-align: center; }
+.hero-h1 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 12px; max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero-accent-line { font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 48px); color: var(--slate); font-weight: normal; display: block; margin-bottom: 32px; line-height: 1.2; }
 .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
 /* BUTTONS */
@@ -84,19 +81,16 @@ body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1
 .btn-yellow:hover { background: var(--brass); }
 
 /* THESIS */
-.thesis-top { background: var(--navy); padding: clamp(40px, 5vw, 64px) 0; }
-.thesis-top .eyebrow { color: var(--stone); margin-bottom: 16px; }
-.thesis-top-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.thesis-top-col p { font-size: clamp(15px, 1.5vw, 17px); font-weight: 300; line-height: 1.8; color: var(--stone); margin-bottom: 16px; text-align: left; max-width: none; }
-.thesis-top-col p:last-child { margin-bottom: 0; }
 .thesis-bottom { background: var(--navy); padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid rgba(255,255,255,0.08); }
-.thesis-graphic { margin-bottom: 48px; }
+.thesis-graphic { margin-bottom: 52px; }
 .thesis-graphic img { max-width: 100%; height: auto; display: block; }
-.thesis-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.thesis-claim { font-family: var(--f-accent); font-size: clamp(28px, 3.5vw, 44px); font-weight: normal; line-height: 1.3; color: var(--paper); border-left: 3px solid var(--yellow); padding-left: 28px; }
-.thesis-body p { font-size: 15px; line-height: 1.85; color: var(--stone); margin-bottom: 16px; font-weight: 300; }
-.thesis-body p:last-child { margin-bottom: 0; }
-.thesis-body strong { color: var(--paper); font-weight: 500; }
+.thesis-centred { max-width: 740px; margin: 0 auto; text-align: center; }
+.thesis-heading { font-family: var(--f-accent); font-size: clamp(26px, 3vw, 40px); font-weight: normal; color: var(--paper); line-height: 1.3; margin-bottom: 40px; }
+.thesis-body-centred p { font-size: 16px; line-height: 1.85; color: var(--stone); margin-bottom: 20px; font-weight: 300; text-align: left; }
+.thesis-body-centred p:last-child { margin-bottom: 0; }
+.thesis-body-centred strong { color: var(--paper); font-weight: 500; }
+.thesis-bridge { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; margin-top: 12px; }
+.yellow-underline { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M2 6 C30 2, 60 7, 100 5 C140 3, 170 7, 198 4' stroke='%23fcd346' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: bottom; background-size: 200px 8px; padding-bottom: 6px; }
 
 /* HOME TASTER */
 .taster-section { background: var(--paper); }
@@ -211,18 +205,11 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
     loading="eager">
 </div>
 
-<!-- HERO — split headline + centred subtext -->
+<!-- HERO — centred -->
 <section class="hero" id="top">
   <div class="container">
-    <div class="hero-split">
-      <div class="hero-left">
-        <h1>Your marketing brings them to the door.</h1>
-      </div>
-      <div class="hero-right">
-        <span class="hero-accent-line">We help make sure it's worth opening.</span>
-      </div>
-    </div>
-    <p class="hero-sub">A marketing studio for small businesses that need words, visuals, websites, and content that feel polished without losing the heart of the business behind them.</p>
+    <h1 class="hero-h1">Your marketing brings them to the door.</h1>
+    <span class="hero-accent-line">We help make sure it's worth opening.</span>
     <div class="hero-actions">
       <a href="what-we-do.html" class="btn-primary">What We Do</a>
       <a href="lets-talk.html" class="btn-secondary">Start with a Drive-By →</a>
@@ -230,20 +217,21 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
   </div>
 </section>
 
-<!-- THESIS — navy, the fuller argument -->
+<!-- THESIS — navy -->
 <div class="thesis-bottom" id="what-we-do">
   <div class="container">
     <div class="thesis-graphic">
       <img src="homepagegraphic1.png" alt="Bringing people to the door is only part of the work">
     </div>
-    <div class="thesis-inner">
-      <blockquote class="thesis-claim">
-        Bringing people to the door is only part of the work.
-      </blockquote>
-      <div class="thesis-body">
-        <p>Most small businesses are already doing a lot to be seen — posts, ads, referrals, search, word of mouth. But once someone arrives, the experience has to hold together.</p>
-        <p>The website needs to be clear. The reply should feel like you. The follow-up keeps the conversation moving. The welcome email, Google profile, booking form, and customer touchpoints all need to match the business you are actually running now.</p>
-        <p>And because your business keeps changing, those pieces need care after they are built. <strong>The Yellow Front Door helps small businesses shape their customer-facing marketing — then keep it current, so the outside keeps up with the care happening inside.</strong></p>
+    <div class="thesis-centred">
+      <h2 class="thesis-heading">Bringing people to the door is only part of the work.</h2>
+      <div class="thesis-body-centred">
+        <p>Most small businesses spend a lot of time, money, and energy trying to stay visible and attract new customers. They run ads, post on social media, attend events, support community initiatives, send newsletters, network, and do what they can to stay front and centre with the people they want to reach.</p>
+        <p><strong>But getting someone's attention is only the first step.</strong></p>
+        <p>When someone visits your website, checks your Google profile, sends a message, fills out a form, or opens the first email from your business, they are looking for signs that they are in the right place. They want to understand what you offer, what to do next, and whether the business in front of them feels clear, current, and trustworthy.</p>
+        <p>That is a lot to keep up with when you are also running <span class="yellow-underline">the actual business</span>.</p>
+        <p>The Yellow Front Door helps take some of that pressure off. We shape the customer-facing pieces people meet along the way, keep them current as your business changes, and help your marketing grow from a stronger place.</p>
+        <p class="thesis-bridge"><strong>Once the experience is working, the rest of your marketing can do more — and we can help you build from there.</strong></p>
       </div>
     </div>
   </div>
