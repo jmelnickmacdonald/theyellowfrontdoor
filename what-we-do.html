@@ -14,21 +14,11 @@
   font-weight: normal; font-style: normal; font-display: swap;
 }
 :root {
-  --ink:       #132447;
-  --paper:     #ffffff;
-  --yellow:    #fcd346;
-  --stone:     #D8D1C3;
-  --slate:     #596674;
-  --brass:     #e6b800;
-  --clay:      #B86B4B;
-  --paper-mid: #F5EFE0;
-  --navy:      #132447;
-  --f-accent:  'CasualHandwriting', cursive;
-  --f-head:    'Montserrat', sans-serif;
-  --f-body:    'Montserrat', sans-serif;
-  --max:       1120px;
-  --gutter:    clamp(24px, 5vw, 80px);
-  --section-gap: clamp(64px, 9vw, 112px);
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
+  --navy: #132447; --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
+  --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(56px, 8vw, 96px);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { margin: 0; padding: 0; }
@@ -38,8 +28,7 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
-.section-title { font-family: var(--f-head); font-size: clamp(30px, 4vw, 46px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
 .divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
 
 /* NAV */
@@ -52,81 +41,113 @@ ul { list-style: none; }
 .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--paper); }
 .nav-links a.active { font-weight: 600; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; border: none !important; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
 .nav-cta:hover { background: var(--brass) !important; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
-/* PAGE HERO TEXT */
+/* ACT LABELS */
+.act-label { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.act-number { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; flex-shrink: 0; }
+.act-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
 
-.path-page-title { margin-bottom: 0; line-height: 1; }
-.path-title-main { display: block; font-family: var(--f-head); font-size: clamp(40px, 5.5vw, 72px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 4px; }
-.path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(32px, 4vw, 58px); font-weight: normal; color: var(--slate); line-height: 1.2; }
-.path-intro-block { display: flex; flex-direction: column; justify-content: flex-end; }
+/* ACT BRIDGE */
+.act-bridge { background: var(--navy); padding: clamp(36px, 5vw, 56px) 0; text-align: center; }
+.act-bridge-text { font-family: var(--f-accent); font-size: clamp(28px, 3.5vw, 48px); color: var(--paper); font-weight: normal; line-height: 1.2; }
+.act-bridge-sub { font-size: 15px; color: var(--stone); font-weight: 400; margin-top: 14px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.75; }
 
-.page-scene img { width: 100%; height: auto; display: block; }
-
-/* DRIVE-BY BANNER */
-.drive-by-banner { background: var(--navy); padding: clamp(28px, 4vw, 44px) 0; }
-.drive-by-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; }
-.drive-by-badge { background: var(--yellow); color: var(--navy); font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; padding: 6px 14px; white-space: nowrap; }
-.drive-by-text h3 { font-family: var(--f-accent); font-size: 28px; font-weight: normal; color: var(--paper); margin-bottom: 6px; line-height: 1.1; }
-.drive-by-text p { font-size: 14px; color: var(--stone); line-height: 1.65; font-weight: 400; max-width: 520px; }
-.btn-outline-yellow { display: inline-flex; align-items: center; background: transparent; color: var(--yellow); padding: 11px 22px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--yellow); text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s; }
-.btn-outline-yellow:hover { background: var(--yellow); color: var(--navy); }
-
-/* INTERACTIVE PATH */
-.path-section { background: var(--paper); padding: clamp(48px, 7vw, 88px) 0; margin-top: 72px; }
+/* PATH SECTION — ACT 1 */
+.path-section { background: var(--paper); padding: var(--section-gap) 0; margin-top: 72px; }
 .path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: start; margin-bottom: 48px; }
-.path-kicker { margin-bottom: 14px; }
-.path-title { margin-bottom: 0; }
+.path-page-title { margin-bottom: 0; line-height: 1; }
+.path-title-main { display: block; font-family: var(--f-head); font-size: clamp(36px, 5vw, 64px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 4px; }
+.path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(28px, 3.8vw, 52px); font-weight: normal; color: var(--slate); line-height: 1.2; }
+.path-intro-block { display: flex; flex-direction: column; justify-content: flex-end; }
 .path-intro { font-size: 17px; line-height: 1.85; color: var(--ink); font-weight: 400; }
-.path-intro-note { display: block; margin-top: 12px; font-size: 12px; line-height: 1.5; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+.path-intro-note { display: block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); }
+
+/* PATH SCENE */
 .path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; }
-.path-visual { position: relative; background: var(--paper); border-bottom: 1px solid var(--stone); overflow: hidden; min-height: 440px; }
-.path-street-art { position: absolute; left: 50%; top: 0; width: 100%; max-width: none; transform: translateX(-50%); z-index: 1; transition: opacity 0.35s ease; object-fit: cover; height: calc(100% - 68px); }
-.path-road { position: absolute; left: 0; right: 0; bottom: 0; height: 68px; background: linear-gradient(to bottom, rgba(216,209,195,0.1), rgba(216,209,195,0.45)); border-top: 2px solid rgba(19,36,71,0.2); z-index: 2; }
-.path-line { position: absolute; left: 8%; right: 8%; bottom: 36px; height: 3px; background: rgba(19,36,71,0.2); z-index: 3; }
-.path-line-progress { position: absolute; left: 8%; bottom: 36px; height: 3px; width: var(--progress, 0%); background: var(--yellow); transition: width 0.45s ease; z-index: 4; }
-.path-car { position: absolute; left: calc(8% + var(--progress, 0%)); bottom: 72px; width: 80px; height: auto; transform: translateX(-50%); transition: left 0.45s ease; z-index: 5; }
-.path-stop-dots { position: absolute; left: 8%; right: 8%; bottom: 28px; display: flex; justify-content: space-between; pointer-events: none; z-index: 4; }
-.path-stop-dots span { width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); transition: background 0.25s ease; }
-.path-stop-dots span.active { background: var(--yellow); }
-.path-panel { padding: clamp(30px, 5vw, 54px); display: grid; grid-template-columns: minmax(0, 1.1fr) auto; gap: clamp(28px, 5vw, 64px); align-items: end; }
-.path-stop-label { font-family: var(--f-accent); font-size: clamp(22px, 2.5vw, 32px); font-weight: normal; color: var(--slate); margin-bottom: 12px; letter-spacing: 0; text-transform: none; }
-.path-stop-name { font-family: var(--f-accent); font-size: clamp(38px, 4.5vw, 64px); line-height: 1.0; color: var(--ink); margin-bottom: 14px; font-weight: normal; }
-.path-stop-subtitle { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--clay); margin-bottom: 20px; }
-.path-stop-copy { font-size: 17px; line-height: 1.85; color: var(--ink); font-weight: 400; max-width: 580px; }
-.path-controls { display: flex; gap: 12px; flex-wrap: wrap; align-self: end; padding-bottom: 4px; }
-.path-button { appearance: none; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 12px 20px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.path-scene { position: relative; overflow: hidden; min-height: 320px; background: var(--paper); border-bottom: 1px solid var(--stone); }
+.path-scene-img { width: 100%; display: block; height: auto; }
+
+/* SCENE OVERLAYS */
+.scene-car { position: absolute; bottom: 12%; left: var(--car-x, 18%); width: clamp(48px, 5.5vw, 78px); transform: translateX(-50%); transition: left 700ms ease, opacity 400ms ease; z-index: 5; }
+.scene-person { position: absolute; bottom: 10.5%; left: var(--person-x, 43%); width: clamp(46px, 4.8vw, 68px); transform: translateX(-50%); opacity: 0; transition: left 700ms ease, opacity 400ms ease, transform 700ms ease; z-index: 6; }
+.path-scene.has-person .scene-person { opacity: 1; }
+.path-scene.person-entering .scene-person { transform: translateX(-50%) translateY(-8px) scale(0.75); opacity: 0; }
+.scene-mat { position: absolute; left: 50%; bottom: 8%; width: clamp(72px, 8vw, 112px); transform: translateX(-50%) scaleX(0); transform-origin: left center; opacity: 0; transition: opacity 350ms ease, transform 400ms ease; z-index: 4; }
+.path-scene.has-mat .scene-mat { opacity: 1; transform: translateX(-50%) scaleX(1); }
+.scene-glow { position: absolute; left: 50%; bottom: 18%; width: clamp(72px, 7.5vw, 108px); height: clamp(112px, 13vw, 165px); transform: translateX(-50%); background: radial-gradient(ellipse at center, rgba(252,211,70,0.32) 0%, rgba(252,211,70,0.16) 42%, rgba(252,211,70,0) 75%); opacity: 0; transition: opacity 500ms ease; z-index: 3; pointer-events: none; }
+.path-scene.is-open .scene-glow { opacity: 1; }
+
+/* PROGRESS ROAD */
+.path-road-strip { position: absolute; left: 0; right: 0; bottom: 0; height: 60px; background: linear-gradient(to bottom, rgba(216,209,195,0.08), rgba(216,209,195,0.38)); border-top: 1px solid rgba(19,36,71,0.15); z-index: 2; }
+.path-line-track { position: absolute; left: 8%; right: 8%; bottom: 30px; height: 2px; background: rgba(19,36,71,0.18); z-index: 3; }
+.path-line-progress { position: absolute; left: 8%; bottom: 30px; height: 2px; width: 0%; background: var(--yellow); transition: width 700ms ease; z-index: 4; }
+.path-stop-dots { position: absolute; left: 8%; right: 8%; bottom: 22px; display: flex; justify-content: space-between; pointer-events: none; z-index: 5; }
+.path-stop-dots span { width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid rgba(19,36,71,0.35); transition: background 0.25s, border-color 0.25s; }
+.path-stop-dots span.active { background: var(--yellow); border-color: var(--yellow); }
+
+/* PATH PANEL */
+.path-panel { padding: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(24px, 4vw, 56px); align-items: end; }
+.path-stop-label { font-family: var(--f-accent); font-size: clamp(20px, 2.2vw, 28px); font-weight: normal; color: var(--slate); margin-bottom: 8px; }
+.path-stop-name { font-family: var(--f-accent); font-size: clamp(34px, 4.2vw, 58px); line-height: 1.0; color: var(--ink); margin-bottom: 16px; font-weight: normal; }
+.path-stop-copy { font-size: 16px; line-height: 1.85; color: var(--ink); font-weight: 400; max-width: 560px; }
+.path-controls { display: flex; gap: 10px; flex-wrap: wrap; align-self: end; padding-bottom: 2px; }
+.path-button { appearance: none; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 11px 18px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; white-space: nowrap; }
 .path-button:hover { background: var(--slate); border-color: var(--slate); }
 .path-button.secondary { background: transparent; color: var(--ink); border-color: var(--stone); }
 .path-button.secondary:hover { border-color: var(--ink); }
-.path-tabs { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 24px; }
-.path-tab { appearance: none; border: 1px solid var(--stone); background: var(--paper); color: var(--slate); padding: 8px 10px; font-family: var(--f-body); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s; }
+.path-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 20px; }
+.path-tab { appearance: none; border: 1px solid var(--stone); background: var(--paper); color: var(--slate); padding: 7px 10px; font-family: var(--f-body); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
 .path-tab.active { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
-.path-footer-note { margin-top: 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--stone); padding-top: 26px; }
-.path-footer-note p { font-size: 15px; color: var(--slate); font-weight: 400; line-height: 1.75; max-width: 680px; }
+.path-footer-note { margin-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--stone); padding-top: 24px; }
+.path-footer-note p { font-size: 16px; color: var(--ink); font-weight: 400; line-height: 1.75; max-width: 680px; }
 
 /* BUTTONS */
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; white-space: nowrap; }
 .btn-primary:hover { background: var(--slate); border-color: var(--slate); }
 .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--stone); cursor: pointer; transition: border-color 0.2s; text-decoration: none; }
 .btn-secondary:hover { border-color: var(--ink); }
 .btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
 .btn-yellow:hover { background: var(--brass); }
 
-/* FOUNDATION SECTION */
-.foundation-section { background: var(--paper); padding: var(--section-gap) 0; }
+/* ACT 2 — THE WIRING */
+.wiring-section { background: var(--paper); padding: var(--section-gap) 0; }
+.wiring-intro { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: start; margin-bottom: 52px; }
+.wiring-intro-left h2 { font-family: var(--f-head); font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0; }
+.wiring-intro-right p { font-size: 17px; line-height: 1.85; color: var(--ink); font-weight: 400; margin-bottom: 16px; }
+.wiring-intro-right p:last-child { margin-bottom: 0; }
+.wiring-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
+.wiring-item { background: var(--paper); padding: 32px 28px; }
+.wiring-item-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.wiring-dot { width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+.wiring-item-name { font-family: var(--f-head); font-size: 15px; font-weight: 700; color: var(--ink); }
+.wiring-item-desc { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; }
+.wiring-note { margin-top: 36px; font-size: 14px; color: var(--slate); font-weight: 400; font-style: italic; border-left: 3px solid var(--stone); padding-left: 20px; max-width: 580px; line-height: 1.7; }
+
+/* ACT 3 — FOUNDATION */
+.foundation-section { background: var(--paper-mid); padding: var(--section-gap) 0; }
 .foundation-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(48px, 7vw, 96px); align-items: start; }
 .foundation-left h2 { font-family: var(--f-head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
-.foundation-left p { font-size: 15px; line-height: 1.85; color: var(--slate); font-weight: 400; margin-bottom: 16px; }
+.foundation-left p { font-size: 16px; line-height: 1.85; color: var(--ink); font-weight: 400; margin-bottom: 16px; }
 .foundation-left p:last-child { margin-bottom: 0; }
 .foundation-list { border-top: 1px solid var(--stone); }
 .foundation-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--stone); }
-.foundation-item::before { content: ''; width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; align-self: center; }
-.foundation-item-name { font-size: 13px; font-weight: 600; color: var(--ink); min-width: 160px; white-space: nowrap; }
-.foundation-item-desc { font-size: 13px; color: var(--slate); font-weight: 400; line-height: 1.6; }
+.foundation-item::before { content: ''; width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+.foundation-item-name { font-size: 14px; font-weight: 700; color: var(--ink); min-width: 160px; white-space: nowrap; }
+.foundation-item-desc { font-size: 15px; color: var(--ink); font-weight: 400; line-height: 1.6; }
+
+/* DRIVE-BY BANNER */
+.drive-by-banner { background: var(--navy); padding: clamp(28px, 4vw, 44px) 0; }
+.drive-by-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; }
+.drive-by-badge { background: var(--yellow); color: var(--navy); font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; padding: 6px 14px; white-space: nowrap; align-self: start; margin-top: 4px; }
+.drive-by-text h3 { font-family: var(--f-accent); font-size: 28px; font-weight: normal; color: var(--paper); margin-bottom: 8px; line-height: 1.1; }
+.drive-by-text p { font-size: 15px; color: var(--stone); line-height: 1.7; font-weight: 400; max-width: 520px; margin-bottom: 10px; }
+.drive-by-text p:last-child { margin-bottom: 0; }
+.btn-outline-yellow { display: inline-flex; align-items: center; background: transparent; color: var(--yellow); padding: 11px 22px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--yellow); text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+.btn-outline-yellow:hover { background: var(--yellow); color: var(--navy); }
 
 /* CTA */
 .cta-section { background: #4d5c7b; text-align: center; position: relative; overflow: hidden; }
@@ -135,33 +156,30 @@ ul { list-style: none; }
 .cta-dot { width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; margin: 0 auto 28px; }
 .cta-section h2 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--paper); letter-spacing: -0.02em; margin-bottom: 8px; }
 .cta-accent-text { font-family: var(--f-accent); font-size: clamp(32px, 4.5vw, 56px); color: var(--yellow); display: block; line-height: 1.2; margin-bottom: 20px; }
-.cta-p { font-size: 16px; color: rgba(255,252,244,0.65); max-width: 460px; margin: 0 auto 40px; line-height: 1.75; font-weight: 400; }
-.cta-note { margin-top: 16px; font-size: 11px; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; }
+.cta-p { font-size: 17px; color: rgba(255,252,244,0.85); max-width: 460px; margin: 0 auto 40px; line-height: 1.75; font-weight: 400; }
+.cta-note { margin-top: 16px; font-size: 11px; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* FOOTER */
 .footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 .footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
 .footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
-.footer-tagline { font-size: 13px; color: var(--slate); line-height: 1.65; font-weight: 400; max-width: 220px; }
+.footer-tagline { font-size: 14px; color: var(--ink); line-height: 1.65; font-weight: 400; max-width: 220px; }
 .footer-round-logo { display: flex; justify-content: center; align-items: center; }
 .footer-round-logo img { width: 120px; height: 120px; }
 .footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--ink); }
+.footer-nav-col a { display: block; font-size: 15px; color: var(--ink); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
+.footer-nav-col a:hover { color: var(--slate); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
-  .page-intro-inner { grid-template-columns: 1fr; gap: 28px; }
-  .path-header { grid-template-columns: 1fr; gap: 22px; }
-  .path-visual { min-height: 340px; }
-  .path-street-art { width: 100%; top: 0; }
+  .path-header, .wiring-intro, .foundation-inner { grid-template-columns: 1fr; gap: 28px; }
+  .wiring-grid { grid-template-columns: 1fr; }
   .path-panel { grid-template-columns: 1fr; align-items: start; }
   .path-footer-note { flex-direction: column; align-items: flex-start; }
-  .foundation-inner { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-round-logo { justify-content: flex-start; }
   .drive-by-inner { grid-template-columns: 1fr; gap: 20px; }
@@ -170,31 +188,14 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
-  .path-visual { min-height: 280px; }
-  .path-street-art { width: 100%; top: 0; }
-  .path-road { bottom: 42px; height: 60px; }
-  .path-line, .path-line-progress { bottom: 74px; }
-  .path-car { bottom: 72px; width: 50px; }
-  .path-stop-dots { bottom: 66px; }
-  .path-panel { padding: 28px 24px; }
+  .path-scene { min-height: 220px; }
   .path-tabs { display: none; }
-  .foundation-item { flex-direction: column; gap: 6px; }
-  .foundation-item-name { min-width: unset; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .act-label { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
-
-/* PERSON + DOORMAT OVERLAYS */
-.path-person { position: absolute; bottom: 68px; width: 52px; height: auto; z-index: 6; transition: left 0.6s ease; pointer-events: none; display: none; }
-.path-person.visible { display: block; }
-.path-doormat { position: absolute; left: 50%; bottom: 60px; width: 80px; transform: translateX(-50%) scaleX(0); transform-origin: left center; z-index: 4; transition: transform 0.5s ease; pointer-events: none; }
-.path-doormat.rolled-out { transform: translateX(-50%) scaleX(1); }
-
-@keyframes walkCycle { 0%,100% { content: url("person_walking.png"); } 50% { content: url("person_standing.png"); } }
-
 @media (prefers-reduced-motion: reduce) {
-  .path-line-progress, .path-car { transition: none !important; }
-  }
-
+  .scene-car, .scene-person, .scene-mat, .scene-glow, .path-line-progress { transition: none !important; }
+}
 </style>
 </head>
 <body>
@@ -217,42 +218,53 @@ ul { list-style: none; }
   </div>
 </nav>
 
-<!-- INTERACTIVE PATH -->
+<!-- ═══════════════════════════════════════════
+     ACT 1 — THE EXPERIENCE PEOPLE MEET
+═══════════════════════════════════════════ -->
 <section class="path-section" id="path">
   <div class="container">
 
+    <div class="act-label">
+      <span class="act-number">01</span>
+      <span class="act-desc">The experience people meet</span>
+    </div>
+
     <div class="path-header">
       <div>
-        <p class="eyebrow path-kicker" style="margin-bottom:16px;">What We Do</p>
-        <h1 class="path-page-title"><span class="path-title-main">Five stops.</span><span class="path-title-accent">One connected path.</span></h1>
+        <h1 class="path-page-title">
+          <span class="path-title-main">Five stops.</span>
+          <span class="path-title-accent">One connected path.</span>
+        </h1>
       </div>
       <div class="path-intro-block">
         <p class="path-intro">We are not here to make your business louder for the sake of it. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. But before any of that, we look at what people find when they already have it.</p>
-        <p class="path-intro" style="margin-top:16px;">Five connected parts of the customer-facing experience. Click through the stops to see where we work — and what a stronger experience looks like from the inside.</p>
-        <span class="path-intro-note" style="display:block; margin-top:16px;">Click any stop or use the arrows to move through.</span>
+        <p class="path-intro" style="margin-top:14px;">Five connected parts of the customer-facing experience. Click through the stops to see where we work — and what a stronger experience looks like from the inside. The five stops are where we start. But the full picture goes further.</p>
+        <span class="path-intro-note">Click any stop or use the arrows to move through.</span>
       </div>
     </div>
 
     <div class="path-experience" aria-live="polite">
-      <div class="path-visual">
-        <img class="path-street-art" src="neutral_hero.png" alt="Line-art street scene">
-                <div class="path-road" aria-hidden="true"></div>
-        <div class="path-line" aria-hidden="true"></div>
+      <!-- SCENE -->
+      <div class="path-scene" id="path-scene">
+        <img class="path-scene-img" id="path-scene-img" src="neutral_hero.png" alt="Street scene with the yellow front door at centre">
+        <div class="scene-glow" aria-hidden="true"></div>
+        <img class="scene-mat" id="scene-mat" src="doormat.png" alt="" aria-hidden="true">
+        <img class="scene-person" id="scene-person" src="person_standing.png" alt="" aria-hidden="true">
+        <img class="scene-car" id="scene-car" src="bluecar.png" alt="" aria-hidden="true">
+        <div class="path-road-strip" aria-hidden="true"></div>
+        <div class="path-line-track" aria-hidden="true"></div>
         <div class="path-line-progress" id="path-line-progress" aria-hidden="true"></div>
         <div class="path-stop-dots" id="path-stop-dots" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-        <img class="path-car" id="path-car" src="bluecar.png" alt="" aria-hidden="true">
-        <img class="path-person" id="path-person" src="person_standing.png" alt="" aria-hidden="true">
-        <img class="path-doormat" id="path-doormat" src="doormat.png" alt="" aria-hidden="true">
       </div>
 
+      <!-- PANEL -->
       <div class="path-panel">
         <div>
           <p class="path-stop-label" id="path-stop-count">Stop 1 of 5</p>
-          <h3 class="path-stop-name" id="path-stop-name">The First Look</h3>
-          <p class="path-stop-subtitle" id="path-stop-subtitle">Before they come closer</p>
-          <p class="path-stop-copy" id="path-stop-copy">Voice, listings, bios, short descriptions, and the places people encounter your business before they ever reach your website.</p>
+          <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
+          <p class="path-stop-copy" id="path-stop-copy">Voice, listings, bios, and short descriptions — the places people encounter your business before they ever reach your website. If this feels scattered or out of date, people form the wrong impression before you have had a chance to say anything.</p>
           <div class="path-tabs" id="path-tabs" aria-label="Choose a stop on the path">
             <button type="button" class="path-tab active" data-step="0">First Look</button>
             <button type="button" class="path-tab" data-step="1">Window</button>
@@ -269,39 +281,104 @@ ul { list-style: none; }
     </div>
 
     <div class="path-footer-note">
-      <p>Start with the piece that needs attention now, or build across the whole path over time. The goal is not more marketing for the sake of it. A clearer, warmer, more current experience from the first look to the follow-up.</p>
+      <p>Start with the piece that needs attention now, or build across the whole path over time. The goal is a clearer, warmer, more current experience from the first look to the follow-up — one that helps people understand what you offer, feel good about choosing you, and know what to do next.</p>
       <a href="lets-talk.html" class="btn-primary">Let's figure out where to start →</a>
     </div>
 
   </div>
 </section>
 
-<!-- DRIVE-BY BANNER -->
-<div class="drive-by-banner">
+<!-- ═══════════════════════════════════════════
+     BRIDGE 1 → 2
+═══════════════════════════════════════════ -->
+<div class="act-bridge">
   <div class="container">
-    <div class="drive-by-inner">
-      <span class="drive-by-badge">Free</span>
-      <div class="drive-by-text">
-        <h3>The Drive-By</h3>
-        <p>Running a business means keeping a lot of plates spinning at once. If you are not sure which part of your customer-facing experience needs attention first, that is completely normal — and it is exactly what the Drive-By is for.</p><p style="margin-top:12px;">Send us your website and a couple of places your business shows up online. We will take a short, honest look and tell you what we see. No pitch, no pressure. Just another set of eyes helping you get a clearer picture of where things stand.</p><p style="margin-top:12px; font-style:italic; color:rgba(255,252,244,0.7); font-size:14px; font-weight:300;">Grab a coffee and let's chat. The door is always open.</p>
-      </div>
-      <a href="lets-talk.html" class="btn-outline-yellow">Request yours →</a>
-    </div>
+    <p class="act-bridge-text">A great experience also has to work.</p>
+    <p class="act-bridge-sub">Beautiful words and a well-built website only deliver if the systems behind them fire correctly.</p>
   </div>
 </div>
 
-<hr class="divider">
-
-<!-- ONCE THE FOUNDATION IS SOLID -->
-<section class="foundation-section">
+<!-- ═══════════════════════════════════════════
+     ACT 2 — THE WIRING
+═══════════════════════════════════════════ -->
+<section class="wiring-section" id="wiring">
   <div class="container">
+
+    <div class="act-label">
+      <span class="act-number">02</span>
+      <span class="act-desc">The systems behind it</span>
+    </div>
+
+    <div class="wiring-intro">
+      <div class="wiring-intro-left">
+        <h2>We also make sure it works.</h2>
+      </div>
+      <div class="wiring-intro-right">
+        <p>We handle the technical layer — the automations, integrations, and tools that make the customer experience reliable, not just polished. When a welcome email does not trigger, a booking form does not confirm, or your tools do not talk to each other, that is a customer-facing failure even if it looks like a back-end one.</p>
+        <p>This is where our technical partner comes in. When the work gets into systems and infrastructure, we have serious depth behind it.</p>
+      </div>
+    </div>
+
+    <div class="wiring-grid">
+      <div class="wiring-item">
+        <div class="wiring-item-header">
+          <span class="wiring-dot"></span>
+          <span class="wiring-item-name">Automations</span>
+        </div>
+        <p class="wiring-item-desc">Triggered emails, follow-up sequences, and workflows that run without you doing it manually — so the right message arrives at the right time, every time.</p>
+      </div>
+      <div class="wiring-item">
+        <div class="wiring-item-header">
+          <span class="wiring-dot"></span>
+          <span class="wiring-item-name">Integrations</span>
+        </div>
+        <p class="wiring-item-desc">Connecting your tools so your booking system, CRM, and website actually talk to each other. No more copying information between platforms or things falling through the cracks.</p>
+      </div>
+      <div class="wiring-item">
+        <div class="wiring-item-header">
+          <span class="wiring-dot"></span>
+          <span class="wiring-item-name">AI implementation</span>
+        </div>
+        <p class="wiring-item-desc">Practical AI tools built into your workflow — smart responses, automated sorting, time-saving systems that actually work for the way your business runs.</p>
+      </div>
+      <div class="wiring-item">
+        <div class="wiring-item-header">
+          <span class="wiring-dot"></span>
+          <span class="wiring-item-name">Systems audit</span>
+        </div>
+        <p class="wiring-item-desc">A clear look at what you are running, what is redundant, what is broken, and what you actually need — so you stop paying for tools that are not doing their job.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BRIDGE 2 → 3
+═══════════════════════════════════════════ -->
+<div class="act-bridge" style="background: var(--navy);">
+  <div class="container">
+    <p class="act-bridge-text">Once everything is working, here is what you can build.</p>
+    <p class="act-bridge-sub">When the experience is solid and the systems are right, the rest of your marketing can actually do its job.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ACT 3 — ONCE THE FOUNDATION IS SOLID
+═══════════════════════════════════════════ -->
+<section class="foundation-section" id="foundation">
+  <div class="container">
+
+    <div class="act-label" style="margin-bottom:36px;">
+      <span class="act-number">03</span>
+      <span class="act-desc">The marketing you can build from here</span>
+    </div>
+
     <div class="foundation-inner">
       <div class="foundation-left">
-        <p class="eyebrow" style="margin-bottom:14px;">Ready for more?</p>
         <h2>Once the foundation is solid.</h2>
-        <p>We are not anti-marketing. We are the opposite — we want your ads to hit, your content to land, and your campaigns to actually bring people through the door.</p>
-        <p>But none of that works as well as it should if the experience people find when they arrive is out of date, unclear, or does not quite sound like the business you have built. So we start with the foundation.</p>
-        <p>Once it is where it needs to be, here is what we can help with next.</p>
+        <p>We are not anti-marketing. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. But none of that does its job if the experience behind it is unclear, out of date, or disconnected from the business you have built.</p>
+        <p>So we start with the foundation. Once it is where it needs to be, here is what makes sense next.</p>
       </div>
       <div>
         <div class="foundation-list">
@@ -338,6 +415,22 @@ ul { list-style: none; }
     </div>
   </div>
 </section>
+
+<!-- DRIVE-BY -->
+<div class="drive-by-banner">
+  <div class="container">
+    <div class="drive-by-inner">
+      <span class="drive-by-badge">Free</span>
+      <div class="drive-by-text">
+        <h3>The Drive-By</h3>
+        <p>Running a business means keeping a lot of plates spinning at once. If you are not sure which part of your customer-facing experience needs attention first, that is completely normal — and it is exactly what the Drive-By is for.</p>
+        <p>Send us your website and a couple of places your business shows up online. We will take a short, honest look and tell you what we see. No pitch, no pressure. Just another set of eyes helping you get a clearer picture of where things stand.</p>
+        <p style="font-style:italic; color:rgba(255,252,244,0.65); font-size:14px;">Grab a coffee and let's chat. The door is always open.</p>
+      </div>
+      <a href="lets-talk.html" class="btn-outline-yellow">Request yours →</a>
+    </div>
+  </div>
+</div>
 
 <!-- CTA -->
 <div class="cta-section">
@@ -387,112 +480,113 @@ ul { list-style: none; }
   toggle.addEventListener('click', function () { var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
   navLinks.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }); });
 
-  // Interactive path
-  var pathStops = [
-    { name: "The First Look", subtitle: "Before they come closer", copy: "Voice, listings, bios, short descriptions, and the places people encounter your business before they ever reach your website.", img: "neutral_hero.png" },
-    { name: "The Window", subtitle: "When they look in", copy: "Website copy, landing pages, forms, and the path that helps people understand what you offer and what to do next.", img: "neutral_hero.png" },
-    { name: "The Welcome Mat", subtitle: "The first hello", copy: "Inquiry replies, welcome emails, confirmations, and the first 24 to 48 hours after someone reaches out.", img: "neutral_hero.png" },
-    { name: "The Open Door", subtitle: "After they say yes", copy: "Newsletters, customer emails, content rhythms, and the pieces that help people stay connected, come back, and hear from you at the right time.", img: "opendoorhero.png" },
-    { name: "The Touch-Up", subtitle: "As the business changes", copy: "Small updates, seasonal refreshes, copy fixes, listing reviews, and steady care that keeps the outside of your business current over time.", img: "opendoorhero.png" }
+  // Scene states
+  var sceneStates = [
+    { carX: '18%', carVisible: true, personVisible: false, personX: '0%', matVisible: false, doorGlow: false, personEntering: false, img: 'neutral_hero.png' },
+    { carX: '37%', carVisible: true, personVisible: false, personX: '0%', matVisible: false, doorGlow: false, personEntering: false, img: 'neutral_hero.png' },
+    { carX: '47%', carVisible: true, personVisible: true,  personX: '43.5%', matVisible: true,  doorGlow: false, personEntering: false, img: 'neutral_hero.png' },
+    { carX: '47%', carVisible: true, personVisible: true,  personX: '50%',   matVisible: true,  doorGlow: true,  personEntering: false, img: 'opendoorhero.png' },
+    { carX: '47%', carVisible: true, personVisible: true,  personX: '50%',   matVisible: true,  doorGlow: true,  personEntering: true,  img: 'opendoorhero.png' }
+  ];
+
+  var pathCopy = [
+    { label: 'Stop 1 of 5', name: 'The First Look',   copy: 'Voice, listings, bios, and short descriptions — the places people encounter your business before they ever reach your website. If this feels scattered or out of date, people form the wrong impression before you have had a chance to say anything.' },
+    { label: 'Stop 2 of 5', name: 'The Window',       copy: 'Your website, landing pages, and the path from interest to action. This is where most people land and decide. Clarity here turns attention into inquiries — and confusion sends people somewhere else.' },
+    { label: 'Stop 3 of 5', name: 'The Welcome Mat',  copy: 'The first 24 to 48 hours after someone reaches out — replies, welcome emails, and confirmations. This is the moment trust is made or lost. Most businesses underinvest here and never know it.' },
+    { label: 'Stop 4 of 5', name: 'The Open Door',    copy: 'Newsletters, customer emails, and the communication rhythms that keep you present with people who already chose you. Staying connected is cheaper and warmer than starting over.' },
+    { label: 'Stop 5 of 5', name: 'The Touch-Up',     copy: 'Ongoing updates, seasonal refreshes, voice checks, and listing reviews. Everything drifts as the business changes. This is what keeps the outside current without it becoming another thing on your list.' }
   ];
 
   var step = 0;
-  var stopCount   = document.getElementById('path-stop-count');
-  var stopName    = document.getElementById('path-stop-name');
-  var stopSub     = document.getElementById('path-stop-subtitle');
-  var stopCopy    = document.getElementById('path-stop-copy');
-  var nextBtn     = document.getElementById('path-next');
-  var prevBtn     = document.getElementById('path-prev');
-  var progressEl  = document.getElementById('path-line-progress');
-  var car         = document.getElementById('path-car');
-  var tabs        = Array.prototype.slice.call(document.querySelectorAll('.path-tab'));
-  var dots        = Array.prototype.slice.call(document.querySelectorAll('#path-stop-dots span'));
-  var doorFocus   = document.getElementById('path-main-building');
+  var scene     = document.getElementById('path-scene');
+  var sceneImg  = document.getElementById('path-scene-img');
+  var car       = document.getElementById('scene-car');
+  var person    = document.getElementById('scene-person');
+  var mat       = document.getElementById('scene-mat');
+  var progress  = document.getElementById('path-line-progress');
+  var stopCount = document.getElementById('path-stop-count');
+  var stopName  = document.getElementById('path-stop-name');
+  var stopCopy  = document.getElementById('path-stop-copy');
+  var nextBtn   = document.getElementById('path-next');
+  var prevBtn   = document.getElementById('path-prev');
+  var tabs      = Array.prototype.slice.call(document.querySelectorAll('.path-tab'));
+  var dots      = Array.prototype.slice.call(document.querySelectorAll('#path-stop-dots span'));
 
-  var person      = document.getElementById('path-person');
-  var doormat     = document.getElementById('path-doormat');
-  var walkTimer   = null;
-  var walkFrame   = 0;
+  var walkTimer = null, walkFrame = 0;
 
-  function startWalking() {
+  function startWalk() {
     if (walkTimer) return;
-    walkTimer = setInterval(function() {
+    walkTimer = setInterval(function () {
       walkFrame++;
       person.src = (walkFrame % 2 === 0) ? 'person_standing.png' : 'person_walking.png';
-    }, 350);
+    }, 340);
   }
-
-  function stopWalking() {
-    clearInterval(walkTimer);
-    walkTimer = null;
+  function stopWalk() {
+    clearInterval(walkTimer); walkTimer = null;
     person.src = 'person_standing.png';
   }
 
-  function render() {
-    var s = pathStops[step];
-    // stops 0-2 car drives, stops 3-4 person walks
-    var PARK_STEP = 2;
-    var numStops = pathStops.length;
+  function render(animate) {
+    var s = sceneStates[step];
+    var c = pathCopy[step];
 
-    // car position: covers stops 0..PARK_STEP
-    var carPct = Math.min(step, PARK_STEP) * (78 / (numStops - 1));
-    progressEl.style.setProperty('--progress', carPct + '%');
-    car.style.setProperty('--progress', carPct + '%');
-    car.classList.remove('is-hint');
+    // Scene image
+    if (sceneImg.src.indexOf(s.img) === -1) sceneImg.src = s.img;
 
-    // person position: appears at stop 2, walks to 3 and 4
-    if (step >= PARK_STEP) {
-      person.classList.add('visible');
-      // person positioned slightly right of car park spot, moves forward
-      var personPct = PARK_STEP * (78 / (numStops - 1));
-      if (step > PARK_STEP) {
-        personPct = step * (78 / (numStops - 1));
-        startWalking();
-        setTimeout(stopWalking, 700);
-      } else {
-        stopWalking();
-      }
-      // convert pct to left position — person sits just ahead of car park spot
-      var visual = document.querySelector('.path-visual');
-      var vw = visual ? visual.offsetWidth : 800;
-      var leftPx = (vw * 0.08) + (vw * 0.78 * personPct / 100);
-      person.style.left = leftPx + 'px';
+    // Car
+    car.style.setProperty('--car-x', s.carX);
+    car.style.left = s.carX;
+    car.style.opacity = s.carVisible ? '1' : '0';
+
+    // Person
+    person.style.setProperty('--person-x', s.personX);
+    person.style.left = s.personX;
+    scene.classList.toggle('has-person', s.personVisible);
+    scene.classList.toggle('person-entering', s.personEntering);
+
+    // Walk animation — only when moving forward to a new person step
+    if (s.personVisible && !s.personEntering && animate && step > 0 && sceneStates[step-1].personVisible) {
+      startWalk();
+      setTimeout(stopWalk, 800);
     } else {
-      person.classList.remove('visible');
-      stopWalking();
+      stopWalk();
     }
 
-    // doormat: appears at step 2
-    doormat.classList.toggle('rolled-out', step >= PARK_STEP);
+    // Mat and glow
+    scene.classList.toggle('has-mat', s.matVisible);
+    scene.classList.toggle('is-open', s.doorGlow);
 
-    // hide car at stop 3+ (parked, person has taken over)
-    car.style.opacity = step >= PARK_STEP + 1 ? '0.3' : '1';
+    // Progress line — percentage across 5 stops
+    var pct = (step / (sceneStates.length - 1)) * 84;
+    progress.style.width = pct + '%';
 
-    // street image swap
-    var streetImg = document.querySelector('.path-street-art');
-    if (streetImg) { streetImg.src = s.img; }
-
-    // text
-    stopCount.textContent  = 'Stop ' + (step + 1) + ' of ' + numStops;
-    stopName.textContent   = s.name;
-    stopSub.textContent    = s.subtitle;
-    stopCopy.textContent   = s.copy;
+    // Tabs and dots
     tabs.forEach(function (t, i) { t.classList.toggle('active', i === step); });
     dots.forEach(function (d, i) { d.classList.toggle('active', i <= step); });
+
+    // Text
+    stopCount.textContent = c.label;
+    stopName.textContent  = c.name;
+    stopCopy.textContent  = c.copy;
+
+    // Buttons
     prevBtn.disabled = step === 0;
-    prevBtn.style.opacity = step === 0 ? '0.45' : '1';
-    nextBtn.textContent = step === numStops - 1 ? 'Start a Drive-By →' : 'Next stop →';
+    prevBtn.style.opacity = step === 0 ? '0.4' : '1';
+    nextBtn.textContent = step === sceneStates.length - 1 ? 'Start a Drive-By →' : 'Next stop →';
   }
 
   nextBtn.addEventListener('click', function () {
-    if (step < pathStops.length - 1) { step++; render(); }
+    if (step < sceneStates.length - 1) { step++; render(true); }
     else { window.location.href = 'lets-talk.html'; }
   });
-  prevBtn.addEventListener('click', function () { if (step > 0) { step--; render(); } });
-  tabs.forEach(function (t) { t.addEventListener('click', function () { step = Number(t.getAttribute('data-step')); render(); }); });
+  prevBtn.addEventListener('click', function () {
+    if (step > 0) { step--; render(true); }
+  });
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { step = Number(t.getAttribute('data-step')); render(true); });
+  });
 
-  render();
-  setTimeout(function () { if (step === 0) car.classList.add('is-hint'); }, 400);
+  render(false);
 })();
 </script>
 </body>
