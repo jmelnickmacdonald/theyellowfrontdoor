@@ -96,22 +96,8 @@ body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1
 .service-list { border-top: 1px solid var(--stone); }
 .service-list-item { display: flex; align-items: baseline; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--stone); }
 .service-list-item::before { content: ''; width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; margin-top: 2px; align-self: center; }
-.service-list-name { font-family: var(--f-accent); font-size: clamp(22px, 2.2vw, 30px); color: var(--ink); white-space: nowrap; flex-shrink: 0; line-height: 1.2; }
+.service-list-name { font-family: var(--f-accent); font-size: clamp(26px, 2.8vw, 38px); color: var(--ink); white-space: nowrap; flex-shrink: 0; line-height: 1.2; }
 .service-list-desc { font-size: 15px; line-height: 1.7; color: var(--slate); font-weight: 300; }
-
-/* ABOUT TEASER */
-.about-teaser { background: var(--paper-mid); }
-.about-teaser-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.about-teaser-body p { font-size: 15px; line-height: 1.9; color: var(--ink); margin-bottom: 20px; font-weight: 300; }
-.about-teaser-body p:last-of-type { margin-bottom: 32px; }
-.about-teaser-pivot { font-family: var(--f-accent); font-size: 24px; color: var(--ink); border-left: 3px solid var(--yellow); padding: 14px 20px; margin: 28px 0; background: rgba(252,211,70,0.08); line-height: 1.4; }
-.about-teaser-card { background: var(--navy); padding: 36px; color: var(--paper); position: relative; overflow: hidden; }
-.about-teaser-card::after { content: ''; position: absolute; top: 0; right: 0; width: 4px; height: 100%; background: var(--yellow); }
-.about-card-name { font-family: var(--f-accent); font-size: 26px; color: var(--paper); margin-bottom: 4px; line-height: 1.2; }
-.about-card-title { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); margin-bottom: 20px; }
-.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.about-tag { font-size: 10px; font-weight: 500; color: var(--stone); border: 1px solid rgba(216,209,195,0.25); padding: 4px 10px; }
-.about-card-detail { font-size: 13px; color: rgba(255,252,244,0.6); line-height: 1.65; font-weight: 300; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; }
 
 /* CTA */
 .cta-section { background: var(--navy); text-align: center; position: relative; overflow: hidden; }
@@ -146,7 +132,6 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 /* RESPONSIVE */
 @media (max-width: 960px) {
   .thesis-graphic-split { grid-template-columns: 1fr; gap: 40px; }
-  .about-teaser-inner { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-round-logo { justify-content: flex-start; }
 }
@@ -221,7 +206,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
         <p>When someone visits your website, checks your Google profile, sends a message, fills out a form, or opens the first email from your business, they are looking for signs that they are in the right place. They want to understand what you offer, what to do next, and whether the business in front of them feels clear, current, and trustworthy.</p>
         <p>That is a lot to keep up with when you are also running <span class="yellow-underline">the actual business</span>.</p>
         <p>The Yellow Front Door helps take some of that pressure off. We shape the customer-facing pieces people meet along the way, keep them current as your business changes, and help your marketing grow from a stronger place.</p>
-        <p class="thesis-bridge"><strong>Once the experience is working, the rest of your marketing can do more — and we can help you build from there.</strong></p>
+        <p class="thesis-bridge"><strong>Once the experience is working, the rest of your marketing can do more. We can help you build from there.</strong></p>
       </div>
     </div>
   </div>
@@ -231,13 +216,13 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 <section style="background:var(--paper);">
   <div class="container">
     <p class="eyebrow" style="margin-bottom:14px;">What we work on</p>
-    <h2 class="section-title">Start where it's leaking.</h2>
+    <h2 class="section-title">Start where the path gets fuzzy.</h2>
     <p class="section-intro">Five connected parts of the customer-facing experience. You can start with one and build across all of them, or we can look together and figure out where to begin.</p>
 
     <div class="service-list">
       <div class="service-list-item">
         <span class="service-list-name">The First Look</span>
-        <span class="service-list-desc">Voice, listings, and every place people encounter your business before they ever reach your website.</span>
+        <span class="service-list-desc">Voice, listings, and every place people encounter your business before they reach your website.</span>
       </div>
       <div class="service-list-item">
         <span class="service-list-name">The Window</span>
@@ -259,36 +244,6 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 
     <div style="margin-top:48px;">
       <a href="what-we-do.html" class="btn-secondary">See how it works →</a>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ABOUT TEASER -->
-<section class="about-teaser">
-  <div class="about-teaser-inner container">
-    <div class="about-teaser-body">
-      <p class="eyebrow" style="margin-bottom:16px;">About</p>
-      <h2 class="section-title" style="margin-bottom:28px;">Built by someone who's been there.</h2>
-      <p>For about a decade, I ran a retail and custom sign business. Sales were good, customers were happy — and I was exhausted in a way that didn't quite make sense. My website was out of date. Booking was convoluted. I was paying for Facebook ads and radio spots and couldn't have told you if any of it was converting.</p>
-      <p class="about-teaser-pivot">Nobody told me that half the hustle was just friction.</p>
-      <p>The Yellow Front Door is the studio I wish had existed when I was the one with the outdated website and the marketing budget I couldn't account for.</p>
-      <a href="about.html" class="btn-secondary" style="margin-top:8px;">Meet Julianna →</a>
-    </div>
-    <div>
-      <div class="about-teaser-card">
-        <p class="about-card-name">Julianna Melnick-MacDonald</p>
-        <p class="about-card-title">Founder, The Yellow Front Door</p>
-        <div class="about-tags">
-          <span class="about-tag">Writer</span>
-          <span class="about-tag">Designer</span>
-          <span class="about-tag">Content Strategist</span>
-          <span class="about-tag">Former Educator</span>
-          <span class="about-tag">Small Business Owner</span>
-        </div>
-        <p class="about-card-detail">Based in the Annapolis Valley, Nova Scotia. Working with small businesses across Canada.</p>
-      </div>
     </div>
   </div>
 </section>
