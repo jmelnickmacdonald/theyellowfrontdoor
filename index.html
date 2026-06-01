@@ -31,9 +31,8 @@
   --section-gap: clamp(64px, 9vw, 112px);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; margin: 0; padding: 0; }
 body { background: var(--navy); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-.hero { padding: 56px 0; text-align: center; background: var(--paper); margin-top: -2px; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
@@ -59,15 +58,15 @@ section { padding: var(--section-gap) 0; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* STREET SCENE */
-.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; margin-top: 72px; background: var(--navy); }
+.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; margin-top: 72px; background: var(--navy); display: block; }
 .street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
-.scene-base { visibility: hidden; position: relative; }
+.scene-base { visibility: hidden; position: relative; display: block; width: 100%; }
 .scene-day, .scene-night { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.4s ease; }
 .scene-day { opacity: 1; } .scene-night { opacity: 0; }
 body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1; }
 
 /* HERO */
-.hero { padding: 56px 0 64px; background: var(--paper); margin-top: -2px; text-align: center; }
+.hero { padding: 56px 0 64px; background: var(--paper); text-align: center; }
 .hero-h1 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 12px; max-width: 720px; margin-left: auto; margin-right: auto; }
 .hero-accent-line { font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 48px); color: var(--slate); font-weight: normal; display: block; margin-bottom: 32px; line-height: 1.2; }
 .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -82,10 +81,8 @@ body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1
 
 /* THESIS */
 .thesis-bottom { background: var(--navy); padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid rgba(255,255,255,0.08); }
-.thesis-graphic { margin-bottom: 52px; }
-.thesis-graphic img { max-width: 100%; height: auto; display: block; }
-.thesis-centred { max-width: 740px; margin: 0 auto; text-align: center; }
-.thesis-heading { font-family: var(--f-accent); font-size: clamp(26px, 3vw, 40px); font-weight: normal; color: var(--paper); line-height: 1.3; margin-bottom: 40px; }
+.thesis-graphic-split { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+.thesis-graphic-split img { max-width: 100%; height: auto; display: block; }
 .thesis-body-centred p { font-size: 16px; line-height: 1.85; color: var(--stone); margin-bottom: 20px; font-weight: 300; text-align: left; }
 .thesis-body-centred p:last-child { margin-bottom: 0; }
 .thesis-body-centred strong { color: var(--paper); font-weight: 500; }
@@ -151,6 +148,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 @media (max-width: 960px) {
   .thesis-inner { grid-template-columns: 1fr; gap: 36px; }
   .thesis-top-inner { grid-template-columns: 1fr; gap: 24px; }
+  .thesis-graphic-split { grid-template-columns: 1fr; gap: 36px; }
   .about-teaser-inner { grid-template-columns: 1fr; }
   .hero-split { grid-template-columns: 1fr; gap: 8px; }
   .hero-right { text-align: left; }
@@ -220,11 +218,10 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 <!-- THESIS — navy -->
 <div class="thesis-bottom" id="what-we-do">
   <div class="container">
-    <div class="thesis-graphic">
-      <img src="homepagegraphic1.png" alt="Bringing people to the door is only part of the work">
-    </div>
-    <div class="thesis-centred">
-      <h2 class="thesis-heading">Bringing people to the door is only part of the work.</h2>
+    <div class="thesis-graphic-split">
+      <div>
+        <img src="bringingpeopletothedoor.png" alt="Bringing customers to the door is only part of the work">
+      </div>
       <div class="thesis-body-centred">
         <p>Most small businesses spend a lot of time, money, and energy trying to stay visible and attract new customers. They run ads, post on social media, attend events, support community initiatives, send newsletters, network, and do what they can to stay front and centre with the people they want to reach.</p>
         <p><strong>But getting someone's attention is only the first step.</strong></p>
