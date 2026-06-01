@@ -59,7 +59,9 @@ ul { list-style: none; }
 
 /* PAGE HERO TEXT */
 
-.path-page-title { font-family: var(--f-accent); font-size: clamp(36px, 5vw, 64px); font-weight: normal; color: var(--ink); line-height: 1.1; margin-bottom: 0; }
+.path-page-title { margin-bottom: 0; line-height: 1; }
+.path-title-main { display: block; font-family: var(--f-head); font-size: clamp(40px, 5.5vw, 72px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 4px; }
+.path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(32px, 4vw, 58px); font-weight: normal; color: var(--slate); line-height: 1.2; }
 .path-intro-block { display: flex; flex-direction: column; justify-content: flex-end; }
 
 .page-scene img { width: 100%; height: auto; display: block; }
@@ -83,21 +85,20 @@ ul { list-style: none; }
 .path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; }
 .path-visual { position: relative; background: var(--paper); border-bottom: 1px solid var(--stone); overflow: hidden; min-height: 390px; }
 .path-street-art { position: absolute; left: 50%; bottom: 80px; width: min(1120px, 112%); max-width: none; transform: translateX(-50%); z-index: 1; transition: filter 0.35s ease, opacity 0.35s ease; }
-.path-door-focus { position: absolute; left: 50%; bottom: 134px; width: clamp(72px, 9vw, 122px); height: clamp(132px, 16vw, 220px); transform: translateX(-50%); border-radius: 999px; background: radial-gradient(circle, rgba(252,211,70,0.28) 0%, rgba(252,211,70,0.12) 38%, rgba(252,211,70,0) 72%); opacity: 0; transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; z-index: 2; }
-.path-door-focus.is-glow { opacity: 1; transform: translateX(-50%) scale(1.08); }
-.path-road { position: absolute; left: 0; right: 0; bottom: 54px; height: 74px; background: linear-gradient(to bottom, rgba(216,209,195,0.04), rgba(216,209,195,0.34)); border-top: 1px solid rgba(19,36,71,0.18); z-index: 2; }
-.path-line { position: absolute; left: 8%; right: 8%; bottom: 88px; height: 3px; background: rgba(19,36,71,0.22); z-index: 3; }
-.path-line-progress { position: absolute; left: 8%; bottom: 88px; height: 3px; width: var(--progress, 0%); background: var(--yellow); transition: width 0.45s ease; z-index: 4; }
+.path-road { position: absolute; left: 0; right: 0; bottom: 0; height: 68px; background: linear-gradient(to bottom, rgba(216,209,195,0.1), rgba(216,209,195,0.45)); border-top: 2px solid rgba(19,36,71,0.2); z-index: 2; }
+.path-line { position: absolute; left: 8%; right: 8%; bottom: 36px; height: 3px; background: rgba(19,36,71,0.2); z-index: 3; }
+.path-line-progress { position: absolute; left: 8%; bottom: 36px; height: 3px; width: var(--progress, 0%); background: var(--yellow); transition: width 0.45s ease; z-index: 4; }
 @keyframes carHint { 0%, 100% { left: calc(8% + var(--progress, 0%)); } 50% { left: calc(8% + var(--progress, 0%) + 14px); } }
-.path-car { position: absolute; left: calc(8% + var(--progress, 0%)); bottom: 86px; width: 72px; height: 32px; transform: translate(-50%, -20px); transition: left 0.45s ease; z-index: 5; }
+.path-car { position: absolute; left: calc(8% + var(--progress, 0%)); bottom: 56px; width: 80px; height: 38px; transform: translateX(-50%); transition: left 0.45s ease; z-index: 5; }
 .path-car.is-hint { animation: carHint 1.15s ease-in-out 1; }
-.path-car-body { position: absolute; left: 4px; right: 4px; bottom: 8px; height: 16px; border: 2px solid var(--ink); background: var(--paper); border-radius: 8px 14px 4px 4px; }
-.path-car-body::before { content: ""; position: absolute; left: 14px; top: -11px; width: 28px; height: 13px; border: 2px solid var(--ink); border-bottom: none; background: var(--paper); border-radius: 10px 10px 0 0; }
-.path-car-body::after { content: ""; position: absolute; right: -2px; top: 4px; width: 8px; height: 7px; background: var(--yellow); border: 1.5px solid var(--ink); border-radius: 50%; }
-.path-wheel { position: absolute; bottom: -1px; width: 13px; height: 13px; border: 2px solid var(--ink); background: var(--paper); border-radius: 50%; }
+.path-car-body { position: absolute; left: 4px; right: 4px; bottom: 10px; height: 18px; border: 2px solid var(--ink); background: #e8f0f0; border-radius: 6px 10px 4px 4px; }
+.path-car-body::before { content: ""; position: absolute; left: 16px; top: -12px; width: 30px; height: 14px; border: 2px solid var(--ink); border-bottom: none; background: #c8dede; border-radius: 12px 12px 0 0; }
+.path-car-body::after { content: ""; position: absolute; right: 6px; top: 5px; width: 10px; height: 9px; background: #c8dede; border: 1.5px solid var(--ink); border-radius: 2px; }
+.path-wheel { position: absolute; bottom: -3px; width: 14px; height: 14px; border: 2.5px solid var(--ink); background: #596674; border-radius: 50%; }
 .path-wheel.left { left: 10px; }
 .path-wheel.right { right: 10px; }
-.path-stop-dots { position: absolute; left: 8%; right: 8%; bottom: 80px; display: flex; justify-content: space-between; pointer-events: none; z-index: 4; }
+.path-wheel::after { content: ""; position: absolute; top: 50%; left: 50%; width: 4px; height: 4px; background: var(--paper); border-radius: 50%; transform: translate(-50%, -50%); }
+.path-stop-dots { position: absolute; left: 8%; right: 8%; bottom: 28px; display: flex; justify-content: space-between; pointer-events: none; z-index: 4; }
 .path-stop-dots span { width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); transition: background 0.25s ease; }
 .path-stop-dots span.active { background: var(--yellow); }
 .path-panel { padding: clamp(30px, 5vw, 54px); display: grid; grid-template-columns: minmax(0, 1.1fr) auto; gap: clamp(28px, 5vw, 64px); align-items: end; }
@@ -194,6 +195,36 @@ ul { list-style: none; }
   .path-line-progress, .path-car { transition: none !important; }
   .path-car.is-hint { animation: none !important; }
 }
+
+/* DOOR OPEN ANIMATION */
+@keyframes doorSwing {
+  0%   { transform: perspective(400px) rotateY(0deg); }
+  50%  { transform: perspective(400px) rotateY(-28deg); }
+  100% { transform: perspective(400px) rotateY(-22deg); }
+}
+.path-street-art.door-open {
+  /* Can't animate SVG/img internals — use overlay instead */
+}
+.path-door-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 80px;
+  width: clamp(52px, 6.5vw, 88px);
+  height: clamp(96px, 12vw, 162px);
+  transform: translateX(-42%);
+  transform-origin: left center;
+  background: var(--yellow);
+  border: 2px solid rgba(19,36,71,0.4);
+  border-radius: 2px 2px 0 0;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform-origin: left bottom;
+}
+.path-door-overlay.is-open {
+  opacity: 1;
+  animation: doorSwing 0.5s ease forwards;
+}
 </style>
 </head>
 <body>
@@ -223,7 +254,7 @@ ul { list-style: none; }
     <div class="path-header">
       <div>
         <p class="eyebrow path-kicker" style="margin-bottom:16px;">What We Do</p>
-        <h1 class="path-page-title">The work that happens<br>after someone finds you.</h1>
+        <h1 class="path-page-title"><span class="path-title-main">Five stops.</span><span class="path-title-accent">One connected path.</span></h1>
       </div>
       <div class="path-intro-block">
         <p class="path-intro">We are not here to make your business louder for the sake of it. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. But before any of that, we look at what people find when they already have it.</p>
@@ -235,8 +266,8 @@ ul { list-style: none; }
     <div class="path-experience" aria-live="polite">
       <div class="path-visual">
         <img class="path-street-art" src="neutral_hero.png" alt="Line-art street scene">
-        <div class="path-door-focus" id="path-main-building" aria-hidden="true"></div>
-        <div class="path-road" aria-hidden="true"></div>
+        <div class="path-door-overlay" id="path-door-overlay" aria-hidden="true"></div>
+                <div class="path-road" aria-hidden="true"></div>
         <div class="path-line" aria-hidden="true"></div>
         <div class="path-line-progress" id="path-line-progress" aria-hidden="true"></div>
         <div class="path-stop-dots" id="path-stop-dots" aria-hidden="true">
@@ -271,7 +302,7 @@ ul { list-style: none; }
     </div>
 
     <div class="path-footer-note">
-      <p>Start with the piece that needs attention now, or build across the whole path over time. The goal is not more marketing for the sake of it — it is a clearer, warmer, more current experience from the first look to the follow-up.</p>
+      <p>Start with the piece that needs attention now, or build across the whole path over time. The goal is not more marketing for the sake of it. A clearer, warmer, more current experience from the first look to the follow-up.</p>
       <a href="lets-talk.html" class="btn-primary">Let's figure out where to start →</a>
     </div>
 
@@ -423,10 +454,13 @@ ul { list-style: none; }
     car.classList.remove('is-hint');
     tabs.forEach(function (t, i) { t.classList.toggle('active', i === step); });
     dots.forEach(function (d, i) { d.classList.toggle('active', i <= step); });
-    if (doorFocus) doorFocus.classList.toggle('is-glow', step >= 2);
     prevBtn.disabled = step === 0;
     prevBtn.style.opacity = step === 0 ? '0.45' : '1';
     nextBtn.textContent = step === pathStops.length - 1 ? 'Start a Drive-By →' : 'Next stop →';
+    var doorOverlay = document.getElementById('path-door-overlay');
+    if (doorOverlay) {
+      doorOverlay.classList.toggle('is-open', step === 3);
+    }
   }
 
   nextBtn.addEventListener('click', function () {
