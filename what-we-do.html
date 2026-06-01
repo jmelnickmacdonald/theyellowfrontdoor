@@ -182,6 +182,15 @@ ul { list-style: none; }
   .foundation-item-name { min-width: unset; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+
+/* PERSON + DOORMAT OVERLAYS */
+.path-person { position: absolute; bottom: 68px; width: 52px; height: auto; z-index: 6; transition: left 0.6s ease; pointer-events: none; display: none; }
+.path-person.visible { display: block; }
+.path-doormat { position: absolute; left: 50%; bottom: 60px; width: 80px; transform: translateX(-50%) scaleX(0); transform-origin: left center; z-index: 4; transition: transform 0.5s ease; pointer-events: none; }
+.path-doormat.rolled-out { transform: translateX(-50%) scaleX(1); }
+
+@keyframes walkCycle { 0%,100% { content: url("person_walking.png"); } 50% { content: url("person_standing.png"); } }
+
 @media (prefers-reduced-motion: reduce) {
   .path-line-progress, .path-car { transition: none !important; }
   }
@@ -234,6 +243,8 @@ ul { list-style: none; }
           <span></span><span></span><span></span><span></span><span></span>
         </div>
         <img class="path-car" id="path-car" src="bluecar.png" alt="" aria-hidden="true">
+        <img class="path-person" id="path-person" src="person_standing.png" alt="" aria-hidden="true">
+        <img class="path-doormat" id="path-doormat" src="doormat.png" alt="" aria-hidden="true">
       </div>
 
       <div class="path-panel">
@@ -398,23 +409,79 @@ ul { list-style: none; }
   var dots        = Array.prototype.slice.call(document.querySelectorAll('#path-stop-dots span'));
   var doorFocus   = document.getElementById('path-main-building');
 
+  var person      = document.getElementById('path-person');
+  var doormat     = document.getElementById('path-doormat');
+  var walkTimer   = null;
+  var walkFrame   = 0;
+
+  function startWalking() {
+    if (walkTimer) return;
+    walkTimer = setInterval(function() {
+      walkFrame++;
+      person.src = (walkFrame % 2 === 0) ? 'person_standing.png' : 'person_walking.png';
+    }, 350);
+  }
+
+  function stopWalking() {
+    clearInterval(walkTimer);
+    walkTimer = null;
+    person.src = 'person_standing.png';
+  }
+
   function render() {
     var s = pathStops[step];
-    var pct = step * (78 / (pathStops.length - 1));
-    stopCount.textContent  = 'Stop ' + (step + 1) + ' of ' + pathStops.length;
+    // stops 0-2 car drives, stops 3-4 person walks
+    var PARK_STEP = 2;
+    var numStops = pathStops.length;
+
+    // car position: covers stops 0..PARK_STEP
+    var carPct = Math.min(step, PARK_STEP) * (78 / (numStops - 1));
+    progressEl.style.setProperty('--progress', carPct + '%');
+    car.style.setProperty('--progress', carPct + '%');
+    car.classList.remove('is-hint');
+
+    // person position: appears at stop 2, walks to 3 and 4
+    if (step >= PARK_STEP) {
+      person.classList.add('visible');
+      // person positioned slightly right of car park spot, moves forward
+      var personPct = PARK_STEP * (78 / (numStops - 1));
+      if (step > PARK_STEP) {
+        personPct = step * (78 / (numStops - 1));
+        startWalking();
+        setTimeout(stopWalking, 700);
+      } else {
+        stopWalking();
+      }
+      // convert pct to left position — person sits just ahead of car park spot
+      var visual = document.querySelector('.path-visual');
+      var vw = visual ? visual.offsetWidth : 800;
+      var leftPx = (vw * 0.08) + (vw * 0.78 * personPct / 100);
+      person.style.left = leftPx + 'px';
+    } else {
+      person.classList.remove('visible');
+      stopWalking();
+    }
+
+    // doormat: appears at step 2
+    doormat.classList.toggle('rolled-out', step >= PARK_STEP);
+
+    // hide car at stop 3+ (parked, person has taken over)
+    car.style.opacity = step >= PARK_STEP + 1 ? '0.3' : '1';
+
+    // street image swap
+    var streetImg = document.querySelector('.path-street-art');
+    if (streetImg) { streetImg.src = s.img; }
+
+    // text
+    stopCount.textContent  = 'Stop ' + (step + 1) + ' of ' + numStops;
     stopName.textContent   = s.name;
     stopSub.textContent    = s.subtitle;
     stopCopy.textContent   = s.copy;
-    progressEl.style.setProperty('--progress', pct + '%');
-    car.style.setProperty('--progress', pct + '%');
-    car.classList.remove('is-hint');
     tabs.forEach(function (t, i) { t.classList.toggle('active', i === step); });
     dots.forEach(function (d, i) { d.classList.toggle('active', i <= step); });
     prevBtn.disabled = step === 0;
     prevBtn.style.opacity = step === 0 ? '0.45' : '1';
-    nextBtn.textContent = step === pathStops.length - 1 ? 'Start a Drive-By →' : 'Next stop →';
-    var streetImg = document.querySelector('.path-street-art');
-    if (streetImg) { streetImg.src = pathStops[step].img; }
+    nextBtn.textContent = step === numStops - 1 ? 'Start a Drive-By →' : 'Next stop →';
   }
 
   nextBtn.addEventListener('click', function () {
