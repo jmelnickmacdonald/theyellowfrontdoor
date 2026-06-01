@@ -58,21 +58,11 @@ ul { list-style: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* PAGE HERO TEXT */
-.page-hero-text { background: var(--navy); padding: clamp(48px, 7vw, 88px) 0 clamp(40px, 6vw, 72px); margin-top: 72px; }
-.page-hero-text .eyebrow { color: var(--stone); margin-bottom: 20px; }
-.page-hero-text h1 { font-family: var(--f-accent); font-size: clamp(40px, 5.5vw, 72px); font-weight: normal; color: var(--paper); line-height: 1.05; margin-bottom: 28px; max-width: 700px; }
-.page-hero-text p { font-size: clamp(15px, 1.5vw, 18px); line-height: 1.85; color: var(--stone); font-weight: 300; max-width: 640px; }
-.page-hero-accent { display: block; width: 40px; height: 3px; background: var(--yellow); margin-top: 36px; }
+
+.path-page-title { font-family: var(--f-accent); font-size: clamp(36px, 5vw, 64px); font-weight: normal; color: var(--ink); line-height: 1.1; margin-bottom: 0; }
+.path-intro-block { display: flex; flex-direction: column; justify-content: flex-end; }
 
 .page-scene img { width: 100%; height: auto; display: block; }
-
-/* PAGE INTRO */
-.page-intro { padding: clamp(48px, 7vw, 88px) 0; background: var(--paper); }
-.page-intro-inner { display: grid; grid-template-columns: 0.7fr 1fr; gap: clamp(40px, 7vw, 100px); align-items: start; }
-.page-intro-left h1 { font-family: var(--f-accent); font-size: clamp(40px, 5.5vw, 72px); font-weight: normal; color: var(--ink); line-height: 1.0; margin-bottom: 0; }
-.page-intro-right p { font-size: clamp(15px, 1.5vw, 18px); line-height: 1.85; color: var(--slate); font-weight: 300; margin-bottom: 20px; }
-.page-intro-right p:last-child { margin-bottom: 0; }
-.page-intro-right strong { color: var(--ink); font-weight: 500; }
 
 /* DRIVE-BY BANNER */
 .drive-by-banner { background: var(--navy); padding: clamp(28px, 4vw, 44px) 0; }
@@ -84,8 +74,8 @@ ul { list-style: none; }
 .btn-outline-yellow:hover { background: var(--yellow); color: var(--navy); }
 
 /* INTERACTIVE PATH */
-.path-section { background: var(--paper); padding: var(--section-gap) 0; }
-.path-header { display: grid; grid-template-columns: 0.7fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: end; margin-bottom: 44px; }
+.path-section { background: var(--paper); padding: clamp(48px, 7vw, 88px) 0; margin-top: 72px; }
+.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: start; margin-bottom: 48px; }
 .path-kicker { margin-bottom: 14px; }
 .path-title { margin-bottom: 0; }
 .path-intro { font-size: 16px; line-height: 1.85; color: var(--slate); font-weight: 300; }
@@ -112,8 +102,8 @@ ul { list-style: none; }
 .path-stop-dots span.active { background: var(--yellow); }
 .path-panel { padding: clamp(30px, 5vw, 54px); display: grid; grid-template-columns: minmax(0, 1.1fr) auto; gap: clamp(28px, 5vw, 64px); align-items: end; }
 .path-stop-label { font-family: var(--f-accent); font-size: clamp(22px, 2.5vw, 32px); font-weight: normal; color: var(--slate); margin-bottom: 12px; letter-spacing: 0; text-transform: none; }
-.path-stop-name { font-family: var(--f-accent); font-size: clamp(42px, 5vw, 70px); line-height: 0.95; color: var(--ink); margin-bottom: 14px; }
-.path-stop-subtitle { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--clay); margin-bottom: 22px; }
+.path-stop-name { font-family: var(--f-accent); font-size: clamp(38px, 4.5vw, 64px); line-height: 1.0; color: var(--ink); margin-bottom: 14px; font-weight: normal; }
+.path-stop-subtitle { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--clay); margin-bottom: 20px; }
 .path-stop-copy { font-size: 16px; line-height: 1.85; color: var(--slate); font-weight: 300; max-width: 580px; }
 .path-controls { display: flex; gap: 12px; flex-wrap: wrap; align-self: end; padding-bottom: 4px; }
 .path-button { appearance: none; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 12px 20px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
@@ -226,47 +216,20 @@ ul { list-style: none; }
   </div>
 </nav>
 
-<!-- PAGE HERO TEXT -->
-<div class="page-hero-text">
-  <div class="container">
-    <p class="eyebrow" style="margin-bottom:20px;">What We Do</p>
-    <h1>The work that happens after someone finds you.</h1>
-    <p>We are not here to make your business louder for the sake of it. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. But before we push for more attention, we look at what happens when people already have it.</p>
-    <span class="page-hero-accent"></span>
-  </div>
-</div>
-
-
-<!-- PAGE INTRO -->
-<section class="page-intro">
-  <div class="container">
-    <div class="page-intro-inner">
-      <div class="page-intro-left">
-        <p class="eyebrow" style="margin-bottom:16px;">What we work on</p>
-        <h2 class="section-title" style="margin-bottom:0;">Five connected parts of the customer-facing experience.</h2>
-      </div>
-      <div class="page-intro-right">
-        <p>People do not usually choose a business all at once. They notice something, look a little closer, check a few details, and decide whether the experience feels clear enough to keep going. The Yellow Front Door works on each of those moments.</p>
-        <p>You can start with one and build across all of them. Or we can look together and figure out where to begin.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- INTERACTIVE PATH -->
 <section class="path-section" id="path">
   <div class="container">
 
     <div class="path-header">
       <div>
-        <p class="eyebrow path-kicker">The five stops</p>
-        <h2 class="section-title path-title">Where we can help.</h2>
+        <p class="eyebrow path-kicker" style="margin-bottom:16px;">What We Do</p>
+        <h1 class="path-page-title">The work that happens<br>after someone finds you.</h1>
       </div>
-      <p class="path-intro">
-        Click through the stops below to see what we work on at each point in the customer journey — and what a stronger experience looks like from the inside.
-        <span class="path-intro-note">Click any stop or use the arrows to move through.</span>
-      </p>
+      <div class="path-intro-block">
+        <p class="path-intro">We are not here to make your business louder for the sake of it. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. But before any of that, we look at what people find when they already have it.</p>
+        <p class="path-intro" style="margin-top:16px;">Five connected parts of the customer-facing experience. Click through the stops to see where we work — and what a stronger experience looks like from the inside.</p>
+        <span class="path-intro-note" style="display:block; margin-top:16px;">Click any stop or use the arrows to move through.</span>
+      </div>
     </div>
 
     <div class="path-experience" aria-live="polite">
