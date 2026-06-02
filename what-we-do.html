@@ -68,26 +68,27 @@ ul { list-style: none; }
 
 /* PATH SCENE */
 .path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; }
-.path-scene { position: relative; overflow: hidden; background: var(--paper); border-bottom: 1px solid var(--stone); }
+.path-scene-wrap { position: relative; background: var(--paper); }
 .path-scene-img { width: 100%; height: auto; display: block; }
+.path-road { position: relative; height: 80px; background: #f0ede8; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); overflow: hidden; }
+.path-scene-img-open { display: none; }
 
 
 /* SCENE OVERLAYS */
-.scene-car { position: absolute; bottom: 16%; left: var(--car-x, 8%); width: clamp(70px, 7vw, 96px); transform: translateX(-50%); transition: left 700ms ease, opacity 400ms ease; z-index: 5; }
+.scene-car { position: absolute; bottom: 8px; left: var(--car-x, 8%); width: clamp(64px, 6.5vw, 88px); transform: translateX(-50%); transition: left 700ms ease, opacity 400ms ease; z-index: 5; }
 .scene-person { position: absolute; bottom: 11%; left: var(--person-x, 46%); width: clamp(52px, 5.5vw, 72px); transform: translateX(-50%); opacity: 0; transition: left 700ms ease, opacity 400ms ease, transform 700ms ease; z-index: 6; }
-.path-scene.has-person .scene-person { opacity: 1; }
-.path-scene.person-entering .scene-person { opacity: 0.15; }
-.scene-mat { position: absolute; left: 50.5%; bottom: 14.5%; width: clamp(60px, 6vw, 80px); transform: translateX(-50%) scaleX(0); transform-origin: left center; opacity: 0; transition: opacity 350ms ease, transform 400ms ease; z-index: 4; }
-.path-scene.has-mat .scene-mat { opacity: 1; transform: translateX(-50%) scaleX(1); }
-.scene-glow { position: absolute; left: 50.2%; bottom: 22%; width: clamp(80px, 8vw, 110px); height: clamp(140px, 15vw, 200px); transform: translateX(-50%); background: radial-gradient(ellipse at center, rgba(252,211,70,0.25) 0%, rgba(252,211,70,0.12) 42%, rgba(252,211,70,0) 72%); opacity: 0; transition: opacity 500ms ease; z-index: 3; pointer-events: none; }
+.path-road.has-person .scene-person { opacity: 1; }
+.path-road.person-entering .scene-person { opacity: 0.15; }
+.scene-mat { position: absolute; left: 50.5%; bottom: 8px; width: clamp(60px, 6vw, 80px); transform: translateX(-50%) scaleX(0); transform-origin: left center; opacity: 0; transition: opacity 350ms ease, transform 400ms ease; z-index: 4; }
+.path-road.has-mat .scene-mat { opacity: 1; transform: translateX(-50%) scaleX(1); }
+
 .path-scene.is-open .scene-glow { opacity: 1; }
 
 /* PROGRESS ROAD */
-.path-road-strip { position: absolute; left: 0; right: 0; bottom: 0; height: 80px; background: linear-gradient(to bottom, transparent, rgba(216,209,195,0.15)); border-top: none; z-index: 2; }
-.path-line-track { position: absolute; left: 8%; right: 8%; bottom: 22px; height: 2px; background: rgba(19,36,71,0.18); z-index: 3; }
-.path-line-progress { position: absolute; left: 8%; bottom: 22px; height: 2px; width: 0%; background: var(--yellow); transition: width 700ms ease; z-index: 4; }
-.path-stop-dots { position: absolute; left: 8%; right: 8%; bottom: 14px; display: flex; justify-content: space-between; pointer-events: none; z-index: 5; }
-.path-stop-dots span { width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid rgba(19,36,71,0.35); transition: background 0.25s, border-color 0.25s; }
+.path-line-track { position: absolute; left: 8%; right: 8%; top: 50%; transform: translateY(-50%); height: 2px; background: rgba(19,36,71,0.2); z-index: 2; }
+.path-line-progress { position: absolute; left: 8%; top: 50%; transform: translateY(-50%); height: 2px; width: 0%; background: var(--yellow); transition: width 700ms ease; z-index: 3; }
+.path-stop-dots { position: absolute; left: 8%; right: 8%; top: 50%; transform: translateY(-50%); display: flex; justify-content: space-between; pointer-events: none; z-index: 4; }
+.path-stop-dots span { width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid rgba(19,36,71,0.35); transition: background 0.25s, border-color 0.25s; margin-top: -6px; }
 .path-stop-dots span.active { background: var(--yellow); border-color: var(--yellow); }
 
 /* PATH PANEL */
@@ -245,18 +246,20 @@ ul { list-style: none; }
 
     <div class="path-experience" aria-live="polite">
       <!-- SCENE -->
-      <div class="path-scene" id="path-scene">
+      <!-- Street illustration — clean, no overlays -->
+      <div class="path-scene-wrap">
         <img class="path-scene-img" id="path-scene-img" src="neutral_hero.png" alt="Street scene with the yellow front door at centre">
-        <div class="scene-glow" aria-hidden="true"></div>
-        <img class="scene-mat" id="scene-mat" src="doormat.png" alt="" aria-hidden="true">
-        <img class="scene-person" id="scene-person" src="person_standing.png" alt="" aria-hidden="true">
-        <img class="scene-car" id="scene-car" src="bluecar.png" alt="" aria-hidden="true">
-        <div class="path-road-strip" aria-hidden="true"></div>
+      </div>
+      <!-- Road strip — car, person, mat, progress all live here -->
+      <div class="path-road" id="path-road">
         <div class="path-line-track" aria-hidden="true"></div>
         <div class="path-line-progress" id="path-line-progress" aria-hidden="true"></div>
         <div class="path-stop-dots" id="path-stop-dots" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
+        <img class="scene-car" id="scene-car" src="bluecar.png" alt="" aria-hidden="true">
+        <img class="scene-person" id="scene-person" src="person_standing.png" alt="" aria-hidden="true">
+        <img class="scene-mat" id="scene-mat" src="doormat.png" alt="" aria-hidden="true">
       </div>
 
       <!-- PANEL -->
@@ -498,7 +501,7 @@ ul { list-style: none; }
   ];
 
   var step = 0;
-  var scene     = document.getElementById('path-scene');
+  var scene     = document.getElementById('path-road');
   var sceneImg  = document.getElementById('path-scene-img');
   var car       = document.getElementById('scene-car');
   var person    = document.getElementById('scene-person');
