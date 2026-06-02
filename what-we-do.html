@@ -58,8 +58,8 @@ ul { list-style: none; }
 .act-bridge-sub { font-size: 15px; color: var(--stone); font-weight: 400; margin-top: 14px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.75; }
 
 /* PATH SECTION — ACT 1 */
-.path-section { background: var(--paper); padding: var(--section-gap) 0; margin-top: 72px; }
-.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: start; margin-bottom: 48px; }
+.path-section { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; margin-top: 72px; }
+.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: start; margin-bottom: 32px; }
 .path-page-title { margin-bottom: 0; line-height: 1; }
 .path-title-main { display: block; font-family: var(--f-head); font-size: clamp(36px, 5vw, 64px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 4px; }
 .path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(28px, 3.8vw, 52px); font-weight: normal; color: var(--slate); line-height: 1.2; }
@@ -78,9 +78,14 @@ ul { list-style: none; }
 .path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; position: relative; }
 
 /* SCENE — image only, no overlays */
-.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; min-height: 360px; background: #ffffff; }
-.path-scene-img { width: 100%; height: auto; display: block; vertical-align: bottom; transition: opacity 500ms ease; }
-.path-scene-img.is-closeup { max-width: 60%; margin: 0 auto; }
+/* Height is capped to a fraction of the viewport so the whole experience
+   (illustration + road + panel) fits on a laptop screen without scrolling.
+   object-position bottom keeps the door/steps/person area in view and crops
+   dead sky from the top. Person/car offsets are measured from the bottom,
+   so they stay aligned. */
+.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; min-height: 300px; max-height: 52vh; overflow: hidden; background: #ffffff; }
+.path-scene-img { width: 100%; height: 52vh; object-fit: cover; object-position: center bottom; display: block; vertical-align: bottom; transition: opacity 500ms ease; }
+.path-scene-img.is-closeup { max-width: 60%; height: 52vh; object-fit: contain; object-position: center bottom; margin: 0 auto; }
 .path-scene-wrap.is-closeup { background: linear-gradient(90deg, #e8e8e8 0%, #f0f0f0 25%, #f8f8f6 50%, #f0f0f0 75%, #e8e8e8 100%); }
 
 /* ROAD STRIP — sits flush below illustration */
@@ -469,7 +474,7 @@ ul { list-style: none; }
     // Stop 5: CLOSEUP — person INSIDE, back-view, standing in front of the desk
     // (offset right of the YFD sign so the sign stays visible). Uses backofguy.png.
     // NOTE: person/personBottom/personScale are placeholders — tune against the live closeup image.
-    { dot: 94,   car: 40,   person: 53,   personBottom: 110, personScale: 1.75, personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
+    { dot: 94,   car: 40,   person: 51,   personBottom: 175, personScale: 2.6,  personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
       personSrc: 'backofguy.png',
       name: 'The Touch-Up',     label: 'Stop 5 of 5',
       copy: 'Ongoing updates, seasonal refreshes, voice checks, and listing reviews. Everything drifts as the business changes. This is what keeps the outside current without it becoming another thing on your list.',
