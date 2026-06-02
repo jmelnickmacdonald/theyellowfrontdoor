@@ -453,7 +453,7 @@ ul { list-style: none; }
       name: 'The Window',       label: 'Stop 2 of 5',
       copy: 'Your website, landing pages, and the path from interest to action. This is where most people land and decide. Clarity here turns attention into inquiries — and confusion sends people somewhere else.',
       img: 'daytimehero3.png' },
-    { dot: 47,   car: 40,   person: 47.5, personBottom: 60,  personScale: 1.0, personOn: true,  personIn: false,
+    { dot: 47,   car: 40,   person: 50,   personBottom: 60,  personScale: 1.0, personOn: true,  personIn: false,
       name: 'The Welcome Mat',  label: 'Stop 3 of 5',
       copy: 'The first 24 to 48 hours after someone reaches out — replies, welcome emails, and confirmations. This is the moment trust is made or lost. Most businesses underinvest here and never know it.',
       img: 'daytimehero3.png' },
@@ -486,6 +486,23 @@ ul { list-style: none; }
     document.getElementById('dot-4')
   ];
 
+  var walkTimer = null;
+  var walkFrame = 0;
+  function startWalking(duration) {
+    if (walkTimer) clearInterval(walkTimer);
+    walkFrame = 0;
+    person.src = 'person_walking.png';
+    walkTimer = setInterval(function() {
+      walkFrame++;
+      person.src = (walkFrame % 2 === 0) ? 'person_standing.png' : 'person_walking.png';
+    }, 220);
+    setTimeout(function() {
+      clearInterval(walkTimer);
+      walkTimer = null;
+      person.src = 'person_standing.png';
+    }, duration);
+  }
+
   function render(){
     var s = stops[step];
 
@@ -497,14 +514,21 @@ ul { list-style: none; }
 
     // Person
     if (s.personOn) {
+      var wasVisible = person.classList.contains('is-visible');
       person.classList.add('is-visible');
       person.style.left = s.person + '%';
       person.style.bottom = s.personBottom + 'px';
       person.style.transform = 'translateX(-50%) scale(' + s.personScale + ')';
       person.style.opacity = s.personIn ? '0.55' : '1';
+      // Trigger walk cycle if person is moving (already visible and changing position)
+      if (wasVisible) {
+        startWalking(700);
+      }
     } else {
       person.classList.remove('is-visible');
       person.style.opacity = '0';
+      if (walkTimer) { clearInterval(walkTimer); walkTimer = null; }
+      person.src = 'person_standing.png';
     }
 
     // Progress line — from 6% to current dot position
