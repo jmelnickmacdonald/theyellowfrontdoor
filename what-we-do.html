@@ -7,7 +7,8 @@
 <meta name="description" content="Five connected parts of the customer-facing experience — from the first impression to the ongoing care that keeps everything current.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preload" as="image" href="guyonstairs.png">
-<link rel="preload" as="image" href="guyatdesk.png">
+<link rel="preload" as="image" href="stop4.png">
+<link rel="preload" as="image" href="stop5.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 @font-face {
@@ -61,7 +62,7 @@ ul { list-style: none; }
 
 /* PAGE INTRO — sits above the path */
 .intro-section { background: var(--paper); padding: clamp(40px, 6vw, 72px) 0 clamp(16px, 2.5vw, 28px); margin-top: 72px; }
-.intro-inner { max-width: 760px; }
+.intro-inner { max-width: 1000px; }
 .intro-lead { font-family: var(--f-head); font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 18px; }
 .intro-section p { font-size: 15px; line-height: 1.65; color: var(--ink); font-weight: 400; margin-bottom: 13px; }
 .intro-section p:last-of-type { margin-bottom: 0; }
@@ -69,7 +70,7 @@ ul { list-style: none; }
 
 /* PATH SECTION — ACT 1 */
 .path-section { background: var(--paper); padding: clamp(28px, 4vw, 44px) 0; }
-.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: end; margin-bottom: 20px; }
+.path-header { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: clamp(28px, 5vw, 64px); align-items: end; margin-bottom: 20px; }
 .path-page-title { margin-bottom: 0; line-height: 1; }
 .path-title-main { display: block; font-family: var(--f-head); font-size: clamp(28px, 3.4vw, 42px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.03; margin-bottom: 2px; }
 .path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(22px, 2.6vw, 34px); font-weight: normal; color: var(--slate); line-height: 1.12; }
@@ -294,8 +295,7 @@ ul { list-style: none; }
 <section class="path-section" id="path">
   <div class="container">
     <div class="act-label">
-      <span class="act-number">01</span>
-      <span class="act-desc">The experience people meet</span>
+      <span class="act-desc">From first look to follow-up</span>
     </div>
 
     <div class="path-header">
@@ -306,7 +306,7 @@ ul { list-style: none; }
         </h1>
       </div>
       <div class="path-intro-block">
-        <p class="path-intro">Start with the piece that needs attention now, or build across the path over time. Click through the stops to see where we work.</p>
+        <p class="path-intro">Start with the piece that needs attention now, or build across the path over time.</p>
         <span class="path-intro-note">Click any stop or use the arrows to move through.</span>
       </div>
     </div>
@@ -315,7 +315,7 @@ ul { list-style: none; }
 
       <!-- 1. ILLUSTRATION (clean, no overlays) -->
       <div class="path-scene-wrap">
-        <img class="path-scene-img" id="path-scene-img" src="daytimehero3.png" alt="Street scene with the yellow front door at centre">
+        <img class="path-scene-img" id="path-scene-img" src="street_wide.png" alt="Street scene with the yellow front door at centre">
       </div>
 
       <!-- 2. ROAD STRIP (car, person, progress live here) -->
@@ -344,9 +344,9 @@ ul { list-style: none; }
           <div class="path-tabs" id="path-tabs">
             <button type="button" class="path-tab active" data-step="0">First Look</button>
             <button type="button" class="path-tab" data-step="1">Window</button>
-            <button type="button" class="path-tab" data-step="2">Welcome Mat</button>
-            <button type="button" class="path-tab" data-step="3">Open Door</button>
-            <button type="button" class="path-tab" data-step="4">Touch-Up</button>
+            <button type="button" class="path-tab" data-step="2">Open Door</button>
+            <button type="button" class="path-tab" data-step="3">Reception Desk</button>
+            <button type="button" class="path-tab" data-step="4">Upkeep</button>
           </div>
         </div>
         <div class="path-controls">
@@ -357,62 +357,17 @@ ul { list-style: none; }
     </div>
 
     <div class="path-footer-note">
-      <p><strong>The path does not end at the door.</strong> Once the pieces people see are clearer and easier to move through, we keep helping with the work behind them: the forms, automations, tools, and small fixes that make the business easier to run day to day.</p>
+      <p><strong>The path doesn't end at the desk.</strong> Once the pieces people meet are clear and the systems behind them are running, your marketing can finally do more than send people your way.</p>
       <a href="lets-talk.html" class="btn-primary">Let's figure out where to start →</a>
     </div>
   </div>
 </section>
 
-<!-- BRIDGE 1→2 -->
-<div class="act-bridge">
-  <div class="container">
-    <p class="act-bridge-text">A good experience has to work behind the scenes too.</p>
-    <p class="act-bridge-sub">It is one thing for the window to look clean from the street. It is another for the day behind it to feel manageable.</p>
-  </div>
-</div>
-
-<!-- ACT 02 — THE WIRING -->
-<section class="wiring-section">
-  <div class="container">
-    <div class="act-label">
-      <span class="act-number">02</span>
-      <span class="act-desc">The systems behind it</span>
-    </div>
-    <div class="wiring-intro">
-      <div class="wiring-intro-left">
-        <h2>Make the day easier.</h2>
-      </div>
-      <div class="wiring-intro-right">
-        <p>The welcome email should send. The booking form should confirm. The follow-up should not depend on you remembering it at the end of a long day. Your tools should make the business easier to run, not quietly create more work.</p>
-        <p>We handle the practical systems behind the customer experience — the automations, integrations, and workflows that keep the right things moving without every detail passing through you by hand.</p>
-      </div>
-    </div>
-    <div class="wiring-grid">
-      <div class="wiring-item">
-        <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Automations</span></div>
-        <p class="wiring-item-desc">Triggered emails, reminders, and follow-up sequences that run without you doing every step.</p>
-      </div>
-      <div class="wiring-item">
-        <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Integrations</span></div>
-        <p class="wiring-item-desc">Connecting the tools you already use — website, forms, booking, email, CRM — so they share information instead of creating more admin.</p>
-      </div>
-      <div class="wiring-item">
-        <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Practical AI support</span></div>
-        <p class="wiring-item-desc">Useful AI built into the way your business actually runs, from sorting and drafting to simple systems that save time without making things feel less human.</p>
-      </div>
-      <div class="wiring-item">
-        <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Systems audit</span></div>
-        <p class="wiring-item-desc">A clear look at what you are using: what helps, what is redundant, and what is quietly making the day harder than it needs to be.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BRIDGE 2→3 -->
+<!-- BRIDGE → BUILD FROM THERE -->
 <div class="act-bridge">
   <div class="container">
     <p class="act-bridge-text">When more people find you, they should find something ready for them.</p>
-    <p class="act-bridge-sub">When the website, words, follow-up, and systems work together, marketing can do more than send people your way.</p>
+    <p class="act-bridge-sub">When the experience and the systems behind it are working together, marketing can do more than send people your way.</p>
   </div>
 </div>
 
@@ -420,8 +375,7 @@ ul { list-style: none; }
 <section class="foundation-section">
   <div class="container">
     <div class="act-label" style="margin-bottom:36px;">
-      <span class="act-number">03</span>
-      <span class="act-desc">The marketing you can build from here</span>
+      <span class="act-desc">The marketing you build from here</span>
     </div>
     <div class="foundation-inner">
       <div class="foundation-left">
@@ -516,30 +470,31 @@ ul { list-style: none; }
   // Image swaps at stop 4 (index 3)
 
   var stops = [
-    // Stops 1-2: wide shot, no person, car drives
+    // Stop 1: wide shot, car far left, no person
     { dot: 6,    car: 6,    person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The First Look',   label: 'Stop 1 of 5',
       copy: 'Voice, listings, bios, and the places people meet your business before they ever reach your website. If this feels scattered or out of date, people form an impression before you have said a word.',
-      img: 'daytimehero3.png' },
+      img: 'street_wide.png' },
+    // Stop 2: wide shot, car mid-left, no person
     { dot: 26.5, car: 26.5, person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The Window',       label: 'Stop 2 of 5',
-      copy: 'Website copy, landing pages, forms, and the path from interest to action. This is where most people land and decide. Clarity turns attention into inquiries; confusion sends it elsewhere.',
-      img: 'daytimehero3.png' },
-    // Stop 3: wide shot, car parked, person at base of steps
-    { dot: 47,   car: 40,   person: 50.5, personBottom: 75,  personScale: 1.15, personOn: true,  personIn: false, isCloseup: false, carVisible: true,
-      name: 'The Welcome Mat',  label: 'Stop 3 of 5',
-      copy: 'Replies, welcome emails, confirmations — the first day or two after someone reaches out. This is where trust is made or lost, and most businesses underinvest here without knowing it.',
-      img: 'daytimehero3.png' },
-    // Stop 4: CLOSEUP — baked-in image (guy on the stairs entering). No overlay person.
-    { dot: 73.5, car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: false, personIn: false, isCloseup: true,  carVisible: false,
-      name: 'The Open Door',    label: 'Stop 4 of 5',
-      copy: 'Newsletters, customer emails, and the rhythms that keep people connected and hearing from you at the right time. Staying in touch is warmer, and cheaper, than starting over.',
+      copy: 'Your website and the path from interest to action. This is where most people land and decide whether to come closer. Clarity here turns attention into inquiries; confusion sends it elsewhere.',
+      img: 'street_wide.png' },
+    // Stop 3: CLOSEUP — baked-in image (guy on the stairs, entering). No overlay person.
+    { dot: 47,   car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: false, personIn: false, isCloseup: true,  carVisible: false,
+      name: 'The Open Door',    label: 'Stop 3 of 5',
+      copy: 'First contact: the reply, the welcome, the confirmation, the first day or two after someone reaches out. They are stepping through the door, and a warm, clear hello here makes all the difference.',
       img: 'guyonstairs.png' },
-    // Stop 5: CLOSEUP — baked-in image (guy at the desk). No overlay person.
-    { dot: 94,   car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: false, personIn: false, isCloseup: true,  carVisible: false,
-      name: 'The Touch-Up',     label: 'Stop 5 of 5',
-      copy: 'Updates, seasonal refreshes, voice checks, and listing reviews. The outside drifts as the business changes — this is the steady care that keeps it current without becoming another thing on your list.',
-      img: 'guyatdesk.png' }
+    // Stop 4: CLOSEUP — baked-in image (guy at the desk). No overlay person. Absorbs the old systems/wiring act.
+    { dot: 73.5, car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: false, personIn: false, isCloseup: true,  carVisible: false,
+      name: 'The Reception Desk', label: 'Stop 4 of 5',
+      copy: 'What runs behind that first hello: email templates, automations, follow-up sequences, and the integrations that keep your tools talking to each other. A welcome email only lands if the wiring fires. We build the systems that make the experience work instead of quietly creating more work for you — and when it needs to go further, the kind of automation and AI that bigger operations are built on, we can take it there too.',
+      img: 'stop4.png' },
+    // Stop 5: PULL BACK to wide street — sweeping/upkeep figure baked in. No overlay, no car.
+    { dot: 94,   car: 40,   person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: false,
+      name: 'The Upkeep',       label: 'Stop 5 of 5',
+      copy: 'Step back and look at the whole place. Listings drift, the site dates, the wiring needs checking, and the voice wanders as the business changes. This is the steady care that keeps all of it current — so the outside keeps up with the inside, without becoming another thing on your list.',
+      img: 'stop5.png' }
   ];
 
   var step = 0;
