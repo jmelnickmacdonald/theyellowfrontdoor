@@ -60,12 +60,12 @@ section { padding: var(--section-gap) 0; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* STREET SCENE — flush against nav, no gap */
-.street-scene { width: 100%; position: relative; overflow: hidden; line-height: 0; margin-top: 72px; font-size: 0; background: var(--navy); display: block; }
-.street-scene img { width: 100%; height: auto; display: block; }
-.scene-base { visibility: hidden; width: 100%; display: block; height: auto; }
-.scene-day, .scene-night { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; transition: opacity 1.4s ease; }
-.scene-day { opacity: 1; } .scene-night { opacity: 0; }
-body.is-night .scene-day { opacity: 0; } body.is-night .scene-night { opacity: 1; }
+.street-scene { width: 100%; line-height: 0; margin-top: 72px; font-size: 0; background: transparent; display: block; }
+.street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
+.scene-day { display: block; }
+.scene-night { display: none; }
+body.is-night .scene-day { display: none; }
+body.is-night .scene-night { display: block; }
 
 /* HERO */
 .hero { padding: 56px 0 64px; background: var(--paper); text-align: center; position: relative; z-index: 1; }
@@ -166,7 +166,6 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 
 <!-- STREET SCENE — flush against nav -->
 <div class="street-scene" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
-  <img class="scene-base" src="daytimehero3.png" alt="">
   <img class="scene-day"
     srcset="daytimehero3.png 2080w, daytimehero3.png 4160w"
     sizes="100vw"
