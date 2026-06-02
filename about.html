@@ -1,1 +1,276 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — The Yellow Front Door</title>
+<meta name="description" content="A two-person studio in the Annapolis Valley, helping small businesses show up on the outside with the same care they bring to the work itself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: block;
+}
+:root {
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
+  --navy: #132447; --road: #ede8dc;
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
+  --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(56px, 8vw, 96px);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
+.divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
+.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
+.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo img { height: 56px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-links a.active { font-weight: 600; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta:hover { background: var(--brass) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+
+.eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; flex-shrink: 0; }
+.eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
+
+/* HERO */
+.about-hero { background: var(--paper); padding: clamp(72px, 10vw, 128px) 0 clamp(40px, 6vw, 72px); margin-top: 72px; }
+.about-hero-inner { max-width: 860px; }
+.about-hero h1 { font-family: var(--f-head); font-size: clamp(34px, 5vw, 60px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 8px; }
+.about-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(30px, 4.4vw, 56px); font-weight: normal; color: var(--slate); line-height: 1.15; margin-top: 4px; }
+.about-hero p { font-size: clamp(17px, 2vw, 19px); line-height: 1.8; color: var(--ink); font-weight: 400; margin-top: 28px; max-width: 660px; }
+
+/* STUDIO BELIEF STRIP */
+.belief { background: var(--navy); padding: clamp(48px, 7vw, 80px) 0; }
+.belief-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.belief-accent { font-family: var(--f-accent); font-size: clamp(26px, 3.4vw, 42px); color: var(--paper); line-height: 1.2; margin-bottom: 18px; }
+.belief p { font-size: 16px; color: var(--stone); line-height: 1.8; font-weight: 400; }
+.belief p + p { margin-top: 14px; }
+
+/* PEOPLE */
+.people { background: var(--paper); padding: var(--section-gap) 0; }
+.person { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(36px, 6vw, 80px); align-items: start; }
+.person + .person { margin-top: clamp(56px, 8vw, 96px); padding-top: clamp(56px, 8vw, 96px); border-top: 1px solid var(--stone); }
+.person.reverse { grid-template-columns: 1.15fr 0.85fr; }
+.person.reverse .person-media { order: 2; }
+.person.reverse .person-body { order: 1; }
+.person-media { position: relative; }
+.person-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--paper-mid); border: 1px solid var(--stone); }
+.person-photo-placeholder { width: 100%; aspect-ratio: 4 / 5; background: var(--paper-mid); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
+.person-photo-placeholder span { font-family: var(--f-accent); font-size: 22px; color: var(--slate); }
+.person-name { font-family: var(--f-accent); font-size: clamp(34px, 4.5vw, 56px); color: var(--ink); line-height: 1.0; margin-bottom: 6px; font-weight: normal; }
+.person-role { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--slate); margin-bottom: 22px; }
+.person-body p { font-size: 16px; line-height: 1.85; color: var(--ink); font-weight: 400; margin-bottom: 16px; }
+.person-body p:last-child { margin-bottom: 0; }
+.person-lead { font-size: 18px !important; line-height: 1.7 !important; font-weight: 500; }
+.person-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.person-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); border: 1px solid var(--stone); padding: 6px 11px; }
+
+/* CTA */
+.cta-section { background: #4d5c7b; text-align: center; position: relative; overflow: hidden; }
+.cta-inner { position: relative; z-index: 1; padding: var(--section-gap) 0; }
+.cta-dot { width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; margin: 0 auto 28px; }
+.cta-section h2 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--paper); letter-spacing: -0.02em; margin-bottom: 8px; }
+.cta-accent-text { font-family: var(--f-accent); font-size: clamp(32px, 4.5vw, 56px); color: var(--yellow); display: block; line-height: 1.2; margin-bottom: 20px; }
+.cta-p { font-size: 17px; color: rgba(255,252,244,0.85); max-width: 480px; margin: 0 auto 40px; line-height: 1.75; font-weight: 400; }
+.btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.btn-yellow:hover { background: var(--brass); }
+.cta-note { margin-top: 16px; font-size: 11px; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* FOOTER */
+.footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
+.footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); margin-bottom: 12px; }
+.footer-tagline { font-size: 14px; color: var(--ink); line-height: 1.65; font-weight: 400; max-width: 220px; }
+.footer-round-logo { display: flex; justify-content: center; align-items: center; }
+.footer-round-logo img { width: 120px; height: 120px; }
+.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
+.footer-nav-col a { display: block; font-size: 15px; color: var(--ink); margin-bottom: 10px; font-weight: 400; }
+.footer-nav-col a:hover { color: var(--slate); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .person, .person.reverse { grid-template-columns: 1fr; gap: 28px; }
+  .person.reverse .person-media { order: 0; }
+  .person.reverse .person-body { order: 0; }
+  .person-photo, .person-photo-placeholder { aspect-ratio: 3 / 2; max-width: 360px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-round-logo { justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
+  .nav-toggle { display: flex; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .eyebrow-label { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo2.png" alt="The Yellow Front Door">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="lets-talk.html" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="eyebrow-label">
+        <span class="eyebrow-tag">About</span>
+        <span class="eyebrow-desc">The people behind the door</span>
+      </div>
+      <h1>Every business has a window.
+        <span class="accent-line">We help yours show what's inside.</span>
+      </h1>
+      <p>You can tell a lot about a place from the street. Whether the lights are on. Whether the sign still fits. Whether the care you'd find inside shows up before someone walks in. The Yellow Front Door is a small studio that helps small businesses get that part right — so the outside finally matches the work behind it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BELIEF -->
+<div class="belief">
+  <div class="container">
+    <div class="belief-inner">
+      <p class="belief-accent">Getting people to the door is only half the job.</p>
+      <p>Most marketing is built to bring people closer. Far less attention goes to what they meet once they arrive — the website, the words, the reply that comes back, the follow-up that does or doesn't land. That in-market experience is where trust is actually built, and it's the part most small businesses never have time to tend.</p>
+      <p>That's the half we work on. Not against marketing — the part of it that closes the loop.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PEOPLE -->
+<section class="people">
+  <div class="container">
+
+    <!-- JULIANNA -->
+    <div class="person">
+      <div class="person-media">
+        <div class="person-photo-placeholder"><span>Julianna</span></div>
+        <!-- Replace with: <img class="person-photo" src="julianna.jpg" alt="Julianna Melnick-MacDonald"> -->
+      </div>
+      <div class="person-body">
+        <h2 class="person-name">Julianna</h2>
+        <p class="person-role">Founder &amp; Creative Lead</p>
+        <p class="person-lead">Julianna started The Yellow Front Door for a simple reason: she kept meeting business owners doing remarkable work that the outside of their business wasn't telling anyone about.</p>
+        <p>She spent years as an educator before making the jump, and that training never really left her. It's where she learned to take something complex and tangled and make it clear — to find the through-line in a mess of ideas and hand it back in a way that finally makes sense. Her master's work focused on equity, diversity, and social justice in education, which left her with a systems-thinker's habit of asking who a thing is really for, and whether it actually works for the people meeting it.</p>
+        <p>Alongside the teaching, the through-line in every role she's held has been the same: writing, creating content, and shaping how an organization sounds and shows up. Decades of it. Now that work is the studio's — building the website, writing words that sound like you instead of like everyone, and shaping a brand that puts your best foot forward without losing what made it yours.</p>
+        <p>The instinct underneath all of it is accessibility: making the inside of a business legible from the outside, so the right people understand it, trust it, and feel welcome walking in.</p>
+        <div class="person-tags">
+          <span class="person-tag">Brand strategy</span>
+          <span class="person-tag">Website &amp; copy</span>
+          <span class="person-tag">Content &amp; voice</span>
+          <span class="person-tag">Clarity &amp; accessibility</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHRIS -->
+    <div class="person reverse">
+      <div class="person-media">
+        <div class="person-photo-placeholder"><span>Chris</span></div>
+        <!-- Replace with: <img class="person-photo" src="chris.jpg" alt="Chris Melnick-MacDonald"> -->
+      </div>
+      <div class="person-body">
+        <h2 class="person-name">Chris</h2>
+        <p class="person-role">Technical Architect</p>
+        <p class="person-lead">A good experience has to work behind the scenes too. That's where Chris comes in.</p>
+        <p>He brings more than fifteen years of building and running national-scale platforms — the kind of systems where reliability isn't a nice-to-have and the wiring has to hold under real weight. That experience is what lets the studio promise more than a polished surface: the automations that fire on time, the tools that actually talk to each other, the practical AI and integrations that make a business easier to run instead of quietly harder.</p>
+        <p>He keeps a lighter footprint here than Julianna by design, but he's the reason the systems behind the experience are built to last.</p>
+        <div class="person-tags">
+          <span class="person-tag">Systems architecture</span>
+          <span class="person-tag">Automations</span>
+          <span class="person-tag">Integrations</span>
+          <span class="person-tag">Practical AI</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner container">
+    <div class="cta-dot"></div>
+    <h2>Want to see what we'd</h2>
+    <span class="cta-accent-text">notice about yours?</span>
+    <p class="cta-p">Request a free Drive-By. We'll take an honest look at your in-market experience and tell you what we see — and where we'd begin.</p>
+    <a href="lets-talk.html" class="btn-yellow">Request a free Drive-By</a>
+    <p class="cta-note">Free &nbsp;·&nbsp; No pitch &nbsp;·&nbsp; No commitment</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <p class="footer-logo">The Yellow Front Door</p>
+        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+      </div>
+      <div class="footer-round-logo">
+        <img src="roundlogo.png" alt="The Yellow Front Door">
+      </div>
+      <div class="footer-nav-col">
+        <h4>Studio</h4>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="the-proof.html">The Proof</a>
+        <a href="about.html">About</a>
+        <a href="lets-talk.html">Let's Talk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
+      <div class="footer-dot-sm"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+})();
+</script>
+</body>
+</html>
