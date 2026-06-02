@@ -69,13 +69,13 @@ ul { list-style: none; }
 
 /* PATH SECTION — ACT 1 */
 .path-section { background: var(--paper); padding: clamp(28px, 4vw, 44px) 0; }
-.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: end; margin-bottom: 24px; }
+.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: end; margin-bottom: 20px; }
 .path-page-title { margin-bottom: 0; line-height: 1; }
-.path-title-main { display: block; font-family: var(--f-head); font-size: clamp(32px, 4vw, 50px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.04; margin-bottom: 2px; }
-.path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(24px, 3vw, 40px); font-weight: normal; color: var(--slate); line-height: 1.15; }
+.path-title-main { display: block; font-family: var(--f-head); font-size: clamp(28px, 3.4vw, 42px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.03; margin-bottom: 2px; }
+.path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(22px, 2.6vw, 34px); font-weight: normal; color: var(--slate); line-height: 1.12; }
 .path-intro-block { display: flex; flex-direction: column; justify-content: flex-end; }
-.path-intro { font-size: 16px; line-height: 1.7; color: var(--ink); font-weight: 400; }
-.path-intro-note { display: block; margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); }
+.path-intro { font-size: 15px; line-height: 1.6; color: var(--ink); font-weight: 400; }
+.path-intro-note { display: block; margin-top: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); }
 
 /* ═══════════════════════════════════════
    THE INTERACTIVE PATH — CLEAN ARCHITECTURE
@@ -119,9 +119,11 @@ ul { list-style: none; }
 
 /* PATH PANEL */
 .path-panel { padding: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(24px, 4vw, 56px); align-items: end; }
-.path-stop-label { font-family: var(--f-accent); font-size: clamp(20px, 2.2vw, 28px); font-weight: normal; color: var(--slate); margin-bottom: 8px; }
-.path-stop-name { font-family: var(--f-accent); font-size: clamp(34px, 4.2vw, 58px); line-height: 1.0; color: var(--ink); margin-bottom: 16px; font-weight: normal; }
-.path-stop-copy { font-size: 16px; line-height: 1.85; color: var(--ink); font-weight: 400; max-width: 560px; }
+.path-stop-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.path-stop-label { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
+.path-stop-sep { font-family: var(--f-head); font-size: 14px; color: var(--stone); line-height: 1; }
+.path-stop-name { font-family: var(--f-accent); font-size: clamp(34px, 4.2vw, 58px); line-height: 1.0; color: var(--ink); font-weight: normal; }
+.path-stop-copy { font-size: 16px; line-height: 1.8; color: var(--ink); font-weight: 400; max-width: 760px; }
 .path-controls { display: flex; gap: 10px; flex-wrap: wrap; align-self: end; padding-bottom: 2px; }
 .path-button { appearance: none; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 11px 18px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; white-space: nowrap; }
 .path-button:hover { background: var(--slate); border-color: var(--slate); }
@@ -249,7 +251,8 @@ ul { list-style: none; }
   .path-scene-wrap { max-height: 34vh; }
   .path-scene-img,
   .path-scene-img.is-closeup { height: 34vh; }
-  .path-stop-name { font-size: clamp(26px, 3.5vw, 40px); margin-bottom: 8px; }
+  .path-stop-head { margin-bottom: 8px; gap: 10px; }
+  .path-stop-name { font-size: clamp(26px, 3.5vw, 40px); }
   .path-stop-copy { font-size: 14px; line-height: 1.55; }
   .path-panel { padding: 14px clamp(20px,4vw,36px); }
 }
@@ -332,8 +335,11 @@ ul { list-style: none; }
       <!-- 3. PANEL -->
       <div class="path-panel">
         <div>
-          <p class="path-stop-label" id="path-stop-count">Stop 1 of 5</p>
-          <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
+          <div class="path-stop-head">
+            <span class="path-stop-label" id="path-stop-count">Stop 1 of 5</span>
+            <span class="path-stop-sep" aria-hidden="true">·</span>
+            <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
+          </div>
           <p class="path-stop-copy" id="path-stop-copy">Voice, listings, bios, and the places people meet your business before they ever reach your website. If this feels scattered or out of date, people form an impression before you have said a word.</p>
           <div class="path-tabs" id="path-tabs">
             <button type="button" class="path-tab active" data-step="0">First Look</button>
