@@ -462,12 +462,15 @@ ul { list-style: none; }
       copy: 'The first 24 to 48 hours after someone reaches out — replies, welcome emails, and confirmations. This is the moment trust is made or lost. Most businesses underinvest here and never know it.',
       img: 'daytimehero3.png' },
     // Stop 4: CLOSEUP — person walking up steps, MUCH BIGGER
-    { dot: 73.5, car: 40,   person: 50,   personBottom: 100, personScale: 1.4,  personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
+    { dot: 73.5, car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Open Door',    label: 'Stop 4 of 5',
       copy: 'Newsletters, customer emails, and the communication rhythms that keep you present with people who already chose you. Staying connected is cheaper and warmer than starting over.',
       img: 'daytimeherocloseup3.png' },
-    // Stop 5: CLOSEUP — person inside, beside YFD sign (offset left so sign still visible)
-    { dot: 94,   car: 40,   person: 56,   personBottom: 130, personScale: 1.1,  personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
+    // Stop 5: CLOSEUP — person INSIDE, back-view, standing in front of the desk
+    // (offset right of the YFD sign so the sign stays visible). Uses backofguy.png.
+    // NOTE: person/personBottom/personScale are placeholders — tune against the live closeup image.
+    { dot: 94,   car: 40,   person: 58,   personBottom: 96,  personScale: 1.35, personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
+      personSrc: 'backofguy.png',
       name: 'The Touch-Up',     label: 'Stop 5 of 5',
       copy: 'Ongoing updates, seasonal refreshes, voice checks, and listing reviews. Everything drifts as the business changes. This is what keeps the outside current without it becoming another thing on your list.',
       img: 'daytimeherocloseup3.png' }
@@ -495,6 +498,11 @@ ul { list-style: none; }
   var sceneWrap = document.querySelector('.path-scene-wrap');
 
   function applyPersonState(s) {
+    // Swap the person image if this stop specifies one (default: side-profile standing)
+    var wantSrc = s.personSrc || 'person_standing.png';
+    if (person.getAttribute('src') !== wantSrc) {
+      person.setAttribute('src', wantSrc);
+    }
     if (s.personOn) {
       person.classList.add('is-visible');
       person.style.left = s.person + '%';
@@ -539,7 +547,18 @@ ul { list-style: none; }
     } else {
       sceneImg.classList.toggle('is-closeup', s.isCloseup);
       sceneWrap.classList.toggle('is-closeup', s.isCloseup);
-      applyPersonState(s);
+      // Same scene image — but the PERSON image may still be changing (e.g. stop 4 -> 5).
+      // If so, fade the person out, swap, then re-apply so the swap isn't visible.
+      var wantPersonSrc = s.personSrc || 'person_standing.png';
+      var personChanging = person.getAttribute('src') !== wantPersonSrc;
+      if (personChanging && s.personOn) {
+        person.style.opacity = '0';
+        setTimeout(function() {
+          applyPersonState(s);
+        }, 250);
+      } else {
+        applyPersonState(s);
+      }
     }
 
     // Progress line — from 6% to current dot position
