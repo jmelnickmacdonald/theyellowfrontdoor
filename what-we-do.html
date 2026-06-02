@@ -6,8 +6,8 @@
 <title>What We Do — The Yellow Front Door</title>
 <meta name="description" content="Five connected parts of the customer-facing experience — from the first impression to the ongoing care that keeps everything current.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preload" as="image" href="daytimeherocloseup3.png">
-<link rel="preload" as="image" href="backofguy.png">
+<link rel="preload" as="image" href="guyonstairs.png">
+<link rel="preload" as="image" href="guyatdesk.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 @font-face {
@@ -85,10 +85,12 @@ ul { list-style: none; }
    object-position bottom keeps the door/steps/person area in view and crops
    dead sky from the top. Person/car offsets are measured from the bottom,
    so they stay aligned. */
-.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; min-height: 300px; max-height: 52vh; overflow: hidden; background: #ffffff; }
-.path-scene-img { width: 100%; height: 52vh; object-fit: cover; object-position: center bottom; display: block; vertical-align: bottom; transition: opacity 500ms ease; }
-.path-scene-img.is-closeup { max-width: 60%; height: 52vh; object-fit: contain; object-position: center bottom; margin: 0 auto; }
-.path-scene-wrap.is-closeup { background: linear-gradient(90deg, #e8e8e8 0%, #f0f0f0 25%, #f8f8f6 50%, #f0f0f0 75%, #e8e8e8 100%); }
+.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; min-height: 240px; max-height: clamp(300px, 50vh, 560px); overflow: hidden; background: #ffffff; }
+.path-scene-img { width: 100%; height: clamp(300px, 50vh, 560px); object-fit: cover; object-position: center bottom; display: block; vertical-align: bottom; transition: opacity 500ms ease; }
+.path-scene-img.is-closeup { max-width: 64%; height: clamp(300px, 50vh, 560px); object-fit: contain; object-position: center bottom; margin: 0 auto;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%); }
+.path-scene-wrap.is-closeup { background: #ffffff; }
 
 /* ROAD STRIP — sits flush below illustration */
 .path-road { position: relative; width: 100%; height: 70px; background: var(--paper); overflow: visible; z-index: 2; }
@@ -210,6 +212,32 @@ ul { list-style: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .scene-car, .scene-person, .path-line-progress { transition: none !important; }
+}
+
+/* SHORT SCREENS — trim vertical space so the whole path experience fits without scrolling.
+   Targets laptops ~800px tall and shorter. Shrinks the image cap, header, padding and act label. */
+@media (max-height: 860px) {
+  .path-section { padding: 28px 0; }
+  .path-section .act-label { margin-bottom: 20px; }
+  .path-header { margin-bottom: 20px; }
+  .path-scene-wrap { max-height: 44vh; }
+  .path-scene-img,
+  .path-scene-img.is-closeup { height: 44vh; }
+  .path-road { height: 56px; }
+  .path-panel { padding: 24px clamp(24px,4vw,40px); }
+}
+@media (max-height: 720px) {
+  .path-section { padding: 20px 0; }
+  .path-header { margin-bottom: 14px; }
+  .path-title-main { font-size: clamp(28px, 4vw, 44px); }
+  .path-title-accent { font-size: clamp(22px, 3vw, 34px); }
+  .path-intro { font-size: 15px; line-height: 1.6; }
+  .path-scene-wrap { max-height: 40vh; }
+  .path-scene-img,
+  .path-scene-img.is-closeup { height: 40vh; }
+  .path-stop-name { font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 10px; }
+  .path-stop-copy { font-size: 15px; line-height: 1.6; }
+  .path-panel { padding: 18px clamp(20px,4vw,36px); }
 }
 </style>
 </head>
@@ -468,19 +496,16 @@ ul { list-style: none; }
       name: 'The Welcome Mat',  label: 'Stop 3 of 5',
       copy: 'The first 24 to 48 hours after someone reaches out — replies, welcome emails, and confirmations. This is the moment trust is made or lost. Most businesses underinvest here and never know it.',
       img: 'daytimehero3.png' },
-    // Stop 4: CLOSEUP — person walking up steps, MUCH BIGGER
-    { dot: 73.5, car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
+    // Stop 4: CLOSEUP — baked-in image (guy on the stairs entering). No overlay person.
+    { dot: 73.5, car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Open Door',    label: 'Stop 4 of 5',
       copy: 'Newsletters, customer emails, and the communication rhythms that keep you present with people who already chose you. Staying connected is cheaper and warmer than starting over.',
-      img: 'daytimeherocloseup3.png' },
-    // Stop 5: CLOSEUP — person INSIDE, back-view, standing in front of the desk
-    // (offset right of the YFD sign so the sign stays visible). Uses backofguy.png.
-    // NOTE: person/personBottom/personScale are placeholders — tune against the live closeup image.
-    { dot: 94,   car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
-      personSrc: 'backofguy.png',
+      img: 'guyonstairs.png' },
+    // Stop 5: CLOSEUP — baked-in image (guy at the desk). No overlay person.
+    { dot: 94,   car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Touch-Up',     label: 'Stop 5 of 5',
       copy: 'Ongoing updates, seasonal refreshes, voice checks, and listing reviews. Everything drifts as the business changes. This is what keeps the outside current without it becoming another thing on your list.',
-      img: 'daytimeherocloseup3.png' }
+      img: 'guyatdesk.png' }
   ];
 
   var step = 0;
