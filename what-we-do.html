@@ -78,8 +78,10 @@ ul { list-style: none; }
 .path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; position: relative; }
 
 /* SCENE — image only, no overlays */
-.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; }
-.path-scene-img { width: 100%; height: auto; display: block; vertical-align: bottom; }
+.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; min-height: 360px; background: linear-gradient(90deg, #e8e2d4 0%, #f5f1e7 25%, #fbf8f1 50%, #f5f1e7 75%, #e8e2d4 100%); transition: background 600ms ease; }
+.path-scene-img { width: 100%; height: auto; display: block; vertical-align: bottom; transition: opacity 600ms ease, max-width 600ms ease, margin 600ms ease; }
+.path-scene-img.is-closeup { max-width: 55%; margin: 0 auto; }
+.path-scene-wrap.is-closeup { background: linear-gradient(90deg, #d8d1c3 0%, #e8e2d4 18%, #f5f1e7 35%, #fbf8f1 50%, #f5f1e7 65%, #e8e2d4 82%, #d8d1c3 100%); }
 
 /* ROAD STRIP — sits flush below illustration */
 .path-road { position: relative; width: 100%; height: 70px; background: var(--paper); overflow: visible; z-index: 2; }
@@ -91,7 +93,7 @@ ul { list-style: none; }
 .path-stop-dot.active { background: var(--yellow); border-color: var(--yellow); }
 
 /* CAR — drives along the road strip */
-.scene-car { position: absolute; bottom: 22px; left: 8%; width: clamp(110px, 11vw, 150px); transform: translateX(-50%); transition: left 700ms ease, opacity 400ms ease; z-index: 6; }
+.scene-car { position: absolute; bottom: 22px; left: 8%; width: clamp(110px, 11vw, 150px); transform: translateX(-50%); transition: left 700ms ease, opacity 600ms ease; z-index: 6; }
 
 /* PERSON — appears at stop 3, stays through 4, fades at 5 */
 .scene-person { position: absolute; bottom: 4px; left: 51%; width: clamp(72px, 7vw, 96px); transform: translateX(-50%); opacity: 0; transition: opacity 400ms ease, transform 600ms ease; z-index: 7; }
@@ -445,26 +447,30 @@ ul { list-style: none; }
   // Image swaps at stop 4 (index 3)
 
   var stops = [
-    { dot: 6,    car: 6,    person: 0,    personBottom: 22,  personScale: 1.0, personOn: false, personIn: false,
+    // Stops 1-2: wide shot, no person, car drives
+    { dot: 6,    car: 6,    person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The First Look',   label: 'Stop 1 of 5',
       copy: 'Voice, listings, bios, and short descriptions — the places people encounter your business before they ever reach your website. If this feels scattered or out of date, people form the wrong impression before you have had a chance to say anything.',
       img: 'daytimehero3.png' },
-    { dot: 26.5, car: 26.5, person: 0,    personBottom: 22,  personScale: 1.0, personOn: false, personIn: false,
+    { dot: 26.5, car: 26.5, person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The Window',       label: 'Stop 2 of 5',
       copy: 'Your website, landing pages, and the path from interest to action. This is where most people land and decide. Clarity here turns attention into inquiries — and confusion sends people somewhere else.',
       img: 'daytimehero3.png' },
-    { dot: 47,   car: 40,   person: 50,   personBottom: 60,  personScale: 1.0, personOn: true,  personIn: false,
+    // Stop 3: wide shot, car parked, person at base of steps
+    { dot: 47,   car: 40,   person: 49.5, personBottom: 60,  personScale: 1.1,  personOn: true,  personIn: false, isCloseup: false, carVisible: true,
       name: 'The Welcome Mat',  label: 'Stop 3 of 5',
       copy: 'The first 24 to 48 hours after someone reaches out — replies, welcome emails, and confirmations. This is the moment trust is made or lost. Most businesses underinvest here and never know it.',
       img: 'daytimehero3.png' },
-    { dot: 73.5, car: 40,   person: 50,   personBottom: 130, personScale: 0.85, personOn: true,  personIn: false,
+    // Stop 4: CLOSEUP — person walking up steps, car hidden (we've zoomed past it)
+    { dot: 73.5, car: 40,   person: 50,   personBottom: 110, personScale: 0.85, personOn: true,  personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Open Door',    label: 'Stop 4 of 5',
       copy: 'Newsletters, customer emails, and the communication rhythms that keep you present with people who already chose you. Staying connected is cheaper and warmer than starting over.',
-      img: 'daytimeheroopendoor.png' },
-    { dot: 94,   car: 40,   person: 50,   personBottom: 200, personScale: 0.65, personOn: true,  personIn: true,
+      img: 'daytimeherocloseup3.png' },
+    // Stop 5: CLOSEUP — person inside in front of desk
+    { dot: 94,   car: 40,   person: 50,   personBottom: 180, personScale: 0.55, personOn: true,  personIn: true,  isCloseup: true,  carVisible: false,
       name: 'The Touch-Up',     label: 'Stop 5 of 5',
       copy: 'Ongoing updates, seasonal refreshes, voice checks, and listing reviews. Everything drifts as the business changes. This is what keeps the outside current without it becoming another thing on your list.',
-      img: 'daytimeheroopendoor.png' }
+      img: 'daytimeherocloseup3.png' }
   ];
 
   var step = 0;
@@ -486,49 +492,41 @@ ul { list-style: none; }
     document.getElementById('dot-4')
   ];
 
-  var walkTimer = null;
-  var walkFrame = 0;
-  function startWalking(duration) {
-    if (walkTimer) clearInterval(walkTimer);
-    walkFrame = 0;
-    person.src = 'person_walking.png';
-    walkTimer = setInterval(function() {
-      walkFrame++;
-      person.src = (walkFrame % 2 === 0) ? 'person_standing.png' : 'person_walking.png';
-    }, 220);
-    setTimeout(function() {
-      clearInterval(walkTimer);
-      walkTimer = null;
-      person.src = 'person_standing.png';
-    }, duration);
-  }
+  var sceneWrap = document.querySelector('.path-scene-wrap');
 
   function render(){
     var s = stops[step];
 
-    // Image swap
-    if (sceneImg.getAttribute('src') !== s.img) sceneImg.setAttribute('src', s.img);
+    // Crossfade for image swap
+    var currentSrc = sceneImg.getAttribute('src');
+    if (currentSrc !== s.img) {
+      sceneImg.style.opacity = '0';
+      setTimeout(function() {
+        sceneImg.setAttribute('src', s.img);
+        // Toggle closeup styling
+        sceneImg.classList.toggle('is-closeup', s.isCloseup);
+        sceneWrap.classList.toggle('is-closeup', s.isCloseup);
+        sceneImg.style.opacity = '1';
+      }, 300);
+    } else {
+      sceneImg.classList.toggle('is-closeup', s.isCloseup);
+      sceneWrap.classList.toggle('is-closeup', s.isCloseup);
+    }
 
-    // Car position
+    // Car — hide on closeup stops
     car.style.left = s.car + '%';
+    car.style.opacity = s.carVisible ? '1' : '0';
 
     // Person
     if (s.personOn) {
-      var wasVisible = person.classList.contains('is-visible');
       person.classList.add('is-visible');
       person.style.left = s.person + '%';
       person.style.bottom = s.personBottom + 'px';
       person.style.transform = 'translateX(-50%) scale(' + s.personScale + ')';
       person.style.opacity = s.personIn ? '0.55' : '1';
-      // Trigger walk cycle if person is moving (already visible and changing position)
-      if (wasVisible) {
-        startWalking(700);
-      }
     } else {
       person.classList.remove('is-visible');
       person.style.opacity = '0';
-      if (walkTimer) { clearInterval(walkTimer); walkTimer = null; }
-      person.src = 'person_standing.png';
     }
 
     // Progress line — from 6% to current dot position
