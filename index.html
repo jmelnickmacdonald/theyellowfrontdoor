@@ -31,7 +31,7 @@
   --section-gap: clamp(64px, 9vw, 112px);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; background: var(--navy); }
 html { scroll-behavior: smooth; }
 body { background: var(--navy); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; height: auto; }
@@ -60,7 +60,7 @@ section { padding: var(--section-gap) 0; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* STREET SCENE — flush against nav, no gap */
-.street-scene { width: 100%; line-height: 0; margin-top: 72px; font-size: 0; background: transparent; display: block; }
+.street-scene { width: 100%; line-height: 0; margin-top: 70px; font-size: 0; background: var(--navy); display: block; }
 .street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
 .scene-day { display: block; }
 .scene-night { display: none; }
