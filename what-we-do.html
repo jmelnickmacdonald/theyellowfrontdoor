@@ -59,8 +59,16 @@ ul { list-style: none; }
 .act-bridge-text { font-family: var(--f-accent); font-size: clamp(28px, 3.5vw, 48px); color: var(--paper); font-weight: normal; line-height: 1.2; }
 .act-bridge-sub { font-size: 15px; color: var(--stone); font-weight: 400; margin-top: 14px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.75; }
 
+/* PAGE INTRO — sits above the path */
+.intro-section { background: var(--paper); padding: clamp(56px, 8vw, 96px) 0 clamp(20px, 3vw, 32px); margin-top: 72px; }
+.intro-inner { max-width: 820px; }
+.intro-lead { font-family: var(--f-head); font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 24px; }
+.intro-section p { font-size: 17px; line-height: 1.85; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
+.intro-section p:last-of-type { margin-bottom: 0; }
+.intro-emphasis { font-weight: 600; }
+
 /* PATH SECTION — ACT 1 */
-.path-section { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; margin-top: 72px; }
+.path-section { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; }
 .path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: start; margin-bottom: 32px; }
 .path-page-title { margin-bottom: 0; line-height: 1; }
 .path-title-main { display: block; font-family: var(--f-head); font-size: clamp(36px, 5vw, 64px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 4px; }
@@ -260,6 +268,19 @@ ul { list-style: none; }
   </div>
 </nav>
 
+<!-- PAGE INTRO -->
+<section class="intro-section">
+  <div class="container">
+    <div class="intro-inner">
+      <p class="intro-lead">Running a business asks a lot of a person.</p>
+      <p>Customers to serve, questions to answer, messages to send, a hundred small things that need you before the day is half done. When you are carrying that much, it makes sense that the outside of the business does not always keep pace with the work happening inside it.</p>
+      <p>That is not a lack of care. It usually means the care is already stretched across everything else.</p>
+      <p>The Yellow Front Door brings that care back to the places people see first — the words, pages, replies, emails, forms, and follow-ups that shape how people experience your business when they find you, reach out, book, buy, or come back.</p>
+      <p class="intro-emphasis">The goal is simple: a business that feels clear, current, and welcoming — and true to the work behind it.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ACT 01 — THE EXPERIENCE -->
 <section class="path-section" id="path">
   <div class="container">
@@ -276,7 +297,7 @@ ul { list-style: none; }
         </h1>
       </div>
       <div class="path-intro-block">
-        <p class="path-intro">Five connected parts of the customer-facing experience. Click through the stops to see where we work and what a stronger experience looks like from the inside.</p>
+        <p class="path-intro">Start with the piece that needs attention now, or build across the path over time. Click through the stops to see where we work.</p>
         <span class="path-intro-note">Click any stop or use the arrows to move through.</span>
       </div>
     </div>
@@ -307,7 +328,7 @@ ul { list-style: none; }
         <div>
           <p class="path-stop-label" id="path-stop-count">Stop 1 of 5</p>
           <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
-          <p class="path-stop-copy" id="path-stop-copy">Voice, listings, bios, and short descriptions — the places people encounter your business before they ever reach your website. If this feels scattered or out of date, people form the wrong impression before you have had a chance to say anything.</p>
+          <p class="path-stop-copy" id="path-stop-copy">Voice, listings, bios, and the places people meet your business before they ever reach your website. If this feels scattered or out of date, people form an impression before you have said a word.</p>
           <div class="path-tabs" id="path-tabs">
             <button type="button" class="path-tab active" data-step="0">First Look</button>
             <button type="button" class="path-tab" data-step="1">Window</button>
@@ -324,7 +345,7 @@ ul { list-style: none; }
     </div>
 
     <div class="path-footer-note">
-      <p>Start with the piece that needs attention now, or build across the whole path over time. The goal is a clearer, warmer, more current experience from the first look to the follow-up — one that helps people understand what you offer, feel good about choosing you, and know what to do next.</p>
+      <p><strong>The path does not end at the door.</strong> Once the pieces people see are clearer and easier to move through, we keep helping with the work behind them: the forms, automations, tools, and small fixes that make the business easier to run day to day.</p>
       <a href="lets-talk.html" class="btn-primary">Let's figure out where to start →</a>
     </div>
   </div>
@@ -333,8 +354,8 @@ ul { list-style: none; }
 <!-- BRIDGE 1→2 -->
 <div class="act-bridge">
   <div class="container">
-    <p class="act-bridge-text">A great experience also has to work.</p>
-    <p class="act-bridge-sub">Beautiful words and a well-built website only deliver if the systems behind them fire correctly.</p>
+    <p class="act-bridge-text">A good experience has to work behind the scenes too.</p>
+    <p class="act-bridge-sub">It is one thing for the window to look clean from the street. It is another for the day behind it to feel manageable.</p>
   </div>
 </div>
 
@@ -347,28 +368,29 @@ ul { list-style: none; }
     </div>
     <div class="wiring-intro">
       <div class="wiring-intro-left">
-        <h2>We also make sure it works.</h2>
+        <h2>Make the day easier.</h2>
       </div>
       <div class="wiring-intro-right">
-        <p>We handle the technical layer — the automations, integrations, and tools that make the customer experience reliable, not just polished. When a welcome email does not trigger, a booking form does not confirm, or your tools do not talk to each other, that is a customer-facing failure even if it looks like a back-end one.</p>
+        <p>The welcome email should send. The booking form should confirm. The follow-up should not depend on you remembering it at the end of a long day. Your tools should make the business easier to run, not quietly create more work.</p>
+        <p>We handle the practical systems behind the customer experience — the automations, integrations, and workflows that keep the right things moving without every detail passing through you by hand.</p>
       </div>
     </div>
     <div class="wiring-grid">
       <div class="wiring-item">
         <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Automations</span></div>
-        <p class="wiring-item-desc">Triggered emails, follow-up sequences, and workflows that run without you doing it manually — so the right message arrives at the right time, every time.</p>
+        <p class="wiring-item-desc">Triggered emails, reminders, and follow-up sequences that run without you doing every step.</p>
       </div>
       <div class="wiring-item">
         <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Integrations</span></div>
-        <p class="wiring-item-desc">Connecting your tools so your booking system, CRM, and website actually talk to each other. No more copying information between platforms or things falling through the cracks.</p>
+        <p class="wiring-item-desc">Connecting the tools you already use — website, forms, booking, email, CRM — so they share information instead of creating more admin.</p>
       </div>
       <div class="wiring-item">
-        <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">AI implementation</span></div>
-        <p class="wiring-item-desc">Practical AI tools built into your workflow — smart responses, automated sorting, time-saving systems that actually work for the way your business runs.</p>
+        <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Practical AI support</span></div>
+        <p class="wiring-item-desc">Useful AI built into the way your business actually runs, from sorting and drafting to simple systems that save time without making things feel less human.</p>
       </div>
       <div class="wiring-item">
         <div class="wiring-item-header"><span class="wiring-dot"></span><span class="wiring-item-name">Systems audit</span></div>
-        <p class="wiring-item-desc">A clear look at what you are running, what is redundant, what is broken, and what you actually need — so you stop paying for tools that are not doing their job.</p>
+        <p class="wiring-item-desc">A clear look at what you are using: what helps, what is redundant, and what is quietly making the day harder than it needs to be.</p>
       </div>
     </div>
   </div>
@@ -377,8 +399,8 @@ ul { list-style: none; }
 <!-- BRIDGE 2→3 -->
 <div class="act-bridge">
   <div class="container">
-    <p class="act-bridge-text">Once everything is working, here is what you can build.</p>
-    <p class="act-bridge-sub">When the experience is solid and the systems are right, the rest of your marketing can actually do its job.</p>
+    <p class="act-bridge-text">When more people find you, they should find something ready for them.</p>
+    <p class="act-bridge-sub">When the website, words, follow-up, and systems work together, marketing can do more than send people your way.</p>
   </div>
 </div>
 
@@ -391,15 +413,15 @@ ul { list-style: none; }
     </div>
     <div class="foundation-inner">
       <div class="foundation-left">
-        <h2>Once the foundation is solid.</h2>
-        <p>We are not anti-marketing. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. But none of that does its job if the experience behind it is unclear, out of date, or disconnected from the business you have built.</p>
-        <p>So we start with the foundation. Once it is where it needs to be, here is what makes sense next.</p>
+        <h2>Build from there.</h2>
+        <p>We are not anti-marketing. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. We just care about where that attention lands.</p>
+        <p>When everything works together, marketing can help people understand the business, trust what they see, and take the next step with confidence. From there, here is what makes sense next.</p>
       </div>
       <div>
         <div class="foundation-list">
           <div class="foundation-item"><span class="foundation-item-name">Social media strategy</span><span class="foundation-item-desc">A social presence that reflects the business, not just posts to fill the feed.</span></div>
           <div class="foundation-item"><span class="foundation-item-name">Email campaigns</span><span class="foundation-item-desc">Emails that work because the voice is right, the offer is clear, and the next step makes sense.</span></div>
-          <div class="foundation-item"><span class="foundation-item-name">Launch campaigns</span><span class="foundation-item-desc">When you are ready to share something new, we help shape the message and bring it to the right people.</span></div>
+          <div class="foundation-item"><span class="foundation-item-name">Launch campaigns</span><span class="foundation-item-desc">When you have something new to share, we shape the message and bring it to the right people.</span></div>
           <div class="foundation-item"><span class="foundation-item-name">Seasonal campaigns</span><span class="foundation-item-desc">Timely, on-brand campaigns that give people a reason to pay attention.</span></div>
           <div class="foundation-item"><span class="foundation-item-name">Ad copy & landing pages</span><span class="foundation-item-desc">Clear, focused copy that gives the campaign somewhere strong to send people.</span></div>
           <div class="foundation-item"><span class="foundation-item-name">Content strategy</span><span class="foundation-item-desc">A plan for what to say, when to say it, and where it belongs.</span></div>
@@ -417,9 +439,9 @@ ul { list-style: none; }
       <span class="drive-by-badge">Free</span>
       <div class="drive-by-text">
         <h3>The Drive-By</h3>
-        <p>Running a business means keeping a lot of plates spinning at once. If you are not sure which part of your customer-facing experience needs attention first, that is completely normal — and it is exactly what the Drive-By is for.</p>
-        <p>Send us your website and a couple of places your business shows up online. We will take a short, honest look and tell you what we see. No pitch, no pressure. Just another set of eyes helping you get a clearer picture of where things stand.</p>
-        <p style="font-style:italic; color:rgba(255,252,244,0.65); font-size:14px;">Grab a coffee and let's chat. The door is always open.</p>
+        <p>Running a business means keeping a lot of pieces in the air at once. You do not need to know which one needs attention first. That is what the Drive-By is for.</p>
+        <p>Send us your website and a couple of places your business shows up online. We will take a short, honest look and tell you what we see.</p>
+        <p style="font-style:italic; color:rgba(255,252,244,0.65); font-size:14px;">No pitch. No pressure. Just another set of eyes and a clearer place to begin.</p>
       </div>
       <a href="lets-talk.html" class="btn-outline-yellow">Request yours →</a>
     </div>
@@ -485,26 +507,26 @@ ul { list-style: none; }
     // Stops 1-2: wide shot, no person, car drives
     { dot: 6,    car: 6,    person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The First Look',   label: 'Stop 1 of 5',
-      copy: 'Voice, listings, bios, and short descriptions — the places people encounter your business before they ever reach your website. If this feels scattered or out of date, people form the wrong impression before you have had a chance to say anything.',
+      copy: 'Voice, listings, bios, and the places people meet your business before they ever reach your website. If this feels scattered or out of date, people form an impression before you have said a word.',
       img: 'daytimehero3.png' },
     { dot: 26.5, car: 26.5, person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The Window',       label: 'Stop 2 of 5',
-      copy: 'Your website, landing pages, and the path from interest to action. This is where most people land and decide. Clarity here turns attention into inquiries — and confusion sends people somewhere else.',
+      copy: 'Website copy, landing pages, forms, and the path from interest to action. This is where most people land and decide. Clarity turns attention into inquiries; confusion sends it elsewhere.',
       img: 'daytimehero3.png' },
     // Stop 3: wide shot, car parked, person at base of steps
     { dot: 47,   car: 40,   person: 50.5, personBottom: 75,  personScale: 1.15, personOn: true,  personIn: false, isCloseup: false, carVisible: true,
       name: 'The Welcome Mat',  label: 'Stop 3 of 5',
-      copy: 'The first 24 to 48 hours after someone reaches out — replies, welcome emails, and confirmations. This is the moment trust is made or lost. Most businesses underinvest here and never know it.',
+      copy: 'Replies, welcome emails, confirmations — the first day or two after someone reaches out. This is where trust is made or lost, and most businesses underinvest here without knowing it.',
       img: 'daytimehero3.png' },
     // Stop 4: CLOSEUP — baked-in image (guy on the stairs entering). No overlay person.
     { dot: 73.5, car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Open Door',    label: 'Stop 4 of 5',
-      copy: 'Newsletters, customer emails, and the communication rhythms that keep you present with people who already chose you. Staying connected is cheaper and warmer than starting over.',
+      copy: 'Newsletters, customer emails, and the rhythms that keep people connected and hearing from you at the right time. Staying in touch is warmer, and cheaper, than starting over.',
       img: 'guyonstairs.png' },
     // Stop 5: CLOSEUP — baked-in image (guy at the desk). No overlay person.
     { dot: 94,   car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Touch-Up',     label: 'Stop 5 of 5',
-      copy: 'Ongoing updates, seasonal refreshes, voice checks, and listing reviews. Everything drifts as the business changes. This is what keeps the outside current without it becoming another thing on your list.',
+      copy: 'Updates, seasonal refreshes, voice checks, and listing reviews. The outside drifts as the business changes — this is the steady care that keeps it current without becoming another thing on your list.',
       img: 'guyatdesk.png' }
   ];
 
