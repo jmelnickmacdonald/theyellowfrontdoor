@@ -67,10 +67,10 @@ ul { list-style: none; }
 .path-intro-note { display: block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); }
 
 /* PATH SCENE */
-.path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; }
-.path-scene-wrap { position: relative; background: var(--paper); }
-.path-scene-img { width: 100%; height: auto; display: block; }
-.path-road { position: relative; height: 96px; background: #f0ede8; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); overflow: hidden; }
+.path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; display: flex; flex-direction: column; }
+.path-scene-wrap { position: relative; background: var(--paper); line-height: 0; font-size: 0; }
+.path-scene-img { width: 100%; height: auto; display: block; vertical-align: bottom; margin-bottom: 0; }
+.path-road { position: relative; height: 96px; background: #f0ede8; border-top: 2px solid var(--stone); overflow: hidden; flex-shrink: 0; }
 .path-scene-img-open { display: none; }
 
 
