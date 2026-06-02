@@ -9,6 +9,7 @@
 <link rel="preload" as="image" href="guyonstairs.png">
 <link rel="preload" as="image" href="stop4.png">
 <link rel="preload" as="image" href="stop5.png">
+<link rel="preload" as="image" href="guygoingtocar.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 @font-face {
@@ -490,8 +491,9 @@ ul { list-style: none; }
       name: 'The Reception Desk', label: 'Stop 4 of 5',
       copy: 'What runs behind that first hello: email templates, automations, follow-up sequences, and the integrations that keep your tools talking to each other. A welcome email only lands if the wiring fires. We build the systems that make the experience work instead of quietly creating more work for you — and when it needs to go further, the kind of automation and AI that bigger operations are built on, we can take it there too.',
       img: 'stop4.png' },
-    // Stop 5: PULL BACK to wide street — sweeping/upkeep figure baked in. No overlay, no car.
-    { dot: 94,   car: 40,   person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: false,
+    // Stop 5: PULL BACK to wide street — green sweeper baked in. Navy guy (overlay) walks left to his car.
+    { dot: 94,   car: 30,   person: 38,   personBottom: 75,  personScale: 1.15, personOn: true,  personIn: false, isCloseup: false, carVisible: true,
+      personSrc: 'guygoingtocar.png',
       name: 'The Upkeep',       label: 'Stop 5 of 5',
       copy: 'Step back and look at the whole place. Listings drift, the site dates, the wiring needs checking, and the voice wanders as the business changes. This is the steady care that keeps all of it current — so the outside keeps up with the inside, without becoming another thing on your list.',
       img: 'stop5.png' }
