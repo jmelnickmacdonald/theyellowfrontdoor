@@ -126,6 +126,15 @@ ul { list-style: none; }
 .path-stop-sep { font-family: var(--f-head); font-size: 14px; color: var(--stone); line-height: 1; }
 .path-stop-name { font-family: var(--f-accent); font-size: clamp(34px, 4.2vw, 58px); line-height: 1.0; color: var(--ink); font-weight: normal; }
 .path-stop-copy { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; max-width: none; }
+.path-deeper { appearance: none; background: none; border: none; padding: 0; margin-top: 12px; cursor: pointer; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.path-deeper:hover { color: var(--ink); }
+.path-deeper-arrow { transition: transform 0.3s ease; font-size: 13px; }
+.path-deeper[aria-expanded="true"] .path-deeper-arrow { transform: rotate(180deg); }
+.path-stop-detail { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--stone); max-width: 760px; }
+.path-stop-detail p { font-size: 14px; line-height: 1.7; color: var(--ink); font-weight: 400; margin-bottom: 12px; }
+.path-stop-detail p:last-child { margin-bottom: 0; }
+.path-stop-detail .dd-eg { color: var(--slate); }
+.path-stop-detail .dd-eg span { font-weight: 700; color: var(--ink); }
 .path-controls { display: flex; gap: 10px; flex-wrap: wrap; align-self: end; padding-bottom: 2px; }
 .path-button { appearance: none; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 11px 18px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; white-space: nowrap; }
 .path-button:hover { background: var(--slate); border-color: var(--slate); }
@@ -342,6 +351,8 @@ ul { list-style: none; }
             <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
           </div>
           <p class="path-stop-copy" id="path-stop-copy">Listings, bios, and the places people meet you before your website. If it is scattered or out of date, they judge before you have said a word.</p>
+          <button type="button" class="path-deeper" id="path-deeper" aria-expanded="false" aria-controls="path-stop-detail">Go deeper <span class="path-deeper-arrow" aria-hidden="true">↓</span></button>
+          <div class="path-stop-detail" id="path-stop-detail" hidden></div>
           <div class="path-tabs" id="path-tabs">
             <button type="button" class="path-tab active" data-step="0">First Look</button>
             <button type="button" class="path-tab" data-step="1">Window</button>
@@ -475,27 +486,42 @@ ul { list-style: none; }
     { dot: 6,    car: 6,    person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The First Look',   label: 'Stop 1 of 5',
       copy: 'Listings, bios, and the places people meet you before your website. If it is scattered or out of date, they judge before you have said a word.',
+      detail: '<p>Before anyone visits your website, they have already met you. A Google listing, a social bio, a directory entry someone wrote years ago. By the time they reach your site, they have half made up their mind, from scattered pieces you are probably not watching.</p>'
+            + '<p>We find everywhere you show up, sort out what is wrong or stale, and decide what that first impression should actually say. That is strategy before it is writing: working out what matters about your business, then putting it in words that sound like you and read clearly.</p>'
+            + '<p class="dd-eg"><span>This might look like:</span> claiming and fixing your Google profile, rewriting the bios that show up across your accounts, getting your name and details consistent everywhere, or a single clear line that explains what you do in plain language.</p>',
       img: 'street_wide.png' },
     // Stop 2: wide shot, car mid-left, no person
     { dot: 26.5, car: 26.5, person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The Window',       label: 'Stop 2 of 5',
       copy: 'Your website and the path from interest to action. This is where people decide. Clarity turns attention into inquiries; confusion sends it elsewhere.',
+      detail: '<p>Your website is where most people decide. They land, they scan, and within seconds they are either leaning in or backing out. A good one does not just look right. It thinks clearly, says the right things in the right order, and makes the next step obvious.</p>'
+            + '<p>We work out what your site needs to say and in what order, then write it and shape how it looks. This is the heart of what we do: taking a business that knows itself but cannot quite explain itself, and making it clear. Strategy, structure, words that sound like a person, and a look that matches.</p>'
+            + '<p class="dd-eg"><span>This might look like:</span> a homepage that finally explains what you do, rewritten service pages, a clearer path to getting in touch, a logo or visual refresh, a colour and type system that holds together, or a full voice and messaging pass.</p>',
       img: 'street_wide.png' },
     // Stop 3: CLOSEUP — baked-in image (guy on the stairs, entering). No overlay person.
     { dot: 47,   car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Open Door',    label: 'Stop 3 of 5',
       copy: 'First contact: the reply, the welcome, the first day or two after someone reaches out. A warm, clear hello here makes all the difference.',
+      detail: '<p>The moment someone reaches out is the most fragile one you have got. They have decided to trust you a little. What happens in the next day or two either confirms that or quietly undoes it.</p>'
+            + '<p>We write the replies, welcomes, and confirmations so they are warm, clear, and unmistakably you, and we make sure they actually go out, on time, every time, without you scrambling.</p>'
+            + '<p class="dd-eg"><span>This might look like:</span> a welcome email that does not sound like a robot, booking and enquiry confirmations worth reading, a tidy set of replies for the questions you get most, or a first-week sequence that makes new customers feel looked after.</p>',
       img: 'guyonstairs.png' },
     // Stop 4: CLOSEUP — baked-in image (guy at the desk). No overlay person. Absorbs the old systems/wiring act.
     { dot: 73.5, car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Reception Desk', label: 'Stop 4 of 5',
       copy: 'What runs behind that first hello: templates, automations, follow-ups, and the integrations that keep your tools talking. We build the systems so the experience works without making more work for you.',
+      detail: '<p>This is the part nobody sees and everyone feels. The systems behind the experience, the wiring that makes the welcome email send, the booking confirm, the follow-up happen without living in your head.</p>'
+            + '<p>We set up the practical things first: booking confirmations that send themselves, review requests that go out on their own, intake forms that route to the right place, follow-ups that do not depend on you remembering. And when you are ready for more, this is where Chris comes in: custom AI tools and systems built for how your business actually runs. There is no ceiling we would reach before you did.</p>'
+            + '<p class="dd-eg"><span>This might look like:</span> connecting your booking system to your email, automatic review requests after a visit, an inbox that sorts itself, forms that drop straight into the right list, or a deeper custom build when the business calls for it.</p>',
       img: 'stop4.png' },
     // Stop 5: PULL BACK to wide street — green sweeper baked in. Navy guy (overlay) walks left to his car.
     { dot: 94,   car: 26.5, person: 36,   personBottom: 60,  personScale: 0.85, personOn: true,  personIn: false, isCloseup: false, carVisible: true,
       personSrc: 'guygoingtocar.png',
       name: 'The Upkeep',       label: 'Stop 5 of 5',
       copy: 'Listings drift, the site dates, the voice wanders as the business changes. This is the steady care that keeps it all current — without becoming another thing on your list.',
+      detail: '<p>A business does not sit still, so neither should the things that represent it. Hours change, offerings shift, the voice that fit last year sounds slightly off now. Left alone, the outside slowly drifts from the inside.</p>'
+            + '<p>We keep the whole picture current: refreshing copy, catching what has drifted, updating what has changed, on a steady rhythm so it never piles up into a big overdue project.</p>'
+            + '<p class="dd-eg"><span>This might look like:</span> a regular check of your listings and site, seasonal updates to copy and offers, a refresh when something changes, or a standing monthly look so nothing quietly goes stale.</p>',
       img: 'stop5.png' }
   ];
 
@@ -507,6 +533,8 @@ ul { list-style: none; }
   var stopCount = document.getElementById('path-stop-count');
   var stopName  = document.getElementById('path-stop-name');
   var stopCopy  = document.getElementById('path-stop-copy');
+  var stopDetail = document.getElementById('path-stop-detail');
+  var deeperBtn  = document.getElementById('path-deeper');
   var nextBtn   = document.getElementById('path-next');
   var prevBtn   = document.getElementById('path-prev');
   var tabs      = document.querySelectorAll('.path-tab');
@@ -596,6 +624,11 @@ ul { list-style: none; }
     stopName.textContent  = s.name;
     stopCopy.textContent  = s.copy;
 
+    // Deep-dive detail: fill it, and reset to collapsed each time the stop changes
+    stopDetail.innerHTML = s.detail || '';
+    stopDetail.hidden = true;
+    deeperBtn.setAttribute('aria-expanded', 'false');
+
     // Tabs
     tabs.forEach(function(t, i){ t.classList.toggle('active', i === step); });
 
@@ -612,6 +645,12 @@ ul { list-style: none; }
   prevBtn.addEventListener('click', function(){ if (step > 0) { step--; render(); } });
   tabs.forEach(function(t){
     t.addEventListener('click', function(){ step = Number(t.getAttribute('data-step')); render(); });
+  });
+
+  deeperBtn.addEventListener('click', function(){
+    var open = stopDetail.hidden;
+    stopDetail.hidden = !open;
+    deeperBtn.setAttribute('aria-expanded', String(open));
   });
 
   render();
