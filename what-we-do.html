@@ -125,7 +125,7 @@ ul { list-style: none; }
 .path-stop-label { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
 .path-stop-sep { font-family: var(--f-head); font-size: 14px; color: var(--stone); line-height: 1; }
 .path-stop-name { font-family: var(--f-accent); font-size: clamp(34px, 4.2vw, 58px); line-height: 1.0; color: var(--ink); font-weight: normal; }
-.path-stop-copy { font-size: 16px; line-height: 1.8; color: var(--ink); font-weight: 400; max-width: none; }
+.path-stop-copy { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; max-width: none; }
 .path-controls { display: flex; gap: 10px; flex-wrap: wrap; align-self: end; padding-bottom: 2px; }
 .path-button { appearance: none; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 11px 18px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; white-space: nowrap; }
 .path-button:hover { background: var(--slate); border-color: var(--slate); }
@@ -341,7 +341,7 @@ ul { list-style: none; }
             <span class="path-stop-sep" aria-hidden="true">·</span>
             <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
           </div>
-          <p class="path-stop-copy" id="path-stop-copy">Voice, listings, bios, and the places people meet your business before they ever reach your website. If this feels scattered or out of date, people form an impression before you have said a word.</p>
+          <p class="path-stop-copy" id="path-stop-copy">Listings, bios, and the places people meet you before your website. If it is scattered or out of date, they judge before you have said a word.</p>
           <div class="path-tabs" id="path-tabs">
             <button type="button" class="path-tab active" data-step="0">First Look</button>
             <button type="button" class="path-tab" data-step="1">Window</button>
@@ -474,28 +474,28 @@ ul { list-style: none; }
     // Stop 1: wide shot, car far left, no person
     { dot: 6,    car: 6,    person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The First Look',   label: 'Stop 1 of 5',
-      copy: 'Voice, listings, bios, and the places people meet your business before they ever reach your website. If this feels scattered or out of date, people form an impression before you have said a word.',
+      copy: 'Listings, bios, and the places people meet you before your website. If it is scattered or out of date, they judge before you have said a word.',
       img: 'street_wide.png' },
     // Stop 2: wide shot, car mid-left, no person
     { dot: 26.5, car: 26.5, person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The Window',       label: 'Stop 2 of 5',
-      copy: 'Your website and the path from interest to action. This is where most people land and decide whether to come closer. Clarity here turns attention into inquiries; confusion sends it elsewhere.',
+      copy: 'Your website and the path from interest to action. This is where people decide. Clarity turns attention into inquiries; confusion sends it elsewhere.',
       img: 'street_wide.png' },
     // Stop 3: CLOSEUP — baked-in image (guy on the stairs, entering). No overlay person.
     { dot: 47,   car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Open Door',    label: 'Stop 3 of 5',
-      copy: 'First contact: the reply, the welcome, the confirmation, the first day or two after someone reaches out. They are stepping through the door, and a warm, clear hello here makes all the difference.',
+      copy: 'First contact: the reply, the welcome, the first day or two after someone reaches out. A warm, clear hello here makes all the difference.',
       img: 'guyonstairs.png' },
     // Stop 4: CLOSEUP — baked-in image (guy at the desk). No overlay person. Absorbs the old systems/wiring act.
     { dot: 73.5, car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Reception Desk', label: 'Stop 4 of 5',
-      copy: 'What runs behind that first hello: email templates, automations, follow-up sequences, and the integrations that keep your tools talking to each other. A welcome email only lands if the wiring fires. We build the systems that make the experience work instead of quietly creating more work for you — and when it needs to go further, the kind of automation and AI that bigger operations are built on, we can take it there too.',
+      copy: 'What runs behind that first hello: templates, automations, follow-ups, and the integrations that keep your tools talking. We build the systems so the experience works without making more work for you.',
       img: 'stop4.png' },
     // Stop 5: PULL BACK to wide street — green sweeper baked in. Navy guy (overlay) walks left to his car.
-    { dot: 94,   car: 30,   person: 38,   personBottom: 75,  personScale: 1.15, personOn: true,  personIn: false, isCloseup: false, carVisible: true,
+    { dot: 94,   car: 26.5, person: 36,   personBottom: 60,  personScale: 0.85, personOn: true,  personIn: false, isCloseup: false, carVisible: true,
       personSrc: 'guygoingtocar.png',
       name: 'The Upkeep',       label: 'Stop 5 of 5',
-      copy: 'Step back and look at the whole place. Listings drift, the site dates, the wiring needs checking, and the voice wanders as the business changes. This is the steady care that keeps all of it current — so the outside keeps up with the inside, without becoming another thing on your list.',
+      copy: 'Listings drift, the site dates, the voice wanders as the business changes. This is the steady care that keeps it all current — without becoming another thing on your list.',
       img: 'stop5.png' }
   ];
 
