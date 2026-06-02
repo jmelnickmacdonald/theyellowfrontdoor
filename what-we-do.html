@@ -50,7 +50,7 @@ ul { list-style: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* ACT LABELS */
-.act-label { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.act-label { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
 .act-number { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; flex-shrink: 0; }
 .act-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
 
@@ -60,22 +60,22 @@ ul { list-style: none; }
 .act-bridge-sub { font-size: 15px; color: var(--stone); font-weight: 400; margin-top: 14px; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.75; }
 
 /* PAGE INTRO — sits above the path */
-.intro-section { background: var(--paper); padding: clamp(56px, 8vw, 96px) 0 clamp(20px, 3vw, 32px); margin-top: 72px; }
-.intro-inner { max-width: 820px; }
-.intro-lead { font-family: var(--f-head); font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 24px; }
-.intro-section p { font-size: 17px; line-height: 1.85; color: var(--ink); font-weight: 400; margin-bottom: 18px; }
+.intro-section { background: var(--paper); padding: clamp(40px, 6vw, 72px) 0 clamp(16px, 2.5vw, 28px); margin-top: 72px; }
+.intro-inner { max-width: 760px; }
+.intro-lead { font-family: var(--f-head); font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 18px; }
+.intro-section p { font-size: 15px; line-height: 1.65; color: var(--ink); font-weight: 400; margin-bottom: 13px; }
 .intro-section p:last-of-type { margin-bottom: 0; }
 .intro-emphasis { font-weight: 600; }
 
 /* PATH SECTION — ACT 1 */
-.path-section { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; }
-.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: start; margin-bottom: 32px; }
+.path-section { background: var(--paper); padding: clamp(28px, 4vw, 44px) 0; }
+.path-header { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(32px, 7vw, 88px); align-items: end; margin-bottom: 24px; }
 .path-page-title { margin-bottom: 0; line-height: 1; }
-.path-title-main { display: block; font-family: var(--f-head); font-size: clamp(36px, 5vw, 64px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 4px; }
-.path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(28px, 3.8vw, 52px); font-weight: normal; color: var(--slate); line-height: 1.2; }
+.path-title-main { display: block; font-family: var(--f-head); font-size: clamp(32px, 4vw, 50px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.04; margin-bottom: 2px; }
+.path-title-accent { display: block; font-family: var(--f-accent); font-size: clamp(24px, 3vw, 40px); font-weight: normal; color: var(--slate); line-height: 1.15; }
 .path-intro-block { display: flex; flex-direction: column; justify-content: flex-end; }
-.path-intro { font-size: 17px; line-height: 1.85; color: var(--ink); font-weight: 400; }
-.path-intro-note { display: block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); }
+.path-intro { font-size: 16px; line-height: 1.7; color: var(--ink); font-weight: 400; }
+.path-intro-note { display: block; margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); }
 
 /* ═══════════════════════════════════════
    THE INTERACTIVE PATH — CLEAN ARCHITECTURE
@@ -225,9 +225,15 @@ ul { list-style: none; }
 /* SHORT SCREENS — trim vertical space so the whole path experience fits without scrolling.
    Targets laptops ~800px tall and shorter. Shrinks the image cap, header, padding and act label. */
 @media (max-height: 860px) {
-  .path-section { padding: 22px 0; }
-  .path-section .act-label { margin-bottom: 16px; }
-  .path-header { margin-bottom: 16px; }
+  .intro-section { padding: 28px 0 12px; }
+  .intro-lead { font-size: clamp(20px, 2.6vw, 28px); margin-bottom: 14px; }
+  .intro-section p { font-size: 14px; line-height: 1.55; margin-bottom: 10px; }
+  .path-section { padding: 18px 0; }
+  .path-section .act-label { margin-bottom: 14px; }
+  .path-header { margin-bottom: 14px; }
+  .path-title-main { font-size: clamp(28px, 3.6vw, 42px); }
+  .path-title-accent { font-size: clamp(22px, 2.8vw, 34px); }
+  .path-intro { font-size: 15px; line-height: 1.6; }
   .path-scene-wrap { max-height: 38vh; }
   .path-scene-img,
   .path-scene-img.is-closeup { height: 38vh; }
