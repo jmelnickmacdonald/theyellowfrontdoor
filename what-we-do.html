@@ -78,11 +78,11 @@ ul { list-style: none; }
 .path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; }
 
 /* SCENE — image only, no overlays */
-.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; }
+.path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; }
 .path-scene-img { width: 100%; height: auto; display: block; vertical-align: bottom; }
 
 /* ROAD STRIP — sits flush below illustration */
-.path-road { position: relative; width: 100%; height: 100px; background: var(--road); overflow: hidden; border-top: 2px solid rgba(19,36,71,0.12); border-bottom: 1px solid var(--stone); }
+.path-road { position: relative; width: 100%; height: 70px; background: var(--paper); overflow: visible; }
 /* Progress line — vertically centered in road strip */
 .path-line-track { position: absolute; left: 6%; right: 6%; top: 50%; transform: translateY(-50%); height: 2px; background: rgba(19,36,71,0.2); z-index: 2; }
 .path-line-progress { position: absolute; left: 6%; top: 50%; transform: translateY(-50%); height: 2px; width: 0%; background: var(--yellow); transition: width 700ms ease; z-index: 3; }
@@ -91,12 +91,12 @@ ul { list-style: none; }
 .path-stop-dot.active { background: var(--yellow); border-color: var(--yellow); }
 
 /* CAR — drives along the road strip */
-.scene-car { position: absolute; bottom: 4px; left: 8%; width: clamp(74px, 7vw, 100px); transform: translateX(-50%); transition: left 700ms ease, opacity 400ms ease; z-index: 6; }
+.scene-car { position: absolute; bottom: 22px; left: 8%; width: clamp(110px, 11vw, 150px); transform: translateX(-50%); transition: left 700ms ease, opacity 400ms ease; z-index: 6; }
 
 /* PERSON — appears at stop 3, stays through 4, fades at 5 */
 .scene-person { position: absolute; bottom: 4px; left: 51%; width: clamp(72px, 7vw, 96px); transform: translateX(-50%); opacity: 0; transition: opacity 400ms ease, transform 600ms ease; z-index: 7; }
 .scene-person.is-visible { opacity: 1; }
-.scene-person.is-entering { opacity: 0.18; transform: translateX(-50%) translateY(-8px) scale(0.78); }
+.scene-person.is-entering { opacity: 0; transform: translateX(-50%) translateY(-12px) scale(0.7); }
 
 /* PATH PANEL */
 .path-panel { padding: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(24px, 4vw, 56px); align-items: end; }
@@ -189,7 +189,7 @@ ul { list-style: none; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-round-logo { justify-content: flex-start; }
   .drive-by-inner { grid-template-columns: 1fr; gap: 20px; }
-  .path-road { height: 80px; }
+  .path-road { height: 56px; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
@@ -445,21 +445,26 @@ ul { list-style: none; }
   // Image swaps at stop 4 (index 3)
 
   var stops = [
-    { dot: 6,    car: 6,    name: 'The First Look',   label: 'Stop 1 of 5',
+    { dot: 6,    car: 6,    person: 0,   personOn: false, personIn: false,
+      name: 'The First Look',   label: 'Stop 1 of 5',
       copy: 'Voice, listings, bios, and short descriptions — the places people encounter your business before they ever reach your website. If this feels scattered or out of date, people form the wrong impression before you have had a chance to say anything.',
-      img: 'daytimehero3.png', person: false, entering: false },
-    { dot: 26.5, car: 26.5, name: 'The Window',       label: 'Stop 2 of 5',
+      img: 'daytimehero3.png' },
+    { dot: 26.5, car: 26.5, person: 0,   personOn: false, personIn: false,
+      name: 'The Window',       label: 'Stop 2 of 5',
       copy: 'Your website, landing pages, and the path from interest to action. This is where most people land and decide. Clarity here turns attention into inquiries — and confusion sends people somewhere else.',
-      img: 'daytimehero3.png', person: false, entering: false },
-    { dot: 47,   car: 42,   name: 'The Welcome Mat',  label: 'Stop 3 of 5',
+      img: 'daytimehero3.png' },
+    { dot: 47,   car: 40,   person: 46,  personOn: true,  personIn: false,
+      name: 'The Welcome Mat',  label: 'Stop 3 of 5',
       copy: 'The first 24 to 48 hours after someone reaches out — replies, welcome emails, and confirmations. This is the moment trust is made or lost. Most businesses underinvest here and never know it.',
-      img: 'daytimehero3.png', person: true, entering: false },
-    { dot: 73.5, car: 42,   name: 'The Open Door',    label: 'Stop 4 of 5',
+      img: 'daytimehero3.png' },
+    { dot: 73.5, car: 40,   person: 51,  personOn: true,  personIn: false,
+      name: 'The Open Door',    label: 'Stop 4 of 5',
       copy: 'Newsletters, customer emails, and the communication rhythms that keep you present with people who already chose you. Staying connected is cheaper and warmer than starting over.',
-      img: 'daytimeheroopendoor.png', person: true, entering: false },
-    { dot: 94,   car: 42,   name: 'The Touch-Up',     label: 'Stop 5 of 5',
+      img: 'daytimeheroopendoor.png' },
+    { dot: 94,   car: 40,   person: 51,  personOn: true,  personIn: true,
+      name: 'The Touch-Up',     label: 'Stop 5 of 5',
       copy: 'Ongoing updates, seasonal refreshes, voice checks, and listing reviews. Everything drifts as the business changes. This is what keeps the outside current without it becoming another thing on your list.',
-      img: 'daytimeheroopendoor.png', person: true, entering: true }
+      img: 'daytimeheroopendoor.png' }
   ];
 
   var step = 0;
@@ -491,13 +496,14 @@ ul { list-style: none; }
     car.style.left = s.car + '%';
 
     // Person
-    if (s.person) {
+    if (s.personOn) {
       person.classList.add('is-visible');
-      person.style.left = '51%';
+      person.style.left = s.person + '%';
     } else {
       person.classList.remove('is-visible');
     }
-    person.classList.toggle('is-entering', s.entering);
+    // Person inside (stop 5) — fully fade out
+    person.classList.toggle('is-entering', s.personIn);
 
     // Progress line — from 6% to current dot position
     var pct = s.dot - 6;
