@@ -79,6 +79,132 @@ ul { list-style: none; }
 .case-study-visual-placeholder .placeholder-name { font-family: var(--f-accent); font-size: 30px; color: var(--ink); margin-bottom: 8px; }
 .case-study-visual-placeholder p { font-size: 11px; color: var(--slate); letter-spacing: 0.12em; text-transform: uppercase; }
 
+
+
+/* FEATURED FIN & OAK CASE STUDY */
+.case-study.featured-case { position: relative; }
+.case-study.featured-case::before {
+  content: "";
+  position: absolute;
+  inset: -28px -28px auto auto;
+  width: 86px;
+  height: 86px;
+  background: var(--yellow);
+  border-radius: 50%;
+  opacity: 0.35;
+  z-index: 0;
+}
+.case-study.featured-case .case-study-inner { position: relative; z-index: 1; }
+.case-study-visual.fin-oak-cover {
+  background: #074F6D;
+  border: 1px solid #E0D5BE;
+  padding: clamp(14px, 2vw, 22px);
+  box-shadow: 0 22px 60px rgba(19,36,71,0.14);
+}
+.case-study-visual.fin-oak-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #FFFDF9;
+  border-radius: 4px;
+}
+.case-study-mini-note {
+  font-size: 13px !important;
+  color: var(--slate) !important;
+  line-height: 1.65 !important;
+  margin-top: 14px;
+  max-width: 520px;
+}
+.fin-proof-panel {
+  margin-top: clamp(34px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: 0.95fr 1.35fr;
+  background: #FFFDF9;
+  border: 1px solid var(--stone);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.fin-proof-heading {
+  background: #074F6D;
+  color: #FFFDF9;
+  padding: clamp(28px, 4vw, 42px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+}
+.fin-proof-heading .small-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #C5CCB8;
+  margin-bottom: 18px;
+}
+.fin-proof-heading h3 {
+  font-family: var(--f-head);
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.fin-proof-heading p {
+  color: rgba(255,253,249,0.84);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-top: 22px;
+}
+.fin-proof-content {
+  padding: clamp(26px, 4vw, 42px);
+  display: grid;
+  gap: 22px;
+}
+.fin-proof-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--stone);
+}
+.fin-proof-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.fin-proof-row h4 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8B6F47;
+  line-height: 1.5;
+}
+.fin-proof-row p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0;
+}
+.fin-proof-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.fin-proof-list span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: #F1E9D6;
+  border: 1px solid #E0D5BE;
+  padding: 7px 10px;
+}
+@media (max-width: 860px) {
+  .fin-proof-panel { grid-template-columns: 1fr; }
+  .fin-proof-heading { min-height: auto; }
+  .fin-proof-row { grid-template-columns: 1fr; gap: 8px; }
+}
+
 /* ASSET LIBRARY */
 .asset-library { background: var(--paper-mid); }
 .asset-intro { max-width: 600px; }
@@ -176,26 +302,55 @@ ul { list-style: none; }
   <div class="container">
 
     <!-- Fin & Oak -->
-    <div class="case-study">
+    <div class="case-study featured-case">
       <div class="case-study-inner">
         <div class="case-study-body">
           <p class="case-study-label">Featured project</p>
           <h2 class="case-study-name">Fin &amp; Oak Bark Bakery</h2>
           <p class="case-study-type">Brand identity · Website · Voice · In-market system</p>
-          <p>A mom-and-daughter pet treat bakery launching in the Annapolis Valley, built from the ground up with the whole in-market experience in mind. The brief was clear: warm, honest, a little chaotic in the best possible way, and nothing that looks like it came from a template.</p>
-          <p>The work covered the brand identity, the brand book, the full website, the voice and tone, and the customer-facing communications. The result sounds and feels exactly like the business behind it — because that's the only measure that matters.</p>
+          <p>A mom-and-daughter pet treat bakery launching in the Annapolis Valley, built from the ground up with the whole in-market experience in mind. The brief was clear: warm, honest, a little chaotic in the best possible way, and nothing that looked like it came from a template.</p>
+          <p>The work covered the brand identity, brand book, website, voice and tone, and customer-facing communications. The result feels like the people behind it because every choice came back to the same standard: real ingredients, spoiled regulars, and a brand that sounds like a specific family in a specific kitchen.</p>
           <div class="case-study-tags">
             <span class="case-study-tag">Brand book</span>
             <span class="case-study-tag">Website</span>
             <span class="case-study-tag">Voice + tone</span>
-            <span class="case-study-tag">Customer communications</span>
+            <span class="case-study-tag">Launch system</span>
           </div>
           <a href="https://finandoak.ca" target="_blank" rel="noopener" class="case-study-link">Visit the site →</a>
+          <p class="case-study-mini-note">Cover image should live in the same folder as this page as <strong>finandoak.png</strong>. If it is in an images folder, change the image path to <strong>images/finandoak.png</strong>.</p>
         </div>
-        <div class="case-study-visual">
-          <div class="case-study-visual-placeholder">
-            <p class="placeholder-name">Fin &amp; Oak</p>
-            <p>finandoak.ca</p>
+        <div class="case-study-visual fin-oak-cover">
+          <img src="finandoak.png" alt="Fin &amp; Oak Bark Bakery brand cover">
+        </div>
+      </div>
+
+      <div class="fin-proof-panel" aria-label="Fin and Oak project proof details">
+        <div class="fin-proof-heading">
+          <div>
+            <p class="small-label">Why this belongs here</p>
+            <h3>A small brand system with enough structure to keep the charm intact.</h3>
+          </div>
+          <p>The proof is not just that the page looks good. It is that the same voice, rules, visuals, and customer experience can carry from the website to the bags, market table, thank-you notes, and future product drops.</p>
+        </div>
+        <div class="fin-proof-content">
+          <div class="fin-proof-row">
+            <h4>The problem</h4>
+            <p>Small brands drift fast when the rules live in one person's head. Fin &amp; Oak needed a brand that felt handmade and personal without becoming messy, inconsistent, or overly cute.</p>
+          </div>
+          <div class="fin-proof-row">
+            <h4>The work</h4>
+            <div class="fin-proof-list">
+              <span>Brand identity</span>
+              <span>Brand book</span>
+              <span>Website build</span>
+              <span>Voice guide</span>
+              <span>Product language</span>
+              <span>Customer touchpoints</span>
+            </div>
+          </div>
+          <div class="fin-proof-row">
+            <h4>The result</h4>
+            <p>A launch-ready brand that has clear rules, a distinct voice, and enough flexibility to grow. It feels warm, dry, specific, and honest, while still giving the business a practical system to use again and again.</p>
           </div>
         </div>
       </div>
