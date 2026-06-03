@@ -121,10 +121,8 @@ ul { list-style: none; }
 
 /* PATH PANEL */
 .path-panel { padding: clamp(20px, 3vw, 32px) clamp(28px, 4vw, 48px) clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(24px, 4vw, 56px); align-items: start; }
-.path-stop-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
-.path-stop-label { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
-.path-stop-sep { font-family: var(--f-head); font-size: 14px; color: var(--stone); line-height: 1; }
-.path-stop-name { font-family: var(--f-accent); font-size: clamp(34px, 4.2vw, 58px); line-height: 1.0; color: var(--ink); font-weight: normal; }
+.path-stop-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+.path-stop-name { font-family: var(--f-accent); font-size: clamp(26px, 3vw, 38px); line-height: 1.05; color: var(--ink); font-weight: normal; }
 .path-stop-copy { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; max-width: none; }
 .path-deeper { appearance: none; background: none; border: none; padding: 0; margin-top: 12px; cursor: pointer; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
 .path-deeper:hover { color: var(--ink); }
@@ -263,7 +261,7 @@ ul { list-style: none; }
   .path-scene-img,
   .path-scene-img.is-closeup { height: 34vh; }
   .path-stop-head { margin-bottom: 8px; gap: 10px; }
-  .path-stop-name { font-size: clamp(26px, 3.5vw, 40px); }
+  .path-stop-name { font-size: clamp(24px, 2.8vw, 32px); }
   .path-stop-copy { font-size: 14px; line-height: 1.55; }
   .path-panel { padding: 14px clamp(20px,4vw,36px); }
 }
@@ -346,8 +344,6 @@ ul { list-style: none; }
       <div class="path-panel">
         <div>
           <div class="path-stop-head">
-            <span class="path-stop-label" id="path-stop-count">Stop 1 of 5</span>
-            <span class="path-stop-sep" aria-hidden="true">·</span>
             <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
           </div>
           <p class="path-stop-copy" id="path-stop-copy">Listings, bios, and the places people meet you before your website. If it is scattered or out of date, they judge before you have said a word.</p>
@@ -378,8 +374,8 @@ ul { list-style: none; }
 <!-- BRIDGE → BUILD FROM THERE -->
 <div class="act-bridge">
   <div class="container">
-    <p class="act-bridge-text">When more people find you, they should find something ready for them.</p>
-    <p class="act-bridge-sub">When the experience and the systems behind it are working together, marketing can do more than send people your way.</p>
+    <p class="act-bridge-text">You've made it this far, and you might be wondering where the marketing is.</p>
+    <p class="act-bridge-sub">We're not anti-marketing — far from it.</p>
   </div>
 </div>
 
@@ -392,8 +388,8 @@ ul { list-style: none; }
     <div class="foundation-inner">
       <div class="foundation-left">
         <h2>Build from there.</h2>
-        <p>We are not anti-marketing. We want your ads to work, your content to feel like you, and your campaigns to bring the right people closer. We just care about where that attention lands.</p>
-        <p>When everything works together, marketing can help people understand the business, trust what they see, and take the next step with confidence. From there, here is what makes sense next.</p>
+        <p>We want your marketing to convert. That's the point of all of it. But spending on ads and campaigns before the experience behind them is ready is how good businesses end up frustrated — paying to send people toward something that isn't set up to catch them.</p>
+        <p>So we get the foundation right first. Once it is, here's where we'd take things next.</p>
       </div>
       <div>
         <div class="foundation-list">
@@ -530,7 +526,6 @@ ul { list-style: none; }
   var car       = document.getElementById('scene-car');
   var person    = document.getElementById('scene-person');
   var progress  = document.getElementById('path-line-progress');
-  var stopCount = document.getElementById('path-stop-count');
   var stopName  = document.getElementById('path-stop-name');
   var stopCopy  = document.getElementById('path-stop-copy');
   var stopDetail = document.getElementById('path-stop-detail');
@@ -620,7 +615,6 @@ ul { list-style: none; }
     dots.forEach(function(d, i){ d.classList.toggle('active', i <= step); });
 
     // Text
-    stopCount.textContent = s.label;
     stopName.textContent  = s.name;
     stopCopy.textContent  = s.copy;
 
