@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Doorstep — The Yellow Front Door</title>
+<meta name="description" content="Notes, stories, and a few useful things from The Yellow Front Door — on the experience people meet once they find a small business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: block;
+}
+:root {
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
+  --navy: #132447; --road: #ede8dc;
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
+  --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(56px, 8vw, 96px);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
+.divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
+.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
+.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo img { height: 56px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-links a.active { font-weight: 600; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta:hover { background: var(--brass) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+
+/* HUB HEADER */
+.hub-header { padding: calc(72px + clamp(48px,7vw,84px)) 0 clamp(36px,5vw,52px); background: var(--paper-mid); border-bottom: 1px solid var(--stone); }
+.hub-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.hub-eyebrow-tag { background: var(--navy); color: var(--yellow); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; padding: 6px 14px; }
+.hub-eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
+.hub-title { font-family: var(--f-accent); font-size: clamp(44px, 7vw, 76px); color: var(--ink); line-height: 1; margin-bottom: 16px; }
+.hub-sub { font-size: clamp(16px,1.8vw,18px); color: var(--ink); max-width: 560px; line-height: 1.6; }
+
+/* POST */
+.post { padding: clamp(48px,7vw,80px) 0; }
+.post-inner { max-width: 720px; margin: 0 auto; }
+.post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.post-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); }
+.post-dot { width: 5px; height: 5px; background: var(--yellow); border-radius: 50%; }
+.post-date { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); }
+.post-title { font-family: var(--f-head); font-size: clamp(30px,4.4vw,46px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 28px; }
+.post-title .accent { display: block; font-family: var(--f-accent); font-weight: normal; font-size: 0.7em; color: var(--slate); letter-spacing: 0; margin-top: 6px; }
+.post-body p { font-size: 17px; line-height: 1.8; color: var(--ink); margin-bottom: 22px; }
+.post-body p.lead { font-size: 19px; line-height: 1.75; }
+.post-body .pull { font-family: var(--f-accent); font-size: clamp(24px,3vw,32px); color: var(--ink); line-height: 1.25; margin: 34px 0; padding-left: 24px; border-left: 3px solid var(--yellow); }
+.post-body .closer { font-weight: 500; }
+.post-hero { margin: 0 0 32px; }
+.post-hero img { width: 100%; max-height: 480px; object-fit: cover; object-position: center 35%; border-radius: 6px; }
+.post-hero figcaption { font-size: 13px; color: var(--slate); font-style: italic; margin-top: 10px; text-align: center; }
+.post-collage { margin: 34px 0; }
+.collage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.collage-grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; }
+.post-collage figcaption { font-size: 13px; color: var(--slate); font-style: italic; margin-top: 12px; line-height: 1.5; }
+.post-cta { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--stone); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.post-cta p { font-size: 16px; color: var(--ink); max-width: 420px; line-height: 1.6; }
+.btn-primary { background: var(--navy); color: var(--paper); padding: 14px 28px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; border-radius: 2px; display: inline-block; white-space: nowrap; transition: background 0.2s; }
+.btn-primary:hover { background: #0d1a35; }
+
+/* MORE / PLACEHOLDER */
+.more { background: var(--paper-mid); border-top: 1px solid var(--stone); padding: clamp(48px,7vw,72px) 0; }
+.more-inner { max-width: 720px; margin: 0 auto; }
+.more h2 { font-family: var(--f-head); font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.more-sub { font-size: 15px; color: var(--slate); margin-bottom: 28px; }
+.more-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.more-card { background: var(--paper); border: 1px solid var(--stone); border-radius: 6px; padding: 24px; }
+.more-card .kind { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 10px; }
+.more-card h3 { font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 8px; }
+.more-card p { font-size: 14px; color: var(--slate); line-height: 1.55; }
+.more-card.soon { opacity: 0.62; }
+.more-card.soon .kind { color: var(--slate); }
+
+/* FOOTER */
+.footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
+.footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); margin-bottom: 12px; }
+.footer-tagline { font-size: 14px; color: var(--ink); line-height: 1.65; font-weight: 400; max-width: 220px; }
+.footer-round-logo { display: flex; justify-content: center; align-items: center; }
+.footer-round-logo img { width: 120px; height: 120px; }
+.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
+.footer-nav-col a { display: block; font-size: 15px; color: var(--ink); margin-bottom: 10px; font-weight: 400; }
+.footer-nav-col a:hover { color: var(--slate); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+
+@media (max-width: 860px) {
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-round-logo { justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
+  .nav-toggle { display: flex; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .more-grid { grid-template-columns: 1fr; }
+  .post-cta { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo2.png" alt="The Yellow Front Door">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html" class="active">The Doorstep</a></li>
+      <li><a href="lets-talk.html" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HUB HEADER -->
+<header class="hub-header">
+  <div class="container">
+    <div class="hub-eyebrow">
+      <span class="hub-eyebrow-tag">The Doorstep</span>
+      <span class="hub-eyebrow-desc">Notes from the studio</span>
+    </div>
+    <h1 class="hub-title">The Doorstep</h1>
+    <p class="hub-sub">Stories, ideas, and a few useful things — about the experience people actually meet once they find a small business.</p>
+  </div>
+</header>
+
+<!-- FLAGSHIP POST -->
+<article class="post">
+  <div class="post-inner">
+    <div class="post-meta">
+      <span class="post-tag">Story</span>
+      <span class="post-dot"></span>
+      <span class="post-date">The one that started it</span>
+    </div>
+    <h2 class="post-title">Clean windows aren't the whole experience</h2>
+    <figure class="post-hero">
+      <img src="wr_storefront.jpg" alt="The Willow & Rose storefront — sign above a large clean window reflecting the street">
+      <figcaption>Willow &amp; Rose — the shop I ran before this one.</figcaption>
+    </figure>
+    <div class="post-body">
+      <p class="lead">When I started my first business, I had not one but two window cleaners. Different companies, both showing up every few days, neither quite aware of the other. Whether I wanted it or not, the outside of my windows stayed spotless — and a ten-dollar invoice would appear, sometimes more than once a week, and the glass would be clean again.</p>
+
+      <p>Meanwhile, inside, I was treading water — intensely, constantly. Like a duck: calm on the surface, paddling like mad underneath, and no one ever knew. Business was good, but my website wasn't properly updated, my sign was still temporary, and the back-end pieces I kept meaning to fix were still waiting. I usually had at least one kid in the shop with me, so even when the outside glass was perfect, there were fingerprints and smudges on the inside.</p>
+
+      <figure class="post-collage">
+        <div class="collage-grid">
+          <img src="wr_kids.jpg" alt="Two small children in aprons at a paint-covered workshop table">
+          <img src="wr_chalkboard.jpg" alt="Hand-lettered Willow & Rose chalkboard wall on exposed brick">
+          <img src="wr_candles.jpg" alt="A display of hand-poured Willow & Rose soy candles">
+          <img src="wr_paddles.jpg" alt="Customers holding hand-painted canoe paddles from a workshop">
+        </div>
+        <figcaption>So much care went into all of it — the products, the workshops, the look. The unglamorous back-end pieces were the ones that quietly waited.</figcaption>
+      </figure>
+
+      <p>I was doing the same thing with my marketing. Paying out the nose for Facebook ads, paying for radio, forking out donation after donation for visibility, saying yes to every local marketing opportunity that came across my desk. More posts, more reach, more effort to get people looking. And I couldn't even tell you if any of it was converting — because once people came closer, the experience they actually walked into was still patched together. An outdated website. A cold auto-reply. A half-finished profile. A follow-up that never came. A newsletter I always meant to start.</p>
+
+      <p class="pull">I was paying, constantly, to polish the outside. The inside was where the real work was waiting.</p>
+
+      <p>That's how a lot of small-business marketing feels. The outside gets cleaned, again and again, while the experience behind it quietly falls behind.</p>
+
+      <p class="closer">The Yellow Front Door works on the inside of the window too. We help small businesses make the experience people actually walk into feel clearer, more current, and more connected to the care already happening behind the scenes.</p>
+    </div>
+
+    <div class="post-cta">
+      <p>Curious what people meet when they find <em>your</em> business? That's exactly what we look at.</p>
+      <a href="lets-talk.html" class="btn-primary">Request a free Drive-By →</a>
+    </div>
+  </div>
+</article>
+
+<!-- MORE / COMING SOON -->
+<section class="more">
+  <div class="more-inner">
+    <h2>More on the doorstep</h2>
+    <p class="more-sub">A few useful things, on the way.</p>
+    <div class="more-grid">
+      <div class="more-card soon">
+        <div class="kind">Coming soon · Self-check</div>
+        <h3>Score your in-market experience</h3>
+        <p>A quick, honest read on what people meet when they find you — and where to start.</p>
+      </div>
+      <div class="more-card soon">
+        <div class="kind">Coming soon · Checklist</div>
+        <h3>Fix this first</h3>
+        <p>The handful of things every small business should check on their own website this week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <p class="footer-logo">The Yellow Front Door</p>
+        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+      </div>
+      <div class="footer-round-logo">
+        <img src="roundlogo.png" alt="The Yellow Front Door">
+      </div>
+      <div class="footer-nav-col">
+        <h4>Studio</h4>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="the-proof.html">The Proof</a>
+        <a href="about.html">About</a>
+        <a href="the-doorstep.html">The Doorstep</a>
+        <a href="lets-talk.html">Let's Talk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
+      <div class="footer-dot-sm"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+})();
+</script>
+
+</body>
+</html>
