@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raven House Atelier · A Someday Project</title>
+<meta name="description" content="A brand dreamed up for fun while the maker is still finding his way to the bench. Raven House Atelier, an imagined line of handcrafted leather bags.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a2620;--moss:#3a4632;--pine:#4a553e;--sage:#8a9270;
+    --cream:#f4eee2;--paper:#faf5ea;--clay:#a8633a;--gold:#c79a52;--blush:#e7d4c1;
+    --line:rgba(42,38,32,.12);--mist:#e9e6d8;
+    --f-serif:'Spectral',Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--f-serif);font-size:18px;font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 32px}
+  .wide{max-width:1180px;margin:0 auto;padding:0 32px}
+  h1,h2,h3,h4{font-family:Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:.005em}
+  .script{font-style:italic;font-weight:400}
+  .ashley{font-style:italic;font-weight:400}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  .hero{position:relative;height:100vh;min-height:660px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hero__bg{position:absolute;inset:0;background:url('cover-clean.jpg') center/cover no-repeat;transform:scale(1.05);animation:drift 28s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:scale(1.05) translate(0,0)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+  .hero__veil{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 35% 38%, rgba(244,238,226,.28), transparent 60%),linear-gradient(180deg, rgba(40,46,38,.32) 0%, rgba(40,46,38,.08) 26%, rgba(40,46,38,.10) 64%, rgba(250,245,234,.88) 100%)}
+  .hero__rays{position:absolute;inset:0;background:radial-gradient(circle at 30% 32%, rgba(255,243,205,.5), rgba(255,243,205,0) 36%);mix-blend-mode:screen;animation:pulse 8s ease-in-out infinite alternate;pointer-events:none}
+  @keyframes pulse{from{opacity:.55}to{opacity:1}}
+  .hero__content{position:relative;z-index:3;padding:0 24px;animation:rise 1.4s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  .hero__logo{width:clamp(120px,16vw,180px);height:auto;margin:0 auto 18px;display:block;filter:drop-shadow(0 2px 16px rgba(42,38,32,.4))}
+  .hero__kicker{font-style:italic;font-size:clamp(1.4rem,3.2vw,2.2rem);color:#fff;text-shadow:0 2px 20px rgba(42,38,32,.5);margin-bottom:4px}
+  .hero h1{font-family:Georgia,serif;font-size:clamp(3rem,8.4vw,6.6rem);color:#fff;text-shadow:0 3px 30px rgba(42,38,32,.55);letter-spacing:.01em;line-height:.98}
+  .hero__tag{font-style:italic;font-size:clamp(1.7rem,3.8vw,2.8rem);color:#fbf3df;text-shadow:0 2px 20px rgba(42,38,32,.45);margin-top:12px}
+  .hero__scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.85);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0);opacity:.7}50%{transform:translate(-50%,8px);opacity:1}}
+  .motes{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+  .mote{position:absolute;background:radial-gradient(circle,rgba(255,248,225,.9),rgba(255,248,225,0));border-radius:50%;animation:float linear infinite}
+  @keyframes float{0%{transform:translateY(20px);opacity:0}10%{opacity:.8}90%{opacity:.6}100%{transform:translateY(-110vh) translateX(40px);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  section{padding:92px 0}
+  .lab{font-size:.76rem;text-transform:uppercase;letter-spacing:.26em;color:var(--clay);margin-bottom:16px}
+  .sec-h{font-size:clamp(2.1rem,4.4vw,3.4rem);color:var(--moss);margin-bottom:24px}
+
+  .band{height:42vh;min-height:280px;background-size:cover;background-position:center;background-attachment:fixed;position:relative}
+  .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,245,234,.5),rgba(250,245,234,0) 30%,rgba(233,230,216,0) 70%,rgba(233,230,216,.5))}
+  .band--grasses{background-image:url('meadow-grasses.jpg')}
+  .band--spring{background-image:url('meadow-spring.jpg')}
+  @media(max-width:760px){.band{background-attachment:scroll;height:30vh;min-height:200px}}
+
+  .brief{position:relative;color:var(--cream);background:url('meadow-autumn.jpg') center/cover no-repeat fixed}
+  .brief::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,44,32,.9),rgba(36,44,32,.84))}
+  .brief .wrap{position:relative;z-index:2}
+  .brief-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+  .brief .lab{color:var(--gold)}
+  .brief h2{color:var(--cream)}
+  .brief p{font-size:1.12rem;color:rgba(247,242,232,.98);margin-bottom:18px;text-shadow:0 1px 12px rgba(20,26,18,.5)}
+  .brief p:last-child{margin-bottom:0}
+  .brief em{font-style:italic;color:var(--gold)}
+  .brief .open{font-family:Georgia,serif;font-size:1.5rem;line-height:1.34;color:#fff;font-style:normal}
+  @media(max-width:760px){.brief{background-attachment:scroll}.brief-grid{grid-template-columns:1fr;gap:26px}}
+
+  .look{background:var(--mist)}
+  .look-head{text-align:center;max-width:660px;margin:0 auto 60px}
+  .look-head .script{font-size:clamp(2.4rem,5vw,3.6rem);color:var(--clay);line-height:1;display:block;margin-bottom:8px}
+  .look-head p{font-size:1.08rem;color:var(--pine);margin-top:14px}
+  .spread{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center;margin-bottom:76px}
+  .spread:last-child{margin-bottom:0}
+  .spread:nth-child(even) .spread__media{order:2}
+  .spread img{width:100%;border-radius:10px;box-shadow:0 30px 70px -36px rgba(42,38,32,.6),0 6px 18px -10px rgba(42,38,32,.3);display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+  .spread.reveal img{transform:translateY(34px) scale(.97)}
+  .spread.reveal.in img{transform:translateY(0) scale(1)}
+  .spread__name{font-size:2.1rem;color:var(--moss);margin-bottom:4px}
+  .spread__tag{font-size:1.5rem;color:var(--clay);margin-bottom:14px}
+  .spread__col{font-size:.74rem;text-transform:uppercase;letter-spacing:.18em;color:var(--sage);margin-bottom:20px}
+  .spread__desc p{font-size:1.02rem;color:var(--pine);margin-bottom:14px}
+  .spread__desc p:last-child{margin-bottom:0}
+  @media(max-width:820px){.spread{grid-template-columns:1fr;gap:26px}.spread:nth-child(even) .spread__media{order:0}}
+
+  .copy{background:var(--moss);color:var(--cream);text-align:center;position:relative;overflow:hidden}
+  .copy::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 0%, rgba(199,154,82,.22), transparent 60%);pointer-events:none}
+  .copy .lab{color:var(--gold)}
+  .copy h2{color:var(--cream)}
+  .copy .intro{max-width:560px;margin:0 auto;color:rgba(244,238,226,.82);font-size:1.1rem}
+  .pulls{display:grid;grid-template-columns:repeat(2,1fr);gap:34px;margin-top:50px;text-align:left;position:relative;z-index:2}
+  .pull{border-left:2px solid var(--gold);padding:4px 0 4px 26px}
+  .pull p{font-family:Georgia,serif;font-size:1.4rem;line-height:1.32;color:var(--cream)}
+  .pull span{display:block;margin-top:12px;font-style:italic;font-size:1.3rem;color:var(--gold)}
+  @media(max-width:760px){.pulls{grid-template-columns:1fr}}
+
+  .pieces{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:44px}
+  .piece{text-align:center;padding:28px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);transition:transform .3s,box-shadow .3s}
+  .piece:hover{transform:translateY(-5px);box-shadow:0 20px 40px -26px rgba(42,38,32,.4)}
+  .piece h4{font-size:1.22rem;color:var(--moss);margin-bottom:8px}
+  .piece span{font-style:italic;font-size:1.15rem;color:var(--clay);display:block}
+  @media(max-width:760px){.pieces{grid-template-columns:1fr 1fr}}
+
+  footer{position:relative;color:rgba(244,238,226,.8);padding:96px 0 44px;text-align:center;background:url('meadow-moody.jpg') center 30%/cover no-repeat fixed}
+  footer::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,34,28,.88),rgba(30,34,28,.94))}
+  footer .wrap{position:relative;z-index:2}
+  .foot-logo{width:104px;height:auto;margin:0 auto 24px;display:block;opacity:1}
+  .footnote{max-width:620px;margin:0 auto 30px;font-size:1.04rem;color:rgba(244,238,226,.85);line-height:1.7}
+  .footnote .script{color:var(--gold);font-size:1.6rem;display:block;margin-bottom:6px}
+  .ainote{max-width:600px;margin:0 auto 34px;padding:20px 26px;border:1px solid rgba(199,154,82,.4);border-radius:10px;background:rgba(199,154,82,.08)}
+  .ainote b{display:block;font-family:Georgia,serif;color:var(--gold);font-size:1.05rem;letter-spacing:.02em;margin-bottom:6px}
+  .ainote p{font-size:.96rem;color:rgba(244,238,226,.82);line-height:1.65;margin:0}
+  .foot-meta{font-size:.8rem;color:rgba(244,238,226,.5);letter-spacing:.04em}
+  .foot-meta a{color:rgba(244,238,226,.75);text-decoration:none}
+  .foot-meta a:hover{color:var(--gold)}
+  @media(max-width:760px){footer{background-attachment:scroll}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__veil"></div>
+  <div class="hero__rays"></div>
+  <div class="motes" id="motes"></div>
+  <div class="hero__content">
+    <img class="hero__logo" src="logo-cream.png" alt="Raven House Co. crest">
+    <p class="hero__kicker">Raven House Co. presents</p>
+    <h1>Raven House<br>Atelier</h1>
+    <p class="hero__tag">Custom Handcrafted Leather</p>
+  </div>
+  <div class="hero__scroll">scroll &darr;</div>
+</header>
+
+<section id="brief" class="brief">
+  <div class="wrap brief-grid">
+    <div class="reveal">
+      <p class="lab">A Someday Project</p>
+      <h2 class="sec-h">It started with a pile of leather under the tree.</h2>
+    </div>
+    <div class="reveal">
+      <p class="open">The tools arrived at Christmas, and my husband Chris was instantly enamoured. It was the kind of new-hobby spark where you can already picture the whole workshop.</p>
+      <p>He started dreaming about the bags he'd make <em>someday.</em> So I started dreaming too, and did the part I love best. I gave the someday a name, a raven and peony crest, a voice, and a whole little world to live in.</p>
+      <p>Word has it the launch was meant to be <em>summer 2026,</em> which gives him roughly a fortnight to master an entire craft. No pressure. Until then, the brand is built and waiting, ready for the day his real work is good enough to photograph.</p>
+    </div>
+  </div>
+</section>
+
+<div class="band band--grasses" role="presentation"></div>
+
+<section id="lookbook" class="look">
+  <div class="wide">
+    <div class="look-head reveal">
+      <span class="script">the someday collection</span>
+      <h2 class="sec-h" style="margin-bottom:0">Five pieces, five ways of moving through the world.</h2>
+      <p>Each named ahead of the bench, with the words written before the leather. The descriptions below are the brand's own voice.</p>
+    </div>
+    <article class="spread reveal">
+      <img src="the-watch.jpg" alt="The Watch">
+      <div class="spread__text">
+        <h3 class="spread__name">The Watch</h3>
+        <p class="spread__tag ashley">For those who notice.</p>
+        <p class="spread__col">storm blue · ash violet · antique brass</p>
+        <div class="spread__desc"><p>Structured and quietly powerful, The Watch is made for a life lived with intention. Crafted in deep Storm Blue leather, it reads nearly black in shadow, revealing its depth only in the light. Ash Violet details appear sparingly, a subtle signal of intellect rather than ornament.</p><p>Designed to carry only what matters, a notebook, a book, a phone, it resists excess by design. The antique brass closure grounds the piece in tradition, evoking objects meant to endure, not impress.</p><p>Composed, observant, and deliberate, The Watch is a companion for those who move through the world attentively.</p></div>
+      </div>
+    </article>
+    <article class="spread reveal">
+      <img src="the-hearth.jpg" alt="The Hearth">
+      <div class="spread__text">
+        <h3 class="spread__name">The Hearth</h3>
+        <p class="spread__tag ashley">For those who gather life as they go.</p>
+        <p class="spread__col">blush pink · soft taupe · antique brass</p>
+        <div class="spread__desc"><p>Soft, grounded, and quietly generous, The Hearth is made for everyday life, the kind that carries a little more than expected. Crafted in Light Rose leather, the body feels warm and human, never precious. Soft Taupe at the base and handles anchors the piece, giving it weight, balance, and longevity.</p><p>This is a bag meant to live by the door and be reached for without thinking. It holds notebooks, gloves, small necessities, and the unremarkable rituals that make up a day. The brass hardware brings a sense of continuity, evoking objects that are used often and kept close.</p><p>The Hearth is steady, familiar, and enduring, made beautiful through use but built to hold the abundance of an ordinary day.</p></div>
+      </div>
+    </article>
+    <article class="spread reveal">
+      <img src="the-archive.jpg" alt="The Archive">
+      <div class="spread__text">
+        <h3 class="spread__name">The Archive</h3>
+        <p class="spread__tag ashley">For what you carry forward.</p>
+        <p class="spread__col">caramel · timeworn black · antique brass</p>
+        <div class="spread__desc"><p>The Archive is a study in permanence. Tall, open, and unguarded, it is designed for books without dust jackets, papers with history, and objects that gain meaning through use. There is no zipper by design, nothing between you and what you carry.</p><p>Crafted in warm Caramel leather with black handles and straps, the silhouette is clean, upright, and intentional. Antique brass hardware grounds the piece in tradition, while the open form recalls library totes, field bags, and working satchels made to be reached into again and again.</p><p>The Archive belongs where books are stacked, candles burn low, and time moves slowly.</p></div>
+      </div>
+    </article>
+    <article class="spread reveal">
+      <img src="the-field.jpg" alt="The Field">
+      <div class="spread__text">
+        <h3 class="spread__name">The Field</h3>
+        <p class="spread__tag ashley">Made to move.</p>
+        <p class="spread__col">muted olive · warm caramel · antique brass</p>
+        <div class="spread__desc"><p>The Field is a working bag, shaped for motion rather than presentation. Its low, generous form is designed to be worn crossbody, set down in the grass, and lifted again without thought. Crafted in Muted Olive leather with Warm Caramel accents, it feels grounded, capable, and quietly resilient.</p><p>Soft by design, The Field moves with the body. It carries layers, tools, gathered things, whatever the day requires, without insisting on order or restraint.</p><p>The Field is not a bag for stillness. It is a bag for walking, working, and returning home with something in your hands.</p></div>
+      </div>
+    </article>
+    <article class="spread reveal">
+      <img src="the-keepsake.jpg" alt="The Keepsake">
+      <div class="spread__text">
+        <h3 class="spread__name">The Keepsake</h3>
+        <p class="spread__tag ashley">For what you carry forward.</p>
+        <p class="spread__col">pebble · warm driftwood · gold</p>
+        <div class="spread__desc"><p>The Keepsake is a small bag with a gentle presence, designed to be carried close, both in form and in feeling. Crafted in soft Pebble leather with subtle Warm Driftwood accents, it feels light in the hand and intimate in scale.</p><p>This is a bag for the in-between moments: a walk through wildflowers, a quiet afternoon, a shared picnic, a memory still unfolding. It holds only what is essential, a phone, a notebook, a few treasured things, and nothing that distracts from the moment itself.</p><p>The Keepsake is meant to accompany joy quietly, offering grace rather than statement. Built to hold what is cherished and delicate.</p></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="copy" class="copy">
+  <div class="wrap">
+    <p class="lab reveal">The Writing</p>
+    <h2 class="sec-h reveal" style="color:var(--cream)">A line for each, to carry the rest.</h2>
+    <p class="intro reveal">Every piece opens on a single line of intent. Evocative without overselling, the way a good maker talks about their own work.</p>
+    <div class="pulls">
+      <div class="pull reveal"><p>For those who notice.</p><span>The Watch</span></div>
+      <div class="pull reveal"><p>Made beautiful through use, but built to hold the abundance of an ordinary day.</p><span>The Hearth</span></div>
+      <div class="pull reveal"><p>No zipper by design. Nothing between you and what you carry.</p><span>The Archive</span></div>
+      <div class="pull reveal"><p>A bag for walking, working, and returning home with something in your hands.</p><span>The Field</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="band band--spring" role="presentation"></div>
+
+<section id="pieces">
+  <div class="wrap" style="text-align:center;max-width:760px">
+    <p class="lab reveal" style="text-align:center">The Collection at a Glance</p>
+    <h2 class="sec-h reveal">Named for a way of being.</h2>
+    <div class="pieces reveal">
+      <div class="piece"><h4>The Watch</h4><span>storm blue</span></div>
+      <div class="piece"><h4>The Hearth</h4><span>blush pink</span></div>
+      <div class="piece"><h4>The Archive</h4><span>caramel</span></div>
+      <div class="piece"><h4>The Field</h4><span>muted olive</span></div>
+      <div class="piece"><h4>The Keepsake</h4><span>pebble</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="logo-cream.png" alt="Raven House Co. crest">
+    <p class="footnote reveal"><span class="script">a someday dream, not a shop</span>Built by The Yellow Front Door for Raven House Co.</p>
+    <div class="ainote reveal">
+      <b>About the photography</b>
+      <p>The bags don't exist yet, so every image here was generated with AI (and a great deal of fussy prompting). They stand in until the real leather is ready for its photoshoot.</p>
+    </div>
+    <p class="foot-meta reveal">Brand, art direction and copy by Julianna Melnick-MacDonald &middot; A Raven House Co. someday project &middot; <a href="mailto:hello@ravenhouseco.com">hello@ravenhouseco.com</a></p>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+  const m=document.getElementById('motes');
+  for(let i=0;i<18;i++){const d=document.createElement('div');d.className='mote';const s=2+Math.random()*5;d.style.width=d.style.height=s+'px';d.style.left=Math.random()*100+'%';d.style.bottom='-10px';d.style.animationDuration=(14+Math.random()*16)+'s';d.style.animationDelay=(-Math.random()*20)+'s';m.appendChild(d);}
+</script>
+</body>
+</html>
