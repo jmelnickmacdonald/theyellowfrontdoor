@@ -53,7 +53,7 @@ ul { list-style: none; }
 .eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
 .eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; flex-shrink: 0; }
 .eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
-.proof-hero h1 { font-family: var(--f-head); font-size: clamp(34px, 5vw, 60px); font-weight: 700; color: var(--ink); letter-spacing: -0.01em; line-height: 1.08; margin-bottom: 8px; }
+.proof-hero h1 { font-family: var(--f-head); font-size: clamp(34px, 5vw, 60px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 8px; }
 .proof-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(30px, 4.4vw, 52px); font-weight: normal; color: var(--slate); line-height: 1.15; margin-top: 4px; }
 .proof-hero p { font-size: clamp(17px, 2vw, 19px); line-height: 1.8; color: var(--ink); font-weight: 400; margin-top: 28px; max-width: 620px; }
 
@@ -71,16 +71,10 @@ ul { list-style: none; }
 .case-study-body p:last-of-type { margin-bottom: 0; }
 .case-study-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; }
 .case-study-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); border: 1px solid var(--stone); padding: 6px 11px; }
-.case-study-links { display: flex; flex-wrap: wrap; gap: 14px 28px; margin-top: 4px; }
 .case-study-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); border-bottom: 2px solid var(--yellow); padding-bottom: 3px; transition: color 0.2s; }
 .case-study-link:hover { color: var(--brass); }
 .case-study-visual { background: var(--paper-mid); border: 1px solid var(--stone); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border-radius: 6px; overflow: hidden; }
 .case-study-visual img { width: 100%; height: 100%; object-fit: cover; }
-.case-study-visual-link { position: relative; display: block; padding: 0; cursor: pointer; transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; }
-.case-study-visual-link:hover { transform: translateY(-4px); box-shadow: 0 22px 54px rgba(19,36,71,0.22); }
-.visual-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 18px; background: linear-gradient(to top, rgba(19,36,71,0.55), rgba(19,36,71,0) 55%); opacity: 0; transition: opacity 0.3s ease; }
-.case-study-visual-link:hover .visual-overlay { opacity: 1; }
-.visual-overlay-text { font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--paper); background: var(--navy); padding: 10px 18px; border-radius: 2px; }
 .case-study-visual-placeholder { text-align: center; padding: 24px; }
 .case-study-visual-placeholder .placeholder-name { font-family: var(--f-accent); font-size: 30px; color: var(--ink); margin-bottom: 8px; }
 .case-study-visual-placeholder p { font-size: 11px; color: var(--slate); letter-spacing: 0.12em; text-transform: uppercase; }
@@ -196,39 +190,33 @@ ul { list-style: none; }
             <span class="case-study-tag">Voice + tone</span>
             <span class="case-study-tag">Customer communications</span>
           </div>
-          <div class="case-study-links">
-            <a href="finoak-brand-book.html" target="_blank" rel="noopener" class="case-study-link">View the brand book →</a>
-            <a href="https://finandoak.ca" target="_blank" rel="noopener" class="case-study-link">Visit the site →</a>
-          </div>
+          <a href="https://finandoak.ca" target="_blank" rel="noopener" class="case-study-link">Visit the site →</a>
         </div>
-        <a href="finoak-brand-book.html" target="_blank" rel="noopener" class="case-study-visual case-study-visual-link" aria-label="Open the Fin & Oak brand book in a new tab">
-          <img src="finandoak-cover.png" alt="Fin & Oak Bark Bakery brand book cover">
-          <span class="visual-overlay"><span class="visual-overlay-text">View the brand book →</span></span>
-        </a>
+        <div class="case-study-visual">
+          <img src="finandoakcover.png" alt="Fin &amp; Oak Bark Bakery">
+        </div>
       </div>
     </div>
 
-    <!-- Raven House -->
+    <!-- Raven House Atelier -->
     <div class="case-study">
       <div class="case-study-inner reverse">
         <div class="case-study-body">
-          <p class="case-study-label">Live project</p>
-          <h2 class="case-study-name">Raven House</h2>
-          <p class="case-study-type">Landing page · Brand voice · Launch communications</p>
-          <p>Raven House is a family venture launching summer 2026 in Meadowvale, Nova Scotia. The landing page was built to establish presence before the doors opened — clear, warm, and specific enough to feel like a real place rather than a coming-soon placeholder.</p>
-          <p>The work included the landing page build, the voice direction, and the early email capture experience. The goal was to make the first impression feel as considered as the business itself.</p>
+          <p class="case-study-label">Concept project</p>
+          <h2 class="case-study-name">Raven House Atelier</h2>
+          <p class="case-study-type">Brand world · Art direction · Voice · Lookbook page</p>
+          <p>A speculative brand built for a craft that doesn't exist yet. When a new leatherworking hobby arrived as a pile of tools, the response was to give the "someday" a name, a raven-and-peony crest, a voice, and a whole little world to live in — long before the first bag was ever made.</p>
+          <p>The work covered the brand concept, the art direction, the named collection and its copy, and a full lookbook page. Every product image was AI-generated as a stand-in until the real leather is ready to photograph — a deliberate, openly disclosed choice that lets the brand exist while the maker catches up to it.</p>
           <div class="case-study-tags">
-            <span class="case-study-tag">Landing page</span>
-            <span class="case-study-tag">Voice direction</span>
-            <span class="case-study-tag">Email capture</span>
+            <span class="case-study-tag">Brand concept</span>
+            <span class="case-study-tag">Art direction</span>
+            <span class="case-study-tag">Collection + copy</span>
+            <span class="case-study-tag">Lookbook page</span>
           </div>
-          <a href="https://finandoak.ca/ravenhouse" target="_blank" rel="noopener" class="case-study-link">Visit the page →</a>
+          <a href="atelier.html" class="case-study-link">View the page →</a>
         </div>
         <div class="case-study-visual">
-          <div class="case-study-visual-placeholder">
-            <p class="placeholder-name">Raven House</p>
-            <p>Coming summer 2026</p>
-          </div>
+          <img src="cover-clean.jpg" alt="Raven House Atelier">
         </div>
       </div>
     </div>
