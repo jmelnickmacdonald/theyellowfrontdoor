@@ -15,7 +15,7 @@
   --cream:#FFFDF9;--cream-warm:#F5F0E8;--tan:#F1E9D6;--tan-border:#E0D5BE;
   --sage:#A6B088;--sage-light:#C5CCB8;
   --display:'Playfair Display',Georgia,serif;--body:'Lato',-apple-system,sans-serif;--script:'Praise',cursive;
-  --pageW:760px;--pageH:1000px;
+  --pageW:768px;--pageH:1060px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -49,8 +49,8 @@ body{
 /* spine shadow on left edge */
 .leaf::before{content:"";position:absolute;top:0;bottom:0;left:0;width:26px;z-index:3;pointer-events:none;
   background:linear-gradient(90deg,rgba(0,0,0,.14),rgba(0,0,0,0));}
-.leaf-inner{flex:1;overflow:hidden;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(2.2rem,5%,3.6rem) clamp(2.4rem,6%,4rem);}
+.leaf-inner{flex:1;overflow:auto;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(2.2rem,5%,3.4rem) clamp(2.4rem,6%,4rem) clamp(3.4rem,6%,4.4rem);}
 .leaf-cream{background:var(--cream);}
 .leaf-cream .leaf-inner{justify-content:flex-start;padding-top:clamp(3rem,7%,4.4rem);}
 .leaf-dark{background:var(--coastal);color:var(--cream);}
@@ -92,7 +92,7 @@ em,i{font-style:italic;} code{font-family:ui-monospace,monospace;font-size:.86em
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:.4rem;}
 .swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.4rem;}
 .swatch{border:1px solid var(--tan-border);border-radius:3px;overflow:hidden;}
-.swatch .chip{height:62px;display:flex;align-items:flex-end;padding:.5rem;}
+.swatch .chip{height:58px;display:flex;align-items:flex-end;padding:.5rem;}
 .swatch .hex{font-weight:700;font-size:9.5px;letter-spacing:.08em;}
 .swatch .meta{padding:.6rem .7rem .8rem;}
 .swatch .name{font-family:var(--display);font-size:1rem;}
