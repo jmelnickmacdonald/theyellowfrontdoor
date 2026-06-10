@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copper + Bean — Coffee & Light Fare · Halifax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #111111;
+  --black-soft: #1A1A1A;
+  --ivory: #F5EDE0;
+  --ivory-light: #FAF5EB;
+  --copper: #B87333;
+  --copper-light: #D4956A;
+  --olive: #4A5A3C;
+  --olive-deep: #3A4830;
+  --olive-light: #5E7350;
+  --stone: #C4B9AB;
+  --slate: #7A7168;
+  --f-display: 'Anton', 'Impact', sans-serif;
+  --f-body: 'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--ivory); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+
+/* GRAIN */
+body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4; }
+
+/* NAV */
+.cb-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 0; transition: background 0.4s, padding 0.4s; }
+.cb-nav.scrolled { background: rgba(17,17,17,0.95); backdrop-filter: blur(12px); padding: 10px 0; }
+.cb-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 clamp(24px, 4vw, 56px); display: flex; align-items: center; justify-content: space-between; }
+.cb-nav-logo { display: flex; align-items: center; }
+.cb-nav-logo-img { height: 44px; width: auto; display: block; }
+.cb-nav-links { display: flex; gap: 32px; }
+.cb-nav-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); transition: color 0.3s; }
+.cb-nav-links a:hover { color: var(--olive-light); }
+
+/* HERO */
+.cb-hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; background: var(--black); overflow: hidden; }
+.cb-hero-bg { position: absolute; inset: 0; background: url('cb-hero.jpg') center/cover no-repeat; }
+.cb-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(17,17,17,0.6) 0%, rgba(17,17,17,0.75) 50%, rgba(17,17,17,0.9) 100%); }
+.cb-hero::before { display: none; }
+.cb-hero::after { content: ''; position: absolute; top: -10%; right: -10%; width: 50%; height: 50%; background: radial-gradient(ellipse, rgba(184,115,51,0.06) 0%, transparent 70%); }
+.cb-hero-content { position: relative; z-index: 1; padding: 0 24px; }
+.cb-hero-monogram { width: 64px; height: auto; margin: 0 auto 28px; opacity: 0.9; }
+.cb-hero h1 { font-family: var(--f-display); font-size: clamp(72px, 15vw, 170px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 0.88; margin-bottom: 0; }
+.cb-hero h1 .line { display: block; }
+.cb-hero h1 .line-olive { color: var(--olive-light); }
+.cb-hero h1 .line-copper { color: var(--copper); }
+.cb-hero-tag { margin-top: 28px; display: inline-flex; align-items: center; gap: 16px; }
+.cb-hero-tag::before, .cb-hero-tag::after { content: ''; width: 32px; height: 1px; background: var(--copper); }
+.cb-hero-tag span { font-size: 11px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--stone); }
+.cb-hero-scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); opacity: 0.4; }
+.cb-hero-scroll::after { content: ''; display: block; width: 1px; height: 36px; background: var(--olive); margin: 10px auto 0; }
+
+/* MARQUEE */
+.cb-marquee { background: var(--olive); overflow: hidden; padding: 13px 0; white-space: nowrap; }
+.cb-marquee-track { display: inline-flex; animation: marquee 22s linear infinite; }
+.cb-marquee-track span { font-family: var(--f-display); font-size: 13px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ivory); padding: 0 20px; }
+.cb-marquee-track .dot { color: rgba(245,237,224,0.4); font-size: 16px; padding: 0 6px; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* SECTIONS */
+.cb-section { max-width: 1100px; margin: 0 auto; padding: clamp(64px, 10vw, 120px) clamp(24px, 4vw, 56px); }
+.cb-label { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; }
+.cb-heading { font-family: var(--f-display); font-size: clamp(42px, 7.5vw, 88px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 0.92; margin-bottom: 28px; }
+.cb-heading .copper { color: var(--copper); }
+.cb-heading .olive { color: var(--olive-light); }
+
+/* FADE */
+.fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ABOUT */
+.cb-about { background: var(--ivory); color: var(--black); }
+.cb-about .cb-label { color: var(--olive); }
+.cb-about .cb-heading { color: var(--black); }
+.cb-about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
+.cb-about-text p { font-size: 17px; line-height: 1.9; margin-bottom: 18px; color: var(--black-soft); }
+.cb-about-text p:last-child { margin-bottom: 0; }
+.cb-about-pullquote { font-family: var(--f-display); font-size: clamp(24px, 3.5vw, 36px); text-transform: uppercase; color: var(--olive); line-height: 1.0; margin: 28px 0; letter-spacing: 0.01em; }
+.cb-about-image { aspect-ratio: 3/4; background: linear-gradient(145deg, var(--olive-deep) 0%, var(--black) 100%); border-radius: 4px; position: relative; overflow: hidden; }
+.cb-about-image::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(184,115,51,0.25); border-radius: 2px; }
+.cb-about-image .placeholder { position: absolute; bottom: 20px; left: 20px; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,237,224,0.35); }
+
+/* OLIVE BAND */
+.cb-olive-band { background: var(--olive); text-align: center; padding: clamp(40px, 7vw, 72px) 24px; }
+.cb-olive-band p { font-family: var(--f-display); font-size: clamp(30px, 5.5vw, 64px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 1.0; }
+.cb-olive-band p .copper { color: var(--ivory); opacity: 0.5; }
+
+/* MENU */
+.cb-menu-intro { font-size: 17px; color: var(--stone); max-width: 540px; margin-bottom: 48px; line-height: 1.85; }
+.cb-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.cb-menu-card { padding: clamp(28px, 4vw, 44px); position: relative; overflow: hidden; transition: background 0.4s; border: 1px solid rgba(74,90,60,0.15); }
+.cb-menu-card:nth-child(1) { border-right: none; border-bottom: none; }
+.cb-menu-card:nth-child(2) { border-bottom: none; }
+.cb-menu-card:nth-child(3) { border-right: none; }
+.cb-menu-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--olive), var(--copper)); transform: scaleX(0); transform-origin: left; transition: transform 0.5s ease; }
+.cb-menu-card:hover { background: rgba(74,90,60,0.06); }
+.cb-menu-card:hover::before { transform: scaleX(1); }
+.cb-menu-card h3 { font-family: var(--f-display); font-size: clamp(22px, 3vw, 32px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; margin-bottom: 10px; line-height: 1.0; }
+.cb-menu-card .item-accent { color: var(--olive-light); }
+.cb-menu-card p { font-size: 14px; color: var(--stone); line-height: 1.75; }
+.cb-menu-note { font-size: 13px; color: var(--slate); font-style: italic; margin-top: 36px; padding-left: 20px; border-left: 3px solid var(--olive); }
+
+/* COPPER BAR */
+.cb-copper-bar { height: 3px; background: linear-gradient(90deg, var(--copper) 0%, var(--olive) 100%); }
+
+/* PHOTO STRIP */
+.cb-photo-strip { width: 100%; max-height: 400px; overflow: hidden; line-height: 0; }
+.cb-photo-strip img { width: 100%; height: 400px; object-fit: cover; object-position: center 40%; display: block; }
+
+/* HOURS */
+.cb-hours { background: var(--ivory); color: var(--black); }
+.cb-hours .cb-label { color: var(--olive); }
+.cb-hours .cb-heading { color: var(--black); }
+.cb-hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 80px); align-items: start; }
+.cb-hours-row { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--stone); font-size: 15px; }
+.cb-hours-row:last-child { border-bottom: none; }
+.cb-hours-row .day { font-weight: 700; color: var(--black); }
+.cb-hours-row .time { color: var(--slate); }
+.cb-location-address { font-family: var(--f-display); font-size: 24px; text-transform: uppercase; color: var(--black); letter-spacing: 0.02em; line-height: 1.15; margin-bottom: 16px; }
+.cb-location-note { font-size: 14px; color: var(--slate); line-height: 1.7; }
+.cb-location-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; background: var(--olive); color: var(--ivory); padding: 12px 24px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 2px; transition: background 0.3s; }
+.cb-location-btn:hover { background: var(--olive-deep); }
+
+/* FOOTER */
+.cb-footer { padding: clamp(40px, 6vw, 64px) 0; border-top: 1px solid rgba(245,237,224,0.08); }
+.cb-footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 clamp(24px, 4vw, 56px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.cb-footer-logo { }
+.cb-footer-logo-img { height: 32px; width: auto; display: block; }
+.cb-footer-social { display: flex; gap: 20px; }
+.cb-footer-social a { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); transition: color 0.3s; }
+.cb-footer-social a:hover { color: var(--olive-light); }
+.cb-footer-copy { font-size: 11px; color: var(--slate); width: 100%; text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(245,237,224,0.06); }
+
+/* CONCEPT */
+.cb-concept { position: fixed; bottom: 20px; right: 20px; background: var(--ivory); color: var(--black); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 14px; border-radius: 2px; z-index: 200; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.cb-concept span { color: var(--olive); }
+
+@media (max-width: 700px) {
+  .cb-about-grid, .cb-menu-grid, .cb-hours-grid { grid-template-columns: 1fr; }
+  .cb-menu-card { border-right: none !important; }
+  .cb-menu-card:nth-child(1), .cb-menu-card:nth-child(2) { border-bottom: none; }
+  .cb-nav-links { display: none; }
+  .cb-hero h1 { font-size: clamp(56px, 18vw, 110px); }
+}
+</style>
+</head>
+<body>
+
+<!-- CONCEPT -->
+<div class="cb-concept">Concept · <span>The Yellow Front Door</span></div>
+
+<!-- NAV -->
+<nav class="cb-nav" id="cb-nav">
+  <div class="cb-nav-inner">
+    <a href="#" class="cb-nav-logo"><img src="cb-logo-primary.png" alt="Copper + Bean" class="cb-nav-logo-img"></a>
+    <div class="cb-nav-links">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="cb-hero">
+  <div class="cb-hero-bg"></div>
+  <div class="cb-hero-content">
+    <img src="cb-logo-monogram.png" alt="" class="cb-hero-monogram">
+    <h1>
+      <span class="line">Good</span>
+      <span class="line line-olive">Coffee.</span>
+      <span class="line">Simple</span>
+      <span class="line line-copper">Food.</span>
+    </h1>
+    <div class="cb-hero-tag">
+      <span>No Fuss</span>
+    </div>
+  </div>
+  <div class="cb-hero-scroll">Scroll</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="cb-marquee">
+  <div class="cb-marquee-track">
+    <span>Single Origin</span><span class="dot">+</span><span>Made Here</span><span class="dot">+</span><span>North End</span><span class="dot">+</span><span>Est. 2024</span><span class="dot">+</span><span>Open Daily</span><span class="dot">+</span><span>Stay A While</span><span class="dot">+</span>
+    <span>Single Origin</span><span class="dot">+</span><span>Made Here</span><span class="dot">+</span><span>North End</span><span class="dot">+</span><span>Est. 2024</span><span class="dot">+</span><span>Open Daily</span><span class="dot">+</span><span>Stay A While</span><span class="dot">+</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="cb-about" id="about">
+  <div class="cb-section">
+    <div class="fade-in">
+      <p class="cb-label">Our Story</p>
+      <h2 class="cb-heading">The house got quiet<span class="copper">.</span><br>So we did something<br><span class="olive">about it.</span></h2>
+    </div>
+    <div class="cb-about-grid fade-in">
+      <div class="cb-about-text">
+        <p>Between us we've raised four kids, held two corporate jobs with matching pension plans, and spent more years than we'd like to count commuting to offices with our names on the parking spots. Then the last one left for university, the house went quiet, and we looked at each other across a kitchen that suddenly felt too big and said, "What if we just didn't do this anymore?" So we didn't.</p>
+        <p class="cb-about-pullquote">We'd trade the pension<br>for this <span style="color:var(--copper)">again</span><br>tomorrow.</p>
+        <p>We cashed in the stability, found a space on Gottingen Street, and opened a coffee bar. The coffee is significantly better than what we were drinking at our desks; the hours are significantly worse. But we get to build something with our hands, serve people food we're proud of, and be home by five — which is more than either of us could say before.</p>
+        <p>We're particular about what we serve, but not in a super uptight, pretentious way (promise). We buy great coffee beans from people we actually know, we make everything in the kitchen that morning, and the menu stays short on purpose — we'd rather do a few things properly than fill a board with things we're not excited about.</p>
+      </div>
+      <div class="cb-about-image">
+        <img src="cb-collage.jpg" alt="Copper + Bean — behind the counter, espresso pour, pastry case, and a cup on the table" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OLIVE BAND -->
+<div class="cb-olive-band fade-in">
+  <p>Sit anywhere<span class="copper">.</span><br>Order at the counter<span class="copper">.</span><br>Stay as long as you like<span class="copper">.</span></p>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="cb-photo-strip">
+  <img src="cb-moka.jpg" alt="A copper moka pot on a dark shelf">
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="cb-section">
+    <div class="fade-in">
+      <p class="cb-label">What We're Making</p>
+      <h2 class="cb-heading">The <span class="olive">menu.</span></h2>
+      <p class="cb-menu-intro">The menu is intentionally limited. Picking from a big menu is stressful, okay? Especially before coffee. Everything on it is made here that morning, the coffee is fresh, and we change things up with the seasons. If it's on the board, it's good. If it's gone, it was good earlier.</p>
+    </div>
+
+    <div class="cb-menu-grid fade-in">
+      <div class="cb-menu-card">
+        <h3>The <span class="item-accent">Squash</span> Bowl</h3>
+        <p>Roasted squash, pickled onion, seeds, and tahini. It's warm, it's filling, and people keep ordering it, so we keep making it.</p>
+      </div>
+      <div class="cb-menu-card">
+        <h3>The <span class="item-accent">Egg</span> Sandwich</h3>
+        <p>Fried egg, cheddar, a little chili oil, greens, toasted bun. Nothing fancy going on here; it just works.</p>
+      </div>
+      <div class="cb-menu-card">
+        <h3>The <span class="item-accent">Pastry</span> Case</h3>
+        <p>Changes every morning depending on what we felt like baking. Usually involves butter. Usually gone by noon. If you see something you want, don't overthink it.</p>
+      </div>
+      <div class="cb-menu-card">
+        <h3><span class="item-accent">Coffee</span></h3>
+        <p>We take it seriously but we're not weird about it. Espresso, drip, or pour-over; we've got oat milk and regular milk and nobody's going to judge your order.</p>
+      </div>
+    </div>
+    <p class="cb-menu-note">The menu changes with the seasons and sometimes just with the morning. Whatever's on the board is what we've got.</p>
+  </div>
+</section>
+
+<!-- PHOTO STRIP 2 -->
+<div class="cb-photo-strip">
+  <img src="cb-cup.jpg" alt="A dark coffee cup with latte art on an industrial surface by a rainy window">
+</div>
+
+<div class="cb-copper-bar"></div>
+
+<!-- HOURS -->
+<section class="cb-hours" id="visit">
+  <div class="cb-section">
+    <div class="fade-in">
+      <p class="cb-label">Find Us</p>
+      <h2 class="cb-heading">Hours <span class="copper">&amp;</span><br>Location<span class="olive">.</span></h2>
+    </div>
+    <div class="cb-hours-grid fade-in">
+      <div>
+        <div class="cb-hours-row"><span class="day">Monday – Friday</span><span class="time">7 AM – 4 PM</span></div>
+        <div class="cb-hours-row"><span class="day">Saturday</span><span class="time">8 AM – 4 PM</span></div>
+        <div class="cb-hours-row"><span class="day">Sunday</span><span class="time">8 AM – 2 PM</span></div>
+      </div>
+      <div>
+        <p class="cb-location-address">2184 Gottingen St<br>Halifax, NS</p>
+        <p class="cb-location-note">We're on the corner of Gottingen and Cogswell in the north end. There's street parking out front, a bike rack if you're riding, and you'll spot us by the copper — it's hard to miss once you know what you're looking for.</p>
+        <a href="#" class="cb-location-btn">Get Directions →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cb-copper-bar"></div>
+
+<!-- FOOTER -->
+<footer class="cb-footer">
+  <div class="cb-footer-inner">
+    <div class="cb-footer-logo"><img src="cb-logo-horizontal.png" alt="Copper + Bean" class="cb-footer-logo-img"></div>
+    <div class="cb-footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+    <p class="cb-footer-copy">© 2024 Copper + Bean · Halifax, NS · Coffee & Light Fare</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('cb-nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+  var faders = document.querySelectorAll('.fade-in');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  faders.forEach(function(f){ observer.observe(f); });
+})();
+</script>
+
+</body>
+</html>
