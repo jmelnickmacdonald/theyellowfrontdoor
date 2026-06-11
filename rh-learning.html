@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RH Learning — Raven House Co.</title>
+  <meta name="description" content="Small-group learning circles and one-on-one tutoring for grades 1–6 in the Annapolis Valley. Curiosity-led, farm-based, and rooted in real experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:       #F7F2E8;
+      --cream-deep:  #EFE7D5;
+      --ink:         #1C1A17;
+      --ink-mid:     #3D3830;
+      --sage:        #6B7C5E;
+      --sage-light:  #8FA082;
+      --sage-pale:   #E8EDE4;
+      --terracotta:  #C47A52;
+      --terra-pale:  #F2E4D8;
+      --blush:       #E8D5C4;
+      --stone:       #9C9080;
+      --stone-light: #D4CDBF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247,242,232,0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--stone-light);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-links a.active { color: var(--sage); }
+    .nav-cta {
+      background: var(--sage);
+      color: var(--cream) !important;
+      padding: 0.4rem 1.1rem;
+      border-radius: 2px;
+    }
+    .nav-cta:hover { background: var(--ink) !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      margin-top: 60px;
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem 2rem;
+    }
+    .page-header-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .page-header-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,26,23,0.82) 0%, rgba(28,26,23,0.05) 55%);
+    }
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1050px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .page-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 0.6rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+    }
+    .page-header h1 em {
+      font-style: italic;
+      color: var(--blush);
+    }
+
+    /* INTRO */
+    .rhl-intro {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+    .rhl-intro-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .rhl-intro-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.4rem;
+    }
+    .rhl-intro-text h2 em {
+      font-style: italic;
+      color: var(--sage);
+    }
+    .rhl-intro-text p {
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .rhl-intro-img {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .rhl-intro-img .img-tall {
+      grid-row: span 2;
+      overflow: hidden;
+      border-radius: 2px;
+      height: 380px;
+    }
+    .rhl-intro-img .img-sm {
+      overflow: hidden;
+      border-radius: 2px;
+      height: 186px;
+    }
+    .rhl-intro-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .rhl-intro-img div:hover img { transform: scale(1.04); }
+
+    /* WHAT IT IS */
+    .what-it-is {
+      padding: 6rem 2rem;
+      background: var(--sage-pale);
+    }
+    .what-it-is-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      margin-bottom: 3.5rem;
+    }
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .offering {
+      background: var(--cream);
+      padding: 2.5rem 2rem;
+      border-radius: 2px;
+      border-top: 3px solid var(--sage);
+    }
+    .offering.secondary { border-top-color: var(--terracotta); }
+    .offering h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .offering-sub {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .offering p {
+      color: var(--ink-mid);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .offering ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .offering ul li {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--stone-light);
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+    .offering ul li:last-child { border-bottom: none; }
+    .offering ul li::before {
+      content: '—';
+      color: var(--sage);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    /* APPROACH */
+    .approach {
+      padding: 6rem 2rem;
+      background: var(--cream-deep);
+    }
+    .approach-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .approach-img img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      display: block;
+    }
+    .approach-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.4rem;
+    }
+    .approach-text p {
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* WONDER QUESTIONS */
+    .wonder {
+      padding: 6rem 2rem;
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .wonder-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .wonder .section-label { color: var(--sage-light); }
+    .wonder .section-title { color: var(--cream); margin-bottom: 1rem; }
+    .wonder-desc {
+      font-size: 1rem;
+      color: rgba(247,242,232,0.65);
+      max-width: 560px;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+    .wonder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .wonder-card {
+      background: rgba(247,242,232,0.06);
+      border: 1px solid rgba(247,242,232,0.1);
+      padding: 1.8rem 1.5rem;
+      border-radius: 2px;
+    }
+    .wonder-card .wq-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .wonder-card p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+
+    /* PHOTO STRIP */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 280px;
+      gap: 4px;
+    }
+    .photo-strip-item { overflow: hidden; }
+    .photo-strip-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .photo-strip-item:hover img { transform: scale(1.05); }
+
+    /* CURRICULUM NOTE */
+    .curriculum {
+      padding: 5rem 2rem;
+      background: var(--terra-pale);
+    }
+    .curriculum-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .curriculum-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+      font-weight: 400;
+      margin-bottom: 1.2rem;
+      line-height: 1.35;
+    }
+    .curriculum-inner p {
+      color: var(--ink-mid);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* CTA */
+    .rhl-cta {
+      padding: 6rem 2rem;
+      background: var(--cream);
+      text-align: center;
+    }
+    .rhl-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .rhl-cta p {
+      color: var(--ink-mid);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+    }
+    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-solid {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.8rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-solid:hover { background: var(--sage); }
+    .btn-outline {
+      display: inline-block;
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.8rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--cream); }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(247,242,232,0.1);
+    }
+    .footer-brand img {
+      height: 60px; width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: rgba(247,242,232,0.55);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a {
+      text-decoration: none;
+      color: rgba(247,242,232,0.65);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--terracotta); }
+    .footer-bottom {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(247,242,232,0.35);
+    }
+    .footer-email a { color: var(--terracotta); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .rhl-intro-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .offerings-grid { grid-template-columns: 1fr; }
+      .approach-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .wonder-grid { grid-template-columns: 1fr; }
+      .photo-strip { grid-template-columns: 1fr 1fr; height: 200px; }
+      .photo-strip-item:nth-child(3),
+      .photo-strip-item:nth-child(4) { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="rh-index.html" class="nav-logo">
+    <img src="ravenhouseLogo.png" alt="Raven House Co.">
+  </a>
+  <ul class="nav-links">
+    <li><a href="rh-about.html">About Us</a></li>
+    <li><a href="rh-farm.html">Farm & Homestead</a></li>
+    <li><a href="rh-learning.html" class="active">RH Learning</a></li>
+    <li><a href="rh-shop.html">Shop & Studio</a></li>
+    <li><a href="rh-contact.html" class="nav-cta">Say Hello</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <img class="page-header-img" src="526309937_122243389238215594_7079442055674244404_n.jpg" alt="Children learning outdoors at Raven House">
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <p class="page-eyebrow">RH Learning</p>
+    <h1>Learning that happens<br><em>where the goats can see you.</em></h1>
+  </div>
+</header>
+
+<section class="rhl-intro">
+  <div class="rhl-intro-inner">
+    <div class="rhl-intro-text">
+      <h2>Small groups. Real questions. <em>A farm as the classroom.</em></h2>
+      <p>RH Learning grew out of what we were already doing with our own kids — taking their questions seriously, following the thread of what they were curious about, and letting the world around us do a lot of the teaching.</p>
+      <p>We opened it up to other families because we wanted our kids to learn alongside others, and because there are families in this area who were looking for something different. Not a replacement for school. Something alongside it, or instead of it, depending on where you're at.</p>
+      <p>Circles run on the farm. The setting is part of the point. Math in front of the pig pen. Phonics on the picnic table. A wonder question that starts inside and ends up at the fence line watching the goats.</p>
+    </div>
+    <div class="rhl-intro-img">
+      <div class="img-tall">
+        <img src="525704237_122243389286215594_3878806103419635962_n.jpg" alt="Child doing math beside the goat pen">
+      </div>
+      <div class="img-sm">
+        <img src="526277777_122243389178215594_5894167671965188844_n.jpg" alt="Children working outdoors">
+      </div>
+      <div class="img-sm">
+        <img src="518970090_122240299196215594_7373583921405675048_n.jpg" alt="Raven House Learning materials">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="what-it-is">
+  <div class="what-it-is-inner">
+    <span class="section-label">What we offer</span>
+    <h2 class="section-title">Two ways to learn at Raven House</h2>
+    <div class="offerings-grid">
+
+      <div class="offering">
+        <h3>Learning Circles</h3>
+        <span class="offering-sub">Small groups · Grades 1–6 · Farm-based</span>
+        <p>Theme-based sessions that run through the week. Each circle has a Wonder Question at the centre — something open-ended that kids can approach from different angles depending on where they are.</p>
+        <p>Sessions weave literacy, numeracy, science, and social learning together. We follow the Nova Scotia curriculum outcomes but the delivery looks nothing like a classroom.</p>
+        <ul>
+          <li>Multi-age groups of 4–8 kids</li>
+          <li>Curriculum-linked but inquiry-led</li>
+          <li>Takes place on the farm property</li>
+          <li>Daily summary sheet sent home</li>
+          <li>At-home extension activities included</li>
+        </ul>
+      </div>
+
+      <div class="offering secondary">
+        <h3>One-on-One Tutoring</h3>
+        <span class="offering-sub">Individual · Grades 1–6 · Flexible scheduling</span>
+        <p>For kids who need focused support in reading, writing, or math, or who just do better with individual attention. Sessions are tailored to where the child actually is, not where the calendar says they should be.</p>
+        <p>We work at each child's own pace. Some kids come for a few months to get over a specific hurdle. Others come regularly through the year. Both are fine.</p>
+        <ul>
+          <li>Customised to the individual child</li>
+          <li>Literacy and numeracy focus</li>
+          <li>Relaxed, low-pressure environment</li>
+          <li>Progress updates for parents</li>
+          <li>Can run alongside school or homeschool</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="approach-inner">
+    <div class="approach-img">
+      <img src="526277777_122243389178215594_5894167671965188844_n.jpg" alt="Children learning at an outdoor table">
+    </div>
+    <div class="approach-text">
+      <span class="section-label">How we teach</span>
+      <h2>Curiosity first. Curriculum second. The farm third — which usually ends up being first.</h2>
+      <p>Every circle starts with a Wonder Question. Not a question with one right answer, but a question worth actually sitting with. Kids come at it through reading, writing, counting, drawing, building — whatever fits the thread.</p>
+      <p>Because we're on a farm, the learning has a way of leaving the table. A lesson about cycles ends up at the compost. A counting exercise ends up at the goat pen. We don't force it. It just happens.</p>
+      <p>We keep groups small deliberately. Eight kids is a crowd here. Four is better. That size lets us actually know where each child is and respond to it, rather than teaching to the middle of a group.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wonder">
+  <div class="wonder-inner">
+    <span class="section-label">Sample wonder questions</span>
+    <h2 class="section-title">What we've been exploring</h2>
+    <p class="wonder-desc">Each circle is built around a central question that kids can approach from multiple angles. These are a few recent ones.</p>
+    <div class="wonder-grid">
+      <div class="wonder-card">
+        <span class="wq-label">Science & Math</span>
+        <p>"If every goat has four legs, how many legs do we have in total — and what else on the farm can we count that way?"</p>
+      </div>
+      <div class="wonder-card">
+        <span class="wq-label">Language & Story</span>
+        <p>"What makes someone a pirate — and how would you tell a pirate story from the perspective of the ship?"</p>
+      </div>
+      <div class="wonder-card">
+        <span class="wq-label">Nature & Observation</span>
+        <p>"How do animals on the farm know what season it is — and how do we know?"</p>
+      </div>
+      <div class="wonder-card">
+        <span class="wq-label">Community & Place</span>
+        <p>"What does it mean to take care of something — and what on this farm depends on us to take care of it?"</p>
+      </div>
+      <div class="wonder-card">
+        <span class="wq-label">Colour & Pattern</span>
+        <p>"Why do eggs come in so many colours, and how can we use colour to sort, count, and describe the world around us?"</p>
+      </div>
+      <div class="wonder-card">
+        <span class="wq-label">Movement & Change</span>
+        <p>"What changes on the farm between morning and evening — and how could we track it over a whole week?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="518970090_122240299196215594_7373583921405675048_n.jpg" alt="Learning materials from RH Learning">
+  </div>
+  <div class="photo-strip-item">
+    <img src="525704237_122243389286215594_3878806103419635962_n.jpg" alt="Child doing work beside pig pen">
+  </div>
+  <div class="photo-strip-item">
+    <img src="520293466_122240008400215594_999926031470040256_n__1_.jpg" alt="Child reading with baby chick">
+  </div>
+  <div class="photo-strip-item">
+    <img src="526277777_122243389178215594_5894167671965188844_n.jpg" alt="Outdoor learning session">
+  </div>
+</div>
+
+<section class="curriculum">
+  <div class="curriculum-inner">
+    <h2>Linked to the Nova Scotia curriculum — but it doesn't look like school.</h2>
+    <p>Learning circle outcomes are mapped to Nova Scotia primary curriculum standards across literacy, numeracy, science, and personal development. Kids go home with a daily summary sheet and at-home extension activities.</p>
+    <p>If your child attends school, RH Learning works alongside it. If you're homeschooling, it works for that too. We're flexible about how it fits into your family's setup.</p>
+  </div>
+</section>
+
+<section class="rhl-cta">
+  <h2>Interested in a spot?</h2>
+  <p>Circles run in small groups and fill up. If you want to find out more or get on the list, get in touch.</p>
+  <div class="cta-group">
+    <a href="rh-contact.html" class="btn-solid">Get in touch</a>
+    <a href="rh-farm.html" class="btn-outline">See the farm</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="ravenhouseLogo.png" alt="Raven House Co.">
+      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, small-group learning, handmade goods, and the honest work of raising a family close to the land.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="rh-about.html">About Us</a></li>
+        <li><a href="rh-farm.html">Farm & Homestead</a></li>
+        <li><a href="rh-learning.html">RH Learning</a></li>
+        <li><a href="rh-shop.html">Shop & Studio</a></li>
+        <li><a href="rh-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find us</h4>
+      <ul>
+        <li><a href="#">Follow on Facebook</a></li>
+        <li><a href="#">Follow on Instagram</a></li>
+      </ul>
+      <div class="footer-email" style="margin-top:1.5rem;">
+        <h4>Say hello</h4>
+        <a href="mailto:hello@ravenhouseco.ca">hello@ravenhouseco.ca</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Raven House Co. — Annapolis Valley, NS</span>
+    <span>Laid by happy birds. Collected by noisy kids.</span>
+  </div>
+</footer>
+
+</body>
+</html>
