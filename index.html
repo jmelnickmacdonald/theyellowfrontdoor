@@ -68,10 +68,14 @@ body.is-night .scene-day { display: none; }
 body.is-night .scene-night { display: block; }
 
 /* HERO */
-.hero { padding: 36px 0 40px; background: var(--paper); text-align: center; position: relative; z-index: 1; }
-.hero-h1 { font-family: var(--f-head); font-size: clamp(22px, 3vw, 38px); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 10px; max-width: 620px; margin-left: auto; margin-right: auto; }
-.hero-accent-line { font-family: var(--f-accent); font-size: clamp(26px, 3.6vw, 46px); color: var(--slate); font-weight: normal; display: block; margin-bottom: 32px; line-height: 1.15; }
-.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.hero-thesis { background: var(--navy); padding: clamp(40px, 6vw, 72px) 0 clamp(44px, 6vw, 72px); text-align: center; }
+.hero-thesis-inner { max-width: 720px; margin: 0 auto; }
+.hero-h1 { font-family: var(--f-head); font-size: clamp(24px, 3.5vw, 42px); font-weight: 400; color: #fff; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 8px; }
+.hero-accent-line { font-family: var(--f-accent); font-size: clamp(24px, 3.5vw, 42px); color: rgba(255,255,255,0.5); font-weight: normal; display: block; margin-bottom: 24px; line-height: 1.15; }
+.hero-bridge { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 560px; margin: 0 auto 32px; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-outline-light { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.8); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
+.btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
 
 /* BUTTONS */
 .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; }
@@ -82,11 +86,6 @@ body.is-night .scene-night { display: block; }
 .btn-yellow:hover { background: var(--brass); }
 
 /* THESIS */
-.thesis-bottom { background: var(--navy); padding: clamp(36px, 5vw, 60px) 0; }
-.thesis-bottom .container { max-width: 1400px; padding: 0 clamp(32px, 6vw, 100px); }
-.thesis-body { max-width: 640px; }
-.thesis-body p { font-size: 16px; line-height: 1.85; color: rgba(255,255,255,0.75); margin-bottom: 14px; }
-.thesis-body p:last-child { margin-bottom: 0; }
 
 /* FEATURED WORK */
 .featured-work { background: var(--paper); padding: clamp(32px, 4vw, 48px) 0; }
@@ -126,9 +125,6 @@ body.is-night .scene-night { display: block; }
 @media (max-width: 768px) {
   .testimonials-grid { grid-template-columns: 1fr; }
 }
-.thesis-body-col p { font-size: 16px; line-height: 1.85; color: var(--stone); margin-bottom: 20px; font-weight: 400; }
-.thesis-body-col p:last-child { margin-bottom: 0; }
-.thesis-body-col strong { color: var(--paper); font-weight: 500; }
 .thesis-bridge { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; margin-top: 12px; }
 .yellow-underline { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M2 6 C30 2, 60 7, 100 5 C140 3, 170 7, 198 4' stroke='%23fcd346' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: repeat-x; background-position: bottom; background-size: 200px 8px; padding-bottom: 6px; }
 
@@ -221,31 +217,20 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
     loading="eager">
 </div>
 
-<!-- HERO -->
-<section class="hero" id="top">
+<!-- HERO + THESIS — combined -->
+<section class="hero-thesis" id="top">
   <div class="container">
-    <h1 class="hero-h1">Your marketing brings them to the door.</h1>
-    <span class="hero-accent-line">We help make sure it's worth opening.</span>
-    <div class="hero-actions">
-      <a href="what-we-do.html" class="btn-primary">What We Do</a>
-      <a href="lets-talk.html" class="btn-secondary">Start with a Drive-By →</a>
+    <div class="hero-thesis-inner">
+      <h1 class="hero-h1">Your marketing brings them to the door.</h1>
+      <span class="hero-accent-line">We make sure it's worth opening.</span>
+      <p class="hero-bridge">Once someone finds your business, everything they meet — the website, the words, the first reply, the follow-up — is either building trust or quietly losing it. We shape those pieces so the outside of your business finally matches the inside.</p>
+      <div class="hero-actions">
+        <a href="what-we-do.html" class="btn-yellow">What We Do</a>
+        <a href="lets-talk.html" class="btn-outline-light">Start with a Drive-By →</a>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- THESIS — navy -->
-<div class="thesis-bottom" id="what-we-do">
-  <div class="container">
-    <div class="thesis-body">
-      <p>Most small businesses spend a lot of time, money, and energy trying to stay visible and attract new customers.</p>
-      <p><strong>But getting someone's attention is only the first step.</strong></p>
-      <p>Once someone visits your website, checks your Google profile, sends a message, or opens that first email, they're looking for signs that they're in the right place. They want to understand what you offer, what to do next, and whether the business in front of them feels clear, current, and trustworthy.</p>
-      <p>That's a lot to keep up with when you're also running <span class="yellow-underline">the actual business</span>.</p>
-      <p>We shape the customer-facing pieces people meet along the way, keep them current as your business changes, and help your marketing grow from a stronger foundation.</p>
-      <p class="thesis-bridge"><strong>Once the experience is working, the rest of your marketing can do more.</strong></p>
-    </div>
-  </div>
-</div>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials-section">
