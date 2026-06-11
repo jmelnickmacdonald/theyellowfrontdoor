@@ -102,6 +102,19 @@ body.is-night .scene-night { display: block; }
 .featured-card-scope { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); }
 .featured-link { font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.04em; border-bottom: 2px solid var(--yellow); padding-bottom: 2px; }
 
+/* OUR STORY HOOK */
+.story-hook { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; }
+.story-hook-inner { display: grid; grid-template-columns: 0.45fr 0.55fr; gap: clamp(28px, 4vw, 48px); align-items: center; }
+.story-hook-image { border-radius: 4px; overflow: hidden; }
+.story-hook-image img { width: 100%; height: auto; display: block; }
+.story-hook-text p { font-size: 16px; line-height: 1.85; color: var(--ink); margin-bottom: 14px; }
+.story-hook-text p:last-of-type { margin-bottom: 0; }
+.story-hook-link { display: inline-block; margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; letter-spacing: 0.02em; }
+@media (max-width: 768px) {
+  .story-hook-inner { grid-template-columns: 1fr; }
+  .story-hook-image { max-width: 400px; }
+}
+
 /* PROCESS */
 .process-section { background: var(--navy); padding: clamp(32px, 4vw, 52px) 0; }
 .process-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
@@ -248,6 +261,22 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
         <p class="testimonial-quote">"I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered. Insightful, and nailed exactly what I was looking for."</p>
         <cite class="testimonial-cite">— M. Joliffe</cite>
       </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story-hook">
+  <div class="container">
+    <div class="story-hook-inner">
+      <div class="story-hook-image">
+        <img src="wr_storefront.jpg" alt="Willow & Rose storefront — the business we ran before this one">
+      </div>
+      <div class="story-hook-text">
+        <p>Before we started this studio, we ran a small business for seven years. We had two different window-cleaning companies sending weekly invoices we couldn't keep straight, Facebook ads we weren't sure were converting, and a constant feeling of paddling like mad underneath while trying to look calm on the surface.</p>
+        <p>We learned what the in-market experience was by getting ours wrong first. That's where all of this comes from.</p>
+        <a href="the-doorstep.html" class="story-hook-link">Read the full story →</a>
+      </div>
     </div>
   </div>
 </section>
