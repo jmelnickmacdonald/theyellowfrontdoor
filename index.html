@@ -73,6 +73,8 @@ body.is-night .scene-night { display: block; }
 .hero-h1 { font-family: var(--f-head); font-size: clamp(24px, 3.5vw, 42px); font-weight: 400; color: #fff; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 8px; }
 .hero-accent-line { font-family: var(--f-accent); font-size: clamp(24px, 3.5vw, 42px); color: rgba(255,255,255,0.5); font-weight: normal; display: block; margin-bottom: 24px; line-height: 1.15; }
 .hero-bridge { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 560px; margin: 0 auto 32px; }
+.hero-story-link { color: var(--yellow); font-weight: 600; border-bottom: 1px solid rgba(252,211,70,0.3); transition: border-color 0.2s; }
+.hero-story-link:hover { border-color: var(--yellow); }
 .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .btn-outline-light { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.8); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
 .btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
@@ -234,9 +236,9 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 <section class="hero-thesis" id="top">
   <div class="container">
     <div class="hero-thesis-inner">
-      <h1 class="hero-h1">Your marketing brings them to the door.</h1>
-      <span class="hero-accent-line">We make sure it's worth opening.</span>
-      <p class="hero-bridge">Once someone finds your business, everything they meet — the website, the words, the first reply, the follow-up — is either building trust or quietly losing it. We shape those pieces so the outside of your business finally matches the inside.</p>
+      <h1 class="hero-h1">Your business is great, but your online presence isn't keeping up.</h1>
+      <span class="hero-accent-line">We fix that.</span>
+      <p class="hero-bridge">The website, the words, the brand, the emails, and the systems behind them. We know what falls through the cracks because we ran a small business for seven years and learned most of this the hard way. <a href="the-doorstep.html" class="hero-story-link">Read our story →</a></p>
       <div class="hero-actions">
         <a href="what-we-do.html" class="btn-yellow">What We Do</a>
         <a href="lets-talk.html" class="btn-outline-light">Start with a Drive-By →</a>
@@ -261,23 +263,6 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
         <p class="testimonial-quote">"I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered. Insightful, and nailed exactly what I was looking for."</p>
         <cite class="testimonial-cite">— M. Joliffe</cite>
       </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- OUR STORY -->
-<section class="story-hook">
-  <div class="container">
-    <div class="story-hook-inner">
-      <div class="story-hook-image">
-        <img src="wr_storefront.jpg" alt="Willow & Rose storefront — the business we ran before this one">
-      </div>
-      <div class="story-hook-text">
-        <p>Before we started this studio, we ran a small business for seven years. I had two different window-cleaning companies showing up every few days, neither one aware of the other, and ten-dollar invoices appearing whether I needed them or not. The outside of my windows was always spotless.</p>
-        <p>The inside was a different story. I was paying for Facebook ads, radio spots, donations, saying yes to every marketing opportunity that crossed my desk — and I couldn't tell you if any of it was converting. Because once people actually came closer, what they found was an outdated website, a cold auto-reply, a half-finished profile, and a follow-up that never came.</p>
-        <p>I was spending everything on getting people to look, and nothing on what they'd find when they did. That's where all of this comes from.</p>
-        <a href="the-doorstep.html" class="story-hook-link">Read the full story →</a>
-      </div>
     </div>
   </div>
 </section>
