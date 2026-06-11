@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop & Studio — Raven House Co.</title>
+  <meta name="description" content="Fresh eggs, handmade candles, seasonal goods, and small-batch creations from the Raven House studio in the Annapolis Valley.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:       #F7F2E8;
+      --cream-deep:  #EFE7D5;
+      --ink:         #1C1A17;
+      --ink-mid:     #3D3830;
+      --sage:        #6B7C5E;
+      --sage-light:  #8FA082;
+      --sage-pale:   #E8EDE4;
+      --terracotta:  #C47A52;
+      --terra-pale:  #F2E4D8;
+      --blush:       #E8D5C4;
+      --stone:       #9C9080;
+      --stone-light: #D4CDBF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247,242,232,0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--stone-light);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-links a.active { color: var(--sage); }
+    .nav-cta {
+      background: var(--sage);
+      color: var(--cream) !important;
+      padding: 0.4rem 1.1rem;
+      border-radius: 2px;
+    }
+    .nav-cta:hover { background: var(--ink) !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      margin-top: 60px;
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem 2rem;
+    }
+    .page-header-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+    .page-header-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,26,23,0.82) 0%, rgba(28,26,23,0.05) 55%);
+    }
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1050px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .page-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 0.6rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+    }
+    .page-header h1 em {
+      font-style: italic;
+      color: var(--blush);
+    }
+
+    /* INTRO */
+    .shop-intro {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+    .shop-intro-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .shop-intro-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.4rem;
+    }
+    .shop-intro-inner p {
+      color: var(--ink-mid);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* CATEGORIES */
+    .section-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      margin-bottom: 3.5rem;
+    }
+
+    /* EGGS */
+    .shop-eggs {
+      padding: 6rem 2rem;
+      background: var(--cream-deep);
+    }
+    .shop-eggs-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .shop-eggs-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+    }
+    .shop-eggs-text p {
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .availability-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--sage);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.4rem;
+    }
+    .availability-tag::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: #9be39b;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .egg-details {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--stone-light);
+    }
+    .egg-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--stone-light);
+      font-size: 0.9rem;
+    }
+    .egg-detail-label {
+      color: var(--stone);
+      font-weight: 400;
+    }
+    .egg-detail-value {
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .shop-eggs-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .sep-tall {
+      grid-row: span 2;
+      overflow: hidden;
+      border-radius: 2px;
+      height: 380px;
+    }
+    .sep-sm {
+      overflow: hidden;
+      border-radius: 2px;
+      height: 186px;
+    }
+    .shop-eggs-photos img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .shop-eggs-photos div:hover img { transform: scale(1.04); }
+
+    /* STUDIO */
+    .studio {
+      padding: 6rem 2rem;
+      background: var(--sage-pale);
+    }
+    .studio-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .studio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 0;
+    }
+    .studio-card {
+      background: var(--cream);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .studio-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .studio-card:hover .studio-card-img { transform: scale(1.04); }
+    .studio-card-body {
+      padding: 1.4rem 1.4rem 1.8rem;
+    }
+    .studio-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .studio-card-body p {
+      font-size: 0.88rem;
+      color: var(--stone);
+      line-height: 1.65;
+    }
+    .studio-card-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      border: 1px solid var(--terracotta);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.8rem;
+    }
+
+    /* THE SHED */
+    .the-shed {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+    .the-shed-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .the-shed-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .the-shed-imgs .si-main {
+      grid-column: 1 / -1;
+      overflow: hidden;
+      border-radius: 2px;
+      height: 300px;
+    }
+    .the-shed-imgs .si-sm {
+      overflow: hidden;
+      border-radius: 2px;
+      height: 180px;
+    }
+    .the-shed-imgs img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .the-shed-imgs div:hover img { transform: scale(1.04); }
+    .the-shed-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.3rem;
+    }
+    .the-shed-text p {
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* SEASONAL NOTE */
+    .seasonal {
+      padding: 5rem 2rem;
+      background: var(--ink);
+      text-align: center;
+    }
+    .seasonal-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .seasonal .section-label { color: var(--sage-light); }
+    .seasonal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+      margin-top: 0.3rem;
+    }
+    .seasonal p {
+      color: rgba(247,242,232,0.62);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* CTA */
+    .shop-cta {
+      padding: 6rem 2rem;
+      background: var(--terra-pale);
+      text-align: center;
+    }
+    .shop-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .shop-cta p {
+      color: var(--ink-mid);
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+    }
+    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-solid {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.8rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-solid:hover { background: var(--sage); }
+    .btn-outline {
+      display: inline-block;
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.8rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--cream); }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(247,242,232,0.1);
+    }
+    .footer-brand img {
+      height: 60px; width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: rgba(247,242,232,0.55);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a {
+      text-decoration: none;
+      color: rgba(247,242,232,0.65);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--terracotta); }
+    .footer-bottom {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(247,242,232,0.35);
+    }
+    .footer-email a { color: var(--terracotta); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .shop-eggs-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .studio-grid { grid-template-columns: 1fr; }
+      .the-shed-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="rh-index.html" class="nav-logo">
+    <img src="ravenhouseLogo.png" alt="Raven House Co.">
+  </a>
+  <ul class="nav-links">
+    <li><a href="rh-about.html">About Us</a></li>
+    <li><a href="rh-farm.html">Farm & Homestead</a></li>
+    <li><a href="rh-learning.html">RH Learning</a></li>
+    <li><a href="rh-shop.html" class="active">Shop & Studio</a></li>
+    <li><a href="rh-contact.html" class="nav-cta">Say Hello</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <img class="page-header-img" src="516800915_122238290534215594_3554167806495023009_n.jpg" alt="The Raven House studio shed">
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <p class="page-eyebrow">Shop & Studio</p>
+    <h1>Made here.<br><em>From what the seasons give us.</em></h1>
+  </div>
+</header>
+
+<section class="shop-intro">
+  <div class="shop-intro-inner">
+    <h2>Everything we sell comes from this place — the land, the animals, or the studio at the edge of the trees.</h2>
+    <p>Fresh eggs from the flock. Candles made in small batches. Seasonal goods when the garden allows. Nothing is mass-produced and nothing is shipped in. If we're selling it, it came from here.</p>
+  </div>
+</section>
+
+<section class="shop-eggs">
+  <div class="shop-eggs-inner">
+    <div class="shop-eggs-text">
+      <span class="availability-tag">Available now</span>
+      <h2>Fresh eggs — pasture-raised, mixed flock, Greenwood area pickup.</h2>
+      <p>Our chickens and ducks produce more eggs than we can use, most of the year. We sell locally to people who want to know where their food comes from. The shells come in a range of colours — cream, brown, blue-green from the Ameraucanas — washed and refrigerated.</p>
+      <p>We sell by the dozen. If you're in the Greenwood area and want a regular supply, get in touch and we'll add you to the list. Availability is seasonal — production slows in winter and picks back up in spring.</p>
+      <div class="egg-details">
+        <div class="egg-detail">
+          <span class="egg-detail-label">Flock</span>
+          <span class="egg-detail-value">Mixed — chickens & ducks</span>
+        </div>
+        <div class="egg-detail">
+          <span class="egg-detail-label">Raised</span>
+          <span class="egg-detail-value">Pasture-raised, Annapolis Valley</span>
+        </div>
+        <div class="egg-detail">
+          <span class="egg-detail-label">Sold by</span>
+          <span class="egg-detail-value">The dozen</span>
+        </div>
+        <div class="egg-detail">
+          <span class="egg-detail-label">Pickup</span>
+          <span class="egg-detail-value">Greenwood area</span>
+        </div>
+      </div>
+      <a href="rh-contact.html" class="btn-solid" style="margin-top:1.5rem;">Get on the egg list</a>
+    </div>
+    <div class="shop-eggs-photos">
+      <div class="sep-tall">
+        <img src="492008406_122221383926215594_5791757633107125899_n__1_.jpg" alt="Child with egg basket">
+      </div>
+      <div class="sep-sm">
+        <img src="488856518_122215201838215594_6727058613650988504_n.jpg" alt="Farm fresh egg carton">
+      </div>
+      <div class="sep-sm">
+        <img src="556471014_122255452256215594_5095195571526045164_n__2_.jpg" alt="Eggs spread on the kitchen counter">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="studio">
+  <div class="studio-inner">
+    <span class="section-label">From the studio</span>
+    <h2 class="section-title">Handmade & homegrown</h2>
+    <div class="studio-grid">
+
+      <div class="studio-card">
+        <img class="studio-card-img" src="516800915_122238290534215594_3554167806495023009_n.jpg" alt="The studio shed at Raven House">
+        <div class="studio-card-body">
+          <span class="studio-card-tag">Year-round</span>
+          <h3>Soy Candles</h3>
+          <p>Small-batch soy candles made in the studio. Scents change with the season — what we're growing, what the land smells like, what feels right for the time of year.</p>
+        </div>
+      </div>
+
+      <div class="studio-card">
+        <img class="studio-card-img" src="488856518_122215201838215594_6727058613650988504_n.jpg" alt="Farm fresh eggs in carton">
+        <div class="studio-card-body">
+          <span class="studio-card-tag">Seasonal</span>
+          <h3>Garden Goods</h3>
+          <p>What the garden produces in excess — preserves, dried herbs, seasonal vegetables. Availability depends entirely on the year and what the weather decided to do.</p>
+        </div>
+      </div>
+
+      <div class="studio-card">
+        <img class="studio-card-img" src="518970090_122240299196215594_7373583921405675048_n.jpg" alt="Handmade goods from Raven House">
+        <div class="studio-card-body">
+          <span class="studio-card-tag">As available</span>
+          <h3>Handmade Crafts</h3>
+          <p>Seasonal and occasional — wreaths, ornaments, small home goods. Made when time allows, sold locally. Follow along on social to see what's coming.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="the-shed">
+  <div class="the-shed-inner">
+    <div class="the-shed-imgs">
+      <div class="si-main">
+        <img src="516800915_122238290534215594_3554167806495023009_n.jpg" alt="The studio shed with door open">
+      </div>
+      <div class="si-sm">
+        <img src="506626320_122231613062215594_3741641693581821848_n.jpg" alt="Raven House sign at the property entrance">
+      </div>
+      <div class="si-sm">
+        <img src="518375573_122240008490215594_5551288576474088861_n.jpg" alt="Child with chick indoors">
+      </div>
+    </div>
+    <div class="the-shed-text">
+      <span class="section-label">The studio</span>
+      <h2>A shed at the edge of the trees. Built from salvage. Where things get made.</h2>
+      <p>The studio started as a project — something to build, something to use. It's made mostly from salvaged materials: old boards, a found door, pieces from other things.</p>
+      <p>It's where candles get poured, crafts get made, and the occasional learning circle happens when the weather is right. Small, warm, and ours.</p>
+      <p>Not everything made here ends up for sale. Some of it is just the work of having hands that need to make things.</p>
+    </div>
+  </div>
+</section>
+
+<section class="seasonal">
+  <div class="seasonal-inner">
+    <span class="section-label">A note on availability</span>
+    <h2>We sell what we have, when we have it.</h2>
+    <p>This isn't a shop with consistent stock and a shipping department. Eggs are available most of the year but slow down in winter. Studio goods appear when time allows. Garden produce depends on the season.</p>
+    <p>The best way to find out what's available is to follow us on social or drop us a message. We'll always be straight with you about what we have and when it's coming.</p>
+  </div>
+</section>
+
+<section class="shop-cta">
+  <h2>Want to order or find out what's available?</h2>
+  <p>Get in touch and we'll let you know what we have on hand.</p>
+  <div class="cta-group">
+    <a href="rh-contact.html" class="btn-solid">Say hello</a>
+    <a href="rh-farm.html" class="btn-outline">See the farm</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="ravenhouseLogo.png" alt="Raven House Co.">
+      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, small-group learning, handmade goods, and the honest work of raising a family close to the land.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="rh-about.html">About Us</a></li>
+        <li><a href="rh-farm.html">Farm & Homestead</a></li>
+        <li><a href="rh-learning.html">RH Learning</a></li>
+        <li><a href="rh-shop.html">Shop & Studio</a></li>
+        <li><a href="rh-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find us</h4>
+      <ul>
+        <li><a href="#">Follow on Facebook</a></li>
+        <li><a href="#">Follow on Instagram</a></li>
+      </ul>
+      <div class="footer-email" style="margin-top:1.5rem;">
+        <h4>Say hello</h4>
+        <a href="mailto:hello@ravenhouseco.ca">hello@ravenhouseco.ca</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Raven House Co. — Annapolis Valley, NS</span>
+    <span>Laid by happy birds. Collected by noisy kids.</span>
+  </div>
+</footer>
+
+</body>
+</html>
