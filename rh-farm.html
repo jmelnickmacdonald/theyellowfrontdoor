@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm & Homestead — Raven House Co.</title>
+  <meta name="description" content="A working homestead in the Annapolis Valley. Goats, cattle, horses, chickens, ducks, and the daily work of living close to the land.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:       #F7F2E8;
+      --cream-deep:  #EFE7D5;
+      --ink:         #1C1A17;
+      --ink-mid:     #3D3830;
+      --sage:        #6B7C5E;
+      --sage-light:  #8FA082;
+      --sage-pale:   #E8EDE4;
+      --terracotta:  #C47A52;
+      --terra-pale:  #F2E4D8;
+      --blush:       #E8D5C4;
+      --stone:       #9C9080;
+      --stone-light: #D4CDBF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247,242,232,0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--stone-light);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-links a.active { color: var(--sage); }
+    .nav-cta {
+      background: var(--sage);
+      color: var(--cream) !important;
+      padding: 0.4rem 1.1rem;
+      border-radius: 2px;
+    }
+    .nav-cta:hover { background: var(--ink) !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      margin-top: 60px;
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem 2rem;
+    }
+    .page-header-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .page-header-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,26,23,0.8) 0%, rgba(28,26,23,0.05) 55%);
+    }
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1050px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .page-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 0.6rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      color: white;
+      line-height: 1.15;
+    }
+    .page-header h1 em {
+      font-style: italic;
+      color: var(--blush);
+    }
+
+    /* INTRO */
+    .farm-intro {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+    .farm-intro-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .farm-intro-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.4rem;
+    }
+    .farm-intro-text p {
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .farm-intro-img img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* ANIMALS SECTION */
+    .animals {
+      padding: 6rem 2rem;
+      background: var(--cream-deep);
+    }
+    .animals-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      margin-bottom: 3.5rem;
+    }
+    .animals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .animal-card {
+      background: var(--cream);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .animal-card-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .animal-card:hover .animal-card-img { transform: scale(1.04); }
+    .animal-card-body {
+      padding: 1.4rem 1.4rem 1.6rem;
+    }
+    .animal-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .animal-card-body p {
+      font-size: 0.88rem;
+      color: var(--stone);
+      line-height: 1.65;
+    }
+
+    /* FULL BLEED IMAGE */
+    .full-bleed {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+    .full-bleed img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+      display: block;
+      transition: transform 8s ease;
+    }
+    .full-bleed:hover img { transform: scale(1.03); }
+
+    /* EGGS SECTION */
+    .eggs {
+      padding: 6rem 2rem;
+      background: var(--sage-pale);
+    }
+    .eggs-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .eggs-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .eggs-photos .ep-tall {
+      grid-row: span 2;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .eggs-photos .ep-sm {
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .eggs-photos img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .eggs-photos .ep-tall { height: 380px; }
+    .eggs-photos .ep-sm { height: 186px; }
+    .eggs-photos:hover img { transform: scale(1.03); }
+
+    .eggs-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.4rem;
+    }
+    .eggs-text p {
+      color: var(--ink-mid);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .eggs-tag {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    /* SEASONS */
+    .seasons {
+      padding: 6rem 2rem;
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .seasons-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .seasons-inner .section-label { color: var(--sage-light); }
+    .seasons-inner .section-title { color: var(--cream); margin-bottom: 3rem; }
+    .seasons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(247,242,232,0.1);
+    }
+    .season-item {
+      padding: 2.2rem 1.8rem;
+      border-right: 1px solid rgba(247,242,232,0.1);
+    }
+    .season-item:last-child { border-right: none; }
+    .season-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3rem;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .season-item p {
+      font-size: 0.88rem;
+      color: rgba(247,242,232,0.6);
+      line-height: 1.7;
+    }
+
+    /* PHOTO STRIP */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 300px;
+      gap: 4px;
+    }
+    .photo-strip-item { overflow: hidden; }
+    .photo-strip-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .photo-strip-item:hover img { transform: scale(1.05); }
+
+    /* CTA */
+    .farm-cta {
+      padding: 6rem 2rem;
+      background: var(--terra-pale);
+      text-align: center;
+    }
+    .farm-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .farm-cta p {
+      color: var(--ink-mid);
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+    }
+    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-solid {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.8rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-solid:hover { background: var(--sage); }
+    .btn-outline {
+      display: inline-block;
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.8rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--cream); }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(247,242,232,0.1);
+    }
+    .footer-brand img {
+      height: 60px; width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: rgba(247,242,232,0.55);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a {
+      text-decoration: none;
+      color: rgba(247,242,232,0.65);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--terracotta); }
+    .footer-bottom {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(247,242,232,0.35);
+    }
+    .footer-email a { color: var(--terracotta); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .farm-intro-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .animals-grid { grid-template-columns: 1fr; }
+      .eggs-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .seasons-grid { grid-template-columns: 1fr 1fr; }
+      .season-item:nth-child(2) { border-right: none; }
+      .season-item:nth-child(1),
+      .season-item:nth-child(2) { border-bottom: 1px solid rgba(247,242,232,0.1); }
+      .photo-strip { grid-template-columns: 1fr 1fr; height: 220px; }
+      .photo-strip-item:nth-child(3),
+      .photo-strip-item:nth-child(4) { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="rh-index.html" class="nav-logo">
+    <img src="ravenhouseLogo.png" alt="Raven House Co.">
+  </a>
+  <ul class="nav-links">
+    <li><a href="rh-about.html">About Us</a></li>
+    <li><a href="rh-farm.html" class="active">Farm & Homestead</a></li>
+    <li><a href="rh-learning.html">RH Learning</a></li>
+    <li><a href="rh-shop.html">Shop & Studio</a></li>
+    <li><a href="rh-contact.html" class="nav-cta">Say Hello</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <img class="page-header-img" src="675645439_122290086836215594_1106015509438971186_n__1_.jpg" alt="Two goats at Raven House">
+  <div class="page-header-overlay"></div>
+  <div class="page-header-content">
+    <p class="page-eyebrow">Farm & Homestead</p>
+    <h1>A working farm.<br><em>Run by people who are still figuring it out.</em></h1>
+  </div>
+</header>
+
+<section class="farm-intro">
+  <div class="farm-intro-inner">
+    <div class="farm-intro-text">
+      <h2>We did not grow up doing this. We learned as we went — and we're still learning.</h2>
+      <p>When we moved to Raven House, we had no farming background. What we had was a piece of land, a lot of curiosity, and kids who were genuinely excited about animals. That was enough to start.</p>
+      <p>The homestead has grown slowly and deliberately. Chickens first, then ducks, then goats. Cattle came later. A horse was already here. Each animal has taught us something we didn't know we needed to learn.</p>
+      <p>It is not a perfect operation. Things go sideways. Animals get sick. Fences fail. We figure it out, and the next year we know a little more than we did the year before.</p>
+    </div>
+    <div class="farm-intro-img">
+      <img src="520105646_122240299328215594_1696924346446169414_n.jpg" alt="Child sitting with a calf">
+    </div>
+  </div>
+</section>
+
+<section class="animals">
+  <div class="animals-inner">
+    <span class="section-label">The residents</span>
+    <h2 class="section-title">Who lives here</h2>
+    <div class="animals-grid">
+
+      <div class="animal-card">
+        <img class="animal-card-img" src="524331212_122242383350215594_2793304318457154875_n.jpg" alt="Baby goat">
+        <div class="animal-card-body">
+          <h3>The Goats</h3>
+          <p>Nigerian Dwarfs — small, loud, and relentlessly charming. We started with two and now have a herd. They produce milk, cause trouble, and follow the kids around the property like shadows.</p>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <img class="animal-card-img" src="506626320_122231613062215594_3741641693581821848_n.jpg" alt="Child with the farm cat">
+        <div class="animal-card-body">
+          <h3>The Chickens & Ducks</h3>
+          <p>A mixed flock that produces more eggs than we know what to do with most of the year. The chickens roost in the barn; the ducks patrol the yard. Both are opinionated.</p>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <img class="animal-card-img" src="506148407_122231613398215594_4236947907603975915_n.jpg" alt="Child with cat in the field">
+        <div class="animal-card-body">
+          <h3>The Cattle</h3>
+          <p>A small beef herd that arrived more recently. They are calm, curious, and not nearly as easy to move as the goats. The calves, however, are something else entirely.</p>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <img class="animal-card-img" src="512690907_122235266804215594_4171212690145249456_n.jpg" alt="Child riding the horse">
+        <div class="animal-card-body">
+          <h3>The Horse</h3>
+          <p>Was here when we arrived. Has become the property's steadiest presence — patient with the kids, particular about who gets near the grain, and almost certainly smarter than she lets on.</p>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <img class="animal-card-img" src="480197074_122203419698215594_6155014477959465842_n.jpg" alt="Ducks by the river">
+        <div class="animal-card-body">
+          <h3>The Pigs</h3>
+          <p>Seasonal residents. They arrive in spring, do an extraordinary job of clearing brush and turning ground, and leave in fall. We are always a little sad to see them go.</p>
+        </div>
+      </div>
+
+      <div class="animal-card">
+        <img class="animal-card-img" src="676733726_122290086872215594_2325678950367658379_n__1_.jpg" alt="White goat and kid in barn">
+        <div class="animal-card-body">
+          <h3>The Cats</h3>
+          <p>Barn cats who have decided they are house cats. They hunt, they supervise, and they join the kids on every walk through the property whether invited or not.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="full-bleed">
+  <img src="517360366_122237813816215594_4797684656958102494_n__1_.jpg" alt="Kids and the cat heading down the path at Raven House">
+</div>
+
+<section class="eggs">
+  <div class="eggs-inner">
+    <div class="eggs-photos">
+      <div class="ep-tall">
+        <img src="492008406_122221383926215594_5791757633107125899_n__1_.jpg" alt="Little one with egg basket">
+      </div>
+      <div class="ep-sm">
+        <img src="488856518_122215201838215594_6727058613650988504_n.jpg" alt="Farm fresh egg carton">
+      </div>
+      <div class="ep-sm">
+        <img src="556471014_122255452256215594_5095195571526045164_n__2_.jpg" alt="Eggs on the kitchen counter">
+      </div>
+    </div>
+    <div class="eggs-text">
+      <span class="eggs-tag">Available now</span>
+      <h2>Fresh eggs, laid by happy birds and collected by noisy kids.</h2>
+      <p>Our mixed flock produces a beautiful range of shell colours — cream, brown, and the occasional blue-green from the Ameraucanas. All pasture-raised, all washed, all refrigerated.</p>
+      <p>We sell locally. If you're in the Greenwood area and want to get on our egg list, reach out. We usually have more than enough to go around.</p>
+      <a href="rh-contact.html" class="btn-solid" style="margin-top:0.5rem;">Get on the egg list</a>
+    </div>
+  </div>
+</section>
+
+<section class="seasons">
+  <div class="seasons-inner">
+    <span class="section-label">Life on the farm</span>
+    <h2 class="section-title">What each season brings</h2>
+    <div class="seasons-grid">
+      <div class="season-item">
+        <span class="season-name">Spring</span>
+        <p>Kidding season. New calves. The first eggs after a slow winter. Mud everywhere. The pigs arrive. Everything happens at once and you don't sleep much.</p>
+      </div>
+      <div class="season-item">
+        <span class="season-name">Summer</span>
+        <p>Long days in the garden. Kids outside from morning until dark. The goats on the move. River walks. Learning circles on the picnic table. Peak egg production.</p>
+      </div>
+      <div class="season-item">
+        <span class="season-name">Autumn</span>
+        <p>Harvest. The pigs leave. Preserving. The valley turns colour and the mornings get cold fast. Firewood. Preparing everything for what's coming.</p>
+      </div>
+      <div class="season-item">
+        <span class="season-name">Winter</span>
+        <p>Slower. The animals need more tending in the cold. The ravens are more visible against the snow. Good time to plan, make things, and remember why we moved here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="642833972_122281486574215594_5246608651952162421_n.jpg" alt="Mother goat with kid">
+  </div>
+  <div class="photo-strip-item">
+    <img src="497511940_122225151752215594_437142422668791171_n.jpg" alt="Baby goats being held">
+  </div>
+  <div class="photo-strip-item">
+    <img src="518375573_122240008490215594_5551288576474088861_n.jpg" alt="Child reading with chick">
+  </div>
+  <div class="photo-strip-item">
+    <img src="514357031_122236713518215594_2957765165542490021_n.jpg" alt="Chris with the horse">
+  </div>
+</div>
+
+<section class="farm-cta">
+  <h2>Want fresh eggs or have a question?</h2>
+  <p>We're easy to reach. Drop us a line and we'll get back to you.</p>
+  <div class="cta-group">
+    <a href="rh-contact.html" class="btn-solid">Say hello</a>
+    <a href="rh-shop.html" class="btn-outline">Visit the shop</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="ravenhouseLogo.png" alt="Raven House Co.">
+      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, small-group learning, handmade goods, and the honest work of raising a family close to the land.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="rh-about.html">About Us</a></li>
+        <li><a href="rh-farm.html">Farm & Homestead</a></li>
+        <li><a href="rh-learning.html">RH Learning</a></li>
+        <li><a href="rh-shop.html">Shop & Studio</a></li>
+        <li><a href="rh-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find us</h4>
+      <ul>
+        <li><a href="#">Follow on Facebook</a></li>
+        <li><a href="#">Follow on Instagram</a></li>
+      </ul>
+      <div class="footer-email" style="margin-top:1.5rem;">
+        <h4>Say hello</h4>
+        <a href="mailto:hello@ravenhouseco.ca">hello@ravenhouseco.ca</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Raven House Co. — Annapolis Valley, NS</span>
+    <span>Laid by happy birds. Collected by noisy kids.</span>
+  </div>
+</footer>
+
+</body>
+</html>
