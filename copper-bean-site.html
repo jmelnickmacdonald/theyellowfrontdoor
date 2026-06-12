@@ -85,7 +85,7 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 .cb-about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
 .cb-about-text p { font-size: 17px; line-height: 1.9; margin-bottom: 18px; color: var(--black-soft); }
 .cb-about-text p:last-child { margin-bottom: 0; }
-.cb-about-pullquote { font-family: var(--f-display); font-size: clamp(24px, 3.5vw, 36px); text-transform: uppercase; color: var(--olive); line-height: 1.0; margin: 28px 0; letter-spacing: 0.01em; }
+.cb-about-pullquote { font-family: var(--f-display); font-size: clamp(30px, 4.5vw, 48px); text-transform: uppercase; color: var(--olive); line-height: 1.0; margin: 28px 0; letter-spacing: 0.01em; }
 .cb-about-image { aspect-ratio: 3/4; background: linear-gradient(145deg, var(--olive-deep) 0%, var(--black) 100%); border-radius: 4px; position: relative; overflow: hidden; }
 .cb-about-image::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(184,115,51,0.25); border-radius: 2px; }
 .cb-about-image .placeholder { position: absolute; bottom: 20px; left: 20px; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,237,224,0.35); }
@@ -162,7 +162,7 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 <!-- NAV -->
 <nav class="cb-nav" id="cb-nav">
   <div class="cb-nav-inner">
-    <a href="#" class="cb-nav-logo"><img src="cb-logo-primary.png" alt="Copper + Bean" class="cb-nav-logo-img"></a>
+    <a href="#" class="cb-nav-logo"><img src="c+bsquarelogo.png" alt="Copper + Bean" class="cb-nav-logo-img"></a>
     <div class="cb-nav-links">
       <a href="#about">About</a>
       <a href="#menu">Menu</a>
@@ -175,7 +175,7 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 <section class="cb-hero">
   <div class="cb-hero-bg"></div>
   <div class="cb-hero-content">
-    <img src="cb-logo-monogram.png" alt="" class="cb-hero-monogram">
+    <img src="c+brectlogo.png" alt="" class="cb-hero-monogram">
     <h1>
       <span class="line">Good</span>
       <span class="line line-olive">Coffee.</span>
@@ -206,10 +206,10 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
     </div>
     <div class="cb-about-grid fade-in">
       <div class="cb-about-text">
-        <p>Between us we've raised four kids, held two corporate jobs with matching pension plans, and spent more years than we'd like to count commuting to offices with our names on the parking spots. Then the last one left for university, the house went quiet, and we looked at each other across a kitchen that suddenly felt too big and said, "What if we just didn't do this anymore?" So we didn't.</p>
-        <p class="cb-about-pullquote">We'd trade the pension<br>for this <span style="color:var(--copper)">again</span><br>tomorrow.</p>
-        <p>We cashed in the stability, found a space on Gottingen Street, and opened a coffee bar. The coffee is significantly better than what we were drinking at our desks; the hours are significantly worse. But we get to build something with our hands, serve people food we're proud of, and be home by five — which is more than either of us could say before.</p>
-        <p>We're particular about what we serve, but not in a super uptight, pretentious way (promise). We buy great coffee beans from people we actually know, we make everything in the kitchen that morning, and the menu stays short on purpose — we'd rather do a few things properly than fill a board with things we're not excited about.</p>
+        <p>We are Steve and Alexa. Between us we've raised four kids, held two corporate jobs with matching pension plans, and spent more years than we'd like to count commuting to offices with our names on the parking spots. When the youngest kiddo left for university, the house became eerily quiet, and we looked at each other across a kitchen that suddenly felt too big and said, "What if we just didn't do this anymore?" So we didn't.</p>
+        <p class="cb-about-pullquote">We'd trade the pension<br>for this <span style="color:var(--copper)">again</span><br>anyway.</p>
+        <p>We cashed in the stability, found a space just down the road from home, spent a chunk of change on paint and lumber, and a short six weeks later we opened a coffee bar. The coffee is significantly better than what we were drinking at our desks; the hours are significantly worse. But we get to build something with our hands, serve people food we're proud of, meet the best people and be home by four — which is more than either of us could say before.</p>
+        <p>We're particular about what we serve, but not in a super uptight, pretentious way (promise). We buy great coffee beans from people we actually know, we make everything in the kitchen that morning, and the menu is short on purpose — we'd rather do a few things properly than fill a board with fluff.</p>
       </div>
       <div class="cb-about-image">
         <img src="cb-collage.jpg" alt="Copper + Bean — behind the counter, espresso pour, pastry case, and a cup on the table" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
@@ -220,12 +220,12 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 
 <!-- OLIVE BAND -->
 <div class="cb-olive-band fade-in">
-  <p>Sit anywhere<span class="copper">.</span><br>Order at the counter<span class="copper">.</span><br>Stay as long as you like<span class="copper">.</span></p>
+  <p>Come in<span class="copper">.</span> Grab the seat by the window<span class="copper">.</span><br>We'll take it from here<span class="copper">.</span></p>
 </div>
 
 <!-- PHOTO STRIP -->
 <div class="cb-photo-strip">
-  <img src="cb-moka.jpg" alt="A copper moka pot on a dark shelf">
+  <img src="coffeewide1.png" alt="Copper + Bean">
 </div>
 
 <!-- MENU -->
@@ -234,25 +234,33 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
     <div class="fade-in">
       <p class="cb-label">What We're Making</p>
       <h2 class="cb-heading">The <span class="olive">menu.</span></h2>
-      <p class="cb-menu-intro">The menu is intentionally limited. Picking from a big menu is stressful, okay? Especially before coffee. Everything on it is made here that morning, the coffee is fresh, and we change things up with the seasons. If it's on the board, it's good. If it's gone, it was good earlier.</p>
+      <p class="cb-menu-intro">The menu is purposely limited. Picking from a big menu is stressful, okay? Especially before coffee. Everything on it is made here that morning, the coffee is always fresh, and we change things up with the seasons. If it's on the board, it's good. If it's gone, someone else thought it was good earlier in the day.</p>
     </div>
 
     <div class="cb-menu-grid fade-in">
       <div class="cb-menu-card">
         <h3>The <span class="item-accent">Squash</span> Bowl</h3>
-        <p>Roasted squash, pickled onion, seeds, and tahini. It's warm, it's filling, and people keep ordering it, so we keep making it.</p>
+        <p>Roasted squash, pickled onion, toasted seeds, and tahini. It's one of those meals that just makes you feel like everything's going to be fine. People order it once and then it becomes their usual.</p>
       </div>
       <div class="cb-menu-card">
         <h3>The <span class="item-accent">Egg</span> Sandwich</h3>
-        <p>Fried egg, cheddar, a little chili oil, greens, toasted bun. Nothing fancy going on here; it just works.</p>
+        <p>Fried egg, melty cheddar, a little chili oil, greens, and a toasted bun that holds the whole thing together. It's the kind of sandwich you'd make at home if you had the energy at 7 a.m., which you don't, so we make it for you.</p>
+      </div>
+      <div class="cb-menu-card">
+        <h3>The <span class="item-accent">Daily</span> Soup</h3>
+        <p>Whatever sounded good this morning, made from scratch with whatever looked best at the market. We write it on the board when it's ready. Comes with bread that's still warm, because cold bread with soup is a crime.</p>
       </div>
       <div class="cb-menu-card">
         <h3>The <span class="item-accent">Pastry</span> Case</h3>
-        <p>Changes every morning depending on what we felt like baking. Usually involves butter. Usually gone by noon. If you see something you want, don't overthink it.</p>
+        <p>Croissants, scones, muffins, sometimes something we haven't made before just to see what happens. There's always butter involved. By noon it's usually picked clean, so if you see something you like, grab it.</p>
       </div>
       <div class="cb-menu-card">
         <h3><span class="item-accent">Coffee</span></h3>
-        <p>We take it seriously but we're not weird about it. Espresso, drip, or pour-over; we've got oat milk and regular milk and nobody's going to judge your order.</p>
+        <p>We care about it a lot, but we're not going to quiz you. Espresso, drip, pour-over — tell us how you like it and we'll make it that way. Oat milk, regular milk, whatever you want. No judgement, no surcharge.</p>
+      </div>
+      <div class="cb-menu-card">
+        <h3><span class="item-accent">Tea</span> &amp; Other Things</h3>
+        <p>Loose-leaf tea, hot chocolate that's actually made with real chocolate, a couple of fresh juices, and sparkling water for the people who need something cold. We keep it simple because a menu shouldn't require a decision tree.</p>
       </div>
     </div>
     <p class="cb-menu-note">The menu changes with the seasons and sometimes just with the morning. Whatever's on the board is what we've got.</p>
@@ -261,7 +269,7 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 
 <!-- PHOTO STRIP 2 -->
 <div class="cb-photo-strip">
-  <img src="cb-cup.jpg" alt="A dark coffee cup with latte art on an industrial surface by a rainy window">
+  <img src="coffeewide2.png" alt="Copper + Bean">
 </div>
 
 <div class="cb-copper-bar"></div>
@@ -275,14 +283,14 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
     </div>
     <div class="cb-hours-grid fade-in">
       <div>
-        <div class="cb-hours-row"><span class="day">Monday – Friday</span><span class="time">7 AM – 4 PM</span></div>
-        <div class="cb-hours-row"><span class="day">Saturday</span><span class="time">8 AM – 4 PM</span></div>
-        <div class="cb-hours-row"><span class="day">Sunday</span><span class="time">8 AM – 2 PM</span></div>
+        <div class="cb-hours-row"><span class="day">Monday – Friday</span><span class="time">7 AM – 3 PM</span></div>
+        <div class="cb-hours-row"><span class="day">Saturday</span><span class="time">8 AM – 3 PM</span></div>
+        <div class="cb-hours-row"><span class="day">Sunday</span><span class="time">Closed (we didn't leave corporate to work seven days a week)</span></div>
       </div>
       <div>
-        <p class="cb-location-address">2184 Gottingen St<br>Halifax, NS</p>
-        <p class="cb-location-note">We're on the corner of Gottingen and Cogswell in the north end. There's street parking out front, a bike rack if you're riding, and you'll spot us by the copper — it's hard to miss once you know what you're looking for.</p>
-        <a href="#" class="cb-location-btn">Get Directions →</a>
+        <p class="cb-location-address">Somewhere in<br>downtown Halifax.</p>
+        <p class="cb-location-note">We'd give you the exact address, but honestly, half the fun is stumbling across us. Look for the copper. You'll know.</p>
+        <a href="#" class="cb-location-btn">We're easy to find, we promise →</a>
       </div>
     </div>
   </div>
@@ -293,12 +301,12 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 <!-- FOOTER -->
 <footer class="cb-footer">
   <div class="cb-footer-inner">
-    <div class="cb-footer-logo"><img src="cb-logo-horizontal.png" alt="Copper + Bean" class="cb-footer-logo-img"></div>
+    <div class="cb-footer-logo"><img src="cb-logo-monogram.png" alt="Copper + Bean" class="cb-footer-logo-img"></div>
     <div class="cb-footer-social">
       <a href="#">Instagram</a>
       <a href="#">Facebook</a>
     </div>
-    <p class="cb-footer-copy">© 2024 Copper + Bean · Halifax, NS · Coffee & Light Fare</p>
+    <p class="cb-footer-copy">© 2026 Copper + Bean · Halifax, NS · Coffee & Light Fare</p>
   </div>
 </footer>
 
