@@ -121,7 +121,7 @@ ul { list-style: none; }
 .assets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .asset-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
 .asset-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.15); }
-.asset-card-thumb { height: 180px; background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; }
+.asset-card-thumb { height: 220px; background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .asset-card-thumb .placeholder-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.12); }
 .asset-card-info { padding: 14px 16px; }
 .asset-card-info h4 { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 4px; }
@@ -496,25 +496,29 @@ ul { list-style: none; }
     <p class="assets-sub">The smaller pieces that round it out.</p>
     <div class="assets-grid">
       <div class="asset-card">
-        <div class="asset-card-thumb"><span class="placeholder-label">Sample</span></div>
-        <div class="asset-card-info"><h4>Newsletter templates</h4><p>Designed and written email newsletters for small businesses.</p></div>
+        <div class="asset-card-thumb"><img src="newsletter-sample.png" alt="Lydia Nichols real estate newsletter" style="width:100%; height:100%; object-fit:cover; object-position:top;"></div>
+        <div class="asset-card-info"><h4>Newsletter design</h4><p>Monthly real estate newsletter — copy, layout, and market commentary.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><span class="placeholder-label">Sample</span></div>
-        <div class="asset-card-info"><h4>Email templates</h4><p>Welcome sequences, follow-ups, and transactional emails.</p></div>
+        <div class="asset-card-thumb"><img src="social-post-1.png" alt="Instagram post — Canadian winter scene" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="asset-card-info"><h4>Social media content</h4><p>Posts, captions, and visual direction for small business feeds.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><span class="placeholder-label">Sample</span></div>
-        <div class="asset-card-info"><h4>Logo design</h4><p>Typographic marks and visual identities for small businesses.</p></div>
+        <div class="asset-card-thumb"><img src="social-post-2.png" alt="Real estate listing social post" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="asset-card-info"><h4>Real estate marketing</h4><p>Listing content, property storytelling, and client touchpoints.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><span class="placeholder-label">Sample</span></div>
-        <div class="asset-card-info"><h4>Social media</h4><p>Post design, content direction, and brand-consistent visuals.</p></div>
+        <div class="asset-card-thumb"><img src="social-carousel.png" alt="Willow & Rose social media carousel" style="width:100%; height:100%; object-fit:cover; object-position:center;"></div>
+        <div class="asset-card-info"><h4>Carousel &amp; video</h4><p>Multi-slide posts and short-form video for social platforms.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><span class="placeholder-label">Sample</span></div>
-        <div class="asset-card-info"><h4>Real estate materials</h4><p>Birthday cards, listing sheets, and client touchpoints.</p></div>
+        <div class="asset-card-thumb"><img src="social-post-3.png" alt="Instagram post — vintage home character" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="asset-card-info"><h4>Brand voice &amp; copy</h4><p>Captions and content that sound like the person behind the business.</p></div>
       </div>
+      <a href="logo-showcase.html" class="asset-card" style="text-decoration:none; color:inherit;">
+        <div class="asset-card-thumb"><img src="logo-collection.png" alt="Logo designs across nine brands" style="width:100%; height:100%; object-fit:contain; padding:12px; background:#fff;"></div>
+        <div class="asset-card-info"><h4>Logo design</h4><p>Typographic marks and visual identities across nine brands and counting.</p></div>
+      </a>
     </div>
   </div>
 </section>
