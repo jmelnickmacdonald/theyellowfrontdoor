@@ -3,123 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copper + Bean — Brand Identity Exploration</title>
+<title>Copper + Bean — Voice & Messaging Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bean: #2C1810;
   --copper: #B87333;
+  --copper-light: #D4956A;
+  --bean: #2C1810;
   --cream: #FAF6F1;
+  --warm-white: #FFFCF8;
   --charcoal: #1A1A1A;
   --stone: #C4B9AB;
   --slate: #7A7168;
-  --f-ui: 'DM Sans', system-ui, sans-serif;
+  --f-display: 'DM Serif Display', Georgia, serif;
+  --f-body: 'DM Sans', system-ui, sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--cream); color: var(--charcoal); font-family: var(--f-ui); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--charcoal); font-family: var(--f-body); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
 
-.page { max-width: 900px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+/* LAYOUT */
+.page { max-width: 820px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
 
 /* HEADER */
-.doc-header { padding: clamp(48px, 8vw, 80px) 0 clamp(28px, 4vw, 40px); border-bottom: 1px solid var(--stone); }
-.doc-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); margin-bottom: 16px; }
-.doc-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 6vw, 60px); font-weight: 400; color: var(--bean); line-height: 1.05; margin-bottom: 12px; }
-.doc-header h1 .plus { color: var(--copper); }
-.doc-header-logo { max-width: 260px; margin-bottom: 16px; }
-.doc-header-sub { font-size: 16px; color: var(--slate); max-width: 560px; line-height: 1.7; }
+.header { padding: clamp(48px, 8vw, 80px) 0 clamp(36px, 5vw, 52px); border-bottom: 1px solid var(--stone); }
+.header-tag { font-family: var(--f-body); font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); margin-bottom: 20px; }
+.header h1 { font-family: var(--f-display); font-size: clamp(42px, 7vw, 72px); font-weight: 400; color: var(--bean); line-height: 1.0; margin-bottom: 6px; letter-spacing: -0.02em; }
+.header h1 .plus { color: var(--copper); }
+.header-logo { max-width: 240px; margin-bottom: 14px; }
+.header-sub { font-family: var(--f-display); font-style: italic; font-size: clamp(18px, 2.8vw, 24px); color: var(--slate); font-weight: 400; margin-bottom: 24px; }
+.header-meta { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); }
+.header-meta span { color: var(--copper); }
 
-/* SECTION */
-.brand-section { padding: clamp(40px, 6vw, 64px) 0; border-bottom: 1px solid var(--stone); }
-.brand-section:last-of-type { border-bottom: none; }
-.section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); margin-bottom: 8px; }
-.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 30px); color: var(--bean); font-weight: 400; margin-bottom: 24px; }
-.section-note { font-size: 13px; color: var(--slate); max-width: 520px; margin-bottom: 32px; line-height: 1.65; }
+/* POSITIONING */
+.positioning { padding: clamp(36px, 5vw, 52px) 0; border-bottom: 1px solid var(--stone); }
+.positioning-label { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); margin-bottom: 14px; }
+.positioning p { font-family: var(--f-display); font-size: clamp(22px, 3.2vw, 32px); font-weight: 400; color: var(--bean); line-height: 1.35; max-width: 640px; }
 
-/* LOGO SHOWCASE */
-.logo-showcase { }
-.logo-primary-card { background: #fff; border: 1px solid var(--stone); border-radius: 8px; padding: 40px 32px 28px; text-align: center; margin-bottom: 24px; }
-.logo-primary-card img { max-width: 300px; margin: 0 auto 20px; }
-.logo-card-label { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--copper); margin-bottom: 18px; }
-.logo-card-desc { font-size: 14px; color: var(--slate); line-height: 1.65; max-width: 540px; margin: 0 auto; }
-.logo-alt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.logo-alt-card { background: #fff; border: 1px solid var(--stone); border-radius: 8px; padding: 28px; text-align: center; }
-.logo-alt-card img { max-width: 260px; max-height: 180px; object-fit: contain; margin: 0 auto 16px; }
+/* VOICE WORDS */
+.voice-words { padding: clamp(36px, 5vw, 52px) 0; border-bottom: 1px solid var(--stone); }
+.section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); margin-bottom: 24px; }
+.voice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.voice-word { text-align: center; }
+.voice-word .word { font-family: var(--f-display); font-size: clamp(24px, 3vw, 34px); color: var(--bean); margin-bottom: 6px; }
+.voice-word .meaning { font-size: 12px; color: var(--slate); line-height: 1.5; }
 
-/* FONT PAIRINGS */
-.pairing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.pairing-card { background: #fff; border: 1px solid var(--stone); border-radius: 8px; padding: 32px 28px; }
-.pairing-label { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--copper); margin-bottom: 18px; }
-.pairing-display { margin-bottom: 12px; }
-.pairing-display .display-text { font-size: 28px; color: var(--bean); line-height: 1.15; margin-bottom: 8px; }
-.pairing-display .body-text { font-size: 14px; color: var(--charcoal); line-height: 1.7; }
-.pairing-fonts { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--stone); }
+/* SOUND LIKE */
+.sound-like { padding: clamp(36px, 5vw, 52px) 0; border-bottom: 1px solid var(--stone); }
+.sound-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.sound-col h3 { font-family: var(--f-display); font-size: 20px; color: var(--bean); margin-bottom: 16px; }
+.sound-col.avoid h3 { color: var(--slate); }
+.sound-col p { font-size: 14px; color: var(--charcoal); line-height: 1.75; margin-bottom: 10px; padding-left: 18px; position: relative; }
+.sound-col p::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+.sound-col.do p::before { background: var(--copper); }
+.sound-col.avoid p::before { background: var(--stone); }
 
-/* Specific pairings — all use Impact for display */
-.pair-a .display-text { font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
-.pair-a .body-text { font-family: 'DM Sans', sans-serif; font-weight: 400; }
+/* SAMPLE COPY */
+.samples { padding: clamp(36px, 5vw, 52px) 0; border-bottom: 1px solid var(--stone); }
+.sample { margin-bottom: 32px; }
+.sample:last-child { margin-bottom: 0; }
+.sample-context { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--copper); margin-bottom: 10px; }
+.sample-text { font-family: var(--f-display); font-size: clamp(18px, 2.4vw, 24px); color: var(--bean); line-height: 1.4; padding-left: 20px; border-left: 3px solid var(--copper); }
+.sample-text.body-voice { font-family: var(--f-body); font-size: 15px; line-height: 1.75; color: var(--charcoal); }
 
-.pair-b .display-text { font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
-.pair-b .body-text { font-family: 'Lora', Georgia, serif; font-weight: 400; }
+/* WORDS LIST */
+.words { padding: clamp(36px, 5vw, 52px) 0; border-bottom: 1px solid var(--stone); }
+.words-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.words-col h3 { font-family: var(--f-display); font-size: 18px; color: var(--bean); margin-bottom: 14px; }
+.words-col.avoid h3 { color: var(--slate); }
+.words-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.words-list span { font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 2px; }
+.words-col.do .words-list span { background: var(--bean); color: var(--cream); }
+.words-col.avoid .words-list span { background: transparent; color: var(--slate); border: 1px solid var(--stone); }
 
-.pair-c .display-text { font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
-.pair-c .body-text { font-family: 'Outfit', sans-serif; font-weight: 300; }
-
-/* COLOUR SCHEMES */
-.colour-options { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
-.colour-card { background: #fff; border: 1px solid var(--stone); border-radius: 8px; overflow: hidden; }
-.colour-card-label { padding: 14px 20px 10px; font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--copper); }
-.colour-strip { display: flex; height: 80px; }
-.colour-strip div { flex: 1; }
-.colour-names { padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
-.colour-names span { font-size: 11px; color: var(--slate); }
-.colour-names span::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-
-/* Scheme A: Classic */
-.scheme-a .s1 { background: #2C1810; }
-.scheme-a .s2 { background: #B87333; }
-.scheme-a .s3 { background: #FAF6F1; }
-.scheme-a .s4 { background: #C4B9AB; }
-.scheme-a .c1::before { background: #2C1810; }
-.scheme-a .c2::before { background: #B87333; }
-.scheme-a .c3::before { background: #FAF6F1; border: 1px solid #C4B9AB; border-radius: 50%; }
-.scheme-a .c4::before { background: #C4B9AB; }
-
-/* Scheme B: Dark roast */
-.scheme-b .s1 { background: #1A1108; }
-.scheme-b .s2 { background: #8B5E3C; }
-.scheme-b .s3 { background: #E8DFD3; }
-.scheme-b .s4 { background: #C98B5F; }
-.scheme-b .c1::before { background: #1A1108; }
-.scheme-b .c2::before { background: #8B5E3C; }
-.scheme-b .c3::before { background: #E8DFD3; }
-.scheme-b .c4::before { background: #C98B5F; }
-
-/* Scheme C: Bright copper */
-.scheme-c .s1 { background: #2C1810; }
-.scheme-c .s2 { background: #D4956A; }
-.scheme-c .s3 { background: #FFFDF9; }
-.scheme-c .s4 { background: #3D2B1F; }
-.scheme-c .c1::before { background: #2C1810; }
-.scheme-c .c2::before { background: #D4956A; }
-.scheme-c .c3::before { background: #FFFDF9; border: 1px solid #C4B9AB; border-radius: 50%; }
-.scheme-c .c4::before { background: #3D2B1F; }
-
-/* RECOMMENDATION */
-.rec { background: var(--bean); border-radius: 8px; padding: clamp(28px, 4vw, 44px); margin-top: 40px; }
-.rec-label { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); margin-bottom: 14px; }
-.rec p { font-size: 15px; color: rgba(250,246,241,0.8); line-height: 1.75; max-width: 640px; }
-.rec strong { color: var(--cream); font-weight: 600; }
-
-/* FOOTER */
-.doc-footer { padding: clamp(36px, 5vw, 52px) 0; text-align: center; }
-.doc-footer p { font-size: 12px; color: var(--slate); letter-spacing: 0.08em; }
-.doc-footer .studio { font-weight: 700; color: var(--copper); text-transform: uppercase; letter-spacing: 0.2em; font-size: 10px; margin-top: 8px; }
+/* FOOTER / CREDIT */
+.guide-footer { padding: clamp(36px, 5vw, 52px) 0; text-align: center; }
+.guide-footer p { font-size: 12px; color: var(--slate); letter-spacing: 0.08em; }
+.guide-footer .studio { font-weight: 700; color: var(--copper); text-transform: uppercase; letter-spacing: 0.2em; font-size: 10px; margin-top: 8px; }
 
 /* RESPONSIVE */
-@media (max-width: 700px) {
-  .logo-grid, .pairing-grid { grid-template-columns: 1fr; }
-  .colour-options { grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+  .voice-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sound-grid, .words-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 </style>
 </head>
@@ -128,149 +95,137 @@ body { background: var(--cream); color: var(--charcoal); font-family: var(--f-ui
 <div class="page">
 
   <!-- HEADER -->
-  <header class="doc-header">
-    <p class="doc-tag">Brand Identity Exploration</p>
-    <img src="cb-logo-primary.png" alt="Copper + Bean" class="doc-header-logo">
-    <p class="doc-header-sub">Four logo directions, two font pairings per direction, and three colour schemes — exploring how the brand could look and feel before anything gets locked.</p>
+  <header class="header">
+    <p class="header-tag">Voice &amp; Messaging Guide</p>
+    <img src="c+bsquarelogo.png" alt="Copper + Bean" class="header-logo">
+    <p class="header-sub">A voice guide for Steve and Alexa's coffee bar.</p>
+    <p class="header-meta">Halifax, NS · Downtown · <span>Concept piece</span></p>
   </header>
 
-  <!-- LOGO OPTIONS -->
-  <section class="brand-section">
-    <p class="section-label">01</p>
-    <h2 class="section-title">Logo directions</h2>
-    <p class="section-note">Four typographic approaches, each setting a different tone. All work with the "+" as a copper accent — the constant across directions.</p>
+  <!-- POSITIONING -->
+  <section class="positioning">
+    <p class="positioning-label">Positioning</p>
+    <p>A coffee bar and light-lunch spot run by Steve and Alexa, a couple who left corporate jobs after the kids flew the coop, found a space just down the road from home, and opened something of their own. The coffee is great, the food is made that morning, and the menu is short on purpose.</p>
+  </section>
 
-    <div class="logo-showcase">
-      <div class="logo-primary-card">
-        <span class="logo-card-label">Primary mark</span>
-        <img src="cb-logo-primary.png" alt="Copper + Bean primary logo — bold condensed type in a copper-bordered square frame">
-        <p class="logo-card-desc">The main mark. Bold condensed type in a copper-bordered frame — confident, structured, reads clearly at any size. The "+" in copper anchors the centre. Built for signage, menus, packaging, and anywhere the brand needs to lead.</p>
+  <!-- VOICE WORDS -->
+  <section class="voice-words">
+    <p class="section-label">The voice in four words</p>
+    <div class="voice-grid">
+      <div class="voice-word">
+        <p class="word">Confident</p>
+        <p class="meaning">Knows what it is. Doesn't over-explain or apologise.</p>
       </div>
+      <div class="voice-word">
+        <p class="word">Minimal</p>
+        <p class="meaning">Says less. Means it. No filler, no fluff.</p>
+      </div>
+      <div class="voice-word">
+        <p class="word">Warm</p>
+        <p class="meaning">Friendly without trying. You feel it when you walk in.</p>
+      </div>
+      <div class="voice-word">
+        <p class="word">Sharp</p>
+        <p class="meaning">Says exactly what it means. No filler words, no hedging.</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="logo-alt-grid">
-        <div class="logo-alt-card">
-          <span class="logo-card-label">Alternate — Monogram</span>
-          <img src="cb-logo-monogram.png" alt="C+B monogram in copper brackets">
-          <p class="logo-card-desc">The shorthand. "C+B" in copper brackets — works small (favicons, cup stamps, social avatars, tags) where the full name won't fit. The brackets frame it like something worth keeping.</p>
+  <!-- SOUND LIKE -->
+  <section class="sound-like">
+    <p class="section-label">We sound like / We don't sound like</p>
+    <div class="sound-grid">
+      <div class="sound-col do">
+        <h3>We sound like</h3>
+        <p>A bartender who remembers your order and doesn't make a thing of it.</p>
+        <p>Someone who takes the work seriously but would never make you sit through a speech about it.</p>
+        <p>Talks like a real person. A little dry. Doesn't ramble.</p>
+        <p>The kind of place you go back to because it's always good, not because they asked you to leave a review.</p>
+      </div>
+      <div class="sound-col avoid">
+        <h3>We don't sound like</h3>
+        <p>A third-wave coffee blog explaining terroir to someone who just wants a flat white.</p>
+        <p>Corporate catering copy with stock-photo energy.</p>
+        <p>Trying too hard to be quirky, punny, or relatable.</p>
+        <p>Loud. Trying to be the Main Character. We're just making coffee over here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE COPY -->
+  <section class="samples">
+    <p class="section-label">Sample copy in the voice</p>
+
+    <div class="sample">
+      <p class="sample-context">Homepage headline</p>
+      <p class="sample-text">Good coffee. Simple food. No fuss.</p>
+    </div>
+
+    <div class="sample">
+      <p class="sample-context">Menu description — the signature bowl</p>
+      <p class="sample-text body-voice">Roasted squash, pickled onion, toasted seeds, and tahini. It's one of those meals that just makes you feel like everything's going to be fine. People order it once and then it becomes their usual.</p>
+    </div>
+
+    <div class="sample">
+      <p class="sample-context">Instagram caption — morning post</p>
+      <p class="sample-text body-voice">First batch of pastries just came out of the oven and the coffee's on. We're here till three. Come say hi.</p>
+    </div>
+
+    <div class="sample">
+      <p class="sample-context">Welcome sign — inside the door</p>
+      <p class="sample-text">Come in. Grab the seat by the window. We'll take it from here.</p>
+    </div>
+
+    <div class="sample">
+      <p class="sample-context">About page — opening line</p>
+      <p class="sample-text body-voice">We are Steve and Alexa. We cashed in two corporate jobs, found a space just down the road from home, spent a chunk of change on paint and lumber, and a short six weeks later we opened a coffee bar. The coffee is significantly better than what we were drinking at our desks; the hours are significantly worse. We'd trade the pension for this again any day.</p>
+    </div>
+  </section>
+
+  <!-- WORDS WE USE / AVOID -->
+  <section class="words">
+    <p class="section-label">Words we reach for / Words we don't</p>
+    <div class="words-grid">
+      <div class="words-col do">
+        <h3>Reach for</h3>
+        <div class="words-list">
+          <span>simple</span>
+          <span>made</span>
+          <span>pulled</span>
+          <span>roasted</span>
+          <span>warm</span>
+          <span>good</span>
+          <span>honest</span>
+          <span>steady</span>
+          <span>right</span>
+          <span>here</span>
+          <span>real</span>
+          <span>open</span>
         </div>
-        <div class="logo-alt-card">
-          <span class="logo-card-label">Alternate — Horizontal</span>
-          <img src="cb-logo-horizontal.png" alt="Copper + Bean horizontal bar logo between copper rules">
-          <p class="logo-card-desc">The wide format. Same type, stretched into a single line between copper rules — for headers, window decals, aprons, and anywhere the layout runs horizontal. Like a nameplate on a door.</p>
+      </div>
+      <div class="words-col avoid">
+        <h3>Avoid</h3>
+        <div class="words-list">
+          <span>artisan</span>
+          <span>curated</span>
+          <span>elevated</span>
+          <span>passionate</span>
+          <span>bespoke</span>
+          <span>journey</span>
+          <span>handcrafted</span>
+          <span>obsessed</span>
+          <span>sourced</span>
+          <span>lovingly</span>
+          <span>iconic</span>
+          <span>experience</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FONT PAIRINGS -->
-  <section class="brand-section">
-    <p class="section-label">02</p>
-    <h2 class="section-title">Font pairings</h2>
-    <p class="section-note">Impact is the display font — bold, condensed, unmistakable. The body font needs to balance that weight with something light and readable. Three directions.</p>
-
-    <div class="pairing-grid">
-      <div class="pairing-card pair-a">
-        <p class="pairing-label">Pairing A</p>
-        <div class="pairing-display">
-          <p class="display-text">Good coffee.<br>Simple food.</p>
-          <p class="body-text">Roasted squash, pickled onion, toasted seeds, and a tahini dressing that ties the whole thing together. Comes warm. Goes fast.</p>
-        </div>
-        <p class="pairing-fonts">Impact + DM Sans — clean contrast, modern and neutral</p>
-      </div>
-
-      <div class="pairing-card pair-b">
-        <p class="pairing-label">Pairing B</p>
-        <div class="pairing-display">
-          <p class="display-text">Good coffee.<br>Simple food.</p>
-          <p class="body-text">Roasted squash, pickled onion, toasted seeds, and a tahini dressing that ties the whole thing together. Comes warm. Goes fast.</p>
-        </div>
-        <p class="pairing-fonts">Impact + Lora — editorial warmth, serif softens the bold</p>
-      </div>
-
-      <div class="pairing-card pair-c">
-        <p class="pairing-label">Pairing C</p>
-        <div class="pairing-display">
-          <p class="display-text">Good coffee.<br>Simple food.</p>
-          <p class="body-text">Roasted squash, pickled onion, toasted seeds, and a tahini dressing that ties the whole thing together. Comes warm. Goes fast.</p>
-        </div>
-        <p class="pairing-fonts">Impact + Outfit light — geometric precision, airy body</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- COLOUR SCHEMES -->
-  <section class="brand-section">
-    <p class="section-label">03</p>
-    <h2 class="section-title">Colour directions</h2>
-    <p class="section-note">Three palettes built from the name itself. Copper is the constant; the surrounding tones set the mood.</p>
-
-    <div class="colour-options">
-      <div class="colour-card scheme-a">
-        <p class="colour-card-label">Classic</p>
-        <div class="colour-strip">
-          <div class="s1"></div>
-          <div class="s2"></div>
-          <div class="s3"></div>
-          <div class="s4"></div>
-        </div>
-        <div class="colour-names">
-          <span class="c1">Bean</span>
-          <span class="c2">Copper</span>
-          <span class="c3">Cream</span>
-          <span class="c4">Stone</span>
-        </div>
-      </div>
-
-      <div class="colour-card scheme-b">
-        <p class="colour-card-label">Dark Roast</p>
-        <div class="colour-strip">
-          <div class="s1"></div>
-          <div class="s2"></div>
-          <div class="s3"></div>
-          <div class="s4"></div>
-        </div>
-        <div class="colour-names">
-          <span class="c1">Espresso</span>
-          <span class="c2">Walnut</span>
-          <span class="c3">Linen</span>
-          <span class="c4">Amber</span>
-        </div>
-      </div>
-
-      <div class="colour-card scheme-c">
-        <p class="colour-card-label">Bright Copper</p>
-        <div class="colour-strip">
-          <div class="s1"></div>
-          <div class="s2"></div>
-          <div class="s3"></div>
-          <div class="s4"></div>
-        </div>
-        <div class="colour-names">
-          <span class="c1">Bean</span>
-          <span class="c2">Penny</span>
-          <span class="c3">Paper</span>
-          <span class="c4">Dark Roast</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RECOMMENDATION -->
-  <section class="brand-section">
-    <p class="section-label">04</p>
-    <h2 class="section-title">Our recommendation</h2>
-    <p class="section-note">Where we'd take it, and why.</p>
-
-    <div class="rec">
-      <p class="rec-label">Selected direction</p>
-      <p><strong>Primary mark (Impact, square frame) + Pairing A (Impact / DM Sans) + Classic palette.</strong></p>
-      <p style="margin-top: 12px;">Impact gives the brand its presence — bold, condensed, impossible to miss. It reads like signage even on a screen, which is exactly right for a coffee bar that's confident about what it does. Paired with DM Sans for body text, the heavy headlines and clean body copy create a natural contrast: loud where it matters, quiet everywhere else. The classic palette (bean, copper, cream, stone) keeps it grounded in real materials.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="doc-footer">
-    <p>Copper + Bean is a concept piece — a brand identity exploration<br>designed to show how we think through visual direction.</p>
+  <!-- FOOTER / CREDIT -->
+  <footer class="guide-footer">
+    <p>Copper + Bean is a concept piece — a voice and messaging guide<br>showing the thinking behind the words.</p>
     <p class="studio">Prepared by The Yellow Front Door</p>
   </footer>
 
