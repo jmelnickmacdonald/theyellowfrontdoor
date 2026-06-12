@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Scorecard — The Yellow Front Door</title>
+<meta name="description" content="A free 2-minute self-assessment. Find out what your customers see before they choose you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: block;
+}
+:root {
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --clay: #B86B4B; --navy: #132447; --paper-mid: #F5EFE0;
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-body: 'Montserrat', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--navy); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(19,36,71,0.95); backdrop-filter: blur(12px); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav img { height: 36px; }
+.nav-back { font-size: 11px; color: rgba(255,255,255,0.5); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-back:hover { color: var(--yellow); }
+
+/* HERO INTRO */
+.intro { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
+.intro::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 80%, rgba(252,211,70,0.06) 0%, transparent 60%); pointer-events: none; }
+.intro-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 8px 20px; border-radius: 2px; margin-bottom: 32px; }
+.intro h1 { font-family: var(--f-body); font-size: clamp(36px, 6vw, 64px); font-weight: 300; color: #fff; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; }
+.intro h1 strong { font-weight: 600; }
+.intro .accent { font-family: var(--f-accent); font-size: clamp(28px, 4.5vw, 48px); color: rgba(255,255,255,0.4); display: block; margin-bottom: 32px; }
+.intro p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 480px; line-height: 1.85; margin-bottom: 40px; }
+.intro-stats { display: flex; gap: 40px; margin-bottom: 40px; }
+.intro-stat { text-align: center; }
+.intro-stat .num { font-size: 28px; font-weight: 300; color: var(--yellow); display: block; }
+.intro-stat .label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+/* BUTTONS */
+.btn-start { display: inline-block; background: var(--yellow); color: var(--navy); padding: 18px 48px; font-family: var(--f-body); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 1; }
+.btn-start:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(252,211,70,0.25); }
+.intro-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 16px; letter-spacing: 0.04em; }
+
+/* QUESTION SCREEN */
+.quiz-screen { display: none; min-height: 100vh; padding: 80px 24px 60px; }
+.quiz-inner { max-width: 640px; margin: 0 auto; }
+
+/* PROGRESS */
+.progress { margin-bottom: 48px; }
+.progress-track { display: flex; gap: 4px; margin-bottom: 12px; }
+.progress-dot { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); transition: background 0.4s; }
+.progress-dot.done { background: var(--yellow); }
+.progress-dot.active { background: rgba(252,211,70,0.4); }
+.progress-info { display: flex; justify-content: space-between; align-items: center; }
+.progress-step { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+.progress-category { font-family: var(--f-accent); font-size: 18px; color: var(--yellow); }
+
+/* QUESTION */
+.q-card { animation: fadeUp 0.4s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.q-text { font-size: clamp(22px, 3.5vw, 30px); font-weight: 400; color: #fff; line-height: 1.4; margin-bottom: 36px; letter-spacing: -0.01em; }
+
+.q-options { display: flex; flex-direction: column; gap: 12px; }
+.q-option { display: flex; align-items: flex-start; gap: 16px; width: 100%; text-align: left; padding: 18px 22px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-family: var(--f-body); font-size: 15px; color: rgba(255,255,255,0.7); cursor: pointer; transition: all 0.25s; line-height: 1.55; }
+.q-option:hover { background: rgba(255,255,255,0.06); border-color: rgba(252,211,70,0.3); color: #fff; }
+.q-option .q-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); flex-shrink: 0; margin-top: 2px; transition: all 0.25s; display: flex; align-items: center; justify-content: center; }
+.q-option:hover .q-radio { border-color: var(--yellow); }
+.q-option.selected { background: rgba(252,211,70,0.08); border-color: var(--yellow); color: #fff; }
+.q-option.selected .q-radio { border-color: var(--yellow); background: var(--yellow); }
+.q-option.selected .q-radio::after { content: ''; width: 8px; height: 8px; background: var(--navy); border-radius: 50%; }
+
+/* RESULTS */
+.results-screen { display: none; background: var(--paper); min-height: 100vh; }
+.results-hero { background: var(--navy); padding: 100px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+.results-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(252,211,70,0.08) 0%, transparent 60%); }
+
+.score-ring { width: 180px; height: 180px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 24px; position: relative; z-index: 1; }
+.score-ring .score-num { font-size: 56px; font-weight: 300; color: #fff; line-height: 1; }
+.score-ring .score-of { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+.results-accent { font-family: var(--f-accent); font-size: clamp(26px, 4vw, 40px); color: rgba(255,255,255,0.5); display: block; margin-bottom: 16px; position: relative; z-index: 1; }
+.results-summary { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto; line-height: 1.8; position: relative; z-index: 1; }
+
+/* RESULTS BODY */
+.results-body { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+
+.stop-section { margin-bottom: 20px; }
+.stop-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.stop-name { font-family: var(--f-accent); font-size: 22px; color: var(--ink); }
+.stop-score-label { font-size: 13px; font-weight: 600; color: var(--slate); }
+.stop-bar-outer { height: 10px; background: rgba(19,36,71,0.06); border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
+.stop-bar-inner { height: 100%; border-radius: 5px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); width: 0; }
+.stop-bar-inner.strong { background: linear-gradient(90deg, var(--navy), #2a4a8a); }
+.stop-bar-inner.mid { background: linear-gradient(90deg, var(--yellow), #e6b800); }
+.stop-bar-inner.weak { background: linear-gradient(90deg, var(--clay), #d4845c); }
+.stop-insight { font-size: 14px; color: var(--slate); line-height: 1.75; margin-bottom: 8px; padding-bottom: 20px; border-bottom: 1px solid rgba(19,36,71,0.06); }
+
+/* EMAIL */
+.email-block { background: var(--navy); border-radius: 10px; padding: 36px 32px; text-align: center; margin: 48px 0; }
+.email-block p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.email-block .email-row { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
+.email-block input { flex: 1; padding: 14px 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; font-family: var(--f-body); font-size: 14px; outline: none; }
+.email-block input:focus { border-color: var(--yellow); }
+.email-block button { padding: 14px 24px; background: var(--yellow); color: var(--navy); border: none; border-radius: 4px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
+.email-confirm { font-size: 13px; color: var(--yellow); margin-top: 12px; display: none; }
+
+/* RESULTS CTA */
+.results-cta { text-align: center; margin-top: 48px; }
+.results-cta h3 { font-size: 24px; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+.results-cta .accent { font-family: var(--f-accent); font-size: 22px; color: var(--slate); margin-bottom: 20px; display: block; }
+.results-cta p { font-size: 15px; color: var(--slate); max-width: 440px; margin: 0 auto 28px; line-height: 1.75; }
+.btn-cta { display: inline-block; background: var(--yellow); color: var(--navy); padding: 16px 40px; font-family: var(--f-body); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: transform 0.2s; }
+.btn-cta:hover { transform: translateY(-2px); }
+
+.results-footer { text-align: center; padding: 32px 0; font-size: 12px; color: var(--stone); }
+.results-footer span { color: var(--clay); }
+
+@media (max-width: 600px) {
+  .intro-stats { gap: 24px; }
+  .intro-stat .num { font-size: 22px; }
+  .email-block .email-row { flex-direction: column; }
+  .stop-name { font-size: 18px; }
+  .score-ring { width: 140px; height: 140px; }
+  .score-ring .score-num { font-size: 42px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
+  <a href="index.html" class="nav-back">← Back to site</a>
+</nav>
+
+<!-- INTRO -->
+<div class="intro" id="intro">
+  <span class="intro-badge">Free Self-Assessment</span>
+  <h1>The <strong>Scorecard</strong></h1>
+  <span class="accent">What do your customers see?</span>
+  <p>Ten questions about the experience people have when they find your business online. Two minutes, no signup, and an honest picture of what's working and what isn't.</p>
+  <div class="intro-stats">
+    <div class="intro-stat"><span class="num">10</span><span class="label">Questions</span></div>
+    <div class="intro-stat"><span class="num">2</span><span class="label">Minutes</span></div>
+    <div class="intro-stat"><span class="num">5</span><span class="label">Stops scored</span></div>
+  </div>
+  <button class="btn-start" onclick="startQuiz()">Start the Scorecard</button>
+  <p class="intro-note">No signup required. Results show up right here.</p>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-screen" id="quizScreen">
+  <div class="quiz-inner">
+    <div class="progress">
+      <div class="progress-track" id="progressTrack"></div>
+      <div class="progress-info">
+        <span class="progress-step" id="progressStep">Question 1 of 10</span>
+        <span class="progress-category" id="progressCat"></span>
+      </div>
+    </div>
+    <div id="questionArea"></div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="results-screen" id="resultsScreen">
+  <div class="results-hero">
+    <div class="score-ring">
+      <span class="score-num" id="scoreNum">0</span>
+      <span class="score-of">out of 40</span>
+    </div>
+    <span class="results-accent" id="resultsAccent"></span>
+    <p class="results-summary" id="resultsSummary"></p>
+  </div>
+  <div class="results-body">
+    <div id="stopSections"></div>
+
+    <div class="email-block">
+      <p>Want a copy of your results? We'll email them — no list, no spam, just your scorecard.</p>
+      <div class="email-row">
+        <input type="email" placeholder="your@email.com" id="emailInput">
+        <button onclick="captureEmail()">Send it</button>
+      </div>
+      <p class="email-confirm" id="emailConfirm"></p>
+    </div>
+
+    <div class="results-cta">
+      <h3>Want us to take a closer look?</h3>
+      <span class="accent">That's what the Drive-By is for.</span>
+      <p>Send us your website and we'll tell you what we see. Free, no pitch, and your scorecard results give us a head start.</p>
+      <a href="lets-talk.html" class="btn-cta">Get in touch →</a>
+    </div>
+
+    <div class="results-footer">
+      <p>The Scorecard · <span>The Yellow Front Door</span></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const questions = [
+  { category: "The First Look", stop: 0, text: "If someone Googled your business right now, how would you feel about what comes up?", options: [
+    { text: "Confident. It's accurate, current, and looks the way I want it to.", score: 4 },
+    { text: "Pretty good, but there are things I've been meaning to update.", score: 3 },
+    { text: "I haven't checked in a while, so I'm not sure.", score: 2 },
+    { text: "I'd rather they didn't.", score: 1 }
+  ]},
+  { category: "The First Look", stop: 0, text: "Are your hours, contact info, and business description consistent everywhere you're listed online?", options: [
+    { text: "Yes, I keep them all in sync.", score: 4 },
+    { text: "Mostly, but a few are probably out of date.", score: 3 },
+    { text: "I'm not sure where I'm listed, honestly.", score: 2 },
+    { text: "They definitely say different things in different places.", score: 1 }
+  ]},
+  { category: "The Window", stop: 1, text: "Could a first-time visitor to your website figure out what you do and what to do next within about ten seconds?", options: [
+    { text: "Yes — it's clear and the path is obvious.", score: 4 },
+    { text: "Probably, but it takes some scrolling.", score: 3 },
+    { text: "I've had people tell me they were confused.", score: 2 },
+    { text: "My website needs work and I know it.", score: 1 }
+  ]},
+  { category: "The Window", stop: 1, text: "When was the last time the content on your website was meaningfully updated?", options: [
+    { text: "Within the last few months.", score: 4 },
+    { text: "Six months to a year ago.", score: 3 },
+    { text: "More than a year.", score: 2 },
+    { text: "When it was first built.", score: 1 }
+  ]},
+  { category: "The Open Door", stop: 2, text: "When someone reaches out for the first time, how quickly do they typically hear back?", options: [
+    { text: "Within a few hours, usually sooner.", score: 4 },
+    { text: "Within a day.", score: 3 },
+    { text: "It depends — sometimes a couple of days.", score: 2 },
+    { text: "Longer than I'd like to admit.", score: 1 }
+  ]},
+  { category: "The Open Door", stop: 2, text: "Does your first reply to a new customer sound like you, or like it could've been sent by anyone?", options: [
+    { text: "It sounds like me — warm, personal, clear.", score: 4 },
+    { text: "It's decent but it's a template I haven't revisited.", score: 3 },
+    { text: "I just reply from my phone, no set format.", score: 2 },
+    { text: "I don't have a consistent first reply.", score: 1 }
+  ]},
+  { category: "The Reception Desk", stop: 3, text: "If someone booked, purchased, or signed up today, what would happen automatically?", options: [
+    { text: "Confirmation, welcome email, clear next steps.", score: 4 },
+    { text: "A basic confirmation. I handle the rest manually.", score: 3 },
+    { text: "Not much — I follow up when I get a chance.", score: 2 },
+    { text: "I'm not sure what they'd receive.", score: 1 }
+  ]},
+  { category: "The Reception Desk", stop: 3, text: "Could you describe your follow-up process for new leads without checking anything?", options: [
+    { text: "Yes — it's documented and mostly automated.", score: 4 },
+    { text: "I have a rough system but it lives in my head.", score: 3 },
+    { text: "It's inconsistent. Some people get followed up, some don't.", score: 2 },
+    { text: "I don't really have one.", score: 1 }
+  ]},
+  { category: "The Upkeep", stop: 4, text: "How often do you review and refresh your customer-facing content?", options: [
+    { text: "Regularly — at least once a quarter.", score: 4 },
+    { text: "A couple of times a year when I remember.", score: 3 },
+    { text: "Only when something breaks or someone points it out.", score: 2 },
+    { text: "I can't remember the last time.", score: 1 }
+  ]},
+  { category: "The Upkeep", stop: 4, text: "If a friend visited your website right now, would it reflect where your business actually is today?", options: [
+    { text: "Yes — it's current and I'm proud of it.", score: 4 },
+    { text: "Mostly, but a few things are behind.", score: 3 },
+    { text: "Not really. The business has changed but the site hasn't.", score: 2 },
+    { text: "No. It's embarrassingly out of date.", score: 1 }
+  ]}
+];
+
+const stopNames = ["The First Look", "The Window", "The Open Door", "The Reception Desk", "The Upkeep"];
+const insights = {
+  high: [
+    "Your online first impression is strong. Listings are current, information is consistent, and people can find you without running into surprises.",
+    "Your website is doing its job. Visitors understand what you do, the content is fresh, and the path forward is clear.",
+    "Your first response sets the right tone. People feel heard, welcomed, and confident they're in the right place.",
+    "Your systems are running. Confirmations go out, follow-ups happen, and the behind-the-scenes experience matches the front.",
+    "You're keeping things current. The outside of your business is keeping up with the inside."
+  ],
+  mid: [
+    "Your first impression is decent but there are gaps. Outdated listings or inconsistent info can quietly erode trust before someone even reaches your site.",
+    "Your website works but could be sharper. If people have to work to figure out what you do, some of them won't bother.",
+    "Your first contact is fine but not memorable. A personal, timely first reply changes how someone feels about the whole experience.",
+    "You're doing things manually that could run on their own. That works until it doesn't, and when something slips, customers notice before you do.",
+    "Things are starting to fall behind. The gap between where your business is and what people see online gets wider the longer it sits."
+  ],
+  low: [
+    "People are finding you online and not getting an accurate picture. This is the first thing worth fixing because everything else sits on top of it.",
+    "Your website isn't telling your story clearly. This is the single biggest place where people decide to go further or leave.",
+    "New inquiries aren't getting the response they deserve. This is where trust gets built or lost, and right now it's leaking.",
+    "There's no system behind the customer experience. Every interaction depends on you remembering, and that doesn't scale.",
+    "Your online presence has fallen behind the business itself. The good news: you already know, and that's where it starts."
+  ]
+};
+
+let currentQ = 0;
+let answers = [];
+
+function buildProgressDots() {
+  const track = document.getElementById('progressTrack');
+  track.innerHTML = questions.map((_, i) => `<div class="progress-dot" id="dot${i}"></div>`).join('');
+}
+
+function updateProgress(idx) {
+  for (let i = 0; i < questions.length; i++) {
+    const dot = document.getElementById('dot' + i);
+    dot.className = 'progress-dot' + (i < idx ? ' done' : i === idx ? ' active' : '');
+  }
+  document.getElementById('progressStep').textContent = `Question ${idx + 1} of ${questions.length}`;
+  document.getElementById('progressCat').textContent = questions[idx].category;
+}
+
+function startQuiz() {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'block';
+  buildProgressDots();
+  showQuestion(0);
+}
+
+function showQuestion(idx) {
+  currentQ = idx;
+  const q = questions[idx];
+  const area = document.getElementById('questionArea');
+  
+  area.innerHTML = `<div class="q-card">
+    <p class="q-text">${q.text}</p>
+    <div class="q-options">${q.options.map((opt, i) => 
+      `<button class="q-option" onclick="selectAnswer(${idx},${i},${opt.score})">
+        <span class="q-radio"></span><span>${opt.text}</span>
+      </button>`
+    ).join('')}</div>
+  </div>`;
+  
+  updateProgress(idx);
+}
+
+function selectAnswer(qIdx, optIdx, score) {
+  document.querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.q-option')[optIdx].classList.add('selected');
+  answers[qIdx] = { stop: questions[qIdx].stop, score };
+  
+  setTimeout(() => {
+    if (qIdx < questions.length - 1) showQuestion(qIdx + 1);
+    else showResults();
+  }, 500);
+}
+
+function showResults() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultsScreen').style.display = 'block';
+  document.body.style.background = 'var(--paper)';
+  
+  let stopScores = [0,0,0,0,0], stopMax = [0,0,0,0,0], total = 0;
+  answers.forEach(a => { stopScores[a.stop] += a.score; stopMax[a.stop] += 4; total += a.score; });
+  
+  // Animate score number
+  let displayed = 0;
+  const scoreEl = document.getElementById('scoreNum');
+  const interval = setInterval(() => {
+    displayed++;
+    scoreEl.textContent = displayed;
+    if (displayed >= total) clearInterval(interval);
+  }, 40);
+
+  let accent, summary;
+  if (total >= 33) { accent = "Looking strong."; summary = "Your in-market experience is in good shape. A few things to tighten, but the foundation is solid."; }
+  else if (total >= 25) { accent = "Good bones, some gaps."; summary = "The basics are there, but there are spots where the experience isn't matching the quality of what you actually do."; }
+  else if (total >= 16) { accent = "Your business is better than it looks online."; summary = "There's a real gap between the work you do and what people find when they look you up. Most of it is fixable."; }
+  else { accent = "Time for a fresh start."; summary = "The outside doesn't match the inside yet. But knowing where you stand is the first step, and you just took it."; }
+
+  document.getElementById('resultsAccent').textContent = accent;
+  document.getElementById('resultsSummary').textContent = summary;
+
+  // Build stop sections
+  let html = '';
+  stopNames.forEach((name, i) => {
+    const pct = (stopScores[i] / stopMax[i]) * 100;
+    const cls = pct >= 75 ? 'strong' : pct >= 50 ? 'mid' : 'weak';
+    const note = pct >= 75 ? insights.high[i] : pct >= 50 ? insights.mid[i] : insights.low[i];
+    html += `<div class="stop-section">
+      <div class="stop-header">
+        <span class="stop-name">${name}</span>
+        <span class="stop-score-label">${stopScores[i]} / ${stopMax[i]}</span>
+      </div>
+      <div class="stop-bar-outer"><div class="stop-bar-inner ${cls}" data-width="${pct}"></div></div>
+      <p class="stop-insight">${note}</p>
+    </div>`;
+  });
+  document.getElementById('stopSections').innerHTML = html;
+
+  // Animate bars
+  setTimeout(() => {
+    document.querySelectorAll('.stop-bar-inner').forEach(bar => {
+      bar.style.width = bar.dataset.width + '%';
+    });
+  }, 300);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function captureEmail() {
+  const email = document.getElementById('emailInput').value;
+  if (email && email.includes('@')) {
+    const el = document.getElementById('emailConfirm');
+    el.textContent = "We'll send your results to " + email + " shortly.";
+    el.style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>
