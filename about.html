@@ -58,13 +58,6 @@ ul { list-style: none; }
 .about-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(30px, 4.4vw, 56px); font-weight: normal; color: var(--slate); line-height: 1.15; margin-top: 4px; }
 .about-hero p { font-size: clamp(17px, 2vw, 19px); line-height: 1.8; color: var(--ink); font-weight: 400; margin-top: 28px; max-width: 660px; }
 
-/* STUDIO BELIEF STRIP */
-.belief { background: var(--navy); padding: clamp(32px, 5vw, 56px) 0; }
-.belief-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-.belief-accent { font-family: var(--f-accent); font-size: clamp(26px, 3.4vw, 42px); color: var(--paper); line-height: 1.2; margin-bottom: 18px; }
-.belief p { font-size: 16px; color: var(--stone); line-height: 1.8; font-weight: 400; }
-.belief p + p { margin-top: 14px; }
-
 /* PEOPLE */
 .people { background: var(--paper); padding: var(--section-gap) 0; }
 .person { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(36px, 6vw, 80px); align-items: start; }
@@ -73,39 +66,29 @@ ul { list-style: none; }
 .person.reverse .person-media { order: 2; }
 .person.reverse .person-body { order: 1; }
 .person-media { position: relative; }
-.person-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--paper-mid); border: 1px solid var(--stone); }
+.person-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; background: var(--paper-mid); border: 1px solid var(--stone); display: block; }
 .person-photo-placeholder { width: 100%; aspect-ratio: 4 / 5; background: var(--paper-mid); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
 .person-photo-placeholder span { font-family: var(--f-accent); font-size: 22px; color: var(--slate); }
 .person-name { font-family: var(--f-accent); font-size: clamp(34px, 4.5vw, 56px); color: var(--ink); line-height: 1.0; margin-bottom: 6px; font-weight: normal; }
 .person-role { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--slate); margin-bottom: 22px; }
 .person-body p { font-size: 16px; line-height: 1.85; color: var(--ink); font-weight: 400; margin-bottom: 16px; }
 .person-body p:last-child { margin-bottom: 0; }
-.person-lead { font-size: 18px !important; line-height: 1.7 !important; font-weight: 500; }
+.person-lead { font-size: 18px !important; line-height: 1.7 !important; font-weight: 500 !important; }
 .person-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .person-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); border: 1px solid var(--stone); padding: 6px 11px; }
 
-/* CTA */
-.cta-section { background: #4d5c7b; text-align: center; position: relative; overflow: hidden; }
-.cta-inner { position: relative; z-index: 1; padding: clamp(36px, 5vw, 56px) 0; }
-.cta-dot { width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; margin: 0 auto 28px; }
-.cta-section h2 { font-family: var(--f-head); font-size: clamp(24px, 3.5vw, 38px); font-weight: 400; color: var(--paper); letter-spacing: -0.02em; margin-bottom: 8px; }
-.cta-accent-text { font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 44px); color: var(--yellow); display: block; line-height: 1.2; margin-bottom: 20px; }
-.cta-p { font-size: 17px; color: rgba(255,252,244,0.85); max-width: 480px; margin: 0 auto 40px; line-height: 1.75; font-weight: 400; }
-.btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-.btn-yellow:hover { background: var(--brass); }
-.cta-note { margin-top: 16px; font-size: 11px; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; }
+/* PRE-FOOTER */
+.pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
 
 /* FOOTER */
-.footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
+.footer { background: #ffffff; padding: 40px 0 32px; border-top: 1px solid var(--stone); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
-.footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); margin-bottom: 12px; }
-.footer-tagline { font-size: 14px; color: var(--ink); line-height: 1.65; font-weight: 400; max-width: 220px; }
-.footer-round-logo { display: flex; justify-content: center; align-items: center; }
-.footer-round-logo img { width: 120px; height: 120px; }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
+.footer-brand { display: flex; flex-direction: column; gap: 14px; }
+.footer-brand img { width: 64px; height: 64px; }
 .footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 15px; color: var(--ink); margin-bottom: 10px; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--slate); }
+.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
+.footer-nav-col a:hover { color: var(--ink); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
@@ -115,9 +98,8 @@ ul { list-style: none; }
   .person, .person.reverse { grid-template-columns: 1fr; gap: 28px; }
   .person.reverse .person-media { order: 0; }
   .person.reverse .person-body { order: 0; }
-  .person-photo, .person-photo-placeholder { aspect-ratio: 3 / 2; max-width: 360px; }
+  .person-photo, .person-photo-placeholder { aspect-ratio: 3 / 2; max-width: 100%; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-round-logo { justify-content: flex-start; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
@@ -141,7 +123,7 @@ ul { list-style: none; }
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
       <li><a href="lets-talk.html">Let's Talk</a></li>
-          <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -192,15 +174,15 @@ ul { list-style: none; }
     <!-- CHRIS -->
     <div class="person reverse">
       <div class="person-media">
-        <div class="person-photo-placeholder"><span>Chris</span></div>
-        <!-- To add photo: delete the placeholder div above and uncomment: <img class="person-photo" src="chris.jpg" alt="Chris Melnick-MacDonald"> -->
+        <img class="person-photo" src="Chris_headshot.png" alt="Chris Melnick-MacDonald">
       </div>
       <div class="person-body">
         <h2 class="person-name">Chris</h2>
         <p class="person-role">Technical Architect</p>
-        <p class="person-lead">I'm the one you probably won't talk to much, which is how I like it.</p>
-        <p>I spent fifteen-plus years building and running platforms at a national scale — big systems, serious uptime requirements, the kind of work where if something breaks at 2 a.m. it's your problem. I brought that experience here because a good website or a good brand isn't worth much if the stuff behind it doesn't actually work. So I handle the automations, the integrations, the AI tools, and the general wiring that keeps a business running smoothly without adding more things for the owner to babysit.</p>
-        <p>Julianna makes it look and sound right. I make it work.</p>
+        <p class="person-lead">Chris has spent fifteen years building systems that have to work. Enterprise architecture, cloud infrastructure, AI, data platforms, automation, security, and the kind of technical backbone where failure genuinely is not an option.</p>
+        <p>His work has supported national public health systems, defence intelligence, geospatial platforms, and large-scale digital transformation projects across government and enterprise.</p>
+        <p>But small businesses are where he wants to be. The problems are just as interesting, the stakes feel more personal, and the results are easier to see. In enterprise work, you can be one of a hundred people on a project and wait years to see the outcome. Here, you are working directly with someone who built something with their own hands — and you can watch the right system, workflow, or website finally click into place.</p>
+        <p>At The Yellow Front Door, Julianna leads the brand voice, customer experience, strategy, and story. Chris handles the infrastructure, technical systems, automation, and workflow efficiency behind it all. They come at the same problems from completely different directions, which is exactly the point. She makes sure it sounds and feels right. He makes sure it works.</p>
         <div class="person-tags">
           <span class="person-tag">Systems architecture</span>
           <span class="person-tag">Automations</span>
@@ -214,14 +196,21 @@ ul { list-style: none; }
 </section>
 
 <!-- CTA -->
-<div class="cta-section" style="background:var(--navy);">
-  <div class="cta-inner container">
-    <h2 style="color:#fff;">Curious where things stand?</h2>
-    <p class="cta-p" style="color:rgba(255,255,255,0.55);">The Scorecard takes two minutes and gives you an honest picture of what your customers see before they choose you.</p>
+<div style="background:var(--navy); text-align:center; padding:clamp(36px,5vw,56px) 0;">
+  <div class="container">
+    <h2 style="font-family:var(--f-head); font-size:clamp(24px,3.5vw,38px); font-weight:400; color:#fff; margin-bottom:12px;">Curious where things stand?</h2>
+    <p style="font-size:15px; color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto 28px; line-height:1.75;">The Scorecard takes two minutes and gives you an honest picture of what your customers see before they choose you.</p>
     <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
+      <a href="the-scorecard.html" class="btn-yellow" style="display:inline-flex; align-items:center; background:var(--yellow); color:var(--ink); padding:15px 32px; font-family:var(--f-body); font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;">Take the Scorecard</a>
       <a href="lets-talk.html" style="display:inline-block; padding:15px 28px; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); text-decoration:none;">Or get in touch →</a>
     </div>
+  </div>
+</div>
+
+<!-- PRE-FOOTER -->
+<div class="pre-footer">
+  <div class="container">
+    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:620px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
   </div>
 </div>
 
@@ -229,11 +218,7 @@ ul { list-style: none; }
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
-      <div>
-        <p class="footer-logo">The Yellow Front Door</p>
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-round-logo">
+      <div class="footer-brand">
         <img src="roundlogo.png" alt="The Yellow Front Door">
       </div>
       <div class="footer-nav-col">
