@@ -135,6 +135,14 @@ em,i{font-style:italic;} code{font-family:ui-monospace,monospace;font-size:.86em
 .earart{height:46px;display:flex;align-items:flex-end;justify-content:center;}
 .earart svg{max-height:56px;max-width:100%;width:auto;}
 .earcell figcaption{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;}
+
+/* design-decision pins */
+.pin{display:flex;gap:.9rem;padding:.7rem 0;border-bottom:1px solid var(--tan-border);}
+.pin:last-child{border-bottom:0;}
+.pin-num{font-family:var(--display);font-style:italic;font-size:1.1rem;color:var(--caramel);flex:none;width:1.8rem;padding-top:.1rem;}
+.pin-body h4{font-family:var(--display);font-weight:500;font-size:1rem;margin-bottom:.15rem;}
+.pin-body p{font-size:12px;line-height:1.58;color:var(--muted);margin:0;}
+
 /* manifesto */
 .leaf-dark .mani,.mani{}
 .mani{font-family:var(--display);font-style:italic;font-size:clamp(1.2rem,2.8vw,1.75rem);line-height:1.45;text-align:center;max-width:24ch;margin:0 auto;color:var(--cream);}
@@ -177,6 +185,7 @@ em,i{font-style:italic;} code{font-family:ui-monospace,monospace;font-size:.86em
     <li><span class="tn">04</span><span class="tt">The typography</span><span class="tdot"></span><span class="tp">13</span></li>
     <li><span class="tn">05</span><span class="tt">The voice</span><span class="tdot"></span><span class="tp">16</span></li>
     <li><span class="tn">06</span><span class="tt">The ear cast</span><span class="tdot"></span><span class="tp">19</span></li>
+    <li><span class="tn">07</span><span class="tt">The thinking</span><span class="tdot"></span><span class="tp">23</span></li>
   </ol>
 </div><div class="folio"><span class="fr">Fin & Oak Bark Bakery</span><span class="fp">02</span></div></article>
 <article class="leaf leaf-cream" data-i="2"><div class="leaf-inner">
@@ -386,11 +395,70 @@ em,i{font-style:italic;} code{font-family:ui-monospace,monospace;font-size:.86em
     <tr><td>Names</td><td>Filenames are stable. Don't rename <code>ear-XX.svg</code> without telling the system.</td></tr>
   </table>
 </div><div class="folio"><span class="fr">Fin & Oak Bark Bakery</span><span class="fp">21</span></div></article>
-<article class="leaf leaf-dark" data-i="21"><div class="leaf-inner">
+<article class="leaf leaf-dark" data-i="22"><div class="leaf-inner">
+  <div class="accent-ear"><svg viewBox="0 0 400.000000 202.000000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ear 14"><g transform="translate(0.000000,202.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path d="M1335 2006 c-68 -18 -122 -44 -172 -83 -23 -18 -50 -33 -61 -33 -11 0 -27 -11 -35 -24 -15 -22 -114 -76 -141 -76 -6 0 -28 -11 -48 -25 -20 -14 -45 -25 -55 -25 -10 0 -34 -8 -53 -19 -51 -27 -98 -40 -160 -44 -30 -3 -77 -12 -105 -21 -27 -9 -66 -21 -85 -27 -134 -44 -254 -129 -295 -209 -14 -27 -29 -51 -35 -55 -17 -11 -79 -153 -80 -187 -8 -160 4 -245 46 -328 38 -74 72 -114 135 -157 97 -68 165 -168 198 -296 5 -21 7 -45 5 -52 -3 -8 1 -24 10 -37 9 -12 16 -30 16 -39 0 -9 9 -24 20 -34 11 -10 20 -24 20 -31 0 -19 59 -84 76 -84 8 0 14 -4 14 -10 0 -21 114 -64 215 -81 28 -4 73 -13 100 -19 33 -7 59 -7 75 -1 14 5 41 13 60 17 19 3 55 21 79 38 44 31 121 120 121 139 0 6 6 18 13 26 16 19 53 113 62 158 15 76 1 241 -25 298 -5 11 -12 36 -16 55 -3 19 -12 46 -19 60 -7 14 -18 39 -25 55 -7 17 -16 38 -21 47 -5 10 -9 25 -9 33 0 8 -4 23 -9 33 -50 95 -56 124 -56 282 0 137 3 163 24 224 13 37 36 83 52 101 35 40 36 50 4 71 -23 15 -27 15 -51 0 -14 -10 -38 -45 -54 -80 -53 -114 -70 -215 -65 -376 2 -90 8 -126 25 -165 12 -27 26 -61 32 -75 6 -14 14 -33 19 -42 5 -10 9 -26 9 -36 0 -10 7 -27 15 -38 8 -10 15 -28 15 -39 0 -11 10 -45 21 -75 48 -122 57 -225 30 -353 -23 -114 -54 -170 -121 -220 -70 -52 -94 -59 -175 -46 -38 6 -86 11 -105 12 -19 1 -44 7 -55 13 -11 6 -45 21 -76 33 -42 17 -64 33 -92 71 -20 27 -37 56 -37 64 0 8 -4 18 -10 21 -5 3 -10 19 -10 36 0 16 -4 37 -9 47 -5 9 -19 51 -31 92 -38 126 -77 181 -195 273 -61 47 -71 59 -111 134 -42 77 -57 243 -29 308 7 17 19 46 26 67 24 69 177 228 221 228 10 0 26 4 36 9 69 37 148 63 236 76 16 3 37 11 45 19 9 7 43 17 75 21 33 4 84 20 116 36 32 16 65 29 73 29 22 0 66 20 102 46 17 12 41 25 55 29 14 4 38 23 53 41 16 19 60 49 102 69 58 28 87 36 146 39 76 3 185 -14 252 -40 111 -42 395 -67 492 -43 22 6 54 12 70 13 73 7 132 19 154 33 15 9 35 13 53 9 17 -3 49 0 72 8 45 15 127 6 179 -20 16 -8 35 -14 44 -14 8 0 29 -6 46 -14 72 -32 117 -40 237 -40 147 -1 132 6 283 -140 95 -92 124 -112 235 -166 41 -20 88 -49 140 -85 12 -9 40 -44 62 -78 21 -34 44 -67 50 -74 5 -7 10 -16 10 -21 0 -5 12 -19 26 -33 38 -35 75 -124 86 -205 9 -67 8 -75 -17 -130 -14 -31 -32 -73 -39 -93 -19 -51 -106 -263 -117 -283 -15 -29 -21 -195 -8 -237 9 -32 9 -42 -5 -63 -22 -33 -90 -56 -117 -40 -10 7 -33 12 -50 12 -56 0 -178 118 -202 195 -3 11 -12 38 -20 60 -22 59 -53 224 -52 275 2 86 27 250 45 295 5 11 14 68 21 127 11 96 10 110 -5 132 -9 14 -16 33 -16 43 0 17 -41 72 -104 138 -15 17 -39 50 -53 75 -73 134 -97 156 -133 120 -21 -21 -27 -55 -11 -64 5 -4 28 -41 51 -84 23 -42 54 -90 71 -105 16 -15 29 -35 29 -43 0 -7 4 -14 9 -14 6 0 22 -15 36 -34 31 -41 49 -134 33 -174 -6 -15 -12 -43 -15 -62 -2 -19 -9 -41 -16 -48 -11 -14 -22 -88 -33 -232 -6 -76 -6 -61 1 -175 5 -95 29 -171 90 -295 28 -57 113 -160 131 -160 4 0 25 -9 48 -19 115 -54 136 -61 180 -61 39 0 58 7 107 40 38 27 59 48 59 61 0 10 5 28 12 38 8 14 9 44 2 112 -10 102 -4 138 35 224 13 28 36 84 53 125 16 41 43 105 59 142 35 79 54 179 39 208 -5 10 -10 34 -10 53 0 45 -21 93 -65 151 -19 25 -35 51 -35 56 0 5 -9 15 -20 22 -11 7 -20 19 -20 26 0 37 -127 192 -157 192 -6 0 -18 9 -28 20 -10 11 -26 20 -35 20 -10 0 -37 16 -61 35 -24 19 -51 35 -60 35 -9 0 -22 7 -30 16 -7 8 -34 26 -61 40 -26 13 -56 36 -65 52 -10 15 -44 53 -75 86 -32 32 -58 62 -58 66 0 17 -40 23 -167 26 -136 3 -258 22 -309 49 -16 8 -39 15 -50 15 -12 0 -38 7 -57 15 -38 16 -153 13 -211 -4 -37 -12 -213 -43 -264 -47 -74 -6 -118 -12 -142 -22 -16 -6 -40 -5 -75 4 -27 8 -64 14 -82 14 -40 0 -148 25 -225 51 -32 12 -67 18 -78 14 -12 -4 -27 -2 -34 4 -21 17 -126 21 -181 7z"/> <path d="M211 1262 c-34 -49 -28 -175 13 -274 30 -72 110 -174 166 -211 48 -33 122 -13 106 28 -3 9 -23 24 -44 33 -33 15 -63 42 -115 103 -22 25 -79 210 -73 234 3 13 15 25 26 28 23 6 28 55 8 75 -22 22 -65 14 -87 -16z"/> <path d="M3666 1164 c-21 -20 -20 -30 6 -72 12 -20 31 -54 42 -76 18 -34 26 -41 51 -41 25 0 31 4 33 26 3 28 -5 51 -43 119 -36 63 -59 74 -89 44z"/> <path d="M3344 758 c-5 -7 -14 -28 -20 -46 -34 -95 32 -241 84 -188 13 13 14 22 3 68 -7 29 -11 80 -9 113 3 58 2 60 -24 63 -14 2 -30 -3 -34 -10z"/> <path d="M947 683 c-12 -11 -8 -46 7 -62 8 -9 19 -51 25 -94 9 -66 9 -81 -5 -102 -20 -31 -4 -65 31 -65 29 0 40 18 53 90 20 110 -24 240 -82 240 -12 0 -26 -3 -29 -7z"/> </g></svg></div>
+  <div class="cnum">07.</div>
+  <h2 class="ch-title">The thinking.</h2>
+  <div class="crule"></div>
+  <p class="cdesc">Why we made the choices we made. The reasoning behind what you just read.</p>
+</div><div class="folio"><span class="fr">Fin & Oak</span><span class="fp">23</span></div></article>
+<article class="leaf leaf-cream" data-i="23"><div class="leaf-inner">
+  <div class="eyebrow">07 · The thinking</div>
+  <h2>Design decisions.</h2>
+  <hr class="rule">
+  <div class="pin">
+    <div class="pin-num">01</div>
+    <div class="pin-body">
+      <h4>The hero photos</h4>
+      <p>Most pet food brands lead with the product. We led with Oak and Piper because Fin & Oak isn't really about the treats. It's about who makes them and who they're for. You should feel that before you read a single word.</p>
+    </div>
+  </div>
+  <div class="pin">
+    <div class="pin-num">02</div>
+    <div class="pin-body">
+      <h4>The headline</h4>
+      <p>You want your website to feel like something the second you land on it. "Small batches. Big messes. Happy critters." does that. It tells you exactly what it's like in this kitchen before you've scrolled, clicked, or read anything else.</p>
+    </div>
+  </div>
+  <div class="pin">
+    <div class="pin-num">03</div>
+    <div class="pin-body">
+      <h4>The subhead copy</h4>
+      <p>"The rest of the menagerie" is the phrase you use when you've genuinely stopped counting. Two dogs, six cats, chickens with strong opinions, geese who don't like anyone. This is a real house. The copy should sound like it.</p>
+    </div>
+  </div>
+</div><div class="folio"><span class="fr">Fin & Oak Bark Bakery</span><span class="fp">24</span></div></article>
+<article class="leaf leaf-cream" data-i="24"><div class="leaf-inner">
+  <div class="eyebrow">07 · The thinking</div>
+  <h3>Design decisions, continued.</h3>
+  <hr class="rule">
+  <div class="pin">
+    <div class="pin-num">04</div>
+    <div class="pin-body">
+      <h4>"Real ingredients. Spoiled regulars."</h4>
+      <p>What's in it, and is it worth it. Two questions, six words. "Spoiled regulars" also does something quietly useful: it tells you people come back. No testimonials needed.</p>
+    </div>
+  </div>
+  <div class="pin">
+    <div class="pin-num">05</div>
+    <div class="pin-body">
+      <h4>Willow &amp; Mom</h4>
+      <p>Three words that tell the whole story. You know exactly who made this before you've read anything else on the page. That's the whole point of signing off with names.</p>
+    </div>
+  </div>
+  <div class="pin">
+    <div class="pin-num">06</div>
+    <div class="pin-body">
+      <h4>The logo</h4>
+      <p>We needed something that could live on a website, stamp onto a bag, and shrink down to a sticker without falling apart. Playfair gave us the presence and polish without tipping into cute territory, which was the line we were trying not to cross. "Bark Bakery" tracked out underneath grounds it and makes the whole mark stamp cleanly. No icon needed. The type does the work.</p>
+    </div>
+  </div>
+</div><div class="folio"><span class="fr">Fin & Oak Bark Bakery</span><span class="fp">25</span></div></article>
+<article class="leaf leaf-dark" data-i="25"><div class="leaf-inner">
   <p class="mani">Real ingredients. Spoiled regulars. Made by hand, in a real kitchen, by a mom and a daughter who'd happily eat it themselves — and, on at least one occasion, have.</p>
   <p class="mani-sig">xo, Willow &amp; Julianna</p>
   <p class="mani-foot">Fin &amp; Oak Bark Bakery · Baked in the Annapolis Valley · Volume One</p>
-</div><div class="folio"><span class="fr">Fin & Oak</span><span class="fp">22</span></div></article>
+</div><div class="folio"><span class="fr">Fin & Oak</span><span class="fp">25</span></div></article>
   </div>
   <button class="nav-btn nav-prev" id="prev" aria-label="Previous page">&#8249;</button>
   <button class="nav-btn nav-next" id="next" aria-label="Next page">&#8250;</button>
