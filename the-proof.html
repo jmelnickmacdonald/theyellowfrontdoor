@@ -16,144 +16,142 @@
 :root {
   --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
   --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
-  --navy: #132447; --navy-light: #1a2d52; --sky: #4d5c7b;
+  --navy: #132447;
   --f-accent: 'CasualHandwriting', cursive;
   --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
   --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(56px, 8vw, 96px);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--navy); color: rgba(255,255,255,0.8); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 
 /* NAV */
-.nav { position: sticky; top: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
-.nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo img { height: 48px; width: auto; }
-.nav-links { display: flex; gap: 28px; align-items: center; }
-.nav-links li a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); letter-spacing: 0.03em; transition: color 0.2s; }
-.nav-links li a:hover, .nav-links li a.active { color: #fff; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; font-weight: 700 !important; padding: 10px 22px; border-radius: 4px; font-size: 12px !important; letter-spacing: 0.06em !important; text-transform: uppercase; }
-.nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
-.nav-toggle span { display: block; width: 22px; height: 2px; background: #fff; }
-@media (max-width: 768px) {
-  .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--navy); flex-direction: column; padding: 20px var(--gutter) 28px; gap: 16px; }
-  .nav-links.open { display: flex; }
-  .nav-toggle { display: flex; }
-}
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
+.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
+.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo img { height: 56px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-links a.active { font-weight: 600; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta:hover { background: var(--brass) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* HERO */
-.proof-hero { padding: calc(72px + clamp(40px, 6vw, 72px)) 0 clamp(36px, 5vw, 56px); background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.eyebrow-label { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
-.eyebrow-tag { background: var(--yellow); color: var(--navy); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 6px 14px; }
-.eyebrow-desc { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 500; }
-.proof-hero h1 { font-family: var(--f-head); font-size: clamp(34px, 5vw, 60px); font-weight: 400; color: #fff; letter-spacing: -0.01em; line-height: 1.08; margin-bottom: 8px; }
-.proof-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(30px, 4.4vw, 52px); font-weight: normal; color: rgba(255,255,255,0.4); line-height: 1.15; margin-top: 4px; }
-.proof-hero p { font-size: 16px; color: rgba(255,255,255,0.5); max-width: 600px; line-height: 1.75; margin-top: 12px; }
+.proof-hero { background: var(--navy); padding: clamp(96px, 12vw, 148px) 0 clamp(56px, 7vw, 80px); margin-top: 72px; }
+.proof-hero-inner { max-width: 860px; }
+.eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
+.eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: rgba(255,255,255,0.08); padding: 6px 14px; flex-shrink: 0; }
+.eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.proof-hero h1 { font-family: var(--f-head); font-size: clamp(38px, 5.5vw, 64px); font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 0; }
+.proof-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(32px, 4.8vw, 56px); font-weight: normal; color: rgba(255,255,255,0.4); line-height: 1.25; margin-top: 16px; }
+.proof-hero p { font-size: clamp(16px, 1.8vw, 18px); color: rgba(255,255,255,0.6); max-width: 600px; line-height: 1.8; margin-top: 32px; }
 
-/* PROJECT GRID */
-.project-grid-section { padding: var(--section-gap) 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.project-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
-.project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); border-color: var(--yellow); }
-.project-card-thumb { height: 140px; background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+/* FILTER */
+.filter-section { background: var(--paper); border-bottom: 1px solid var(--stone); padding: 0; position: sticky; top: 72px; z-index: 50; }
+.filter-inner { display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.filter-btn { background: none; border: none; border-bottom: 3px solid transparent; padding: 18px 28px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); cursor: pointer; transition: color 0.2s, border-color 0.2s; white-space: nowrap; margin-bottom: -1px; }
+.filter-btn:hover { color: var(--ink); }
+.filter-btn.active { color: var(--ink); border-bottom-color: var(--yellow); }
+
+/* GRID */
+.grid-section { padding: clamp(48px, 6vw, 80px) 0; background: var(--paper); }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.project-card { background: var(--paper); border: 1px solid var(--stone); border-radius: 4px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(19,36,71,0.1); }
+.project-card.hidden { opacity: 0.15; pointer-events: none; }
+.project-card-thumb { height: 160px; background: var(--paper-mid); overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .project-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.project-card-thumb .placeholder-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
-.project-card-info { padding: 14px 16px; }
-.project-card-name { font-family: var(--f-accent); font-size: 20px; font-weight: normal; color: #fff; margin-bottom: 2px; }
-.project-card-type { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
-.project-card-badge { display: inline-block; font-size: 8px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-top: 6px; }
-.badge-client { background: var(--yellow); color: var(--navy); }
-.badge-concept { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
-.badge-own { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+.project-card-thumb .placeholder-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(19,36,71,0.2); }
+.project-card-info { padding: 16px 18px; }
+.project-card-name { font-family: var(--f-accent); font-size: 22px; color: var(--ink); margin-bottom: 4px; line-height: 1.2; }
+.project-card-scope { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); line-height: 1.6; }
 
 /* CASE STUDIES */
-.case-studies { padding-bottom: var(--section-gap); }
-.case-study { border-top: 1px solid rgba(255,255,255,0.06); padding: var(--section-gap) 0; }
-.case-study:first-child { border-top: none; }
-.case-study-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 8px; flex-wrap: wrap; }
-.case-study-name { font-family: var(--f-accent); font-size: clamp(32px, 5vw, 48px); font-weight: normal; color: #fff; line-height: 1.05; }
-.case-study-scope { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
-
-/* TABS */
-.case-tabs { display: flex; gap: 0; margin-bottom: 28px; border-bottom: 2px solid rgba(255,255,255,0.08); }
-.case-tab { padding: 12px 24px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.2s, border-color 0.2s; background: none; border-top: none; border-left: none; border-right: none; }
-.case-tab:hover { color: rgba(255,255,255,0.7); }
-.case-tab.active { color: #fff; border-bottom-color: var(--yellow); }
+.case-studies-section { padding: 0 0 var(--section-gap); background: var(--paper); }
+.case-study { border-top: 1px solid var(--stone); padding: clamp(48px, 6vw, 72px) 0; }
+.case-study-header { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 6px; flex-wrap: wrap; }
+.case-study-name { font-family: var(--f-accent); font-size: clamp(32px, 4.5vw, 48px); color: var(--ink); line-height: 1.05; }
+.case-study-scope { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 28px; }
+.case-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
+.case-tab { padding: 12px 24px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color 0.2s, border-color 0.2s; background: none; border-top: none; border-left: none; border-right: none; }
+.case-tab:hover { color: var(--ink); }
+.case-tab.active { color: var(--ink); border-bottom-color: var(--yellow); }
 .case-panel { display: none; }
 .case-panel.active { display: block; }
-
-/* PANEL CONTENT */
 .panel-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
-.panel-text p { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+.panel-text p { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 16px; }
 .panel-text p:last-child { margin-bottom: 0; }
-.panel-image { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; min-height: 220px; display: flex; align-items: center; justify-content: center; }
+.panel-image { background: var(--paper-mid); border: 1px solid var(--stone); border-radius: 4px; overflow: hidden; min-height: 220px; display: flex; align-items: center; justify-content: center; }
 .panel-image img { width: 100%; height: 100%; object-fit: cover; }
-.panel-image .placeholder-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
-
-/* WORK LINKS */
-.work-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-.work-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 10px 20px; border-radius: 3px; transition: transform 0.2s; }
-.work-link:hover { transform: translateY(-2px); }
-.work-link-outline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); }
-.work-link-outline:hover { border-color: var(--yellow); color: #fff; transform: translateY(-2px); }
-
-/* DELIVERABLES */
-.deliverables { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.deliverable-tag { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 2px; letter-spacing: 0.04em; }
+.panel-image .placeholder-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(19,36,71,0.2); }
+.deliverables { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.deliverable-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); border: 1px solid var(--stone); padding: 6px 12px; }
+.work-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.work-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 12px 22px; transition: background 0.2s; }
+.work-link:hover { background: var(--brass); }
+.work-link-outline { background: transparent; color: var(--ink); border: 1px solid var(--stone); }
+.work-link-outline:hover { border-color: var(--ink); background: transparent; }
 
 /* TESTIMONIALS */
-.testimonials { background: var(--paper); padding: clamp(48px, 7vw, 80px) 0; }
-.testimonials-heading { font-family: var(--f-accent); font-size: clamp(24px, 3.5vw, 36px); color: var(--ink); text-align: center; margin-bottom: clamp(32px, 5vw, 48px); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
-.testimonial { }
-.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 12px; }
-.testimonial-cite { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); font-style: normal; }
+.testimonials-section { background: var(--paper); padding: var(--section-gap) 0; border-top: 1px solid var(--stone); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(24px, 4vw, 40px); }
+.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 10px; }
+.testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); }
 
 /* ASSET LIBRARY */
-.assets-section { padding: var(--section-gap) 0; border-top: 1px solid rgba(255,255,255,0.06); }
-.assets-heading { font-family: var(--f-head); font-size: clamp(28px, 4vw, 40px); font-weight: 400; color: #fff; letter-spacing: -0.01em; margin-bottom: 6px; }
-.assets-sub { font-family: var(--f-accent); font-size: clamp(20px, 3vw, 28px); color: rgba(255,255,255,0.4); margin-bottom: 32px; }
-.assets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-.asset-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
-.asset-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.15); }
-.asset-card-thumb { height: 220px; background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.asset-card-thumb .placeholder-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.12); }
+.assets-section { padding: var(--section-gap) 0; border-top: 1px solid var(--stone); }
+.assets-heading { font-family: var(--f-head); font-size: clamp(24px, 3vw, 32px); font-weight: 400; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 6px; }
+.assets-sub { font-family: var(--f-accent); font-size: clamp(18px, 2.5vw, 24px); color: var(--slate); margin-bottom: 36px; }
+.assets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.asset-card { background: var(--paper); border: 1px solid var(--stone); border-radius: 4px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; color: inherit; display: block; }
+.asset-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(19,36,71,0.08); }
+.asset-card-thumb { height: 200px; background: var(--paper-mid); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.asset-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .asset-card-info { padding: 14px 16px; }
-.asset-card-info h4 { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 4px; }
-.asset-card-info p { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+.asset-card-info h4 { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.asset-card-info p { font-size: 12px; color: var(--slate); line-height: 1.55; }
 
-/* CTA */
-.cta-section { background: var(--sky); text-align: center; padding: clamp(48px, 7vw, 80px) var(--gutter); }
-.cta-section h2 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 44px); font-weight: 400; color: var(--paper); letter-spacing: -0.02em; margin-bottom: 8px; }
-.cta-accent { display: block; font-family: var(--f-accent); font-size: clamp(24px, 3.5vw, 38px); color: rgba(255,252,244,0.6); font-weight: normal; margin-top: 4px; }
-.cta-section p { font-size: 16px; color: rgba(255,252,244,0.65); max-width: 460px; margin: 0 auto 32px; line-height: 1.75; }
-.cta-btn { display: inline-block; background: var(--yellow); color: var(--navy); padding: 16px 36px; font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; transition: transform 0.2s; }
-.cta-btn:hover { transform: translateY(-2px); }
-.cta-note { font-size: 12px; color: rgba(255,252,244,0.4); margin-top: 16px; letter-spacing: 0.08em; }
+/* PRE-FOOTER */
+.pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
 
 /* FOOTER */
-.footer { background: var(--paper); border-top: 1px solid var(--stone); padding: clamp(40px, 6vw, 64px) 0 clamp(24px, 3vw, 36px); color: var(--ink); }
+.footer { background: var(--paper); padding: 40px 0 32px; border-top: 1px solid var(--stone); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1.3fr auto auto; gap: clamp(32px, 5vw, 64px); align-items: start; margin-bottom: 32px; }
-.footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); }
-.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin-top: 4px; line-height: 1.6; }
-.footer-round-logo img { width: 56px; height: 56px; opacity: 0.5; }
-.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 12px; }
-.footer-nav-col a { display: block; font-size: 13px; color: var(--ink); margin-bottom: 6px; }
-.footer-bottom { display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid var(--stone); }
-.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.04em; }
-.footer-dot-sm { width: 4px; height: 4px; background: var(--stone); border-radius: 50%; }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
+.footer-brand { display: flex; flex-direction: column; gap: 14px; }
+.footer-brand img { width: 64px; height: 64px; }
+.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
+.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
+.footer-nav-col a:hover { color: var(--ink); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .panel-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .case-tabs { overflow-x: auto; }
   .case-tab { white-space: nowrap; padding: 12px 16px; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
+  .nav-toggle { display: flex; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .project-grid { grid-template-columns: 1fr 1fr; }
+  .filter-btn { padding: 16px 18px; font-size: 10px; }
+}
+@media (max-width: 420px) {
+  .project-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -171,7 +169,7 @@ ul { list-style: none; }
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
       <li><a href="lets-talk.html">Let's Talk</a></li>
-          <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -182,74 +180,139 @@ ul { list-style: none; }
 <!-- HERO -->
 <section class="proof-hero">
   <div class="container">
-    <div class="eyebrow-label">
-      <span class="eyebrow-tag">The Proof</span>
-      <span class="eyebrow-desc">Real work, real thinking</span>
+    <div class="proof-hero-inner">
+      <div class="eyebrow-label">
+        <span class="eyebrow-tag">The Proof</span>
+        <span class="eyebrow-desc">Real work, real thinking</span>
+      </div>
+      <h1>The thinking, in practice.
+        <span class="accent-line">Real projects, real decisions.</span>
+      </h1>
+      <p>This is how the in-market experience work actually plays out — the brands, the words, the systems, and the small pieces that hold everything together once people find a business.</p>
     </div>
-    <h1>The thinking, in practice.
-      <span class="accent-line">Real projects, real decisions.</span>
-    </h1>
-    <p>This is how the in-market experience work actually plays out — the brands, the words, the systems, and the small pieces that hold everything together once people find a business.</p>
   </div>
 </section>
 
-<!-- PROJECT GRID -->
-<section class="project-grid-section">
+<!-- FILTER -->
+<div class="filter-section">
   <div class="container">
-    <div class="project-grid">
-      <a href="#finoak" class="project-card">
-        <div class="project-card-thumb"><img src="finandoakwebsite.png" alt="Fin & Oak Bark Bakery website on a laptop"></div>
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="websites">Websites</button>
+      <button class="filter-btn" data-filter="brand">Brand & Voice</button>
+      <button class="filter-btn" data-filter="strategy">Strategy & Systems</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT GRID -->
+<section class="grid-section">
+  <div class="container">
+    <div class="project-grid" id="project-grid">
+
+      <!-- WEBSITES -->
+      <a href="#finoak" class="project-card" data-category="websites">
+        <div class="project-card-thumb"><img src="finandoakwebsite.png" alt="Fin & Oak website"></div>
         <div class="project-card-info">
           <p class="project-card-name">Fin & Oak</p>
-          <p class="project-card-type">Brand · Website · Voice · Systems</p>
-          <span class="project-card-badge badge-client">Client</span>
+          <p class="project-card-scope">Brand · Website · Voice · Systems</p>
         </div>
       </a>
-      <a href="#copperbean" class="project-card">
-        <div class="project-card-thumb"><img src="copperandbeancupandmenu.png" alt="Copper + Bean branded cup and menu"></div>
+
+      <a href="#copperbean" class="project-card" data-category="websites">
+        <div class="project-card-thumb"><img src="copperandbeancupandmenu.png" alt="Copper + Bean"></div>
         <div class="project-card-info">
           <p class="project-card-name">Copper + Bean</p>
-          <p class="project-card-type">Voice · Brand Identity · Website</p>
-          <span class="project-card-badge badge-concept">Concept</span>
+          <p class="project-card-scope">Voice · Brand Identity · Website · Concept</p>
         </div>
       </a>
-      <a href="#anchored" class="project-card">
+
+      <a href="#anchored" class="project-card" data-category="websites">
         <div class="project-card-thumb"><span class="placeholder-label">Screenshot</span></div>
         <div class="project-card-info">
           <p class="project-card-name">Anchored Prose</p>
-          <p class="project-card-type">Full Site · Copy · Brand Voice</p>
-          <span class="project-card-badge badge-own">Own Project</span>
+          <p class="project-card-scope">Full Site · Copy · Brand Voice</p>
         </div>
       </a>
-      <a href="#ravenhouse" class="project-card">
+
+      <a href="#ravenhouse" class="project-card" data-category="websites">
         <div class="project-card-thumb"><span class="placeholder-label">Screenshot</span></div>
         <div class="project-card-info">
           <p class="project-card-name">Raven House</p>
-          <p class="project-card-type">Landing Page · Voice</p>
-          <span class="project-card-badge badge-client">Client</span>
+          <p class="project-card-scope">Landing Page · Voice</p>
         </div>
       </a>
-      <a href="#atelier" class="project-card">
+
+      <!-- BRAND & VOICE -->
+      <a href="finoak-brand-book.html" class="project-card" data-category="brand">
+        <div class="project-card-thumb"><span class="placeholder-label">Screenshot</span></div>
+        <div class="project-card-info">
+          <p class="project-card-name">Fin & Oak Brand Guide</p>
+          <p class="project-card-scope">Brand Book · Voice · Identity System</p>
+        </div>
+      </a>
+
+      <a href="copper-bean-brand.html" class="project-card" data-category="brand">
+        <div class="project-card-thumb"><img src="copperandbeancupandmenu.png" alt="Copper + Bean brand"></div>
+        <div class="project-card-info">
+          <p class="project-card-name">Copper + Bean Brand</p>
+          <p class="project-card-scope">Logo Suite · Colour · Typography · Concept</p>
+        </div>
+      </a>
+
+      <a href="atelier.html" class="project-card" data-category="brand">
         <div class="project-card-thumb"><span class="placeholder-label">Screenshot</span></div>
         <div class="project-card-info">
           <p class="project-card-name">Raven House Atelier</p>
-          <p class="project-card-type">Brand Identity · Lookbook</p>
-          <span class="project-card-badge badge-concept">Concept</span>
+          <p class="project-card-scope">Brand Identity · Style Guide · Lookbook · Concept</p>
         </div>
       </a>
+
+      <a href="lydia-email.html" class="project-card" data-category="brand">
+        <div class="project-card-thumb"><span class="placeholder-label">Screenshot</span></div>
+        <div class="project-card-info">
+          <p class="project-card-name">Lydia Nichols</p>
+          <p class="project-card-scope">Email Newsletter · Brand Voice · Concept</p>
+        </div>
+      </a>
+
+      <!-- STRATEGY & SYSTEMS -->
+      <a href="#maya" class="project-card" data-category="strategy">
+        <div class="project-card-thumb"><span class="placeholder-label">Screenshot</span></div>
+        <div class="project-card-info">
+          <p class="project-card-name">Strong Ground</p>
+          <p class="project-card-scope">30-Day Social Strategy · Content Planning · Concept</p>
+        </div>
+      </a>
+
+      <a href="#lydia-sequence" class="project-card" data-category="strategy">
+        <div class="project-card-thumb"><span class="placeholder-label">Screenshot</span></div>
+        <div class="project-card-info">
+          <p class="project-card-name">Lydia Nichols</p>
+          <p class="project-card-scope">Client Email Sequence · Nurture System · Concept</p>
+        </div>
+      </a>
+
+      <a href="#launch-plan" class="project-card" data-category="strategy">
+        <div class="project-card-thumb"><span class="placeholder-label">Coming soon</span></div>
+        <div class="project-card-info">
+          <p class="project-card-name">Launch Checklist</p>
+          <p class="project-card-scope">Pre-Launch Planning · Small Business · Concept</p>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
 <!-- CASE STUDIES -->
-<section class="case-studies">
+<section class="case-studies-section">
   <div class="container">
 
     <!-- FIN & OAK -->
     <div class="case-study" id="finoak">
       <div class="case-study-header">
         <h2 class="case-study-name">Fin & Oak Bark Bakery</h2>
-        <span class="project-card-badge badge-client">Client</span>
       </div>
       <p class="case-study-scope">Brand Identity · Website · Voice · In-Market System</p>
       <div class="case-tabs">
@@ -260,18 +323,18 @@ ul { list-style: none; }
       <div class="case-panel active" id="finoak-brief">
         <div class="panel-grid">
           <div class="panel-text">
-            <p>Fin & Oak came to us with a name, a kitchen, and a mom-and-daughter team who bake pet treats in the Annapolis Valley. Everything else needed building. The brief was "make it feel like us," which turned out to mean warm, a little chaotic, and nothing that looked like it was pulled off a shelf.</p>
+            <p>Fin & Oak came to us with a name, a kitchen, and a mom-and-daughter team who bake pet treats in the Annapolis Valley. Everything else needed building. The brief was "make it feel like us" — which turned out to mean warm, a little chaotic, and nothing that looked like it was pulled off a shelf.</p>
           </div>
-          <div class="panel-image"><img src="finandoakwebsite.png" alt="Fin & Oak website mockup"></div>
+          <div class="panel-image"><img src="finandoakwebsite.png" alt="Fin & Oak website"></div>
         </div>
       </div>
       <div class="case-panel" id="finoak-approach">
         <div class="panel-text">
-          <p>We built the brand identity, wrote and designed the full brand book, built the website, set the voice and tone, and wrote all the customer-facing communications (welcome emails, order confirmations, the lot). The test for every piece was the same: does this sound like the people who actually run the bakery?</p>
+          <p>We built the brand identity, wrote and designed the full brand book, built the website, set the voice and tone, and wrote all the customer-facing copy. The test for every piece was the same: does this sound like the people who actually run the bakery?</p>
           <div class="deliverables">
             <span class="deliverable-tag">Brand Book</span>
             <span class="deliverable-tag">Website</span>
-            <span class="deliverable-tag">Voice + Tone</span>
+            <span class="deliverable-tag">Voice & Tone</span>
             <span class="deliverable-tag">Customer Communications</span>
             <span class="deliverable-tag">Visual Identity</span>
           </div>
@@ -279,7 +342,7 @@ ul { list-style: none; }
       </div>
       <div class="case-panel" id="finoak-work">
         <div class="panel-text">
-          <p>The brand book has the full system. The site is live and taking orders. And when you land on it, it sounds like the two people who run it, which was the whole point.</p>
+          <p>The brand book has the full system. The site is live and taking orders. And when you land on it, it sounds like the two people who run it — which was the whole point.</p>
           <div class="work-links">
             <a href="finoak-brand-book.html" target="_blank" class="work-link">View the brand book →</a>
             <a href="https://finandoak.ca" target="_blank" class="work-link work-link-outline">Visit the site →</a>
@@ -292,9 +355,8 @@ ul { list-style: none; }
     <div class="case-study" id="copperbean">
       <div class="case-study-header">
         <h2 class="case-study-name">Copper + Bean</h2>
-        <span class="project-card-badge badge-concept">Concept Piece</span>
       </div>
-      <p class="case-study-scope">Voice & Messaging · Brand Identity · Landing Page</p>
+      <p class="case-study-scope">Voice & Messaging · Brand Identity · Landing Page · Concept</p>
       <div class="case-tabs">
         <button class="case-tab active" data-tab="cb-brief">The Brief</button>
         <button class="case-tab" data-tab="cb-approach">What We Did</button>
@@ -303,36 +365,35 @@ ul { list-style: none; }
       <div class="case-panel active" id="cb-brief">
         <div class="panel-grid">
           <div class="panel-text">
-            <p>We invented Copper + Bean to demonstrate the full pipeline. It's a concept piece: a sharp modern coffee bar in Halifax's north end, run by two people who left corporate after the kids moved out. We wrote the brief ourselves and then worked it all the way through from voice to screen.</p>
-            <p>The point was to show what it looks like when voice, identity, and execution are built as one connected thing rather than three separate jobs.</p>
+            <p>We invented Copper + Bean to demonstrate the full pipeline. A sharp modern coffee bar in Halifax's north end, run by two people who left corporate after the kids moved out. We wrote the brief ourselves and worked it all the way through from voice to screen. The point was to show what it looks like when voice, identity, and execution are built as one connected thing.</p>
           </div>
-          <div class="panel-image"><img src="copperandbeancupandmenu.png" alt="Copper + Bean branded cup and menu"></div>
+          <div class="panel-image"><img src="copperandbeancupandmenu.png" alt="Copper + Bean"></div>
         </div>
       </div>
       <div class="case-panel" id="cb-approach">
         <div class="panel-text">
-          <p>Voice came first: who are these people, how do they talk, what would they never say? The visual identity grew out of that: logo explorations, font pairings, colour palettes, a recommended direction with rationale. Then we built a full landing page that puts both into practice with real copy and real photography.</p>
+          <p>Voice came first: who are these people, how do they talk, what would they never say? The visual identity grew out of that — logo explorations, font pairings, colour palettes. Then we built a full landing page that puts both into practice with real copy.</p>
           <div class="deliverables">
             <span class="deliverable-tag">Voice & Messaging Guide</span>
-            <span class="deliverable-tag">Logo Suite (3 Marks)</span>
+            <span class="deliverable-tag">Logo Suite</span>
             <span class="deliverable-tag">Font Pairings</span>
             <span class="deliverable-tag">Colour Palettes</span>
             <span class="deliverable-tag">Landing Page</span>
+            <span class="deliverable-tag">Menu</span>
           </div>
         </div>
       </div>
       <div class="case-panel" id="cb-work">
         <div class="panel-grid">
           <div class="panel-text">
-            <p>Three deliverables that read as one thing. The voice guide, the brand identity exploration, and the landing page all connect, and you can trace the decisions from one to the next.</p>
+            <p>Three deliverables that read as one thing. The voice guide, the brand identity, and the landing page all connect — you can trace the decisions from one to the next.</p>
             <div class="work-links">
               <a href="copper-bean-voice.html" target="_blank" class="work-link">Voice guide →</a>
-              <a href="copper-bean-brand.html" target="_blank" class="work-link">Brand identity →</a>
-              <a href="copper-bean-site.html" target="_blank" class="work-link">Landing page →</a>
-              <a href="copper-bean-menu.png" target="_blank" class="work-link">Menu →</a>
+              <a href="copper-bean-brand.html" target="_blank" class="work-link work-link-outline">Brand identity →</a>
+              <a href="copper-bean-site.html" target="_blank" class="work-link work-link-outline">Landing page →</a>
             </div>
           </div>
-          <div class="panel-image"><img src="copperandbeancupandmenu.png" alt="Copper + Bean cup and menu mockup"></div>
+          <div class="panel-image"><img src="copperandbeancupandmenu.png" alt="Copper + Bean cup and menu"></div>
         </div>
       </div>
     </div>
@@ -341,7 +402,6 @@ ul { list-style: none; }
     <div class="case-study" id="anchored">
       <div class="case-study-header">
         <h2 class="case-study-name">Anchored Prose</h2>
-        <span class="project-card-badge badge-own">Own Project</span>
       </div>
       <p class="case-study-scope">Full Site Design · Copy · Brand Voice</p>
       <div class="case-tabs">
@@ -382,7 +442,6 @@ ul { list-style: none; }
     <div class="case-study" id="ravenhouse">
       <div class="case-study-header">
         <h2 class="case-study-name">Raven House</h2>
-        <span class="project-card-badge badge-client">Client</span>
       </div>
       <p class="case-study-scope">Landing Page · Voice Direction</p>
       <div class="case-tabs">
@@ -395,7 +454,7 @@ ul { list-style: none; }
           <div class="panel-text">
             <p>The existing site was dated, the messaging was scattered, and people were leaving before they understood what the business actually offered. It needed a rebuild: cleaner structure, honest copy, and a voice that matched the people running it.</p>
           </div>
-          <div class="panel-image"><span class="placeholder-label">Before screenshot</span></div>
+          <div class="panel-image"><span class="placeholder-label">Screenshot</span></div>
         </div>
       </div>
       <div class="case-panel" id="rh-approach">
@@ -409,54 +468,92 @@ ul { list-style: none; }
         </div>
       </div>
       <div class="case-panel" id="rh-work">
-        <div class="panel-grid">
-          <div class="panel-text">
-            <p>The new page is live. It's simpler, it's clearer, and it has room to grow.</p>
-            <div class="work-links">
-              <a href="#" class="work-link work-link-outline">View the page →</a>
-            </div>
+        <div class="panel-text">
+          <p>The new page is live. It's simpler, it's clearer, and it has room to grow.</p>
+          <div class="work-links">
+            <a href="#" class="work-link work-link-outline">View the page →</a>
           </div>
-          <div class="panel-image"><span class="placeholder-label">After screenshot</span></div>
         </div>
       </div>
     </div>
 
-    <!-- RAVEN HOUSE ATELIER -->
-    <div class="case-study" id="atelier">
+    <!-- STRONG GROUND / MAYA -->
+    <div class="case-study" id="maya">
       <div class="case-study-header">
-        <h2 class="case-study-name">Raven House Atelier</h2>
-        <span class="project-card-badge badge-concept">Concept Piece</span>
+        <h2 class="case-study-name">Strong Ground</h2>
       </div>
-      <p class="case-study-scope">Brand Identity · Style Guide · Lookbook</p>
+      <p class="case-study-scope">30-Day Social Strategy · Content Planning · Concept</p>
       <div class="case-tabs">
-        <button class="case-tab active" data-tab="ra-brief">The Brief</button>
-        <button class="case-tab" data-tab="ra-approach">What We Did</button>
-        <button class="case-tab" data-tab="ra-work">The Work</button>
+        <button class="case-tab active" data-tab="sg-brief">The Brief</button>
+        <button class="case-tab" data-tab="sg-approach">What We Did</button>
+        <button class="case-tab" data-tab="sg-work">The Work</button>
       </div>
-      <div class="case-panel active" id="ra-brief">
+      <div class="case-panel active" id="sg-brief">
         <div class="panel-grid">
           <div class="panel-text">
-            <p>This one doesn't exist as a business. It's a personal project we built to explore what a quiet, craft-focused leather-goods brand could look and feel like. The imagery is AI-generated (some of the quirks are intentional, some we just liked), and the whole identity was designed from nothing as an exercise in restraint.</p>
+            <p>Strong Ground is a fictional wellness coaching business we built as a strategy demonstration. The brief: a solo practitioner with a strong in-person reputation, no real social presence, and no idea where to start. We built the 30-day content plan that would get her there.</p>
           </div>
-          <div class="panel-image"><span class="placeholder-label">Lookbook cover</span></div>
+          <div class="panel-image"><span class="placeholder-label">Screenshot</span></div>
         </div>
       </div>
-      <div class="case-panel" id="ra-approach">
+      <div class="case-panel" id="sg-approach">
         <div class="panel-text">
-          <p>Visual direction, colour palette, typography, a style guide with usage rules, and a lookbook showing the brand in context. The voice is quiet on purpose: it talks about materials and craft, not lifestyle or aspiration.</p>
+          <p>Voice guide first, then a content calendar with post types, topics, captions, and cadence mapped across 30 days. The goal was a plan she could hand to anyone and have it sound like her — not like a content template.</p>
           <div class="deliverables">
-            <span class="deliverable-tag">Brand Identity</span>
-            <span class="deliverable-tag">Style Guide</span>
-            <span class="deliverable-tag">Lookbook</span>
-            <span class="deliverable-tag">Visual Direction</span>
+            <span class="deliverable-tag">Voice Guide</span>
+            <span class="deliverable-tag">30-Day Content Calendar</span>
+            <span class="deliverable-tag">Post Captions</span>
+            <span class="deliverable-tag">Content Strategy</span>
           </div>
         </div>
       </div>
-      <div class="case-panel" id="ra-work">
+      <div class="case-panel" id="sg-work">
         <div class="panel-text">
-          <p>The lookbook and style guide are the deliverables. It's a complete brand world built from nothing, which is a useful thing to show because it means none of the decisions were inherited.</p>
+          <p>The full strategy document is available to view.</p>
           <div class="work-links">
-            <a href="atelier.html" target="_blank" class="work-link">View the lookbook →</a>
+            <a href="#" class="work-link">View the strategy →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LYDIA SEQUENCE -->
+    <div class="case-study" id="lydia-sequence">
+      <div class="case-study-header">
+        <h2 class="case-study-name">Lydia Nichols — Email System</h2>
+      </div>
+      <p class="case-study-scope">Client Welcome Sequence · Referral Email · Concept</p>
+      <div class="case-tabs">
+        <button class="case-tab active" data-tab="ls-brief">The Brief</button>
+        <button class="case-tab" data-tab="ls-approach">What We Did</button>
+        <button class="case-tab" data-tab="ls-work">The Work</button>
+      </div>
+      <div class="case-panel active" id="ls-brief">
+        <div class="panel-grid">
+          <div class="panel-text">
+            <p>Most real estate agents go quiet the moment a listing is signed. We built an email system for Lydia Nichols — a fictional Annapolis Valley agent — that keeps clients informed, warm, and confident through the whole process. The brief was to sound like a person, not a drip campaign.</p>
+          </div>
+          <div class="panel-image"><span class="placeholder-label">Screenshot</span></div>
+        </div>
+      </div>
+      <div class="case-panel" id="ls-approach">
+        <div class="panel-text">
+          <p>A five-email welcome and seller onboarding sequence, plus a referral email designed to generate warm introductions without feeling like a ask. Every email is written to feel like it came from Lydia specifically — her voice, her market, her values.</p>
+          <div class="deliverables">
+            <span class="deliverable-tag">Welcome Email</span>
+            <span class="deliverable-tag">Listing Prep Email</span>
+            <span class="deliverable-tag">Go-Live Email</span>
+            <span class="deliverable-tag">Showing Update</span>
+            <span class="deliverable-tag">Offer Received</span>
+            <span class="deliverable-tag">Referral Email</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-panel" id="ls-work">
+        <div class="panel-text">
+          <p>The referral email is designed and live as a standalone page. The full sequence is available on request.</p>
+          <div class="work-links">
+            <a href="lydia-email.html" target="_blank" class="work-link">View the referral email →</a>
           </div>
         </div>
       </div>
@@ -466,21 +563,20 @@ ul { list-style: none; }
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials">
+<section class="testimonials-section">
   <div class="container">
-    <p class="testimonials-heading">What people say about working with us</p>
     <div class="testimonials-grid">
       <blockquote class="testimonial">
-        <p class="testimonial-quote">"You absolutely get me, and you're stretching my thinking in the very best way."</p>
-        <cite class="testimonial-cite">— M. Wildberg</cite>
+        <p class="testimonial-quote">"Where do I begin? I'm so glad I found you and your brilliant mind. You absolutely get me, and you're stretching my thinking in the very best way."</p>
+        <cite class="testimonial-cite">— Max W.</cite>
       </blockquote>
       <blockquote class="testimonial">
         <p class="testimonial-quote">"I never expected that someone would just 'get it' on so few details, but you totally did."</p>
-        <cite class="testimonial-cite">— T. Kidston</cite>
+        <cite class="testimonial-cite">— Trina K.</cite>
       </blockquote>
       <blockquote class="testimonial">
-        <p class="testimonial-quote">"I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered — insightful, and nailed exactly what I was looking for."</p>
-        <cite class="testimonial-cite">— M. Joliffe</cite>
+        <p class="testimonial-quote">"I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered. Insightful, and nailed exactly what I was looking for."</p>
+        <cite class="testimonial-cite">— Mariah J.</cite>
       </blockquote>
       <blockquote class="testimonial">
         <p class="testimonial-quote">"Highly communicative, able to hone in on my vision, and made it come to life."</p>
@@ -497,42 +593,37 @@ ul { list-style: none; }
     <p class="assets-sub">The smaller pieces that round it out.</p>
     <div class="assets-grid">
       <div class="asset-card">
-        <div class="asset-card-thumb"><img src="newsletter-sample.png" alt="Lydia Nichols real estate newsletter" style="width:100%; height:100%; object-fit:cover; object-position:top;"></div>
+        <div class="asset-card-thumb"><img src="newsletter-sample.png" alt="Lydia Nichols newsletter"></div>
         <div class="asset-card-info"><h4>Newsletter design</h4><p>Monthly real estate newsletter — copy, layout, and market commentary.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><img src="social-post-1.png" alt="Instagram post — Canadian winter scene" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="asset-card-thumb"><img src="social-post-1.png" alt="Social post"></div>
         <div class="asset-card-info"><h4>Social media content</h4><p>Posts, captions, and visual direction for small business feeds.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><img src="social-post-2.png" alt="Real estate listing social post" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="asset-card-thumb"><img src="social-post-2.png" alt="Real estate social post"></div>
         <div class="asset-card-info"><h4>Real estate marketing</h4><p>Listing content, property storytelling, and client touchpoints.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><img src="social-carousel.png" alt="Willow & Rose social media carousel" style="width:100%; height:100%; object-fit:cover; object-position:center;"></div>
-        <div class="asset-card-info"><h4>Carousel &amp; video</h4><p>Multi-slide posts and short-form video for social platforms.</p></div>
+        <div class="asset-card-thumb"><img src="social-carousel.png" alt="Social carousel"></div>
+        <div class="asset-card-info"><h4>Carousel & video</h4><p>Multi-slide posts and short-form video for social platforms.</p></div>
       </div>
       <div class="asset-card">
-        <div class="asset-card-thumb"><img src="social-post-3.png" alt="Instagram post — vintage home character" style="width:100%; height:100%; object-fit:cover;"></div>
-        <div class="asset-card-info"><h4>Brand voice &amp; copy</h4><p>Captions and content that sound like the person behind the business.</p></div>
+        <div class="asset-card-thumb"><img src="social-post-3.png" alt="Brand voice post"></div>
+        <div class="asset-card-info"><h4>Brand voice & copy</h4><p>Captions and content that sound like the person behind the business.</p></div>
       </div>
-      <a href="logo-showcase.html" class="asset-card" style="text-decoration:none; color:inherit;">
-        <div class="asset-card-thumb"><img src="logo-collection.png" alt="Logo designs across nine brands" style="width:100%; height:100%; object-fit:contain; padding:12px; background:#fff;"></div>
+      <a href="logo-showcase.html" class="asset-card">
+        <div class="asset-card-thumb"><img src="logo-collection.png" alt="Logo collection" style="object-fit:contain; padding:12px; background:#fff;"></div>
         <div class="asset-card-info"><h4>Logo design</h4><p>Typographic marks and visual identities across nine brands and counting.</p></div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-section" style="background:var(--navy);">
-  <div class="container" style="text-align:center; padding:clamp(36px, 5vw, 56px) 0;">
-    <h2 style="font-weight:400;">Wondering how your business stacks up?</h2>
-    <p style="max-width:440px; margin:0 auto 28px;">The Scorecard takes two minutes and tells you exactly where your in-market experience is strong and where it's leaking.</p>
-    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="the-scorecard.html" class="cta-btn">Take the Scorecard</a>
-      <a href="lets-talk.html" style="display:inline-block; padding:16px 28px; font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); text-decoration:none; border-radius:4px;">Or get in touch →</a>
-    </div>
+<!-- PRE-FOOTER -->
+<div class="pre-footer">
+  <div class="container">
+    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:620px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
   </div>
 </div>
 
@@ -540,11 +631,7 @@ ul { list-style: none; }
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
-      <div>
-        <p class="footer-logo">The Yellow Front Door</p>
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-round-logo">
+      <div class="footer-brand">
         <img src="roundlogo.png" alt="The Yellow Front Door">
       </div>
       <div class="footer-nav-col">
@@ -558,7 +645,7 @@ ul { list-style: none; }
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm"></div>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
       <p class="footer-copy">theyellowfrontdoor.ca</p>
     </div>
   </div>
@@ -566,15 +653,31 @@ ul { list-style: none; }
 
 <script>
 (function(){
-  // Nav scroll
+  // Nav
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-
-  // Nav toggle
   var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
   toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
 
-  // Case study tabs
+  // Filter
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.project-card');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      this.classList.add('active');
+      var filter = this.dataset.filter;
+      cards.forEach(function(card){
+        if(filter === 'all' || card.dataset.category === filter){
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Case tabs
   document.querySelectorAll('.case-tab').forEach(function(tab){
     tab.addEventListener('click', function(){
       var study = this.closest('.case-study');
@@ -586,6 +689,5 @@ ul { list-style: none; }
   });
 })();
 </script>
-
 </body>
 </html>
