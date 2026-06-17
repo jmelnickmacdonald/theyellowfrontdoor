@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand & Voice — The Proof — The Yellow Front Door</title>
+<meta name="description" content="Identity systems, brand guides, and the words that hold a brand together.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: block;
+}
+:root {
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
+  --navy: #132447;
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif;
+  --f-body: 'Montserrat', sans-serif;
+  --max: 1120px;
+  --gutter: clamp(24px, 5vw, 80px);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
+.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
+.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo img { height: 56px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-links a.active { font-weight: 600; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta:hover { background: var(--brass) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+
+/* PAGE HEADER */
+.page-header { padding: clamp(80px, 10vw, 120px) 0 clamp(40px, 5vw, 60px); margin-top: 72px; border-bottom: 1px solid var(--stone); }
+.page-header-inner { max-width: 640px; }
+.breadcrumb { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 20px; }
+.breadcrumb a { color: var(--slate); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--ink); }
+.breadcrumb span { margin: 0 8px; color: var(--stone); }
+.page-header h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; }
+.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 42px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 12px; }
+.page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 24px; max-width: 520px; }
+
+/* PROJECTS */
+.projects { padding: clamp(56px, 7vw, 96px) 0; }
+.project { padding: clamp(48px, 6vw, 80px) 0; border-bottom: 1px solid var(--stone); }
+.project:first-child { padding-top: 0; }
+.project:last-child { border-bottom: none; }
+.project-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
+.project-inner.reverse { direction: rtl; }
+.project-inner.reverse > * { direction: ltr; }
+.project-image img { width: 100%; height: auto; display: block; border: 1px solid var(--stone); }
+.project-image-placeholder { width: 100%; aspect-ratio: 16/10; background: var(--paper-mid); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
+.project-image-placeholder span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(19,36,71,0.2); }
+.project-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
+.project-name { font-family: var(--f-accent); font-size: clamp(32px, 4vw, 48px); color: var(--ink); line-height: 1.0; margin-bottom: 6px; font-weight: normal; }
+.project-scope { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 24px; }
+.project-desc { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 16px; }
+.project-desc:last-of-type { margin-bottom: 0; }
+.project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.project-link { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 12px 22px; transition: background 0.2s; }
+.project-link:hover { background: var(--brass); }
+.project-link-outline { background: transparent; color: var(--ink); border: 1px solid var(--stone); }
+.project-link-outline:hover { border-color: var(--ink); background: transparent; }
+
+/* PRE-FOOTER */
+.pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
+
+/* FOOTER */
+.footer { background: var(--paper); padding: 40px 0 32px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
+.footer-brand { display: flex; flex-direction: column; gap: 14px; }
+.footer-brand img { width: 64px; height: 64px; }
+.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
+.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
+.footer-nav-col a:hover { color: var(--ink); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+
+@media (max-width: 860px) {
+  .project-inner, .project-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
+  .nav-toggle { display: flex; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html" class="active">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>›</span>Brand & Voice</p>
+      <h1>Brand & Voice
+        <span class="accent-line">that holds together.</span>
+      </h1>
+      <p>Identity systems, brand guides, and the words that give a business a consistent presence across everything it touches.</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects">
+  <div class="container">
+
+    <!-- FIN & OAK BRAND GUIDE -->
+    <div class="project">
+      <div class="project-inner">
+        <div class="project-image">
+          <div class="project-image-placeholder"><span>Screenshot coming soon</span></div>
+        </div>
+        <div class="project-body">
+          <p class="project-eyebrow">Client · Brand System</p>
+          <h2 class="project-name">Fin & Oak Brand Guide</h2>
+          <p class="project-scope">Brand Book · Voice & Tone · Identity System</p>
+          <p class="project-desc">A complete brand system for a mom-and-daughter pet bakery in the Annapolis Valley. The guide covers the logo, the colours, the typography, the voice rules, and the things the brand would never say — all written so that anyone picking it up three years from now can keep it consistent without asking.</p>
+          <p class="project-desc">The test for every rule in here was the same: does this sound like the people who actually run this bakery?</p>
+          <div class="project-links">
+            <a href="finoak-brand-book.html" target="_blank" class="project-link">View the brand guide →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COPPER + BEAN BRAND -->
+    <div class="project">
+      <div class="project-inner reverse">
+        <div class="project-image">
+          <img src="copperandbeancupandmenu.png" alt="Copper + Bean brand identity">
+        </div>
+        <div class="project-body">
+          <p class="project-eyebrow">Concept · Brand Identity</p>
+          <h2 class="project-name">Copper + Bean</h2>
+          <p class="project-scope">Voice Guide · Logo Suite · Colour · Typography</p>
+          <p class="project-desc">Voice came first — who are Steve and Alexa, how do they talk, what would they never say? The visual identity grew from there. Logo explorations, font pairings, colour palette, and a word list that acts as a fence around the brand. The point was to show what it looks like when voice and identity are built as one thing rather than two separate jobs.</p>
+          <div class="project-links">
+            <a href="copper-bean-voice.html" target="_blank" class="project-link">Voice guide →</a>
+            <a href="copper-bean-brand.html" target="_blank" class="project-link project-link-outline">Brand identity →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RAVEN HOUSE ATELIER -->
+    <div class="project">
+      <div class="project-inner">
+        <div class="project-image">
+          <div class="project-image-placeholder"><span>Screenshot coming soon</span></div>
+        </div>
+        <div class="project-body">
+          <p class="project-eyebrow">Concept · Brand Identity</p>
+          <h2 class="project-name">Raven House Atelier</h2>
+          <p class="project-scope">Brand Identity · Style Guide · Lookbook</p>
+          <p class="project-desc">A personal project built to explore what a quiet, craft-focused leather goods brand could look and feel like. The imagery is AI-generated and the whole identity was designed from nothing as an exercise in restraint. The voice is quiet on purpose — it talks about materials and craft, not lifestyle or aspiration.</p>
+          <p class="project-desc">The lookbook and style guide are the deliverables. It's a complete brand world built from scratch, which means none of the decisions were inherited.</p>
+          <div class="project-links">
+            <a href="atelier.html" target="_blank" class="project-link">View the lookbook →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LYDIA NICHOLS EMAIL -->
+    <div class="project">
+      <div class="project-inner reverse">
+        <div class="project-image">
+          <img src="lydia-lupins.png" alt="Lydia Nichols email newsletter">
+        </div>
+        <div class="project-body">
+          <p class="project-eyebrow">Concept · Email Design</p>
+          <h2 class="project-name">Lydia Nichols</h2>
+          <p class="project-scope">Email Newsletter · Brand Voice · Visual Design</p>
+          <p class="project-desc">A referral email newsletter for a fictional Annapolis Valley real estate agent, designed to feel like something worth opening. The brief was to make it look and sound like a person — warm, grounded in place, and completely unlike the average real estate email blast.</p>
+          <p class="project-desc">The lupin field header isn't decoration. It's Lydia's brand in a single image — rural Nova Scotia, quietly beautiful, unmistakably local.</p>
+          <div class="project-links">
+            <a href="lydia-email.html" target="_blank" class="project-link">View the email →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="pre-footer">
+  <div class="container">
+    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:620px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
+      <div class="footer-nav-col">
+        <h4>Studio</h4>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="the-proof.html">The Proof</a>
+        <a href="about.html">About</a>
+        <a href="the-doorstep.html">The Doorstep</a>
+        <a href="lets-talk.html">Let's Talk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+})();
+</script>
+</body>
+</html>
