@@ -26,13 +26,12 @@ a { color: inherit; text-decoration: none; }
 
 /* HERO */
 .hero { position: relative; height: clamp(360px, 50vw, 520px); overflow: hidden; }
-.hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(30,26,36,0.55) 0%, rgba(30,26,36,0.2) 55%, rgba(251,248,243,0.0) 100%); }
-.hero-content { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 clamp(28px, 6vw, 80px); }
-.hero-text { max-width: 480px; }
-.hero-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #D4B896; margin-bottom: 16px; }
-.hero-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4.5vw, 48px); font-weight: 400; color: #FBF8F3; line-height: 1.2; margin-bottom: 16px; }
-.hero-sub { font-size: 15px; color: rgba(251,248,243,0.75); line-height: 1.8; max-width: 380px; }
+.hero img { width: 100%; height: 100%; object-fit: cover; object-position: left 20%; display: block; }
+.hero-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(28px, 6vw, 80px); }
+.hero-text { max-width: 420px; text-align: right; }
+.hero-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 16px; }
+.hero-heading { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 44px); font-weight: 400; color: #1E1A24; line-height: 1.25; margin-bottom: 14px; }
+.hero-sub { font-size: 14px; color: #596674; line-height: 1.8; }
 
 /* MAIN */
 .main { max-width: 900px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(24px, 5vw, 48px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 64px); align-items: start; }
@@ -41,7 +40,7 @@ a { color: inherit; text-decoration: none; }
 .left-col h2 { font-family: 'Playfair Display', serif; font-size: 11px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 16px; }
 .left-col p { font-size: 14px; line-height: 1.85; color: #2C2630; margin-bottom: 28px; }
 .btn-row { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-.btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 14px 24px; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: none; width: 100%; }
+.btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 14px 24px; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: none; width: 100%; text-decoration: none; }
 .btn-dark { background: #2A242C; color: #FBF8F3; }
 .btn-dark:hover { background: #413548; }
 .btn-outline { background: transparent; color: #2A242C; border: 1px solid #C4B9C8; }
@@ -51,12 +50,11 @@ a { color: inherit; text-decoration: none; }
 /* RIGHT — MESSAGE CARD */
 .message-card { background: #FBF8F3; border: 1px solid #DDD4DE; padding: 28px 30px; }
 .message-card-label { font-size: 9px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 16px; }
-.message-text { font-size: 14px; line-height: 1.9; color: #2C2630; margin-bottom: 24px; border-left: 2px solid #A99AAF; padding-left: 16px; }
+.message-text { font-size: 14px; line-height: 1.9; color: #2C2630; margin-bottom: 24px; border-left: 2px solid #A99AAF; padding-left: 16px; white-space: pre-line; }
 .copy-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: #2A242C; color: #FBF8F3; border: none; padding: 13px 20px; cursor: pointer; transition: background 0.2s; }
 .copy-btn:hover { background: #413548; }
 .copy-btn.copied { background: #5a7a5a; }
-.copy-link-row { margin-top: 16px; }
-.copy-link-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: transparent; color: #2A242C; border: 1px solid #C4B9C8; padding: 13px 20px; cursor: pointer; transition: border-color 0.2s; }
+.copy-link-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: transparent; color: #2A242C; border: 1px solid #C4B9C8; padding: 13px 20px; cursor: pointer; transition: border-color 0.2s; margin-top: 12px; }
 .copy-link-btn:hover { border-color: #2A242C; }
 .copy-link-btn.copied { border-color: #5a7a5a; color: #5a7a5a; }
 
@@ -66,7 +64,9 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 700px) {
   .main { grid-template-columns: 1fr; }
-  .hero-heading { font-size: clamp(24px, 6vw, 36px); }
+  .hero-text { text-align: left; max-width: 100%; }
+  .hero-content { justify-content: flex-start; }
+  .hero img { object-position: 70% 20%; }
 }
 </style>
 </head>
@@ -86,7 +86,6 @@ a { color: inherit; text-decoration: none; }
 
 <div class="hero">
   <img src="lydia-headshot.png" alt="Lydia Nichols — Elevated Homes">
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-text">
       <p class="hero-eyebrow">A personal introduction</p>
@@ -116,16 +115,15 @@ You can connect with her here: lydia-connect.html
 
 You can also reach her directly at 902 555-5555.</p>
       <button class="copy-btn" id="copy-msg-btn" onclick="copyMessage()">Copy Message</button>
-      <div class="copy-link-row">
-        <button class="copy-link-btn" id="copy-link-btn" onclick="copyLink()">Copy Intro Page Link</button>
-      </div>
+      <button class="copy-link-btn" id="copy-link-btn" onclick="copyLink()">Copy Intro Page Link</button>
     </div>
   </div>
 </div>
 
 <footer class="footer">
   <p>Lydia Nichols · Elevated Homes · Annapolis Valley Real Estate<br>
-  <a href="tel:9025555555" style="color:#9B8BA0;">902 555-5555</a> &nbsp;·&nbsp; <a href="mailto:lydia@thisisnotarealemail.com" style="color:#9B8BA0;">lydia@thisisnotarealemail.com</a></p>
+  <a href="tel:9025555555" style="color:#9B8BA0;">902 555-5555</a> &nbsp;·&nbsp;
+  <a href="mailto:lydia@thisisnotarealemail.com" style="color:#9B8BA0;">lydia@thisisnotarealemail.com</a></p>
 </footer>
 
 <script>
