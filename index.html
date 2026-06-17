@@ -1,332 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Yellow Front Door — Marketing Studio</title>
-<meta name="description" content="A marketing studio for small businesses doing good work and trying to show up with the same care on the outside that they bring to the work itself.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-<style>
-@font-face {
-  font-family: 'CasualHandwriting';
-  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
-  font-weight: normal; font-style: normal; font-display: block;
-}
-:root {
-  --ink:       #132447;
-  --paper:     #ffffff;
-  --yellow:    #fcd346;
-  --stone:     #D8D1C3;
-  --slate:     #596674;
-  --brass:     #e6b800;
-  --clay:      #B86B4B;
-  --paper-mid: #F5EFE0;
-  --navy:      #132447;
-  --f-accent:  'CasualHandwriting', cursive;
-  --f-head:    'Montserrat', sans-serif;
-  --f-body:    'Montserrat', sans-serif;
-  --max:       1100px;
-  --gutter:    clamp(24px, 5vw, 80px);
-  --section-gap: clamp(64px, 9vw, 112px);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { margin: 0; padding: 0; background: var(--paper); }
-html { scroll-behavior: smooth; }
-body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-section { padding: var(--section-gap) 0; }
-.eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
-.section-title { font-family: var(--f-head); font-size: clamp(30px, 4vw, 46px); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 20px; }
-.section-intro { font-size: 16px; line-height: 1.8; color: var(--slate); max-width: 580px; margin-bottom: 48px; font-weight: 400; }
-.divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raven House Co. — Farm, Family & Homestead Life in Nova Scotia</title>
+  <meta name="description" content="A working homestead in the Annapolis Valley. Goats, chickens, horses, handmade goods, and the beautiful mess of raising a family close to the land.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper:      #FAF7F2;
+      --paper-warm: #F2EBE0;
+      --ink:        #1C1814;
+      --ink-mid:    #3D342A;
+      --ink-light:  #6B5D50;
+      --terra:      #9E5C38;
+      --terra-pale: #E8D5C4;
+      --sage:       #4A5E3A;
+      --sage-pale:  #D8E0D0;
+      --cream:      #EDE4D4;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--paper); color: var(--ink); font-size: 17px; line-height: 1.7; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; }
 
-/* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
-.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
-.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo img { height: 56px; width: auto; display: block; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--paper); }
-.nav-links a.active { font-weight: 600; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; border: none !important; }
-.nav-cta:hover { background: var(--brass) !important; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+    /* ── HEADER ── */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--ink);
+      display: flex; flex-direction: column; align-items: center;
+      padding: 16px 2rem 13px;
+      transition: padding 0.3s;
+    }
+    .site-header.scrolled { padding: 10px 2rem 9px; }
+    .header-logo {
+      height: 46px; width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.88;
+      margin-bottom: 9px;
+      transition: height 0.3s, margin 0.3s;
+    }
+    .site-header.scrolled .header-logo { height: 30px; margin-bottom: 6px; }
+    .header-nav { display: flex; gap: 2.6rem; list-style: none; }
+    .header-nav a {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(250,247,242,0.6);
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--terra-pale); }
+    .header-nav .nav-cta { color: var(--terra-pale); }
+    .header-nav .nav-cta:hover { color: white; }
 
-/* STREET SCENE */
-.street-scene { width: 100%; margin-top: 72px; display: block; overflow: hidden; line-height: 0; font-size: 0; }
-.street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
-.scene-day { display: block; }
-.scene-night { display: none; }
-body.is-night .scene-day { display: none; }
-body.is-night .scene-night { display: block; }
+    /* ── HERO — full bleed, vignette overlay, text bottom-centre ── */
+    .hero {
+      position: relative;
+      height: 100vh; min-height: 660px;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    /* dark vignette — edges dark, photo clear in centre */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top, rgba(20,16,12,0.88) 0%, rgba(20,16,12,0.3) 45%, transparent 70%),
+        linear-gradient(to bottom, rgba(20,16,12,0.5) 0%, transparent 25%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+      padding: 0 6vw 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terra-pale);
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 9vw, 8.5rem);
+      font-weight: 300;
+      line-height: 0.9;
+      color: white;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.6rem;
+    }
+    .hero-title em { font-style: italic; color: var(--terra-pale); }
+    .hero-sub {
+      font-size: 1rem; font-weight: 300;
+      color: rgba(250,247,242,0.72);
+      margin-bottom: 2.2rem;
+      max-width: 440px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-block;
+      border: 1px solid rgba(250,247,242,0.5);
+      color: white;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 0.9rem 2.4rem;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .hero-cta:hover { background: rgba(250,247,242,0.12); border-color: white; }
 
-/* HERO */
-.hero-thesis { background: var(--navy); padding: clamp(40px, 6vw, 72px) 0 clamp(44px, 6vw, 72px); text-align: center; }
-.hero-thesis-inner { max-width: 720px; margin: 0 auto; padding: 0 16px; }
-.hero-h1 { font-family: var(--f-head); font-size: clamp(22px, 3.5vw, 42px); font-weight: 400; color: rgba(255,255,255,0.65); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 12px; }
-.hero-accent-line { font-family: var(--f-accent); font-size: clamp(36px, 5.5vw, 62px); color: #ffffff; font-weight: normal; display: block; margin-bottom: 28px; line-height: 1.15; }
-.hero-bridge { font-size: clamp(14px, 1.6vw, 16px); color: rgba(255,255,255,0.6); line-height: 1.85; max-width: 540px; margin: 0 auto 32px; }
-.hero-story-link { display: inline-block; margin-top: 10px; color: var(--yellow); font-weight: 600; border-bottom: 1px solid rgba(252,211,70,0.3); transition: border-color 0.2s; }
-.hero-story-link:hover { border-color: var(--yellow); }
-.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 4px; }
-.btn-outline-light { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.8); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
-.btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    /* ── SECTION SHARED ── */
+    .section-eyebrow {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400; line-height: 1.1;
+      color: var(--ink);
+    }
 
-/* BUTTONS */
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; }
-.btn-primary:hover { background: var(--slate); border-color: var(--slate); }
-.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--stone); cursor: pointer; transition: border-color 0.2s; text-decoration: none; }
-.btn-secondary:hover { border-color: var(--ink); }
-.btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-.btn-yellow:hover { background: var(--brass); }
+    /* ── INTRO ── */
+    .intro {
+      background: var(--paper);
+      padding: 7rem 6vw 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: end;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .intro-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 300; line-height: 1.05;
+      color: var(--ink);
+    }
+    .intro-left h2 em { font-style: italic; color: var(--terra); }
+    .intro-right p {
+      font-size: 1.05rem; color: var(--ink-light);
+      line-height: 1.9; font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .intro-right p:last-child { margin-bottom: 0; }
+    .text-rule {
+      width: 48px; height: 1px;
+      background: var(--terra);
+      margin-bottom: 1.8rem;
+    }
 
-/* FEATURED WORK */
-.featured-work { background: var(--paper); padding: clamp(32px, 4vw, 48px) 0; }
-.featured-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
-.featured-title { font-family: var(--f-head); font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; color: var(--ink); margin-bottom: 24px; }
-.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
-.featured-card { border: 1px solid var(--stone); border-radius: 6px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-.featured-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(19,36,71,0.1); }
-.featured-card-thumb { height: 130px; background: var(--paper-mid); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.featured-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.featured-card-info { padding: 14px 16px; }
-.featured-card-name { font-family: var(--f-accent); font-size: 20px; color: var(--ink); margin-bottom: 2px; }
-.featured-card-scope { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); }
-.featured-link { font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.04em; border-bottom: 2px solid var(--yellow); padding-bottom: 2px; }
+    /* ── FULL BLEED PHOTO PANELS ── */
+    .photo-panel {
+      position: relative;
+      height: 75vh; min-height: 520px;
+      overflow: hidden;
+    }
+    .photo-panel img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 8s ease;
+    }
+    .photo-panel:hover img { transform: scale(1.04); }
 
-/* OUR STORY HOOK */
-.story-hook { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; }
-.story-hook-inner { display: grid; grid-template-columns: 0.45fr 0.55fr; gap: clamp(28px, 4vw, 48px); align-items: center; }
-.story-hook-image { border-radius: 4px; overflow: hidden; }
-.story-hook-image img { width: 100%; height: auto; display: block; }
-.story-hook-text p { font-size: 16px; line-height: 1.85; color: var(--ink); margin-bottom: 14px; }
-.story-hook-text p:last-of-type { margin-bottom: 0; }
-.story-hook-link { display: inline-block; margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; letter-spacing: 0.02em; }
+    /* bottom gradient — text sits here */
+    .photo-panel-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(20,16,12,0.85) 0%,
+        rgba(20,16,12,0.45) 35%,
+        rgba(20,16,12,0.05) 65%,
+        transparent 100%
+      );
+    }
+    .photo-panel-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0 6vw 4rem;
+      z-index: 2;
+    }
+    .photo-panel-content .section-eyebrow { color: var(--terra-pale); opacity: 0.85; }
+    .photo-panel-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300; line-height: 1.05;
+      color: white; margin-bottom: 1rem;
+    }
+    .photo-panel-content h2 em { font-style: italic; color: var(--terra-pale); }
+    .photo-panel-content p {
+      font-size: 1rem; color: rgba(250,247,242,0.72);
+      font-weight: 300; line-height: 1.75;
+      max-width: 520px; margin-bottom: 1.8rem;
+    }
+    .btn-light {
+      display: inline-block;
+      border: 1px solid rgba(250,247,242,0.45);
+      color: white;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 0.8rem 2rem;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .btn-light:hover { background: rgba(250,247,242,0.12); border-color: white; }
 
-/* PROCESS */
-.process-section { background: var(--navy); padding: clamp(32px, 4vw, 52px) 0; }
-.process-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
-.process-title { font-family: var(--f-head); font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; color: #fff; margin-bottom: 28px; }
-.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-.process-number { font-family: var(--f-accent); font-size: 36px; color: var(--yellow); margin-bottom: 10px; line-height: 1; }
-.process-step-title { font-family: var(--f-head); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; letter-spacing: 0.02em; }
-.process-step-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+    /* right-aligned variant */
+    .photo-panel-content.right {
+      text-align: right;
+    }
+    .photo-panel-content.right p { margin-left: auto; }
 
-/* TESTIMONIALS */
-.testimonials-section { background: var(--paper); padding: clamp(28px, 4vw, 44px) 0; border-top: 1px solid var(--stone); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 40px); }
-.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 10px; }
-.testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); font-style: normal; }
+    /* ── SPLIT SECTION — photo left, text right ── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .split-photo {
+      position: relative;
+      min-height: 560px;
+      overflow: hidden;
+    }
+    .split-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .split:hover .split-photo img { transform: scale(1.04); }
+    .split-text {
+      background: var(--paper-warm);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 5vw;
+    }
+    .split-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 300; line-height: 1.1;
+      margin-bottom: 1.2rem;
+      color: var(--ink);
+    }
+    .split-text h2 em { font-style: italic; color: var(--terra); }
+    .split-text p {
+      font-size: 1rem; color: var(--ink-light);
+      line-height: 1.85; margin-bottom: 1rem; max-width: 400px;
+    }
+    .split-text p:last-of-type { margin-bottom: 1.8rem; }
+    .btn-dark {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .btn-dark:hover { background: var(--terra); }
 
-/* SERVICE LIST */
-.service-list { border-top: 1px solid var(--stone); width: 100%; }
-.service-list-item { display: grid; grid-template-columns: 28px 280px 1fr; align-items: center; gap: 0; padding: 18px 0; border-bottom: 1px solid var(--stone); }
-.service-list-item::before { content: ''; width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; justify-self: start; }
-.service-list-name { font-family: var(--f-accent); font-size: clamp(22px, 2.4vw, 32px); color: var(--ink); white-space: nowrap; line-height: 1.2; padding-right: 24px; }
-.service-list-desc { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; }
+    /* reverse split */
+    .split.reverse .split-photo { order: 2; }
+    .split.reverse .split-text { order: 1; }
 
-/* CTA */
-.cta-section { background: #4d5c7b; text-align: center; position: relative; overflow: hidden; }
-.cta-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px); pointer-events: none; }
+    /* ── QUOTE BAND — dark, full width ── */
+    .quote-band {
+      background: var(--ink);
+      padding: 6rem 6vw;
+      text-align: center;
+    }
+    .quote-band blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 300; font-style: italic;
+      color: var(--paper);
+      line-height: 1.5;
+      max-width: 780px;
+      margin: 0 auto 1.2rem;
+    }
+    .quote-band cite {
+      font-size: 0.68rem; font-style: normal;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--terra-pale);
+      opacity: 0.7;
+    }
 
-/* FOOTER */
-.footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
-.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
-.footer-tagline { font-size: 15px; color: var(--slate); line-height: 1.65; font-weight: 400; max-width: 260px; }
-.footer-round-logo { display: flex; justify-content: center; align-items: center; }
-.footer-round-logo img { width: 110px; height: 110px; }
-.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--ink); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+    /* ── MOSAIC ── */
+    .mosaic-wrap { background: var(--paper-warm); padding: 6rem 6vw; }
+    .mosaic-head { margin-bottom: 3rem; }
+    .mosaic-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--ink);
+    }
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      grid-template-rows: 260px 260px;
+      gap: 6px;
+    }
+    .mosaic-item { overflow: hidden; }
+    .mosaic-item.tall { grid-row: span 2; }
+    .mosaic-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .mosaic-item:hover img { transform: scale(1.06); }
 
-/* NIGHT MODE */
-body.is-night .nav-links a { color: rgba(255,252,244,0.75); }
-body.is-night .nav-links a:hover { color: var(--paper); }
-body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; }
+    /* ── EGGS PANEL — full bleed, text bottom right ── */
+    .eggs-panel {
+      position: relative;
+      height: 80vh; min-height: 560px;
+      overflow: hidden;
+    }
+    .eggs-panel img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 40%;
+    }
+    .eggs-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(20,16,12,0.9) 0%,
+        rgba(20,16,12,0.5) 40%,
+        rgba(20,16,12,0.1) 70%,
+        transparent 100%
+      );
+    }
+    .eggs-content {
+      position: absolute;
+      bottom: 0; right: 0;
+      padding: 0 6vw 4.5rem;
+      max-width: 600px;
+      text-align: right;
+      z-index: 2;
+    }
+    .eggs-content .section-eyebrow { color: var(--terra-pale); opacity: 0.85; }
+    .eggs-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300; line-height: 1.05;
+      color: white; margin-bottom: 1rem;
+    }
+    .eggs-content p {
+      font-size: 1rem; color: rgba(250,247,242,0.7);
+      font-weight: 300; line-height: 1.75;
+      margin-bottom: 1.8rem;
+    }
 
-/* RESPONSIVE */
-@media (max-width: 960px) {
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-round-logo { justify-content: flex-start; }
-}
-@media (max-width: 768px) {
-  .story-hook-inner { grid-template-columns: 1fr; }
-  .story-hook-image { max-width: 400px; }
-  .featured-grid { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: 1fr; gap: 28px; }
-  .service-list-item { grid-template-columns: 24px 1fr; grid-template-rows: auto auto; gap: 4px 0; padding: 16px 0; }
-  .service-list-name { grid-column: 2; white-space: normal; padding-right: 0; font-size: clamp(20px, 5vw, 26px); }
-  .service-list-desc { grid-column: 2; font-size: 14px; }
-}
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
-  .nav-toggle { display: flex; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .hero-actions a { width: 100%; justify-content: center; text-align: center; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-}
-</style>
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 5rem 6vw 2.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(250,247,242,0.1);
+      margin-bottom: 2rem;
+    }
+    .footer-logo-col img {
+      height: 48px; width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.75; margin-bottom: 1.2rem;
+    }
+    .footer-logo-col p {
+      font-size: 0.88rem; color: rgba(250,247,242,0.42);
+      line-height: 1.8; max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--terra-pale); opacity: 0.7;
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a {
+      font-size: 0.9rem; color: rgba(250,247,242,0.45);
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--terra-pale); }
+    .footer-col .footer-email {
+      margin-top: 1.4rem;
+    }
+    .footer-col .footer-email a {
+      color: var(--terra-pale); opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.72rem; color: rgba(250,247,242,0.22);
+    }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.12s; }
+    .reveal-d2 { transition-delay: 0.24s; }
+    .reveal-d3 { transition-delay: 0.36s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 800px) {
+      .header-nav { gap: 1.4rem; }
+      .header-nav a { font-size: 0.6rem; letter-spacing: 0.14em; }
+      .intro { grid-template-columns: 1fr; gap: 2.5rem; padding: 5rem 6vw 4rem; }
+      .photo-panel { height: 60vh; }
+      .split, .split.reverse { grid-template-columns: 1fr; }
+      .split.reverse .split-photo { order: 0; }
+      .split.reverse .split-text { order: 0; }
+      .split-photo { min-height: 320px; }
+      .split-text { padding: 3.5rem 6vw; }
+      .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 180px); }
+      .mosaic-item.tall { grid-row: span 1; }
+      .eggs-panel { height: 70vh; }
+      .eggs-content { text-align: left; left: 0; right: 0; max-width: 100%; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
-      <img src="roundlogo2.png" alt="The Yellow Front Door">
-    </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="what-we-do.html">What We Do</a></li>
-      <li><a href="the-proof.html">The Proof</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html">Let's Talk</a></li>
-      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
-    </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <img src="ravenhouselogo.png" alt="Raven House Co." class="header-logo">
+  <ul class="header-nav">
+    <li><a href="rh-about.html">About</a></li>
+    <li><a href="rh-farm.html">Farm & Homestead</a></li>
+    <li><a href="rh-shop.html">Shop & Studio</a></li>
+    <li><a href="rh-contact.html" class="nav-cta">Say Hello</a></li>
+  </ul>
+</header>
 
-<!-- STREET SCENE -->
-<div class="street-scene" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
-  <img class="scene-day"
-    srcset="hero_day.webp 2080w, hero_day_2x.webp 4160w"
-    sizes="100vw"
-    src="hero_day.webp"
-    alt="Daytime street scene — storefronts with a yellow front door at centre"
-    loading="eager">
-  <img class="scene-night"
-    srcset="hero_night.webp 2080w, hero_night_2x.webp 4160w"
-    sizes="100vw"
-    src="hero_night.webp"
-    alt="Nighttime street scene — warm glowing windows, yellow front door lit at centre"
-    loading="eager">
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="517360366_122237813816215594_4797684656958102494_n__1_.jpg" alt="The path at Raven House — children and the cat heading into the green">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Annapolis Valley, Nova Scotia</span>
+    <h1 class="hero-title">Raven<br><em>House Co.</em></h1>
+    <p class="hero-sub">A working homestead where we tend animals, grow things, make colossal messes, and learn as we go.</p>
+    <a href="rh-about.html" class="hero-cta">Come on in</a>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div style="background: var(--paper);">
+  <div class="intro reveal">
+    <div class="intro-left">
+      <span class="section-eyebrow">Our story</span>
+      <h2>We didn't plan on a farm.<br><em>The ravens had<br>other ideas.</em></h2>
+    </div>
+    <div class="intro-right">
+      <div class="text-rule"></div>
+      <p>In 2023 we moved to the Annapolis Valley and found ourselves owners of a nearly 200-year-old home. Six of us. No farm experience to speak of.</p>
+      <p>What started as a family finding home has become a world we love to share — fresh eggs, baby goats, handmade goods, and the everyday rhythm of a life lived close to the land.</p>
+    </div>
+  </div>
 </div>
 
-<!-- HERO + THESIS -->
-<section class="hero-thesis" id="top">
-  <div class="container">
-    <div class="hero-thesis-inner">
-      <h1 class="hero-h1">Your business is great, but your online presence isn't keeping up.</h1>
-      <span class="hero-accent-line">We fix that.</span>
-      <p class="hero-bridge">The website, the words, the brand, the emails, and the systems behind them. We know what falls through the cracks because we ran a small business for seven years and learned most of this the hard way.<br><a href="the-doorstep.html" class="hero-story-link">Read our story →</a></p>
-      <div class="hero-actions">
-        <a href="what-we-do.html" class="btn-yellow">What We Do</a>
-        <a href="lets-talk.html" class="btn-outline-light">Start with a Drive-By →</a>
-      </div>
+<!-- FARM PANEL -->
+<div class="photo-panel">
+  <img src="675645439_122290086836215594_1106015509438971186_n__1_.jpg" alt="Two goats at Raven House">
+  <div class="photo-panel-overlay"></div>
+  <div class="photo-panel-content reveal">
+    <span class="section-eyebrow">The land & animals</span>
+    <h2>Farm &<br><em>Homestead</em></h2>
+    <p>Goats, cattle, horses, chickens, ducks — and the daily work of caring for them. We didn't grow up doing this. We're still figuring it out, and that's fine.</p>
+    <a href="rh-farm.html" class="btn-light">Meet the farm</a>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-band">
+  <blockquote>"We are raising our children to notice, to wonder, and to take part in the crazy we call life."</blockquote>
+  <cite>— Raven House Co.</cite>
+</div>
+
+<!-- SHOP SPLIT -->
+<div class="split reveal">
+  <div class="split-photo">
+    <img src="516800915_122238290534215594_3554167806495023009_n.jpg" alt="The Raven House studio shed">
+  </div>
+  <div class="split-text">
+    <span class="section-eyebrow">Made by hand</span>
+    <h2>Shop &<br><em>Studio</em></h2>
+    <p>Fresh eggs from the flock. Candles poured in the studio shed. Seasonal goods when the garden allows.</p>
+    <p>Everything we sell comes from this place.</p>
+    <a href="rh-shop.html" class="btn-dark">Visit the shop</a>
+  </div>
+</div>
+
+<!-- MOSAIC -->
+<div class="mosaic-wrap">
+  <div class="mosaic-head reveal">
+    <span class="section-eyebrow">Life at Raven House</span>
+    <h2 class="section-heading" style="font-size: clamp(2rem,3.5vw,3rem);">The everyday, unfiltered.</h2>
+  </div>
+  <div class="mosaic reveal">
+    <div class="mosaic-item tall">
+      <img src="492008406_122221383926215594_5791757633107125899_n__1_.jpg" alt="Little one with egg basket">
+    </div>
+    <div class="mosaic-item">
+      <img src="497511940_122225151752215594_437142422668791171_n.jpg" alt="Baby goats">
+    </div>
+    <div class="mosaic-item">
+      <img src="512690907_122235266804215594_4171212690145249456_n.jpg" alt="Child on horseback">
+    </div>
+    <div class="mosaic-item tall">
+      <img src="524331212_122242383350215594_2793304318457154875_n.jpg" alt="Baby goat portrait">
+    </div>
+    <div class="mosaic-item">
+      <img src="520293466_122240008400215594_999926031470040256_n__1_.jpg" alt="Child reading with chick">
+    </div>
+    <div class="mosaic-item">
+      <img src="520105646_122240299328215594_1696924346446169414_n.jpg" alt="Boy with the calf">
     </div>
   </div>
-</section>
+</div>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials-section">
-  <div class="container">
-    <div class="testimonials-grid">
-      <blockquote class="testimonial">
-        <p class="testimonial-quote">"Where do I begin? I'm so glad I found you and your brilliant mind. You absolutely get me, and you're stretching my thinking in the very best way."</p>
-        <cite class="testimonial-cite">— Max W.</cite>
-      </blockquote>
-      <blockquote class="testimonial">
-        <p class="testimonial-quote">"I never expected that someone would just 'get it' on so few details, but you totally did."</p>
-        <cite class="testimonial-cite">— Trina K.</cite>
-      </blockquote>
-      <blockquote class="testimonial">
-        <p class="testimonial-quote">"I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered. Insightful, and nailed exactly what I was looking for."</p>
-        <cite class="testimonial-cite">— Mariah J.</cite>
-      </blockquote>
-    </div>
+<!-- ABOUT SPLIT -->
+<div class="split reverse reveal">
+  <div class="split-photo">
+    <img src="506626320_122231613062215594_3741641693581821848_n.jpg" alt="Raven House sign">
   </div>
-</section>
-
-<!-- HOW WE WORK -->
-<section class="process-section">
-  <div class="container">
-    <p class="process-eyebrow">How it works</p>
-    <p class="process-title">Three steps, no surprises.</p>
-    <div class="process-grid">
-      <div class="process-step">
-        <p class="process-number">01</p>
-        <p class="process-step-title">We look.</p>
-        <p class="process-step-desc">Send us your website and a handful of touchpoints: your Google listing, social profiles, any printed materials. We take an honest look and tell you what we see — what's working, where there's room, and where to start.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-number">02</p>
-        <p class="process-step-title">We plan.</p>
-        <p class="process-step-desc">Together, we figure out what matters most and make a plan. You know exactly what you're getting, what it costs, and what happens next before we touch anything.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-number">03</p>
-        <p class="process-step-title">We build.</p>
-        <p class="process-step-desc">We do the work — brand, copy, site, systems — and hand it to you ready to go. If you want us to stay on for ongoing updates, integrations, or automations, we do that too.</p>
-      </div>
-    </div>
+  <div class="split-text">
+    <span class="section-eyebrow">A nearly 200-year-old home</span>
+    <h2>The ravens were<br><em>waiting when<br>we arrived.</em></h2>
+    <p>They circled the driveway on moving day, as if they'd been expecting us. We named the place after them. It felt right.</p>
+    <a href="rh-about.html" class="btn-dark">Our story</a>
   </div>
-</section>
+</div>
 
-<!-- CTA -->
-<div class="cta-section" style="background:var(--navy); text-align:center; padding:clamp(36px, 5vw, 56px) 0;">
-  <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(22px, 3vw, 32px); font-weight:400; color:#fff; margin-bottom:12px;">Not sure where things stand?</p>
-    <p style="font-size:15px; color:rgba(255,255,255,0.55); max-width:440px; margin:0 auto 28px; line-height:1.75;">Take the Scorecard. Ten questions, two minutes, and a clear picture of what customers find when they go looking.</p>
-    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
-      <a href="lets-talk.html" class="btn-outline-light" style="padding:15px 28px; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); text-decoration:none;">Or get in touch →</a>
-    </div>
+<!-- EGGS PANEL -->
+<div class="eggs-panel">
+  <img src="488856518_122215201838215594_6727058613650988504_n.jpg" alt="Farm fresh egg carton">
+  <div class="eggs-overlay"></div>
+  <div class="eggs-content reveal">
+    <span class="section-eyebrow">Available now</span>
+    <h2>Laid by happy birds.<br>Collected by<br><em>noisy kids.</em></h2>
+    <p>Pasture-raised, mixed flock. Cream, brown, and blue-green shells. Sold by the dozen, Greenwood area pickup.</p>
+    <a href="rh-contact.html" class="btn-light">Get on the egg list</a>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-round-logo">
-        <img src="roundlogo.png" alt="The Yellow Front Door">
-      </div>
-      <div class="footer-nav-col">
-        <h4>Studio</h4>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="the-proof.html">The Proof</a>
-        <a href="about.html">About</a>
-        <a href="the-doorstep.html">The Doorstep</a>
-        <a href="lets-talk.html">Let's Talk</a>
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-col">
+      <img src="ravenhouselogo.png" alt="Raven House Co.">
+      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, handmade goods, and the honest work of raising a family close to the land.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="rh-about.html">About Us</a></li>
+        <li><a href="rh-farm.html">Farm & Homestead</a></li>
+        <li><a href="rh-shop.html">Shop & Studio</a></li>
+        <li><a href="rh-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find us</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+      <div class="footer-email">
+        <h4 style="margin-top:1.4rem;">Say hello</h4>
+        <a href="mailto:hello@ravenhouseco.ca">hello@ravenhouseco.ca</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm" aria-hidden="true"></div>
-      <p class="footer-copy">theyellowfrontdoor.ca</p>
-    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Raven House Co. — Annapolis Valley, NS</span>
+    <span>Laid by happy birds. Collected by noisy kids.</span>
   </div>
 </footer>
 
 <script>
-(function () {
-  function applyTimeOfDay() { var h = new Date().getHours(); document.body.classList.toggle('is-night', h >= 18 || h < 6); }
-  applyTimeOfDay(); setInterval(applyTimeOfDay, 60000);
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function () { var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
-  navLinks.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }); });
+(function(){
+  var header = document.getElementById('site-header');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(function(r){ obs.observe(r); });
 })();
 </script>
 </body>
