@@ -46,29 +46,28 @@ ul { list-style: none; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
-/* HERO */
-.proof-hero { background: var(--navy); padding: clamp(96px, 12vw, 148px) 0 clamp(56px, 7vw, 80px); margin-top: 72px; }
-.proof-hero-inner { max-width: 720px; }
-.eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
-.eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: rgba(255,255,255,0.08); padding: 6px 14px; }
-.eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-.proof-hero h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 60px); font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1.08; }
-.proof-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(30px, 4.4vw, 52px); font-weight: normal; color: rgba(255,255,255,0.4); line-height: 1.25; margin-top: 16px; }
-.proof-hero p { font-size: clamp(15px, 1.8vw, 17px); color: rgba(255,255,255,0.55); max-width: 540px; line-height: 1.85; margin-top: 28px; }
+/* PAGE HEADER */
+.page-header { padding: clamp(80px, 10vw, 120px) 0 clamp(40px, 5vw, 60px); margin-top: 72px; border-bottom: 1px solid var(--stone); }
+.page-header-inner { max-width: 640px; }
+.eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; }
+.eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
+.page-header h1 { font-family: var(--f-head); font-size: clamp(32px, 4.5vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0; }
+.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(28px, 4vw, 48px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 12px; }
+.page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 24px; max-width: 520px; }
 
 /* CATEGORY CARDS */
-.categories { padding: clamp(56px, 8vw, 96px) 0 clamp(64px, 9vw, 112px); background: var(--paper); }
-.categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border: 1px solid var(--stone); }
+.categories { padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 9vw, 112px); }
+.categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--stone); }
 .category-card { display: block; padding: clamp(36px, 5vw, 56px) clamp(28px, 4vw, 44px); background: var(--paper); border-right: 1px solid var(--stone); text-decoration: none; color: inherit; position: relative; transition: background 0.25s; overflow: hidden; }
 .category-card:last-child { border-right: none; }
 .category-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--yellow); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
 .category-card:hover { background: #fafaf8; }
 .category-card:hover::after { transform: scaleX(1); }
 .category-number { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); margin-bottom: 28px; display: block; }
-.category-name { font-family: var(--f-head); font-size: clamp(20px, 2.2vw, 26px); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 16px; }
-.category-desc { font-size: 14px; line-height: 1.75; color: var(--slate); font-weight: 400; margin-bottom: 32px; }
-.category-projects { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
-.category-arrow { display: inline-block; margin-top: 28px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; transition: letter-spacing 0.2s; }
+.category-name { font-family: var(--f-head); font-size: clamp(18px, 2vw, 24px); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 14px; }
+.category-desc { font-size: 14px; line-height: 1.8; color: var(--slate); font-weight: 400; margin-bottom: 36px; }
+.category-arrow { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; transition: letter-spacing 0.2s; }
 .category-card:hover .category-arrow { letter-spacing: 0.15em; }
 
 /* PRE-FOOTER */
@@ -89,7 +88,7 @@ ul { list-style: none; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .categories-grid { grid-template-columns: 1fr; gap: 0; border: none; }
+  .categories-grid { grid-template-columns: 1fr; }
   .category-card { border-right: none; border-bottom: 1px solid var(--stone); }
   .category-card:last-child { border-bottom: none; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
@@ -125,10 +124,10 @@ ul { list-style: none; }
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="proof-hero">
+<!-- PAGE HEADER -->
+<section class="page-header">
   <div class="container">
-    <div class="proof-hero-inner">
+    <div class="page-header-inner">
       <div class="eyebrow-label">
         <span class="eyebrow-tag">The Proof</span>
         <span class="eyebrow-desc">Real work, real thinking</span>
@@ -150,7 +149,6 @@ ul { list-style: none; }
         <span class="category-number">01</span>
         <p class="category-name">Websites</p>
         <p class="category-desc">Full sites, landing pages, and the copy that makes them work.</p>
-        <p class="category-projects">4 projects</p>
         <p class="category-arrow">See the work →</p>
       </a>
 
@@ -158,15 +156,13 @@ ul { list-style: none; }
         <span class="category-number">02</span>
         <p class="category-name">Brand & Voice</p>
         <p class="category-desc">Identity systems, brand guides, and the words that hold a brand together.</p>
-        <p class="category-projects">4 projects</p>
         <p class="category-arrow">See the work →</p>
       </a>
 
       <a href="proof-strategy.html" class="category-card">
         <span class="category-number">03</span>
         <p class="category-name">Strategy & Systems</p>
-        <p class="category-desc">Content plans, email sequences, and the thinking behind the work.</p>
-        <p class="category-projects">3 projects</p>
+        <p class="category-desc">The infrastructure behind a business that runs smoothly. Email systems, automations, content strategy, and the wiring that connects it all.</p>
         <p class="category-arrow">See the work →</p>
       </a>
 
