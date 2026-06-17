@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lydia Nichols — Elevated Homes</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #E8E3EB;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 56px 16px 80px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CARD */
+.card {
+  background: #FBF8F3;
+  width: 100%;
+  max-width: 580px;
+  box-shadow:
+    0 2px 4px rgba(80,60,100,0.06),
+    0 8px 24px rgba(80,60,100,0.10),
+    0 24px 64px rgba(80,60,100,0.10);
+  overflow: hidden;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(110, 90, 130, 0.12) 0%,
+    rgba(80, 60, 110, 0.08) 50%,
+    rgba(251, 248, 243, 0.72) 100%
+  );
+}
+
+/* IDENTITY BLOCK */
+.identity {
+  text-align: center;
+  padding: 36px 48px 28px;
+  border-bottom: 1px solid #DDD4DE;
+}
+
+.identity-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #1E1A24;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.identity-sub {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #9B8BA0;
+}
+
+.identity-rule {
+  width: 32px;
+  height: 1px;
+  background: #A99AAF;
+  margin: 14px auto 0;
+}
+
+/* EYEBROW */
+.eyebrow {
+  text-align: center;
+  padding: 32px 48px 4px;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #A99AAF;
+}
+
+/* BODY */
+.body {
+  padding: 20px 52px 40px;
+}
+
+.headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: #1E1A24;
+  line-height: 1.45;
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #DDD4DE;
+}
+
+.salutation {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1E1A24;
+  margin-bottom: 16px;
+  letter-spacing: 0.01em;
+}
+
+.body p {
+  font-size: 13.5px;
+  line-height: 1.95;
+  color: #2C2630;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.body p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* BUTTON SECTION */
+.button-section {
+  padding: 8px 52px 36px;
+  text-align: center;
+}
+
+.button-rule {
+  border: none;
+  border-top: 1px solid #DDD4DE;
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: inline-block;
+  background: #2A242C;
+  color: #FBF8F3;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 44px;
+  transition: background 0.2s, letter-spacing 0.2s;
+}
+
+.btn:hover {
+  background: #413548;
+  letter-spacing: 0.26em;
+}
+
+/* CLOSING */
+.closing {
+  padding: 0 52px 44px;
+  border-top: 1px solid #DDD4DE;
+  padding-top: 32px;
+}
+
+.closing-text {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: #2C2630;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.signature {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  color: #6B5A72;
+  line-height: 1;
+  margin-top: 4px;
+  /* Replace with: <img src="/assets/lydia-signature.png" height="48"> */
+}
+
+/* FOOTER */
+.footer {
+  background: #EDE7EE;
+  border-top: 1px solid #DDD4DE;
+  padding: 22px 48px;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9B8BA0;
+  line-height: 1.9;
+}
+
+.footer-dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: #A99AAF;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 8px;
+  position: relative;
+  top: -1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 620px) {
+  body { padding: 0 0 0; background: #FBF8F3; }
+  .card { box-shadow: none; max-width: 100%; }
+  .hero { height: 200px; }
+  .identity { padding: 28px 28px 22px; }
+  .eyebrow { padding: 24px 28px 4px; }
+  .body { padding: 18px 28px 32px; }
+  .button-section { padding: 8px 28px 28px; }
+  .closing { padding: 24px 28px 36px; }
+  .footer { padding: 18px 28px; }
+  .headline { font-size: 19px; }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="lydia-lupins.png" alt="Lupins at sunset in the Annapolis Valley">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- IDENTITY -->
+  <div class="identity">
+    <!-- When transparent PNG is ready, replace below with:
+    <img src="/assets/lydia-ln-logo.png" alt="Lydia Nichols Elevated Homes" style="height:72px; width:auto; display:block; margin:0 auto;">
+    -->
+    <p class="identity-name">Lydia Nichols</p>
+    <p class="identity-sub">Elevated Homes</p>
+    <div class="identity-rule"></div>
+  </div>
+
+  <!-- EYEBROW -->
+  <p class="eyebrow">A note from Lydia</p>
+
+  <!-- BODY -->
+  <div class="body">
+    <h1 class="headline">The best clients often come from the people who know them best.</h1>
+
+    <p class="salutation">Hi there,</p>
+
+    <p>Working in a place like the Annapolis Valley has taught me how much relationships matter in real estate. People often don't choose an agent because of a sign, a search result, or a postcard. They choose someone because a person they trust was willing to say, "This is who I would call."</p>
+
+    <p>That kind of connection means a lot to me, and it's a big part of why I wanted to send this note.</p>
+
+    <p>If someone in your world is thinking about buying, selling, relocating, downsizing, investing, or simply trying to understand what their home might be worth, I would be very happy to be a name you pass along. They don't need to be ready to make a move right away. Sometimes the most helpful first step is just having a real conversation with someone who knows the area and can offer steady, honest guidance.</p>
+
+    <p>When you share my name, I know you're putting your own trust behind that introduction, and I never take that lightly.</p>
+  </div>
+
+  <!-- BUTTON -->
+  <div class="button-section">
+    <hr class="button-rule">
+    <a href="/lydia-share.html" class="btn">Share Lydia's Info</a>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p class="closing-text">Thank you for thinking of me,</p>
+    <!-- Replace with: <img src="/assets/lydia-signature.png" alt="Lydia" style="height:48px; width:auto; display:block; margin-top:8px;"> -->
+    <p class="signature">Lydia</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Lydia Nichols<span class="footer-dot"></span>Elevated Homes<br>Annapolis Valley Real Estate</p>
+  </div>
+
+</div>
+
+</body>
+</html>
