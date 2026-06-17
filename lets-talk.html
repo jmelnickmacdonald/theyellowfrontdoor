@@ -47,55 +47,56 @@ ul { list-style: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* PAGE HERO */
-.lt-hero { background: var(--paper); padding: clamp(72px, 10vw, 128px) 0 clamp(40px, 6vw, 64px); margin-top: 72px; }
+.lt-hero { background: var(--paper); padding: clamp(96px, 12vw, 148px) 0 clamp(56px, 7vw, 80px); margin-top: 72px; }
 .lt-hero-inner { max-width: 860px; }
-.eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
 .eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; flex-shrink: 0; }
 .eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
-.lt-hero h1 { font-family: var(--f-head); font-size: clamp(34px, 5vw, 60px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 8px; }
-.lt-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(30px, 4.4vw, 52px); font-weight: normal; color: var(--slate); line-height: 1.15; margin-top: 4px; }
-.lt-hero p { font-size: clamp(17px, 2vw, 19px); line-height: 1.8; color: var(--ink); font-weight: 400; margin-top: 28px; max-width: 600px; }
+.lt-hero h1 { font-family: var(--f-head); font-size: clamp(38px, 5.5vw, 64px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 8px; }
+.lt-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(32px, 4.8vw, 56px); font-weight: normal; color: var(--slate); line-height: 1.2; margin-top: 8px; }
+.lt-hero p { font-size: clamp(16px, 1.8vw, 18px); line-height: 1.85; color: var(--slate); font-weight: 400; margin-top: 32px; max-width: 580px; }
 
 /* CONTACT */
 .contact-section { padding: var(--section-gap) 0; background: var(--paper); }
 .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
-.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.contact-form { display: flex; flex-direction: column; gap: 22px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-field { display: flex; flex-direction: column; gap: 7px; }
+.form-field { display: flex; flex-direction: column; gap: 8px; }
 .form-field label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
-.form-field input, .form-field select, .form-field textarea { font-family: var(--f-body); font-size: 14px; font-weight: 400; color: var(--ink); background: #fff; border: 1px solid var(--stone); padding: 12px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 4px; }
-.form-field input::placeholder, .form-field textarea::placeholder { color: var(--stone); }
+.form-field input, .form-field select, .form-field textarea { font-family: var(--f-body); font-size: 15px; font-weight: 400; color: var(--ink); background: #fff; border: 1px solid var(--stone); padding: 13px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 4px; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: #9aa5b1; }
 .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--ink); }
-.form-field textarea { resize: vertical; min-height: 140px; }
+.form-field textarea { resize: vertical; min-height: 148px; }
 .form-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23596674' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
-.btn-primary { display: inline-flex; align-items: center; background: var(--navy); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: background 0.2s; width: fit-content; }
+.btn-primary { display: inline-flex; align-items: center; background: var(--navy); color: var(--paper); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: background 0.2s; width: fit-content; }
 .btn-primary:hover { background: #0d1a35; }
+
+/* CONTACT INFO */
 .contact-info { padding-top: 8px; }
-.contact-info h3 { font-family: var(--f-accent); font-size: 32px; font-weight: normal; color: var(--ink); margin-bottom: 16px; line-height: 1.2; }
-.contact-info > p { font-size: 15px; line-height: 1.8; color: var(--ink); margin-bottom: 32px; font-weight: 400; }
-.contact-detail { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--stone); }
-.contact-detail:last-child { border-bottom: none; }
-.contact-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
-.contact-detail-text { font-size: 14px; color: var(--ink); line-height: 1.6; font-weight: 400; }
-.contact-detail-text strong { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--slate); margin-bottom: 4px; }
+.contact-info h3 { font-family: var(--f-accent); font-size: clamp(32px, 3.5vw, 42px); font-weight: normal; color: var(--ink); margin-bottom: 20px; line-height: 1.2; }
+.contact-info > p { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 36px; font-weight: 400; }
+.contact-detail { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--stone); }
+.contact-detail:first-of-type { border-top: 1px solid var(--stone); }
+.contact-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+.contact-detail-text { font-size: 15px; color: var(--ink); line-height: 1.7; font-weight: 400; }
+.contact-detail-text strong { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--slate); margin-bottom: 6px; }
 
 /* FOOTER */
 .footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 .footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
-.footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); margin-bottom: 12px; }
-.footer-tagline { font-size: 14px; color: var(--ink); line-height: 1.65; font-weight: 400; max-width: 220px; }
+.footer-tagline { font-size: 15px; color: var(--slate); line-height: 1.65; font-weight: 400; max-width: 260px; }
 .footer-round-logo { display: flex; justify-content: center; align-items: center; }
-.footer-round-logo img { width: 120px; height: 120px; }
+.footer-round-logo img { width: 110px; height: 110px; }
 .footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 15px; color: var(--ink); margin-bottom: 10px; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--slate); }
+.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; font-weight: 400; transition: color 0.2s; }
+.footer-nav-col a:hover { color: var(--ink); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
 @media (max-width: 860px) {
-  .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-round-logo { justify-content: flex-start; }
 }
@@ -141,7 +142,7 @@ ul { list-style: none; }
       <h1>Tell us where things feel stuck.
         <span class="accent-line">We'll figure out where to start.</span>
       </h1>
-      <p>Or request a free Drive-By and we'll show you what we see first — no pitch, no commitment, just a look.</p>
+      <p>Or send us your site and let us take a look first. No pitch, no obligation. Just an honest outside eye.</p>
     </div>
   </div>
 </section>
@@ -178,10 +179,28 @@ ul { list-style: none; }
 
       <div class="contact-info">
         <h3>A few things worth knowing.</h3>
-        <p>The Yellow Front Door works with a small number of clients at a time. If we're not the right fit, or the timing isn't right, we'll say so — and we'll tell you what we think would actually help.</p>
-        <div class="contact-detail"><div class="contact-dot"></div><div class="contact-detail-text"><strong>Response time</strong>Within two business days, usually sooner.</div></div>
-        <div class="contact-detail"><div class="contact-dot"></div><div class="contact-detail-text"><strong>Based in</strong>Annapolis Valley, Nova Scotia. Working with small businesses across Canada.</div></div>
-        <div class="contact-detail"><div class="contact-dot"></div><div class="contact-detail-text"><strong>Pricing</strong>All engagements are scoped individually. We'll talk through what makes sense before anything is agreed to.</div></div>
+        <p>The Yellow Front Door works with a small number of clients at a time. If we're not the right fit, or the timing isn't right, we'll say so and we'll tell you what we think would actually help.</p>
+        <div class="contact-detail">
+          <div class="contact-dot"></div>
+          <div class="contact-detail-text">
+            <strong>Response time</strong>
+            Within a day. The zoo we live in hasn't stopped us yet.
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-dot"></div>
+          <div class="contact-detail-text">
+            <strong>Based in</strong>
+            The Annapolis Valley, Nova Scotia. We work with small businesses across Canada.
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-dot"></div>
+          <div class="contact-detail-text">
+            <strong>Pricing</strong>
+            Most projects start with a conversation. We have a sense of what things typically cost, and we'll talk through what fits before anything is decided.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -192,7 +211,6 @@ ul { list-style: none; }
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <p class="footer-logo">The Yellow Front Door</p>
         <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
       </div>
       <div class="footer-round-logo">
