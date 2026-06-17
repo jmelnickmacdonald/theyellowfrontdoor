@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Let's Talk — The Yellow Front Door</title>
-<meta name="description" content="Get in touch with The Yellow Front Door. Request a free Drive-By, or tell us where things feel stuck and we'll figure out where to start.">
+<title>The Yellow Front Door — Marketing Studio</title>
+<meta name="description" content="A marketing studio for small businesses doing good work and trying to show up with the same care on the outside that they bring to the work itself.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
@@ -14,22 +14,35 @@
   font-weight: normal; font-style: normal; font-display: block;
 }
 :root {
-  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
-  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
-  --navy: #132447; --road: #ede8dc;
-  --f-accent: 'CasualHandwriting', cursive;
-  --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
-  --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(56px, 8vw, 96px);
+  --ink:       #132447;
+  --paper:     #ffffff;
+  --yellow:    #fcd346;
+  --stone:     #D8D1C3;
+  --slate:     #596674;
+  --brass:     #e6b800;
+  --clay:      #B86B4B;
+  --paper-mid: #F5EFE0;
+  --navy:      #132447;
+  --f-accent:  'CasualHandwriting', cursive;
+  --f-head:    'Montserrat', sans-serif;
+  --f-body:    'Montserrat', sans-serif;
+  --max:       1100px;
+  --gutter:    clamp(24px, 5vw, 80px);
+  --section-gap: clamp(64px, 9vw, 112px);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; background: var(--paper); }
 html { scroll-behavior: smooth; }
 body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
+section { padding: var(--section-gap) 0; }
+.eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
+.section-title { font-family: var(--f-head); font-size: clamp(30px, 4vw, 46px); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 20px; }
+.section-intro { font-size: 16px; line-height: 1.8; color: var(--slate); max-width: 580px; margin-bottom: 48px; font-weight: 400; }
+.divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
 
 /* NAV */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
@@ -41,47 +54,87 @@ ul { list-style: none; }
 .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--paper); }
 .nav-links a.active { font-weight: 600; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; border: none !important; }
 .nav-cta:hover { background: var(--brass) !important; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
-/* PAGE HERO */
-.lt-hero { background: var(--paper); padding: clamp(96px, 12vw, 148px) 0 clamp(56px, 7vw, 80px); margin-top: 72px; }
-.lt-hero-inner { max-width: 860px; }
-.eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
-.eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; flex-shrink: 0; }
-.eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
-.lt-hero h1 { font-family: var(--f-head); font-size: clamp(38px, 5.5vw, 64px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 0; }
-.lt-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(32px, 4.8vw, 56px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 16px; }
-.lt-hero p { font-size: clamp(16px, 1.8vw, 18px); line-height: 1.85; color: var(--slate); font-weight: 400; margin-top: 36px; max-width: 580px; }
+/* STREET SCENE */
+.street-scene { width: 100%; margin-top: 72px; display: block; overflow: hidden; line-height: 0; font-size: 0; }
+.street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
+.scene-day { display: block; }
+.scene-night { display: none; }
+body.is-night .scene-day { display: none; }
+body.is-night .scene-night { display: block; }
 
-/* CONTACT */
-.contact-section { padding: var(--section-gap) 0; background: var(--paper); }
-.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
-.contact-form { display: flex; flex-direction: column; gap: 22px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-field { display: flex; flex-direction: column; gap: 8px; }
-.form-field label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
-.form-field input, .form-field select, .form-field textarea { font-family: var(--f-body); font-size: 15px; font-weight: 400; color: var(--ink); background: #fff; border: 1px solid var(--stone); padding: 13px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 4px; }
-.form-field input::placeholder, .form-field textarea::placeholder { color: #9aa5b1; }
-.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--ink); }
-.form-field textarea { resize: vertical; min-height: 148px; }
-.form-field textarea.short { min-height: 90px; }
-.form-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23596674' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
-.form-field .field-hint { font-size: 11px; color: var(--slate); line-height: 1.5; margin-top: -2px; }
-.btn-primary { display: inline-flex; align-items: center; background: var(--navy); color: var(--paper); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: background 0.2s; width: fit-content; }
-.btn-primary:hover { background: #0d1a35; }
+/* HERO */
+.hero-thesis { background: var(--navy); padding: clamp(40px, 6vw, 72px) 0 clamp(44px, 6vw, 72px); text-align: center; }
+.hero-thesis-inner { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+.hero-h1 { font-family: var(--f-head); font-size: clamp(22px, 3.5vw, 42px); font-weight: 400; color: rgba(255,255,255,0.65); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 12px; }
+.hero-accent-line { font-family: var(--f-accent); font-size: clamp(36px, 5.5vw, 62px); color: #ffffff; font-weight: normal; display: block; margin-bottom: 28px; line-height: 1.15; }
+.hero-bridge { font-size: clamp(14px, 1.6vw, 16px); color: rgba(255,255,255,0.6); line-height: 1.85; max-width: 540px; margin: 0 auto 32px; }
+.hero-story-link { display: inline-block; margin-top: 10px; color: var(--yellow); font-weight: 600; border-bottom: 1px solid rgba(252,211,70,0.3); transition: border-color 0.2s; }
+.hero-story-link:hover { border-color: var(--yellow); }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 4px; }
+.btn-outline-light { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.8); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
+.btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
 
-/* CONTACT INFO */
-.contact-info { padding-top: 8px; }
-.contact-info h3 { font-family: var(--f-accent); font-size: clamp(32px, 3.5vw, 42px); font-weight: normal; color: var(--ink); margin-bottom: 20px; line-height: 1.2; }
-.contact-info > p { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 36px; font-weight: 400; }
-.contact-detail { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--stone); }
-.contact-detail:first-of-type { border-top: 1px solid var(--stone); }
-.contact-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-.contact-detail-text { font-size: 15px; color: var(--ink); line-height: 1.7; font-weight: 400; }
-.contact-detail-text strong { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--slate); margin-bottom: 6px; }
+/* BUTTONS */
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; }
+.btn-primary:hover { background: var(--slate); border-color: var(--slate); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--stone); cursor: pointer; transition: border-color 0.2s; text-decoration: none; }
+.btn-secondary:hover { border-color: var(--ink); }
+.btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.btn-yellow:hover { background: var(--brass); }
+
+/* FEATURED WORK */
+.featured-work { background: var(--paper); padding: clamp(32px, 4vw, 48px) 0; }
+.featured-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
+.featured-title { font-family: var(--f-head); font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; color: var(--ink); margin-bottom: 24px; }
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
+.featured-card { border: 1px solid var(--stone); border-radius: 6px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+.featured-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(19,36,71,0.1); }
+.featured-card-thumb { height: 130px; background: var(--paper-mid); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.featured-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.featured-card-info { padding: 14px 16px; }
+.featured-card-name { font-family: var(--f-accent); font-size: 20px; color: var(--ink); margin-bottom: 2px; }
+.featured-card-scope { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); }
+.featured-link { font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.04em; border-bottom: 2px solid var(--yellow); padding-bottom: 2px; }
+
+/* OUR STORY HOOK */
+.story-hook { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; }
+.story-hook-inner { display: grid; grid-template-columns: 0.45fr 0.55fr; gap: clamp(28px, 4vw, 48px); align-items: center; }
+.story-hook-image { border-radius: 4px; overflow: hidden; }
+.story-hook-image img { width: 100%; height: auto; display: block; }
+.story-hook-text p { font-size: 16px; line-height: 1.85; color: var(--ink); margin-bottom: 14px; }
+.story-hook-text p:last-of-type { margin-bottom: 0; }
+.story-hook-link { display: inline-block; margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; letter-spacing: 0.02em; }
+
+/* PROCESS */
+.process-section { background: var(--navy); padding: clamp(32px, 4vw, 52px) 0; }
+.process-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
+.process-title { font-family: var(--f-head); font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; color: #fff; margin-bottom: 28px; }
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.process-number { font-family: var(--f-accent); font-size: 36px; color: var(--yellow); margin-bottom: 10px; line-height: 1; }
+.process-step-title { font-family: var(--f-head); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; letter-spacing: 0.02em; }
+.process-step-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+/* TESTIMONIALS */
+.testimonials-section { background: var(--paper); padding: clamp(28px, 4vw, 44px) 0; border-top: 1px solid var(--stone); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 40px); }
+.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 10px; }
+.testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); font-style: normal; }
+
+/* SERVICE LIST */
+.service-list { border-top: 1px solid var(--stone); width: 100%; }
+.service-list-item { display: grid; grid-template-columns: 28px 280px 1fr; align-items: center; gap: 0; padding: 18px 0; border-bottom: 1px solid var(--stone); }
+.service-list-item::before { content: ''; width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; justify-self: start; }
+.service-list-name { font-family: var(--f-accent); font-size: clamp(22px, 2.4vw, 32px); color: var(--ink); white-space: nowrap; line-height: 1.2; padding-right: 24px; }
+.service-list-desc { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; }
+
+/* CTA */
+.cta-section { background: #4d5c7b; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px); pointer-events: none; }
 
 /* FOOTER */
 .footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
@@ -91,24 +144,40 @@ ul { list-style: none; }
 .footer-round-logo { display: flex; justify-content: center; align-items: center; }
 .footer-round-logo img { width: 110px; height: 110px; }
 .footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; font-weight: 400; transition: color 0.2s; }
+.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
 .footer-nav-col a:hover { color: var(--ink); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
-@media (max-width: 860px) {
-  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+/* NIGHT MODE */
+body.is-night .nav-links a { color: rgba(255,252,244,0.75); }
+body.is-night .nav-links a:hover { color: var(--paper); }
+body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-round-logo { justify-content: flex-start; }
 }
+@media (max-width: 768px) {
+  .story-hook-inner { grid-template-columns: 1fr; }
+  .story-hook-image { max-width: 400px; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; gap: 28px; }
+  .service-list-item { grid-template-columns: 24px 1fr; grid-template-rows: auto auto; gap: 4px 0; padding: 16px 0; }
+  .service-list-name { grid-column: 2; white-space: normal; padding-right: 0; font-size: clamp(20px, 5vw, 26px); }
+  .service-list-desc { grid-column: 2; font-size: 14px; }
+}
 @media (max-width: 640px) {
   .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
-  .form-row { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions a { width: 100%; justify-content: center; text-align: center; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .eyebrow-label { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -125,7 +194,8 @@ ul { list-style: none; }
       <li><a href="the-proof.html">The Proof</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html" class="nav-cta active">Let's Talk</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -133,112 +203,93 @@ ul { list-style: none; }
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<section class="lt-hero">
+<!-- STREET SCENE -->
+<div class="street-scene" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
+  <img class="scene-day"
+    srcset="hero_day.webp 2080w, hero_day_2x.webp 4160w"
+    sizes="100vw"
+    src="hero_day.webp"
+    alt="Daytime street scene — storefronts with a yellow front door at centre"
+    loading="eager">
+  <img class="scene-night"
+    srcset="hero_night.webp 2080w, hero_night_2x.webp 4160w"
+    sizes="100vw"
+    src="hero_night.webp"
+    alt="Nighttime street scene — warm glowing windows, yellow front door lit at centre"
+    loading="eager">
+</div>
+
+<!-- HERO + THESIS -->
+<section class="hero-thesis" id="top">
   <div class="container">
-    <div class="lt-hero-inner">
-      <div class="eyebrow-label">
-        <span class="eyebrow-tag">Let's Talk</span>
-        <span class="eyebrow-desc">Get in touch</span>
+    <div class="hero-thesis-inner">
+      <h1 class="hero-h1">Your business is great, but your online presence isn't keeping up.</h1>
+      <span class="hero-accent-line">We fix that.</span>
+      <p class="hero-bridge">The website, the words, the brand, the emails, and the systems behind them. We know what falls through the cracks because we ran a small business for seven years and learned most of this the hard way.<br><a href="the-doorstep.html" class="hero-story-link">Read our story →</a></p>
+      <div class="hero-actions">
+        <a href="what-we-do.html" class="btn-yellow">What We Do</a>
+        <a href="lets-talk.html" class="btn-outline-light">Start with a Drive-By →</a>
       </div>
-      <h1>Tell us where things feel stuck.
-        <span class="accent-line">We'll figure out where to start.</span>
-      </h1>
-      <p>Or send us your site and let us take a look first. No pitch, no obligation. Just an honest outside eye.</p>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section">
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
   <div class="container">
-    <div class="contact-inner">
-      <div>
-        <form class="contact-form" name="contact" action="/thank-you" method="POST">
+    <div class="testimonials-grid">
+      <blockquote class="testimonial">
+        <p class="testimonial-quote">"Where do I begin? I'm so glad I found you and your brilliant mind. You absolutely get me, and you're stretching my thinking in the very best way."</p>
+        <cite class="testimonial-cite">— Max W.</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p class="testimonial-quote">"I never expected that someone would just 'get it' on so few details, but you totally did."</p>
+        <cite class="testimonial-cite">— Trina K.</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p class="testimonial-quote">"I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered. Insightful, and nailed exactly what I was looking for."</p>
+        <cite class="testimonial-cite">— Mariah J.</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
 
-          <div class="form-row">
-            <div class="form-field">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-            </div>
-            <div class="form-field">
-              <label for="business">Business name</label>
-              <input type="text" id="business" name="business" placeholder="Smith & Co.">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label for="location">Where are you based?</label>
-              <input type="text" id="location" name="location" placeholder="City, Province">
-            </div>
-            <div class="form-field">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" placeholder="jane@yourbusiness.ca" required>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="website">Website (if you have one)</label>
-            <input type="url" id="website" name="website" placeholder="https://yourbusiness.ca">
-          </div>
-
-          <div class="form-field">
-            <label for="pitch">Your 5-second pitch</label>
-            <textarea id="pitch" name="pitch" class="short" placeholder="Who do you help and what do you do? One or two sentences is plenty — no need to make it pretty."></textarea>
-          </div>
-
-          <div class="form-field">
-            <label for="interest">Where would you like to start?</label>
-            <select id="interest" name="interest">
-              <option value="">Not sure yet — that's okay</option>
-              <option value="drive-by">A free Drive-By first</option>
-              <option value="first-look">The First Look</option>
-              <option value="window">The Window</option>
-              <option value="open-door">The Open Door</option>
-              <option value="reception-desk">The Reception Desk</option>
-              <option value="upkeep">The Upkeep (ongoing)</option>
-              <option value="everything">The whole in-market experience</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label for="message">What's going on?</label>
-            <textarea id="message" name="message" placeholder="What's feeling stuck? What prompted you to reach out? No need to be polished — just tell us what's going on."></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary">Send it over →</button>
-        </form>
+<!-- HOW WE WORK -->
+<section class="process-section">
+  <div class="container">
+    <p class="process-eyebrow">How it works</p>
+    <p class="process-title">Three steps, no surprises.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <p class="process-number">01</p>
+        <p class="process-step-title">We look.</p>
+        <p class="process-step-desc">Send us your website and a handful of touchpoints: your Google listing, social profiles, any printed materials. We take an honest look and tell you what we see — what's working, where there's room, and where to start.</p>
       </div>
-
-      <div class="contact-info">
-        <h3>A few things worth knowing.</h3>
-        <p>The Yellow Front Door works with a small number of clients at a time. If we're not the right fit, or the timing isn't right, we'll say so and we'll tell you what we think would actually help.</p>
-        <div class="contact-detail">
-          <div class="contact-dot"></div>
-          <div class="contact-detail-text">
-            <strong>Response time</strong>
-            Within a day. The zoo we live in hasn't stopped us yet.
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-dot"></div>
-          <div class="contact-detail-text">
-            <strong>Based in</strong>
-            The Annapolis Valley, Nova Scotia. We work with small businesses across Canada.
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-dot"></div>
-          <div class="contact-detail-text">
-            <strong>Pricing</strong>
-            Most projects start with a conversation. We have a sense of what things typically cost, and we'll talk through what fits before anything is decided.
-          </div>
-        </div>
+      <div class="process-step">
+        <p class="process-number">02</p>
+        <p class="process-step-title">We plan.</p>
+        <p class="process-step-desc">Together, we figure out what matters most and make a plan. You know exactly what you're getting, what it costs, and what happens next before we touch anything.</p>
+      </div>
+      <div class="process-step">
+        <p class="process-number">03</p>
+        <p class="process-step-title">We build.</p>
+        <p class="process-step-desc">We do the work — brand, copy, site, systems — and hand it to you ready to go. If you want us to stay on for ongoing updates, integrations, or automations, we do that too.</p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- CTA -->
+<div class="cta-section" style="background:var(--navy); text-align:center; padding:clamp(36px, 5vw, 56px) 0;">
+  <div class="container">
+    <p style="font-family:var(--f-head); font-size:clamp(22px, 3vw, 32px); font-weight:400; color:#fff; margin-bottom:12px;">Not sure where things stand?</p>
+    <p style="font-size:15px; color:rgba(255,255,255,0.55); max-width:440px; margin:0 auto 28px; line-height:1.75;">Take the Scorecard. Ten questions, two minutes, and a clear picture of what customers find when they go looking.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
+      <a href="lets-talk.html" class="btn-outline-light" style="padding:15px 28px; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); text-decoration:none;">Or get in touch →</a>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -261,20 +312,22 @@ ul { list-style: none; }
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm"></div>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
       <p class="footer-copy">theyellowfrontdoor.ca</p>
     </div>
   </div>
 </footer>
 
 <script>
-(function(){
+(function () {
+  function applyTimeOfDay() { var h = new Date().getHours(); document.body.classList.toggle('is-night', h >= 18 || h < 6); }
+  applyTimeOfDay(); setInterval(applyTimeOfDay, 60000);
   var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
   var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+  toggle.addEventListener('click', function () { var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+  navLinks.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }); });
 })();
 </script>
-
 </body>
 </html>
