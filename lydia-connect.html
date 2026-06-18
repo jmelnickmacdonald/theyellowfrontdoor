@@ -21,35 +21,40 @@ a { color: inherit; text-decoration: none; }
 .nav-brand { display: flex; flex-direction: column; gap: 2px; }
 .nav-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; color: #1E1A24; letter-spacing: 0.02em; }
 .nav-sub { font-size: 8px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #9B8BA0; }
-.nav-contact { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FBF8F3; background: #2A242C; padding: 10px 22px; transition: background 0.2s; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 12px; font-weight: 500; color: #596674; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-links a:hover { color: #1E1A24; }
+.nav-contact { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FBF8F3; background: #2A242C; padding: 10px 22px; transition: background 0.2s; }
 .nav-contact:hover { background: #413548; }
 
 /* HERO */
-.hero { position: relative; height: clamp(400px, 55vw, 580px); overflow: hidden; }
-.hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; filter: grayscale(20%); }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,26,36,0.15) 0%, rgba(30,26,36,0.55) 100%); }
-.hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: clamp(32px, 5vw, 56px) clamp(28px, 6vw, 80px); }
-.hero-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #D4B896; margin-bottom: 12px; }
-.hero-heading { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 52px); font-weight: 400; color: #FBF8F3; line-height: 1.2; max-width: 560px; }
+.hero { position: relative; height: clamp(400px, 52vw, 560px); overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; object-position: left 30%; display: block; }
+.hero-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(28px, 6vw, 80px); }
+.hero-text { max-width: 400px; text-align: right; }
+.hero-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 14px; }
+.hero-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 400; color: #1E1A24; line-height: 1.2; margin-bottom: 12px; }
+.hero-sub { font-size: 14px; color: #596674; line-height: 1.8; }
 
-/* INTRO SECTION */
-.intro { background: #2A242C; padding: clamp(40px, 6vw, 64px) clamp(24px, 6vw, 80px); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(36px, 5vw, 64px); align-items: center; }
-.intro-text { }
-.intro-label { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 16px; }
-.intro-body { font-size: 15px; line-height: 1.9; color: rgba(251,248,243,0.75); margin-bottom: 0; }
+/* INTRO */
+.intro { background: #FBF8F3; padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); }
+.intro-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+.intro-label { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 20px; }
+.intro-body { font-size: 15px; line-height: 1.9; color: #2C2630; }
 .intro-actions { display: flex; flex-direction: column; gap: 12px; }
-.btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 16px 28px; cursor: pointer; transition: background 0.2s, border-color 0.2s; border: none; text-decoration: none; }
-.btn-light { background: #FBF8F3; color: #2A242C; }
-.btn-light:hover { background: #EDE7EE; }
-.btn-outline-light { background: transparent; color: rgba(251,248,243,0.75); border: 1px solid rgba(251,248,243,0.2); }
-.btn-outline-light:hover { border-color: rgba(251,248,243,0.5); color: #FBF8F3; }
+.btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 16px 28px; transition: background 0.2s, border-color 0.2s; border: none; text-decoration: none; cursor: pointer; }
+.btn-dark { background: #2A242C; color: #FBF8F3; }
+.btn-dark:hover { background: #413548; }
+.btn-outline { background: transparent; color: #2A242C; border: 1px solid #C4B9C8; }
+.btn-outline:hover { border-color: #2A242C; }
 
 /* QUOTE */
-.quote-section { padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); background: #F5F2EF; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(36px, 5vw, 64px); align-items: start; max-width: 1100px; margin: 0 auto; }
+.quote-section { padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); background: #F5F2EF; border-top: 1px solid #DDD4DE; }
+.quote-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
 .quote-left { }
-.quote-mark { font-family: 'Playfair Display', serif; font-size: 80px; color: #DDD4DE; line-height: 0.7; margin-bottom: 16px; }
-.quote-text { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.8vw, 28px); font-weight: 400; color: #1E1A24; line-height: 1.4; font-style: italic; }
-.quote-right { padding-top: 8px; }
+.quote-mark { font-family: 'Playfair Display', serif; font-size: 72px; color: #DDD4DE; line-height: 0.7; margin-bottom: 20px; }
+.quote-text { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.4vw, 24px); font-weight: 400; color: #1E1A24; line-height: 1.5; font-style: italic; }
+.quote-attr { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9B8BA0; margin-top: 20px; }
 .quote-right p { font-size: 14px; line-height: 1.9; color: #596674; margin-bottom: 16px; }
 .quote-right p:last-child { margin-bottom: 0; }
 
@@ -57,10 +62,15 @@ a { color: inherit; text-decoration: none; }
 .footer { background: #EDE7EE; border-top: 1px solid #DDD4DE; padding: 20px clamp(24px,5vw,64px); text-align: center; }
 .footer p { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #9B8BA0; line-height: 1.9; }
 
-@media (max-width: 700px) {
-  .intro { grid-template-columns: 1fr; }
-  .quote-section { grid-template-columns: 1fr; padding: clamp(36px,6vw,56px) clamp(24px,5vw,40px); }
-  .hero-heading { font-size: clamp(26px, 6vw, 38px); }
+@media (max-width: 768px) {
+  .intro-inner { grid-template-columns: 1fr; }
+  .quote-inner { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero-text { text-align: left; }
+  .hero-content { justify-content: flex-start; }
+}
+@media (max-width: 480px) {
+  .hero-heading { font-size: clamp(24px, 6vw, 34px); }
 }
 </style>
 </head>
@@ -75,47 +85,60 @@ a { color: inherit; text-decoration: none; }
     <p class="nav-name">Lydia Nichols</p>
     <p class="nav-sub">Elevated Homes</p>
   </div>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Listings</a>
+    <a href="#">Communities</a>
+  </div>
   <a href="mailto:lydia@thisisnotarealemail.com" class="nav-contact">Contact Lydia</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <img src="lydia-lupins.png" alt="Annapolis Valley lupins at sunset">
-  <div class="hero-overlay"></div>
+  <img src="lydia-interior.png" alt="Lydia Nichols — Elevated Homes">
   <div class="hero-content">
-    <p class="hero-eyebrow">A private introduction</p>
-    <h1 class="hero-heading">You're in good hands.</h1>
+    <div class="hero-text">
+      <p class="hero-eyebrow">A private introduction</p>
+      <h1 class="hero-heading">Someone thought of you. That means something.</h1>
+      <p class="hero-sub">You were sent here by someone who trusts me. I don't take that lightly.</p>
+    </div>
   </div>
 </div>
 
 <!-- INTRO -->
 <div class="intro">
-  <div class="intro-text">
-    <p class="intro-label">Someone sent you here because they thought I might be the right person to have in your corner.</p>
-    <p class="intro-body">Whether you're buying, selling, relocating, or simply trying to understand what your home might be worth, I offer calm, honest guidance rooted in this place and these people. I know the Annapolis Valley well — the roads, the neighbourhoods, the things that don't show up in the listing. My role is to make sure you feel informed and well represented from the very first conversation, whenever that happens to be.</p>
-  </div>
-  <div class="intro-actions">
-    <a href="sms:9025555555" class="btn btn-light">Text Lydia</a>
-    <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-outline-light">Email Lydia</a>
+  <div class="intro-inner">
+    <div>
+      <p class="intro-label">Someone sent you here because they thought I might be the right person to have in your corner.</p>
+      <p class="intro-body">Whether you're buying, selling, or just trying to figure out where to start, I'm here to make sure you actually understand what's happening at every step. No pressure, no pitch. Just an honest conversation with someone who knows this area and genuinely wants to help you make the right move — whenever that is.</p>
+    </div>
+    <div class="intro-actions">
+      <a href="sms:9025555555" class="btn btn-dark">Text Lydia</a>
+      <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-outline">Email Lydia</a>
+    </div>
   </div>
 </div>
 
 <!-- QUOTE -->
 <div class="quote-section">
-  <div class="quote-left">
-    <p class="quote-mark">"</p>
-    <p class="quote-text">Real estate should never feel like a transaction first.</p>
-  </div>
-  <div class="quote-right">
-    <p>My practice is built on trust, patience, and real guidance — the kind of experience people remember when they're ready to make a move, and the kind they tell their friends about afterward.</p>
-    <p>When you reach out, you'll be met with honesty, thoughtful perspective, and care from the very first conversation. Whenever the timing feels right, I'd be glad to connect.</p>
+  <div class="quote-inner">
+    <div class="quote-left">
+      <p class="quote-mark">"</p>
+      <p class="quote-text">I grew up here. I know these roads, these neighbourhoods, and what it actually means to find the right fit. That's not something you can Google.</p>
+      <p class="quote-attr">Lydia Nichols · Elevated Homes</p>
+    </div>
+    <div class="quote-right">
+      <p>I've been doing this long enough to know that buying or selling a home is rarely just about the house. There are a lot of moving pieces and it can feel overwhelming fast. My job is to slow that down and make sure you feel like you have someone paying attention.</p>
+      <p>When you're ready to talk — even if that's just to ask a few questions — reach out. The first conversation is always easy.</p>
+    </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer class="footer">
   <p>Lydia Nichols · Elevated Homes · Annapolis Valley Real Estate<br>
-  <a href="tel:9025555555" style="color:#9B8BA0;">902 555-5555</a> &nbsp;·&nbsp; <a href="mailto:lydia@thisisnotarealemail.com" style="color:#9B8BA0;">lydia@thisisnotarealemail.com</a></p>
+  <a href="tel:9025555555" style="color:#9B8BA0;">902 555-5555</a> &nbsp;·&nbsp;
+  <a href="mailto:lydia@thisisnotarealemail.com" style="color:#9B8BA0;">lydia@thisisnotarealemail.com</a></p>
 </footer>
 
 </body>
