@@ -87,13 +87,24 @@ section{padding:clamp(4rem,10vw,7rem) 0;}
 .stat .sl{font-size:12px;color:var(--ink-muted);letter-spacing:.08em;text-transform:uppercase;margin-top:.3rem;}
 
 /* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem;}
-.svc-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-top:3px solid var(--lime);border-radius:var(--radius);padding:1.8rem;transition:border-color .25s,transform .25s;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;}
+.svc-card{
+  background:#fff;border:1px solid rgba(0,0,0,.06);border-top:3px solid var(--lime);
+  border-radius:var(--radius);overflow:hidden;transition:border-color .25s,transform .25s;
+  display:flex;flex-direction:column;
+}
 .svc-card:hover{border-color:var(--lime);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.1);}
-.svc-card .svc-icon{font-size:1.6rem;margin-bottom:.8rem;}
-.svc-card h3{font-family:var(--display);font-size:1.2rem;font-weight:600;text-transform:uppercase;color:var(--ink);margin-bottom:.5rem;}
-.svc-card p{font-size:13.5px;color:#666;line-height:1.6;margin:0;}
-.svc-card .svc-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--lime);padding:.25rem .7rem;border-radius:999px;margin-top:.8rem;}
+.svc-img{width:100%;aspect-ratio:16/10;background:var(--light2);overflow:hidden;}
+.svc-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.svc-body{padding:1.35rem 1.35rem 1.45rem;display:flex;flex-direction:column;flex:1;}
+.svc-card h3{font-family:var(--display);font-size:1.2rem;font-weight:600;text-transform:uppercase;color:var(--ink);margin-bottom:.5rem;line-height:1.15;}
+.svc-card p{font-size:13.5px;color:#666;line-height:1.55;margin:0;}
+.svc-card .svc-tag{display:inline-block;align-self:flex-start;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--lime);padding:.25rem .7rem;border-radius:999px;margin-top:.9rem;}
+@media(max-width:560px){
+  .services-grid{grid-template-columns:1fr;gap:1.25rem;}
+  .svc-img{aspect-ratio:16/9;}
+  .svc-body{padding:1.2rem;}
+}
 
 /* TEAM */
 .team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:2rem;}
@@ -170,20 +181,7 @@ footer a{color:#fff;text-decoration:none;}
 .why-item p{font-size:13.5px;color:var(--ink-muted);line-height:1.6;margin:0;}
 
 
-/* IMAGE PLACEMENTS */
-.path-bottom-image{
-  margin-top:2.2rem;
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:0 16px 45px rgba(0,0,0,.08);
-}
-.path-bottom-image img{
-  width:100%;
-  height:clamp(220px,34vw,420px);
-  object-fit:cover;
-  object-position:center;
-  display:block;
-}
+/* TESTIMONIAL IMAGE PLACEMENT */
 #testimonials{
   position:relative;
   background-image:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),url('testimonial.jpeg');
@@ -223,7 +221,30 @@ footer a{color:#fff;text-decoration:none;}
 .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);align-items:center;justify-content:center;cursor:pointer;}
 .lb.on{display:flex;}
 .lb img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:6px;}
-@media(max-width:800px){#gallery div[style*="grid"]{grid-template-columns:repeat(2,1fr)!important;}}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:.5rem;
+  margin-top:2rem;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.gallery-grid img{
+  width:100%;
+  aspect-ratio:1/1;
+  height:auto;
+  object-fit:cover;
+  object-position:center;
+  cursor:pointer;
+  display:block;
+}
+@media(max-width:900px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  .gallery-grid{gap:.4rem;}
+}
+
 
 </style>
 </head>
@@ -293,7 +314,7 @@ footer a{color:#fff;text-decoration:none;}
 <p>That's completely fine, and you're not alone. A lot of people who train here started in exactly the same place. We'll meet you where you are, move at your pace, and make sure you never feel out of place. This studio was built for you as much as anyone.</p>
 <span class="path-arrow">Book a free consultation →</span>
 </a>
-</div><div class="path-bottom-image"><img alt="Get Cronk'd front door" src="frontdoor.jpeg"/></div>
+</div>
 
 </div>
 </section>
@@ -336,53 +357,90 @@ footer a{color:#fff;text-decoration:none;}
 <div class="wrap">
 <div class="section-label">What We Offer</div>
 <h2 class="section-title">Find your thing.</h2>
-<p class="section-lead">Personal training, group classes, specialty programs for all ages. Your first group class is always free.</p>
+<p class="section-lead">Personal training, group classes, nutrition coaching, and specialty programs for all ages. Your first group class is always free.</p>
 <div class="services-grid">
+
 <div class="svc-card">
+<div class="svc-img"><img src="personaltraining.jpeg" alt="Personal training at Get Cronk'd"></div>
+<div class="svc-body">
 <h3>Personal Training</h3>
-<p>45-minute sessions, one-on-one or semi-private (2, 3, or 4-on-1). In studio or online via Zoom. All programs are customized based on your goals and abilities. We recommend starting with a no-charge consultation.</p>
+<p>One-on-one or semi-private coaching built around your goals, your body, and your pace.</p>
 <span class="svc-tag">Free consultation</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="groupfitness.jpeg" alt="Group fitness class at Get Cronk'd"></div>
+<div class="svc-body">
 <h3>Group Fitness</h3>
-<p>One-hour classes including strength &amp; cardio circuits, S3 Hybrid (half spin, half strength), SPYNergy spin classes, SMART recovery, and AMP'd Up high-intensity. All levels welcome — our instructors scale the intensity to you.</p>
+<p>Small-group classes with real coaching, great energy, and options for every fitness level.</p>
 <span class="svc-tag">First class free</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="nutritionconsult.jpeg" alt="Nutrition coaching consultation"></div>
+<div class="svc-body">
 <h3>Nutrition Coaching</h3>
-<p>A 12-week program covering sustainable, whole-food nutrition. We'll build your strategy, review macros, create grocery lists, share meal ideas, and navigate eating out. You can't out-run a bad diet — let us help you fuel right.</p>
+<p>A 12-week whole-food nutrition program with macros, meal ideas, grocery support, and realistic strategy.</p>
 <span class="svc-tag">12 weeks</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="squatsntots.jpeg" alt="Squats N' Tots class"></div>
+<div class="svc-body">
 <h3>Squats N' Tots</h3>
-<p>Get out, have fun with other new moms or dads, and work out with the cutest training partners on the planet. Sessions focus on building overall body strength — use your own bodyweight, free weights, or your baby as the weight.</p>
+<p>A parent-friendly strength class where your cutest training partner can come along too.</p>
 <span class="svc-tag">Tue &amp; Thu · 10am</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="fit4life.jpeg" alt="Fit4Life active aging class"></div>
+<div class="svc-body">
 <h3>Fit4Life · Active Aging 50+</h3>
-<p>Low-impact sessions focused on building strength in movements done during daily living. Circuit training, interval training, and stationary workouts using a variety of equipment. Age is truly just a number.</p>
+<p>Low-impact strength and movement for daily life, built to help you feel capable and confident.</p>
 <span class="svc-tag">Mon–Sat · 11am</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="powerhour.jpeg" alt="Adult Power Hour training"></div>
+<div class="svc-body">
 <h3>Adult Power Hour</h3>
-<p>Individualized programming carried out in a group setting with ongoing coaching. Your program is designed for your needs, abilities, and goals with progressive overload built in. A certified trainer is always there.</p>
+<p>Individualized programming in a coached group setting, with progressive overload and support.</p>
 <span class="svc-tag">Wed &amp; Fri · 7pm</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="youth.jpeg" alt="Youth fitness program"></div>
+<div class="svc-body">
 <h3>Youth Fitness · Ages 7–12</h3>
-<p>Introducing youth to the gym in a safe, coach-led environment. Circuit training, interval training, and fitness games using bodyweight and small equipment. Guaranteed to get kids moving and having fun.</p>
+<p>A safe, coach-led intro to fitness with movement, games, strength, and confidence-building.</p>
 <span class="svc-tag">Tue &amp; Thu · 5pm</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="youth.jpeg" alt="Youth Power Hour program"></div>
+<div class="svc-body">
 <h3>Youth Power Hour · Ages 11+</h3>
-<p>Developing confidence and self-efficacy in the gym while still leaving space for fun. Workouts are designed to challenge participants interested in progressing while still encouraging basic movement for those less motivated.</p>
+<p>A stronger next step for kids and teens who are ready to build skill, confidence, and consistency.</p>
 <span class="svc-tag">Tue &amp; Thu · 4pm</span>
 </div>
+</div>
+
 <div class="svc-card">
+<div class="svc-img"><img src="cynthia.png" alt="Pilates with Cynthia"></div>
+<div class="svc-body">
 <h3>Pilates · With Cynthia</h3>
-<p>Mind-body exercises with emphasis on breath and alignment. Strengthen and stretch every part of the body, with options for various experience and fitness levels. Every body can benefit from mindful movement.</p>
+<p>Mind-body movement focused on breath, alignment, strength, and mobility for every body.</p>
 <span class="svc-tag">Wed · 5:15pm</span>
 </div>
+</div>
+
 </div>
 </div>
 </section>
@@ -462,7 +520,7 @@ footer a{color:#fff;text-decoration:none;}
 </div>
 </div>
 <div class="team-card">
-<div class="team-photo"><img alt="Jacob McLellan" src="jacob.png"/></div>
+<div class="team-photo"><img alt="Jacob McLellan" src="jacob.jpg"/></div>
 <div class="team-info">
 <h3>Jacob McLellan</h3>
 <div class="team-role">Trainer</div>
@@ -473,23 +531,23 @@ footer a{color:#fff;text-decoration:none;}
 <div class="team-photo"><img alt="Genevieve" src="genevieve.png"/></div>
 <div class="team-info">
 <h3>Genevieve</h3>
-<div class="team-role">Instructor · SPYNergy &amp; Specialty</div>
-<p>The energy behind SPYNergy Flow, Fitboots Rebounding, and the Pound Rockout Workout. If you're looking for a class that leaves you sweating and smiling, she's your person.</p>
+<div class="team-role">Pound &amp; Fitboots Rebound Instructor</div>
+<p>The energy behind Pound and Fitboots Rebound classes. If you're looking for something upbeat, sweaty, and a little different from a standard workout, she's your person.</p>
 </div>
 </div>
 <div class="team-card">
 <div class="team-photo"><img alt="Luc" src="luc.png"/></div>
 <div class="team-info">
 <h3>Luc</h3>
-<div class="team-role">Instructor · SPYNergy Crank'd</div>
-<p>Runs the extra-spicy advanced spin class. If you want to push your pedal to the metal and challenge your limits, Luc's SPYNergy Crank'd is where you go.</p>
+<div class="team-role">Spin Instructor</div>
+<p>Leads spin classes with the kind of energy that gets people moving. If you want a ride that challenges your limits and keeps you coming back, Luc's class is where you go.</p>
 </div>
 </div>
 <div class="team-card">
 <div class="team-photo"><img alt="Cynthia" src="cynthia.png"/></div>
 <div class="team-info">
 <h3>Cynthia</h3>
-<div class="team-role">Instructor · Pilates</div>
+<div class="team-role">Pilates Instructor</div>
 <p>Leads the Wednesday evening Pilates class with emphasis on breath, alignment, and mindful movement. Options for every experience and fitness level — every body benefits.</p>
 </div>
 </div>
@@ -497,8 +555,8 @@ footer a{color:#fff;text-decoration:none;}
 <div class="team-photo"><img alt="Diane" src="diane.png"/></div>
 <div class="team-info">
 <h3>Diane</h3>
-<div class="team-role">Instructor</div>
-<p>[ Bio placeholder — Chris to provide details ]</p>
+<div class="team-role">Administration &amp; Social Media</div>
+<p>Rebecca’s mom, biggest fan, and the ultimate admin wizard behind the scenes. Diane is likely the friendly voice you’ll hear by phone or email, keeping the studio organized, connected, and running with a whole lot of heart.</p>
 </div>
 </div>
 </div>
@@ -561,15 +619,15 @@ footer a{color:#fff;text-decoration:none;}
 <div class="wrap" style="text-align:center;">
 <div class="section-label">Life at the Studio</div>
 <h2 class="section-title">See for yourself.</h2>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:2rem;border-radius:var(--radius);overflow:hidden;">
-<img alt="Spin class" onclick="openLB(this)" src="spin-class.jpg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
-<img alt="Community" onclick="openLB(this)" src="community.jpg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
-<img alt="Group" onclick="openLB(this)" src="group.jpg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
-<img alt="Storefront" onclick="openLB(this)" src="frontdoor.jpeg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
-<img alt="Team" onclick="openLB(this)" src="team.jpg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
-<img alt="Floor work" onclick="openLB(this)" src="floor-work.jpg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
-<img alt="Post-class" onclick="openLB(this)" src="post-class.jpg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
-<img alt="Welcome" onclick="openLB(this)" src="welcome.jpg" style="width:100%;height:180px;object-fit:cover;cursor:pointer;"/>
+<div class="gallery-grid">
+<img alt="Rebecca teaching at Get Cronk'd" onclick="openLB(this)" src="rebeccateach.jpeg"/>
+<img alt="Luc leading spin class" onclick="openLB(this)" src="lucspin.jpeg"/>
+<img alt="Get Cronk'd trainers" onclick="openLB(this)" src="trainers.jpeg"/>
+<img alt="Fitness class at Get Cronk'd" onclick="openLB(this)" src="fitnessclass.jpeg"/>
+<img alt="Class at Get Cronk'd" onclick="openLB(this)" src="class.jpeg"/>
+<img alt="Rebecca and Sue" onclick="openLB(this)" src="rebeccaandsue.jpeg"/>
+<img alt="Get Cronk'd studio" onclick="openLB(this)" src="studio.jpeg"/>
+<img alt="Get Cronk'd studio interior" onclick="openLB(this)" src="studio3.jpeg"/>
 </div>
 </div>
 </section>
