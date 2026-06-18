@@ -54,7 +54,6 @@ ul { list-style: none; }
 .breadcrumb a:hover { color: var(--ink); }
 .breadcrumb span { margin: 0 8px; color: var(--stone); }
 .page-header h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; }
-.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 42px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 12px; }
 .page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 24px; max-width: 520px; }
 
 /* PROJECTS */
@@ -80,29 +79,30 @@ ul { list-style: none; }
 .project-link-outline:hover { border-color: var(--ink); background: transparent; }
 
 /* PRE-FOOTER */
-.pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
+.pre-footer { background: var(--navy); padding: clamp(32px,4vw,52px) 0; text-align: center; }
 
 /* FOOTER */
-.footer { background: var(--paper); padding: 40px 0 32px; border-top: 1px solid var(--stone); }
+.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
+.footer-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
 .footer-brand { display: flex; flex-direction: column; gap: 14px; }
-.footer-brand img { width: 64px; height: 64px; }
-.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--ink); }
+.footer-brand img { width: 72px; height: 72px; }
+.footer-tagline { font-size: 13px; color: var(--slate); line-height: 1.65; font-weight: 400; max-width: 260px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
+.footer-col a, .footer-col p { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
+.footer-col a:hover { color: var(--ink); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
 @media (max-width: 860px) {
   .project-inner, .project-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
 </style>
@@ -130,9 +130,7 @@ ul { list-style: none; }
   <div class="container">
     <div class="page-header-inner">
       <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>›</span>Brand & Voice</p>
-      <h1>Brand & Voice
-        <span class="accent-line">that holds together.</span>
-      </h1>
+      <h1>Brand & Voice</h1>
       <p>Identity systems, brand guides, and the words that give a business a consistent presence across everything it touches.</p>
     </div>
   </div>
@@ -151,7 +149,7 @@ ul { list-style: none; }
           <p class="project-eyebrow">Client · Brand System</p>
           <h2 class="project-name">Fin & Oak Brand Guide</h2>
           <p class="project-scope">Brand Book · Voice & Tone · Identity System</p>
-          <p class="project-desc">A complete brand system for a mom-and-daughter pet bakery in the Annapolis Valley. The guide covers the logo, the colours, the typography, the voice rules, and the things the brand would never say — all written so that anyone picking it up three years from now can keep it consistent without asking.</p>
+          <p class="project-desc">A complete brand system for a mom-and-daughter pet bakery in the Annapolis Valley. The guide covers the logo, the colours, the typography, the voice rules, and the things the brand would never say. All written so that anyone picking it up three years from now can keep it consistent without asking.</p>
           <p class="project-desc">The test for every rule in here was the same: does this sound like the people who actually run this bakery?</p>
           <div class="project-links">
             <a href="finoak-brand-book.html" target="_blank" class="project-link">View the brand guide →</a>
@@ -160,26 +158,25 @@ ul { list-style: none; }
       </div>
     </div>
 
-    <!-- COPPER + BEAN BRAND -->
+    <!-- COPPER + BEAN VOICE GUIDE -->
     <div class="project">
       <div class="project-inner reverse">
         <div class="project-image">
-          <img src="copperandbeancupandmenu.png" alt="Copper + Bean brand identity">
+          <img src="copperandbeancupandmenu.png" alt="Copper + Bean voice guide">
         </div>
         <div class="project-body">
-          <p class="project-eyebrow">Concept · Brand Identity</p>
+          <p class="project-eyebrow">Concept · Voice Guide</p>
           <h2 class="project-name">Copper + Bean</h2>
-          <p class="project-scope">Voice Guide · Logo Suite · Colour · Typography</p>
-          <p class="project-desc">Voice came first — who are Steve and Alexa, how do they talk, what would they never say? The visual identity grew from there. Logo explorations, font pairings, colour palette, and a word list that acts as a fence around the brand. The point was to show what it looks like when voice and identity are built as one thing rather than two separate jobs.</p>
+          <p class="project-scope">Voice Guide · Messaging · Word List · Sample Copy</p>
+          <p class="project-desc">Voice came first. Who are Steve and Alexa, how do they talk, and what would they never say? The guide defines the brand in four words, shows what it sounds like versus what it doesn't, and includes a word list that acts as a fence around the voice. The most useful guardrail in here isn't a rule. It's a single example of what Copper + Bean would never sound like.</p>
           <div class="project-links">
-            <a href="copper-bean-voice.html" target="_blank" class="project-link">Voice guide →</a>
-            <a href="copper-bean-brand.html" target="_blank" class="project-link project-link-outline">Brand identity →</a>
+            <a href="copper-bean-voice.html" target="_blank" class="project-link">View the voice guide →</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- RAVEN HOUSE ATELIER -->
+    <!-- COPPER + BEAN BRAND IDENTITY -->
     <div class="project">
       <div class="project-inner">
         <div class="project-image">
@@ -187,9 +184,27 @@ ul { list-style: none; }
         </div>
         <div class="project-body">
           <p class="project-eyebrow">Concept · Brand Identity</p>
+          <h2 class="project-name">Copper + Bean Brand</h2>
+          <p class="project-scope">Logo Suite · Colour Palette · Typography</p>
+          <p class="project-desc">The visual identity grew directly from the voice. Logo explorations, font pairings, and a colour palette that feels like the place and the people behind it. The point was to show what it looks like when visual and verbal identity are built as one connected thing rather than two separate jobs handed to two separate people.</p>
+          <div class="project-links">
+            <a href="copper-bean-brand.html" target="_blank" class="project-link">View the brand identity →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RAVEN HOUSE ATELIER -->
+    <div class="project">
+      <div class="project-inner reverse">
+        <div class="project-image">
+          <div class="project-image-placeholder"><span>Screenshot coming soon</span></div>
+        </div>
+        <div class="project-body">
+          <p class="project-eyebrow">Concept · Brand Identity</p>
           <h2 class="project-name">Raven House Atelier</h2>
           <p class="project-scope">Brand Identity · Style Guide · Lookbook</p>
-          <p class="project-desc">A personal project built to explore what a quiet, craft-focused leather goods brand could look and feel like. The imagery is AI-generated and the whole identity was designed from nothing as an exercise in restraint. The voice is quiet on purpose — it talks about materials and craft, not lifestyle or aspiration.</p>
+          <p class="project-desc">A personal project built to explore what a quiet, craft-focused leather goods brand could look and feel like. The imagery is AI-generated and the whole identity was designed from nothing as an exercise in restraint. The voice is quiet on purpose. It talks about materials and craft, not lifestyle or aspiration.</p>
           <p class="project-desc">The lookbook and style guide are the deliverables. It's a complete brand world built from scratch, which means none of the decisions were inherited.</p>
           <div class="project-links">
             <a href="atelier.html" target="_blank" class="project-link">View the lookbook →</a>
@@ -200,7 +215,7 @@ ul { list-style: none; }
 
     <!-- LYDIA NICHOLS EMAIL -->
     <div class="project">
-      <div class="project-inner reverse">
+      <div class="project-inner">
         <div class="project-image">
           <img src="lydia-lupins.png" alt="Lydia Nichols email newsletter">
         </div>
@@ -208,10 +223,12 @@ ul { list-style: none; }
           <p class="project-eyebrow">Concept · Email Design</p>
           <h2 class="project-name">Lydia Nichols</h2>
           <p class="project-scope">Email Newsletter · Brand Voice · Visual Design</p>
-          <p class="project-desc">A referral email newsletter for a fictional Annapolis Valley real estate agent, designed to feel like something worth opening. The brief was to make it look and sound like a person — warm, grounded in place, and completely unlike the average real estate email blast.</p>
-          <p class="project-desc">The lupin field header isn't decoration. It's Lydia's brand in a single image — rural Nova Scotia, quietly beautiful, unmistakably local.</p>
+          <p class="project-desc">A referral email newsletter for a fictional Annapolis Valley real estate agent, designed to feel like something worth opening. The brief was to make it look and sound like a person: warm, grounded in place, and completely unlike the average real estate email blast.</p>
+          <p class="project-desc">The lupin field header isn't decoration. It's Lydia's brand in a single image. Rural Nova Scotia, quietly beautiful, unmistakably local.</p>
           <div class="project-links">
             <a href="lydia-email.html" target="_blank" class="project-link">View the email →</a>
+            <a href="lydia-share.html" target="_blank" class="project-link project-link-outline">Referral page →</a>
+            <a href="lydia-connect.html" target="_blank" class="project-link project-link-outline">Connect page →</a>
           </div>
         </div>
       </div>
@@ -229,14 +246,24 @@ ul { list-style: none; }
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-brand"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
-      <div class="footer-nav-col">
+      <div class="footer-brand">
+        <img src="roundlogo.png" alt="The Yellow Front Door">
+        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+      </div>
+      <div class="footer-col">
         <h4>Studio</h4>
         <a href="what-we-do.html">What We Do</a>
         <a href="the-proof.html">The Proof</a>
         <a href="about.html">About</a>
         <a href="the-doorstep.html">The Doorstep</a>
         <a href="lets-talk.html">Let's Talk</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="lets-talk.html">Start a conversation</a>
+        <a href="lets-talk.html">Request a Drive-By</a>
+        <a href="the-scorecard.html">Take the Scorecard</a>
+        <p style="margin-top:8px;">Annapolis Valley, NS</p>
       </div>
     </div>
     <div class="footer-bottom">
