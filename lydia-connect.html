@@ -12,19 +12,17 @@ body { background: #F5F2EF; font-family: 'Montserrat', sans-serif; font-size: 16
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 
-/* DEMO NOTE */
+/* DEMO BAR */
 .demo-bar { background: #2A242C; text-align: center; padding: 10px 24px; }
-.demo-bar p { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.demo-bar p { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
 
 /* NAV */
-.nav { background: #FBF8F3; border-bottom: 1px solid #DDD4DE; padding: 0 clamp(24px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; }
-.nav-brand { display: flex; flex-direction: column; gap: 2px; }
-.nav-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; color: #1E1A24; letter-spacing: 0.02em; }
-.nav-sub { font-size: 8px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #9B8BA0; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav { background: #FBF8F3; border-bottom: 1px solid #DDD4DE; padding: 0 clamp(24px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo { height: 48px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { font-size: 12px; font-weight: 500; color: #596674; letter-spacing: 0.04em; transition: color 0.2s; }
 .nav-links a:hover { color: #1E1A24; }
-.nav-contact { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FBF8F3; background: #2A242C; padding: 10px 22px; transition: background 0.2s; }
+.nav-contact { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FBF8F3; background: #2A242C; padding: 10px 22px; transition: background 0.2s; white-space: nowrap; }
 .nav-contact:hover { background: #413548; }
 
 /* HERO */
@@ -45,32 +43,46 @@ a { color: inherit; text-decoration: none; }
 .btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 16px 28px; transition: background 0.2s, border-color 0.2s; border: none; text-decoration: none; cursor: pointer; }
 .btn-dark { background: #2A242C; color: #FBF8F3; }
 .btn-dark:hover { background: #413548; }
-.btn-outline { background: transparent; color: #2A242C; border: 1px solid #C4B9C8; }
-.btn-outline:hover { border-color: #2A242C; }
+.btn-purple { background: #A99AAF; color: #FBF8F3; }
+.btn-purple:hover { background: #8B7A8F; }
+
+/* EXPECT STRIP */
+.expect { background: #A99AAF; padding: clamp(36px, 5vw, 56px) clamp(24px, 6vw, 80px); }
+.expect-inner { max-width: 960px; margin: 0 auto; }
+.expect-label { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+.expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 48px); }
+.expect-item { }
+.expect-num { font-family: 'Playfair Display', serif; font-size: 36px; color: rgba(255,255,255,0.25); line-height: 1; margin-bottom: 10px; font-style: italic; }
+.expect-title { font-size: 13px; font-weight: 600; color: #FBF8F3; margin-bottom: 6px; letter-spacing: 0.02em; }
+.expect-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; }
 
 /* QUOTE */
-.quote-section { padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); background: #F5F2EF; border-top: 1px solid #DDD4DE; }
+.quote-section { background: #2A242C; padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); }
 .quote-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
-.quote-left { }
-.quote-mark { font-family: 'Playfair Display', serif; font-size: 72px; color: #DDD4DE; line-height: 0.7; margin-bottom: 20px; }
-.quote-text { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.4vw, 24px); font-weight: 400; color: #1E1A24; line-height: 1.5; font-style: italic; }
-.quote-attr { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9B8BA0; margin-top: 20px; }
-.quote-right p { font-size: 14px; line-height: 1.9; color: #596674; margin-bottom: 16px; }
+.quote-mark { font-family: 'Playfair Display', serif; font-size: 72px; color: #A99AAF; line-height: 0.7; margin-bottom: 20px; }
+.quote-text { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.4vw, 24px); font-weight: 400; color: #FBF8F3; line-height: 1.5; font-style: italic; }
+.quote-attr { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #A99AAF; margin-top: 20px; }
+.quote-right p { font-size: 14px; line-height: 1.9; color: rgba(251,248,243,0.6); margin-bottom: 16px; }
 .quote-right p:last-child { margin-bottom: 0; }
 
+/* LOGO SIGN OFF */
+.signoff { background: #EDE7EE; border-top: 1px solid #DDD4DE; padding: clamp(32px, 4vw, 48px) clamp(24px, 5vw, 64px); text-align: center; }
+.signoff img { height: 52px; width: auto; margin: 0 auto 14px; }
+.signoff p { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #9B8BA0; }
+
 /* FOOTER */
-.footer { background: #EDE7EE; border-top: 1px solid #DDD4DE; padding: 20px clamp(24px,5vw,64px); text-align: center; }
-.footer p { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #9B8BA0; line-height: 1.9; }
+.footer { background: #2A242C; padding: 20px clamp(24px,5vw,64px); text-align: center; }
+.footer p { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); line-height: 1.9; }
+.footer a { color: rgba(255,255,255,0.4); }
+.footer a:hover { color: rgba(255,255,255,0.7); }
 
 @media (max-width: 768px) {
   .intro-inner { grid-template-columns: 1fr; }
   .quote-inner { grid-template-columns: 1fr; }
+  .expect-grid { grid-template-columns: 1fr; gap: 24px; }
   .nav-links { display: none; }
   .hero-text { text-align: left; }
   .hero-content { justify-content: flex-start; }
-}
-@media (max-width: 480px) {
-  .hero-heading { font-size: clamp(24px, 6vw, 34px); }
 }
 </style>
 </head>
@@ -81,10 +93,7 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <nav class="nav">
-  <div class="nav-brand">
-    <p class="nav-name">Lydia Nichols</p>
-    <p class="nav-sub">Elevated Homes</p>
-  </div>
+  <img src="lydia-logo.png" alt="Lydia Nichols — Elevated Homes" class="nav-logo">
   <div class="nav-links">
     <a href="#">About</a>
     <a href="#">Listings</a>
@@ -114,7 +123,31 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="intro-actions">
       <a href="sms:9025555555" class="btn btn-dark">Text Lydia</a>
-      <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-outline">Email Lydia</a>
+      <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-purple">Email Lydia</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT TO EXPECT -->
+<div class="expect">
+  <div class="expect-inner">
+    <p class="expect-label">What to expect</p>
+    <div class="expect-grid">
+      <div class="expect-item">
+        <p class="expect-num">01</p>
+        <p class="expect-title">An honest first conversation.</p>
+        <p class="expect-desc">No sales pitch, no pressure. Just a chance to talk through where you're at and whether I can help.</p>
+      </div>
+      <div class="expect-item">
+        <p class="expect-num">02</p>
+        <p class="expect-title">Someone who picks up the phone.</p>
+        <p class="expect-desc">I'm reachable, responsive, and I'll keep you in the loop at every step without you having to chase me down.</p>
+      </div>
+      <div class="expect-item">
+        <p class="expect-num">03</p>
+        <p class="expect-title">No rush, ever.</p>
+        <p class="expect-desc">The timing has to be right for you. Reach out whenever you're ready — even if that's just to ask a few questions.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -122,7 +155,7 @@ a { color: inherit; text-decoration: none; }
 <!-- QUOTE -->
 <div class="quote-section">
   <div class="quote-inner">
-    <div class="quote-left">
+    <div>
       <p class="quote-mark">"</p>
       <p class="quote-text">I grew up here. I know these roads, these neighbourhoods, and what it actually means to find the right fit. That's not something you can Google.</p>
       <p class="quote-attr">Lydia Nichols · Elevated Homes</p>
@@ -134,11 +167,17 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
+<!-- SIGN OFF -->
+<div class="signoff">
+  <img src="lydia-logo.png" alt="Lydia Nichols — Elevated Homes">
+  <p>Annapolis Valley Real Estate · 902 555-5555</p>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <p>Lydia Nichols · Elevated Homes · Annapolis Valley Real Estate<br>
-  <a href="tel:9025555555" style="color:#9B8BA0;">902 555-5555</a> &nbsp;·&nbsp;
-  <a href="mailto:lydia@thisisnotarealemail.com" style="color:#9B8BA0;">lydia@thisisnotarealemail.com</a></p>
+  <a href="tel:9025555555">902 555-5555</a> &nbsp;·&nbsp;
+  <a href="mailto:lydia@thisisnotarealemail.com">lydia@thisisnotarealemail.com</a></p>
 </footer>
 
 </body>
