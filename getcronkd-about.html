@@ -122,6 +122,29 @@ footer p{font-size:12px;letter-spacing:.08em;margin-bottom:.3rem;}
 footer a{color:#fff;text-decoration:none;}
 .sample-bar{background:var(--blue);text-align:center;padding:.5rem 1rem;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);position:fixed;bottom:0;left:0;right:0;z-index:100;}
 .sample-bar a{color:#fff;text-decoration:none;font-weight:600;}
+
+.space-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:.75rem;
+  margin-top:2rem;
+}
+.space-grid img{
+  width:100%;
+  aspect-ratio:4/3;
+  height:auto;
+  object-fit:cover;
+  object-position:center;
+  border-radius:var(--radius);
+  display:block;
+}
+@media(max-width:900px){
+  .space-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:520px){
+  .space-grid{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 <body>
@@ -252,10 +275,10 @@ footer a{color:#fff;text-decoration:none;}
     <h2 class="section-title">2,000 sqft of real equipment.</h2>
     <p class="section-lead" style="margin:0 auto 2rem;">No waiting for machines. Spin bikes, free weights, a full squat rack, battle ropes, parallettes, TRX — it's all here. And you'll know every face in the room within a week.</p>
     <div class="comp-grid">
-      <img src="studio-interior.jpg" loading="lazy" decoding="async" alt="Studio interior">
-      <img src="spin-bikes.jpg" loading="lazy" decoding="async" alt="Spin bikes">
-      <img src="credentials-wall.jpg" loading="lazy" decoding="async" alt="Credentials wall">
-      <img src="front-desk.jpg" loading="lazy" decoding="async" alt="Front desk">
+      <img src="studiointerior1.jpg" loading="lazy" decoding="async" alt="Studio interior">
+      <img src="spinbikes.jpg" loading="lazy" decoding="async" alt="Spin bikes">
+      <img src="studio1.jpg" loading="lazy" decoding="async" alt="Credentials wall">
+      <img src="front.jpg" loading="lazy" decoding="async" alt="Front desk">
     </div>
   </div>
 </section>
