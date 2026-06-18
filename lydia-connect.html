@@ -14,75 +14,86 @@ a { color: inherit; text-decoration: none; }
 
 /* DEMO BAR */
 .demo-bar { background: #2A242C; text-align: center; padding: 10px 24px; }
-.demo-bar p { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+.demo-bar p { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); line-height: 1.6; }
 
 /* NAV */
-.nav { background: #FBF8F3; border-bottom: 1px solid #DDD4DE; padding: 0 clamp(24px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo { height: 48px; width: auto; display: block; }
+.nav { background: #FBF8F3; border-bottom: 1px solid #DDD4DE; padding: 0 clamp(16px, 4vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-logo { height: clamp(44px, 8vw, 56px); width: auto; display: block; flex-shrink: 0; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { font-size: 12px; font-weight: 500; color: #596674; letter-spacing: 0.04em; transition: color 0.2s; }
 .nav-links a:hover { color: #1E1A24; }
-.nav-contact { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FBF8F3; background: #2A242C; padding: 10px 22px; transition: background 0.2s; white-space: nowrap; }
+.nav-contact { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FBF8F3; background: #2A242C; padding: 10px 18px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0; }
 .nav-contact:hover { background: #413548; }
 
 /* HERO */
-.hero { position: relative; height: clamp(400px, 52vw, 560px); overflow: hidden; }
+.hero { position: relative; height: clamp(340px, 52vw, 560px); overflow: hidden; }
 .hero img { width: 100%; height: 100%; object-fit: cover; object-position: left 30%; display: block; }
-.hero-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(28px, 6vw, 80px); }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(30,26,36,0.0) 0%, rgba(245,242,239,0.0) 100%); }
+.hero-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(24px, 6vw, 80px); }
 .hero-text { max-width: 400px; text-align: right; }
 .hero-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 14px; }
-.hero-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 400; color: #1E1A24; line-height: 1.2; margin-bottom: 12px; }
+.hero-heading { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 46px); font-weight: 400; color: #1E1A24; line-height: 1.2; margin-bottom: 12px; }
 .hero-sub { font-size: 14px; color: #596674; line-height: 1.8; }
 
 /* INTRO */
-.intro { background: #FBF8F3; padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); }
-.intro-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
-.intro-label { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 20px; }
-.intro-body { font-size: 15px; line-height: 1.9; color: #2C2630; }
+.intro { background: #FBF8F3; padding: clamp(36px, 6vw, 80px) clamp(20px, 5vw, 80px); }
+.intro-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.intro-label { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 16px; line-height: 1.6; }
+.intro-body { font-size: clamp(14px, 2vw, 15px); line-height: 1.85; color: #2C2630; }
 .intro-actions { display: flex; flex-direction: column; gap: 12px; }
-.btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 16px 28px; transition: background 0.2s, border-color 0.2s; border: none; text-decoration: none; cursor: pointer; }
+.btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 15px 24px; transition: background 0.2s; border: none; text-decoration: none; cursor: pointer; }
 .btn-dark { background: #2A242C; color: #FBF8F3; }
 .btn-dark:hover { background: #413548; }
 .btn-purple { background: #A99AAF; color: #FBF8F3; }
 .btn-purple:hover { background: #8B7A8F; }
 
 /* EXPECT STRIP */
-.expect { background: #A99AAF; padding: clamp(36px, 5vw, 56px) clamp(24px, 6vw, 80px); }
+.expect { background: #A99AAF; padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 80px); }
 .expect-inner { max-width: 960px; margin: 0 auto; }
-.expect-label { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
-.expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 48px); }
-.expect-item { }
-.expect-num { font-family: 'Playfair Display', serif; font-size: 36px; color: rgba(255,255,255,0.25); line-height: 1; margin-bottom: 10px; font-style: italic; }
-.expect-title { font-size: 13px; font-weight: 600; color: #FBF8F3; margin-bottom: 6px; letter-spacing: 0.02em; }
-.expect-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+.expect-label { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+.expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 4vw, 48px); }
+.expect-num { font-family: 'Playfair Display', serif; font-size: 32px; color: rgba(255,255,255,0.25); line-height: 1; margin-bottom: 8px; font-style: italic; }
+.expect-title { font-size: 13px; font-weight: 600; color: #FBF8F3; margin-bottom: 6px; }
+.expect-desc { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.65; }
 
 /* QUOTE */
-.quote-section { background: #2A242C; padding: clamp(48px, 7vw, 80px) clamp(24px, 6vw, 80px); }
-.quote-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
-.quote-mark { font-family: 'Playfair Display', serif; font-size: 72px; color: #A99AAF; line-height: 0.7; margin-bottom: 20px; }
-.quote-text { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.4vw, 24px); font-weight: 400; color: #FBF8F3; line-height: 1.5; font-style: italic; }
-.quote-attr { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #A99AAF; margin-top: 20px; }
-.quote-right p { font-size: 14px; line-height: 1.9; color: rgba(251,248,243,0.6); margin-bottom: 16px; }
+.quote-section { background: #2A242C; padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px); }
+.quote-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+.quote-mark { font-family: 'Playfair Display', serif; font-size: 64px; color: #A99AAF; line-height: 0.7; margin-bottom: 16px; }
+.quote-text { font-family: 'Playfair Display', serif; font-size: clamp(17px, 2.4vw, 24px); font-weight: 400; color: #FBF8F3; line-height: 1.5; font-style: italic; }
+.quote-attr { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #A99AAF; margin-top: 18px; }
+.quote-right p { font-size: 14px; line-height: 1.85; color: rgba(251,248,243,0.6); margin-bottom: 14px; }
 .quote-right p:last-child { margin-bottom: 0; }
 
-/* LOGO SIGN OFF */
-.signoff { background: #EDE7EE; border-top: 1px solid #DDD4DE; padding: clamp(32px, 4vw, 48px) clamp(24px, 5vw, 64px); text-align: center; }
+/* SIGN OFF */
+.signoff { background: #EDE7EE; border-top: 1px solid #DDD4DE; padding: clamp(28px, 4vw, 48px) clamp(20px, 5vw, 64px); text-align: center; }
 .signoff img { height: 52px; width: auto; margin: 0 auto 14px; }
 .signoff p { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #9B8BA0; }
 
 /* FOOTER */
-.footer { background: #2A242C; padding: 20px clamp(24px,5vw,64px); text-align: center; }
+.footer { background: #2A242C; padding: 20px clamp(20px,5vw,64px); text-align: center; }
 .footer p { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); line-height: 1.9; }
 .footer a { color: rgba(255,255,255,0.4); }
 .footer a:hover { color: rgba(255,255,255,0.7); }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .intro-inner { grid-template-columns: 1fr; }
-  .quote-inner { grid-template-columns: 1fr; }
-  .expect-grid { grid-template-columns: 1fr; gap: 24px; }
   .nav-links { display: none; }
-  .hero-text { text-align: left; }
-  .hero-content { justify-content: flex-start; }
+  .nav-logo { height: clamp(48px, 10vw, 64px); }
+  .hero { height: clamp(300px, 70vw, 420px); }
+  .hero-overlay { background: linear-gradient(to bottom, rgba(30,26,36,0.0) 0%, rgba(30,26,36,0.5) 65%, rgba(30,26,36,0.65) 100%); }
+  .hero-content { justify-content: flex-start; align-items: flex-end; padding: 0 20px 28px; }
+  .hero-text { text-align: left; max-width: 100%; }
+  .hero-heading { color: #FBF8F3; font-size: clamp(20px, 5.5vw, 28px); }
+  .hero-sub { color: rgba(251,248,243,0.8); font-size: 13px; }
+  .hero-eyebrow { color: rgba(251,248,243,0.6); }
+  .hero img { object-position: center 25%; }
+  .intro-inner { grid-template-columns: 1fr; gap: 28px; }
+  .intro { padding: 32px 20px; }
+  .expect-grid { grid-template-columns: 1fr; gap: 20px; }
+  .expect { padding: 32px 20px; }
+  .quote-inner { grid-template-columns: 1fr; gap: 28px; }
+  .quote-section { padding: 40px 20px; }
 }
 </style>
 </head>
@@ -102,9 +113,9 @@ a { color: inherit; text-decoration: none; }
   <a href="mailto:lydia@thisisnotarealemail.com" class="nav-contact">Contact Lydia</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <img src="lydia-interior.png" alt="Lydia Nichols — Elevated Homes">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-text">
       <p class="hero-eyebrow">A private introduction</p>
@@ -114,12 +125,11 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
-<!-- INTRO -->
 <div class="intro">
   <div class="intro-inner">
     <div>
       <p class="intro-label">Someone sent you here because they thought I might be the right person to have in your corner.</p>
-      <p class="intro-body">Whether you're buying, selling, or just trying to figure out where to start, I'm here to make sure you actually understand what's happening at every step. No pressure, no pitch. Just an honest conversation with someone who knows this area and genuinely wants to help you make the right move — whenever that is.</p>
+      <p class="intro-body">Whether you're buying, selling, or just trying to figure out where to start, I'm here to make sure you actually understand what's happening at every step. No pressure, no pitch. Just an honest conversation with someone who knows this area and genuinely wants to help you make the right move, whenever that is.</p>
     </div>
     <div class="intro-actions">
       <a href="sms:9025555555" class="btn btn-dark">Text Lydia</a>
@@ -128,7 +138,6 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
-<!-- WHAT TO EXPECT -->
 <div class="expect">
   <div class="expect-inner">
     <p class="expect-label">What to expect</p>
@@ -146,13 +155,12 @@ a { color: inherit; text-decoration: none; }
       <div class="expect-item">
         <p class="expect-num">03</p>
         <p class="expect-title">No rush, ever.</p>
-        <p class="expect-desc">The timing has to be right for you. Reach out whenever you're ready — even if that's just to ask a few questions.</p>
+        <p class="expect-desc">The timing has to be right for you. Reach out whenever you're ready, even if that's just to ask a few questions.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- QUOTE -->
 <div class="quote-section">
   <div class="quote-inner">
     <div>
@@ -162,18 +170,16 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="quote-right">
       <p>I've been doing this long enough to know that buying or selling a home is rarely just about the house. There are a lot of moving pieces and it can feel overwhelming fast. My job is to slow that down and make sure you feel like you have someone paying attention.</p>
-      <p>When you're ready to talk — even if that's just to ask a few questions — reach out. The first conversation is always easy.</p>
+      <p>When you're ready to talk, even if that's just to ask a few questions, reach out. The first conversation is always easy.</p>
     </div>
   </div>
 </div>
 
-<!-- SIGN OFF -->
 <div class="signoff">
   <img src="lydia-logo.png" alt="Lydia Nichols — Elevated Homes">
   <p>Annapolis Valley Real Estate · 902 555-5555</p>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
   <p>Lydia Nichols · Elevated Homes · Annapolis Valley Real Estate<br>
   <a href="tel:9025555555">902 555-5555</a> &nbsp;·&nbsp;
