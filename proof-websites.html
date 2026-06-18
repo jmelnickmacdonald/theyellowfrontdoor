@@ -53,9 +53,8 @@ ul { list-style: none; }
 .breadcrumb a { color: var(--slate); transition: color 0.2s; }
 .breadcrumb a:hover { color: var(--ink); }
 .breadcrumb span { margin: 0 8px; color: var(--stone); }
-.page-header h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 0; }
-.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 42px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 12px; }
-.page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 24px; max-width: 520px; }
+.page-header h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; }
+.page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 20px; max-width: 520px; }
 
 /* PROJECTS */
 .projects { padding: clamp(56px, 7vw, 96px) 0; }
@@ -65,62 +64,67 @@ ul { list-style: none; }
 .project-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
 .project-inner.reverse { direction: rtl; }
 .project-inner.reverse > * { direction: ltr; }
-.project-image { position: relative; }
 .project-image img { width: 100%; height: auto; display: block; border: 1px solid var(--stone); }
 .project-image-placeholder { width: 100%; aspect-ratio: 16/10; background: var(--paper-mid); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
 .project-image-placeholder span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(19,36,71,0.2); }
-
-/* PINS */
-.pin { position: absolute; width: 28px; height: 28px; background: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 11px; font-weight: 700; color: var(--navy); transition: transform 0.2s, box-shadow 0.2s; z-index: 10; transform: translate(-50%, -50%); box-shadow: 0 2px 8px rgba(19,36,71,0.2); }
-.pin:hover { transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 4px 16px rgba(19,36,71,0.25); }
-.pin.active { background: var(--navy); color: var(--yellow); }
-
-/* PIN PANEL */
-.pin-panel { display: none; background: var(--paper-mid); border: 1px solid var(--stone); padding: 20px 22px; margin-top: 16px; }
-.pin-panel.active { display: block; }
-.pin-panel-label { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
-.pin-panel p { font-size: 13.5px; line-height: 1.85; color: var(--ink); }
-
-/* PROJECT BODY */
-.project-body { padding-top: 4px; }
 .project-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
 .project-name { font-family: var(--f-accent); font-size: clamp(32px, 4vw, 48px); color: var(--ink); line-height: 1.0; margin-bottom: 6px; font-weight: normal; }
 .project-scope { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 24px; }
 .project-intro { font-size: 13px; font-style: italic; line-height: 1.75; color: var(--slate); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--stone); }
 .project-desc { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 16px; }
-.project-desc:last-of-type { margin-bottom: 0; }
-.project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; align-items: center; }
 .project-link { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 12px 22px; transition: background 0.2s; }
 .project-link:hover { background: var(--brass); }
 .project-link-outline { background: transparent; color: var(--ink); border: 1px solid var(--stone); }
 .project-link-outline:hover { border-color: var(--ink); background: transparent; }
 
+/* BEHIND THE DECISIONS BUTTON */
+.decisions-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); background: none; border: none; cursor: pointer; padding: 0; border-bottom: 1px solid var(--stone); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; font-family: var(--f-body); }
+.decisions-btn:hover { color: var(--ink); border-color: var(--ink); }
+.decisions-btn svg { width: 14px; height: 14px; }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(19,36,71,0.6); z-index: 200; align-items: center; justify-content: center; padding: 24px; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--paper); max-width: 620px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
+.modal-header { padding: 28px 32px 20px; border-bottom: 1px solid var(--stone); display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; background: var(--paper); z-index: 1; }
+.modal-title { font-family: var(--f-head); font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); }
+.modal-close { background: none; border: none; cursor: pointer; color: var(--slate); font-size: 20px; line-height: 1; padding: 4px; transition: color 0.2s; }
+.modal-close:hover { color: var(--ink); }
+.modal-body { padding: 28px 32px 36px; }
+.modal-item { padding: 20px 0; border-bottom: 1px solid var(--stone); }
+.modal-item:last-child { border-bottom: none; padding-bottom: 0; }
+.modal-item-num { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+.modal-item-text { font-size: 14px; line-height: 1.85; color: var(--ink); }
+
 /* PRE-FOOTER */
-.pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
+.pre-footer { background: var(--navy); padding: clamp(32px,4vw,52px) 0; text-align: center; }
 
 /* FOOTER */
-.footer { background: var(--paper); padding: 40px 0 32px; border-top: 1px solid var(--stone); }
+.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
+.footer-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
 .footer-brand { display: flex; flex-direction: column; gap: 14px; }
-.footer-brand img { width: 64px; height: 64px; }
-.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--ink); }
+.footer-brand img { width: 72px; height: 72px; }
+.footer-tagline { font-size: 13px; color: var(--slate); line-height: 1.65; font-weight: 400; max-width: 260px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
+.footer-col a, .footer-col p { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
+.footer-col a:hover { color: var(--ink); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
 
-/* RESPONSIVE */
 @media (max-width: 860px) {
   .project-inner, .project-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .modal { max-height: 90vh; }
+  .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
 }
 </style>
 </head>
@@ -129,9 +133,7 @@ ul { list-style: none; }
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
-      <img src="roundlogo2.png" alt="The Yellow Front Door">
-    </a>
+    <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
     <ul class="nav-links" id="nav-links">
       <li><a href="what-we-do.html">What We Do</a></li>
       <li><a href="the-proof.html" class="active">The Proof</a></li>
@@ -151,9 +153,7 @@ ul { list-style: none; }
   <div class="container">
     <div class="page-header-inner">
       <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>›</span>Websites</p>
-      <h1>Websites
-        <span class="accent-line">built to be chosen.</span>
-      </h1>
+      <h1>Websites</h1>
       <p>Full sites, landing pages, and the copy that makes them work. Every project here started with a real brief and a real problem to solve.</p>
     </div>
   </div>
@@ -166,27 +166,20 @@ ul { list-style: none; }
     <!-- FIN & OAK -->
     <div class="project">
       <div class="project-inner">
-        <div class="project-image" id="finoak-image">
+        <div class="project-image">
           <img src="finandoakwebsite.png" alt="Fin & Oak Bark Bakery website">
-          <div class="pin" style="top:22%; left:48%;" data-pin="fo1" onclick="togglePin(this)">1</div>
-          <div class="pin" style="top:38%; left:20%;" data-pin="fo2" onclick="togglePin(this)">2</div>
-          <div class="pin" style="top:55%; left:50%;" data-pin="fo3" onclick="togglePin(this)">3</div>
-          <div class="pin" style="top:70%; left:35%;" data-pin="fo4" onclick="togglePin(this)">4</div>
-          <div class="pin" style="top:82%; left:62%;" data-pin="fo5" onclick="togglePin(this)">5</div>
         </div>
         <div class="project-body">
           <p class="project-eyebrow">Client · Full Build</p>
           <h2 class="project-name">Fin & Oak</h2>
           <p class="project-scope">Brand · Website · Voice · Systems</p>
-          <div id="fo-panel" class="pin-panel">
-            <p class="pin-panel-label">Pin <span id="fo-pin-num">1</span></p>
-            <p id="fo-pin-text"></p>
-          </div>
-          <p class="project-desc" style="margin-top:20px;">Fin & Oak came to us with a name, a kitchen, and a mom-and-daughter team who bake pet treats in the Annapolis Valley. Everything else needed building. The brief was "make it feel like us" — which turned out to mean warm, a little chaotic, and nothing that looked like it was pulled off a shelf.</p>
-          <p class="project-desc">We built the brand identity, the full brand book, the website, and all the customer-facing copy. The test for every piece was the same: does this sound like the people who actually run the bakery?</p>
+          <p class="project-desc">Fin & Oak is a mom-and-daughter pet bakery in the Annapolis Valley — and yes, that's us. We built the whole thing: brand identity, brand book, website, and all the customer-facing copy. The brief was "make it feel like us," which turned out to mean warm, a little chaotic, and nothing that looked like it was pulled off a shelf.</p>
           <div class="project-links">
             <a href="https://finandoak.ca" target="_blank" class="project-link">Visit the site →</a>
-            <a href="finoak-brand-book.html" target="_blank" class="project-link project-link-outline">View the brand book →</a>
+            <button class="decisions-btn" onclick="openModal('finoak')">
+              Behind the decisions
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 6v4M7 4.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -195,25 +188,21 @@ ul { list-style: none; }
     <!-- ANCHORED PROSE -->
     <div class="project">
       <div class="project-inner reverse">
-        <div class="project-image" id="ap-image">
+        <div class="project-image">
           <img src="anchoredprose.png" alt="Anchored Prose website">
-          <div class="pin" style="top:25%; left:55%;" data-pin="ap1" onclick="togglePin(this)">1</div>
-          <div class="pin" style="top:45%; left:42%;" data-pin="ap2" onclick="togglePin(this)">2</div>
-          <div class="pin" style="top:38%; left:68%;" data-pin="ap3" onclick="togglePin(this)">3</div>
-          <div class="pin" style="top:15%; left:30%;" data-pin="ap4" onclick="togglePin(this)">4</div>
-          <div class="pin" style="top:60%; left:25%;" data-pin="ap5" onclick="togglePin(this)">5</div>
         </div>
         <div class="project-body">
           <p class="project-eyebrow">Own Project · Full Build</p>
           <h2 class="project-name">Anchored Prose</h2>
           <p class="project-scope">Full Site · Copy · Brand Voice</p>
           <p class="project-intro">This one is personal. Anchored Prose is my own writing business, and the site reflects that — it's layered, it's detailed, and it's unapologetically a lot. Not everyone's cup of tea, and I know that. But everything here was chosen deliberately, and that same precision is what I bring to every client project.</p>
-          <div id="ap-panel" class="pin-panel">
-            <p class="pin-panel-label">Pin <span id="ap-pin-num">1</span></p>
-            <p id="ap-pin-text"></p>
-          </div>
-          <div class="project-links" style="margin-top:20px;">
+          <p class="project-desc">Full site design and build, all original copy, and a voice that stays consistent from the homepage through to the portfolio. The brief to myself was to make it feel professional without being stiff, and personal without being casual.</p>
+          <div class="project-links">
             <a href="https://anchoredprose.ca" target="_blank" class="project-link">Visit the site →</a>
+            <button class="decisions-btn" onclick="openModal('anchored')">
+              Behind the decisions
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 6v4M7 4.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -228,12 +217,10 @@ ul { list-style: none; }
         <div class="project-body">
           <p class="project-eyebrow">Concept · Full Build</p>
           <h2 class="project-name">Copper + Bean</h2>
-          <p class="project-scope">Voice · Brand Identity · Website · Menu</p>
-          <p class="project-desc">We invented Copper + Bean to demonstrate the full pipeline. A sharp modern coffee bar in Halifax's north end, run by two people who left corporate after the kids moved out. We wrote the brief ourselves and worked it all the way through from voice to screen — because the most useful thing we can show is what it looks like when all the pieces are built as one connected thing.</p>
+          <p class="project-scope">Website · Landing Page · Menu</p>
+          <p class="project-desc">We invented Copper + Bean to demonstrate what the full pipeline looks like when voice, identity, and execution are built as one connected thing. A sharp modern coffee bar in Halifax's north end, run by two people who left corporate after the kids moved out. The site is where all the thinking lands.</p>
           <div class="project-links">
             <a href="copper-bean-site.html" target="_blank" class="project-link">View the site →</a>
-            <a href="copper-bean-voice.html" target="_blank" class="project-link project-link-outline">Voice guide →</a>
-            <a href="copper-bean-brand.html" target="_blank" class="project-link project-link-outline">Brand identity →</a>
           </div>
         </div>
       </div>
@@ -243,9 +230,7 @@ ul { list-style: none; }
     <div class="project">
       <div class="project-inner reverse">
         <div class="project-image">
-          <div class="project-image-placeholder">
-            <span>Screenshot coming soon</span>
-          </div>
+          <div class="project-image-placeholder"><span>Screenshot coming soon</span></div>
         </div>
         <div class="project-body">
           <p class="project-eyebrow">Client · Landing Page</p>
@@ -262,6 +247,74 @@ ul { list-style: none; }
   </div>
 </section>
 
+<!-- FIN & OAK MODAL -->
+<div class="modal-overlay" id="modal-finoak" onclick="handleOverlayClick(event, 'finoak')">
+  <div class="modal">
+    <div class="modal-header">
+      <p class="modal-title">Fin & Oak — Behind the decisions</p>
+      <button class="modal-close" onclick="closeModal('finoak')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-item">
+        <p class="modal-item-num">01 — The hero photos</p>
+        <p class="modal-item-text">Most pet food brands lead with the product. We led with Oak and Piper because the whole point of Fin & Oak is who's behind it and who it's for. You should feel that before you read a single word.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">02 — The headline</p>
+        <p class="modal-item-text">You want your website to feel like something the second you land on it. "Small batches. Big messes. Happy critters." does that. It tells you exactly what it's like in this kitchen before you've scrolled, clicked, or read anything else.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">03 — The subhead copy</p>
+        <p class="modal-item-text">"The rest of the menagerie" is the phrase you use when you've genuinely stopped counting. Two dogs, six cats, chickens with strong opinions, geese who don't like anyone. This is a real house. The copy should sound like it.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">04 — "Real ingredients. Spoiled regulars."</p>
+        <p class="modal-item-text">What's in it, and is it worth it. Two questions, six words. "Spoiled regulars" also does something quietly useful: it tells you people come back. No testimonials needed.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">05 — Willow & Mom</p>
+        <p class="modal-item-text">Three words that tell the whole story. You know exactly who made this before you've read anything else on the page. That's the whole point of signing off with names.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">06 — The logo</p>
+        <p class="modal-item-text">We needed something that could live on a website, stamp onto a bag, and shrink down to a sticker without falling apart. Playfair gave us the presence and polish without tipping into cute territory, which was the line we were trying not to cross. "Bark Bakery" tracked out underneath grounds it and makes the whole mark stamp cleanly. No icon needed. The type does the work.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANCHORED PROSE MODAL -->
+<div class="modal-overlay" id="modal-anchored" onclick="handleOverlayClick(event, 'anchored')">
+  <div class="modal">
+    <div class="modal-header">
+      <p class="modal-title">Anchored Prose — Behind the decisions</p>
+      <button class="modal-close" onclick="closeModal('anchored')" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-item">
+        <p class="modal-item-num">01 — The hero image</p>
+        <p class="modal-item-text">I live in Nova Scotia and I write by the water whenever I can, so it made no sense to use a stock image of a desk or a coffee cup when the place that actually inspires my work looks like this. The hero image isn't decoration. It's context.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">02 — The headline</p>
+        <p class="modal-item-text">"Every word, anchored in purpose" is the whole philosophy of this business in five words. I don't do filler, I don't write around a point or pad a paragraph to make something feel weightier than it is, and every word on this site is there because it earns its place. The headline isn't a tagline. It's a promise.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">03 — The frosted overlay panel</p>
+        <p class="modal-item-text">I didn't want the landscape to disappear behind the words, so the frosted panel lets the copy sit clearly without swallowing the water entirely. The setting belongs on this page as much as anything I've written on it.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">04 — Captain's Log</p>
+        <p class="modal-item-text">This is my ship and the navigation language runs through the whole site because it means something, not because it's a cute theme. Captain's Log is my blog, still finding its sea legs, but the name was never going to be anything else.</p>
+      </div>
+      <div class="modal-item">
+        <p class="modal-item-num">05 — The colour palette</p>
+        <p class="modal-item-text">These are my colours, the ones I reach for because they feel true to me. Serene, coastal, a little moody at the edges, they didn't come from a brand brief or a trend report but from paying close attention to where I live and what the water looks like at different hours of the day.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PRE-FOOTER -->
 <div class="pre-footer">
   <div class="container">
@@ -275,14 +328,22 @@ ul { list-style: none; }
     <div class="footer-top">
       <div class="footer-brand">
         <img src="roundlogo.png" alt="The Yellow Front Door">
+        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
       </div>
-      <div class="footer-nav-col">
+      <div class="footer-col">
         <h4>Studio</h4>
         <a href="what-we-do.html">What We Do</a>
         <a href="the-proof.html">The Proof</a>
         <a href="about.html">About</a>
         <a href="the-doorstep.html">The Doorstep</a>
         <a href="lets-talk.html">Let's Talk</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="lets-talk.html">Start a conversation</a>
+        <a href="lets-talk.html">Request a Drive-By</a>
+        <a href="the-scorecard.html">Take the Scorecard</a>
+        <p style="margin-top:8px;">Annapolis Valley, NS</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -295,64 +356,38 @@ ul { list-style: none; }
 
 <script>
 (function(){
-  // Nav
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
   var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
   toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
-
-  // Pin content
-  var pins = {
-    fo1: { num: 1, label: 'The hero photos', text: 'Two dogs on a website for a dog bakery sounds obvious until you realise most pet food brands lead with the product. We led with Oak and Piper because the whole point of Fin & Oak is who\'s behind it and who it\'s for. You should feel that before you read a single word.' },
-    fo2: { num: 2, label: 'The headline', text: 'You want your website to feel like something the second you land on it. "Small batches. Big messes. Happy critters." does that. It tells you exactly what it\'s like in this kitchen before you\'ve scrolled, clicked, or read anything else.' },
-    fo3: { num: 3, label: 'The subhead copy', text: '"The rest of the menagerie" is the phrase you use when you\'ve genuinely stopped counting. Two dogs, six cats, chickens with strong opinions, geese who don\'t like anyone. This is a real house. The copy should sound like it.' },
-    fo4: { num: 4, label: '"Real ingredients. Spoiled regulars."', text: 'What\'s in it, and is it worth it. Two questions, six words. "Spoiled regulars" also does something quietly useful: it tells you people come back. No testimonials needed.' },
-    fo5: { num: 5, label: 'Willow & Mom', text: 'Three words that tell the whole story. You know exactly who made this before you\'ve read anything else on the page. That\'s the whole point of signing off with names.' },
-    ap1: { num: 1, label: 'The hero image', text: 'I live in Nova Scotia and I write by the water whenever I can, so it made no sense to use a stock image of a desk or a coffee cup when the place that actually inspires my work looks like this. The hero image isn\'t decoration. It\'s context.' },
-    ap2: { num: 2, label: 'The headline', text: '"Every word, anchored in purpose" is the whole philosophy of this business in five words. I don\'t do filler, I don\'t write around a point or pad a paragraph to make something feel weightier than it is, and every word on this site is there because it earns its place. The headline isn\'t a tagline. It\'s a promise.' },
-    ap3: { num: 3, label: 'The frosted overlay panel', text: 'I didn\'t want the landscape to disappear behind the words, so the frosted panel lets the copy sit clearly without swallowing the water entirely. The setting belongs on this page as much as anything I\'ve written on it.' },
-    ap4: { num: 4, label: 'Captain\'s Log', text: 'This is my ship and the navigation language runs through the whole site because it means something, not because it\'s a cute theme. Captain\'s Log is my blog, still finding its sea legs, but the name was never going to be anything else.' },
-    ap5: { num: 5, label: 'The colour palette', text: 'These are my colours, the ones I reach for because they feel true to me. Serene, coastal, a little moody at the edges, they didn\'t come from a brand brief or a trend report but from paying close attention to where I live and what the water looks like at different hours of the day.' }
-  };
-
-  var activePins = {};
 })();
 
-function togglePin(el) {
-  var pinId = el.dataset.pin;
-  var prefix = pinId.substring(0, pinId.length - 1);
-  var panelId = prefix === 'fo' ? 'fo-panel' : 'ap-panel';
-  var numId = prefix === 'fo' ? 'fo-pin-num' : 'ap-pin-num';
-  var textId = prefix === 'fo' ? 'fo-pin-text' : 'ap-pin-text';
+function openModal(id) {
+  var modal = document.getElementById('modal-' + id);
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 
-  var pins = {
-    fo1: { num: 1, text: 'Two dogs on a website for a dog bakery sounds obvious until you realise most pet food brands lead with the product. We led with Oak and Piper because the whole point of Fin & Oak is who\'s behind it and who it\'s for. You should feel that before you read a single word.' },
-    fo2: { num: 2, text: 'You want your website to feel like something the second you land on it. "Small batches. Big messes. Happy critters." does that. It tells you exactly what it\'s like in this kitchen before you\'ve scrolled, clicked, or read anything else.' },
-    fo3: { num: 3, text: '"The rest of the menagerie" is the phrase you use when you\'ve genuinely stopped counting. Two dogs, six cats, chickens with strong opinions, geese who don\'t like anyone. This is a real house. The copy should sound like it.' },
-    fo4: { num: 4, text: 'What\'s in it, and is it worth it. Two questions, six words. "Spoiled regulars" also does something quietly useful: it tells you people come back. No testimonials needed.' },
-    fo5: { num: 5, text: 'Three words that tell the whole story. You know exactly who made this before you\'ve read anything else on the page. That\'s the whole point of signing off with names.' },
-    ap1: { num: 1, text: 'I live in Nova Scotia and I write by the water whenever I can, so it made no sense to use a stock image of a desk or a coffee cup when the place that actually inspires my work looks like this. The hero image isn\'t decoration. It\'s context.' },
-    ap2: { num: 2, text: '"Every word, anchored in purpose" is the whole philosophy of this business in five words. I don\'t do filler, I don\'t write around a point or pad a paragraph to make something feel weightier than it is, and every word on this site is there because it earns its place. The headline isn\'t a tagline. It\'s a promise.' },
-    ap3: { num: 3, text: 'I didn\'t want the landscape to disappear behind the words, so the frosted panel lets the copy sit clearly without swallowing the water entirely. The setting belongs on this page as much as anything I\'ve written on it.' },
-    ap4: { num: 4, text: 'This is my ship and the navigation language runs through the whole site because it means something, not because it\'s a cute theme. Captain\'s Log is my blog, still finding its sea legs, but the name was never going to be anything else.' },
-    ap5: { num: 5, text: 'These are my colours, the ones I reach for because they feel true to me. Serene, coastal, a little moody at the edges, they didn\'t come from a brand brief or a trend report but from paying close attention to where I live and what the water looks like at different hours of the day.' }
-  };
+function closeModal(id) {
+  var modal = document.getElementById('modal-' + id);
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-  var panel = document.getElementById(panelId);
-  var currentlyActive = el.classList.contains('active');
-
-  // Deactivate all pins in this project
-  var allPins = document.querySelectorAll('[data-pin^="' + prefix + '"]');
-  allPins.forEach(function(p){ p.classList.remove('active'); });
-  panel.classList.remove('active');
-
-  if (!currentlyActive) {
-    el.classList.add('active');
-    panel.classList.add('active');
-    document.getElementById(numId).textContent = pins[pinId].num;
-    document.getElementById(textId).textContent = pins[pinId].text;
+function handleOverlayClick(e, id) {
+  if (e.target === document.getElementById('modal-' + id)) {
+    closeModal(id);
   }
 }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
 </script>
 </body>
 </html>
