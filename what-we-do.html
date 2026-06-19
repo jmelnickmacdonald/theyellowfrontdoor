@@ -109,8 +109,8 @@ ul { list-style: none; }
 .path-stop-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
 .path-stop-name { font-family: var(--f-accent); font-size: clamp(26px, 3vw, 38px); line-height: 1.05; color: var(--ink); font-weight: normal; }
 .path-stop-copy { font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 400; max-width: none; }
-.path-deeper { appearance: none; background: none; border: none; padding: 0; margin-top: 12px; cursor: pointer; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
-.path-deeper:hover { color: var(--ink); }
+.path-deeper { appearance: none; background: none; border: none; padding: 0; margin-top: 12px; cursor: pointer; font-family: var(--f-body); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; border-bottom: 2px solid var(--yellow); padding-bottom: 2px; }
+.path-deeper:hover { color: var(--slate); }
 .path-deeper-arrow { transition: transform 0.3s ease; font-size: 13px; }
 .path-deeper[aria-expanded="true"] .path-deeper-arrow { transform: rotate(180deg); }
 .path-stop-detail { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--stone); max-width: 760px; }
@@ -315,7 +315,7 @@ ul { list-style: none; }
             <h2 class="path-stop-name" id="path-stop-name">The First Look</h2>
           </div>
           <p class="path-stop-copy" id="path-stop-copy">Listings, bios, and the places people meet you before your website. If it is scattered or out of date, they judge before you have said a word.</p>
-          <button type="button" class="path-deeper" id="path-deeper" aria-expanded="false" aria-controls="path-stop-detail">Go deeper <span class="path-deeper-arrow" aria-hidden="true">↓</span></button>
+          <button type="button" class="path-deeper" id="path-deeper" aria-expanded="false" aria-controls="path-stop-detail">What this includes <span class="path-deeper-arrow" aria-hidden="true">↓</span></button>
           <div class="path-stop-detail" id="path-stop-detail" hidden></div>
           <div class="path-tabs" id="path-tabs">
             <button type="button" class="path-tab active" data-step="0">First Look</button>
