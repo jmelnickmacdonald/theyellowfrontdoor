@@ -248,6 +248,81 @@ footer a{color:#fff;text-decoration:none;}
 }
 
 
+
+.schedule-teaser{
+  position:relative;
+  overflow:hidden;
+  background:var(--ink);
+  color:#fff;
+  padding:clamp(4rem,9vw,7rem) 0;
+}
+.schedule-teaser-bg{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,rgba(26,26,26,.94),rgba(26,26,26,.78)),
+    radial-gradient(circle at 18% 22%,rgba(162,197,35,.34),transparent 32%),
+    radial-gradient(circle at 82% 80%,rgba(59,176,224,.32),transparent 34%);
+}
+.schedule-teaser-bg:after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(162,197,35,.12),rgba(59,176,224,.1));
+}
+.schedule-teaser-inner{
+  position:relative;
+  text-align:center;
+  max-width:900px;
+}
+.schedule-teaser .section-label{
+  color:var(--lime);
+}
+.schedule-teaser .section-title{
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.schedule-teaser .section-lead{
+  margin:1rem auto 2rem;
+  color:rgba(255,255,255,.78);
+  max-width:680px;
+}
+.schedule-teaser-actions{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.btn-outline-light{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.9rem 1.4rem;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  color:#fff;
+  text-decoration:none;
+  font-family:var(--display);
+  font-size:.82rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  transition:all .2s;
+}
+.btn-outline-light:hover{
+  background:#fff;
+  color:var(--ink);
+  border-color:#fff;
+  transform:translateY(-2px);
+}
+@media(max-width:640px){
+  .schedule-teaser-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -574,14 +649,15 @@ footer a{color:#fff;text-decoration:none;}
 </div>
 </section>
 <!-- SCHEDULE -->
-<section class="section-dark" id="schedule">
-<div class="wrap">
+<section class="schedule-teaser" id="schedule">
+<div class="schedule-teaser-bg"></div>
+<div class="wrap schedule-teaser-inner">
 <div class="section-label">Weekly Schedule</div>
-<h2 class="section-title">Check the live schedule.</h2>
-<p class="section-lead" style="margin:0 auto 2rem;color:rgba(255,255,255,.78);">Class times, openings, cancellations, and waitlists can shift from week to week. The live schedule is updated by the Get Cronk'd team, so it's the best place to check what's running before you head in.</p>
-<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+<h2 class="section-title">See what’s on this week.</h2>
+<p class="section-lead">Class times, openings, cancellations, and waitlists can shift from week to week. Check the live schedule before you head in, or jump straight to registration if you already know what you want.</p>
+<div class="schedule-teaser-actions">
 <a class="btn" href="getcronkd-schedule.html">View live schedule →</a>
-<a class="btn-dark" href="getcronkd-register.html">Register or join waitlist →</a>
+<a class="btn-outline-light" href="getcronkd-register.html">Register or join waitlist →</a>
 </div>
 </div>
 </section>
