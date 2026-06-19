@@ -80,22 +80,8 @@ ul { list-style: none; }
 .path-intro { font-size: 15px; line-height: 1.6; color: var(--ink); font-weight: 400; }
 .path-intro-note { display: block; margin-top: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); }
 
-/* ═══════════════════════════════════════
-   THE INTERACTIVE PATH — CLEAN ARCHITECTURE
-   ═══════════════════════════════════════
-   Container has three stacked blocks:
-   1. Scene wrap — illustration, untouched
-   2. Road strip — car, person, progress all live here
-   3. Panel — text, buttons
-*/
 .path-experience { border: 1px solid var(--stone); background: var(--paper); overflow: hidden; position: relative; }
 
-/* SCENE — image only, no overlays */
-/* Height is capped to a fraction of the viewport so the whole experience
-   (illustration + road + panel) fits on a laptop screen without scrolling.
-   object-position bottom keeps the door/steps/person area in view and crops
-   dead sky from the top. Person/car offsets are measured from the bottom,
-   so they stay aligned. */
 .path-scene-wrap { position: relative; width: 100%; line-height: 0; font-size: 0; display: block; margin-bottom: 0; min-height: 220px; max-height: clamp(260px, 42vh, 460px); overflow: hidden; background: #ffffff; }
 .path-scene-img { width: 100%; height: clamp(260px, 42vh, 460px); object-fit: cover; object-position: center bottom; display: block; vertical-align: bottom; transition: opacity 500ms ease; }
 .path-scene-img.is-closeup { max-width: 64%; height: clamp(260px, 42vh, 460px); object-fit: contain; object-position: center bottom; margin: 0 auto;
@@ -103,19 +89,17 @@ ul { list-style: none; }
           mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%); }
 .path-scene-wrap.is-closeup { background: #ffffff; }
 
-/* ROAD STRIP — sits flush below illustration */
+/* ROAD STRIP */
 .path-road { position: relative; width: 100%; height: 70px; background: var(--paper); overflow: visible; z-index: 2; }
-/* Progress line — vertically centered in road strip */
 .path-line-track { position: absolute; left: 6%; right: 6%; top: 50%; transform: translateY(-50%); height: 2px; background: rgba(19,36,71,0.2); z-index: 2; }
 .path-line-progress { position: absolute; left: 6%; top: 50%; transform: translateY(-50%); height: 2px; width: 0%; background: var(--yellow); transition: width 700ms ease; z-index: 3; }
-/* Progress dots — placed at exact percentage positions over the line */
 .path-stop-dot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid rgba(19,36,71,0.4); transform: translate(-50%, -50%); transition: background 0.3s, border-color 0.3s; z-index: 4; }
 .path-stop-dot.active { background: var(--yellow); border-color: var(--yellow); }
 
-/* CAR — drives along the road strip */
+/* CAR */
 .scene-car { position: absolute; bottom: 22px; left: 8%; width: clamp(110px, 11vw, 150px); transform: translateX(-50%); transition: left 700ms ease, opacity 600ms ease; z-index: 6; }
 
-/* PERSON — appears at stop 3, stays through 4, fades at 5 */
+/* PERSON */
 .scene-person { position: absolute; bottom: 4px; left: 51%; width: clamp(72px, 7vw, 96px); transform: translateX(-50%); opacity: 0; transition: opacity 400ms ease, transform 600ms ease; z-index: 7; }
 .scene-person.is-visible { opacity: 1; }
 .scene-person { transform-origin: bottom center; }
@@ -190,19 +174,18 @@ ul { list-style: none; }
 .cta-note { margin-top: 16px; font-size: 11px; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* FOOTER */
-.footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
-.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
-.footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); margin-bottom: 12px; }
-.footer-tagline { font-size: 14px; color: var(--ink); line-height: 1.65; font-weight: 400; max-width: 220px; }
-.footer-round-logo { display: flex; justify-content: center; align-items: center; }
-.footer-round-logo img { width: 120px; height: 120px; }
-.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 15px; color: var(--ink); margin-bottom: 10px; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--slate); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
+.footer-logo-wrap { margin-bottom: 16px; }
+.footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
+.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
+.footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
+.footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
+.footer-nav a:hover { color: var(--ink); }
+.footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
@@ -212,10 +195,7 @@ ul { list-style: none; }
   .path-footer-note { flex-direction: column; align-items: flex-start; }
   .foundation-item { grid-template-columns: 16px 1fr; row-gap: 4px; }
   .foundation-item-desc { grid-column: 2; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-round-logo { justify-content: flex-start; }
   .drive-by-inner { grid-template-columns: 1fr; gap: 20px; }
-
   .path-road { height: 56px; }
 }
 @media (max-width: 640px) {
@@ -229,9 +209,6 @@ ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   .scene-car, .scene-person, .path-line-progress { transition: none !important; }
 }
-
-/* SHORT SCREENS — trim vertical space so the whole path experience fits without scrolling.
-   Targets laptops ~800px tall and shorter. Shrinks the image cap, header, padding and act label. */
 @media (max-height: 860px) {
   .intro-section { padding: 28px 0 12px; }
   .intro-title { font-size: clamp(26px, 6vw, 38px); margin-bottom: 16px; }
@@ -276,7 +253,8 @@ ul { list-style: none; }
       <li><a href="the-proof.html">The Proof</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html" class="nav-cta">Let's Talk</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -290,8 +268,8 @@ ul { list-style: none; }
     <div class="intro-inner">
       <span class="intro-eyebrow">What we do</span>
       <h1 class="intro-title">Getting found is not the same as being chosen.</h1>
-      <p>Running a business asks a lot of a person, so it makes sense that the outside doesn't always keep pace with the work happening inside. That's not a lack of care. It usually means the care is already stretched across everything else.</p>
-      <p class="intro-emphasis">We bring that care back to the places people see first — the words, pages, replies, and follow-ups that shape how people experience your business once they find you.</p>
+      <p>Running a business asks a lot of a person, so it makes sense that the outside doesn't always keep pace with the work happening inside. That's not neglect. It usually means the attention is already spoken for.</p>
+      <p class="intro-emphasis">We focus on the places people see first — the words, pages, replies, and follow-ups that shape how people experience your business once they find you.</p>
     </div>
   </div>
 </section>
@@ -315,16 +293,13 @@ ul { list-style: none; }
 
     <div class="path-experience" aria-live="polite">
 
-      <!-- 1. ILLUSTRATION (clean, no overlays) -->
       <div class="path-scene-wrap">
         <img class="path-scene-img" id="path-scene-img" src="street_wide.png" alt="Street scene with the yellow front door at centre">
       </div>
 
-      <!-- 2. ROAD STRIP (car, person, progress live here) -->
       <div class="path-road" id="path-road">
         <div class="path-line-track" aria-hidden="true"></div>
         <div class="path-line-progress" id="path-line-progress" aria-hidden="true"></div>
-        <!-- 5 dots at exact percentages -->
         <span class="path-stop-dot" id="dot-0" style="left:6%"></span>
         <span class="path-stop-dot" id="dot-1" style="left:26.5%"></span>
         <span class="path-stop-dot" id="dot-2" style="left:47%"></span>
@@ -334,7 +309,6 @@ ul { list-style: none; }
         <img class="scene-person" id="scene-person" src="person_standing.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- 3. PANEL -->
       <div class="path-panel">
         <div>
           <div class="path-stop-head">
@@ -365,11 +339,11 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- BRIDGE → BUILD FROM THERE -->
+<!-- BRIDGE -->
 <div class="act-bridge">
   <div class="container">
     <p class="act-bridge-text">You've made it this far, and you might be wondering where the marketing is.</p>
-    <p class="act-bridge-sub">We're not anti-marketing — far from it.</p>
+    <p class="act-bridge-sub">We're not anti-marketing. Far from it.</p>
   </div>
 </div>
 
@@ -382,8 +356,8 @@ ul { list-style: none; }
     <div class="foundation-inner">
       <div class="foundation-left">
         <h2>Build from there.</h2>
-        <p>We want your marketing to convert. That's the point of all of it. But spending on ads and campaigns before the experience behind them is ready is how good businesses end up frustrated — paying to send people toward something that isn't set up to catch them.</p>
-        <p>So we get the foundation right first. Once it is, here's where we'd take things next.</p>
+        <p>We want your marketing to convert. That's the point of all of it. But spending on ads and campaigns before the experience behind them is ready is how good businesses end up frustrated, paying to send people toward something that isn't set up to catch them.</p>
+        <p>So we get the foundation right first. Once it is, here is what that opens up.</p>
       </div>
       <div>
         <div class="foundation-list">
@@ -415,26 +389,23 @@ ul { list-style: none; }
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <p class="footer-logo">The Yellow Front Door</p>
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-round-logo">
-        <img src="roundlogo.png" alt="The Yellow Front Door">
-      </div>
-      <div class="footer-nav-col">
-        <h4>Studio</h4>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="the-proof.html">The Proof</a>
-        <a href="about.html">About</a>
-        <a href="the-doorstep.html">The Doorstep</a>
-        <a href="lets-talk.html">Let's Talk</a>
-      </div>
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
     </div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm"></div>
+      <p class="footer-copy">© 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
       <p class="footer-copy">theyellowfrontdoor.ca</p>
     </div>
   </div>
@@ -442,30 +413,19 @@ ul { list-style: none; }
 
 <script>
 (function(){
-  // Nav
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
   var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
   toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
 
-  // ═══════════════════════════════════════
-  // INTERACTIVE PATH
-  // ═══════════════════════════════════════
-  // Dots positioned at: 6%, 26.5%, 47%, 73.5%, 94%
-  // Car follows the same positions
-  // Person appears at stop 3 (index 2), at door (~51%)
-  // Image swaps at stop 4 (index 3)
-
   var stops = [
-    // Stop 1: wide shot, car far left, no person
     { dot: 6,    car: 6,    person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The First Look',   label: 'Stop 1 of 5',
       copy: 'Listings, bios, and the places people meet you before your website. If it is scattered or out of date, they judge before you have said a word.',
       detail: '<p>Before anyone visits your website, they have already met you. A Google listing, a social bio, a directory entry someone wrote years ago. By the time they reach your site, they have half made up their mind, from scattered pieces you are probably not watching.</p>'
-            + '<p>We find everywhere you show up, sort out what is wrong or stale, and decide what that first impression should actually say. That is strategy before it is writing: working out what matters about your business, then putting it in words that sound like you and read clearly.</p>'
+            + '<p>We find everywhere you appear, sort out what is wrong or stale, and decide what that first impression should actually say. That is strategy before it is writing: working out what matters about your business, then putting it in words that sound like you and read clearly.</p>'
             + '<p class="dd-eg"><span>This might look like:</span> claiming and fixing your Google profile, rewriting the bios that show up across your accounts, getting your name and details consistent everywhere, or a single clear line that explains what you do in plain language.</p>',
       img: 'street_wide.png' },
-    // Stop 2: wide shot, car mid-left, no person
     { dot: 26.5, car: 26.5, person: 0,    personBottom: 22,  personScale: 1.0,  personOn: false, personIn: false, isCloseup: false, carVisible: true,
       name: 'The Window',       label: 'Stop 2 of 5',
       copy: 'Your website and the path from interest to action. This is where people decide. Clarity turns attention into inquiries; confusion sends it elsewhere.',
@@ -473,23 +433,20 @@ ul { list-style: none; }
             + '<p>We work out what your site needs to say and in what order, then write it and shape how it looks. This is the heart of what we do: taking a business that knows itself but cannot quite explain itself, and making it clear. Strategy, structure, words that sound like a person, and a look that matches.</p>'
             + '<p class="dd-eg"><span>This might look like:</span> a homepage that finally explains what you do, rewritten service pages, a clearer path to getting in touch, a logo or visual refresh, a colour and type system that holds together, or a full voice and messaging pass.</p>',
       img: 'street_wide.png' },
-    // Stop 3: CLOSEUP — baked-in image (guy on the stairs, entering). No overlay person.
     { dot: 47,   car: 40,   person: 50,   personBottom: 80,  personScale: 1.9,  personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Open Door',    label: 'Stop 3 of 5',
       copy: 'First contact: the reply, the welcome, the first day or two after someone reaches out. A warm, clear hello here makes all the difference.',
       detail: '<p>The moment someone reaches out is the most fragile one you have got. They have decided to trust you a little. What happens in the next day or two either confirms that or quietly undoes it.</p>'
-            + '<p>We write the replies, welcomes, and confirmations so they are warm, clear, and unmistakably you, and we make sure they actually go out, on time, every time, without you scrambling.</p>'
+            + '<p>We write the replies, welcomes, and confirmations so they are warm, clear, and unmistakably you, and we make sure they actually go out when they should, without you scrambling.</p>'
             + '<p class="dd-eg"><span>This might look like:</span> a welcome email that does not sound like a robot, booking and enquiry confirmations worth reading, a tidy set of replies for the questions you get most, or a first-week sequence that makes new customers feel looked after.</p>',
       img: 'guyonstairs.png' },
-    // Stop 4: CLOSEUP — baked-in image (guy at the desk). No overlay person. Absorbs the old systems/wiring act.
     { dot: 73.5, car: 40,   person: 51,   personBottom: 95,  personScale: 2.25, personOn: false, personIn: false, isCloseup: true,  carVisible: false,
       name: 'The Reception Desk', label: 'Stop 4 of 5',
       copy: 'What runs behind that first hello: templates, automations, follow-ups, and the integrations that keep your tools talking. We build the systems so the experience works without making more work for you.',
       detail: '<p>This is the part nobody sees and everyone feels. The systems behind the experience, the wiring that makes the welcome email send, the booking confirm, the follow-up happen without living in your head.</p>'
-            + '<p>We set up the practical things first: booking confirmations that send themselves, review requests that go out on their own, intake forms that route to the right place, follow-ups that do not depend on you remembering. And when you are ready for more, this is where Chris comes in: custom AI tools and systems built for how your business actually runs. There is no ceiling we would reach before you did.</p>'
+            + '<p>We set up the practical things first: booking confirmations that send themselves, review requests that go out on their own, intake forms that route to the right place, follow-ups that do not depend on you remembering. And when you are ready for more, this is where Chris comes in: custom AI tools and systems built for how your business actually runs.</p>'
             + '<p class="dd-eg"><span>This might look like:</span> connecting your booking system to your email, automatic review requests after a visit, an inbox that sorts itself, forms that drop straight into the right list, or a deeper custom build when the business calls for it.</p>',
       img: 'stop4.png' },
-    // Stop 5: PULL BACK to wide street — green sweeper baked in. Navy guy (overlay) walks left to his car.
     { dot: 94,   car: 26.5, person: 36,   personBottom: 60,  personScale: 0.85, personOn: true,  personIn: false, isCloseup: false, carVisible: true,
       personSrc: 'guygoingtocar.png',
       name: 'The Upkeep',       label: 'Stop 5 of 5',
@@ -501,29 +458,27 @@ ul { list-style: none; }
   ];
 
   var step = 0;
-  var sceneImg  = document.getElementById('path-scene-img');
-  var car       = document.getElementById('scene-car');
-  var person    = document.getElementById('scene-person');
-  var progress  = document.getElementById('path-line-progress');
-  var stopName  = document.getElementById('path-stop-name');
-  var stopCopy  = document.getElementById('path-stop-copy');
+  var sceneImg   = document.getElementById('path-scene-img');
+  var car        = document.getElementById('scene-car');
+  var person     = document.getElementById('scene-person');
+  var progress   = document.getElementById('path-line-progress');
+  var stopName   = document.getElementById('path-stop-name');
+  var stopCopy   = document.getElementById('path-stop-copy');
   var stopDetail = document.getElementById('path-stop-detail');
   var deeperBtn  = document.getElementById('path-deeper');
-  var nextBtn   = document.getElementById('path-next');
-  var prevBtn   = document.getElementById('path-prev');
-  var tabs      = document.querySelectorAll('.path-tab');
-  var dots      = [
+  var nextBtn    = document.getElementById('path-next');
+  var prevBtn    = document.getElementById('path-prev');
+  var tabs       = document.querySelectorAll('.path-tab');
+  var dots       = [
     document.getElementById('dot-0'),
     document.getElementById('dot-1'),
     document.getElementById('dot-2'),
     document.getElementById('dot-3'),
     document.getElementById('dot-4')
   ];
-
   var sceneWrap = document.querySelector('.path-scene-wrap');
 
   function applyPersonState(s) {
-    // Swap the person image if this stop specifies one (default: side-profile standing)
     var wantSrc = s.personSrc || 'person_standing.png';
     if (person.getAttribute('src') !== wantSrc) {
       person.setAttribute('src', wantSrc);
@@ -543,7 +498,6 @@ ul { list-style: none; }
   function render(){
     var s = stops[step];
 
-    // Car
     car.style.left = s.car + '%';
     car.style.opacity = s.carVisible ? '1' : '0';
 
@@ -551,19 +505,16 @@ ul { list-style: none; }
     var imageChanging = currentSrc !== s.img;
 
     if (imageChanging) {
-      // Fade out image AND hide person at the same time
       sceneImg.style.opacity = '0';
       person.style.opacity = '0';
       setTimeout(function() {
         sceneImg.setAttribute('src', s.img);
         sceneImg.classList.toggle('is-closeup', s.isCloseup);
         sceneWrap.classList.toggle('is-closeup', s.isCloseup);
-        // Wait for image to load before fading back in
         sceneImg.onload = function() {
           sceneImg.style.opacity = '1';
           applyPersonState(s);
         };
-        // Fallback in case onload doesn't fire (cached image)
         setTimeout(function() {
           sceneImg.style.opacity = '1';
           applyPersonState(s);
@@ -572,8 +523,6 @@ ul { list-style: none; }
     } else {
       sceneImg.classList.toggle('is-closeup', s.isCloseup);
       sceneWrap.classList.toggle('is-closeup', s.isCloseup);
-      // Same scene image — but the PERSON image may still be changing (e.g. stop 4 -> 5).
-      // If so, fade the person out, swap, then re-apply so the swap isn't visible.
       var wantPersonSrc = s.personSrc || 'person_standing.png';
       var personChanging = person.getAttribute('src') !== wantPersonSrc;
       if (personChanging && s.personOn) {
@@ -586,26 +535,20 @@ ul { list-style: none; }
       }
     }
 
-    // Progress line — from 6% to current dot position
     var pct = s.dot - 6;
     progress.style.width = pct + '%';
 
-    // Dots
     dots.forEach(function(d, i){ d.classList.toggle('active', i <= step); });
 
-    // Text
     stopName.textContent  = s.name;
     stopCopy.textContent  = s.copy;
 
-    // Deep-dive detail: fill it, and reset to collapsed each time the stop changes
     stopDetail.innerHTML = s.detail || '';
     stopDetail.hidden = true;
     deeperBtn.setAttribute('aria-expanded', 'false');
 
-    // Tabs
     tabs.forEach(function(t, i){ t.classList.toggle('active', i === step); });
 
-    // Buttons
     prevBtn.disabled = step === 0;
     prevBtn.style.opacity = step === 0 ? '0.4' : '1';
     nextBtn.textContent = step === stops.length - 1 ? 'Start a Drive-By →' : 'Next stop →';
@@ -619,7 +562,6 @@ ul { list-style: none; }
   tabs.forEach(function(t){
     t.addEventListener('click', function(){ step = Number(t.getAttribute('data-step')); render(); });
   });
-
   deeperBtn.addEventListener('click', function(){
     var open = stopDetail.hidden;
     stopDetail.hidden = !open;
