@@ -108,6 +108,18 @@ textarea{min-height:90px;resize:vertical;}
 .success-view p{color:var(--ink-muted);font-size:14px;max-width:44ch;margin:.25rem auto;}
 .detail{margin:1rem 0;padding:1rem;background:var(--bg);border-radius:8px;font-size:13px;font-weight:700;}
 
+
+.register-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:1.5rem;align-items:start;}
+.register-form-card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.08);}
+.form-frame-label{background:var(--ink);color:#fff;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.85rem 1.1rem;border-bottom:4px solid var(--lime);}
+.register-form-card iframe{display:block;width:100%;min-height:780px;border:0!important;background:#fff!important;}
+.register-side{display:grid;gap:.85rem;}
+.side-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1rem;font-size:13px;color:var(--ink-muted);}
+.side-card strong{display:block;font-family:var(--display);font-size:13px;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem;}
+.side-card a{display:inline-block;margin-top:.5rem;color:var(--blue-dark);font-weight:800;text-decoration:none;}
+@media(max-width:900px){.register-layout{grid-template-columns:1fr;}}
+@media(max-width:640px){.register-form-card iframe{min-height:840px;}}
+
 </style>
 </head>
 <body>
@@ -115,8 +127,8 @@ textarea{min-height:90px;resize:vertical;}
 <nav class="nav">
   <a href="getcronkd-demo.html"><img class="nav-logo" src="cronkd-logo-final.png" alt="Get Cronk'd Fitness Studio"></a>
   <div class="nav-links">
-    <a href="#drop-ins">Drop-ins</a>
-    <a href="#programs">Programs</a>
+    <a href="getcronkd-schedule.html">Schedule</a>
+    <a href="#register">Register</a>
     <a href="getcronkd-schedule.html">Schedule</a>
   </div>
 </nav>
@@ -126,548 +138,50 @@ textarea{min-height:90px;resize:vertical;}
   <p>Start with this week's drop-in classes, or check which programs are open, full, currently running, or accepting interest for the next intake.</p>
 </header>
 
+
 <main>
-  <section class="wrap" id="drop-ins">
-    <div id="announcements"></div>
+  <section class="wrap" id="register">
     <div class="section-head">
       <div>
-        <div class="label">Drop-in classes</div>
-        <h2>This week's schedule.</h2>
-        <p class="lead">Drop-ins come first because they're the easiest way to jump in now. Availability can change quickly, so each class can show as open, full, waitlist, cancelled, or summer enrollment.</p>
+        <div class="label">Registration</div>
+        <h2>Register, waitlist, or get notified.</h2>
+        <p class="lead">Use this form to register for a class, join a waitlist, ask about an upcoming program, or get notified when a spot opens. The Get Cronk’d team will follow up to confirm next steps.</p>
       </div>
-      <a class="btn secondary" href="getcronkd-schedule.html">View full schedule</a>
+      <a class="btn secondary" href="getcronkd-schedule.html">View live schedule</a>
     </div>
-    <div id="dropInSchedule"></div>
-  </section>
 
-  <section class="wrap" id="programs" style="padding-top:1rem;">
-    <div class="section-head">
-      <div>
-        <div class="label">Programs & ongoing sessions</div>
-        <h2>Open, full, or currently running.</h2>
-        <p class="lead">Most programs run in blocks and may already be underway. The button changes based on what staff set in the dashboard: register, join waitlist, get notified, or ask about availability.</p>
+    <div class="register-layout">
+      <div class="register-form-card">
+        <div class="form-frame-label">Get Cronk’d registration form</div>
+        <iframe class="airtable-embed" src="https://airtable.com/embed/appTXfAYqeKi1CWVH/paga2F4EJ1JABGbge/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
       </div>
-    </div>
-    <div class="program-grid" id="programGrid"></div>
 
-    <div class="consult-strip">
-      <div>
-        <h3>Not sure where to start?</h3>
-        <p>Personal training and nutrition coaching should stay consult-based, not shoved into the class schedule.</p>
-      </div>
-      <button class="btn blue" onclick='openRegistration(this,"inquiry")' data-item='{"programName":"Personal Training / Nutrition Consult","schedule":"Consult-based","instructor":"Get Cronk&apos;d team","status":"consult"}'>Ask about a consult</button>
+      <aside class="register-side">
+        <div class="side-card">
+          <strong>Before you submit</strong>
+          <p>Submitting the form does not guarantee a spot until the studio confirms it with you.</p>
+        </div>
+        <div class="side-card">
+          <strong>Not sure what to choose?</strong>
+          <p>Select “Not sure yet” or use the notes field. The team can help point you in the right direction.</p>
+        </div>
+        <div class="side-card">
+          <strong>Looking for the schedule?</strong>
+          <p>The live weekly schedule is the best place to check what’s running this week.</p>
+          <a href="getcronkd-schedule.html">View live schedule →</a>
+        </div>
+      </aside>
     </div>
   </section>
 </main>
 
-<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 id="modalTitle">Register</h2>
-      <div class="modal-class" id="modalClass">Class name</div>
-      <div class="modal-context" id="modalContext">Day · time · instructor</div>
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-    </div>
-
-    <div class="modal-body" id="modalForm">
-      <input type="hidden" id="requestType" value="register">
-
-      <div class="form-title">Your information</div>
-      <div class="field-row">
-        <div class="field"><label>First name <span class="req">*</span></label><input id="f-first" type="text" placeholder="First name"></div>
-        <div class="field"><label>Last name <span class="req">*</span></label><input id="f-last" type="text" placeholder="Last name"></div>
-      </div>
-      <div class="field-row">
-        <div class="field"><label>Email <span class="req">*</span></label><input id="f-email" type="email" placeholder="you@email.com"></div>
-        <div class="field"><label>Phone <span class="req">*</span></label><input id="f-phone" type="tel" placeholder="For day-of communication"></div>
-      </div>
-      <div class="field"><label>Date of birth</label><input id="f-dob" type="date"></div>
-
-      <div class="form-title">Emergency contact</div>
-      <div class="field-row">
-        <div class="field"><label>Emergency contact name <span class="req">*</span></label><input id="f-ec-name" type="text" placeholder="Name"></div>
-        <div class="field"><label>Emergency contact phone <span class="req">*</span></label><input id="f-ec-phone" type="tel" placeholder="Phone"></div>
-      </div>
-
-      <div class="field"><label>Anything we should know?</label><textarea id="f-notes" placeholder="Injuries, questions, preferred start date, etc."></textarea></div>
-
-      <div class="form-title">Waiver & acknowledgment</div>
-      <div class="waiver">
-        By registering or joining a waitlist for Get Cronk'd Fitness Studio, I acknowledge that participation in physical fitness activities carries inherent risks, including physical injury. I confirm that I am voluntarily participating and agree to inform my instructor of any medical conditions or limitations that may affect my ability to safely participate. I confirm that the information I have provided is accurate to the best of my knowledge.
-      </div>
-      <div class="check-field">
-        <input type="checkbox" id="f-waiver">
-        <label for="f-waiver">I have read and agree to the above waiver. <span class="req">*</span></label>
-      </div>
-
-      <button class="btn" id="submitBtn" onclick="handleSubmit()">Confirm registration</button>
-    </div>
-
-    <div class="success-view" id="successView">
-      <div class="success-icon confirmed" id="successIcon">✓</div>
-      <h2 id="successTitle">You're registered.</h2>
-      <p id="successMsg">We'll send a confirmation to your email.</p>
-      <div class="detail" id="successDetail">Class name</div>
-      <button class="btn secondary" onclick="closeModal()">Done</button>
-    </div>
-  </div>
-</div>
 
 <footer class="footer">
   Get Cronk'd Fitness Studio · 9 Clothier St E, Kemptville · registration@getcronkd.com
 </footer>
 
 <script>
-
-const FALLBACK_DATA = {
-  "dropIns": [
-    {
-      "id": "mon-0530-group",
-      "date": "2026-06-22",
-      "day": "Monday",
-      "time": "5:30 AM",
-      "className": "Group Training",
-      "instructor": "Rebecca Cronk",
-      "duration": "60 min",
-      "capacity": 16,
-      "booked": 11,
-      "status": "open",
-      "buttonText": "Register",
-      "notes": "",
-      "showOnSite": true
-    },
-    {
-      "id": "mon-0730-s3",
-      "date": "2026-06-22",
-      "day": "Monday",
-      "time": "7:30 AM",
-      "className": "S3 Hybrid",
-      "instructor": "Rebecca Cronk",
-      "duration": "60 min",
-      "capacity": 14,
-      "booked": 14,
-      "status": "full",
-      "buttonText": "Join waitlist",
-      "notes": "",
-      "showOnSite": true
-    },
-    {
-      "id": "mon-1715-spin",
-      "date": "2026-06-22",
-      "day": "Monday",
-      "time": "5:15 PM",
-      "className": "Spin",
-      "instructor": "Luc",
-      "duration": "45 min",
-      "capacity": 12,
-      "booked": 8,
-      "status": "open",
-      "buttonText": "Register",
-      "notes": "",
-      "showOnSite": true
-    },
-    {
-      "id": "tue-1000-squats",
-      "date": "2026-06-23",
-      "day": "Tuesday",
-      "time": "10:00 AM",
-      "className": "Squats N' Tots",
-      "instructor": "Rebecca Cronk",
-      "duration": "45 min",
-      "capacity": 12,
-      "booked": 12,
-      "status": "full",
-      "buttonText": "Join waitlist",
-      "notes": "",
-      "showOnSite": true
-    },
-    {
-      "id": "tue-1700-youth",
-      "date": "2026-06-23",
-      "day": "Tuesday",
-      "time": "5:00 PM",
-      "className": "Youth Fitness · Ages 7–12",
-      "instructor": "Jacob McLellan",
-      "duration": "45 min",
-      "capacity": 12,
-      "booked": 7,
-      "status": "summer-open",
-      "buttonText": "Register for summer",
-      "notes": "Summer enrollment is open.",
-      "showOnSite": true
-    },
-    {
-      "id": "wed-1715-pilates",
-      "date": "2026-06-24",
-      "day": "Wednesday",
-      "time": "5:15 PM",
-      "className": "Pilates",
-      "instructor": "Cynthia",
-      "duration": "60 min",
-      "capacity": 12,
-      "booked": 10,
-      "status": "low",
-      "buttonText": "Register",
-      "notes": "Few spots left.",
-      "showOnSite": true
-    },
-    {
-      "id": "wed-1900-power",
-      "date": "2026-06-24",
-      "day": "Wednesday",
-      "time": "7:00 PM",
-      "className": "Adult Power Hour",
-      "instructor": "Rebecca Cronk",
-      "duration": "90 min",
-      "capacity": 12,
-      "booked": 12,
-      "status": "running",
-      "buttonText": "Get notified",
-      "notes": "Currently running. Join the list for the next opening.",
-      "showOnSite": true
-    },
-    {
-      "id": "thu-1700-youth",
-      "date": "2026-06-25",
-      "day": "Thursday",
-      "time": "5:00 PM",
-      "className": "Youth Fitness · Ages 7–12",
-      "instructor": "Jacob McLellan",
-      "duration": "45 min",
-      "capacity": 12,
-      "booked": 7,
-      "status": "summer-open",
-      "buttonText": "Register for summer",
-      "notes": "Summer enrollment is open.",
-      "showOnSite": true
-    },
-    {
-      "id": "fri-1600-smart",
-      "date": "2026-06-26",
-      "day": "Friday",
-      "time": "4:00 PM",
-      "className": "SMART",
-      "instructor": "Brad",
-      "duration": "45 min",
-      "capacity": 12,
-      "booked": 4,
-      "status": "open",
-      "buttonText": "Register",
-      "notes": "",
-      "showOnSite": true
-    },
-    {
-      "id": "sat-0900-fitboots",
-      "date": "2026-06-27",
-      "day": "Saturday",
-      "time": "9:00 AM",
-      "className": "Fitboots Rebounding",
-      "instructor": "Genevieve Ethier",
-      "duration": "60 min",
-      "capacity": 10,
-      "booked": 10,
-      "status": "full",
-      "buttonText": "Join waitlist",
-      "notes": "",
-      "showOnSite": true
-    },
-    {
-      "id": "sat-1000-pound",
-      "date": "2026-06-27",
-      "day": "Saturday",
-      "time": "10:00 AM",
-      "className": "Pound Rockout Workout",
-      "instructor": "Genevieve Ethier",
-      "duration": "60 min",
-      "capacity": 12,
-      "booked": 6,
-      "status": "open",
-      "buttonText": "Register",
-      "notes": "",
-      "showOnSite": true
-    }
-  ],
-  "programs": [
-    {
-      "id": "fit4life",
-      "programName": "Fit4Life · Active Aging 50+",
-      "schedule": "Mon – Sat · 11:00 AM · 45 min",
-      "instructor": "Becky Sharko",
-      "status": "currently-running",
-      "badge": "Currently running",
-      "buttonText": "Join interest list",
-      "description": "Low-impact strength and movement for daily life. This program often runs continuously, so new openings may depend on capacity.",
-      "showOnSite": true
-    },
-    {
-      "id": "squats-tots",
-      "programName": "Squats N' Tots",
-      "schedule": "Tue & Thu · 10:00 AM · 45 min",
-      "instructor": "Rebecca Cronk",
-      "status": "waitlist",
-      "badge": "Waitlist only",
-      "buttonText": "Join waitlist",
-      "description": "Parent-friendly strength training where your cutest training partner can come along too.",
-      "showOnSite": true
-    },
-    {
-      "id": "adult-power-hour",
-      "programName": "Adult Power Hour",
-      "schedule": "Wed & Fri · 7:00 – 8:30 PM",
-      "instructor": "Rebecca Cronk",
-      "status": "currently-running",
-      "badge": "Currently running",
-      "buttonText": "Get notified",
-      "description": "Individualized strength programming in a coached group setting. Join the list for the next opening or intake.",
-      "showOnSite": true
-    },
-    {
-      "id": "youth-fitness",
-      "programName": "Youth Fitness · Ages 7–12",
-      "schedule": "Tue & Thu · 5:00 PM · 45 min",
-      "instructor": "Jacob McLellan",
-      "status": "summer-open",
-      "badge": "Open for summer enrollment",
-      "buttonText": "Register for summer",
-      "description": "A safe, coach-led intro to fitness with movement, games, strength, and confidence-building.",
-      "showOnSite": true
-    },
-    {
-      "id": "youth-power-hour",
-      "programName": "Youth Power Hour · Ages 11+",
-      "schedule": "Tue & Thu · 4:00 PM · 45 min",
-      "instructor": "Jacob McLellan",
-      "status": "summer-open",
-      "badge": "Open for summer enrollment",
-      "buttonText": "Register for summer",
-      "description": "A stronger next step for kids and teens who are ready to build skill, confidence, and consistency.",
-      "showOnSite": true
-    },
-    {
-      "id": "nutrition",
-      "programName": "Nutrition Coaching",
-      "schedule": "12-week coaching block",
-      "instructor": "Rebecca Cronk",
-      "status": "consult",
-      "badge": "Start with a consult",
-      "buttonText": "Ask about coaching",
-      "description": "Whole-food nutrition support with macros, meal ideas, grocery support, and realistic strategy.",
-      "showOnSite": true
-    }
-  ],
-  "announcements": [
-    {
-      "message": "Class times can shift from week to week. This page is designed to pull from the studio dashboard once Airtable is connected.",
-      "status": "info",
-      "showOnSite": true
-    }
-  ]
-};
-
-/*
-  AIRTABLE NOTE:
-  Do not put an Airtable personal access token directly in this public HTML file.
-  Once the Airtable base exists, connect this page through a tiny private proxy,
-  Netlify Function, Vercel Function, or Apps Script endpoint that returns this same JSON shape.
-*/
-const DATA_URL = ""; // Example later: "https://YOUR-PROXY-URL/getcronkd-public-schedule"
-
-let CRONKD_DATA = FALLBACK_DATA;
-let currentItem = {};
-
-async function loadCronkdData(){
-  if(!DATA_URL) return FALLBACK_DATA;
-  try{
-    const res = await fetch(DATA_URL, {cache:"no-store"});
-    if(!res.ok) throw new Error("Could not load live data");
-    return await res.json();
-  }catch(err){
-    console.warn("Using fallback data:", err);
-    return FALLBACK_DATA;
-  }
-}
-
-function cleanStatus(status){
-  return (status || "open").toLowerCase().replace(/\s+/g,"-");
-}
-
-function statusLabel(item){
-  const s = cleanStatus(item.status);
-  if(s === "open") return spotsRemaining(item) <= 2 ? "Few spots left" : "Open";
-  if(s === "low") return "Few spots left";
-  if(s === "full") return "Full";
-  if(s === "cancelled") return "Cancelled";
-  if(s === "running" || s === "currently-running") return "Currently running";
-  if(s === "waitlist") return "Waitlist only";
-  if(s === "summer-open") return "Summer enrollment";
-  if(s === "consult") return "Consult";
-  return item.badge || item.status || "Open";
-}
-
-function spotsRemaining(item){
-  const cap = Number(item.capacity || 0);
-  const booked = Number(item.booked || 0);
-  return Math.max(cap - booked, 0);
-}
-
-function actionFor(item){
-  const s = cleanStatus(item.status);
-  if(s === "cancelled") return {text:"Cancelled", kind:"disabled", mode:"cancelled"};
-  if(s === "full" || s === "waitlist") return {text:item.buttonText || "Join waitlist", kind:"amber", mode:"waitlist"};
-  if(s === "running" || s === "currently-running") return {text:item.buttonText || "Get notified", kind:"blue", mode:"notify"};
-  if(s === "summer-open") return {text:item.buttonText || "Register for summer", kind:"", mode:"register"};
-  if(s === "consult") return {text:item.buttonText || "Ask about it", kind:"blue", mode:"inquiry"};
-  return {text:item.buttonText || "Register", kind:"", mode:"register"};
-}
-
-function renderAnnouncements(){
-  const box = document.getElementById("announcements");
-  if(!box) return;
-  const items = (CRONKD_DATA.announcements || []).filter(a => a.showOnSite !== false);
-  box.innerHTML = items.map(a => `<div class="notice"><strong>Heads up:</strong> ${escapeHtml(a.message)}</div>`).join("");
-}
-
-function renderDropIns(targetId, limitDays = null){
-  const target = document.getElementById(targetId);
-  if(!target) return;
-  const items = (CRONKD_DATA.dropIns || []).filter(c => c.showOnSite !== false && cleanStatus(c.status) !== "hidden");
-  const groups = {};
-  items.forEach(item => {
-    if(!groups[item.day]) groups[item.day] = [];
-    groups[item.day].push(item);
-  });
-  const dayOrder = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-  let days = dayOrder.filter(day => groups[day]);
-  if(limitDays) days = days.slice(0, limitDays);
-  target.innerHTML = days.map(day => {
-    const cards = groups[day].map(renderClassCard).join("");
-    return `<div class="day-block"><div class="day-label">${day}</div>${cards}</div>`;
-  }).join("");
-}
-
-function renderClassCard(item){
-  const s = cleanStatus(item.status);
-  const action = actionFor(item);
-  const spots = Number(item.capacity || 0) ? `${Number(item.booked || 0)}/${Number(item.capacity)} booked` : "";
-  const note = item.notes ? ` · ${escapeHtml(item.notes)}` : "";
-  const disabled = action.mode === "cancelled";
-  return `
-    <div class="class-card" data-item='${toAttrJson(item)}'>
-      <div class="class-time">${escapeHtml(item.time || "")}<span>${escapeHtml(item.duration || "")}</span></div>
-      <div class="class-info">
-        <h3>${escapeHtml(item.className || "")}</h3>
-        <div class="instructor">with ${escapeHtml(item.instructor || "Get Cronk'd team")}${spots ? " · " + spots : ""}${note}</div>
-      </div>
-      <div class="class-action">
-        <div class="status ${s}">${statusLabel(item)}</div>
-        <button class="btn ${action.kind}" ${disabled ? "disabled" : ""} onclick='openRegistration(this,"${action.mode}")'>${escapeHtml(action.text)}</button>
-      </div>
-    </div>`;
-}
-
-function renderPrograms(){
-  const target = document.getElementById("programGrid");
-  if(!target) return;
-  const items = (CRONKD_DATA.programs || []).filter(p => p.showOnSite !== false && cleanStatus(p.status) !== "hidden");
-  target.innerHTML = items.map(item => {
-    const s = cleanStatus(item.status);
-    const action = actionFor(item);
-    return `
-      <div class="program-card ${s}" data-item='${toAttrJson(item)}'>
-        <div class="status ${s}">${escapeHtml(item.badge || statusLabel(item))}</div>
-        <h3>${escapeHtml(item.programName || "")}</h3>
-        <div class="program-schedule">${escapeHtml(item.schedule || "")}${item.instructor ? " · with " + escapeHtml(item.instructor) : ""}</div>
-        <p>${escapeHtml(item.description || "")}</p>
-        <button class="btn ${action.kind}" onclick='openRegistration(this,"${action.mode}")'>${escapeHtml(action.text)}</button>
-      </div>`;
-  }).join("");
-}
-
-function openRegistration(btn, mode){
-  if(mode === "cancelled") return;
-  const card = btn.closest("[data-item]");
-  const item = JSON.parse(card.dataset.item);
-  const name = item.className || item.programName || "Get Cronk'd";
-  currentItem = {...item, requestMode:mode, displayName:name};
-  const titleMap = {
-    register:"Register",
-    waitlist:"Join waitlist",
-    notify:"Get notified",
-    inquiry:"Send inquiry"
-  };
-  document.getElementById("modalTitle").textContent = titleMap[mode] || "Register";
-  document.getElementById("modalClass").textContent = name;
-  const context = item.day ? `${item.day} · ${item.time || ""} · with ${item.instructor || "Get Cronk'd team"}` : `${item.schedule || ""}`;
-  document.getElementById("modalContext").textContent = context;
-  document.getElementById("requestType").value = mode;
-  document.getElementById("submitBtn").textContent = titleMap[mode] || "Submit";
-  document.getElementById("modalForm").style.display = "block";
-  document.getElementById("successView").classList.remove("show");
-  document.getElementById("modalOverlay").classList.add("show");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal(){
-  document.getElementById("modalOverlay").classList.remove("show");
-  document.body.style.overflow = "";
-}
-
-async function handleSubmit(){
-  const f = val("f-first"), l = val("f-last"), e = val("f-email"), p = val("f-phone");
-  const ecn = val("f-ec-name"), ecp = val("f-ec-phone");
-  const waiver = document.getElementById("f-waiver").checked;
-  if(!f || !l || !e || !p){ alert("Please fill in your name, email, and phone."); return; }
-  if(!ecn || !ecp){ alert("Please provide an emergency contact."); return; }
-  if(!waiver){ alert("Please read and accept the waiver to continue."); return; }
-
-  const payload = {
-    submittedAt:new Date().toISOString(),
-    requestType:document.getElementById("requestType").value,
-    firstName:f,
-    lastName:l,
-    email:e,
-    phone:p,
-    dob:val("f-dob"),
-    emergencyContactName:ecn,
-    emergencyContactPhone:ecp,
-    notes:val("f-notes"),
-    item:currentItem
-  };
-
-  console.log("Ready to send to Airtable/proxy:", payload);
-  // Later: await fetch("YOUR_FORM_ENDPOINT", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)});
-
-  document.getElementById("modalForm").style.display = "none";
-  const mode = payload.requestType;
-  const icon = document.getElementById("successIcon");
-  icon.textContent = mode === "waitlist" ? "⏳" : "✓";
-  icon.className = "success-icon " + (mode === "waitlist" ? "waitlisted" : mode === "notify" ? "info" : "confirmed");
-  document.getElementById("successTitle").textContent =
-    mode === "waitlist" ? "You're on the list." :
-    mode === "notify" ? "We'll keep you posted." :
-    mode === "inquiry" ? "Inquiry sent." :
-    "You're registered.";
-  document.getElementById("successMsg").textContent =
-    mode === "waitlist" ? "We'll email you if a spot opens up." :
-    mode === "notify" ? "We'll email you when the next opening or intake is available." :
-    mode === "inquiry" ? "We'll follow up with next steps." :
-    "We'll send a confirmation to your email.";
-  document.getElementById("successDetail").textContent = currentItem.displayName || "";
-  document.getElementById("successView").classList.add("show");
-}
-
-function val(id){ return (document.getElementById(id)?.value || "").trim(); }
-function escapeHtml(value){ return String(value ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])); }
-function toAttrJson(item){ return escapeHtml(JSON.stringify(item)); }
-
-document.addEventListener("DOMContentLoaded", async () => {
-  CRONKD_DATA = await loadCronkdData();
-  renderAnnouncements();
-  renderDropIns("dropInSchedule");
-  renderDropIns("scheduleFull");
-  renderPrograms();
-});
-
+// Registration is handled by the embedded Airtable form.
 </script>
 </body>
 </html>
