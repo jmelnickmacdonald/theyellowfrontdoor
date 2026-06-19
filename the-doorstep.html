@@ -52,7 +52,7 @@ ul { list-style: none; }
 .hub-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; }
 .hub-eyebrow-tag { background: var(--navy); color: var(--yellow); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; padding: 6px 14px; }
 .hub-eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
-.hub-title { font-family: var(--f-accent); font-size: clamp(44px, 7vw, 76px); color: var(--ink); line-height: 1; margin-bottom: 16px; }
+.hub-title { font-family: var(--f-accent); font-size: clamp(44px, 7vw, 76px); color: var(--ink); line-height: 1; margin-bottom: 16px; font-weight: normal; }
 .hub-sub { font-size: clamp(16px,1.8vw,18px); color: var(--ink); max-width: 560px; line-height: 1.6; }
 
 /* POST */
@@ -65,7 +65,6 @@ ul { list-style: none; }
 .post-title { font-family: var(--f-head); font-size: clamp(30px,4.4vw,46px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 28px; }
 .post-title .accent { display: block; font-family: var(--f-accent); font-weight: normal; font-size: 0.7em; color: var(--slate); letter-spacing: 0; margin-top: 6px; }
 .post-body p { font-size: 17px; line-height: 1.8; color: var(--ink); margin-bottom: 22px; }
-.post-body p.lead { font-size: 19px; line-height: 1.75; }
 .post-body .pull { font-family: var(--f-accent); font-size: clamp(24px,3vw,32px); color: var(--ink); line-height: 1.25; margin: 34px 0; padding-left: 24px; border-left: 3px solid var(--yellow); }
 .post-body .closer { font-weight: 500; }
 .post-hero { margin: 0 0 32px; }
@@ -94,24 +93,19 @@ ul { list-style: none; }
 .more-card.soon .kind { color: var(--slate); }
 
 /* FOOTER */
-.footer { background: #ffffff; padding: 48px 0 36px; border-top: 1px solid var(--stone); }
-.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--stone); margin-bottom: 32px; }
-.footer-logo { font-family: var(--f-accent); font-size: 24px; color: var(--ink); margin-bottom: 12px; }
-.footer-tagline { font-size: 14px; color: var(--ink); line-height: 1.65; font-weight: 400; max-width: 220px; }
-.footer-round-logo { display: flex; justify-content: center; align-items: center; }
-.footer-round-logo img { width: 120px; height: 120px; }
-.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 15px; color: var(--ink); margin-bottom: 10px; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--slate); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
+.footer-logo-wrap { margin-bottom: 16px; }
+.footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
+.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
+.footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
+.footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
+.footer-nav a:hover { color: var(--ink); }
+.footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
 
-@media (max-width: 860px) {
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-round-logo { justify-content: flex-start; }
-}
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
@@ -135,7 +129,8 @@ ul { list-style: none; }
       <li><a href="the-proof.html">The Proof</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html" class="active">The Doorstep</a></li>
-      <li><a href="lets-talk.html" class="nav-cta">Let's Talk</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -151,7 +146,7 @@ ul { list-style: none; }
       <span class="hub-eyebrow-desc">Notes from the studio</span>
     </div>
     <h1 class="hub-title">The Doorstep</h1>
-    <p class="hub-sub">Stories, ideas, and a few useful things — about the experience people actually meet once they find a small business.</p>
+    <p class="hub-sub">Stories, ideas, and a few useful things about the experience people actually meet once they find a small business.</p>
   </div>
 </header>
 
@@ -169,7 +164,7 @@ ul { list-style: none; }
       <figcaption>Willow &amp; Rose — the shop I ran before this one.</figcaption>
     </figure>
     <div class="post-body">
-      <p class="lead">When I started my first business, I had not one but two window cleaners. Different companies, both showing up every few days, neither quite aware of the other. Whether I wanted it or not, the outside of my windows stayed spotless — and a ten-dollar invoice would appear, sometimes more than once a week, and the glass would be clean again.</p>
+      <p>When I started my first business, I had not one but two window cleaners. Different companies, both showing up every few days, neither quite aware of the other. Whether I wanted it or not, the outside of my windows stayed spotless — and a ten-dollar invoice would appear, sometimes more than once a week, and the glass would be clean again.</p>
 
       <p>Meanwhile, inside, I was treading water — intensely, constantly. Like a duck: calm on the surface, paddling like mad underneath, and no one ever knew. Business was good, but my website wasn't properly updated, my sign was still temporary, and the back-end pieces I kept meaning to fix were still waiting. I usually had at least one kid in the shop with me, so even when the outside glass was perfect, there were fingerprints and smudges on the inside.</p>
 
@@ -183,7 +178,7 @@ ul { list-style: none; }
         <figcaption>So much care went into all of it — the products, the workshops, the look. The unglamorous back-end pieces were the ones that quietly waited.</figcaption>
       </figure>
 
-      <p>I was doing the same thing with my marketing. Paying out the nose for Facebook ads, paying for radio, forking out donation after donation for visibility, saying yes to every local marketing opportunity that came across my desk. More posts, more reach, more effort to get people looking. And I couldn't even tell you if any of it was converting — because once people came closer, the experience they actually walked into was still patched together. An outdated website. A cold auto-reply. A half-finished profile. A follow-up that never came. A newsletter I always meant to start.</p>
+      <p>I was doing the same thing with my marketing. Paying for Facebook ads, radio, donations for visibility, saying yes to every local marketing opportunity that came across my desk. And I couldn't even tell you if any of it was converting, because once people came closer, the experience they actually walked into was still patched together. An outdated website. A cold auto-reply. A half-finished profile. A follow-up that never came. A newsletter I always meant to start.</p>
 
       <p class="pull">I was paying, constantly, to polish the outside. The inside was where the real work was waiting.</p>
 
@@ -222,26 +217,23 @@ ul { list-style: none; }
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <p class="footer-logo">The Yellow Front Door</p>
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-round-logo">
-        <img src="roundlogo.png" alt="The Yellow Front Door">
-      </div>
-      <div class="footer-nav-col">
-        <h4>Studio</h4>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="the-proof.html">The Proof</a>
-        <a href="about.html">About</a>
-        <a href="the-doorstep.html">The Doorstep</a>
-        <a href="lets-talk.html">Let's Talk</a>
-      </div>
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
     </div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm"></div>
+      <p class="footer-copy">© 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
       <p class="footer-copy">theyellowfrontdoor.ca</p>
     </div>
   </div>
