@@ -111,22 +111,53 @@ textarea{min-height:90px;resize:vertical;}
 .hero{padding:clamp(2rem,6vw,4rem) 1.5rem;}
 .schedule-note{background:var(--blue-light);border-color:rgba(59,176,224,.3);border-left-color:var(--blue);}
 
+
+.airtable-schedule-shell{
+  position:relative;
+  margin-top:1.5rem;
+}
+.airtable-schedule-shell:before{
+  content:'';
+  position:absolute;
+  inset:-1rem;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(162,197,35,.16),transparent 34%),
+    radial-gradient(circle at 95% 20%,rgba(59,176,224,.14),transparent 32%);
+  border-radius:24px;
+  z-index:0;
+  pointer-events:none;
+}
 .airtable-schedule-wrap{
+  position:relative;
+  z-index:1;
   background:#fff;
   border:1px solid var(--border);
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
-  box-shadow:0 14px 36px rgba(0,0,0,.08);
+  box-shadow:0 18px 48px rgba(0,0,0,.1);
+}
+.airtable-schedule-wrap:before{
+  content:'Live weekly schedule';
+  display:block;
+  background:var(--ink);
+  color:#fff;
+  font-family:var(--display);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:.85rem 1.1rem;
+  border-bottom:4px solid var(--lime);
 }
 .airtable-schedule-wrap iframe{
   width:100%;
-  min-height:720px;
+  min-height:760px;
   border:0!important;
   display:block;
   background:#fff!important;
 }
 .schedule-actions{
-  margin-top:1.2rem;
+  margin-top:1.35rem;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -137,10 +168,35 @@ textarea{min-height:90px;resize:vertical;}
   font-size:13px;
   color:var(--ink-muted);
 }
-@media(max-width:760px){
-  .airtable-schedule-wrap iframe{min-height:780px;}
-  .schedule-actions{align-items:flex-start;flex-direction:column;}
+.schedule-help{
+  margin-top:1rem;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
 }
+.schedule-help-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1rem;
+  font-size:13px;
+  color:var(--ink-muted);
+}
+.schedule-help-card strong{
+  display:block;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:.2rem;
+}
+@media(max-width:760px){
+  .airtable-schedule-wrap iframe{min-height:820px;}
+  .schedule-actions{align-items:flex-start;flex-direction:column;}
+  .schedule-help{grid-template-columns:1fr;}
+}
+
 
 </style>
 </head>
@@ -167,13 +223,20 @@ textarea{min-height:90px;resize:vertical;}
       <div>
         <div class="label">Live schedule</div>
         <h2>Classes this week.</h2>
-        <p class="lead">Use this as the clean public schedule page. The register page can stay more action-focused, while this page gives people the full weekly view.</p>
+        <p class="lead">This is the clean public schedule. It updates from Airtable, so class changes, cancellations, and availability can be managed by the studio without touching the website.</p>
       </div>
       <a class="btn" href="getcronkd-register.html">Register or join waitlist</a>
     </div>
 
-    <div class="airtable-schedule-wrap">
-      <iframe class="airtable-embed" src="https://airtable.com/embed/appTXfAYqeKi1CWVH/shrR7QiNa9fOyvAl2?viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+    <div class="airtable-schedule-shell">
+      <div class="airtable-schedule-wrap">
+        <iframe class="airtable-embed" src="https://airtable.com/embed/appTXfAYqeKi1CWVH/shrR7QiNa9fOyvAl2?viewControls=off" frameborder="0" onmousewheel="" width="100%" height="760" style="background: transparent; border: 0;"></iframe>
+      </div>
+    </div>
+    <div class="schedule-help">
+      <div class="schedule-help-card"><strong>Open</strong>Good to go. Choose a class and register.</div>
+      <div class="schedule-help-card"><strong>Few spots left</strong>Space is limited, so book sooner rather than later.</div>
+      <div class="schedule-help-card"><strong>Full or waitlist</strong>Join the list and the studio will follow up if space opens.</div>
     </div>
     <div class="schedule-actions">
       <a class="btn" href="getcronkd-register.html">Register or join waitlist</a>
