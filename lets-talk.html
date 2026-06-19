@@ -36,7 +36,7 @@ ul { list-style: none; }
 .nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
 .nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
 .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo img { height: 80px; width: auto; display: block; }
+.nav-logo img { height: 56px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--paper); }
@@ -95,17 +95,16 @@ ul { list-style: none; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
 
+/* RESPONSIVE */
 @media (max-width: 860px) {
   .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-round-logo { justify-content: flex-start; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-bottom { flex-direction: column; }
   .eyebrow-label { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
 </style>
@@ -123,7 +122,8 @@ ul { list-style: none; }
       <li><a href="the-proof.html">The Proof</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html" class="nav-cta active">Let's Talk</a></li>
+      <li><a href="lets-talk.html" class="active">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -209,25 +209,23 @@ ul { list-style: none; }
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-round-logo">
-        <img src="roundlogo.png" alt="The Yellow Front Door">
-      </div>
-      <div class="footer-nav-col">
-        <h4>Studio</h4>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="the-proof.html">The Proof</a>
-        <a href="about.html">About</a>
-        <a href="the-doorstep.html">The Doorstep</a>
-        <a href="lets-talk.html">Let's Talk</a>
-      </div>
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
     </div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm"></div>
+      <p class="footer-copy">© 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
       <p class="footer-copy">theyellowfrontdoor.ca</p>
     </div>
   </div>
