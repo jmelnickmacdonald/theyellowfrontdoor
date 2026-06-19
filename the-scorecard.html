@@ -283,10 +283,10 @@ const insights = {
     "Things are starting to fall behind. The gap between where your business is and what people see online gets wider the longer it sits."
   ],
   low: [
-    "People are finding you online and not getting an accurate picture. This is the first thing worth fixing because everything else sits on top of it.",
-    "Your website isn't telling your story clearly. This is the single biggest place where people decide to go further or leave.",
-    "New inquiries aren't getting the response they deserve. This is where trust gets built or lost, and right now it's leaking.",
-    "There's no system behind the customer experience. Every interaction depends on you remembering, and that doesn't scale.",
+    "People are finding you online and not getting an accurate picture. This is worth fixing first.",
+    "Your website isn't telling your story clearly, and that's where most people decide whether to go further.",
+    "New inquiries aren't getting the response they deserve. That first reply is where trust forms, and right now it's inconsistent.",
+    "There's no system behind the customer experience. Every interaction depends on you remembering, and eventually something slips.",
     "Your online presence has fallen behind the business itself. The good news: you already know, and that's where it starts."
   ]
 };
@@ -351,7 +351,6 @@ function showResults() {
   let stopScores = [0,0,0,0,0], stopMax = [0,0,0,0,0], total = 0;
   answers.forEach(a => { stopScores[a.stop] += a.score; stopMax[a.stop] += 4; total += a.score; });
   
-  // Animate score number
   let displayed = 0;
   const scoreEl = document.getElementById('scoreNum');
   const interval = setInterval(() => {
@@ -364,12 +363,11 @@ function showResults() {
   if (total >= 33) { accent = "Looking strong."; summary = "Your in-market experience is in good shape. A few things to tighten, but the foundation is solid."; }
   else if (total >= 25) { accent = "Good bones, some gaps."; summary = "The basics are there, but there are spots where the experience isn't matching the quality of what you actually do."; }
   else if (total >= 16) { accent = "Your business is better than it looks online."; summary = "There's a real gap between the work you do and what people find when they look you up. Most of it is fixable."; }
-  else { accent = "Time for a fresh start."; summary = "The outside doesn't match the inside yet. But knowing where you stand is the first step, and you just took it."; }
+  else { accent = "Time for a fresh start."; summary = "The outside doesn't match the inside yet. That changes."; }
 
   document.getElementById('resultsAccent').textContent = accent;
   document.getElementById('resultsSummary').textContent = summary;
 
-  // Build stop sections
   let html = '';
   stopNames.forEach((name, i) => {
     const pct = (stopScores[i] / stopMax[i]) * 100;
@@ -386,7 +384,6 @@ function showResults() {
   });
   document.getElementById('stopSections').innerHTML = html;
 
-  // Animate bars
   setTimeout(() => {
     document.querySelectorAll('.stop-bar-inner').forEach(bar => {
       bar.style.width = bar.dataset.width + '%';
