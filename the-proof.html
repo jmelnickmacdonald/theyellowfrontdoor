@@ -73,28 +73,24 @@ ul { list-style: none; }
 .category-arrow { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; transition: letter-spacing 0.2s; }
 .category-card:hover .category-arrow { letter-spacing: 0.15em; }
 
-/* PRE-FOOTER */
-.pre-footer { background: var(--navy); padding: clamp(32px,4vw,52px) 0; text-align: center; }
-
 /* FOOTER */
 .footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
-.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
-.footer-brand { display: flex; flex-direction: column; gap: 14px; }
-.footer-brand img { width: 72px; height: 72px; }
-.footer-tagline { font-size: 13px; color: var(--slate); line-height: 1.65; font-weight: 400; max-width: 260px; }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-col a, .footer-col p { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
-.footer-col a:hover { color: var(--ink); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
+.footer-logo-wrap { margin-bottom: 16px; }
+.footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
+.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
+.footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
+.footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
+.footer-nav a:hover { color: var(--ink); }
+.footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
 
 @media (max-width: 768px) {
   .categories-grid { grid-template-columns: 1fr; }
   .category-card { border-right: none; border-bottom: 1px solid var(--stone); }
   .category-card:last-child { border-bottom: none; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
@@ -131,7 +127,7 @@ ul { list-style: none; }
         <span class="eyebrow-desc">Real work, real thinking</span>
       </div>
       <h1>The thinking, in practice.</h1>
-      <p>This is how the in-market experience work actually plays out. Pick a category and see what we mean.</p>
+      <p>This is how the in-market experience actually plays out. Pick a category and see what we mean.</p>
     </div>
   </div>
 </section>
@@ -171,7 +167,7 @@ ul { list-style: none; }
         <div class="category-body">
           <span class="category-number">03</span>
           <p class="category-name">Strategy & Systems</p>
-          <p class="category-desc">The infrastructure behind a business that runs smoothly. Email systems, automations, content strategy, and the wiring that connects it all.</p>
+          <p class="category-desc">The infrastructure behind a business that actually works. Email systems, automations, content strategy, and the wiring that connects it all.</p>
           <p class="category-arrow">See the work →</p>
         </div>
       </a>
@@ -180,37 +176,24 @@ ul { list-style: none; }
   </div>
 </section>
 
-<div class="pre-footer">
-  <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:620px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-  </div>
-</div>
-
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="roundlogo.png" alt="The Yellow Front Door">
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Studio</h4>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="the-proof.html">The Proof</a>
-        <a href="about.html">About</a>
-        <a href="the-doorstep.html">The Doorstep</a>
-        <a href="lets-talk.html">Let's Talk</a>
-      </div>
-      <div class="footer-col">
-        <h4>Get in touch</h4>
-        <a href="lets-talk.html">Start a conversation</a>
-        <a href="lets-talk.html">Request a Drive-By</a>
-        <a href="the-scorecard.html">Take the Scorecard</a>
-        <p style="margin-top:8px;">Annapolis Valley, NS</p>
-      </div>
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
     </div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
+      <p class="footer-copy">© 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
       <div class="footer-dot-sm" aria-hidden="true"></div>
       <p class="footer-copy">theyellowfrontdoor.ca</p>
     </div>
