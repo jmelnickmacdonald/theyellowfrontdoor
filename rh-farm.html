@@ -3,644 +3,593 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farm & Homestead — Raven House Co.</title>
-  <meta name="description" content="A working homestead in the Annapolis Valley. Goats, cattle, horses, chickens, ducks, and the daily work of living close to the land.">
+  <title>Raven House Co. — Annapolis Valley, Nova Scotia</title>
+  <meta name="description" content="A working homestead in the Annapolis Valley. Fresh eggs, handmade goods, and the everyday rhythm of a life lived close to the land.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream:       #F7F2E8;
-      --cream-deep:  #EFE7D5;
-      --ink:         #1C1A17;
-      --ink-mid:     #3D3830;
-      --sage:        #6B7C5E;
-      --sage-light:  #8FA082;
-      --sage-pale:   #E8EDE4;
-      --terracotta:  #C47A52;
-      --terra-pale:  #F2E4D8;
-      --blush:       #E8D5C4;
-      --stone:       #9C9080;
-      --stone-light: #D4CDBF;
+      --white:      #FFFFFF;
+      --off-white:  #FAF7F2;
+      --ink:        #1A1612;
+      --ink-mid:    #3C3028;
+      --ink-light:  #6A5C50;
+      --terra:      #9B5A36;
+      --terra-light:#C48060;
+      --terra-pale: #E8D0BC;
+      --amber:      #C8843A;
+      --amber-pale: #F2E0C8;
+      --stone:      #B8A898;
     }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Lato', sans-serif;
-      background: var(--cream);
+      background: var(--white);
       color: var(--ink);
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(247,242,232,0.96);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--stone-light);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo img { height: 38px; width: auto; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--terracotta); }
-    .nav-links a.active { color: var(--sage); }
-    .nav-cta {
-      background: var(--sage);
-      color: var(--cream) !important;
-      padding: 0.4rem 1.1rem;
-      border-radius: 2px;
-    }
-    .nav-cta:hover { background: var(--ink) !important; }
+    /* warm filter on all photos */
+    .warm { filter: sepia(18%) saturate(115%) brightness(104%) contrast(96%); }
 
-    /* PAGE HEADER */
-    .page-header {
-      margin-top: 60px;
+    /* ─── HEADER ─────────────────────────────── */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      background: var(--ink);
+      display: flex; flex-direction: column; align-items: center;
+      padding: 14px 2rem 12px;
+      transition: padding 0.35s ease;
+    }
+    .site-header.scrolled { padding: 8px 2rem 8px; }
+    .header-logo {
+      height: 120px; width: auto;
+      filter: brightness(0) invert(1); opacity: 0.9;
+      margin-bottom: 10px;
+      transition: height 0.35s, margin 0.35s;
+    }
+    .site-header.scrolled .header-logo { height: 40px; margin-bottom: 6px; }
+    .header-nav { display: flex; gap: 2.8rem; list-style: none; }
+    .header-nav a {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--terra-pale); }
+    .header-nav .nav-hi { color: var(--terra-pale); }
+    .header-nav .nav-hi:hover { color: white; }
+
+    /* ─── HERO ───────────────────────────────── */
+    .hero {
       position: relative;
-      height: 60vh;
-      min-height: 400px;
+      height: 100vh; min-height: 680px;
       overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: 3rem 2rem;
     }
-    .page-header-img {
-      position: absolute;
-      inset: 0;
+    .hero-img {
+      position: absolute; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 40%;
+      object-fit: cover; object-position: center 38%;
+      filter: sepia(22%) saturate(130%) brightness(108%) contrast(92%);
     }
-    .page-header-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(28,26,23,0.8) 0%, rgba(28,26,23,0.05) 55%);
+    /* warm amber overlay rather than dark grey */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top,  rgba(30,18,8,0.88) 0%, rgba(40,22,8,0.35) 40%, rgba(40,24,8,0.08) 70%, transparent 100%),
+        linear-gradient(to bottom, rgba(30,18,8,0.42) 0%, transparent 22%);
     }
-    .page-header-content {
+    .hero-body {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 0 7vw 5.5rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--amber-pale);
+      margin-bottom: 1.1rem; display: block;
+      text-shadow: 0 1px 8px rgba(20,10,0,0.6);
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 7.5vw, 7rem);
+      font-weight: 300; line-height: 0.9;
+      color: white; letter-spacing: -0.01em;
+      margin-bottom: 1.8rem;
+      text-shadow: 0 2px 20px rgba(20,10,0,0.4);
+    }
+    .hero-title em { font-style: italic; color: var(--terra-pale); display: block; }
+    .hero-foot { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .hero-cta {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.5); color: white;
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      padding: 0.85rem 2.2rem;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .hero-cta:hover { background: rgba(255,255,255,0.12); border-color: white; }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic; font-weight: 300;
+      color: rgba(255,255,255,0.62);
+      text-shadow: 0 1px 8px rgba(20,10,0,0.5);
+    }
+
+    /* ─── INTRO ──────────────────────────────── */
+    .intro {
+      background: var(--white);
+      padding: 8rem 7vw 7rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6vw; align-items: start;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .intro-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 300; line-height: 1.0; color: var(--ink);
+    }
+    .intro-h em { font-style: italic; color: var(--terra); }
+    .intro-right { padding-top: 0.8rem; }
+    .intro-rule { width: 40px; height: 1px; background: var(--terra); margin-bottom: 1.8rem; }
+    .intro-p {
+      font-size: 1.02rem; color: var(--ink-light);
+      line-height: 1.95; font-weight: 300; margin-bottom: 1.1rem;
+    }
+    .intro-p:last-child { margin-bottom: 0; }
+
+    /* ─── EYEBROW ────────────────────────────── */
+    .eyebrow {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terra); display: block; margin-bottom: 0.8rem;
+    }
+
+    /* ─── FULL-BLEED PANEL ───────────────────── */
+    .panel {
       position: relative;
-      z-index: 2;
-      max-width: 1050px;
-      width: 100%;
-      margin: 0 auto;
-    }
-    .page-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage-light);
-      margin-bottom: 0.6rem;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 400;
-      color: white;
-      line-height: 1.15;
-    }
-    .page-header h1 em {
-      font-style: italic;
-      color: var(--blush);
-    }
-
-    /* INTRO */
-    .farm-intro {
-      padding: 6rem 2rem;
-      background: var(--cream);
-    }
-    .farm-intro-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-    .farm-intro-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 1.4rem;
-    }
-    .farm-intro-text p {
-      color: var(--ink-mid);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    .farm-intro-img img {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      display: block;
-      border-radius: 2px;
-    }
-
-    /* ANIMALS SECTION */
-    .animals {
-      padding: 6rem 2rem;
-      background: var(--cream-deep);
-    }
-    .animals-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.5rem;
-      color: var(--terracotta);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 400;
-      margin-bottom: 3.5rem;
-    }
-    .animals-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .animal-card {
-      background: var(--cream);
-      border-radius: 2px;
+      height: 78vh; min-height: 540px;
       overflow: hidden;
     }
-    .animal-card-img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .animal-card:hover .animal-card-img { transform: scale(1.04); }
-    .animal-card-body {
-      padding: 1.4rem 1.4rem 1.6rem;
-    }
-    .animal-card-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    .animal-card-body p {
-      font-size: 0.88rem;
-      color: var(--stone);
-      line-height: 1.65;
-    }
-
-    /* FULL BLEED IMAGE */
-    .full-bleed {
-      position: relative;
-      height: 420px;
-      overflow: hidden;
-    }
-    .full-bleed img {
+    .panel-img {
+      position: absolute; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 55%;
-      display: block;
+      object-fit: cover; object-position: center;
       transition: transform 8s ease;
+      filter: sepia(18%) saturate(115%) brightness(104%) contrast(96%);
     }
-    .full-bleed:hover img { transform: scale(1.03); }
-
-    /* EGGS SECTION */
-    .eggs {
-      padding: 6rem 2rem;
-      background: var(--sage-pale);
+    .panel:hover .panel-img { transform: scale(1.04); }
+    .panel-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(30,16,6,0.9) 0%,
+        rgba(30,16,6,0.45) 38%,
+        rgba(30,16,6,0.08) 65%,
+        transparent 100%
+      );
     }
-    .eggs-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
+    .panel-body {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 0 7vw 4.5rem;
     }
-    .eggs-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+    .panel-body .eyebrow { color: var(--amber-pale); opacity: 0.85; }
+    .panel-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 300; line-height: 0.95;
+      color: white; margin-bottom: 1.1rem;
+      text-shadow: 0 2px 16px rgba(20,8,0,0.4);
     }
-    .eggs-photos .ep-tall {
-      grid-row: span 2;
-      overflow: hidden;
-      border-radius: 2px;
+    .panel-h em { font-style: italic; color: var(--terra-pale); }
+    .panel-p {
+      font-size: 1rem; color: rgba(255,255,255,0.7);
+      font-weight: 300; line-height: 1.75;
+      max-width: 520px; margin-bottom: 1.8rem;
+      text-shadow: 0 1px 8px rgba(20,8,0,0.4);
     }
-    .eggs-photos .ep-sm {
-      overflow: hidden;
-      border-radius: 2px;
-    }
-    .eggs-photos img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .eggs-photos .ep-tall { height: 380px; }
-    .eggs-photos .ep-sm { height: 186px; }
-    .eggs-photos:hover img { transform: scale(1.03); }
-
-    .eggs-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 1.4rem;
-    }
-    .eggs-text p {
-      color: var(--ink-mid);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    .eggs-tag {
+    .panel-body.right { text-align: right; }
+    .panel-body.right .panel-p { margin-left: auto; }
+    .btn-ghost {
       display: inline-block;
-      background: var(--terracotta);
+      border: 1px solid rgba(255,255,255,0.45); color: white;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      padding: 0.8rem 2rem;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: white; }
+
+    /* ─── QUOTE — forest path ────────────────── */
+    .quote {
+      position: relative; overflow: hidden;
+      padding: 9rem 7vw; text-align: center;
+    }
+    .quote-bg {
+      position: absolute; inset: 0;
+      background: url('forest-path.jpg') center / cover no-repeat;
+      filter: sepia(30%) saturate(80%) brightness(70%);
+    }
+    .quote-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(20,10,4,0.72);
+    }
+    .quote-inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; }
+    .quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+      font-weight: 300; font-style: italic;
+      color: white; line-height: 1.5;
+      text-shadow: 0 1px 12px rgba(20,8,0,0.5);
+    }
+
+    /* ─── SPLIT ──────────────────────────────── */
+    .split { display: grid; grid-template-columns: 1fr 1fr; }
+    .split-photo {
+      position: relative; overflow: hidden; min-height: 580px;
+    }
+    .split-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s ease;
+      filter: sepia(18%) saturate(115%) brightness(104%) contrast(96%);
+    }
+    .split:hover .split-photo img { transform: scale(1.04); }
+    .split-text {
+      background: var(--off-white);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 5vw;
+    }
+    .split-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 300; line-height: 1.05;
+      color: var(--ink); margin-bottom: 1.3rem;
+    }
+    .split-h em { font-style: italic; color: var(--terra); }
+    .split-p {
+      font-size: 1rem; color: var(--ink-light);
+      line-height: 1.9; margin-bottom: 0.9rem;
+      max-width: 400px; font-weight: 300;
+    }
+    .split-p:last-of-type { margin-bottom: 2rem; }
+    .btn-ink {
+      display: inline-block; align-self: flex-start;
+      background: var(--ink); color: white;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem; transition: background 0.2s;
+    }
+    .btn-ink:hover { background: var(--terra); }
+    .split.flip .split-photo { order: 2; }
+    .split.flip .split-text { order: 1; }
+
+    /* ─── MOSAIC ─────────────────────────────── */
+    .mosaic-wrap { background: var(--white); padding: 6rem 7vw; }
+    .mosaic-head { margin-bottom: 3rem; }
+    .mosaic-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--ink);
+    }
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      grid-template-rows: 265px 265px;
+      gap: 5px;
+    }
+    .mosaic-item { overflow: hidden; }
+    .mosaic-item.tall { grid-row: span 2; }
+    .mosaic-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.55s ease;
+      filter: sepia(18%) saturate(115%) brightness(104%) contrast(96%);
+    }
+    .mosaic-item:hover img { transform: scale(1.07); }
+
+    /* ─── TEXTURE BAND — barn wood ───────────── */
+    .texture-section { position: relative; overflow: hidden; }
+    .texture-bg {
+      position: absolute; inset: 0;
+      background: url('barn-wood.jpg') center / cover no-repeat;
+      filter: sepia(40%) saturate(80%) brightness(60%);
+    }
+    .texture-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(20,10,4,0.75);
+    }
+    .texture-content {
+      position: relative; z-index: 1;
+      padding: 7rem 7vw; text-align: center;
+      max-width: 800px; margin: 0 auto;
+    }
+    .texture-content .eyebrow { color: var(--amber-pale); opacity: 0.7; }
+    .texture-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 300; line-height: 1.1;
+      color: white; margin-bottom: 1.4rem;
+    }
+    .texture-content h2 em { font-style: italic; color: var(--terra-pale); }
+    .texture-content p {
+      font-size: 1rem; color: rgba(255,255,255,0.52);
+      line-height: 1.85; font-weight: 300;
+    }
+
+    /* ─── EGGS PANEL ─────────────────────────── */
+    .eggs-panel {
+      position: relative; height: 82vh; min-height: 560px; overflow: hidden;
+    }
+    .eggs-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(30,14,4,0.94) 0%,
+        rgba(30,14,4,0.52) 40%,
+        rgba(30,14,4,0.12) 65%,
+        transparent 100%
+      );
+    }
+
+    /* ─── EGG SIGNUP ─────────────────────────── */
+    .egg-signup { background: var(--ink); padding: 6rem 7vw; }
+    .egg-signup-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6vw; align-items: center;
+    }
+    .egg-signup-text .eyebrow { color: var(--terra-pale); opacity: 0.75; }
+    .egg-signup-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300; line-height: 1.05;
+      color: white; margin-bottom: 1rem;
+    }
+    .egg-signup-text p {
+      font-size: 0.97rem; color: rgba(255,255,255,0.45);
+      line-height: 1.85; font-weight: 300;
+    }
+    .egg-form { display: flex; flex-direction: column; gap: 1rem; }
+    .egg-form-fields { display: flex; flex-direction: column; gap: 0.8rem; }
+    .egg-form input, .egg-form select {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.14);
       color: white;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      border-radius: 2px;
-      margin-bottom: 1.2rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem; font-weight: 300;
+      padding: 0.9rem 1.2rem;
+      transition: border-color 0.2s; -webkit-appearance: none;
+    }
+    .egg-form input::placeholder { color: rgba(255,255,255,0.28); }
+    .egg-form input:focus, .egg-form select:focus { outline: none; border-color: rgba(255,255,255,0.38); }
+    .egg-form select { cursor: pointer; color: rgba(255,255,255,0.55); }
+    .egg-form select option { background: var(--ink); color: white; }
+    .egg-form button {
+      background: var(--terra); color: white;
+      border: none; cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      padding: 1rem 2.4rem; transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .egg-form button:hover { background: var(--terra-light); }
+    .egg-thankyou {
+      color: var(--terra-pale);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-style: italic; font-weight: 300;
+      line-height: 1.6; padding: 1.5rem 0;
     }
 
-    /* SEASONS */
-    .seasons {
-      padding: 6rem 2rem;
-      background: var(--ink);
-      color: var(--cream);
+    /* ─── FOOTER ─────────────────────────────── */
+    footer { background: var(--ink); padding: 5rem 7vw 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-top {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 4rem; padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem;
     }
-    .seasons-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
-    .seasons-inner .section-label { color: var(--sage-light); }
-    .seasons-inner .section-title { color: var(--cream); margin-bottom: 3rem; }
-    .seasons-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid rgba(247,242,232,0.1);
-    }
-    .season-item {
-      padding: 2.2rem 1.8rem;
-      border-right: 1px solid rgba(247,242,232,0.1);
-    }
-    .season-item:last-child { border-right: none; }
-    .season-name {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.3rem;
-      color: var(--terracotta);
-      display: block;
-      margin-bottom: 0.8rem;
-    }
-    .season-item p {
-      font-size: 0.88rem;
-      color: rgba(247,242,232,0.6);
-      line-height: 1.7;
-    }
-
-    /* PHOTO STRIP */
-    .photo-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      height: 300px;
-      gap: 4px;
-    }
-    .photo-strip-item { overflow: hidden; }
-    .photo-strip-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .photo-strip-item:hover img { transform: scale(1.05); }
-
-    /* CTA */
-    .farm-cta {
-      padding: 6rem 2rem;
-      background: var(--terra-pale);
-      text-align: center;
-    }
-    .farm-cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-    .farm-cta p {
-      color: var(--ink-mid);
-      max-width: 460px;
-      margin: 0 auto 2rem;
-      font-size: 1rem;
-    }
-    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-solid {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--cream);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.8rem;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-    .btn-solid:hover { background: var(--sage); }
-    .btn-outline {
-      display: inline-block;
-      border: 1.5px solid var(--ink);
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.8rem;
-      border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn-outline:hover { background: var(--ink); color: var(--cream); }
-
-    /* FOOTER */
-    footer {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 4rem 2rem 2rem;
-    }
-    .footer-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(247,242,232,0.1);
-    }
-    .footer-brand img {
-      height: 60px; width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.85;
-      margin-bottom: 1rem;
-    }
-    .footer-brand p {
-      font-size: 0.9rem;
-      color: rgba(247,242,232,0.55);
-      line-height: 1.7;
-      max-width: 280px;
-    }
-    .footer-col h4 {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sage-light);
-      margin-bottom: 1.2rem;
-    }
+    .footer-brand img { height: 52px; width: auto; filter: brightness(0) invert(1); opacity: 0.72; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.35); line-height: 1.85; max-width: 290px; }
+    .footer-col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--terra-pale); opacity: 0.6; margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 0.6rem; }
-    .footer-col ul a {
-      text-decoration: none;
-      color: rgba(247,242,232,0.65);
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .footer-col ul a:hover { color: var(--terracotta); }
-    .footer-bottom {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding-top: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      color: rgba(247,242,232,0.35);
-    }
-    .footer-email a { color: var(--terracotta); text-decoration: none; }
+    .footer-col ul a { font-size: 0.9rem; color: rgba(255,255,255,0.38); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--terra-pale); }
+    .footer-email { margin-top: 1.5rem; }
+    .footer-email a { font-size: 0.9rem; color: var(--terra-pale); opacity: 0.72; transition: opacity 0.2s; }
+    .footer-email a:hover { opacity: 1; }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 0.7rem; color: rgba(255,255,255,0.18); }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .farm-intro-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .animals-grid { grid-template-columns: 1fr; }
-      .eggs-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .seasons-grid { grid-template-columns: 1fr 1fr; }
-      .season-item:nth-child(2) { border-right: none; }
-      .season-item:nth-child(1),
-      .season-item:nth-child(2) { border-bottom: 1px solid rgba(247,242,232,0.1); }
-      .photo-strip { grid-template-columns: 1fr 1fr; height: 220px; }
-      .photo-strip-item:nth-child(3),
-      .photo-strip-item:nth-child(4) { display: none; }
-      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    /* ─── REVEAL ─────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.95s ease, transform 0.95s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.12s; }
+    .d2 { transition-delay: 0.24s; }
+
+    /* ─── MOBILE ─────────────────────────────── */
+    @media (max-width: 820px) {
+      .header-logo { height: 72px; }
+      .site-header.scrolled .header-logo { height: 36px; }
+      .header-nav { gap: 1.4rem; }
+      .header-nav a { font-size: 0.58rem; letter-spacing: 0.14em; }
+      .hero-foot { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+      .intro { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 7vw 4rem; }
+      .panel { height: 65vh; }
+      .split, .split.flip { grid-template-columns: 1fr; }
+      .split.flip .split-photo { order: 0; }
+      .split.flip .split-text { order: 0; }
+      .split-photo { min-height: 320px; }
+      .split-text { padding: 4rem 7vw; }
+      .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 175px); }
+      .mosaic-item.tall { grid-row: span 1; }
+      .eggs-panel { height: 72vh; }
+      .egg-signup-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.4rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="rh-index.html" class="nav-logo">
-    <img src="ravenhouseLogo.png" alt="Raven House Co.">
-  </a>
-  <ul class="nav-links">
-    <li><a href="rh-about.html">About Us</a></li>
-    <li><a href="rh-farm.html" class="active">Farm & Homestead</a></li>
-    <li><a href="rh-learning.html">RH Learning</a></li>
+<header class="site-header" id="site-header">
+  <img src="ravenhouselogo.png" alt="Raven House Co." class="header-logo">
+  <ul class="header-nav">
+    <li><a href="rh-about.html">About</a></li>
+    <li><a href="rh-farm.html">Farm & Homestead</a></li>
     <li><a href="rh-shop.html">Shop & Studio</a></li>
-    <li><a href="rh-contact.html" class="nav-cta">Say Hello</a></li>
+    <li><a href="rh-contact.html" class="nav-hi">Say Hello</a></li>
   </ul>
-</nav>
-
-<header class="page-header">
-  <img class="page-header-img" src="675645439_122290086836215594_1106015509438971186_n__1_.jpg" alt="Two goats at Raven House">
-  <div class="page-header-overlay"></div>
-  <div class="page-header-content">
-    <p class="page-eyebrow">Farm & Homestead</p>
-    <h1>A working farm.<br><em>Run by people who are still figuring it out.</em></h1>
-  </div>
 </header>
 
-<section class="farm-intro">
-  <div class="farm-intro-inner">
-    <div class="farm-intro-text">
-      <h2>We did not grow up doing this. We learned as we went — and we're still learning.</h2>
-      <p>When we moved to Raven House, we had no farming background. What we had was a piece of land, a lot of curiosity, and kids who were genuinely excited about animals. That was enough to start.</p>
-      <p>The homestead has grown slowly and deliberately. Chickens first, then ducks, then goats. Cattle came later. A horse was already here. Each animal has taught us something we didn't know we needed to learn.</p>
-      <p>It is not a perfect operation. Things go sideways. Animals get sick. Fences fail. We figure it out, and the next year we know a little more than we did the year before.</p>
-    </div>
-    <div class="farm-intro-img">
-      <img src="520105646_122240299328215594_1696924346446169414_n.jpg" alt="Child sitting with a calf">
-    </div>
-  </div>
-</section>
-
-<section class="animals">
-  <div class="animals-inner">
-    <span class="section-label">The residents</span>
-    <h2 class="section-title">Who lives here</h2>
-    <div class="animals-grid">
-
-      <div class="animal-card">
-        <img class="animal-card-img" src="524331212_122242383350215594_2793304318457154875_n.jpg" alt="Baby goat">
-        <div class="animal-card-body">
-          <h3>The Goats</h3>
-          <p>Nigerian Dwarfs — small, loud, and relentlessly charming. We started with two and now have a herd. They produce milk, cause trouble, and follow the kids around the property like shadows.</p>
-        </div>
-      </div>
-
-      <div class="animal-card">
-        <img class="animal-card-img" src="506626320_122231613062215594_3741641693581821848_n.jpg" alt="Child with the farm cat">
-        <div class="animal-card-body">
-          <h3>The Chickens & Ducks</h3>
-          <p>A mixed flock that produces more eggs than we know what to do with most of the year. The chickens roost in the barn; the ducks patrol the yard. Both are opinionated.</p>
-        </div>
-      </div>
-
-      <div class="animal-card">
-        <img class="animal-card-img" src="506148407_122231613398215594_4236947907603975915_n.jpg" alt="Child with cat in the field">
-        <div class="animal-card-body">
-          <h3>The Cattle</h3>
-          <p>A small beef herd that arrived more recently. They are calm, curious, and not nearly as easy to move as the goats. The calves, however, are something else entirely.</p>
-        </div>
-      </div>
-
-      <div class="animal-card">
-        <img class="animal-card-img" src="512690907_122235266804215594_4171212690145249456_n.jpg" alt="Child riding the horse">
-        <div class="animal-card-body">
-          <h3>The Horse</h3>
-          <p>Was here when we arrived. Has become the property's steadiest presence — patient with the kids, particular about who gets near the grain, and almost certainly smarter than she lets on.</p>
-        </div>
-      </div>
-
-      <div class="animal-card">
-        <img class="animal-card-img" src="480197074_122203419698215594_6155014477959465842_n.jpg" alt="Ducks by the river">
-        <div class="animal-card-body">
-          <h3>The Pigs</h3>
-          <p>Seasonal residents. They arrive in spring, do an extraordinary job of clearing brush and turning ground, and leave in fall. We are always a little sad to see them go.</p>
-        </div>
-      </div>
-
-      <div class="animal-card">
-        <img class="animal-card-img" src="676733726_122290086872215594_2325678950367658379_n__1_.jpg" alt="White goat and kid in barn">
-        <div class="animal-card-body">
-          <h3>The Cats</h3>
-          <p>Barn cats who have decided they are house cats. They hunt, they supervise, and they join the kids on every walk through the property whether invited or not.</p>
-        </div>
-      </div>
-
+<section class="hero">
+  <img class="hero-img" src="hero-path.jpg" alt="The path at Raven House">
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <span class="hero-eyebrow">Annapolis Valley, Nova Scotia</span>
+    <h1 class="hero-title">Raven<br><em>House Co.</em></h1>
+    <div class="hero-foot">
+      <a href="rh-about.html" class="hero-cta">Come on in</a>
+      <span class="hero-tagline">Six of us. Many animals. One very old house.</span>
     </div>
   </div>
 </section>
 
-<div class="full-bleed">
-  <img src="517360366_122237813816215594_4797684656958102494_n__1_.jpg" alt="Kids and the cat heading down the path at Raven House">
-</div>
-
-<section class="eggs">
-  <div class="eggs-inner">
-    <div class="eggs-photos">
-      <div class="ep-tall">
-        <img src="492008406_122221383926215594_5791757633107125899_n__1_.jpg" alt="Little one with egg basket">
-      </div>
-      <div class="ep-sm">
-        <img src="488856518_122215201838215594_6727058613650988504_n.jpg" alt="Farm fresh egg carton">
-      </div>
-      <div class="ep-sm">
-        <img src="556471014_122255452256215594_5095195571526045164_n__2_.jpg" alt="Eggs on the kitchen counter">
-      </div>
+<div style="background:var(--white);">
+  <div class="intro">
+    <div class="intro-left reveal">
+      <h2 class="intro-h">Once upon a time, there was a girl who just wanted<br><em>five chickens...</em></h2>
     </div>
-    <div class="eggs-text">
-      <span class="eggs-tag">Available now</span>
-      <h2>Fresh eggs, laid by happy birds and collected by noisy kids.</h2>
-      <p>Our mixed flock produces a beautiful range of shell colours — cream, brown, and the occasional blue-green from the Ameraucanas. All pasture-raised, all washed, all refrigerated.</p>
-      <p>We sell locally. If you're in the Greenwood area and want to get on our egg list, reach out. We usually have more than enough to go around.</p>
-      <a href="rh-contact.html" class="btn-solid" style="margin-top:0.5rem;">Get on the egg list</a>
+    <div class="intro-right reveal d1">
+      <div class="intro-rule"></div>
+      <p class="intro-p">If you know, you know. If you don't, welcome to chicken math, where five becomes nine, nine becomes a flock, and somewhere along the way you find yourself the accidental owner of goats.</p>
+      <p class="intro-p">In 2023, we packed up four kids under the age of eight and set out to renovate a nearly 200-year-old house in the Annapolis Valley with far more optimism than experience.</p>
+      <p class="intro-p">Call it a hobby farm. Or one of those hobbies that quietly becomes a full-time job with zero benefits and zero pay, aside from an unreasonable amount of poop and the benefit of fresh eggs.</p>
     </div>
-  </div>
-</section>
-
-<section class="seasons">
-  <div class="seasons-inner">
-    <span class="section-label">Life on the farm</span>
-    <h2 class="section-title">What each season brings</h2>
-    <div class="seasons-grid">
-      <div class="season-item">
-        <span class="season-name">Spring</span>
-        <p>Kidding season. New calves. The first eggs after a slow winter. Mud everywhere. The pigs arrive. Everything happens at once and you don't sleep much.</p>
-      </div>
-      <div class="season-item">
-        <span class="season-name">Summer</span>
-        <p>Long days in the garden. Kids outside from morning until dark. The goats on the move. River walks. Learning circles on the picnic table. Peak egg production.</p>
-      </div>
-      <div class="season-item">
-        <span class="season-name">Autumn</span>
-        <p>Harvest. The pigs leave. Preserving. The valley turns colour and the mornings get cold fast. Firewood. Preparing everything for what's coming.</p>
-      </div>
-      <div class="season-item">
-        <span class="season-name">Winter</span>
-        <p>Slower. The animals need more tending in the cold. The ravens are more visible against the snow. Good time to plan, make things, and remember why we moved here.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="photo-strip">
-  <div class="photo-strip-item">
-    <img src="642833972_122281486574215594_5246608651952162421_n.jpg" alt="Mother goat with kid">
-  </div>
-  <div class="photo-strip-item">
-    <img src="497511940_122225151752215594_437142422668791171_n.jpg" alt="Baby goats being held">
-  </div>
-  <div class="photo-strip-item">
-    <img src="518375573_122240008490215594_5551288576474088861_n.jpg" alt="Child reading with chick">
-  </div>
-  <div class="photo-strip-item">
-    <img src="514357031_122236713518215594_2957765165542490021_n.jpg" alt="Chris with the horse">
   </div>
 </div>
 
-<section class="farm-cta">
-  <h2>Want fresh eggs or have a question?</h2>
-  <p>We're easy to reach. Drop us a line and we'll get back to you.</p>
-  <div class="cta-group">
-    <a href="rh-contact.html" class="btn-solid">Say hello</a>
-    <a href="rh-shop.html" class="btn-outline">Visit the shop</a>
+<div class="panel reveal">
+  <img class="panel-img" src="goats-smiling.jpg" alt="Two goats at Raven House">
+  <div class="panel-overlay"></div>
+  <div class="panel-body">
+    <span class="eyebrow" style="color:var(--amber-pale); opacity:0.85;">The land and animals</span>
+    <h2 class="panel-h">Farm &<br><em>Homestead</em></h2>
+    <p class="panel-p">Lions and tigers and bears. Well, not quite. Chickens, ducks, turkeys, geese, goats, pigs, a horse, a cow, cats, and surely something else quietly freeloading off the copious amounts of feed we purchase and provide.</p>
+    <a href="rh-farm.html" class="btn-ghost">Meet the farm</a>
   </div>
-</section>
+</div>
+
+<div class="quote reveal">
+  <div class="quote-bg"></div>
+  <div class="quote-inner">
+    <blockquote>"We are raising our children to notice, to wonder, to adapt, and to work hard. We are thrilled to have them joining us on this crazy little adventure."</blockquote>
+  </div>
+</div>
+
+<div class="split reveal">
+  <div class="split-photo">
+    <img src="studio-shed.jpg" alt="The Raven House studio shed">
+  </div>
+  <div class="split-text">
+    <span class="eyebrow">Made by hand</span>
+    <h2 class="split-h">Shop &<br><em>Studio</em></h2>
+    <p class="split-p">From the studio shed at the edge of the trees. Goat's milk soap, soy candles, and whimsical handmade things we dream up as we go.</p>
+    <p class="split-p">Fresh eggs from a flock that takes its job very seriously. Or doesn't. What can I say. They are a particular gaggle of girls.</p>
+    <a href="rh-shop.html" class="btn-ink">Visit the shop</a>
+  </div>
+</div>
+
+<div class="mosaic-wrap">
+  <div class="mosaic-head reveal">
+    <span class="eyebrow">Life at Raven House</span>
+    <h2>The everyday, unfiltered.</h2>
+  </div>
+  <div class="mosaic reveal">
+    <div class="mosaic-item tall"><img src="girl-basket.jpg" alt="Little one with egg basket"></div>
+    <div class="mosaic-item"><img src="baby-goats.jpg" alt="Baby goats"></div>
+    <div class="mosaic-item"><img src="horse-princess.jpg" alt="Child on horseback"></div>
+    <div class="mosaic-item tall"><img src="baby-goat-portrait.jpg" alt="Baby goat portrait"></div>
+    <div class="mosaic-item"><img src="child-chick.jpg" alt="Child reading with chick"></div>
+    <div class="mosaic-item"><img src="boy-calf.jpg" alt="Boy with the calf"></div>
+  </div>
+</div>
+
+<div class="split flip reveal">
+  <div class="split-photo">
+    <img src="raven-sign.jpg" alt="Raven House sign">
+  </div>
+  <div class="split-text">
+    <span class="eyebrow">Our story</span>
+    <h2 class="split-h">The ravens were<br><em>waiting when<br>we arrived.</em></h2>
+    <p class="split-p">Someone always needs something and one of us always seems to find the mud or the poop, but it's home and we wouldn't change it for the world.</p>
+    <a href="rh-about.html" class="btn-ink">Our story</a>
+  </div>
+</div>
+
+<div class="texture-section reveal">
+  <div class="texture-bg"></div>
+  <div class="texture-content">
+    <span class="eyebrow">A working homestead</span>
+    <h2>Loud. Muddy.<br><em>Exactly right.</em></h2>
+    <p>We share the real version of this life, not the tidy Pinterest-perfect one.</p>
+  </div>
+</div>
+
+<div class="eggs-panel reveal">
+  <img class="panel-img warm" src="eggs-carton.jpg" alt="Farm fresh eggs">
+  <div class="eggs-overlay"></div>
+  <div class="panel-body right">
+    <span class="eyebrow" style="color:var(--amber-pale); opacity:0.85;">Available now</span>
+    <h2 class="panel-h">Laid by happy birds.<br>Collected by <em>noisy kids.</em></h2>
+    <p class="panel-p">Pasture-raised and collected daily. Chicken eggs in cream, brown, and blue-green, or duck eggs if that's your thing. Cluckers or quackers, your call. Sold by the dozen, Greenwood area pickup.</p>
+    <a href="rh-contact.html" class="btn-ghost">Get on the egg list</a>
+  </div>
+</div>
+
+<div class="egg-signup">
+  <div class="egg-signup-inner">
+    <div class="egg-signup-text reveal">
+      <span class="eyebrow" style="color:var(--terra-pale); opacity:0.75;">Join the list</span>
+      <h2>Never miss a dozen.</h2>
+      <p>We'll let you know when eggs are available and when something new comes out of the studio. No spam. Just eggs and the occasional exciting animal update.</p>
+    </div>
+    <div class="reveal d1">
+      <form class="egg-form" id="egg-form" action="https://formspree.io/f/mjgddzpn" method="POST">
+        <div class="egg-form-fields">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <select name="preference">
+            <option value="" disabled selected>Cluckers or quackers?</option>
+            <option value="chicken">Chicken eggs</option>
+            <option value="duck">Duck eggs</option>
+            <option value="both">Both, please</option>
+          </select>
+        </div>
+        <button type="submit">Get me on the list</button>
+      </form>
+      <div class="egg-thankyou" id="egg-thankyou" style="display:none;">
+        You're on the list. We'll be in touch when the girls (and the quackers) are feeling productive.
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
-  <div class="footer-inner">
+  <div class="footer-top">
     <div class="footer-brand">
-      <img src="ravenhouseLogo.png" alt="Raven House Co.">
-      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, small-group learning, handmade goods, and the honest work of raising a family close to the land.</p>
+      <img src="ravenhouselogo.png" alt="Raven House Co.">
+      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, handmade goods, and the honest work of raising a family close to the land.</p>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
+      <h4>Pages</h4>
       <ul>
         <li><a href="rh-about.html">About Us</a></li>
         <li><a href="rh-farm.html">Farm & Homestead</a></li>
-        <li><a href="rh-learning.html">RH Learning</a></li>
         <li><a href="rh-shop.html">Shop & Studio</a></li>
         <li><a href="rh-contact.html">Contact</a></li>
       </ul>
@@ -648,11 +597,11 @@
     <div class="footer-col">
       <h4>Find us</h4>
       <ul>
-        <li><a href="#">Follow on Facebook</a></li>
-        <li><a href="#">Follow on Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
       </ul>
-      <div class="footer-email" style="margin-top:1.5rem;">
-        <h4>Say hello</h4>
+      <div class="footer-email">
+        <h4 style="margin-top:1.5rem;">Say hello</h4>
         <a href="mailto:hello@ravenhouseco.ca">hello@ravenhouseco.ca</a>
       </div>
     </div>
@@ -663,5 +612,23 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var h = document.getElementById('site-header');
+  window.addEventListener('scroll', function(){ h.classList.toggle('scrolled', window.scrollY > 80); }, { passive: true });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(function(r){ obs.observe(r); });
+  var form = document.getElementById('egg-form');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} })
+        .then(function(r){ if(r.ok){ form.style.display='none'; document.getElementById('egg-thankyou').style.display='block'; } });
+    });
+  }
+})();
+</script>
 </body>
 </html>
