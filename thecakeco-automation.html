@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Cake Co. Order Automation - The Yellow Front Door</title>
+<title>The Cake Co. — The Yellow Front Door</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: CasualHandwriting; src: url(CasualHandwriting.woff2) format(woff2), url(CasualHandwriting.woff) format(woff); font-display: block; }
-:root {
+@font-face{font-family:CasualHandwriting;src:url(CasualHandwriting.woff2) format(woff2),url(CasualHandwriting.woff) format(woff);font-display:block;}
+:root{
   --ink:#132447;--paper:#fff;--yellow:#fcd346;--stone:#D8D1C3;--slate:#596674;--brass:#e6b800;--clay:#B86B4B;--paper-mid:#F5EFE0;--navy:#132447;
   --f-accent:CasualHandwriting,cursive;--f-head:Montserrat,sans-serif;--f-body:Montserrat,sans-serif;--max:1120px;--gutter:clamp(24px,5vw,80px);
   --cp:#F4A7C0;--cpl:#FDF8FA;--cpb:#E8D0DB;--cr:#C47A9B;--cd:#2C1A0E;--cb:#4A3728;
@@ -31,36 +31,47 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .nav-cta:hover{background:var(--brass)!important;}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
+
+/* PAGE HEADER */
 .page-header{padding:clamp(80px,10vw,120px) 0 clamp(40px,5vw,60px);margin-top:72px;border-bottom:1px solid var(--stone);}
-.page-header-inner{max-width:640px;}
+.page-header-inner{max-width:560px;}
 .breadcrumb{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:20px;}
 .breadcrumb a{color:var(--slate);transition:color .2s;}.breadcrumb a:hover{color:var(--ink);}
 .breadcrumb span{margin:0 8px;color:var(--stone);}
-.page-header h1{font-family:var(--f-head);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--ink);letter-spacing:-.03em;line-height:1.08;}
-.page-header .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(26px,3.5vw,42px);font-weight:normal;color:var(--slate);line-height:1.3;margin-top:20px;margin-bottom:8px;}
-.page-header p{font-size:clamp(15px,1.8vw,17px);color:var(--slate);line-height:1.85;margin-top:24px;max-width:480px;}
+.page-header h1{font-family:var(--f-head);font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;}
+.page-header .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(24px,3vw,38px);font-weight:normal;color:var(--slate);line-height:1.3;margin-top:20px;margin-bottom:4px;}
 .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
 .meta-tag{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:5px 11px;}
-.context-strip{background:var(--stone);border-top:none;border-bottom:none;padding:clamp(28px,4vw,44px) 0;}
-.context-inner{max-width:680px;}
-.context-strip p{font-size:14px;line-height:1.85;color:var(--navy);margin-bottom:10px;}
+
+/* CONTEXT STRIP */
+.context-strip{background:var(--stone);padding:clamp(28px,4vw,44px) 0;}
+.context-inner{max-width:640px;}
+.context-strip p{font-size:15px;line-height:1.9;color:var(--navy);margin-bottom:10px;}
 .context-strip p:last-child{margin-bottom:0;}
-.context-strip strong{font-weight:600;}
+
+/* STACK */
 .stack-section{padding:clamp(48px,6vw,72px) 0;border-bottom:1px solid var(--stone);}
 .section-label{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:16px;}
-.section-heading{font-family:var(--f-accent);font-size:clamp(26px,3vw,38px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:18px;}
-.body-text{font-size:15px;line-height:1.9;color:var(--ink);margin-bottom:14px;max-width:640px;}
-.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);margin-top:28px;}
+.section-heading{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.body-text{font-size:15px;line-height:1.9;color:var(--ink);margin-bottom:14px;max-width:600px;}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);margin-top:28px;}
+.stack-grid-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);border-top:none;margin-bottom:0;}
 .stack-item{background:var(--paper);padding:22px 24px;}
 .stack-role{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
 .stack-tool{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;}
 .stack-desc{font-size:12px;line-height:1.7;color:var(--slate);}
-.adapt-note{background:transparent;border:none;padding:0;margin-top:20px;max-width:480px;display:flex;gap:10px;align-items:flex-start;}
-.adapt-note p{font-size:13px;line-height:1.8;color:var(--slate);}.adapt-note::before{content:"*";font-size:18px;color:var(--stone);flex-shrink:0;line-height:1.4;font-weight:700;}
+.stack-note{font-size:12px;line-height:1.8;color:var(--slate);margin-top:20px;max-width:600px;}
+.stack-note strong{color:var(--ink);font-weight:600;}
+.cost-line{margin-top:28px;padding:20px 24px;border:1px solid var(--stone);max-width:600px;}
+.cost-line p{font-size:14px;line-height:1.85;color:var(--ink);}
+
+/* STEPPER */
 .stepper-section{padding:0;}
-.stepper-intro{font-size:14px;color:var(--slate);margin-bottom:0;max-width:580px;line-height:1.8;}
-.step-nav{display:flex;align-items:stretch;gap:0;margin-bottom:0;overflow-x:auto;border:1px solid #c4bdb0;border-top:none;}
-.step-btn{flex:1;min-width:140px;background:var(--paper);border:none;border-right:1px solid var(--stone);padding:16px 18px;text-align:left;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;gap:4px;position:relative;}
+.stepper-head{background:var(--stone);padding:clamp(36px,5vw,56px) 0 0;}
+.section-heading-stepper{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.stepper-intro{font-size:14px;color:var(--slate);max-width:560px;line-height:1.8;padding-bottom:clamp(28px,4vw,44px);}
+.step-nav{display:flex;align-items:stretch;overflow-x:auto;border:1px solid #c4bdb0;border-top:none;}
+.step-btn{flex:1;min-width:130px;background:var(--paper);border:none;border-right:1px solid var(--stone);padding:14px 16px;text-align:left;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;gap:4px;position:relative;}
 .step-btn:last-child{border-right:none;}
 .step-btn:hover{background:#ede7dc;}
 .step-btn.active{background:var(--navy);}
@@ -68,33 +79,59 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .step-btn.active::after{opacity:1;}
 .step-num{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);transition:color .2s;}
 .step-btn.active .step-num{color:rgba(255,255,255,.5);}
-.step-title{font-size:13px;font-weight:600;color:var(--ink);transition:color .2s;}
+.step-title{font-size:12px;font-weight:600;color:var(--ink);transition:color .2s;}
 .step-btn.active .step-title{color:var(--paper);}
 .step-timing{font-size:10px;color:var(--slate);transition:color .2s;}
 .step-btn.active .step-timing{color:rgba(255,255,255,.55);}
-.step-manual{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:2px;}
-.step-btn.active .step-manual{color:var(--yellow);}
-.step-panel{display:none;}.stepper-head{background:var(--stone);padding:clamp(36px,5vw,56px) 0 0;border-bottom:none;}.stepper-panels{background:var(--paper);padding:clamp(36px,5vw,56px) 0 clamp(48px,6vw,72px);}
+.step-type{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:2px;}
+.step-btn.active .step-type{color:var(--yellow);}
+
+/* PANELS */
+.stepper-panels{background:var(--paper);padding:clamp(40px,5vw,64px) 0 clamp(48px,6vw,72px);}
+.step-panel{display:none;}
 .step-panel.active{display:block;}
-.panel-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,56px);align-items:start;}
+.panel-layout{display:grid;grid-template-columns:420px 1fr;gap:clamp(32px,4vw,56px);align-items:start;}
+.panel-context{max-width:420px;}
 .panel-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
-.panel-heading{font-family:var(--f-accent);font-size:clamp(22px,2.5vw,30px);color:var(--ink);font-weight:normal;line-height:1.2;margin-bottom:16px;max-width:440px;}
-.panel-body{font-size:14px;line-height:1.85;color:var(--slate);margin-bottom:12px;max-width:480px;}
+.panel-heading{font-family:var(--f-accent);font-size:clamp(20px,2.2vw,28px);color:var(--ink);font-weight:normal;line-height:1.25;margin-bottom:16px;}
+.panel-body{font-size:14px;line-height:1.85;color:var(--slate);margin-bottom:12px;}
 .panel-body strong{color:var(--ink);font-weight:600;}
-.why-box{background:transparent;border:1px solid var(--stone);padding:18px 22px;margin-top:20px;max-width:480px;}
-.why-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:6px;}
+.why-box{border:1px solid var(--stone);padding:18px 22px;margin-top:20px;}
+.why-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
 .why-text{font-size:13px;line-height:1.8;color:var(--slate);}
-.options-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
-.option-card{border:1px solid var(--stone);padding:18px 20px;}
+.trigger-line{display:flex;gap:8px;align-items:flex-start;margin-top:16px;font-size:12px;color:var(--slate);}
+.trigger-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);flex-shrink:0;padding-top:2px;}
+.options-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+.option-card{border:1px solid var(--stone);padding:16px 18px;}
 .option-lbl{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:6px;}
 .option-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;}
 .option-desc{font-size:12px;line-height:1.75;color:var(--slate);}
-.option-rec{font-size:11px;font-weight:600;color:var(--clay);margin-top:10px;}
-.panel-nav{display:flex;gap:12px;margin-top:28px;}
+.panel-nav{display:flex;gap:12px;margin-top:24px;}
 .panel-next{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--yellow);padding:11px 20px;border:none;cursor:pointer;transition:background .2s;font-family:var(--f-body);}
 .panel-next:hover{background:var(--brass);}
 .panel-prev{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:transparent;padding:11px 20px;border:1px solid var(--stone);cursor:pointer;transition:border-color .2s;font-family:var(--f-body);}
 .panel-prev:hover{border-color:var(--ink);}
+.closing-note{font-size:14px;line-height:1.85;color:var(--slate);margin-top:20px;}
+.closing-note a{color:var(--clay);font-weight:600;}
+
+/* MOCK FORM */
+.mock-form{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.mock-form-header{background:var(--navy);padding:16px 20px;}
+.mock-form-title{font-size:13px;font-weight:600;color:var(--paper);font-family:var(--f-body);}
+.mock-form-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;font-family:var(--f-body);}
+.mock-form-body{padding:20px;}
+.form-section-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;margin-top:18px;}
+.form-section-label:first-child{margin-top:0;}
+.mock-field{margin-bottom:10px;}
+.mock-field-label{font-size:11px;font-weight:600;color:var(--ink);margin-bottom:4px;font-family:var(--f-body);}
+.mock-field-label span{font-weight:400;color:var(--slate);font-size:10px;margin-left:4px;}
+.mock-input{width:100%;background:#f9fafb;border:1px solid #e5e7eb;border-radius:4px;padding:8px 10px;font-size:12px;color:var(--slate);font-family:var(--f-body);}
+.mock-input.filled{background:#fff;color:var(--ink);border-color:#d1d5db;}
+.mock-upload{background:#f9fafb;border:1px dashed #d1d5db;border-radius:4px;padding:14px;text-align:center;font-size:11px;color:var(--slate);font-family:var(--f-body);}
+.mock-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mock-submit{width:100%;background:var(--navy);color:var(--paper);font-family:var(--f-body);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:12px;border:none;border-radius:4px;margin-top:16px;cursor:pointer;}
+
+/* EMAIL CLIENT */
 .email-client{border-radius:10px;overflow:hidden;box-shadow:0 4px 32px rgba(19,36,71,.10);border:1px solid #d1d5db;}
 .client-chrome{background:#f3f4f6;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:10px;}
 .chrome-dots{display:flex;gap:6px;}
@@ -104,18 +141,19 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .inbox-header{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
 .inbox-from{display:flex;align-items:center;gap:10px;}
 .inbox-avatar{width:34px;height:34px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;font-family:var(--f-body);flex-shrink:0;}
+.inbox-avatar.baker{background:var(--navy);}
 .inbox-sender{font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);}
 .inbox-email-addr{font-size:11px;color:#6b7280;font-family:var(--f-body);}
 .inbox-time{font-size:11px;color:#9ca3af;font-family:var(--f-body);white-space:nowrap;}
 .inbox-subject-row{padding:10px 16px 8px;border-bottom:1px solid #f3f4f6;}
 .inbox-subject{font-size:14px;font-weight:600;color:#111827;font-family:var(--f-body);}
 .inbox-to{font-size:11px;color:#9ca3af;margin-top:2px;font-family:var(--f-body);}
-.email-scroll{max-height:500px;overflow-y:auto;background:#f3f4f6;padding:14px;}
+.email-scroll{max-height:480px;overflow-y:auto;background:#f3f4f6;padding:14px;}
 .email-inner{background:#fff;border-radius:6px;overflow:hidden;}
 .cem-header{background:#fff;border-bottom:0.5px solid var(--cpb);padding:20px;text-align:center;}
-.cem-header img{height:70px;width:auto;margin:0 auto;}
-.cem-body{padding:22px 22px 14px;}
-.cem-subject{font-family:Playfair Display,serif;font-size:17px;color:var(--cd);font-weight:400;margin-bottom:14px;line-height:1.35;}
+.cem-header img{height:68px;width:auto;margin:0 auto;}
+.cem-body{padding:20px 20px 14px;}
+.cem-subject{font-family:Playfair Display,serif;font-size:16px;color:var(--cd);font-weight:400;margin-bottom:14px;line-height:1.35;}
 .cem-p{font-size:13px;line-height:1.75;color:var(--cb);margin-bottom:11px;font-family:Lato,sans-serif;}
 .cem-box{background:var(--cpl);border:0.5px solid var(--cpb);border-radius:6px;padding:13px 15px;margin:13px 0;}
 .cem-row{display:flex;justify-content:space-between;font-size:12px;color:var(--cb);padding:3px 0;font-family:Lato,sans-serif;}
@@ -146,6 +184,40 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .cem-confirmed{background:var(--cpl);border:0.5px solid var(--cp);border-radius:6px;padding:14px;margin:13px 0;text-align:center;}
 .cem-confirmed-title{font-family:Playfair Display,serif;font-size:15px;color:var(--cd);margin-bottom:4px;}
 .cem-confirmed-detail{font-size:11px;color:var(--cr);font-family:Lato,sans-serif;}
+
+/* INTERNAL NOTIFICATION */
+.internal-card{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.internal-header{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.internal-badge{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);background:var(--paper-mid);border:1px solid var(--stone);padding:3px 8px;}
+.internal-body{padding:20px;}
+.internal-heading{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:14px;font-family:var(--f-body);}
+.internal-row{display:flex;gap:12px;margin-bottom:8px;font-size:12px;font-family:var(--f-body);}
+.internal-lbl{color:var(--clay);font-weight:600;min-width:100px;flex-shrink:0;}
+.internal-val{color:var(--slate);}
+.checklist-section{border-top:1px solid #f3f4f6;margin-top:16px;padding-top:16px;}
+.checklist-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--slate);margin-bottom:12px;}
+.checklist-item{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:12px;color:var(--slate);font-family:var(--f-body);}
+.check-box{width:16px;height:16px;border:1.5px solid var(--stone);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.check-box.checked{background:var(--navy);border-color:var(--navy);}
+.check-box.checked::after{content:"";width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px);display:block;}
+.checklist-trigger{margin-top:16px;background:var(--paper-mid);border:1px solid var(--stone);padding:12px 14px;font-size:12px;color:var(--slate);font-family:var(--f-body);line-height:1.7;}
+.checklist-trigger strong{color:var(--ink);font-weight:600;}
+
+/* GOOGLE SHEET */
+.sheet-card{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.sheet-header{background:#1a73e8;padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.sheet-icon{font-size:14px;}
+.sheet-title{font-size:12px;font-weight:600;color:#fff;font-family:var(--f-body);}
+.sheet-body{overflow-x:auto;}
+.sheet-table{width:100%;border-collapse:collapse;font-size:11px;font-family:var(--f-body);}
+.sheet-table th{background:#f8f9fa;border:1px solid #e5e7eb;padding:7px 10px;text-align:left;font-weight:600;color:#3c4043;white-space:nowrap;}
+.sheet-table td{border:1px solid #e5e7eb;padding:7px 10px;color:#3c4043;white-space:nowrap;}
+.sheet-table tr:nth-child(even) td{background:#f8f9fa;}
+.status-booked{background:#e6f4ea;color:#137333;font-weight:600;padding:2px 8px;border-radius:3px;font-size:10px;}
+.status-quoted{background:#fef7e0;color:#b45309;font-weight:600;padding:2px 8px;border-radius:3px;font-size:10px;}
+.status-new{background:#e8f0fe;color:#1a73e8;font-weight:600;padding:2px 8px;border-radius:3px;font-size:10px;}
+
+/* PRE FOOTER + FOOTER */
 .pre-footer{background:var(--stone);border-top:1px solid #c4bdb0;padding:clamp(32px,4vw,52px) 0;text-align:center;}
 .footer{background:var(--paper);padding:40px 0 32px;border-top:1px solid var(--stone);}
 .footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
@@ -157,8 +229,14 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-copy{font-size:11px;color:var(--slate);letter-spacing:.05em;}
 .footer-dot-sm{width:6px;height:6px;background:var(--yellow);border-radius:50%;}
-@media(max-width:900px){.panel-layout{grid-template-columns:1fr;}.stack-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:640px){.nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;border-bottom:1px solid rgba(255,255,255,.08);gap:20px;z-index:99;}.nav-toggle{display:flex;}.footer-top{grid-template-columns:1fr;gap:32px;}.footer-bottom{flex-direction:column;text-align:center;}.stack-grid{grid-template-columns:1fr;}.options-pair{grid-template-columns:1fr;}.step-btn{min-width:120px;}}
+
+@media(max-width:1000px){.panel-layout{grid-template-columns:1fr;}.panel-context{max-width:100%;}}
+@media(max-width:760px){.stack-grid,.stack-grid-bottom{grid-template-columns:1fr 1fr;}.options-pair{grid-template-columns:1fr;}.mock-row{grid-template-columns:1fr;}}
+@media(max-width:640px){
+  .nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;border-bottom:1px solid rgba(255,255,255,.08);gap:20px;z-index:99;}
+  .nav-toggle{display:flex;}.footer-top{grid-template-columns:1fr;gap:32px;}.footer-bottom{flex-direction:column;text-align:center;}
+  .stack-grid,.stack-grid-bottom{grid-template-columns:1fr;}.step-btn{min-width:110px;}
+}
 </style>
 </head>
 <body>
@@ -176,78 +254,382 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <section class="page-header">
   <div class="container">
     <div class="page-header-inner">
       <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>&rsaquo;</span><a href="strategy-systems.html">Strategy &amp; Systems</a><span>&rsaquo;</span>The Cake Co.</p>
-      <h1>The Cake Co.<span class="accent-line">order in, automation on.</span></h1>
-      <p>A custom cake studio was losing customers in the silence between form submission and follow-up. We built a four-email automated sequence that handles the whole order lifecycle, coded in HTML and loaded directly into MailerLite.</p>
+      <h1>The Cake Co. is fictional,<br>but the problem isn&rsquo;t.<span class="accent-line">order in, automation on.</span></h1>
       <div class="meta-row">
         <span class="meta-tag">Concept project</span>
         <span class="meta-tag">Order automation</span>
         <span class="meta-tag">Email sequence</span>
         <span class="meta-tag">MailerLite</span>
         <span class="meta-tag">Square</span>
+        <span class="meta-tag">Gmail</span>
+        <span class="meta-tag">Zapier</span>
       </div>
     </div>
   </div>
 </section>
-
 <div class="context-strip">
   <div class="container">
     <div class="context-inner">
-      <p>The Cake Co. is a fictional custom cake studio built as a sample scenario. The tools, the copy, and the flow are illustrative. If you take custom orders, yours would be shaped around how you actually work.</p>
-      <p><strong>The scenario:</strong> Sarah finds The Cake Co. online on a Friday night. She fills out a custom order form for her daughter's 40th birthday cake. What happens next is the whole point.</p>
+      <p>A customer submits an order on a Friday night and the baker is off the clock. By the time she sees it Monday morning, that customer has already heard back from someone else. Research consistently shows that leads go cold within the first hour of reaching out. For a business owner who is also the baker, the bookkeeper, and the delivery driver, that hour is rarely free.</p>
+      <p>This is what we built to fix that.</p>
     </div>
   </div>
 </div>
-
 <section class="stack-section">
   <div class="container">
     <p class="section-label">The stack</p>
-    <h2 class="section-heading">four tools, one clean flow.</h2>
-    <p class="body-text">This is a suggested stack for a business at this size and price point. The tools are accessible, the costs are reasonable, and none of it requires a developer to maintain.</p>
+    <h2 class="section-heading">the tools, and why each one is here.</h2>
+    <p class="body-text">The whole thing runs on tools most small businesses already have or can get for free. Nothing here requires a developer to maintain.</p>
     <div class="stack-grid">
-      <div class="stack-item"><p class="stack-role">Order intake</p><p class="stack-tool">Jotform</p><p class="stack-desc">Custom order form captures occasion, servings, flavour, delivery details, and design notes. All of it feeds directly into the automation.</p></div>
-      <div class="stack-item"><p class="stack-role">Connection layer</p><p class="stack-tool">Zapier</p><p class="stack-desc">When a form is submitted, Zapier adds the contact to MailerLite and triggers the sequence. One connection, set up once.</p></div>
-      <div class="stack-item"><p class="stack-role">Email automation</p><p class="stack-tool">MailerLite</p><p class="stack-desc">Coded HTML templates loaded directly into MailerLite. The automation runs the sequence, times the sends, and handles the logic.</p></div>
-      <div class="stack-item"><p class="stack-role">Payment</p><p class="stack-tool">Square</p><p class="stack-desc">The quote email includes a Square invoice link. Customer pays the deposit, Square sends their receipt, date is locked.</p></div>
+      <div class="stack-item">
+        <p class="stack-role">Order intake</p>
+        <p class="stack-tool">Jotform</p>
+        <p class="stack-desc">The customer-facing form. Captures everything the baker needs to price and plan the order without a single follow-up email. File uploads, conditional logic, and Zapier connection built in.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Connection layer</p>
+        <p class="stack-tool">Zapier</p>
+        <p class="stack-desc">Connects the form to everything else. When Sarah submits, Zapier fires the confirmation email, creates the order record in Google Sheets, and notifies the baker. One trigger, multiple actions.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Order log</p>
+        <p class="stack-tool">Google Sheets</p>
+        <p class="stack-desc">Every order in one place. Date, status, delivery details, whether the deposit is paid. The baker opens it and knows exactly where every order stands. No dashboard to learn, no new login.</p>
+      </div>
     </div>
-    <div class="adapt-note"><p>Nothing here is fixed. The tools, the timing, the number of emails, the payment flow, all of it can shift to fit how your business actually runs. This is a starting point, not a prescription.</p></div>
+    <div class="stack-grid-bottom">
+      <div class="stack-item">
+        <p class="stack-role">Automated emails</p>
+        <p class="stack-tool">MailerLite</p>
+        <p class="stack-desc">Handles the emails that go to everyone the same way. The instant order confirmation and the 48-hour delivery reminder. Triggered automatically, no human input needed.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Personal emails</p>
+        <p class="stack-tool">Gmail</p>
+        <p class="stack-desc">The quote, the follow-up, the order recap. These are one-to-one emails that need a human touch. Zapier creates a pre-filled draft. The baker reviews, personalises if needed, and sends.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Invoicing and payment</p>
+        <p class="stack-tool">Square</p>
+        <p class="stack-desc">Handles the invoice, the deposit link, and the payment receipt. Square stays separate from the website by design. The site captures the lead. Square handles the money. Mixing those two jobs would add complexity without adding anything the customer actually needs.</p>
+      </div>
+    </div>
+    <p class="stack-note">* Square also doubles as the order record for invoices and payment history. The baker already logs in to create invoices, so the financial side of every order lives there without any extra steps.</p>
+    <div class="cost-line">
+      <p>Running a custom order business without a system isn&rsquo;t free. It&rsquo;s just paid in time instead of money. The &ldquo;sorry for the delay&rdquo; emails, the order details buried in a text thread, the Friday night inquiry that sat until Monday. This whole setup runs about $25 a month. This is one way to build it. Maybe you already have half these tools and just need the pieces connected. Maybe you need less. We figure that out together.</p>
+    </div>
   </div>
 </section>
 <section class="stepper-section">
   <div class="stepper-head">
     <div class="container">
       <p class="section-label">Walk through the sequence</p>
-      <h2 class="section-heading">what Sarah experiences, step by step.</h2>
-      <p class="stepper-intro" style="padding-bottom:clamp(28px,4vw,44px);">Click through each step below to see exactly what happens after Sarah hits submit. What she receives, when she receives it, and why each email is doing what it is doing.</p>
+      <h2 class="section-heading-stepper">what Sarah experiences, step by step.</h2>
+      <p class="stepper-intro">Click through each step below to see exactly what happens after Sarah hits submit. What she sees, what the baker sees, and why each piece of the system is doing what it is doing.</p>
     </div>
   </div>
-  <div class="stepper-head" style="background:var(--stone);padding:0 0;">
+  <div style="background:var(--stone);">
     <div class="container">
       <div class="step-nav" role="tablist">
-      <button class="step-btn active" onclick="goTo(0)" role="tab">
-        <span class="step-num">Step 1</span><span class="step-title">Order submitted</span><span class="step-timing">Instant</span>
-      </button>
-      <button class="step-btn" onclick="goTo(1)" role="tab">
-        <span class="step-num">Step 2</span><span class="step-title">Quote sent</span><span class="step-timing">Baker reviews</span><span class="step-manual">Manual send</span>
-      </button>
-      <button class="step-btn" onclick="goTo(2)" role="tab">
-        <span class="step-num">Step 3</span><span class="step-title">Deposit confirmed</span><span class="step-timing">On payment</span>
-      </button>
-      <button class="step-btn" onclick="goTo(3)" role="tab">
-        <span class="step-num">Step 4</span><span class="step-title">Delivery reminder</span><span class="step-timing">48 hrs before</span>
-      </button>
-    </div><div class="step-panel active" id="panel-0"><div class="panel-layout"><div class="panel-context"><p class="panel-label">Step 1 of 4</p><h3 class="panel-heading">Sarah submits her order.</h3><p class="panel-body">It is Friday evening. Sarah finds The Cake Co. on Instagram, clicks through to the website, and fills out the custom order form. <strong>Within seconds, this email lands in her inbox.</strong></p><p class="panel-body">She did not have to wait for anyone to be awake or at their phone. The automation picked it up the moment she hit submit.</p><div class="why-box"><p class="why-label">Why this matters</p><p class="why-text">Most custom order businesses go quiet after a form submission. No acknowledgement, no confirmation, nothing. Sarah does not know if it went through. This email closes that gap immediately and plays her order details back to her so she feels seen before anyone has even looked at her request.</p></div><div class="panel-nav"><button class="panel-next" onclick="goTo(1)">Next: The Quote &rarr;</button></div></div><div><div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@email.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Friday, 8:42 pm</div></div><div class="inbox-subject-row"><div class="inbox-subject">We got your order &mdash; here&#8217;s what you shared with us.</div><div class="inbox-to">To: sarah.m@email.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div><div class="cem-body"><p class="cem-subject">We got your order &mdash; here&#8217;s what you shared with us.</p><p class="cem-p">Hi Sarah,</p><p class="cem-p">Thank you for reaching out. Your custom order request came through and we have everything we need to get started on a quote for you.</p><div class="cem-box"><div class="cem-row"><span class="cem-lbl">Occasion</span><span>Sarah&#8217;s 40th birthday</span></div><div class="cem-row"><span class="cem-lbl">Servings</span><span>30&ndash;35</span></div><div class="cem-row"><span class="cem-lbl">Flavour</span><span>Lemon lavender, vanilla bean</span></div><div class="cem-row"><span class="cem-lbl">Date</span><span>Saturday, August 9</span></div><div class="cem-row"><span class="cem-lbl">Delivery</span><span>Yes, Wolfville, NS</span></div><div class="cem-row"><span class="cem-lbl">Design notes</span><span>No fondant, garden-style florals</span></div></div><p class="cem-p">We review all custom orders within one business day and will follow up with pricing and availability. If anything has changed or you have questions, just reply here.</p><p class="cem-sign">&mdash; The Cake Co.</p></div><div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div></div></div></div><div class="step-panel" id="panel-1"><div class="panel-layout"><div class="panel-context"><p class="panel-label">Step 2 of 4</p><h3 class="panel-heading">The baker reviews the order and sends the quote.</h3><p class="panel-body">Saturday morning, the baker looks at Sarah&#8217;s order. Pricing a custom cake takes a human eye. Size, flavour, design complexity, and delivery distance all factor in. <strong>This is the one step in the sequence that is not automated.</strong></p><p class="panel-body">She builds the quote in Square, copies the invoice link, and sends this email through MailerLite. Sarah gets her pricing, a line-item receipt, and a direct link to pay the deposit, all in one email.</p><div class="why-box"><p class="why-label">Why this matters</p><p class="why-text">The quote email does two things at once. It is a warm, branded follow-up that keeps Sarah engaged, and it is a functional payment request. The Square invoice link means she can pay immediately without any back-and-forth. One email, no friction.</p></div><div class="panel-nav"><button class="panel-prev" onclick="goTo(0)">&larr; Back</button><button class="panel-next" onclick="goTo(2)">Next: Deposit confirmed &rarr;</button></div></div><div><div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@email.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Saturday, 9:15 am</div></div><div class="inbox-subject-row"><div class="inbox-subject">Your quote is ready &mdash; reserve your date.</div><div class="inbox-to">To: sarah.m@email.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div><div class="cem-body"><p class="cem-subject">Your quote is ready &mdash; reserve your date.</p><p class="cem-p">Hi Sarah,</p><p class="cem-p">We&#8217;ve reviewed your order and we&#8217;d love to make this cake for you. Here&#8217;s your quote, and a deposit link to hold August 9.</p><div class="cem-receipt"><div class="cem-rhead"><span class="cem-rtitle">Order Quote &middot; The Cake Co.</span><span class="cem-rnum">QT-2024-0847</span></div><div class="cem-rbody"><div class="cem-rrow"><div><div>Custom 3-tier cake</div><div class="cem-rdesc">Lemon lavender + vanilla bean, 30 servings, garden-style design</div></div><span>$285.00</span></div><div class="cem-rrow"><div><div>Delivery &mdash; Wolfville, NS</div><div class="cem-rdesc">Within 20km, Saturday August 9</div></div><span>$25.00</span></div><div class="cem-rrow cem-rtotal"><span>Order total</span><span>$310.00</span></div><div class="cem-rdeposit"><span>Deposit due now (50%)</span><span>$155.00</span></div></div></div><div class="cem-pay"><div class="cem-pay-top"><div><div class="cem-pay-lbl">Deposit to hold August 9</div><div class="cem-pay-amount">$155.00</div></div><span class="cem-pay-btn">Pay deposit</span></div><div class="cem-sq"><div class="sq-logo"><div class="sq-inner"></div></div><span class="sq-link">squareup.com/pay-invoice/thecakeco-QT-2024-0847</span><span class="sq-label">Powered by Square</span></div></div><p class="cem-pay-note">Balance of $155.00 is due at delivery. Cash, e-transfer, or card. This quote expires in 5 days.</p><p class="cem-p" style="margin-top:10px;">August 9 is still available but we can only hold dates with a deposit. If you have questions before paying, just reply here.</p><p class="cem-sign">&mdash; The Cake Co.</p></div><div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div></div></div></div><div class="step-panel" id="panel-2"><div class="panel-layout"><div class="panel-context"><p class="panel-label">Step 3 of 4</p><h3 class="panel-heading">Sarah pays the deposit. Her date is locked.</h3><p class="panel-body">Sarah clicks the Square link, pays $155, and Square sends her a payment receipt automatically. <strong>The baker is notified by Square the moment it clears.</strong></p><p class="panel-body">This confirmation email goes out once the deposit is confirmed, either triggered automatically via Zapier or sent manually by the baker when she sees the payment come through.</p><div class="options-pair"><div class="option-card"><p class="option-lbl">Option A</p><p class="option-title">Zapier watches Square</p><p class="option-desc">Deposit clears, Zapier fires, email sends automatically within minutes. Around $20/month extra.</p><p class="option-rec">Higher volume businesses.</p></div><div class="option-card"><p class="option-lbl">Option B</p><p class="option-title">One manual trigger</p><p class="option-desc">Baker sees the Square notification, triggers the email manually in MailerLite. Takes 30 seconds. No extra cost.</p><p class="option-rec">Best for lower volume.</p></div></div><div class="panel-nav" style="margin-top:24px;"><button class="panel-prev" onclick="goTo(1)">&larr; Back</button><button class="panel-next" onclick="goTo(3)">Next: Delivery reminder &rarr;</button></div></div><div><div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@email.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Saturday, 11:03 am</div></div><div class="inbox-subject-row"><div class="inbox-subject">You&#8217;re confirmed &mdash; August 9 is yours.</div><div class="inbox-to">To: sarah.m@email.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div><div class="cem-body"><p class="cem-subject">You&#8217;re confirmed &mdash; August 9 is yours.</p><p class="cem-p">Hi Sarah,</p><p class="cem-p">Your deposit came through and your order is officially on the books. August 9 is locked in.</p><div class="cem-confirmed"><div class="cem-confirmed-title">Order confirmed</div><div class="cem-confirmed-detail">Sarah&#8217;s 40th birthday cake &middot; August 9, 2024</div></div><div class="cem-box"><div class="cem-row"><span class="cem-lbl">Deposit paid</span><span>$155.00</span></div><div class="cem-row"><span class="cem-lbl">Balance due at delivery</span><span>$155.00</span></div><div class="cem-row"><span class="cem-lbl">Delivery date</span><span>Saturday, August 9</span></div><div class="cem-row"><span class="cem-lbl">Delivery address</span><span>Wolfville, NS</span></div></div><p class="cem-p">We&#8217;ll be in touch closer to the date if we have any questions about your design. Otherwise we&#8217;ll see you August 9.</p><p class="cem-p">We can&#8217;t wait to make something beautiful for you.</p><p class="cem-sign">&mdash; The Cake Co.</p></div><div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div></div></div></div><div class="step-panel" id="panel-3"><div class="panel-layout"><div class="panel-context"><p class="panel-label">Step 4 of 4</p><h3 class="panel-heading">48 hours before delivery, Sarah hears from them again.</h3><p class="panel-body">This email goes out automatically two days before the confirmed delivery date. <strong>The baker did not have to remember to send it.</strong> MailerLite fires it based on the delivery date captured in the original form.</p><p class="panel-body">Sarah knows exactly what to expect. The delivery window, the balance owing, how to pay, and what to do to be ready. No calls, no confusion, no last-minute scramble.</p><div class="why-box"><p class="why-label">Why this matters</p><p class="why-text">Custom delivery has a lot of moving parts. A reminder 48 hours out means Sarah is prepared, the baker does not have to chase anyone for final payment, and nothing falls through the cracks on the day itself. The customer feels looked after. The baker stays focused on the cake.</p></div><div class="adapt-note"><p>That is the full sequence. Four emails, one manual step, and a business that looks like it has its act together. Want something like this built for yours? <a href="lets-talk.html" style="color:var(--clay);font-weight:600;">Let's talk.</a></p></div><div class="panel-nav"><button class="panel-prev" onclick="goTo(2)">&larr; Back</button></div></div><div><div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@email.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Thursday, 9:00 am</div></div><div class="inbox-subject-row"><div class="inbox-subject">Your cake is almost ready. A few things before Saturday.</div><div class="inbox-to">To: sarah.m@email.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div><div class="cem-body"><p class="cem-subject">Your cake is almost ready. A few things before Saturday.</p><p class="cem-p">Hi Sarah,</p><p class="cem-p">We&#8217;re putting the finishing touches on your birthday cake and it&#8217;s coming together beautifully. A couple of things before we deliver:</p><div class="cem-box"><div class="cem-row"><span class="cem-lbl">Delivery date</span><span>Saturday, August 9</span></div><div class="cem-row"><span class="cem-lbl">Delivery window</span><span>10 am &ndash; 2 pm</span></div><div class="cem-row"><span class="cem-lbl">Delivery address</span><span>Wolfville, NS</span></div><div class="cem-row"><span class="cem-lbl">Balance due at delivery</span><span>$155.00</span></div><div class="cem-row"><span class="cem-lbl">Payment accepted</span><span>Cash, e-transfer, or card</span></div></div><p class="cem-p">Please make sure someone is home during the delivery window. We&#8217;ll send a quick message when we&#8217;re on our way.</p><p class="cem-p">Can&#8217;t wait for you to see it. See you Saturday.</p><p class="cem-sign">&mdash; The Cake Co.</p></div><div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div></div></div></div>
+        <button class="step-btn active" onclick="goTo(0)" role="tab">
+          <span class="step-num">Step 0</span><span class="step-title">The order form</span><span class="step-timing">Before anything else</span>
+        </button>
+        <button class="step-btn" onclick="goTo(1)" role="tab">
+          <span class="step-num">Step 1</span><span class="step-title">Order submitted</span><span class="step-timing">Instant</span><span class="step-type">Automatic</span>
+        </button>
+        <button class="step-btn" onclick="goTo(2)" role="tab">
+          <span class="step-num">Step 2</span><span class="step-title">Baker reviews</span><span class="step-timing">Internal</span><span class="step-type">Baker action</span>
+        </button>
+        <button class="step-btn" onclick="goTo(3)" role="tab">
+          <span class="step-num">Step 3</span><span class="step-title">Quote sent</span><span class="step-timing">Baker sends</span><span class="step-type">Draft review</span>
+        </button>
+        <button class="step-btn" onclick="goTo(4)" role="tab">
+          <span class="step-num">Step 4</span><span class="step-title">Deposit confirmed</span><span class="step-timing">On payment</span><span class="step-type">Draft review</span>
+        </button>
+        <button class="step-btn" onclick="goTo(5)" role="tab">
+          <span class="step-num">Step 5</span><span class="step-title">Delivery reminder</span><span class="step-timing">48 hrs before</span><span class="step-type">Automatic</span>
+        </button>
+      </div>
+    </div>
+  </div>
+    <div class="stepper-panels">
+      <div class="container">
+      <div class="step-panel active" id="panel-0">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 0 of 5</p>
+            <h3 class="panel-heading">The form Sarah fills out.</h3>
+            <p class="panel-body">Before any automation runs, the form has to do its job. A well-designed intake form is the foundation of the whole system. It asks the right questions so the baker has everything she needs to price the order without going back and forth.</p>
+            <p class="panel-body">The inspiration photo upload is deliberate. Garden-style florals means something different to every baker. A photo removes the ambiguity before it becomes a problem.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Most custom order businesses use a generic contact form. The customer writes a vague message, the baker asks five follow-up questions, the customer takes two days to reply, and by then the date might be gone. A specific intake form front-loads that conversation so everyone starts on the same page.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Sarah hits submit. Everything else in this sequence starts here.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-next" onclick="goTo(1)">Next: Order submitted &rarr;</button></div>
+          </div>
+          <div>
+            <div class="mock-form">
+              <div class="mock-form-header">
+                <div class="mock-form-title">Custom Cake Inquiry</div>
+                <div class="mock-form-sub">The Cake Co. &middot; thecakeco.ca</div>
+              </div>
+              <div class="mock-form-body">
+                <p class="form-section-label">About you</p>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">First name</div><div class="mock-input filled">Sarah</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Last name</div><div class="mock-input filled">Mitchell</div></div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Email</div><div class="mock-input filled">sarah.m@notarealemail.com</div></div>
+                <div class="mock-field"><div class="mock-field-label">Phone <span>optional</span></div><div class="mock-input filled">902-555-0147</div></div>
+                <p class="form-section-label">Your order</p>
+                <div class="mock-field"><div class="mock-field-label">Occasion</div><div class="mock-input filled">40th birthday</div></div>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">Date needed</div><div class="mock-input filled">August 9, 2024</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Number of guests</div><div class="mock-input filled">30&ndash;35</div></div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Flavour preferences</div><div class="mock-input filled">Lemon lavender, vanilla bean</div></div>
+                <div class="mock-field"><div class="mock-field-label">Dietary restrictions or allergies <span>if any</span></div><div class="mock-input">None</div></div>
+                <div class="mock-field"><div class="mock-field-label">Fondant</div><div class="mock-input filled">No fondant please</div></div>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">Pickup or delivery</div><div class="mock-input filled">Delivery</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Delivery address</div><div class="mock-input filled">Main St. &amp; Elm Ave., Wolfville NS</div></div>
+                </div>
+                <p class="form-section-label">Design inspiration</p>
+                <div class="mock-field"><div class="mock-field-label">Design notes</div><div class="mock-input filled">Garden-style florals, soft colours, nothing too formal</div></div>
+                <div class="mock-field">
+                  <div class="mock-field-label">Inspiration photos <span>up to 3</span></div>
+                  <div class="mock-upload">Drop files here or click to upload &middot; JPG, PNG, PDF</div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Inspiration link <span>Pinterest, Instagram, etc.</span></div><div class="mock-input filled">pinterest.com/sarah/cake-ideas</div></div>
+                <div class="mock-field"><div class="mock-field-label">Anything else we should know</div><div class="mock-input"></div></div>
+                <div class="mock-field"><div class="mock-field-label">How did you find us</div><div class="mock-input filled">Instagram</div></div>
+                <button class="mock-submit">Submit my inquiry</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-panel" id="panel-1">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 1 of 5</p>
+            <h3 class="panel-heading">Sarah gets a confirmation. Instantly.</h3>
+            <p class="panel-body">It is Friday evening. Sarah hits submit and goes to bed. <strong>This email is already in her inbox.</strong> Nobody at The Cake Co. touched their phone.</p>
+            <p class="panel-body">The email plays her order details back to her so she can see everything was captured correctly. If something is wrong she can reply right then.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The silence after a form submission is where most custom order businesses lose people. Not because they are not interested. Because the customer has no idea if it went through. This email closes that gap before doubt has a chance to set in.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Jotform submission fires Zapier. Zapier sends the confirmation via MailerLite and adds Sarah&rsquo;s order to the Google Sheet simultaneously.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(0)">&larr; Back</button><button class="panel-next" onclick="goTo(2)">Next: Baker reviews &rarr;</button></div>
+          </div>
+          <div>
+            <div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar ">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Friday, 8:42 pm</div></div><div class="inbox-subject-row"><div class="inbox-subject">We got your order &mdash; here&#8217;s what you shared with us.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+            <div class="cem-body">
+              <p class="cem-subject">We got your order &mdash; here&#8217;s what you shared with us.</p>
+              <p class="cem-p">Hi Sarah,</p>
+              <p class="cem-p">Your custom order request came through and we have everything we need to get started on a quote for you.</p>
+              <div class="cem-box">
+                <div class="cem-row"><span class="cem-lbl">Occasion</span><span>40th birthday</span></div>
+                <div class="cem-row"><span class="cem-lbl">Servings</span><span>30&ndash;35</span></div>
+                <div class="cem-row"><span class="cem-lbl">Flavour</span><span>Lemon lavender, vanilla bean</span></div>
+                <div class="cem-row"><span class="cem-lbl">Date</span><span>Saturday, August 9</span></div>
+                <div class="cem-row"><span class="cem-lbl">Delivery</span><span>Main St. &amp; Elm Ave., Wolfville NS</span></div>
+                <div class="cem-row"><span class="cem-lbl">Design</span><span>No fondant, garden-style florals</span></div>
+              </div>
+              <p class="cem-p">We review all custom orders within one business day and will follow up with pricing and availability. If anything looks off or you have questions, just reply here.</p>
+              <p class="cem-sign">&mdash; The Cake Co.</p>
+            </div>
+            <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="step-panel" id="panel-2">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 2 of 5</p>
+            <h3 class="panel-heading">The baker reviews the order before quoting.</h3>
+            <p class="panel-body">Saturday morning, the baker opens her notification email. It has Sarah&rsquo;s full order details and a link to a short internal checklist. She clicks through, reviews the order, and answers a few quick questions before building the quote.</p>
+            <p class="panel-body">This step exists because pricing a custom cake takes a human eye. The checklist makes sure nothing gets missed before the quote goes out.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Most bakers price from memory and send a number without checking their calendar, confirming the delivery range, or clarifying the design. This checklist takes two minutes and prevents the kind of mistakes that are awkward to fix after a deposit is paid.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Zapier sends the baker an internal notification email with Sarah&rsquo;s details and a pre-filled Jotform checklist link the moment the order comes in.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(1)">&larr; Back</button><button class="panel-next" onclick="goTo(3)">Next: Quote sent &rarr;</button></div>
+          </div>
+          <div>
+            <div class="internal-card">
+              <div class="internal-header">
+                <span style="font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);">New order &mdash; Baker checklist</span>
+                <span class="internal-badge">Internal</span>
+              </div>
+              <div class="internal-body">
+                <div class="internal-heading">Sarah Mitchell &mdash; August 9 &mdash; Wolfville delivery</div>
+                <div class="internal-row"><span class="internal-lbl">Occasion</span><span class="internal-val">40th birthday</span></div>
+                <div class="internal-row"><span class="internal-lbl">Servings</span><span class="internal-val">30&ndash;35</span></div>
+                <div class="internal-row"><span class="internal-lbl">Flavour</span><span class="internal-val">Lemon lavender, vanilla bean</span></div>
+                <div class="internal-row"><span class="internal-lbl">Design</span><span class="internal-val">No fondant, garden-style florals</span></div>
+                <div class="internal-row"><span class="internal-lbl">Inspiration</span><span class="internal-val">pinterest.com/sarah/cake-ideas</span></div>
+                <div class="checklist-section">
+                  <p class="checklist-label">Before you quote, confirm:</p>
+                  <div class="checklist-item"><div class="check-box checked"></div><span>August 9 is available in my calendar</span></div>
+                  <div class="checklist-item"><div class="check-box checked"></div><span>Wolfville delivery is within my range</span></div>
+                  <div class="checklist-item"><div class="check-box checked"></div><span>Design notes are clear enough to price</span></div>
+                  <div class="checklist-item"><div class="check-box"></div><span>I need more information before quoting</span></div>
+                  <div class="checklist-trigger"><strong>If you need more info:</strong> check the box above, note your question, and submit. Zapier will create a Gmail draft to Sarah so you can ask without writing it from scratch.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-panel" id="panel-3">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 3 of 5</p>
+            <h3 class="panel-heading">The quote lands in Sarah&rsquo;s inbox.</h3>
+            <p class="panel-body">The baker has reviewed the order and is ready to quote. Zapier creates a pre-filled Gmail draft with Sarah&rsquo;s details, the line items, and a Square deposit link already populated. <strong>The baker reviews it, adjusts the pricing, and hits send.</strong></p>
+            <p class="panel-body">This is not a fully automated email. Custom cake pricing needs a human. The draft does the heavy lifting so the baker is not writing the same structure from scratch every time.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The quote email does two things at once. It keeps Sarah warm and engaged after a night of waiting, and it gives her everything she needs to pay the deposit without a single follow-up. One email, no back and forth.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Baker submits the checklist with all boxes checked. Zapier creates a pre-filled Gmail draft. Baker opens it in Gmail, confirms the details, and sends.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(2)">&larr; Back</button><button class="panel-next" onclick="goTo(4)">Next: Deposit confirmed &rarr;</button></div>
+          </div>
+          <div>
+            <div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar ">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Saturday, 9:15 am</div></div><div class="inbox-subject-row"><div class="inbox-subject">Your quote is ready &mdash; reserve your date.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+            <div class="cem-body">
+              <p class="cem-subject">Your quote is ready &mdash; reserve your date.</p>
+              <p class="cem-p">Hi Sarah,</p>
+              <p class="cem-p">We&rsquo;ve reviewed your order and we&rsquo;d love to make this cake for you. Here&rsquo;s your quote and a deposit link to hold August 9.</p>
+              <div class="cem-receipt">
+                <div class="cem-rhead"><span class="cem-rtitle">Order Quote &middot; The Cake Co.</span><span class="cem-rnum">QT-2024-0847</span></div>
+                <div class="cem-rbody">
+                  <div class="cem-rrow"><div><div>Custom 3-tier cake</div><div class="cem-rdesc">Lemon lavender + vanilla bean, 30 servings, garden-style design</div></div><span>$285.00</span></div>
+                  <div class="cem-rrow"><div><div>Delivery &mdash; Main St. &amp; Elm Ave., Wolfville NS</div><div class="cem-rdesc">Within 20km of Main St. &amp; Elm Ave., Wolfville, NS</div></div><span>$25.00</span></div>
+                  <div class="cem-rrow cem-rtotal"><span>Order total</span><span>$310.00</span></div>
+                  <div class="cem-rdeposit"><span>Deposit due now (50%)</span><span>$155.00</span></div>
+                </div>
+              </div>
+              <div class="cem-pay">
+                <div class="cem-pay-top"><div><div class="cem-pay-lbl">Deposit to hold August 9</div><div class="cem-pay-amount">$155.00</div></div><span class="cem-pay-btn">Pay deposit</span></div>
+                <div class="cem-sq"><div class="sq-logo"><div class="sq-inner"></div></div><span class="sq-link">squareup.com/pay-invoice/thecakeco-QT-2024-0847</span><span class="sq-label">Powered by Square</span></div>
+              </div>
+              <p class="cem-pay-note">Balance of $155.00 is due at delivery. Cash, e-transfer, or card. This quote expires in 5 days.</p>
+              <p class="cem-p" style="margin-top:10px;">August 9 is still available but we can only hold dates with a deposit. Questions before paying? Just reply here.</p>
+              <p class="cem-sign">&mdash; The Cake Co.</p>
+            </div>
+            <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="step-panel" id="panel-4">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 4 of 5</p>
+            <h3 class="panel-heading">Sarah pays. The baker sends a personal note.</h3>
+            <p class="panel-body">Sarah clicks the Square link and pays the deposit. Square handles the payment receipt automatically. That is Square&rsquo;s job.</p>
+            <p class="panel-body">This email is something different. It is the baker&rsquo;s chance to confirm the order details, make sure nothing has changed since the inquiry, and open the door for any last questions before she starts baking. <strong>Zapier creates the draft. The baker personalises and sends.</strong></p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Square already told Sarah her payment went through. This email is not a receipt. It is a moment of genuine contact before the real work begins. It recaps the order so both sides are aligned, and it gives Sarah a natural opportunity to raise anything she might have been sitting on since the quote.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Baker sees the Square payment notification and manually triggers the Gmail draft in MailerLite, or Zapier watches Square and creates it automatically. Both options work depending on order volume.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(3)">&larr; Back</button><button class="panel-next" onclick="goTo(5)">Next: Delivery reminder &rarr;</button></div>
+          </div>
+          <div>
+            <div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar ">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Saturday, 11:03 am</div></div><div class="inbox-subject-row"><div class="inbox-subject">You&rsquo;re confirmed &mdash; a few things before we get started.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+            <div class="cem-body">
+              <p class="cem-subject">You&rsquo;re confirmed &mdash; a few things before we get started.</p>
+              <p class="cem-p">Hi Sarah,</p>
+              <p class="cem-p">Your deposit came through and August 9 is locked in. Before we get too far into planning, we just want to make sure we have everything right.</p>
+              <div class="cem-confirmed">
+                <div class="cem-confirmed-title">Order confirmed</div>
+                <div class="cem-confirmed-detail">Sarah&rsquo;s 40th birthday cake &middot; August 9, 2024</div>
+              </div>
+              <div class="cem-box">
+                <div class="cem-row"><span class="cem-lbl">Cake</span><span>3-tier, lemon lavender + vanilla bean</span></div>
+                <div class="cem-row"><span class="cem-lbl">Servings</span><span>30&ndash;35</span></div>
+                <div class="cem-row"><span class="cem-lbl">Design</span><span>Garden-style florals, no fondant</span></div>
+                <div class="cem-row"><span class="cem-lbl">Delivery</span><span>Main St. &amp; Elm Ave., Wolfville NS</span></div>
+                <div class="cem-row"><span class="cem-lbl">Deposit paid</span><span>$155.00</span></div>
+                <div class="cem-row"><span class="cem-lbl">Balance at delivery</span><span>$155.00</span></div>
+              </div>
+              <p class="cem-p">If anything looks off or you have questions about the design direction, just reply here. We want to make sure we&rsquo;re on the same page before we start.</p>
+              <p class="cem-sign">&mdash; The Cake Co.</p>
+            </div>
+            <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="step-panel" id="panel-5">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 5 of 5</p>
+            <h3 class="panel-heading">48 hours before delivery, Sarah hears from them again.</h3>
+            <p class="panel-body">This one fires on its own. MailerLite sends it automatically based on the delivery date captured in the original form. <strong>The baker does not have to remember.</strong></p>
+            <p class="panel-body">Sarah knows the delivery window, what she owes, and how to pay. No last-minute texts, no confusion, no chasing.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The day of a custom delivery has a lot of moving parts. A reminder two days out means Sarah is ready, the balance gets collected without awkwardness, and the baker can focus on the cake instead of the logistics. The customer feels looked after. Nothing falls through the cracks.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>MailerLite fires this automatically based on the delivery date field from the original Jotform submission. No human input required.</span>
+            </div>
+            <p class="closing-note">That is the full sequence. A few automated emails, a couple of human touchpoints, and a baker who can spend her Saturday morning actually baking. Want to build something like this for your business? <a href="lets-talk.html">Let&rsquo;s talk.</a></p>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(4)">&larr; Back</button></div>
+          </div>
+          <div>
+            <div class="email-client"><div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div><div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar ">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Thursday, 9:00 am</div></div><div class="inbox-subject-row"><div class="inbox-subject">Your cake is almost ready. A few things before Saturday.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div><div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+            <div class="cem-body">
+              <p class="cem-subject">Your cake is almost ready. A few things before Saturday.</p>
+              <p class="cem-p">Hi Sarah,</p>
+              <p class="cem-p">We&rsquo;re putting the finishing touches on your birthday cake and it&rsquo;s coming together beautifully. A couple of things before we deliver:</p>
+              <div class="cem-box">
+                <div class="cem-row"><span class="cem-lbl">Delivery date</span><span>Saturday, August 9</span></div>
+                <div class="cem-row"><span class="cem-lbl">Delivery window</span><span>10 am &ndash; 2 pm</span></div>
+                <div class="cem-row"><span class="cem-lbl">Delivery address</span><span>Main St. &amp; Elm Ave., Wolfville NS</span></div>
+                <div class="cem-row"><span class="cem-lbl">Balance due</span><span>$155.00</span></div>
+                <div class="cem-row"><span class="cem-lbl">Payment</span><span>Cash, e-transfer, or card</span></div>
+              </div>
+              <p class="cem-p">Please make sure someone is home during the delivery window. We&rsquo;ll send a quick message when we&rsquo;re on our way.</p>
+              <p class="cem-p">Can&rsquo;t wait for you to see it. See you Saturday.</p>
+              <p class="cem-sign">&mdash; The Cake Co.</p>
+            </div>
+            <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div></div></div></div></div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </section>
-
 <div class="pre-footer">
   <div class="container">
-    <p style="font-family:var(--f-head);font-size:clamp(16px,1.8vw,20px);font-weight:400;color:rgba(19,36,71,0.65);max-width:620px;margin:0 auto;line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+    <p style="font-family:var(--f-head);font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(19,36,71,0.65);max-width:580px;margin:0 auto;line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
   </div>
 </div>
 
