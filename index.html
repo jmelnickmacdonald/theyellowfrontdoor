@@ -1,314 +1,747 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Yellow Front Door — Marketing Studio</title>
-<meta name="description" content="A marketing studio for small businesses doing good work and trying to be seen that way.">
+<title>Schedule — Get Cronk'd Fitness Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@font-face {
-  font-family: 'CasualHandwriting';
-  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
-  font-weight: normal; font-style: normal; font-display: block;
+
+:root{
+  --lime:#A2C523;--lime-dark:#8AB01C;--lime-glow:rgba(162,197,35,.13);
+  --blue:#3BB0E0;--blue-dark:#2A9ACC;--blue-light:#EAF6FC;
+  --ink:#1a1a1a;--ink-muted:#555;--ink-dim:#888;
+  --bg:#f7f7f5;--white:#fff;--border:#e5e0d8;
+  --red:#e04848;--red-light:#fdf0f0;--amber:#d4960a;--amber-light:#fff7e5;--green:#2d8a4e;
+  --display:'Oswald',sans-serif;--body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --radius:12px;
 }
-:root {
-  --ink:       #132447;
-  --paper:     #ffffff;
-  --yellow:    #fcd346;
-  --stone:     #D8D1C3;
-  --slate:     #596674;
-  --brass:     #e6b800;
-  --clay:      #B86B4B;
-  --paper-mid: #F5EFE0;
-  --navy:      #132447;
-  --f-accent:  'CasualHandwriting', cursive;
-  --f-head:    'Montserrat', sans-serif;
-  --f-body:    'Montserrat', sans-serif;
-  --max:       1100px;
-  --gutter:    clamp(24px, 5vw, 80px);
-  --section-gap: clamp(64px, 9vw, 112px);
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);font-weight:400;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.nav{background:var(--white);border-bottom:1px solid var(--border);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:0;z-index:20;}
+.nav-logo{height:42px;width:auto;display:block;}
+.nav-links{display:flex;gap:1rem;font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--ink-muted);}
+.nav-links a{text-decoration:none;}
+@media(max-width:640px){.nav{justify-content:center;flex-direction:column}.nav-links{font-size:11px;flex-wrap:wrap;justify-content:center}}
+.hero{position:relative;overflow:hidden;padding:clamp(2.5rem,7vw,5rem) 1.5rem;text-align:center;color:#fff;background:linear-gradient(135deg,rgba(130,165,15,.93),rgba(59,176,224,.86)),url('hero.jpeg') center/cover;}
+.hero h1{font-family:var(--display);font-size:clamp(2rem,6vw,4rem);font-weight:700;line-height:.95;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:.8rem;}
+.hero p{font-size:clamp(.95rem,2vw,1.15rem);max-width:58ch;margin:0 auto;opacity:.94;}
+.wrap{max-width:1050px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.5rem;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;}
+.label{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem;}
+h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.7rem);line-height:1;text-transform:uppercase;}
+.lead{font-size:14px;color:var(--ink-muted);max-width:62ch;margin-top:.6rem;}
+.pill-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+.pill{border:1px solid var(--border);background:var(--white);padding:.45rem .75rem;border-radius:999px;font-size:12px;font-weight:700;color:var(--ink-muted);}
+.notice{background:var(--white);border:1px solid var(--border);border-left:5px solid var(--lime);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:14px;color:var(--ink-muted);}
+.notice strong{color:var(--ink);}
+.day-block{margin-bottom:1.6rem;}
+.day-label{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);padding-bottom:.45rem;margin-bottom:.7rem;border-bottom:2px solid var(--blue);}
+.class-card{display:grid;grid-template-columns:92px minmax(0,1fr) 175px;gap:1rem;align-items:center;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.15rem;margin-bottom:.6rem;transition:border-color .2s,box-shadow .2s,transform .2s;}
+.class-card:hover{border-color:var(--lime);box-shadow:0 6px 18px rgba(0,0,0,.06);transform:translateY(-1px);}
+.class-time{font-family:var(--display);font-size:1.15rem;font-weight:700;line-height:1.1;}
+.class-time span{display:block;font-family:var(--body);font-size:.68rem;font-weight:700;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem;}
+.class-info h3{font-family:var(--display);font-size:1rem;text-transform:uppercase;line-height:1.1;margin-bottom:.18rem;}
+.instructor{font-size:12px;color:var(--ink-muted);}
+.class-action{text-align:right;}
+.status{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.25rem .55rem;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;}
+.status.open{background:var(--lime-glow);color:var(--green);}
+.status.low,.status.summer-open{background:var(--amber-light);color:var(--amber);}
+.status.full,.status.cancelled{background:var(--red-light);color:var(--red);}
+.status.running,.status.currently-running,.status.waitlist,.status.consult{background:var(--blue-light);color:var(--blue-dark);}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:.65rem .95rem;font-family:var(--display);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;color:#fff;background:var(--lime);}
+.btn:hover{transform:translateY(-1px);box-shadow:0 5px 15px rgba(0,0,0,.12);background:var(--lime-dark);}
+.btn.blue{background:var(--blue);}
+.btn.blue:hover{background:var(--blue-dark);}
+.btn.amber{background:var(--amber);}
+.btn.red{background:var(--red);}
+.btn.disabled{background:#ccc;color:#666;cursor:not-allowed;box-shadow:none;transform:none;}
+.btn.secondary{background:var(--ink);color:#fff;}
+@media(max-width:760px){
+  .section-head{align-items:flex-start;flex-direction:column;}
+  .class-card{grid-template-columns:1fr;gap:.6rem;}
+  .class-action{text-align:left;display:flex;gap:.65rem;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:.75rem;}
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { margin: 0; padding: 0; background: var(--paper); }
-html { scroll-behavior: smooth; }
-body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-section { padding: var(--section-gap) 0; }
-.eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
-.section-title { font-family: var(--f-head); font-size: clamp(30px, 4vw, 46px); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 20px; }
-.section-intro { font-size: 16px; line-height: 1.8; color: var(--slate); max-width: 580px; margin-bottom: 48px; font-weight: 400; }
-.divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
+.program-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;}
+.program-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;position:relative;overflow:hidden;}
+.program-card:before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--blue);}
+.program-card.summer-open:before{background:var(--lime);}
+.program-card.waitlist:before,.program-card.currently-running:before{background:var(--amber);}
+.program-card h3{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;line-height:1.1;margin:.6rem 0 .25rem;}
+.program-schedule{font-size:12px;color:var(--ink-muted);font-weight:700;margin-bottom:.7rem;}
+.program-card p{font-size:14px;color:var(--ink-muted);margin-bottom:1rem;}
+@media(max-width:760px){.program-grid{grid-template-columns:1fr;}}
+.consult-strip{background:var(--ink);color:#fff;border-radius:var(--radius);padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-top:2rem;}
+.consult-strip h3{font-family:var(--display);font-size:1.35rem;text-transform:uppercase;margin-bottom:.25rem;}
+.consult-strip p{font-size:14px;color:rgba(255,255,255,.78);}
+@media(max-width:760px){.consult-strip{flex-direction:column;align-items:flex-start;}}
+.footer{text-align:center;padding:2rem 1rem;border-top:1px solid var(--border);font-size:11px;color:var(--ink-dim);letter-spacing:.06em;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(3px);}
+.modal-overlay.show{display:flex;}
+.modal{background:var(--white);border-radius:16px;max-width:600px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.3);}
+.modal-header{background:linear-gradient(135deg,var(--lime),var(--blue));color:#fff;padding:1.5rem 1.75rem;position:relative;}
+.modal-header h2{font-size:1.45rem;margin-bottom:.4rem;}
+.modal-class,.modal-context{font-size:13px;opacity:.92;}
+.modal-close{position:absolute;right:1rem;top:1rem;background:rgba(255,255,255,.2);border:0;color:#fff;width:32px;height:32px;border-radius:50%;font-size:22px;cursor:pointer;}
+.modal-body{padding:1.5rem 1.75rem;}
+.form-title{font-family:var(--display);font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:1rem 0 .65rem;color:var(--blue);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+@media(max-width:560px){.field-row{grid-template-columns:1fr;}}
+.field{margin-bottom:.9rem;}
+label{display:block;font-size:12px;font-weight:700;margin-bottom:.25rem;color:var(--ink-muted);}
+.req{color:var(--red);}
+input,select,textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:.75rem;font-family:var(--body);font-size:14px;background:#fff;}
+textarea{min-height:90px;resize:vertical;}
+.check-field{display:flex;gap:.55rem;align-items:flex-start;font-size:12px;color:var(--ink-muted);margin:.9rem 0 1rem;}
+.check-field input{width:auto;margin-top:.2rem;}
+.waiver{background:#fafafa;border:1px solid var(--border);border-radius:8px;padding:1rem;font-size:11px;color:var(--ink-muted);max-height:120px;overflow-y:auto;}
+.success-view{display:none;padding:2rem;text-align:center;}
+.success-view.show{display:block;}
+.success-icon{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.6rem;background:var(--lime);color:#fff;}
+.success-icon.waitlisted{background:var(--amber);}
+.success-icon.info{background:var(--blue);}
+.success-view h2{font-size:1.5rem;margin-bottom:.5rem;}
+.success-view p{color:var(--ink-muted);font-size:14px;max-width:44ch;margin:.25rem auto;}
+.detail{margin:1rem 0;padding:1rem;background:var(--bg);border-radius:8px;font-size:13px;font-weight:700;}
 
-/* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
-.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
-.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo img { height: 52px; width: auto; display: block; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--paper); }
-.nav-links a.active { font-weight: 600; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; border: none !important; }
-.nav-cta:hover { background: var(--brass) !important; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+.hero{padding:clamp(2rem,6vw,4rem) 1.5rem;}
+.schedule-note{background:var(--blue-light);border-color:rgba(59,176,224,.3);border-left-color:var(--blue);}
 
-/* STREET SCENE */
-.street-scene { width: 100%; margin-top: 72px; display: block; overflow: hidden; line-height: 0; font-size: 0; }
-.street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
-.scene-day { display: block; }
-.scene-night { display: none; }
-body.is-night .scene-day { display: none; }
-body.is-night .scene-night { display: block; }
 
-/* HERO */
-.hero-thesis { background: var(--navy); padding: clamp(40px, 6vw, 72px) 0 clamp(44px, 6vw, 72px); text-align: center; }
-.hero-thesis-inner { max-width: 720px; margin: 0 auto; padding: 0 16px; }
-.hero-h1 { font-family: var(--f-head); font-size: clamp(22px, 3.5vw, 42px); font-weight: 400; color: rgba(255,255,255,0.65); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 12px; }
-.hero-accent-line { font-family: var(--f-accent); font-size: clamp(36px, 5.5vw, 62px); color: #ffffff; font-weight: normal; display: block; margin-bottom: 28px; line-height: 1.15; }
-.hero-bridge { font-size: clamp(14px, 1.6vw, 16px); color: rgba(255,255,255,0.6); line-height: 1.85; max-width: 540px; margin: 0 auto 32px; }
-.hero-story-link { display: inline-block; margin-top: 10px; color: var(--yellow); font-weight: 600; border-bottom: 1px solid rgba(252,211,70,0.3); transition: border-color 0.2s; }
-.hero-story-link:hover { border-color: var(--yellow); }
-.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 4px; }
-.btn-outline-light { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.8); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
-.btn-outline-light:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
-
-/* BUTTONS */
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; }
-.btn-primary:hover { background: var(--slate); border-color: var(--slate); }
-.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--stone); cursor: pointer; transition: border-color 0.2s; text-decoration: none; }
-.btn-secondary:hover { border-color: var(--ink); }
-.btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-.btn-yellow:hover { background: var(--brass); }
-
-/* PROCESS */
-.process-section { background: var(--navy); padding: clamp(32px, 4vw, 52px) 0; }
-.process-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
-.process-title { font-family: var(--f-head); font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; color: #fff; margin-bottom: 28px; }
-.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-.process-number { font-family: var(--f-accent); font-size: 36px; color: var(--yellow); margin-bottom: 10px; line-height: 1; }
-.process-step-title { font-family: var(--f-head); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; letter-spacing: 0.02em; }
-.process-step-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
-
-/* TESTIMONIALS */
-.testimonials-section { background: var(--paper); padding: clamp(28px, 4vw, 44px) 0; border-top: 1px solid var(--stone); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 40px); }
-.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 10px; }
-.testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); font-style: normal; }
-
-/* CTA */
-.cta-section { background: var(--navy); text-align: center; position: relative; overflow: hidden; }
-.cta-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px); pointer-events: none; }
-
-/* FOOTER */
-.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
-.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
-.footer-logo-wrap { margin-bottom: 16px; }
-.footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
-.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
-.footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
-.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
-.footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
-.footer-nav a:hover { color: var(--ink); }
-.footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
-
-/* NIGHT MODE */
-body.is-night .nav-links a { color: rgba(255,252,244,0.75); }
-body.is-night .nav-links a:hover { color: var(--paper); }
-body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; }
-
-/* RESPONSIVE */
-@media (max-width: 960px) {
-  .testimonials-grid { grid-template-columns: 1fr; }
+.airtable-schedule-shell{
+  position:relative;
+  margin-top:1.5rem;
 }
-@media (max-width: 768px) {
-  .process-grid { grid-template-columns: 1fr; gap: 28px; }
+.airtable-schedule-shell:before{
+  content:'';
+  position:absolute;
+  inset:-1rem;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(162,197,35,.16),transparent 34%),
+    radial-gradient(circle at 95% 20%,rgba(59,176,224,.14),transparent 32%);
+  border-radius:24px;
+  z-index:0;
+  pointer-events:none;
 }
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
-  .nav-toggle { display: flex; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .hero-actions a { width: 100%; justify-content: center; text-align: center; }
-  .footer-bottom { flex-direction: column; }
+.airtable-schedule-wrap{
+  position:relative;
+  z-index:1;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 48px rgba(0,0,0,.1);
 }
+.airtable-schedule-wrap:before{
+  content:'Live weekly schedule';
+  display:block;
+  background:var(--ink);
+  color:#fff;
+  font-family:var(--display);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:.85rem 1.1rem;
+  border-bottom:4px solid var(--lime);
+}
+.airtable-schedule-wrap iframe{
+  width:100%;
+  min-height:760px;
+  border:0!important;
+  display:block;
+  background:#fff!important;
+}
+.schedule-actions{
+  margin-top:1.35rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.schedule-actions p{
+  font-size:13px;
+  color:var(--ink-muted);
+}
+.schedule-help{
+  margin-top:1rem;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+}
+.schedule-help-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1rem;
+  font-size:13px;
+  color:var(--ink-muted);
+}
+.schedule-help-card strong{
+  display:block;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:.2rem;
+}
+@media(max-width:760px){
+  .airtable-schedule-wrap iframe{min-height:820px;}
+  .schedule-actions{align-items:flex-start;flex-direction:column;}
+  .schedule-help{grid-template-columns:1fr;}
+}
+
+
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
-      <img src="roundlogo2.png" alt="The Yellow Front Door">
-    </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="what-we-do.html">What We Do</a></li>
-      <li><a href="the-proof.html">The Proof</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html">Let's Talk</a></li>
-      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
-    </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="nav">
+  <a href="getcronkd-demo.html"><img class="nav-logo" src="cronkd-logo-final.png" alt="Get Cronk'd Fitness Studio"></a>
+  <div class="nav-links">
+    <a href="getcronkd-register.html">Register</a>
+    <a href="#weekly">Weekly schedule</a>
+    <a href="getcronkd-demo.html">Home</a>
   </div>
 </nav>
 
-<!-- STREET SCENE -->
-<div class="street-scene" role="img" aria-label="Illustrated street scene with a yellow front door at centre">
-  <img class="scene-day"
-    srcset="hero_day.webp 2080w, hero_day_2x.webp 4160w"
-    sizes="100vw"
-    src="hero_day.webp"
-    alt="Daytime street scene — storefronts with a yellow front door at centre"
-    loading="eager">
-  <img class="scene-night"
-    style="display:none"
-    srcset="hero_night.webp 2080w, hero_night_2x.webp 4160w"
-    sizes="100vw"
-    src="hero_night.webp"
-    alt="Nighttime street scene — warm glowing windows, yellow front door lit at centre"
-    loading="eager">
-</div>
+<header class="hero">
+  <h1>Weekly schedule.</h1>
+  <p>This page uses the same class data as registration, so the website does not need two separate schedules.</p>
+</header>
 
-<!-- HERO + THESIS -->
-<section class="hero-thesis" id="top">
-  <div class="container">
-    <div class="hero-thesis-inner">
-      <h1 class="hero-h1">Your business is great, but your online presence isn't keeping up.</h1>
-      <span class="hero-accent-line">We fix that.</span>
-      <p class="hero-bridge">The website, the words, the brand, the emails, and the systems behind them. We know what falls through the cracks because we ran a small business for seven years and learned most of this the hard way.<br><a href="the-doorstep.html" class="hero-story-link">Read our story →</a></p>
-      <div class="hero-actions">
-        <a href="what-we-do.html" class="btn-yellow">What We Do</a>
-        <a href="lets-talk.html" class="btn-outline-light">Start with a Drive-By →</a>
+<main>
+  <section class="wrap" id="weekly">
+    <div class="notice schedule-note"><strong>Website rule:</strong> this schedule and the registration page should read from the same Airtable data. Staff update once. Both pages change.</div>
+    <div class="section-head">
+      <div>
+        <div class="label">Live schedule</div>
+        <h2>Classes this week.</h2>
+        <p class="lead">This is the clean public schedule. It updates from Airtable, so class changes, cancellations, and availability can be managed by the studio without touching the website.</p>
+      </div>
+      <a class="btn" href="getcronkd-register.html">Register or join waitlist</a>
+    </div>
+
+    <div class="airtable-schedule-shell">
+      <div class="airtable-schedule-wrap">
+        <iframe class="airtable-embed" src="https://airtable.com/embed/appTXfAYqeKi1CWVH/shrR7QiNa9fOyvAl2?viewControls=off" frameborder="0" onmousewheel="" width="100%" height="760" style="background: transparent; border: 0;"></iframe>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials-section">
-  <div class="container">
-    <div class="testimonials-grid">
-      <blockquote class="testimonial">
-        <p class="testimonial-quote">"Where do I begin? I'm so glad I found you and your brilliant mind. You absolutely get me, and you're stretching my thinking in the very best way."</p>
-        <cite class="testimonial-cite">— Max W.</cite>
-      </blockquote>
-      <blockquote class="testimonial">
-        <p class="testimonial-quote">"I never expected that someone would just 'get it' on so few details, but you totally did."</p>
-        <cite class="testimonial-cite">— Trina K.</cite>
-      </blockquote>
-      <blockquote class="testimonial">
-        <p class="testimonial-quote">"I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered. Insightful, and nailed exactly what I was looking for."</p>
-        <cite class="testimonial-cite">— Mariah J.</cite>
-      </blockquote>
+    <div class="schedule-help">
+      <div class="schedule-help-card"><strong>Open</strong>Good to go. Choose a class and register.</div>
+      <div class="schedule-help-card"><strong>Few spots left</strong>Space is limited, so book sooner rather than later.</div>
+      <div class="schedule-help-card"><strong>Full or waitlist</strong>Join the list and the studio will follow up if space opens.</div>
     </div>
-  </div>
-</section>
-
-<!-- HOW WE WORK -->
-<section class="process-section">
-  <div class="container">
-    <p class="process-eyebrow">How it works</p>
-    <p class="process-title">Three steps, no surprises.</p>
-    <div class="process-grid">
-      <div class="process-step">
-        <p class="process-number">01</p>
-        <p class="process-step-title">We look.</p>
-        <p class="process-step-desc">Send us your website and a handful of touchpoints: your Google listing, social profiles, any printed materials. We take an honest look and tell you what we see — what's working and where to start.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-number">02</p>
-        <p class="process-step-title">We plan.</p>
-        <p class="process-step-desc">Together, we figure out what matters most and make a plan. You know exactly what you're getting, what it costs, and what happens next before we touch anything.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-number">03</p>
-        <p class="process-step-title">We build.</p>
-        <p class="process-step-desc">We do the work — brand, copy, site, systems — and hand it over. If you want us to stay on for ongoing updates, integrations, or automations, we do that too.</p>
-      </div>
+    <div class="schedule-actions">
+      <a class="btn" href="getcronkd-register.html">Register or join waitlist</a>
+      <p>Schedule updates are managed by Get Cronk'd staff through Airtable.</p>
     </div>
-  </div>
-</section>
 
-<!-- CTA -->
-<div class="cta-section" style="background:var(--navy); text-align:center; padding:clamp(36px, 5vw, 56px) 0;">
-  <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(22px, 3vw, 32px); font-weight:400; color:#fff; margin-bottom:12px;">Not sure where things stand?</p>
-    <p style="font-size:15px; color:rgba(255,255,255,0.55); max-width:560px; margin:0 auto 28px; line-height:1.75;">Take the Scorecard. Ten questions, two minutes, and a clear picture of what customers find when they go looking.</p>
-    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
-      <a href="lets-talk.html" class="btn-outline-light" style="padding:15px 28px; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); text-decoration:none;">Or get in touch →</a>
-    </div>
-  </div>
-</div>
+  </section>
+</main>
 
-<!-- PRE-FOOTER -->
-<div style="background:var(--navy); border-top:1px solid rgba(255,255,255,0.08); padding:clamp(32px,4vw,52px) 0; text-align:center;">
-  <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses who do good work and want the outside to reflect it.</p>
-  </div>
-</div>
-
-<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo-wrap">
-      <img src="roundlogo.png" alt="The Yellow Front Door">
-    </div>
-    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
-    <hr class="footer-divider">
-    <nav class="footer-nav">
-      <a href="what-we-do.html">What We Do</a>
-      <a href="the-proof.html">The Proof</a>
-      <a href="about.html">About</a>
-      <a href="the-doorstep.html">The Doorstep</a>
-      <a href="lets-talk.html">Let's Talk</a>
-    </nav>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door</p>
-      <div class="footer-dot-sm" aria-hidden="true"></div>
-      <p class="footer-copy">Annapolis Valley, NS</p>
-      <div class="footer-dot-sm" aria-hidden="true"></div>
-      <p class="footer-copy">theyellowfrontdoor.ca</p>
-    </div>
-  </div>
+  Get Cronk'd Fitness Studio · 9 Clothier St E, Kemptville · registration@getcronkd.com
 </footer>
 
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Register</h2>
+      <div class="modal-class" id="modalClass">Class name</div>
+      <div class="modal-context" id="modalContext">Day · time · instructor</div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalForm">
+      <input type="hidden" id="requestType" value="register">
+      <div class="form-title">Your information</div>
+      <div class="field-row">
+        <div class="field"><label>First name <span class="req">*</span></label><input id="f-first" type="text" placeholder="First name"></div>
+        <div class="field"><label>Last name <span class="req">*</span></label><input id="f-last" type="text" placeholder="Last name"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Email <span class="req">*</span></label><input id="f-email" type="email" placeholder="you@email.com"></div>
+        <div class="field"><label>Phone <span class="req">*</span></label><input id="f-phone" type="tel" placeholder="For day-of communication"></div>
+      </div>
+      <div class="field"><label>Date of birth</label><input id="f-dob" type="date"></div>
+      <div class="form-title">Emergency contact</div>
+      <div class="field-row">
+        <div class="field"><label>Emergency contact name <span class="req">*</span></label><input id="f-ec-name" type="text" placeholder="Name"></div>
+        <div class="field"><label>Emergency contact phone <span class="req">*</span></label><input id="f-ec-phone" type="tel" placeholder="Phone"></div>
+      </div>
+      <div class="field"><label>Anything we should know?</label><textarea id="f-notes"></textarea></div>
+      <div class="form-title">Waiver & acknowledgment</div>
+      <div class="waiver">By registering or joining a waitlist, I acknowledge that participation in physical fitness activities carries inherent risks and confirm that the information provided is accurate.</div>
+      <div class="check-field"><input type="checkbox" id="f-waiver"><label for="f-waiver">I have read and agree to the above waiver. <span class="req">*</span></label></div>
+      <button class="btn" id="submitBtn" onclick="handleSubmit()">Confirm registration</button>
+    </div>
+    <div class="success-view" id="successView">
+      <div class="success-icon confirmed" id="successIcon">✓</div>
+      <h2 id="successTitle">You're registered.</h2>
+      <p id="successMsg">We'll send a confirmation to your email.</p>
+      <div class="detail" id="successDetail">Class name</div>
+      <button class="btn secondary" onclick="closeModal()">Done</button>
+    </div>
+  </div>
+</div>
+
 <script>
-(function () {
-  function applyTimeOfDay() {
-    var h = new Date().getHours();
-    var isNight = h >= 18 || h < 6;
-    document.body.classList.toggle('is-night', isNight);
-    var night = document.querySelector('.scene-night');
-    var day = document.querySelector('.scene-day');
-    if (isNight) {
-      if (day) day.style.display = 'none';
-      if (night) night.style.display = 'block';
-    } else {
-      if (day) day.style.display = 'block';
-      if (night) night.style.display = 'none';
+
+const FALLBACK_DATA = {
+  "dropIns": [
+    {
+      "id": "mon-0530-group",
+      "date": "2026-06-22",
+      "day": "Monday",
+      "time": "5:30 AM",
+      "className": "Group Training",
+      "instructor": "Rebecca Cronk",
+      "duration": "60 min",
+      "capacity": 16,
+      "booked": 11,
+      "status": "open",
+      "buttonText": "Register",
+      "notes": "",
+      "showOnSite": true
+    },
+    {
+      "id": "mon-0730-s3",
+      "date": "2026-06-22",
+      "day": "Monday",
+      "time": "7:30 AM",
+      "className": "S3 Hybrid",
+      "instructor": "Rebecca Cronk",
+      "duration": "60 min",
+      "capacity": 14,
+      "booked": 14,
+      "status": "full",
+      "buttonText": "Join waitlist",
+      "notes": "",
+      "showOnSite": true
+    },
+    {
+      "id": "mon-1715-spin",
+      "date": "2026-06-22",
+      "day": "Monday",
+      "time": "5:15 PM",
+      "className": "Spin",
+      "instructor": "Luc",
+      "duration": "45 min",
+      "capacity": 12,
+      "booked": 8,
+      "status": "open",
+      "buttonText": "Register",
+      "notes": "",
+      "showOnSite": true
+    },
+    {
+      "id": "tue-1000-squats",
+      "date": "2026-06-23",
+      "day": "Tuesday",
+      "time": "10:00 AM",
+      "className": "Squats N' Tots",
+      "instructor": "Rebecca Cronk",
+      "duration": "45 min",
+      "capacity": 12,
+      "booked": 12,
+      "status": "full",
+      "buttonText": "Join waitlist",
+      "notes": "",
+      "showOnSite": true
+    },
+    {
+      "id": "tue-1700-youth",
+      "date": "2026-06-23",
+      "day": "Tuesday",
+      "time": "5:00 PM",
+      "className": "Youth Fitness · Ages 7–12",
+      "instructor": "Jacob McLellan",
+      "duration": "45 min",
+      "capacity": 12,
+      "booked": 7,
+      "status": "summer-open",
+      "buttonText": "Register for summer",
+      "notes": "Summer enrollment is open.",
+      "showOnSite": true
+    },
+    {
+      "id": "wed-1715-pilates",
+      "date": "2026-06-24",
+      "day": "Wednesday",
+      "time": "5:15 PM",
+      "className": "Pilates",
+      "instructor": "Cynthia",
+      "duration": "60 min",
+      "capacity": 12,
+      "booked": 10,
+      "status": "low",
+      "buttonText": "Register",
+      "notes": "Few spots left.",
+      "showOnSite": true
+    },
+    {
+      "id": "wed-1900-power",
+      "date": "2026-06-24",
+      "day": "Wednesday",
+      "time": "7:00 PM",
+      "className": "Adult Power Hour",
+      "instructor": "Rebecca Cronk",
+      "duration": "90 min",
+      "capacity": 12,
+      "booked": 12,
+      "status": "running",
+      "buttonText": "Get notified",
+      "notes": "Currently running. Join the list for the next opening.",
+      "showOnSite": true
+    },
+    {
+      "id": "thu-1700-youth",
+      "date": "2026-06-25",
+      "day": "Thursday",
+      "time": "5:00 PM",
+      "className": "Youth Fitness · Ages 7–12",
+      "instructor": "Jacob McLellan",
+      "duration": "45 min",
+      "capacity": 12,
+      "booked": 7,
+      "status": "summer-open",
+      "buttonText": "Register for summer",
+      "notes": "Summer enrollment is open.",
+      "showOnSite": true
+    },
+    {
+      "id": "fri-1600-smart",
+      "date": "2026-06-26",
+      "day": "Friday",
+      "time": "4:00 PM",
+      "className": "SMART",
+      "instructor": "Brad",
+      "duration": "45 min",
+      "capacity": 12,
+      "booked": 4,
+      "status": "open",
+      "buttonText": "Register",
+      "notes": "",
+      "showOnSite": true
+    },
+    {
+      "id": "sat-0900-fitboots",
+      "date": "2026-06-27",
+      "day": "Saturday",
+      "time": "9:00 AM",
+      "className": "Fitboots Rebounding",
+      "instructor": "Genevieve Ethier",
+      "duration": "60 min",
+      "capacity": 10,
+      "booked": 10,
+      "status": "full",
+      "buttonText": "Join waitlist",
+      "notes": "",
+      "showOnSite": true
+    },
+    {
+      "id": "sat-1000-pound",
+      "date": "2026-06-27",
+      "day": "Saturday",
+      "time": "10:00 AM",
+      "className": "Pound Rockout Workout",
+      "instructor": "Genevieve Ethier",
+      "duration": "60 min",
+      "capacity": 12,
+      "booked": 6,
+      "status": "open",
+      "buttonText": "Register",
+      "notes": "",
+      "showOnSite": true
     }
+  ],
+  "programs": [
+    {
+      "id": "fit4life",
+      "programName": "Fit4Life · Active Aging 50+",
+      "schedule": "Mon – Sat · 11:00 AM · 45 min",
+      "instructor": "Becky Sharko",
+      "status": "currently-running",
+      "badge": "Currently running",
+      "buttonText": "Join interest list",
+      "description": "Low-impact strength and movement for daily life. This program often runs continuously, so new openings may depend on capacity.",
+      "showOnSite": true
+    },
+    {
+      "id": "squats-tots",
+      "programName": "Squats N' Tots",
+      "schedule": "Tue & Thu · 10:00 AM · 45 min",
+      "instructor": "Rebecca Cronk",
+      "status": "waitlist",
+      "badge": "Waitlist only",
+      "buttonText": "Join waitlist",
+      "description": "Parent-friendly strength training where your cutest training partner can come along too.",
+      "showOnSite": true
+    },
+    {
+      "id": "adult-power-hour",
+      "programName": "Adult Power Hour",
+      "schedule": "Wed & Fri · 7:00 – 8:30 PM",
+      "instructor": "Rebecca Cronk",
+      "status": "currently-running",
+      "badge": "Currently running",
+      "buttonText": "Get notified",
+      "description": "Individualized strength programming in a coached group setting. Join the list for the next opening or intake.",
+      "showOnSite": true
+    },
+    {
+      "id": "youth-fitness",
+      "programName": "Youth Fitness · Ages 7–12",
+      "schedule": "Tue & Thu · 5:00 PM · 45 min",
+      "instructor": "Jacob McLellan",
+      "status": "summer-open",
+      "badge": "Open for summer enrollment",
+      "buttonText": "Register for summer",
+      "description": "A safe, coach-led intro to fitness with movement, games, strength, and confidence-building.",
+      "showOnSite": true
+    },
+    {
+      "id": "youth-power-hour",
+      "programName": "Youth Power Hour · Ages 11+",
+      "schedule": "Tue & Thu · 4:00 PM · 45 min",
+      "instructor": "Jacob McLellan",
+      "status": "summer-open",
+      "badge": "Open for summer enrollment",
+      "buttonText": "Register for summer",
+      "description": "A stronger next step for kids and teens who are ready to build skill, confidence, and consistency.",
+      "showOnSite": true
+    },
+    {
+      "id": "nutrition",
+      "programName": "Nutrition Coaching",
+      "schedule": "12-week coaching block",
+      "instructor": "Rebecca Cronk",
+      "status": "consult",
+      "badge": "Start with a consult",
+      "buttonText": "Ask about coaching",
+      "description": "Whole-food nutrition support with macros, meal ideas, grocery support, and realistic strategy.",
+      "showOnSite": true
+    }
+  ],
+  "announcements": [
+    {
+      "message": "Class times can shift from week to week. This page is designed to pull from the studio dashboard once Airtable is connected.",
+      "status": "info",
+      "showOnSite": true
+    }
+  ]
+};
+
+/*
+  AIRTABLE NOTE:
+  Do not put an Airtable personal access token directly in this public HTML file.
+  Once the Airtable base exists, connect this page through a tiny private proxy,
+  Netlify Function, Vercel Function, or Apps Script endpoint that returns this same JSON shape.
+*/
+const DATA_URL = ""; // Example later: "https://YOUR-PROXY-URL/getcronkd-public-schedule"
+
+let CRONKD_DATA = FALLBACK_DATA;
+let currentItem = {};
+
+async function loadCronkdData(){
+  if(!DATA_URL) return FALLBACK_DATA;
+  try{
+    const res = await fetch(DATA_URL, {cache:"no-store"});
+    if(!res.ok) throw new Error("Could not load live data");
+    return await res.json();
+  }catch(err){
+    console.warn("Using fallback data:", err);
+    return FALLBACK_DATA;
   }
-  applyTimeOfDay();
-  setInterval(applyTimeOfDay, 60000);
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function () { var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
-  navLinks.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }); });
-})();
+}
+
+function cleanStatus(status){
+  return (status || "open").toLowerCase().replace(/\s+/g,"-");
+}
+
+function statusLabel(item){
+  const s = cleanStatus(item.status);
+  if(s === "open") return spotsRemaining(item) <= 2 ? "Few spots left" : "Open";
+  if(s === "low") return "Few spots left";
+  if(s === "full") return "Full";
+  if(s === "cancelled") return "Cancelled";
+  if(s === "running" || s === "currently-running") return "Currently running";
+  if(s === "waitlist") return "Waitlist only";
+  if(s === "summer-open") return "Summer enrollment";
+  if(s === "consult") return "Consult";
+  return item.badge || item.status || "Open";
+}
+
+function spotsRemaining(item){
+  const cap = Number(item.capacity || 0);
+  const booked = Number(item.booked || 0);
+  return Math.max(cap - booked, 0);
+}
+
+function actionFor(item){
+  const s = cleanStatus(item.status);
+  if(s === "cancelled") return {text:"Cancelled", kind:"disabled", mode:"cancelled"};
+  if(s === "full" || s === "waitlist") return {text:item.buttonText || "Join waitlist", kind:"amber", mode:"waitlist"};
+  if(s === "running" || s === "currently-running") return {text:item.buttonText || "Get notified", kind:"blue", mode:"notify"};
+  if(s === "summer-open") return {text:item.buttonText || "Register for summer", kind:"", mode:"register"};
+  if(s === "consult") return {text:item.buttonText || "Ask about it", kind:"blue", mode:"inquiry"};
+  return {text:item.buttonText || "Register", kind:"", mode:"register"};
+}
+
+function renderAnnouncements(){
+  const box = document.getElementById("announcements");
+  if(!box) return;
+  const items = (CRONKD_DATA.announcements || []).filter(a => a.showOnSite !== false);
+  box.innerHTML = items.map(a => `<div class="notice"><strong>Heads up:</strong> ${escapeHtml(a.message)}</div>`).join("");
+}
+
+function renderDropIns(targetId, limitDays = null){
+  const target = document.getElementById(targetId);
+  if(!target) return;
+  const items = (CRONKD_DATA.dropIns || []).filter(c => c.showOnSite !== false && cleanStatus(c.status) !== "hidden");
+  const groups = {};
+  items.forEach(item => {
+    if(!groups[item.day]) groups[item.day] = [];
+    groups[item.day].push(item);
+  });
+  const dayOrder = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  let days = dayOrder.filter(day => groups[day]);
+  if(limitDays) days = days.slice(0, limitDays);
+  target.innerHTML = days.map(day => {
+    const cards = groups[day].map(renderClassCard).join("");
+    return `<div class="day-block"><div class="day-label">${day}</div>${cards}</div>`;
+  }).join("");
+}
+
+function renderClassCard(item){
+  const s = cleanStatus(item.status);
+  const action = actionFor(item);
+  const spots = Number(item.capacity || 0) ? `${Number(item.booked || 0)}/${Number(item.capacity)} booked` : "";
+  const note = item.notes ? ` · ${escapeHtml(item.notes)}` : "";
+  const disabled = action.mode === "cancelled";
+  return `
+    <div class="class-card" data-item='${toAttrJson(item)}'>
+      <div class="class-time">${escapeHtml(item.time || "")}<span>${escapeHtml(item.duration || "")}</span></div>
+      <div class="class-info">
+        <h3>${escapeHtml(item.className || "")}</h3>
+        <div class="instructor">with ${escapeHtml(item.instructor || "Get Cronk'd team")}${spots ? " · " + spots : ""}${note}</div>
+      </div>
+      <div class="class-action">
+        <div class="status ${s}">${statusLabel(item)}</div>
+        <button class="btn ${action.kind}" ${disabled ? "disabled" : ""} onclick='openRegistration(this,"${action.mode}")'>${escapeHtml(action.text)}</button>
+      </div>
+    </div>`;
+}
+
+function renderPrograms(){
+  const target = document.getElementById("programGrid");
+  if(!target) return;
+  const items = (CRONKD_DATA.programs || []).filter(p => p.showOnSite !== false && cleanStatus(p.status) !== "hidden");
+  target.innerHTML = items.map(item => {
+    const s = cleanStatus(item.status);
+    const action = actionFor(item);
+    return `
+      <div class="program-card ${s}" data-item='${toAttrJson(item)}'>
+        <div class="status ${s}">${escapeHtml(item.badge || statusLabel(item))}</div>
+        <h3>${escapeHtml(item.programName || "")}</h3>
+        <div class="program-schedule">${escapeHtml(item.schedule || "")}${item.instructor ? " · with " + escapeHtml(item.instructor) : ""}</div>
+        <p>${escapeHtml(item.description || "")}</p>
+        <button class="btn ${action.kind}" onclick='openRegistration(this,"${action.mode}")'>${escapeHtml(action.text)}</button>
+      </div>`;
+  }).join("");
+}
+
+function openRegistration(btn, mode){
+  if(mode === "cancelled") return;
+  const card = btn.closest("[data-item]");
+  const item = JSON.parse(card.dataset.item);
+  const name = item.className || item.programName || "Get Cronk'd";
+  currentItem = {...item, requestMode:mode, displayName:name};
+  const titleMap = {
+    register:"Register",
+    waitlist:"Join waitlist",
+    notify:"Get notified",
+    inquiry:"Send inquiry"
+  };
+  document.getElementById("modalTitle").textContent = titleMap[mode] || "Register";
+  document.getElementById("modalClass").textContent = name;
+  const context = item.day ? `${item.day} · ${item.time || ""} · with ${item.instructor || "Get Cronk'd team"}` : `${item.schedule || ""}`;
+  document.getElementById("modalContext").textContent = context;
+  document.getElementById("requestType").value = mode;
+  document.getElementById("submitBtn").textContent = titleMap[mode] || "Submit";
+  document.getElementById("modalForm").style.display = "block";
+  document.getElementById("successView").classList.remove("show");
+  document.getElementById("modalOverlay").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  document.getElementById("modalOverlay").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+async function handleSubmit(){
+  const f = val("f-first"), l = val("f-last"), e = val("f-email"), p = val("f-phone");
+  const ecn = val("f-ec-name"), ecp = val("f-ec-phone");
+  const waiver = document.getElementById("f-waiver").checked;
+  if(!f || !l || !e || !p){ alert("Please fill in your name, email, and phone."); return; }
+  if(!ecn || !ecp){ alert("Please provide an emergency contact."); return; }
+  if(!waiver){ alert("Please read and accept the waiver to continue."); return; }
+
+  const payload = {
+    submittedAt:new Date().toISOString(),
+    requestType:document.getElementById("requestType").value,
+    firstName:f,
+    lastName:l,
+    email:e,
+    phone:p,
+    dob:val("f-dob"),
+    emergencyContactName:ecn,
+    emergencyContactPhone:ecp,
+    notes:val("f-notes"),
+    item:currentItem
+  };
+
+  console.log("Ready to send to Airtable/proxy:", payload);
+  // Later: await fetch("YOUR_FORM_ENDPOINT", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)});
+
+  document.getElementById("modalForm").style.display = "none";
+  const mode = payload.requestType;
+  const icon = document.getElementById("successIcon");
+  icon.textContent = mode === "waitlist" ? "⏳" : "✓";
+  icon.className = "success-icon " + (mode === "waitlist" ? "waitlisted" : mode === "notify" ? "info" : "confirmed");
+  document.getElementById("successTitle").textContent =
+    mode === "waitlist" ? "You're on the list." :
+    mode === "notify" ? "We'll keep you posted." :
+    mode === "inquiry" ? "Inquiry sent." :
+    "You're registered.";
+  document.getElementById("successMsg").textContent =
+    mode === "waitlist" ? "We'll email you if a spot opens up." :
+    mode === "notify" ? "We'll email you when the next opening or intake is available." :
+    mode === "inquiry" ? "We'll follow up with next steps." :
+    "We'll send a confirmation to your email.";
+  document.getElementById("successDetail").textContent = currentItem.displayName || "";
+  document.getElementById("successView").classList.add("show");
+}
+
+function val(id){ return (document.getElementById(id)?.value || "").trim(); }
+function escapeHtml(value){ return String(value ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])); }
+function toAttrJson(item){ return escapeHtml(JSON.stringify(item)); }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  CRONKD_DATA = await loadCronkdData();
+  renderAnnouncements();
+  renderDropIns("dropInSchedule");
+  renderDropIns("scheduleFull");
+  renderPrograms();
+});
+
 </script>
 </body>
 </html>
