@@ -64,7 +64,7 @@ ul { list-style: none; }
 .breadcrumb a:hover { color: var(--ink); }
 .breadcrumb span { margin: 0 8px; color: var(--stone); }
 .page-header h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; }
-.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(22px, 3vw, 36px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 12px; }
+.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 42px); font-weight: normal; color: var(--slate); line-height: 1.3; margin-top: 16px; margin-bottom: 4px; }
 .page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 24px; max-width: 520px; }
 
 /* META TAGS */
@@ -146,6 +146,10 @@ ul { list-style: none; }
 .email-sign { color: var(--cake-rose); font-size: 12px; margin-top: 0.5rem; font-family: 'Lato', sans-serif; }
 .email-footer-bar { padding: 0.65rem 1.25rem; border-top: 0.5px solid #F0E0E8; font-size: 10px; color: #C4A0B0; letter-spacing: 0.04em; text-align: center; font-family: 'Lato', sans-serif; }
 
+/* ADAPT NOTE */
+.adapt-note { background: var(--paper-mid); border-left: 3px solid var(--yellow); padding: 18px 22px; margin-top: 24px; max-width: 640px; }
+.adapt-note p { font-size: 13.5px; line-height: 1.8; color: var(--ink); }
+
 /* PRE-FOOTER */
 .pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
 
@@ -223,9 +227,9 @@ ul { list-style: none; }
   <div class="container">
     <p class="section-label">The problem</p>
     <h2 class="section-heading">the gap nobody talks about.</h2>
-    <p class="body-text">Custom order businesses have a very specific problem. Someone finds them, gets excited, fills out the form — and then hears nothing. Not because the baker isn't interested. Because she's busy baking. By the time she circles back, the customer has either moved on or lost confidence.</p>
+    <p class="body-text">Custom order businesses have a very specific problem. Someone finds them, gets excited, fills out the form. Then hears nothing. Not because the baker isn't interested. She's busy baking. By the time she circles back, the customer has either moved on or lost confidence.</p>
     <p class="body-text">The fix isn't working faster. It's making sure the right message goes out automatically, at the right moment, every time. No chasing, no dropped balls, no awkward "sorry for the delay" emails.</p>
-    <p class="body-text">The Cake Co. is a fictional custom cake studio in the Annapolis Valley. We built their full order automation as a working example of what this looks like when it's done properly — from the first confirmation email all the way through to delivery day.</p>
+    <p class="body-text">The Cake Co. is a fictional custom cake studio built specifically as a sample scenario. The tools, the copy, and the flow are illustrative. If you run a business that takes custom orders, yours would be shaped around how you actually work. We built their full order automation as a working example of what this looks like in practice, from the first confirmation email all the way through to delivery day.</p>
   </div>
 </section>
 
@@ -234,7 +238,7 @@ ul { list-style: none; }
   <div class="container">
     <p class="section-label">The stack</p>
     <h2 class="section-heading">four tools, one clean flow.</h2>
-    <p class="body-text">Every tool here is something a small business owner can set up, afford, and actually use. Nothing enterprise, nothing overkill.</p>
+    <p class="body-text">This is a suggested stack for a business at this size and price point. The tools are accessible, the monthly costs are reasonable, and none of it requires a developer to maintain.</p>
     <div class="stack-grid">
       <div class="stack-item">
         <p class="stack-role">Order intake</p>
@@ -270,37 +274,35 @@ ul { list-style: none; }
       <svg width="100%" viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M2 1L8 5L2 9" fill="none" stroke="#C47A9B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#132447" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </marker>
         </defs>
-        <!-- boxes -->
-        <rect x="8" y="30" width="118" height="60" rx="7" fill="#FDF8FA" stroke="#E8D0DB" stroke-width="0.5"/>
-        <text font-family="Playfair Display, serif" font-size="12" fill="#2C1A0E" x="67" y="54" text-anchor="middle">Order form</text>
-        <text font-family="Lato, sans-serif" font-size="10" fill="#C47A9B" x="67" y="72" text-anchor="middle">Submitted</text>
+        <rect x="8" y="30" width="118" height="60" rx="7" fill="#F5EFE0" stroke="#D8D1C3" stroke-width="0.5"/>
+        <text font-family="Montserrat, sans-serif" font-size="11" font-weight="600" fill="#132447" x="67" y="54" text-anchor="middle">Order form</text>
+        <text font-family="Montserrat, sans-serif" font-size="10" fill="#596674" x="67" y="72" text-anchor="middle">Submitted</text>
 
-        <rect x="148" y="30" width="118" height="60" rx="7" fill="#F5E6EE" stroke="#C47A9B" stroke-width="0.5"/>
-        <text font-family="Playfair Display, serif" font-size="12" fill="#2C1A0E" x="207" y="54" text-anchor="middle">Confirmation</text>
-        <text font-family="Lato, sans-serif" font-size="10" fill="#C47A9B" x="207" y="72" text-anchor="middle">Instant · to client</text>
+        <rect x="148" y="30" width="118" height="60" rx="7" fill="#F5EFE0" stroke="#D8D1C3" stroke-width="0.5"/>
+        <text font-family="Montserrat, sans-serif" font-size="11" font-weight="600" fill="#132447" x="207" y="54" text-anchor="middle">Confirmation</text>
+        <text font-family="Montserrat, sans-serif" font-size="10" fill="#596674" x="207" y="72" text-anchor="middle">Instant · to client</text>
 
-        <rect x="288" y="30" width="118" height="60" rx="7" fill="#F5E6EE" stroke="#C47A9B" stroke-width="0.5"/>
-        <text font-family="Playfair Display, serif" font-size="12" fill="#2C1A0E" x="347" y="47" text-anchor="middle">Quote</text>
-        <text font-family="Lato, sans-serif" font-size="10" fill="#C47A9B" x="347" y="63" text-anchor="middle">Manual send</text>
-        <text font-family="Lato, sans-serif" font-size="9" fill="#8B6347" x="347" y="78" text-anchor="middle">after baker reviews</text>
+        <rect x="288" y="30" width="118" height="60" rx="7" fill="#F5EFE0" stroke="#D8D1C3" stroke-width="0.5"/>
+        <text font-family="Montserrat, sans-serif" font-size="11" font-weight="600" fill="#132447" x="347" y="47" text-anchor="middle">Quote</text>
+        <text font-family="Montserrat, sans-serif" font-size="10" fill="#596674" x="347" y="63" text-anchor="middle">Manual send</text>
+        <text font-family="Montserrat, sans-serif" font-size="9" fill="#B86B4B" x="347" y="78" text-anchor="middle">baker reviews first</text>
 
-        <rect x="428" y="30" width="118" height="60" rx="7" fill="#F5E6EE" stroke="#C47A9B" stroke-width="0.5"/>
-        <text font-family="Playfair Display, serif" font-size="12" fill="#2C1A0E" x="487" y="47" text-anchor="middle">Confirmed</text>
-        <text font-family="Lato, sans-serif" font-size="10" fill="#C47A9B" x="487" y="63" text-anchor="middle">On deposit paid</text>
-        <text font-family="Lato, sans-serif" font-size="9" fill="#8B6347" x="487" y="78" text-anchor="middle">via Zapier or manual</text>
+        <rect x="428" y="30" width="118" height="60" rx="7" fill="#F5EFE0" stroke="#D8D1C3" stroke-width="0.5"/>
+        <text font-family="Montserrat, sans-serif" font-size="11" font-weight="600" fill="#132447" x="487" y="47" text-anchor="middle">Confirmed</text>
+        <text font-family="Montserrat, sans-serif" font-size="10" fill="#596674" x="487" y="63" text-anchor="middle">On deposit paid</text>
+        <text font-family="Montserrat, sans-serif" font-size="9" fill="#B86B4B" x="487" y="78" text-anchor="middle">Zapier or manual</text>
 
-        <rect x="568" y="30" width="118" height="60" rx="7" fill="#2C1A0E" stroke="#2C1A0E" stroke-width="0.5"/>
-        <text font-family="Playfair Display, serif" font-size="12" fill="#FDF8FA" x="627" y="54" text-anchor="middle">Reminder</text>
-        <text font-family="Lato, sans-serif" font-size="10" fill="#F4A7C0" x="627" y="72" text-anchor="middle">48 hrs before</text>
+        <rect x="568" y="30" width="118" height="60" rx="7" fill="#132447" stroke="#132447" stroke-width="0.5"/>
+        <text font-family="Montserrat, sans-serif" font-size="11" font-weight="600" fill="#fcd346" x="627" y="54" text-anchor="middle">Reminder</text>
+        <text font-family="Montserrat, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)" x="627" y="72" text-anchor="middle">48 hrs before</text>
 
-        <!-- arrows -->
-        <line x1="126" y1="60" x2="146" y2="60" stroke="#C47A9B" stroke-width="1" marker-end="url(#arr)"/>
-        <line x1="266" y1="60" x2="286" y2="60" stroke="#C47A9B" stroke-width="1" marker-end="url(#arr)"/>
-        <line x1="406" y1="60" x2="426" y2="60" stroke="#C47A9B" stroke-width="1" marker-end="url(#arr)"/>
-        <line x1="546" y1="60" x2="566" y2="60" stroke="#C47A9B" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="126" y1="60" x2="146" y2="60" stroke="#132447" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="266" y1="60" x2="286" y2="60" stroke="#132447" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="406" y1="60" x2="426" y2="60" stroke="#132447" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="546" y1="60" x2="566" y2="60" stroke="#132447" stroke-width="1" marker-end="url(#arr)"/>
       </svg>
     </div>
   </div>
@@ -312,7 +314,7 @@ ul { list-style: none; }
     <p class="section-label">The one decision</p>
     <h2 class="section-heading">how the deposit confirmation triggers.</h2>
     <p class="body-text">Everything in this sequence is automated except one step: the quote. Pricing a custom cake requires a human eye, so that email gets sent manually after the baker reviews the order. Everything else runs on its own.</p>
-    <p class="body-text">The deposit confirmation (email 2b) depends on Square knowing the payment cleared. There are two ways to handle that, and the right answer depends on volume.</p>
+    <p class="body-text">The deposit confirmation (email 2b) depends on Square knowing the payment cleared. There are two ways to handle it, and the right answer depends on order volume.</p>
     <div class="options-grid">
       <div class="option-card">
         <p class="option-label">Option A</p>
@@ -463,7 +465,7 @@ ul { list-style: none; }
             <p class="email-p">Hi Sarah,</p>
             <p class="email-p">Your deposit came through and your order is officially on the books. August 9 is locked in.</p>
             <div class="confirmed-box">
-              <div class="confirmed-icon">🎀</div>
+
               <div class="confirmed-title">Order confirmed</div>
               <div class="confirmed-detail">Sarah's 40th birthday cake · August 9, 2024</div>
             </div>
@@ -484,7 +486,7 @@ ul { list-style: none; }
       <!-- EMAIL 3 -->
       <div>
         <div class="email-meta-row">
-          <span class="email-step">Email 3 of 4</span>
+          <span class="email-step">Email 4 of 4</span>
           <span class="email-meta-div">·</span>
           <span class="email-trigger">Sends automatically 48 hours before the confirmed delivery date</span>
         </div>
