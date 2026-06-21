@@ -90,7 +90,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .stepper-panels{background:var(--paper);padding:clamp(40px,5vw,64px) 0 clamp(48px,6vw,72px);}
 .step-panel{display:none;}
 .step-panel.active{display:block;}
-.panel-layout{display:grid;grid-template-columns:420px 1fr;gap:clamp(32px,4vw,56px);align-items:start;}
+.panel-layout{display:grid;grid-template-columns:420px minmax(0,560px);gap:clamp(32px,4vw,56px);align-items:start;max-width:1060px;}
 .panel-context{max-width:420px;}
 .panel-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
 .panel-heading{font-family:var(--f-accent);font-size:clamp(20px,2.2vw,28px);color:var(--ink);font-weight:normal;line-height:1.25;margin-bottom:16px;}
@@ -116,7 +116,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 
 /* MOCK FORM */
 .mock-form{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
-.mock-form-header{background:var(--navy);padding:16px 20px;}
+.mock-form-logo{background:#fff;padding:20px;text-align:center;border-bottom:0.5px solid #f0e0e8;}.mock-form-logo img{height:64px;width:auto;margin:0 auto;display:block;}.mock-form-header{background:var(--navy);padding:16px 20px;}
 .mock-form-title{font-size:13px;font-weight:600;color:var(--paper);font-family:var(--f-body);}
 .mock-form-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;font-family:var(--f-body);}
 .mock-form-body{padding:20px;}
@@ -377,7 +377,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
           </div>
           <div>
             <div class="mock-form">
-              <div class="mock-form-header">
+              <div class="mock-form-logo"><img src="thecakeco.png" alt="The Cake Co."></div><div class="mock-form-header">
                 <div class="mock-form-title">Custom Cake Inquiry</div>
                 <div class="mock-form-sub">The Cake Co. &middot; thecakeco.ca</div>
               </div>
