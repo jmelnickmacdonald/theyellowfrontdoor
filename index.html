@@ -3,8 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Yellow Front Door — Marketing Studio</title>
-<meta name="description" content="A marketing studio for small businesses doing good work and trying to be seen that way.">
+<title>The Yellow Front Door | Small Business Marketing Studio in Annapolis Valley</title>
+<meta name="description" content="The Yellow Front Door is an Annapolis Valley marketing studio helping small businesses connect their websites, words, print materials, email flows, templates, guides, and customer touchpoints.">
+<link rel="canonical" href="https://www.theyellowfrontdoor.ca/">
+<meta name="theme-color" content="#132447">
+<meta property="og:title" content="The Yellow Front Door | Small Business Marketing Studio">
+<meta property="og:description" content="Websites, words, client touchpoints, and systems for small businesses in Annapolis Valley and beyond.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.theyellowfrontdoor.ca/">
+<meta property="og:image" content="https://www.theyellowfrontdoor.ca/hero_day.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "name": "The Yellow Front Door",
+  "url": "https://www.theyellowfrontdoor.ca/",
+  "description": "A marketing studio helping small businesses connect their websites, words, print materials, email flows, templates, guides, and customer touchpoints.",
+  "areaServed": [
+    "Annapolis Valley",
+    "Nova Scotia",
+    "Canada"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "NS",
+    "addressCountry": "CA"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
@@ -102,6 +128,33 @@ body.is-night .scene-night { display: block; }
 .testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 10px; }
 .testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); font-style: normal; }
 
+
+/* BEYOND THE WEBSITE */
+.beyond-section { background: var(--paper-mid); }
+.beyond-inner { max-width: 760px; }
+.beyond-list { display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 28px; }
+.beyond-list span { display: inline-flex; align-items: center; background: rgba(255,255,255,0.68); border: 1px solid rgba(19,36,71,0.12); color: var(--ink); font-size: 12px; font-weight: 650; letter-spacing: 0.08em; line-height: 1.2; text-transform: uppercase; padding: 10px 14px; }
+
+.cta-title { font-family: var(--f-head); font-size: clamp(22px, 3vw, 32px); font-weight: 400; color: #fff; margin-bottom: 12px; }
+.cta-copy { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 560px; margin: 0 auto 28px; line-height: 1.75; }
+.cta-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+.prefooter { background:var(--navy); border-top:1px solid rgba(255,255,255,0.08); padding:clamp(32px,4vw,52px) 0; text-align:center; }
+.prefooter-copy { font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.58); max-width:620px; margin:0 auto; line-height:1.85; }
+
+/* UPDATED FOOTER */
+.footer { text-align: left; }
+.footer-inner { text-align: left; }
+.footer-grid { display: grid; grid-template-columns: minmax(220px, 1.4fr) 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; margin-bottom: 34px; }
+.footer-logo-wrap { margin-bottom: 14px; }
+.footer-logo-wrap img { width: 76px; height: 76px; margin: 0; }
+.footer-tagline { font-size: 13px; color: var(--slate); max-width: 360px; margin: 0; line-height: 1.75; }
+.footer-heading { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
+.footer-list { display: grid; gap: 10px; }
+.footer-list a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
+.footer-list a:hover { color: var(--ink); }
+.footer-bottom { border-top: 1px solid var(--stone); padding-top: 22px; }
+
 /* CTA */
 .cta-section { background: var(--navy); text-align: center; position: relative; overflow: hidden; }
 .cta-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px); pointer-events: none; }
@@ -128,6 +181,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 /* RESPONSIVE */
 @media (max-width: 960px) {
   .testimonials-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (max-width: 768px) {
   .process-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -138,6 +192,10 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
   .nav-toggle { display: flex; }
   .hero-actions { flex-direction: column; align-items: center; }
   .hero-actions a { width: 100%; justify-content: center; text-align: center; }
+  .footer-inner { text-align: center; }
+  .footer-logo-wrap img { margin: 0 auto; }
+  .footer-tagline { margin: 0 auto; }
+  .footer-list { justify-items: center; }
   .footer-bottom { flex-direction: column; }
 }
 </style>
@@ -155,8 +213,8 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
       <li><a href="the-proof.html">The Proof</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html">Let's Talk</a></li>
-      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+      <li><a href="the-scorecard.html">The Scorecard</a></li>
+      <li><a href="lets-talk.html" class="nav-cta">Let's Talk</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -185,12 +243,12 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
 <section class="hero-thesis" id="top">
   <div class="container">
     <div class="hero-thesis-inner">
-      <h1 class="hero-h1">Your business is great, but your online presence isn't keeping up.</h1>
-      <span class="hero-accent-line">We fix that.</span>
-      <p class="hero-bridge">The website, the words, the brand, the emails, and the systems behind them. We know what falls through the cracks because we ran a small business for seven years and learned most of this the hard way.<br><a href="the-doorstep.html" class="hero-story-link">Read our story →</a></p>
+      <h1 class="hero-h1">Your website, words, and customer touchpoints all shape how people decide to trust you.</h1>
+      <span class="hero-accent-line">We help them work together.</span>
+      <p class="hero-bridge">From websites and print pieces to email flows, templates, guides, and the systems behind them, we help small businesses make the experience clearer, more cohesive, and easier to act on.<br><a href="the-doorstep.html" class="hero-story-link">Read our story →</a></p>
       <div class="hero-actions">
         <a href="what-we-do.html" class="btn-yellow">What We Do</a>
-        <a href="lets-talk.html" class="btn-outline-light">Start with a Drive-By →</a>
+        <a href="lets-talk.html" class="btn-outline-light">Request a free Drive-By →</a>
       </div>
     </div>
   </div>
@@ -225,7 +283,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
       <div class="process-step">
         <p class="process-number">01</p>
         <p class="process-step-title">We look.</p>
-        <p class="process-step-desc">Send us your website and a handful of touchpoints: your Google listing, social profiles, any printed materials. We take an honest look and tell you what we see — what's working and where to start.</p>
+        <p class="process-step-desc">Send us your website and a handful of touchpoints: your Google listing, social profiles, print pieces, email flows, or client materials. We take an honest look and tell you what is working and where to start.</p>
       </div>
       <div class="process-step">
         <p class="process-number">02</p>
@@ -235,46 +293,81 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
       <div class="process-step">
         <p class="process-number">03</p>
         <p class="process-step-title">We build.</p>
-        <p class="process-step-desc">We do the work — brand, copy, site, systems — and hand it over. If you want us to stay on for ongoing updates, integrations, or automations, we do that too.</p>
+        <p class="process-step-desc">We do the work: brand, copy, website, client touchpoints, systems, and handoff materials. If you want us to stay on for ongoing updates, integrations, or automations, we do that too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND THE WEBSITE -->
+<section class="beyond-section" aria-labelledby="beyond-title">
+  <div class="container">
+    <div class="beyond-inner">
+      <p class="eyebrow">Beyond the website</p>
+      <h2 class="section-title" id="beyond-title">Your website is not the only thing people meet.</h2>
+      <p class="section-intro">Your website may be the centre of the experience, but it is not the only thing people see, read, save, or respond to. We also create the materials around it so your business feels clear and connected wherever people meet you.</p>
+      <div class="beyond-list" aria-label="Examples of materials we create">
+        <span>Print pieces</span>
+        <span>Templates</span>
+        <span>Guides</span>
+        <span>Email flows</span>
+        <span>Client resources</span>
+        <span>Ongoing updates</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<div class="cta-section" style="background:var(--navy); text-align:center; padding:clamp(36px, 5vw, 56px) 0;">
+<section class="cta-section" aria-labelledby="scorecard-cta-title">
   <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(22px, 3vw, 32px); font-weight:400; color:#fff; margin-bottom:12px;">Not sure where things stand?</p>
-    <p style="font-size:15px; color:rgba(255,255,255,0.55); max-width:560px; margin:0 auto 28px; line-height:1.75;">Take the Scorecard. Ten questions, two minutes, and a clear picture of what customers find when they go looking.</p>
-    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+    <h2 class="cta-title" id="scorecard-cta-title">Not sure where things stand?</h2>
+    <p class="cta-copy">Take the Scorecard. Ten questions, two minutes, and a clearer picture of what people find before, during, and after they decide to reach out.</p>
+    <div class="cta-actions">
       <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
-      <a href="lets-talk.html" class="btn-outline-light" style="padding:15px 28px; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); text-decoration:none;">Or get in touch →</a>
+      <a href="lets-talk.html" class="btn-outline-light">Request a free Drive-By →</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- PRE-FOOTER -->
-<div style="background:var(--navy); border-top:1px solid rgba(255,255,255,0.08); padding:clamp(32px,4vw,52px) 0; text-align:center;">
+<div class="prefooter">
   <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses who do good work and want the outside to reflect it.</p>
+    <p class="prefooter-copy">A marketing studio for small businesses shaping the experience people find before, during, and after they come through the door.</p>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-logo-wrap">
-      <img src="roundlogo.png" alt="The Yellow Front Door">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="roundlogo.png" alt="The Yellow Front Door">
+        </div>
+        <p class="footer-tagline">A marketing studio for small businesses shaping the experience people find before, during, and after they come through the door.</p>
+      </div>
+
+      <nav class="footer-column" aria-label="Studio">
+        <p class="footer-heading">Studio</p>
+        <div class="footer-list">
+          <a href="what-we-do.html">What We Do</a>
+          <a href="the-proof.html">The Proof</a>
+          <a href="about.html">About</a>
+          <a href="the-doorstep.html">The Doorstep</a>
+        </div>
+      </nav>
+
+      <nav class="footer-column" aria-label="Start here">
+        <p class="footer-heading">Start here</p>
+        <div class="footer-list">
+          <a href="lets-talk.html">Request a free Drive-By</a>
+          <a href="the-scorecard.html">Take the Scorecard</a>
+          <a href="lets-talk.html">Let's Talk</a>
+        </div>
+      </nav>
     </div>
-    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
-    <hr class="footer-divider">
-    <nav class="footer-nav">
-      <a href="what-we-do.html">What We Do</a>
-      <a href="the-proof.html">The Proof</a>
-      <a href="about.html">About</a>
-      <a href="the-doorstep.html">The Doorstep</a>
-      <a href="lets-talk.html">Let's Talk</a>
-    </nav>
+
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 The Yellow Front Door</p>
       <div class="footer-dot-sm" aria-hidden="true"></div>
