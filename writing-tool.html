@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claire Leblanc Photography — The Yellow Front Door</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:CasualHandwriting;src:url(CasualHandwriting.woff2) format(woff2),url(CasualHandwriting.woff) format(woff);font-display:block;}
+:root{
+  --ink:#132447;--paper:#fff;--yellow:#fcd346;--stone:#D8D1C3;--slate:#596674;--brass:#e6b800;--clay:#B86B4B;--paper-mid:#F5EFE0;--navy:#132447;
+  --f-accent:CasualHandwriting,cursive;--f-head:Montserrat,sans-serif;--f-body:Montserrat,sans-serif;--max:1120px;--gutter:clamp(24px,5vw,80px);
+  /* Claire palette — warm, natural, editorial */
+  --cl-warm:#8B6F47;--cl-warm-light:#FAF6F0;--cl-warm-border:#E8DDD0;--cl-dark:#2C1F14;--cl-body:#3D2E20;--cl-mid:#C4A882;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:none;}ul{list-style:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);transition:box-shadow .3s;}
+.nav::after{content:"";position:absolute;top:100%;left:0;right:0;height:4px;background:var(--navy);}
+.nav.scrolled{box-shadow:0 2px 24px rgba(19,36,71,.5);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.nav-logo img{height:56px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,252,244,.75);letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--paper);}
+.nav-links a.active{font-weight:600;}
+.nav-cta{background:var(--yellow)!important;color:var(--navy)!important;padding:10px 20px;font-size:12px!important;font-weight:700!important;letter-spacing:.03em!important;}
+.nav-cta:hover{background:var(--brass)!important;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
+
+/* PAGE HEADER */
+.page-header{padding:clamp(80px,10vw,120px) 0 clamp(40px,5vw,60px);margin-top:72px;border-bottom:1px solid var(--stone);}
+.page-header-inner{max-width:560px;}
+.breadcrumb{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:20px;}
+.breadcrumb a{color:var(--slate);transition:color .2s;}.breadcrumb a:hover{color:var(--ink);}
+.breadcrumb span{margin:0 8px;color:var(--stone);}
+.page-header h1{font-family:var(--f-head);font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;}
+.page-header .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(24px,3vw,38px);font-weight:normal;color:var(--slate);line-height:1.3;margin-top:20px;margin-bottom:4px;letter-spacing:0;}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.meta-tag{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:5px 11px;}
+
+/* BENEFIT CALLOUT */
+.benefit-callout{background:var(--navy);padding:clamp(32px,4vw,48px) 0;}
+.benefit-callout-inner{max-width:640px;}
+.benefit-eyebrow{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow);margin-bottom:20px;}
+.benefit-item{display:flex;gap:16px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.benefit-item:last-child{border-bottom:none;}
+.benefit-dot{width:4px;height:4px;background:var(--yellow);border-radius:50%;flex-shrink:0;margin-top:9px;}
+.benefit-text{font-size:15px;line-height:1.7;color:rgba(255,255,255,.8);font-weight:400;}
+
+/* CONTEXT STRIP */
+.context-strip{background:var(--stone);padding:clamp(28px,4vw,44px) 0;}
+.context-inner{max-width:640px;}
+.context-strip p{font-size:15px;line-height:1.9;color:var(--navy);margin-bottom:10px;}
+.context-strip p:last-child{margin-bottom:0;}
+
+/* STACK */
+.stack-section{padding:clamp(48px,6vw,72px) 0;border-bottom:1px solid var(--stone);}
+.section-label{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:16px;}
+.section-heading{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.body-text{font-size:15px;line-height:1.9;color:var(--ink);margin-bottom:14px;max-width:600px;}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);margin-top:28px;}
+.stack-item{background:var(--paper);padding:22px 24px;}
+.stack-role{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
+.stack-tool{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.stack-desc{font-size:12px;line-height:1.7;color:var(--slate);}
+.stack-note{font-size:12px;line-height:1.8;color:var(--slate);margin-top:20px;max-width:600px;}
+.stack-note strong{color:var(--ink);font-weight:600;}
+.cost-line{margin-top:28px;padding:20px 24px;border:1px solid var(--stone);background:var(--paper-mid);max-width:600px;}
+.cost-line p{font-size:14px;line-height:1.85;color:var(--ink);}
+
+/* STEPPER */
+.stepper-section{padding:0;}
+.stepper-head{background:var(--stone);padding:clamp(36px,5vw,56px) 0 0;}
+.section-heading-stepper{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.stepper-intro{font-size:14px;color:var(--slate);max-width:560px;line-height:1.8;padding-bottom:clamp(28px,4vw,44px);}
+.step-nav{display:flex;align-items:stretch;overflow-x:auto;border:1px solid #c4bdb0;border-top:none;}
+.step-btn{flex:1;min-width:130px;background:var(--paper);border:none;border-right:1px solid var(--stone);padding:14px 16px;text-align:left;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;gap:4px;position:relative;}
+.step-btn:last-child{border-right:none;}
+.step-btn:hover{background:#ede7dc;}
+.step-btn.active{background:var(--navy);}
+.step-btn::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:3px;background:var(--yellow);opacity:0;transition:opacity .2s;}
+.step-btn.active::after{opacity:1;}
+.step-num{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);transition:color .2s;}
+.step-btn.active .step-num{color:rgba(255,255,255,.5);}
+.step-title{font-size:12px;font-weight:600;color:var(--ink);transition:color .2s;}
+.step-btn.active .step-title{color:var(--paper);}
+.step-timing{font-size:10px;color:var(--slate);transition:color .2s;}
+.step-btn.active .step-timing{color:rgba(255,255,255,.55);}
+.step-type{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:2px;}
+.step-btn.active .step-type{color:var(--yellow);}
+
+/* PANELS */
+.stepper-panels{background:var(--paper);padding:clamp(40px,5vw,64px) 0 clamp(48px,6vw,72px);}
+.step-panel{display:none;}
+.step-panel.active{display:block;}
+.panel-layout{display:grid;grid-template-columns:420px minmax(0,560px);gap:clamp(32px,4vw,56px);align-items:start;max-width:1060px;}
+.panel-context{max-width:420px;}
+.panel-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
+.panel-heading{font-family:var(--f-accent);font-size:clamp(20px,2.2vw,28px);color:var(--ink);font-weight:normal;line-height:1.25;margin-bottom:16px;}
+.panel-body{font-size:14px;line-height:1.85;color:var(--slate);margin-bottom:12px;}
+.panel-body strong{color:var(--ink);font-weight:600;}
+.why-box{border:1px solid var(--stone);padding:18px 22px;margin-top:20px;}
+.why-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
+.why-text{font-size:13px;line-height:1.8;color:var(--slate);}
+.trigger-line{display:flex;gap:8px;align-items:flex-start;margin-top:16px;font-size:12px;color:var(--slate);}
+.trigger-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);flex-shrink:0;padding-top:2px;}
+.panel-nav{display:flex;gap:12px;margin-top:24px;}
+.panel-next{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--yellow);padding:11px 20px;border:none;cursor:pointer;transition:background .2s;font-family:var(--f-body);}
+.panel-next:hover{background:var(--brass);}
+.panel-prev{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:transparent;padding:11px 20px;border:1px solid var(--stone);cursor:pointer;transition:border-color .2s;font-family:var(--f-body);}
+.panel-prev:hover{border-color:var(--ink);}
+.closing-note{font-size:14px;line-height:1.85;color:var(--slate);margin-top:20px;}
+.closing-note a{color:var(--clay);font-weight:600;}
+
+/* MOCK FORM */
+.mock-form{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.mock-form-header{background:var(--cl-dark);padding:18px 20px;}
+.mock-form-wordmark{font-size:13px;font-weight:600;color:#fff;letter-spacing:.08em;font-family:var(--f-body);}
+.mock-form-wordmark span{color:var(--cl-mid);font-weight:300;}
+.mock-form-sub{font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;font-family:var(--f-body);}
+.mock-form-body{padding:20px;}
+.form-section-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;margin-top:18px;}
+.form-section-label:first-child{margin-top:0;}
+.mock-field{margin-bottom:10px;}
+.mock-field-label{font-size:11px;font-weight:600;color:var(--ink);margin-bottom:4px;font-family:var(--f-body);}
+.mock-field-label span{font-weight:400;color:var(--slate);font-size:10px;margin-left:4px;}
+.mock-input{width:100%;background:#f9fafb;border:1px solid #e5e7eb;border-radius:4px;padding:8px 10px;font-size:12px;color:var(--slate);font-family:var(--f-body);}
+.mock-input.filled{background:#fff;color:var(--ink);border-color:#d1d5db;}
+.mock-textarea{width:100%;background:#fff;border:1px solid #d1d5db;border-radius:4px;padding:8px 10px;font-size:12px;color:var(--ink);font-family:var(--f-body);line-height:1.6;resize:none;}
+.mock-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mock-submit{width:100%;background:var(--cl-dark);color:#fff;font-family:var(--f-body);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:12px;border:none;border-radius:4px;margin-top:16px;cursor:pointer;}
+
+/* EMAIL CLIENT */
+.email-client{border-radius:10px;overflow:hidden;box-shadow:0 4px 32px rgba(19,36,71,.10);border:1px solid #d1d5db;}
+.client-chrome{background:#f3f4f6;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:10px;}
+.chrome-dots{display:flex;gap:6px;}
+.chrome-dot{width:12px;height:12px;border-radius:50%;}
+.chrome-dot.red{background:#ff5f57;}.chrome-dot.yellow{background:#febc2e;}.chrome-dot.green{background:#28c840;}
+.chrome-bar{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:5px 10px;font-size:11px;color:#9ca3af;font-family:var(--f-body);}
+.chrome-badge{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--yellow);color:var(--navy);padding:2px 8px;border-radius:3px;font-family:var(--f-body);}
+.inbox-header{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.inbox-from{display:flex;align-items:center;gap:10px;}
+.inbox-avatar{width:34px;height:34px;border-radius:50%;background:var(--cl-warm);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;font-family:var(--f-body);flex-shrink:0;}
+.inbox-avatar.claire{background:var(--cl-dark);}
+.inbox-sender{font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);}
+.inbox-email-addr{font-size:11px;color:#6b7280;font-family:var(--f-body);}
+.inbox-time{font-size:11px;color:#9ca3af;font-family:var(--f-body);white-space:nowrap;}
+.inbox-subject-row{padding:10px 16px 8px;border-bottom:1px solid #f3f4f6;}
+.inbox-subject{font-size:14px;font-weight:600;color:#111827;font-family:var(--f-body);}
+.inbox-to{font-size:11px;color:#9ca3af;margin-top:2px;font-family:var(--f-body);}
+.draft-banner{background:#fef9c3;border-bottom:1px solid #fde68a;padding:8px 16px;font-size:11px;color:#854d0e;font-family:var(--f-body);display:flex;align-items:center;gap:6px;}
+.email-scroll{max-height:480px;overflow-y:auto;background:#f3f4f6;padding:14px;}
+.email-inner{background:#fff;border-radius:6px;overflow:hidden;}
+
+/* Claire email internals */
+.cem-header-cl{background:var(--cl-dark);padding:20px 24px;}
+.cem-wordmark-cl{font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;color:#fff;letter-spacing:.1em;text-transform:uppercase;}
+.cem-wordmark-cl span{color:var(--cl-mid);font-weight:300;}
+.cem-body{padding:20px 20px 14px;}
+.cem-subject{font-family:Montserrat,sans-serif;font-size:15px;color:var(--cl-dark);font-weight:600;margin-bottom:14px;line-height:1.35;}
+.cem-p{font-size:13px;line-height:1.75;color:var(--cl-body);margin-bottom:11px;font-family:Lato,sans-serif;}
+.cem-box{background:var(--cl-warm-light);border:0.5px solid var(--cl-warm-border);border-radius:6px;padding:13px 15px;margin:13px 0;}
+.cem-row{display:flex;justify-content:space-between;font-size:12px;color:var(--cl-body);padding:3px 0;font-family:Lato,sans-serif;}
+.cem-lbl{color:var(--cl-warm);font-weight:600;}
+.cem-sign{color:var(--cl-warm);font-size:12px;margin-top:6px;font-family:Lato,sans-serif;}
+.cem-foot{padding:10px 16px;border-top:0.5px solid var(--cl-warm-border);font-size:10px;color:#B09878;letter-spacing:.04em;text-align:center;font-family:Lato,sans-serif;}
+
+/* ZAPIER FLOW */
+.zapier-card{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.zapier-header{background:#FF4A00;padding:12px 16px;display:flex;align-items:center;gap:8px;}
+.zap-logo{font-size:13px;font-weight:800;color:#fff;letter-spacing:-.02em;font-family:var(--f-body);}
+.zap-title{font-size:11px;color:rgba(255,255,255,.75);font-family:var(--f-body);margin-left:auto;}
+.zapier-body{padding:20px;}
+.zap-flow{display:flex;flex-direction:column;gap:0;}
+.zap-step{display:flex;gap:14px;align-items:flex-start;position:relative;}
+.zap-step-left{display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0;}
+.zap-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;font-family:var(--f-body);flex-shrink:0;}
+.zap-icon.trigger{background:#FF4A00;}
+.zap-icon.action{background:#4A90D9;}
+.zap-icon.ai{background:#6B4FBB;}
+.zap-icon.output{background:#27AE60;}
+.zap-connector{width:2px;background:#e5e7eb;flex:1;min-height:20px;margin:4px auto;}
+.zap-content{padding-bottom:20px;flex:1;}
+.zap-step-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;font-family:var(--f-body);}
+.zap-step-label.trigger{color:#FF4A00;}
+.zap-step-label.action{color:#4A90D9;}
+.zap-step-label.ai{color:#6B4FBB;}
+.zap-step-label.output{color:#27AE60;}
+.zap-step-title{font-size:13px;font-weight:600;color:#111827;margin-bottom:4px;font-family:var(--f-body);}
+.zap-step-desc{font-size:11px;color:#6b7280;line-height:1.6;font-family:var(--f-body);}
+.zap-ai-box{background:#F5F0FF;border:1px solid #D4C5F9;border-radius:6px;padding:12px 14px;margin-top:10px;}
+.zap-ai-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6B4FBB;margin-bottom:6px;font-family:var(--f-body);}
+.zap-ai-row{font-size:11px;color:#3D2C6E;font-family:Lato,sans-serif;line-height:1.6;margin-bottom:3px;}
+.zap-ai-row strong{color:#6B4FBB;}
+.zap-last .zap-content{padding-bottom:0;}
+
+/* PROMPT / VOICE SKELETON */
+.prompt-card{background:#1E1E2E;border-radius:10px;overflow:hidden;box-shadow:0 4px 32px rgba(19,36,71,.12);}
+.prompt-header{background:#13131F;padding:10px 16px;display:flex;align-items:center;gap:10px;}
+.prompt-dots{display:flex;gap:6px;}
+.prompt-dot{width:11px;height:11px;border-radius:50%;}
+.prompt-dot.red{background:#ff5f57;}.prompt-dot.yellow{background:#febc2e;}.prompt-dot.green{background:#28c840;}
+.prompt-title{font-size:11px;color:rgba(255,255,255,.4);font-family:var(--f-body);margin-left:4px;}
+.prompt-body{padding:20px;font-family:Lato,monospace;font-size:12px;line-height:1.8;color:#CDD6F4;max-height:480px;overflow-y:auto;}
+.p-comment{color:#6C7086;}
+.p-label{color:#89B4FA;font-weight:700;}
+.p-var{color:#A6E3A1;background:rgba(166,227,161,.12);padding:0 3px;border-radius:2px;}
+.p-text{color:#CDD6F4;}
+.p-section{margin-top:14px;}
+.p-highlight{color:#F38BA8;}
+
+/* PRE FOOTER + FOOTER */
+.pre-footer{background:var(--stone);border-top:1px solid #c4bdb0;padding:clamp(32px,4vw,52px) 0;text-align:center;}
+.footer{background:var(--paper);padding:48px 0 32px;border-top:1px solid var(--stone);}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);text-align:center;}
+.footer-logo-wrap{margin-bottom:16px;}
+.footer-logo-wrap img{width:64px;height:64px;margin:0 auto;}
+.footer-tagline{font-size:13px;color:var(--slate);max-width:320px;margin:0 auto 28px;line-height:1.7;}
+.footer-divider{border:none;border-top:1px solid var(--stone);margin:0 0 24px;}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin-bottom:28px;}
+.footer-nav a{font-size:13px;color:var(--slate);transition:color .2s;}
+.footer-nav a:hover{color:var(--ink);}
+.footer-bottom{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.footer-copy{font-size:11px;color:var(--slate);letter-spacing:.05em;}
+.footer-dot-sm{width:6px;height:6px;background:var(--yellow);border-radius:50%;flex-shrink:0;}
+
+@media(max-width:1000px){.panel-layout{grid-template-columns:1fr;}.panel-context{max-width:100%;}}
+@media(max-width:760px){.stack-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){
+  .nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;border-bottom:1px solid rgba(255,255,255,.08);gap:20px;z-index:99;}
+  .nav-toggle{display:flex;}.footer-bottom{flex-direction:column;text-align:center;}
+  .stack-grid{grid-template-columns:1fr;}.step-btn{min-width:110px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html" class="active">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>&rsaquo;</span><a href="proof-strategy.html">Strategy &amp; Systems</a><span>&rsaquo;</span>Claire Leblanc Photography</p>
+      <h1>The photographer is fictional,<br>but the time loss isn&rsquo;t.<span class="accent-line">same email, written once.</span></h1>
+      <div class="meta-row">
+        <span class="meta-tag">Concept project</span>
+        <span class="meta-tag">AI implementation</span>
+        <span class="meta-tag">Jotform</span>
+        <span class="meta-tag">Zapier</span>
+        <span class="meta-tag">Claude API</span>
+        <span class="meta-tag">Gmail</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="benefit-callout">
+  <div class="container">
+    <div class="benefit-callout-inner">
+      <p class="benefit-eyebrow">What changed</p>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Claire fills in five fields after a booking. A draft that sounds like her is waiting in Gmail.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">She reviews it in two minutes instead of writing it from scratch in forty.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Every client gets an email that feels personal, specific, and considered.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">The AI does not send anything. Claire reads it, adjusts if she wants, and hits send herself.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="context-strip">
+  <div class="container">
+    <div class="context-inner">
+      <p>Claire books around thirty sessions a month. After every booking she writes a &ldquo;here&rsquo;s what to expect&rdquo; email. Same structure every time. Different names, locations, session types, and details every time. She knows what she wants to say. She just spends too long saying it.</p>
+      <p>This is not a chatbot. It is not a template with mail merge fields. It is a prompted AI workflow built around Claire&rsquo;s own voice that takes five minutes of input and produces a draft she actually wants to send.</p>
+    </div>
+  </div>
+</div>
+
+<section class="stack-section">
+  <div class="container">
+    <p class="section-label">The stack</p>
+    <h2 class="section-heading">four tools, one less hour of writing.</h2>
+    <p class="body-text">The tools are simple. The work is in the prompt — documenting Claire&rsquo;s voice, building the skeleton, and making sure what comes out the other end actually sounds like her.</p>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <p class="stack-role">Session intake</p>
+        <p class="stack-tool">Jotform</p>
+        <p class="stack-desc">Claire fills in five fields after confirming a booking. Client names, session type, location, date, and a few notes from the inquiry call. Thirty seconds. That submission is the trigger.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Connection layer</p>
+        <p class="stack-tool">Zapier</p>
+        <p class="stack-desc">Receives the form submission and passes the variables into the AI prompt. When the response comes back, Zapier creates a pre-filled Gmail draft in Claire&rsquo;s inbox. She never leaves Gmail to make it work.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">The writing</p>
+        <p class="stack-tool">Claude API</p>
+        <p class="stack-desc">The AI step. Zapier sends the session variables and Claire&rsquo;s voice skeleton to the Claude API. What comes back is a full draft in her tone, her structure, and her sign-off. Not a template. Not a robot. A draft that sounds like her.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Review and send</p>
+        <p class="stack-tool">Gmail</p>
+        <p class="stack-desc">The draft lands in Claire&rsquo;s Gmail. She reads it, adjusts anything she wants to, and sends. The AI never sends anything on its own. That part stays human.</p>
+      </div>
+    </div>
+    <p class="stack-note"><strong>Why not a template?</strong> A mail merge template fills in names and dates but the writing still sounds like a template. The AI step means the sentence structures vary, the tone matches the session vibe, and a vineyard wedding in October reads differently from a beach family session in July. That difference is the whole point.</p>
+    <div class="cost-line">
+      <p>Thirty sessions a month at thirty minutes of writing each is fifteen hours. Even if this tool cuts that in half, that is half a working week back every month. The API call itself costs fractions of a cent per email. The setup is a few hours of voice documentation and prompt work. It pays for itself in the first week.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stepper-section">
+  <div class="stepper-head">
+    <div class="container">
+      <p class="section-label">Walk through the workflow</p>
+      <h2 class="section-heading-stepper">from booking confirmed to draft ready.</h2>
+      <p class="stepper-intro">Click through each step to see exactly what happens after Claire confirms a session booking. What she types, what the AI does with it, and what lands in her inbox.</p>
+    </div>
+  </div>
+  <div style="background:var(--stone);">
+    <div class="container">
+      <div class="step-nav" role="tablist">
+        <button class="step-btn active" onclick="goTo(0)" role="tab">
+          <span class="step-num">Step 0</span><span class="step-title">Session intake</span><span class="step-timing">Claire fills it in</span>
+        </button>
+        <button class="step-btn" onclick="goTo(1)" role="tab">
+          <span class="step-num">Step 1</span><span class="step-title">Zapier calls Claude</span><span class="step-timing">Seconds later</span><span class="step-type">AI step</span>
+        </button>
+        <button class="step-btn" onclick="goTo(2)" role="tab">
+          <span class="step-num">Step 2</span><span class="step-title">Draft in Gmail</span><span class="step-timing">Ready to review</span><span class="step-type">Automatic</span>
+        </button>
+        <button class="step-btn" onclick="goTo(3)" role="tab">
+          <span class="step-num">Step 3</span><span class="step-title">Client receives it</span><span class="step-timing">Claire sends</span><span class="step-type">Claire&rsquo;s action</span>
+        </button>
+        <button class="step-btn" onclick="goTo(4)" role="tab">
+          <span class="step-num">Step 4</span><span class="step-title">The voice skeleton</span><span class="step-timing">What makes it work</span><span class="step-type">The real work</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stepper-panels">
+    <div class="container">
+
+      <!-- STEP 0 -->
+      <div class="step-panel active" id="panel-0">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 0 of 4</p>
+            <h3 class="panel-heading">Claire fills in five fields. That&rsquo;s the whole trigger.</h3>
+            <p class="panel-body">After confirming a family session booking with the Tremblays, Claire opens the form on her phone. Client names, session type, location, date, and a quick note about what they talked about on the call.</p>
+            <p class="panel-body">The form is not a questionnaire. It is a structured way of capturing what Claire already knows after every inquiry call, without asking her to write anything from scratch.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The intake form front-loads the thinking Claire was going to do anyway. By the time she hits submit, the AI has everything it needs to write a specific, personal email. Garbage in, garbage out — the form makes sure what goes in is good.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Claire submits the form. Zapier receives the data and immediately passes it to the Claude API with her voice prompt.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-next" onclick="goTo(1)">Next: Zapier calls Claude &rarr;</button></div>
+          </div>
+          <div>
+            <div class="mock-form">
+              <div class="mock-form-header">
+                <div class="mock-form-wordmark">Claire Leblanc <span>Photography</span></div>
+                <div class="mock-form-sub">Session follow-up intake &middot; Internal use only</div>
+              </div>
+              <div class="mock-form-body">
+                <p class="form-section-label">Client details</p>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">Client first name(s)</div><div class="mock-input filled">Sophie &amp; Marc</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Last name</div><div class="mock-input filled">Tremblay</div></div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Client email</div><div class="mock-input filled">stremblay@notarealemail.com</div></div>
+                <p class="form-section-label">Session details</p>
+                <div class="mock-field"><div class="mock-field-label">Session type</div><div class="mock-input filled">Family session &mdash; outdoor, lifestyle</div></div>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">Date</div><div class="mock-input filled">September 20, 2026</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Time</div><div class="mock-input filled">5:30 pm (golden hour)</div></div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Location</div><div class="mock-input filled">Reservoir Park, Wolfville NS</div></div>
+                <div class="mock-field"><div class="mock-field-label">Who is coming</div><div class="mock-input filled">2 adults, 2 kids (ages 4 and 7), family dog</div></div>
+                <p class="form-section-label">Vibe and notes</p>
+                <div class="mock-field">
+                  <div class="mock-field-label">Notes from the call <span>what they mentioned, what matters to them</span></div>
+                  <div class="mock-textarea">Sophie mentioned the dog is a big part of the family and she wants him in lots of shots. Marc is a bit camera shy. Kids are energetic. They want it to feel relaxed, not posed. Anniversary coming up and these will be used for a canvas print.</div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Vibe <span>one word or phrase</span></div><div class="mock-input filled">Warm, relaxed, real</div></div>
+                <button class="mock-submit">Generate my draft</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step-panel" id="panel-1">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 1 of 4</p>
+            <h3 class="panel-heading">Zapier sends the variables to Claude. Claude writes the email.</h3>
+            <p class="panel-body">Within seconds of Claire hitting submit, Zapier takes the form data and drops it into a prompt that already contains Claire&rsquo;s voice skeleton — her tone, her structure, what she always says and never says.</p>
+            <p class="panel-body">Claude reads the variables, reads the skeleton, and produces a draft. <strong>This is the AI step.</strong> Not a template with fields swapped in. A piece of writing that uses the session details the way Claire would use them herself.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The difference between a mail merge and this is the difference between &ldquo;Hi Sophie, your session is on September 20&rdquo; and an email that mentions Marc being camera shy, the dog, the anniversary, and what golden hour at Reservoir Park actually looks like. The AI reads the notes and writes from them. That is the part a template cannot do.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Zapier receives the Jotform submission, constructs the full prompt with Claire&rsquo;s variables inserted, calls the Claude API, and receives the draft response. The whole round trip takes under ten seconds.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(0)">&larr; Back</button><button class="panel-next" onclick="goTo(2)">Next: Draft in Gmail &rarr;</button></div>
+          </div>
+          <div>
+            <div class="zapier-card">
+              <div class="zapier-header">
+                <span class="zap-logo">Zapier</span>
+                <span class="zap-title">Claire&rsquo;s writing workflow &middot; Running</span>
+              </div>
+              <div class="zapier-body">
+                <div class="zap-flow">
+                  <div class="zap-step">
+                    <div class="zap-step-left">
+                      <div class="zap-icon trigger">J</div>
+                      <div class="zap-connector"></div>
+                    </div>
+                    <div class="zap-content">
+                      <div class="zap-step-label trigger">Trigger</div>
+                      <div class="zap-step-title">New Jotform submission</div>
+                      <div class="zap-step-desc">Sophie &amp; Marc Tremblay &middot; Family session &middot; Sep 20 &middot; Reservoir Park</div>
+                    </div>
+                  </div>
+                  <div class="zap-step">
+                    <div class="zap-step-left">
+                      <div class="zap-icon ai">AI</div>
+                      <div class="zap-connector"></div>
+                    </div>
+                    <div class="zap-content">
+                      <div class="zap-step-label ai">AI Action</div>
+                      <div class="zap-step-title">Claude API &mdash; Generate draft email</div>
+                      <div class="zap-step-desc">Sends session variables + Claire&rsquo;s voice prompt to claude-sonnet. Response: full email draft.</div>
+                      <div class="zap-ai-box">
+                        <div class="zap-ai-label">What Zapier sends to Claude</div>
+                        <div class="zap-ai-row"><strong>Client:</strong> Sophie &amp; Marc Tremblay</div>
+                        <div class="zap-ai-row"><strong>Session:</strong> Family lifestyle, Sep 20, 5:30pm</div>
+                        <div class="zap-ai-row"><strong>Location:</strong> Reservoir Park, Wolfville NS</div>
+                        <div class="zap-ai-row"><strong>Who:</strong> 2 adults, 2 kids (4 &amp; 7), dog</div>
+                        <div class="zap-ai-row"><strong>Notes:</strong> Dog is important, Marc camera shy, relaxed not posed, anniversary canvas</div>
+                        <div class="zap-ai-row"><strong>Vibe:</strong> Warm, relaxed, real</div>
+                        <div class="zap-ai-row" style="margin-top:6px;color:#9ca3af;">+ Claire&rsquo;s full voice skeleton (see Step 4)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="zap-step zap-last">
+                    <div class="zap-step-left">
+                      <div class="zap-icon output">G</div>
+                    </div>
+                    <div class="zap-content">
+                      <div class="zap-step-label output">Action</div>
+                      <div class="zap-step-title">Create Gmail draft</div>
+                      <div class="zap-step-desc">Draft created in Claire&rsquo;s Gmail. To: stremblay@notarealemail.com. Subject pre-filled. Ready to review.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-panel" id="panel-2">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 2 of 4</p>
+            <h3 class="panel-heading">The draft is waiting in Gmail. Claire spends two minutes on it.</h3>
+            <p class="panel-body">Claire opens Gmail. The draft is there, addressed to Sophie, subject line written, full email ready. She reads through it, adjusts one sentence about Marc being camera shy to say it the way she would, and hits send.</p>
+            <p class="panel-body"><strong>Total time: two minutes.</strong> The AI did not replace her judgment. It removed the blank page.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The blank page is where the time goes. Claire always knew what she wanted to say — she just had to find the words from scratch thirty times a month. The draft gives her something to react to instead of something to create. Editing is faster than writing, and a good draft makes the editing easy.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Zapier creates the Gmail draft automatically after the Claude response comes back. Claire opens it in her normal Gmail inbox. Nothing new to learn.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(1)">&larr; Back</button><button class="panel-next" onclick="goTo(3)">Next: Client receives it &rarr;</button></div>
+          </div>
+          <div>
+            <div class="email-client">
+              <div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; hello@claireleblanc.ca</div><span class="chrome-badge">Draft</span></div>
+              <div class="draft-banner">&#9998;&nbsp; This is an AI-generated draft. Review before sending.</div>
+              <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar claire">CL</div><div><div class="inbox-sender">Claire Leblanc Photography</div><div class="inbox-email-addr">hello@claireleblanc.ca</div></div></div><div class="inbox-time">Draft &middot; just now</div></div>
+              <div class="inbox-subject-row"><div class="inbox-subject">Your session is coming up &mdash; a few things before September 20.</div><div class="inbox-to">To: stremblay@notarealemail.com</div></div>
+              <div class="email-scroll"><div class="email-inner">
+                <div class="cem-header-cl"><span class="cem-wordmark-cl">Claire Leblanc <span>Photography</span></span></div>
+                <div class="cem-body">
+                  <p class="cem-subject">Your session is coming up &mdash; a few things before September 20.</p>
+                  <p class="cem-p">Hi Sophie and Marc,</p>
+                  <p class="cem-p">I&rsquo;m really looking forward to meeting your family at Reservoir Park. Golden hour there in September is genuinely one of my favourite things, and I think it&rsquo;s going to be a great fit for what you&rsquo;re after.</p>
+                  <p class="cem-p">A few things before we get there:</p>
+                  <div class="cem-box">
+                    <div class="cem-row"><span class="cem-lbl">Date</span><span>Saturday, September 20</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Time</span><span>5:30 pm &mdash; plan for about 90 minutes</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Location</span><span>Reservoir Park, Wolfville NS</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Parking</span><span>Main lot off Reservoir Rd, I&rsquo;ll meet you there</span></div>
+                  </div>
+                  <p class="cem-p">Bring the dog — absolutely. He&rsquo;ll be in lots of shots and honestly the best sessions are the ones where everyone, including the four-legged ones, is just doing their thing. A long leash is helpful so he has some freedom without wandering too far.</p>
+                  <p class="cem-p">For the kids: fed and rested if possible, but I know that&rsquo;s not always realistic. Wear something you feel good in, nothing too matchy unless that&rsquo;s your thing. We&rsquo;ll keep it moving and loose — the goal is to catch real moments, not hold poses.</p>
+                  <p class="cem-p">Marc, I hear you on the camera thing. My job is to make you forget about it. We&rsquo;ll walk, we&rsquo;ll talk, and the camera will mostly just be there. The best shots of camera-shy people are always the ones where they&rsquo;ve stopped thinking about it.</p>
+                  <p class="cem-p">I&rsquo;ll have your gallery ready within two weeks. If you have a canvas in mind for the anniversary, let me know and I can flag a few that would work particularly well for print.</p>
+                  <p class="cem-p">Any questions before then, just reply here.</p>
+                  <p class="cem-sign">&mdash; Claire</p>
+                </div>
+                <div class="cem-foot">claireleblanc.ca &middot; hello@claireleblanc.ca &middot; Annapolis Valley, NS</div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-panel" id="panel-3">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 3 of 4</p>
+            <h3 class="panel-heading">Sophie reads an email that feels like Claire wrote it. Because she did.</h3>
+            <p class="panel-body">Sophie gets the email. It mentions the dog, the anniversary, Marc being camera shy, the golden hour. It reads like a photographer who actually listened on the call — because the notes from the call are what the AI wrote from.</p>
+            <p class="panel-body">Sophie does not know an AI touched it. She does not need to. What she knows is that her photographer remembered what she said, and that feels good going into a session.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The best client relationships start before the session. An email that references specifics builds more trust than a polished but generic one. Claire was already taking those notes. This tool just makes sure the notes end up in the email instead of sitting in a booking app no one reads.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Claire reviewed the draft, made one small edit, and hit send. The email came from her Gmail, in her voice, with her sign-off.</span>
+            </div>
+            <p class="closing-note">That is the full workflow. One form, one AI call, one draft, one review. Thirty sessions a month handled in a fraction of the time. Want to build something like this for your business? <a href="lets-talk.html">Let&rsquo;s talk.</a></p>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(2)">&larr; Back</button><button class="panel-next" onclick="goTo(4)">See the voice skeleton &rarr;</button></div>
+          </div>
+          <div>
+            <div class="email-client">
+              <div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; stremblay@notarealemail.com</div></div>
+              <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">CL</div><div><div class="inbox-sender">Claire Leblanc Photography</div><div class="inbox-email-addr">hello@claireleblanc.ca</div></div></div><div class="inbox-time">Tuesday, 7:12 pm</div></div>
+              <div class="inbox-subject-row"><div class="inbox-subject">Your session is coming up &mdash; a few things before September 20.</div><div class="inbox-to">To: stremblay@notarealemail.com</div></div>
+              <div class="email-scroll"><div class="email-inner">
+                <div class="cem-header-cl"><span class="cem-wordmark-cl">Claire Leblanc <span>Photography</span></span></div>
+                <div class="cem-body">
+                  <p class="cem-subject">Your session is coming up &mdash; a few things before September 20.</p>
+                  <p class="cem-p">Hi Sophie and Marc,</p>
+                  <p class="cem-p">I&rsquo;m really looking forward to meeting your family at Reservoir Park. Golden hour there in September is genuinely one of my favourite things, and I think it&rsquo;s going to be a great fit for what you&rsquo;re after.</p>
+                  <p class="cem-p">A few things before we get there:</p>
+                  <div class="cem-box">
+                    <div class="cem-row"><span class="cem-lbl">Date</span><span>Saturday, September 20</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Time</span><span>5:30 pm &mdash; plan for about 90 minutes</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Location</span><span>Reservoir Park, Wolfville NS</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Parking</span><span>Main lot off Reservoir Rd, I&rsquo;ll meet you there</span></div>
+                  </div>
+                  <p class="cem-p">Bring the dog — absolutely. He&rsquo;ll be in lots of shots and honestly the best sessions are the ones where everyone, including the four-legged ones, is just doing their thing.</p>
+                  <p class="cem-p">Marc, I hear you on the camera thing. My job is to make you forget about it. The best shots of camera-shy people are always the ones where they&rsquo;ve stopped thinking about it.</p>
+                  <p class="cem-p">I&rsquo;ll have your gallery ready within two weeks. Since you mentioned a canvas for the anniversary, I&rsquo;ll flag a few from the session that would work especially well for print.</p>
+                  <p class="cem-p">Any questions before then, just reply here.</p>
+                  <p class="cem-sign">&mdash; Claire</p>
+                </div>
+                <div class="cem-foot">claireleblanc.ca &middot; hello@claireleblanc.ca &middot; Annapolis Valley, NS</div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-panel" id="panel-4">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 4 of 4</p>
+            <h3 class="panel-heading">The voice skeleton is the real work. Everything else is plumbing.</h3>
+            <p class="panel-body">The Zapier setup takes an afternoon. The Claude API connection is a dozen lines of configuration. The part that actually makes this work — that makes the output sound like Claire and not like a robot — is the prompt.</p>
+            <p class="panel-body">We document how Claire writes: what she always includes, what she never says, how she opens, how she closes, how she handles the details that matter to each client. That becomes the skeleton the AI writes into every time.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Anyone can connect Jotform to Zapier to Claude. The output will be generic. The voice documentation is what makes the output usable. That is the YFD work — not the wiring, but the thinking about how a specific person communicates, captured clearly enough that an AI can replicate it faithfully.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">What we built</span>
+              <span>A documented voice guide for Claire, a structured prompt that uses it, and a Zapier workflow that passes session variables into it. The prompt on the right is a simplified version of what runs inside every API call.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(3)">&larr; Back</button></div>
+          </div>
+          <div>
+            <div class="prompt-card">
+              <div class="prompt-header">
+                <div class="prompt-dots"><div class="prompt-dot red"></div><div class="prompt-dot yellow"></div><div class="prompt-dot green"></div></div>
+                <span class="prompt-title">claire-voice-prompt.txt &mdash; sent to Claude API on every call</span>
+              </div>
+              <div class="prompt-body">
+<span class="p-comment"># ROLE</span>
+<span class="p-text">You are writing a pre-session email on behalf of Claire Leblanc, a portrait and family photographer based in the Annapolis Valley. Write in her voice, using the session variables and notes below.</span>
+
+<div class="p-section"><span class="p-comment"># SESSION VARIABLES (filled by Zapier from the form)</span>
+<span class="p-label">Client names:</span> <span class="p-var">{{client_names}}</span>
+<span class="p-label">Client email:</span> <span class="p-var">{{client_email}}</span>
+<span class="p-label">Session type:</span> <span class="p-var">{{session_type}}</span>
+<span class="p-label">Date:</span> <span class="p-var">{{session_date}}</span>
+<span class="p-label">Time:</span> <span class="p-var">{{session_time}}</span>
+<span class="p-label">Location:</span> <span class="p-var">{{location}}</span>
+<span class="p-label">Who is coming:</span> <span class="p-var">{{who_is_coming}}</span>
+<span class="p-label">Notes from call:</span> <span class="p-var">{{call_notes}}</span>
+<span class="p-label">Vibe:</span> <span class="p-var">{{vibe}}</span></div>
+
+<div class="p-section"><span class="p-comment"># CLAIRE&rsquo;S VOICE</span>
+<span class="p-text">- Warm but not gushing. She is excited about the work, not performing excitement.
+- Conversational. Short sentences where short works. No corporate language.
+- Specific. She references details from the call. Generic reassurance is not her style.
+- She does not say &ldquo;amazing&rdquo;, &ldquo;stunning&rdquo;, &ldquo;perfect&rdquo;, or &ldquo;journey&rdquo;.
+- She signs off as &ldquo;&mdash; Claire&rdquo;. Never &ldquo;Warmly&rdquo; or &ldquo;Best&rdquo;.
+- She does not over-explain logistics. One clear block of details, then move on.</span></div>
+
+<div class="p-section"><span class="p-comment"># EMAIL STRUCTURE</span>
+<span class="p-text">1. Open by name. One sentence that references something specific about this session.
+2. Practical details block (date, time, location, parking or access note).
+3. One or two paragraphs using the call notes. Address what matters to them specifically.
+4. What to expect re: gallery delivery and any relevant print notes.
+5. Invitation to reply with questions. Sign off as Claire.</span></div>
+
+<div class="p-section"><span class="p-comment"># OUTPUT</span>
+<span class="p-highlight">Return the email body only. No subject line. No preamble. No explanation. Just the email, ready to copy into Gmail.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="pre-footer">
+  <div class="container">
+    <p style="font-family:var(--f-head);font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(19,36,71,0.65);max-width:580px;margin:0 auto;line-height:1.85;">A marketing studio for small businesses who do good work and want the outside to reflect it.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  var toggle=document.getElementById('nav-toggle'),navLinks=document.getElementById('nav-links');
+  toggle.addEventListener('click',function(){var open=navLinks.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+})();
+function goTo(i){
+  document.querySelectorAll('.step-btn').forEach(function(b,idx){b.classList.toggle('active',idx===i);b.setAttribute('aria-selected',idx===i?'true':'false');});
+  document.querySelectorAll('.step-panel').forEach(function(p,idx){p.classList.toggle('active',idx===i);});
+  if(window.innerWidth<900){document.querySelector('.step-nav').scrollIntoView({behavior:'smooth',block:'nearest'});}
+}
+</script>
+</body>
+</html>
