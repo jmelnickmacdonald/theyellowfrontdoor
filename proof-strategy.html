@@ -3,116 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strategy & Systems — The Proof — The Yellow Front Door</title>
 <meta name="description" content="The infrastructure behind a business that runs smoothly.">
+<title>Strategy &amp; Systems — The Proof — The Yellow Front Door</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@font-face {
-  font-family: 'CasualHandwriting';
-  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
-  font-weight: normal; font-style: normal; font-display: block;
+@font-face{font-family:CasualHandwriting;src:url(CasualHandwriting.woff2) format("woff2"),url(CasualHandwriting.woff) format("woff");font-display:block;}
+:root{
+  --ink:#132447;--paper:#fff;--yellow:#fcd346;--stone:#D8D1C3;--slate:#596674;--brass:#e6b800;--clay:#B86B4B;--paper-mid:#F5EFE0;--navy:#132447;
+  --f-accent:CasualHandwriting,cursive;--f-head:Montserrat,sans-serif;--f-body:Montserrat,sans-serif;--max:1120px;--gutter:clamp(24px,5vw,80px);
 }
-:root {
-  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
-  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
-  --navy: #132447;
-  --f-accent: 'CasualHandwriting', cursive;
-  --f-head: 'Montserrat', sans-serif;
-  --f-body: 'Montserrat', sans-serif;
-  --max: 1120px;
-  --gutter: clamp(24px, 5vw, 80px);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;height:auto;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
 
 /* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
-.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
-.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo img { height: 56px; width: auto; display: block; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--paper); }
-.nav-links a.active { font-weight: 600; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
-.nav-cta:hover { background: var(--brass) !important; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);transition:box-shadow .3s;}
+.nav.scrolled{box-shadow:0 2px 24px rgba(19,36,71,.5);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.nav-logo img{height:56px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,252,244,.75);letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--paper);}
+.nav-cta{background:var(--yellow)!important;color:var(--navy)!important;padding:10px 20px;font-size:12px!important;font-weight:700!important;letter-spacing:.03em!important;}
+.nav-cta:hover{background:var(--brass)!important;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
 
 /* PAGE HEADER */
-.page-header { padding: clamp(80px, 10vw, 120px) 0 clamp(40px, 5vw, 60px); margin-top: 72px; border-bottom: 1px solid var(--stone); }
-.page-header-inner { max-width: 640px; }
-.breadcrumb { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 20px; }
-.breadcrumb a { color: var(--slate); transition: color 0.2s; }
-.breadcrumb a:hover { color: var(--ink); }
-.breadcrumb span { margin: 0 8px; color: var(--stone); }
-.page-header h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; }
-.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 42px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 12px; }
-.page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 24px; max-width: 520px; }
+.page-header{padding:clamp(80px,10vw,120px) 0 clamp(42px,6vw,66px);margin-top:72px;border-bottom:1px solid var(--stone);background:linear-gradient(180deg,#fff 0%,#fbfaf7 100%);}
+.page-header-inner{max-width:680px;}
+.breadcrumb{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:20px;}
+.breadcrumb a{color:var(--slate);transition:color .2s;}
+.breadcrumb a:hover{color:var(--ink);}
+.breadcrumb span{margin:0 8px;color:var(--stone);}
+.page-header h1{font-family:var(--f-head);font-size:clamp(28px,4vw,46px);font-weight:500;color:var(--ink);letter-spacing:-.02em;line-height:1.1;}
+.accent-line{display:block;font-family:var(--f-accent);font-size:clamp(28px,3.3vw,42px);font-weight:normal;color:var(--slate);line-height:1.25;margin-top:18px;letter-spacing:0;}
+.page-intro{font-size:15px;line-height:1.9;color:var(--slate);max-width:620px;margin-top:22px;}
 
-/* WIRING NOTE */
-.wiring-note { background: var(--paper-mid); border-left: 3px solid var(--yellow); padding: 20px 24px; margin-top: 28px; max-width: 520px; }
-.wiring-note p { font-size: 13.5px; line-height: 1.8; color: var(--ink); }
+/* GRID */
+.proof-grid{padding:clamp(56px,7vw,96px) 0;}
+.proof-grid-inner{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--stone);}
+.proof-card{background:var(--paper);padding:clamp(32px,4vw,52px);}
+.card-image{width:100%;height:220px;object-fit:cover;display:block;margin-bottom:28px;background:var(--paper-mid);}
+.card-image-placeholder{width:100%;height:220px;background:var(--paper-mid);margin-bottom:28px;display:flex;align-items:center;justify-content:center;}
+.card-eyebrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.card-tag{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:4px 10px;}
+.card-tag-concept{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);background:transparent;border:1px solid var(--clay);padding:4px 10px;opacity:.8;}
+.card-heading{font-family:var(--f-head);font-size:clamp(18px,2vw,24px);font-weight:500;color:var(--ink);letter-spacing:-.01em;line-height:1.2;margin-bottom:10px;}
+.card-sub{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
+.card-body{font-size:14px;line-height:1.85;color:var(--slate);margin-bottom:24px;}
+.card-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;}
+.stack-pip{font-size:10px;font-weight:600;color:var(--slate);background:var(--paper-mid);padding:3px 9px;letter-spacing:.04em;}
+.card-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--yellow);padding-bottom:2px;transition:color .2s;}
+.card-link:hover{color:var(--clay);}
+.card-link-coming{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);}
 
-/* PROJECTS */
-.projects { padding: clamp(56px, 7vw, 96px) 0; }
-.project { padding: clamp(48px, 6vw, 80px) 0; border-bottom: 1px solid var(--stone); }
-.project:first-child { padding-top: 0; }
-.project:last-child { border-bottom: none; }
-.project-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
-.project-inner.reverse { direction: rtl; }
-.project-inner.reverse > * { direction: ltr; }
-.project-image img { width: 100%; height: auto; display: block; border: 1px solid var(--stone); }
-.project-image-placeholder { width: 100%; aspect-ratio: 16/10; background: var(--paper-mid); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
-.project-image-placeholder span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(19,36,71,0.2); }
-.project-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
-.project-name { font-family: var(--f-accent); font-size: clamp(32px, 4vw, 48px); color: var(--ink); line-height: 1.0; margin-bottom: 6px; font-weight: normal; }
-.project-scope { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 24px; }
-.project-desc { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 16px; }
-.project-desc:last-of-type { margin-bottom: 0; }
-.project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.project-link { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 12px 22px; transition: background 0.2s; }
-.project-link:hover { background: var(--brass); }
-.project-link-outline { background: transparent; color: var(--ink); border: 1px solid var(--stone); }
-.project-link-outline:hover { border-color: var(--ink); background: transparent; }
+/* LYDIA SECTION — spans full width */
+.lydia-section{padding:clamp(56px,7vw,96px) 0;border-top:2px solid var(--stone);}
+.lydia-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px);align-items:start;}
+.lydia-image-wrap{position:relative;}
+.lydia-image{width:100%;height:480px;object-fit:cover;display:block;}
+.lydia-content{}
+.section-eyebrow{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
+.lydia-heading{font-family:var(--f-head);font-size:clamp(22px,2.5vw,32px);font-weight:500;color:var(--ink);letter-spacing:-.015em;line-height:1.2;margin-bottom:18px;}
+.lydia-body{font-size:15px;line-height:1.9;color:var(--slate);margin-bottom:14px;}
+.lydia-pieces{margin:24px 0;display:grid;gap:1px;background:var(--stone);border:1px solid var(--stone);}
+.lydia-piece{background:var(--paper);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;}
+.piece-dot{width:4px;height:4px;background:var(--yellow);border-radius:50%;flex-shrink:0;margin-top:9px;}
+.piece-text{font-size:13px;line-height:1.75;color:var(--slate);}
+.lydia-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
+.lydia-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--yellow);padding-bottom:2px;transition:color .2s;}
+.lydia-link:hover{color:var(--clay);}
 
 /* COMING SOON */
-.coming-soon { background: var(--paper-mid); border: 1px solid var(--stone); padding: clamp(36px, 5vw, 56px); text-align: center; }
-.coming-soon p { font-size: 14px; color: var(--slate); line-height: 1.75; }
-.coming-soon .coming-title { font-family: var(--f-accent); font-size: 28px; color: var(--ink); margin-bottom: 10px; }
-
-/* PRE-FOOTER */
-.pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
+.coming-strip{background:var(--paper-mid);border-top:1px solid var(--stone);border-bottom:1px solid var(--stone);padding:clamp(36px,4vw,52px) 0;}
+.coming-inner{max-width:640px;}
+.coming-label{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
+.coming-heading{font-family:var(--f-head);font-size:clamp(18px,2vw,24px);font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:10px;}
+.coming-body{font-size:14px;line-height:1.85;color:var(--slate);}
 
 /* FOOTER */
-.footer { background: var(--paper); padding: 40px 0 32px; border-top: 1px solid var(--stone); }
-.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
-.footer-brand { display: flex; flex-direction: column; gap: 14px; }
-.footer-brand img { width: 64px; height: 64px; }
-.footer-nav-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-nav-col a { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
-.footer-nav-col a:hover { color: var(--ink); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+.footer{background:var(--paper);padding:48px 0 32px;border-top:1px solid var(--stone);}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+.footer-logo{display:block;width:96px;height:96px;margin:0 auto 12px;}
+.footer-tagline{font-size:13px;color:var(--slate);text-align:center;margin-bottom:22px;}
+.footer-rule{border:none;border-top:1px solid var(--stone);margin-bottom:20px;}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 28px;margin-bottom:28px;}
+.footer-nav a{font-size:13px;color:var(--slate);transition:color .2s;}
+.footer-nav a:hover{color:var(--ink);}
+.footer-bottom{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.footer-copy{font-size:11px;color:var(--slate);letter-spacing:.05em;}
+.footer-dot{width:4px;height:4px;background:var(--yellow);border-radius:50%;flex-shrink:0;}
 
-@media (max-width: 860px) {
-  .project-inner, .project-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+@media(max-width:860px){
+  .proof-grid-inner{grid-template-columns:1fr;}
+  .lydia-inner{grid-template-columns:1fr;}
+  .lydia-image{height:320px;}
 }
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
-  .nav-toggle { display: flex; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;border-bottom:1px solid rgba(255,255,255,.08);gap:20px;z-index:99;}
+  .nav-toggle{display:flex;}
 }
 </style>
 </head>
@@ -129,109 +125,156 @@ ul { list-style: none; }
       <li><a href="lets-talk.html">Let's Talk</a></li>
       <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <section class="page-header">
   <div class="container">
     <div class="page-header-inner">
-      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>›</span>Strategy & Systems</p>
-      <h1>Strategy & Systems
-        <span class="accent-line">the wiring behind it all.</span>
-      </h1>
-      <p>A great in-market experience doesn't just look right — it has to work. Content plans, email sequences, automations, and the strategic thinking that connects everything underneath.</p>
-      <div class="wiring-note">
-        <p>This section is growing. The Wiring — automations, integrations, and AI implementation — is a core part of what we do, and more of that work will be documented here as it comes together.</p>
+      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>&rsaquo;</span>Strategy &amp; Systems</p>
+      <h1>Strategy &amp; Systems<span class="accent-line">the wiring behind it all.</span></h1>
+      <p class="page-intro">A good in-market experience doesn't just look right — it has to work. Automations, email sequences, AI workflows, and the systems thinking that connects everything underneath.</p>
+    </div>
+  </div>
+</section>
+
+<section class="proof-grid">
+  <div class="container">
+    <div class="proof-grid-inner">
+
+      <!-- THE CAKE CO. -->
+      <div class="proof-card">
+        <div class="card-eyebrow">
+          <span class="card-tag-concept">Concept project</span>
+          <span class="card-tag">Order automation</span>
+        </div>
+        <h2 class="card-heading">The Cake Co.</h2>
+        <p class="card-sub">Custom orders, less chasing</p>
+        <p class="card-body">A baker who is also the bookkeeper, delivery driver, and customer service department doesn't have a free window for Friday-night follow-up. This six-step automation handles the confirmation, the order log, the quote draft, and the delivery reminder — so the only thing she has to do is bake.</p>
+        <div class="card-stack">
+          <span class="stack-pip">Jotform</span>
+          <span class="stack-pip">Zapier</span>
+          <span class="stack-pip">Google Sheets</span>
+          <span class="stack-pip">MailerLite</span>
+          <span class="stack-pip">Gmail</span>
+          <span class="stack-pip">Square</span>
+        </div>
+        <a href="thecakeco-automation.html" class="card-link">Walk through the sequence &rarr;</a>
+      </div>
+
+      <!-- THE CLEAN CO. -->
+      <div class="proof-card">
+        <div class="card-eyebrow">
+          <span class="card-tag-concept">Concept project</span>
+          <span class="card-tag">Systems consolidation</span>
+        </div>
+        <h2 class="card-heading">The Clean Co.</h2>
+        <p class="card-sub">Connected tools, one clear view</p>
+        <p class="card-body">Kim's tools were already doing their jobs. Scheduling in Google Calendar, invoicing in Square, emails when she got around to them. The business just needed a way for information to move between them. Nothing was replaced. Everything was connected.</p>
+        <div class="card-stack">
+          <span class="stack-pip">Google Calendar</span>
+          <span class="stack-pip">Zapier</span>
+          <span class="stack-pip">Airtable</span>
+          <span class="stack-pip">Square</span>
+          <span class="stack-pip">MailerLite</span>
+        </div>
+        <a href="thecleanco.html" class="card-link">Walk through the system &rarr;</a>
+      </div>
+
+      <!-- GET CRONKD -->
+      <div class="proof-card">
+        <div class="card-eyebrow">
+          <span class="card-tag">Real client</span>
+          <span class="card-tag">CRM &amp; dashboard</span>
+        </div>
+        <h2 class="card-heading">Get Cronkd</h2>
+        <p class="card-sub">From intake form to live dashboard</p>
+        <p class="card-body">Get Cronkd is a fitness studio that needed a better handle on client intake and internal visibility. We built an Airtable system that takes a client from inquiry form to base record to a live dashboard the team actually uses — without adding new tools or new logins.</p>
+        <div class="card-stack">
+          <span class="stack-pip">Airtable</span>
+          <span class="stack-pip">Intake form</span>
+          <span class="stack-pip">Live dashboard</span>
+        </div>
+        <a href="getcronkd-systems.html" class="card-link">View the case study &rarr;</a>
+      </div>
+
+      <!-- WRITING TOOL -->
+      <div class="proof-card">
+        <div class="card-eyebrow">
+          <span class="card-tag-concept">Concept project</span>
+          <span class="card-tag">AI writing workflow</span>
+        </div>
+        <h2 class="card-heading">Claire Leblanc Photography</h2>
+        <p class="card-sub">Voice documentation and prompt engineering</p>
+        <p class="card-body">Claire writes every client email from scratch, which sounds personal until you realize she's typed the same seven sentences four hundred times. The real work here wasn't the automation — it was capturing her voice precisely enough that the drafts actually sound like her.</p>
+        <div class="card-stack">
+          <span class="stack-pip">Jotform</span>
+          <span class="stack-pip">Zapier</span>
+          <span class="stack-pip">Claude API</span>
+          <span class="stack-pip">Gmail</span>
+        </div>
+        <a href="writing-tool.html" class="card-link">Walk through the workflow &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LYDIA NICHOLS — full-width feature -->
+<section class="lydia-section">
+  <div class="container">
+    <div class="lydia-inner">
+      <div class="lydia-image-wrap">
+        <img src="lydia-lupins.png" alt="Lydia Nichols" class="lydia-image">
+      </div>
+      <div class="lydia-content">
+        <p class="section-eyebrow">Client-inspired concept &middot; Real estate</p>
+        <h2 class="lydia-heading">Lydia Nichols</h2>
+        <p class="lydia-body">Most real estate agents treat the transaction as the job. Lydia treats the relationship as the job. We built the systems to match: an email suite for sellers, an open house flow for visitors, and the kind of follow-up infrastructure that makes clients feel like they're the only one on her list.</p>
+        <p class="lydia-body">Everything is written to sound like Lydia — her market, her values, her voice. Nothing reads like a template.</p>
+        <div class="lydia-pieces">
+          <div class="lydia-piece"><div class="piece-dot"></div><p class="piece-text">Seller welcome sequence — five emails that keep clients informed and confident from listing to close</p></div>
+          <div class="lydia-piece"><div class="piece-dot"></div><p class="piece-text">Referral email — a warm ask that generates introductions without feeling like a pitch</p></div>
+          <div class="lydia-piece"><div class="piece-dot"></div><p class="piece-text">Open house flow — branded sign-in, visitor tracker, sorted follow-up drafts, and a seller recap</p></div>
+        </div>
+        <div class="lydia-links">
+          <a href="lydia-email.html" class="lydia-link">View the referral email &rarr;</a>
+          <a href="lydia-openhouse.html" class="lydia-link">View the open house flow &rarr;</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="projects">
+<!-- COMING SOON -->
+<div class="coming-strip">
   <div class="container">
-
-    <!-- STRONG GROUND -->
-    <div class="project">
-      <div class="project-inner">
-        <div class="project-image">
-          <div class="project-image-placeholder"><span>Screenshot coming soon</span></div>
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Concept · Content Strategy</p>
-          <h2 class="project-name">Strong Ground</h2>
-          <p class="project-scope">30-Day Social Strategy · Voice Guide · Content Calendar</p>
-          <p class="project-desc">Strong Ground is a fictional wellness coaching business built to demonstrate what a content strategy actually looks like in practice. The brief: a solo practitioner with a strong in-person reputation, no real social presence, and no idea where to start. We built the 30-day plan that would get her there — voice guide first, then a content calendar with post types, topics, captions, and cadence mapped across the full month.</p>
-          <p class="project-desc">The goal was a plan she could hand to anyone and have it sound like her, not like a template.</p>
-          <div class="project-links">
-            <a href="#" class="project-link">View the strategy →</a>
-          </div>
-        </div>
-      </div>
+    <div class="coming-inner">
+      <p class="coming-label">Coming soon</p>
+      <h2 class="coming-heading">Launch Checklist</h2>
+      <p class="coming-body">A pre-launch readiness checklist for small businesses — the structured thinking most people skip because they're too excited to open the doors. Website, Google Business Profile, social presence, email capture, first-impression copy — everything that needs to be in place before you start telling people you exist.</p>
     </div>
-
-    <!-- LYDIA SEQUENCE -->
-    <div class="project">
-      <div class="project-inner reverse">
-        <div class="project-image">
-          <img src="lydia-lupins.png" alt="Lydia Nichols email system">
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Concept · Email System</p>
-          <h2 class="project-name">Lydia Nichols</h2>
-          <p class="project-scope">Client Welcome Sequence · Referral Email · Nurture System</p>
-          <p class="project-desc">Most real estate agents go quiet the moment a listing is signed. We built an email system for Lydia Nichols — a fictional Annapolis Valley agent — that keeps clients informed, warm, and confident through the whole process. A five-email seller onboarding sequence plus a referral email designed to generate warm introductions without feeling like an ask.</p>
-          <p class="project-desc">Every email is written to feel like it came from Lydia specifically — her voice, her market, her values. The referral email is live as a standalone page.</p>
-          <div class="project-links">
-            <a href="lydia-email.html" target="_blank" class="project-link">View the referral email →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LAUNCH CHECKLIST -->
-    <div class="project">
-      <div class="project-inner">
-        <div class="project-image">
-          <div class="project-image-placeholder"><span>Coming soon</span></div>
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Concept · Planning Tool</p>
-          <h2 class="project-name">Launch Checklist</h2>
-          <p class="project-scope">Pre-Launch Planning · Small Business Readiness</p>
-          <p class="project-desc">A pre-launch readiness checklist for small businesses — the kind of structured thinking that most people skip because they're too excited to open the doors. Website, Google Business Profile, social presence, email capture, first-impression copy — everything that needs to be in place before you start telling people you exist.</p>
-          <p class="project-desc">Coming soon.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="pre-footer">
-  <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:620px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
   </div>
 </div>
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
-      <div class="footer-nav-col">
-        <h4>Studio</h4>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="the-proof.html">The Proof</a>
-        <a href="about.html">About</a>
-        <a href="the-doorstep.html">The Doorstep</a>
-        <a href="lets-talk.html">Let's Talk</a>
-      </div>
-    </div>
+    <img src="roundlogo.png" alt="The Yellow Front Door" class="footer-logo">
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-rule">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
+      <div class="footer-dot" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot" aria-hidden="true"></div>
       <p class="footer-copy">theyellowfrontdoor.ca</p>
     </div>
   </div>
@@ -239,11 +282,12 @@ ul { list-style: none; }
 
 <script>
 (function(){
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  var toggle=document.getElementById('nav-toggle'),links=document.getElementById('nav-links');
+  toggle.addEventListener('click',function(){var open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
 })();
 </script>
+
 </body>
 </html>
