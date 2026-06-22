@@ -608,3 +608,211 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
           </div>
         </div>
       </div>
+
+            <!-- STEP 3 -->
+      <div class="step-panel" id="panel-3">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 3 of 5</p>
+            <h3 class="panel-heading">The quote lands in Sarah&rsquo;s inbox.</h3>
+            <p class="panel-body">The baker has reviewed the order and is ready to quote. Zapier creates a pre-filled Gmail draft with Sarah&rsquo;s details, the line items, and a Square deposit link already populated. <strong>The baker reviews it, adjusts the pricing, and hits send.</strong></p>
+            <p class="panel-body">This is not a fully automated email. Custom cake pricing needs a human. The draft does the heavy lifting so the baker is not writing the same structure from scratch every time.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The quote email does two things at once. It keeps Sarah warm and engaged after a night of waiting, and it gives her everything she needs to pay the deposit without a single follow-up. One email, no back and forth.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Baker submits the checklist with all boxes checked. Zapier creates a pre-filled Gmail draft. Baker opens it in Gmail, confirms the details, and sends.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(2)">&larr; Back</button><button class="panel-next" onclick="goTo(4)">Next: Deposit confirmed &rarr;</button></div>
+          </div>
+
+          <div>
+            <div class="email-client">
+              <div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div>
+              <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Saturday, 9:15 am</div></div>
+              <div class="inbox-subject-row"><div class="inbox-subject">Your quote is ready &mdash; reserve your date.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div>
+              <div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+                <div class="cem-body">
+                  <p class="cem-subject">Your quote is ready &mdash; reserve your date.</p>
+                  <p class="cem-p">Hi Sarah,</p>
+                  <p class="cem-p">We&rsquo;ve reviewed your order and we&rsquo;d love to make this cake for you. Here&rsquo;s your quote and a deposit link to hold August 9.</p>
+                  <div class="cem-receipt">
+                    <div class="cem-rhead"><span class="cem-rtitle">Order Quote &middot; The Cake Co.</span><span class="cem-rnum">QT-2026-0847</span></div>
+                    <div class="cem-rbody">
+                      <div class="cem-rrow"><div><div>Custom 3-tier cake</div><div class="cem-rdesc">Lemon lavender + vanilla bean, 30 servings, garden-style design</div></div><span>$285.00</span></div>
+                      <div class="cem-rrow"><div><div>Delivery &mdash; Main St. &amp; Elm Ave., Wolfville NS</div><div class="cem-rdesc">Within 20km of Main St. &amp; Elm Ave., Wolfville, NS</div></div><span>$25.00</span></div>
+                      <div class="cem-rrow cem-rtotal"><span>Order total</span><span>$310.00</span></div>
+                      <div class="cem-rdeposit"><span>Deposit due now (50%)</span><span>$155.00</span></div>
+                    </div>
+                  </div>
+                  <div class="cem-pay">
+                    <div class="cem-pay-top"><div><div class="cem-pay-lbl">Deposit to hold August 9</div><div class="cem-pay-amount">$155.00</div></div><span class="cem-pay-btn">Pay deposit</span></div>
+                    <div class="cem-sq"><div class="sq-logo"><div class="sq-inner"></div></div><span class="sq-link">squareup.com/pay-invoice/thecakeco-QT-2026-0847</span><span class="sq-label">Powered by Square</span></div>
+                  </div>
+                  <p class="cem-pay-note">Balance of $155.00 is due at delivery. Cash, e-transfer, or card. This quote expires in 5 days.</p>
+                  <p class="cem-p" style="margin-top:10px;">August 9 is still available but we can only hold dates with a deposit. Questions before paying? Just reply here.</p>
+                  <p class="cem-sign">&mdash; The Cake Co.</p>
+                </div>
+                <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-panel" id="panel-4">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 4 of 5</p>
+            <h3 class="panel-heading">Sarah pays. The baker sends a personal note.</h3>
+            <p class="panel-body">Sarah clicks the Square link and pays the deposit. Square handles the payment receipt automatically. That is Square&rsquo;s job.</p>
+            <p class="panel-body">This email is something different. It is the baker&rsquo;s chance to confirm the order details, make sure nothing has changed since the inquiry, and open the door for any last questions before she starts baking. <strong>Zapier creates the draft. The baker personalises and sends.</strong></p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Square already told Sarah her payment went through. This email is not a receipt. It is a moment of genuine contact before the real work begins. It recaps the order so both sides are aligned, and it gives Sarah a natural opportunity to raise anything she might have been sitting on since the quote.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Square confirms the deposit. For the simplest version, the baker sends the confirmation note from a saved Gmail template. For a more connected setup, Zapier watches Square and creates a pre-filled Gmail draft automatically. Both work depending on order volume.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(3)">&larr; Back</button><button class="panel-next" onclick="goTo(5)">Next: Delivery reminder &rarr;</button></div>
+          </div>
+
+          <div>
+            <div class="email-client">
+              <div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div>
+              <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Saturday, 11:03 am</div></div>
+              <div class="inbox-subject-row"><div class="inbox-subject">You&rsquo;re confirmed &mdash; a few things before we get started.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div>
+              <div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+                <div class="cem-body">
+                  <p class="cem-subject">You&rsquo;re confirmed &mdash; a few things before we get started.</p>
+                  <p class="cem-p">Hi Sarah,</p>
+                  <p class="cem-p">Your deposit came through and August 9 is locked in. Before we get too far into planning, we just want to make sure we have everything right.</p>
+                  <div class="cem-confirmed">
+                    <div class="cem-confirmed-title">Order confirmed</div>
+                    <div class="cem-confirmed-detail">Sarah&rsquo;s 40th birthday cake &middot; August 9, 2026</div>
+                  </div>
+                  <div class="cem-box">
+                    <div class="cem-row"><span class="cem-lbl">Cake</span><span>3-tier, lemon lavender + vanilla bean</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Servings</span><span>30&ndash;35</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Design</span><span>Garden-style florals, no fondant</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Delivery</span><span>Main St. &amp; Elm Ave., Wolfville NS</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Deposit paid</span><span>$155.00</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Balance at delivery</span><span>$155.00</span></div>
+                  </div>
+                  <p class="cem-p">If anything looks off or you have questions about the design direction, just reply here. We want to make sure we&rsquo;re on the same page before we start.</p>
+                  <p class="cem-sign">&mdash; The Cake Co.</p>
+                </div>
+                <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step-panel" id="panel-5">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 5 of 5</p>
+            <h3 class="panel-heading">48 hours before delivery, Sarah hears from them again.</h3>
+            <p class="panel-body">This one fires on its own. MailerLite sends it automatically based on the delivery date captured in the original form. <strong>The baker does not have to remember.</strong></p>
+            <p class="panel-body">Sarah knows the delivery window, what she owes, and how to pay. No last-minute texts, no confusion, no chasing.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The day of a custom delivery has a lot of moving parts. A reminder two days out means Sarah is ready, the balance gets collected without awkwardness, and the baker can focus on the cake instead of the logistics. The customer feels looked after. Nothing falls through the cracks.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>MailerLite fires this automatically based on the delivery date field from the original Jotform submission. No human input required.</span>
+            </div>
+            <p class="closing-note">That is the full sequence. A few automated emails, a couple of human touchpoints, and a baker who can spend her Saturday morning actually baking. Want to build something like this for your business? <a href="lets-talk.html">Let&rsquo;s talk.</a></p>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(4)">&larr; Back</button></div>
+          </div>
+
+          <div>
+            <div class="email-client">
+              <div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div>
+              <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Thursday, 9:00 am</div></div>
+              <div class="inbox-subject-row"><div class="inbox-subject">Your cake is almost ready. A few things before Saturday.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div>
+              <div class="email-scroll"><div class="email-inner"><div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+                <div class="cem-body">
+                  <p class="cem-subject">Your cake is almost ready. A few things before Saturday.</p>
+                  <p class="cem-p">Hi Sarah,</p>
+                  <p class="cem-p">We&rsquo;re putting the finishing touches on your birthday cake and it&rsquo;s coming together beautifully. A couple of things before we deliver:</p>
+                  <div class="cem-box">
+                    <div class="cem-row"><span class="cem-lbl">Delivery date</span><span>Saturday, August 9</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Delivery window</span><span>10 am &ndash; 2 pm</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Delivery address</span><span>Main St. &amp; Elm Ave., Wolfville NS</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Balance due</span><span>$155.00</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Payment</span><span>Cash, e-transfer, or card</span></div>
+                  </div>
+                  <p class="cem-p">Please make sure someone is home during the delivery window. We&rsquo;ll send a quick message when we&rsquo;re on our way.</p>
+                  <p class="cem-p">Can&rsquo;t wait for you to see it. See you Saturday.</p>
+                  <p class="cem-sign">&mdash; The Cake Co.</p>
+                </div>
+                <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="pre-footer">
+  <div class="container">
+    <p style="font-family:var(--f-head);font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(19,36,71,0.65);max-width:580px;margin:0 auto;line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
+      <div class="footer-nav-col">
+        <h4>Studio</h4>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="the-proof.html">The Proof</a>
+        <a href="about.html">About</a>
+        <a href="the-doorstep.html">The Doorstep</a>
+        <a href="lets-talk.html">Let's Talk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door &nbsp;&middot;&nbsp; Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  var toggle=document.getElementById('nav-toggle'),navLinks=document.getElementById('nav-links');
+  toggle.addEventListener('click',function(){var open=navLinks.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+})();
+
+function goTo(i){
+  document.querySelectorAll('.step-btn').forEach(function(b,idx){
+    b.classList.toggle('active',idx===i);
+    b.setAttribute('aria-selected',idx===i?'true':'false');
+  });
+  document.querySelectorAll('.step-panel').forEach(function(p,idx){
+    p.classList.toggle('active',idx===i);
+  });
+  if(window.innerWidth<900){
+    document.querySelector('.step-nav').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+}
+</script>
+
+</body>
+</html>
