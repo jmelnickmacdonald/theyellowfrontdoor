@@ -19,16 +19,8 @@
   "name": "The Yellow Front Door",
   "url": "https://www.theyellowfrontdoor.ca/",
   "description": "A marketing studio helping small businesses connect their websites, words, print materials, email flows, templates, guides, and customer touchpoints.",
-  "areaServed": [
-    "Annapolis Valley",
-    "Nova Scotia",
-    "Canada"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "NS",
-    "addressCountry": "CA"
-  }
+  "areaServed": ["Annapolis Valley", "Nova Scotia", "Canada"],
+  "address": { "@type": "PostalAddress", "addressRegion": "NS", "addressCountry": "CA" }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,10 +56,8 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-section { padding: var(--section-gap) 0; }
 .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--slate); }
-.section-title { font-family: var(--f-head); font-size: clamp(30px, 4vw, 46px); font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 20px; }
-.section-intro { font-size: 16px; line-height: 1.8; color: var(--slate); max-width: 580px; margin-bottom: 48px; font-weight: 400; }
+.eyebrow-light { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); }
 .divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
 
 /* NAV */
@@ -108,45 +98,37 @@ body.is-night .scene-night { display: block; }
 /* BUTTONS */
 .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); cursor: pointer; transition: background 0.2s; text-decoration: none; }
 .btn-primary:hover { background: var(--slate); border-color: var(--slate); }
-.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--stone); cursor: pointer; transition: border-color 0.2s; text-decoration: none; }
-.btn-secondary:hover { border-color: var(--ink); }
 .btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
 .btn-yellow:hover { background: var(--brass); }
 
-/* PROCESS */
-.process-section { background: var(--navy); padding: clamp(32px, 4vw, 52px) 0; }
+/* TESTIMONIALS */
+.testimonials-section { background: var(--paper); padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--stone); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); }
+.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 10px; }
+.testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); font-style: normal; }
+
+/* DARK BAND — process + beyond + cta as one continuous section */
+.dark-band { background: var(--navy); padding: clamp(56px, 8vw, 96px) 0; }
+.dark-band-inner { display: flex; flex-direction: column; gap: clamp(56px, 8vw, 88px); }
+
 .process-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
-.process-title { font-family: var(--f-head); font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; color: #fff; margin-bottom: 28px; }
+.process-title { font-family: var(--f-head); font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; color: #fff; margin-bottom: 32px; }
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .process-number { font-family: var(--f-accent); font-size: 36px; color: var(--yellow); margin-bottom: 10px; line-height: 1; }
 .process-step-title { font-family: var(--f-head); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; letter-spacing: 0.02em; }
 .process-step-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
 
-/* TESTIMONIALS */
-.testimonials-section { background: var(--paper); padding: clamp(28px, 4vw, 44px) 0; border-top: 1px solid var(--stone); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 40px); }
-.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 10px; }
-.testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); font-style: normal; }
+.band-rule { border: none; border-top: 1px solid rgba(255,255,255,0.1); }
 
+.beyond-title { font-family: var(--f-head); font-size: clamp(22px, 3vw, 32px); font-weight: 400; color: #fff; margin-bottom: 14px; line-height: 1.2; }
+.beyond-body { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 640px; line-height: 1.8; margin-bottom: 28px; }
+.beyond-list { display: flex; flex-wrap: wrap; gap: 10px 12px; }
+.beyond-list span { display: inline-flex; align-items: center; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 650; letter-spacing: 0.08em; line-height: 1.2; text-transform: uppercase; padding: 10px 14px; }
 
-/* BEYOND THE WEBSITE */
-.beyond-section { background: var(--paper-mid); }
-.beyond-inner { max-width: 760px; }
-.beyond-list { display: flex; flex-wrap: wrap; gap: 10px 12px; margin-top: 28px; }
-.beyond-list span { display: inline-flex; align-items: center; background: rgba(255,255,255,0.68); border: 1px solid rgba(19,36,71,0.12); color: var(--ink); font-size: 12px; font-weight: 650; letter-spacing: 0.08em; line-height: 1.2; text-transform: uppercase; padding: 10px 14px; }
-
+.cta-block { text-align: center; }
 .cta-title { font-family: var(--f-head); font-size: clamp(22px, 3vw, 32px); font-weight: 400; color: #fff; margin-bottom: 12px; }
-.cta-copy { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 560px; margin: 0 auto 28px; line-height: 1.75; }
-.cta-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-
-.prefooter { background:var(--navy); border-top:1px solid rgba(255,255,255,0.08); padding:clamp(32px,4vw,52px) 0; text-align:center; }
-.prefooter-copy { font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.58); max-width:620px; margin:0 auto; line-height:1.85; }
-
-
-
-/* CTA */
-.cta-section { background: var(--navy); text-align: center; position: relative; overflow: hidden; }
-.cta-section::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px); pointer-events: none; }
+.cta-copy { font-size: 15px; color: rgba(255,255,255,0.55); max-width: 520px; margin: 0 auto 28px; line-height: 1.75; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* FOOTER */
 .footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
@@ -162,15 +144,9 @@ body.is-night .scene-night { display: block; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
 
-/* NIGHT MODE */
-body.is-night .nav-links a { color: rgba(255,252,244,0.75); }
-body.is-night .nav-links a:hover { color: var(--paper); }
-body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; }
-
 /* RESPONSIVE */
 @media (max-width: 960px) {
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 768px) {
   .process-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -181,11 +157,9 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
   .nav-toggle { display: flex; }
   .hero-actions { flex-direction: column; align-items: center; }
   .hero-actions a { width: 100%; justify-content: center; text-align: center; }
-  .footer-inner { text-align: center; }
-  .footer-logo-wrap img { margin: 0 auto; }
-  .footer-tagline { margin: 0 auto; }
-  .footer-list { justify-items: center; }
   .footer-bottom { flex-direction: column; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions a { width: 100%; justify-content: center; text-align: center; }
 }
 </style>
 </head>
@@ -263,69 +237,68 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
   </div>
 </section>
 
-<!-- HOW WE WORK -->
-<section class="process-section">
+<!-- DARK BAND: process + beyond + cta -->
+<div class="dark-band">
   <div class="container">
-    <p class="process-eyebrow">How it works</p>
-    <p class="process-title">Three steps, no surprises.</p>
-    <div class="process-grid">
-      <div class="process-step">
-        <p class="process-number">01</p>
-        <p class="process-step-title">We look.</p>
-        <p class="process-step-desc">Send us your website and a handful of touchpoints: your Google listing, social profiles, print pieces, email flows, or client materials. We take an honest look and tell you what is working and where to start.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-number">02</p>
-        <p class="process-step-title">We plan.</p>
-        <p class="process-step-desc">Together, we figure out what matters most and make a plan. You know exactly what you're getting, what it costs, and what happens next before we touch anything.</p>
-      </div>
-      <div class="process-step">
-        <p class="process-number">03</p>
-        <p class="process-step-title">We build.</p>
-        <p class="process-step-desc">We do the work: brand, copy, website, client touchpoints, systems, and handoff materials. If you want us to stay on for ongoing updates, integrations, or automations, we do that too.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="dark-band-inner">
 
-<!-- BEYOND THE WEBSITE -->
-<section class="beyond-section" aria-labelledby="beyond-title">
-  <div class="container">
-    <div class="beyond-inner">
-      <p class="eyebrow">Beyond the website</p>
-      <h2 class="section-title" id="beyond-title">Your website is not the only thing people meet.</h2>
-      <p class="section-intro">Your website may be the centre of the experience, but it is not the only thing people see, read, save, or respond to. We also create the materials around it so your business feels clear and connected wherever people meet you.</p>
-      <div class="beyond-list" aria-label="Examples of materials we create">
-        <span>Print pieces</span>
-        <span>Templates</span>
-        <span>Guides</span>
-        <span>Email flows</span>
-        <span>Client resources</span>
-        <span>Ongoing updates</span>
+      <!-- HOW WE WORK -->
+      <div>
+        <p class="process-eyebrow">How it works</p>
+        <p class="process-title">Three steps, no surprises.</p>
+        <div class="process-grid">
+          <div class="process-step">
+            <p class="process-number">01</p>
+            <p class="process-step-title">We look.</p>
+            <p class="process-step-desc">Send us your website and a handful of touchpoints: your Google listing, social profiles, print pieces, email flows, or client materials. We take an honest look and tell you what is working and where to start.</p>
+          </div>
+          <div class="process-step">
+            <p class="process-number">02</p>
+            <p class="process-step-title">We plan.</p>
+            <p class="process-step-desc">Together, we figure out what matters most and make a plan. You know exactly what you're getting, what it costs, and what happens next before we touch anything.</p>
+          </div>
+          <div class="process-step">
+            <p class="process-number">03</p>
+            <p class="process-step-title">We build.</p>
+            <p class="process-step-desc">We do the work: brand, copy, website, client touchpoints, systems, and handoff materials. If you want us to stay on for ongoing updates, integrations, or automations, we do that too.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- CTA -->
-<section class="cta-section" aria-labelledby="scorecard-cta-title">
-  <div class="container">
-    <h2 class="cta-title" id="scorecard-cta-title">Not sure where things stand?</h2>
-    <p class="cta-copy">Take the Scorecard. Ten questions, two minutes, and a clearer picture of what people find before, during, and after they decide to reach out.</p>
-    <div class="cta-actions">
-      <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
-      <a href="lets-talk.html" class="btn-outline-light">Request a free Drive-By →</a>
-    </div>
-  </div>
-</section>
+      <hr class="band-rule">
 
-<!-- PRE-FOOTER -->
-<div class="prefooter">
-  <div class="container">
-    <p class="prefooter-copy">A marketing studio for small businesses shaping the experience people find before, during, and after they come through the door.</p>
+      <!-- BEYOND THE WEBSITE -->
+      <div aria-labelledby="beyond-title">
+        <p class="process-eyebrow">Beyond the website</p>
+        <h2 class="beyond-title" id="beyond-title">Your website is not the only thing people meet.</h2>
+        <p class="beyond-body">Your website may be the centre of the experience, but it is not the only thing people see, read, save, or respond to. We also create the materials around it so your business feels clear and connected wherever people meet you.</p>
+        <div class="beyond-list" aria-label="Examples of materials we create">
+          <span>Print pieces</span>
+          <span>Templates</span>
+          <span>Guides</span>
+          <span>Email flows</span>
+          <span>Client resources</span>
+          <span>Ongoing updates</span>
+        </div>
+      </div>
+
+      <hr class="band-rule">
+
+      <!-- CTA -->
+      <div class="cta-block" aria-labelledby="scorecard-cta-title">
+        <h2 class="cta-title" id="scorecard-cta-title">Not sure where things stand?</h2>
+        <p class="cta-copy">Take the Scorecard. Ten questions, two minutes, and a clearer picture of what people find before, during, and after they decide to reach out.</p>
+        <div class="cta-actions">
+          <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
+          <a href="lets-talk.html" class="btn-outline-light">Request a free Drive-By →</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logo-wrap">
@@ -349,7 +322,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
     </div>
   </div>
 </footer>
-  
+
 <script>
 (function () {
   function applyTimeOfDay() {
