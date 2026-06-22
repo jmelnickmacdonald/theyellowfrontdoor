@@ -41,7 +41,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .breadcrumb a{color:var(--slate);transition:color .2s;}.breadcrumb a:hover{color:var(--ink);}
 .breadcrumb span{margin:0 8px;color:var(--stone);}
 .page-header h1{font-family:var(--f-head);font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;}
-.page-header .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(24px,3vw,38px);font-weight:normal;color:var(--slate);line-height:1.3;margin-top:20px;margin-bottom:4px;letter-spacing:.04em;}
+.page-header .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(24px,3vw,38px);font-weight:normal;color:var(--slate);line-height:1.3;margin-top:20px;margin-bottom:4px;letter-spacing:0;}
 .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
 .meta-tag{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:5px 11px;}
 
@@ -50,6 +50,15 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .context-inner{max-width:640px;}
 .context-strip p{font-size:15px;line-height:1.9;color:var(--navy);margin-bottom:10px;}
 .context-strip p:last-child{margin-bottom:0;}
+
+/* BENEFIT CALLOUT */
+.benefit-callout{background:var(--navy);padding:clamp(32px,4vw,48px) 0;}
+.benefit-callout-inner{max-width:640px;}
+.benefit-eyebrow{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow);margin-bottom:20px;}
+.benefit-item{display:flex;gap:16px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.benefit-item:last-child{border-bottom:none;}
+.benefit-dot{width:4px;height:4px;background:var(--yellow);border-radius:50%;flex-shrink:0;margin-top:9px;}
+.benefit-text{font-size:15px;line-height:1.7;color:rgba(255,255,255,.8);font-weight:400;}
 
 /* STACK */
 .stack-section{padding:clamp(48px,6vw,72px) 0;border-bottom:1px solid var(--stone);}
@@ -61,9 +70,11 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .stack-item{background:var(--paper);padding:22px 24px;}
 .stack-role{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
 .stack-tool{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;}
-.stack-desc{font-size:12px;line-height:1.7;color:var(--slate);}
-.stack-note{font-size:12px;line-height:1.8;color:var(--slate);margin-top:20px;max-width:600px;}
-.stack-note strong{color:var(--ink);font-weight:600;}
+.stack-desc{font-size:13px;line-height:1.8;color:var(--slate);}
+.stack-note{margin-top:28px;max-width:680px;background:var(--paper-mid);border:1px solid var(--stone);border-left:5px solid var(--clay);padding:22px 26px;font-size:13px;line-height:1.85;color:var(--slate);}
+.stack-note strong{display:block;color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;}
+.stack-note p{margin-bottom:10px;}
+.stack-note p:last-child{margin-bottom:0;}
 .cost-line{margin-top:28px;padding:20px 24px;border:1px solid var(--stone);max-width:600px;}
 .cost-line p{font-size:14px;line-height:1.85;color:var(--ink);}
 
@@ -73,7 +84,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .section-heading-stepper{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
 .stepper-intro{font-size:14px;color:var(--slate);max-width:560px;line-height:1.8;padding-bottom:clamp(28px,4vw,44px);}
 .step-nav{display:flex;align-items:stretch;overflow-x:auto;border:1px solid #c4bdb0;border-top:none;}
-.step-btn{flex:1;min-width:130px;background:var(--paper);border:none;border-right:1px solid var(--stone);padding:14px 16px;text-align:left;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;gap:4px;position:relative;}
+.step-btn{flex:1;min-width:130px;background:var(--paper);border:none;border-right:1px solid var(--stone);padding:14px 16px;text-align:left;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;gap:4px;position:relative;font-family:var(--f-body);}
 .step-btn:last-child{border-right:none;}
 .step-btn:hover{background:#ede7dc;}
 .step-btn.active{background:var(--navy);}
@@ -167,6 +178,39 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .at-foot{background:#f9fafb;border-top:1px solid #e5e7eb;padding:8px 12px;font-size:10px;color:#9ca3af;font-family:var(--f-body);display:flex;justify-content:space-between;align-items:center;}
 .at-add{color:#6b7280;font-size:10px;}
 
+/* OPS DASHBOARD */
+.ops-dashboard-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #dfe7e7;box-shadow:0 18px 60px rgba(19,36,71,.13);}
+.ops-header{background:linear-gradient(135deg,var(--cc-dark),#244848);padding:20px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;}
+.ops-kicker{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cc-teal-border);margin-bottom:5px;}
+.ops-header h4{font-size:18px;color:#fff;font-weight:600;letter-spacing:-.01em;margin:0;}
+.ops-sync{font-size:10px;color:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 10px;white-space:nowrap;}
+.ops-stats{display:grid;grid-template-columns:repeat(4,1fr);background:#f8fbfb;border-bottom:1px solid #e5eeee;}
+.ops-stat{padding:16px 14px;border-right:1px solid #e5eeee;}
+.ops-stat:last-child{border-right:none;}
+.ops-stat-number{display:block;font-size:20px;font-weight:700;color:var(--cc-dark);line-height:1.1;}
+.ops-stat-label{display:block;margin-top:4px;font-size:10px;color:#6b8585;text-transform:uppercase;letter-spacing:.08em;font-weight:700;}
+.ops-main{display:grid;grid-template-columns:1.15fr .85fr;gap:0;min-height:280px;}
+.ops-list{border-right:1px solid #e5eeee;background:#fff;}
+.ops-list-head{display:flex;justify-content:space-between;padding:12px 16px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8aa0a0;border-bottom:1px solid #eef3f3;}
+.ops-row{width:100%;background:#fff;border:none;border-bottom:1px solid #eef3f3;padding:15px 16px;display:flex;justify-content:space-between;gap:14px;text-align:left;cursor:pointer;transition:background .18s,border-left .18s,padding-left .18s;font-family:var(--f-body);}
+.ops-row:hover{background:#f7fbfb;}
+.ops-row.active{background:var(--cc-teal-light);border-left:4px solid var(--cc-teal);padding-left:12px;}
+.ops-row strong{display:block;font-size:13px;color:#132447;margin-bottom:3px;}
+.ops-row span{display:block;font-size:11px;color:#6b8585;line-height:1.4;}
+.ops-pill{align-self:center;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 9px;white-space:nowrap;}
+.ops-pill.paid{background:#dcfce7;color:#15803d;}
+.ops-pill.unpaid{background:#fff4cc;color:#8a5a00;}
+.ops-pill.pending{background:#f3f4f6;color:#6b7280;}
+.ops-preview{background:#fbfdfd;padding:20px;}
+.ops-preview-label{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cc-teal);margin-bottom:8px;}
+.ops-preview h5{font-size:18px;color:var(--cc-dark);margin-bottom:14px;}
+.ops-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ops-preview-grid div{background:#fff;border:1px solid #e5eeee;border-radius:8px;padding:10px;}
+.ops-preview-grid span{display:block;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9aa;margin-bottom:3px;}
+.ops-preview-grid strong{display:block;font-size:12px;color:#233;font-weight:600;}
+.ops-note{margin-top:14px;font-size:12px;line-height:1.7;color:#5f7474;}
+@media(max-width:760px){.ops-stats{grid-template-columns:1fr 1fr;}.ops-stat:nth-child(2){border-right:none;}.ops-stat:nth-child(1),.ops-stat:nth-child(2){border-bottom:1px solid #e5eeee;}.ops-main{grid-template-columns:1fr;}.ops-list{border-right:none;border-bottom:1px solid #e5eeee;}}
+
 /* GOOGLE CALENDAR MOCK */
 .gcal-card{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
 .gcal-header{background:#fff;border-bottom:1px solid #e5e7eb;padding:10px 16px;display:flex;align-items:center;gap:10px;}
@@ -201,35 +245,75 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 /* DASHBOARD MODAL */
 .dashboard-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--yellow);padding:11px 20px;border:none;cursor:pointer;transition:background .2s;font-family:var(--f-body);}
 .dashboard-btn:hover{background:var(--brass);}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(19,36,71,.6);z-index:200;align-items:center;justify-content:center;padding:24px;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(19,36,71,.65);z-index:200;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.open{display:flex;}
-.modal-window{background:#fff;border-radius:12px;overflow:hidden;width:100%;max-width:860px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.25);}
-.modal-topbar{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
-.modal-topbar-title{font-size:13px;font-weight:600;color:var(--paper);font-family:var(--f-body);}
-.modal-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:20px;cursor:pointer;line-height:1;padding:4px 8px;font-family:var(--f-body);}
+.modal-window{background:#f3f4f6;border-radius:12px;overflow:hidden;width:100%;max-width:980px;height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.35);}
+.modal-topbar{background:#1a1a1a;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0;}
+.modal-topbar-left{display:flex;align-items:center;gap:10px;}
+.modal-at-logo{width:22px;height:22px;background:#FCB400;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1a1a1a;font-family:var(--f-body);flex-shrink:0;}
+.modal-topbar-title{font-size:13px;font-weight:600;color:#fff;font-family:var(--f-body);}
+.modal-topbar-sub{font-size:10px;color:rgba(255,255,255,.4);font-family:var(--f-body);}
+.modal-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:22px;cursor:pointer;line-height:1;padding:2px 8px;font-family:var(--f-body);}
 .modal-close:hover{color:#fff;}
-.modal-body{overflow-y:auto;padding:0;}
+.modal-tabs{background:#111;display:flex;gap:0;padding:0 20px;flex-shrink:0;}
+.modal-tab{font-size:11px;font-weight:500;color:rgba(255,255,255,.4);padding:9px 16px;border-bottom:2px solid transparent;cursor:default;font-family:var(--f-body);}
+.modal-tab.active{color:#fff;border-bottom-color:#FCB400;}
+.modal-body{overflow:hidden;display:flex;flex:1;min-height:0;}
+.modal-list{width:300px;flex-shrink:0;border-right:1px solid #e5e7eb;overflow-y:auto;background:#fff;}
+.modal-list-header{padding:10px 14px;border-bottom:1px solid #e5e7eb;background:#f9fafb;display:flex;align-items:center;justify-content:space-between;}
+.modal-list-title{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280;font-family:var(--f-body);}
+.modal-list-count{font-size:10px;color:#9ca3af;font-family:var(--f-body);}
+.modal-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background .12s;}
+.modal-row:hover{background:#f9fafb;}
+.modal-row.selected{background:#eff6ff;border-left:3px solid var(--cc-teal);padding-left:11px;}
+.modal-row-avatar{width:30px;height:30px;border-radius:50%;background:var(--cc-teal-light);border:1.5px solid var(--cc-teal-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--cc-teal);font-family:var(--f-body);flex-shrink:0;}
+.modal-row-name{font-size:12px;font-weight:600;color:#111827;font-family:var(--f-body);}
+.modal-row-sub{font-size:10px;color:#6b7280;font-family:var(--f-body);margin-top:1px;}
+.modal-row-badge{margin-left:auto;flex-shrink:0;}
+.modal-detail{flex:1;overflow-y:auto;padding:22px 24px;background:#f9fafb;}
+.modal-detail-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:#9ca3af;font-size:13px;font-family:var(--f-body);gap:8px;}
+.md-name{font-size:17px;font-weight:700;color:#111827;font-family:var(--f-body);margin-bottom:2px;}
+.md-sub{font-size:11px;color:#6b7280;font-family:var(--f-body);margin-bottom:18px;}
+.md-section{margin-bottom:18px;}
+.md-section-title{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9ca3af;margin-bottom:8px;font-family:var(--f-body);}
+.md-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.md-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.md-field{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:9px 12px;}
+.md-field-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin-bottom:3px;font-family:var(--f-body);}
+.md-field-value{font-size:12px;color:#111827;font-family:var(--f-body);line-height:1.5;}
+.md-field-value a{color:var(--cc-teal);}
+.md-history{background:#fff;border:1px solid #e5e7eb;border-radius:6px;overflow:hidden;}
+.md-history-row{display:grid;grid-template-columns:80px 1fr auto auto;align-items:center;gap:12px;padding:8px 12px;border-bottom:1px solid #f3f4f6;font-size:11px;font-family:var(--f-body);}
+.md-history-row:last-child{border-bottom:none;}
+.md-history-date{color:#374151;font-weight:600;}
+.md-history-service{color:#6b7280;}
+.md-notes-box{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:12px;font-size:12px;color:#374151;line-height:1.65;font-family:var(--f-body);}
 
-/* PRE FOOTER + FOOTER */
-.pre-footer{background:var(--stone);border-top:1px solid #c4bdb0;padding:clamp(32px,4vw,52px) 0;text-align:center;}
+/* PRE-FOOTER */
+.prefooter{background:var(--navy);padding:clamp(32px,4vw,52px) 0;text-align:center;}
+.prefooter-copy{font-family:var(--f-head);font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(255,255,255,.58);max-width:620px;margin:0 auto;line-height:1.85;}
+
+/* FOOTER */
 .footer{background:var(--paper);padding:48px 0 32px;border-top:1px solid var(--stone);}
-.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);text-align:center;}
-.footer-logo-wrap{margin-bottom:16px;}
-.footer-logo-wrap img{width:64px;height:64px;margin:0 auto;}
-.footer-tagline{font-size:13px;color:var(--slate);max-width:320px;margin:0 auto 28px;line-height:1.7;}
-.footer-divider{border:none;border-top:1px solid var(--stone);margin:0 0 24px;}
-.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin-bottom:28px;}
-.footer-nav a{font-size:13px;color:var(--slate);transition:color .2s;}
-.footer-nav a:hover{color:var(--ink);}
-.footer-bottom{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+.footer-grid{display:grid;grid-template-columns:minmax(220px,1.4fr) 1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start;margin-bottom:34px;}
+.footer-logo-wrap{margin-bottom:14px;}
+.footer-logo-wrap img{width:76px;height:76px;margin:0;}
+.footer-tagline{font-size:13px;color:var(--slate);max-width:360px;margin:0;line-height:1.75;}
+.footer-heading{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
+.footer-list{display:grid;gap:10px;}
+.footer-list a{font-size:13px;color:var(--slate);transition:color .2s;}
+.footer-list a:hover{color:var(--ink);}
+.footer-bottom{border-top:1px solid var(--stone);padding-top:22px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
 .footer-copy{font-size:11px;color:var(--slate);letter-spacing:.05em;}
 .footer-dot-sm{width:6px;height:6px;background:var(--yellow);border-radius:50%;flex-shrink:0;}
 
 @media(max-width:1000px){.panel-layout{grid-template-columns:1fr;}.panel-context{max-width:100%;}}
+@media(max-width:960px){.footer-grid{grid-template-columns:1fr;gap:28px;}}
 @media(max-width:760px){.stack-grid,.stack-grid-bottom{grid-template-columns:1fr 1fr;}}
 @media(max-width:640px){
   .nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;border-bottom:1px solid rgba(255,255,255,.08);gap:20px;z-index:99;}
-  .nav-toggle{display:flex;}.footer-bottom{flex-direction:column;text-align:center;}
+  .nav-toggle{display:flex;}.footer-grid{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;text-align:center;}
   .stack-grid,.stack-grid-bottom{grid-template-columns:1fr;}.step-btn{min-width:110px;}
 }
 </style>
@@ -273,7 +357,20 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
   <div class="container">
     <div class="context-inner">
       <p>Kim runs a small residential cleaning company with one employee. Her employee Dani handles the bookings in Google Calendar. Kim invoices through Square after each job. Client emails go out when Kim gets around to them. Payment status lives in her head, and whether a client is new or has been with them for two years is something she has to look up every time.</p>
-      <p>None of those tools were the problem. They just had no idea the others existed. This is what we built to connect them.</p>
+      <p>The tools were already doing their jobs. The business just needed a better way for information to move between them.</p>
+      <p>This is the kind of system we can help build: practical, affordable, and designed around the way the business already works.</p>
+    </div>
+  </div>
+</div>
+
+<div class="benefit-callout">
+  <div class="container">
+    <div class="benefit-callout-inner">
+      <p class="benefit-eyebrow">What changed</p>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Kim can see the whole week at a glance without chasing updates from Dani.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Clients get booking confirmations and day-before reminders without anyone writing them manually.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Payment status flows from Square into one dashboard. Paid and unpaid jobs are easy to spot.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">The business kept the tools that were already working. The information just moves between them now.</p></div>
     </div>
   </div>
 </div>
@@ -282,39 +379,43 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
   <div class="container">
     <p class="section-label">The stack</p>
     <h2 class="section-heading">five tools, one system.</h2>
-    <p class="body-text">Nothing here replaced what Kim and Dani were already using. The goal was to connect the tools they had so Kim could see the whole picture without texting her employee to find out what was on the schedule.</p>
+    <p class="body-text">Nothing here replaced the tools already in use. The goal was to connect what was working so Kim could see the whole picture without pulling up three apps and a text thread to answer a basic question about the week.</p>
     <div class="stack-grid">
       <div class="stack-item">
         <p class="stack-role">Scheduling</p>
         <p class="stack-tool">Google Calendar</p>
-        <p class="stack-desc">Dani keeps booking jobs here exactly as before. No new app to learn, no login to share. Calendar stays Dani&rsquo;s tool. Zapier just watches it.</p>
+        <p class="stack-desc">Dani keeps booking jobs here the same way she always has. No new app to learn, no login to share. The calendar stays Dani&rsquo;s tool. Zapier just watches it.</p>
       </div>
       <div class="stack-item">
         <p class="stack-role">Connection layer</p>
         <p class="stack-tool">Zapier</p>
-        <p class="stack-desc">Watches Google Calendar for new and upcoming appointments. When something changes, Zapier updates Airtable, fires the client emails, and listens for Square payment confirmations. One layer connecting everything else.</p>
+        <p class="stack-desc">When a new event lands in Google Calendar, Zapier picks it up and does three things: updates Airtable, fires the client confirmation through MailerLite, and watches Square for payment. One layer connecting everything else.</p>
       </div>
       <div class="stack-item">
         <p class="stack-role">Owner dashboard</p>
         <p class="stack-tool">Airtable</p>
-        <p class="stack-desc">Kim&rsquo;s view of the whole business. Every client, every job, every payment status in one place. New bookings appear automatically. When Square confirms a payment, the record updates. Kim stops texting Dani to find out what&rsquo;s on for Thursday.</p>
+        <p class="stack-desc">Every client, every job, every payment status in one place. New bookings appear automatically. When Square confirms a payment, the record updates. Kim stops texting Dani to find out what&rsquo;s on for Thursday.</p>
       </div>
     </div>
     <div class="stack-grid-bottom">
       <div class="stack-item">
         <p class="stack-role">Invoicing and payment</p>
         <p class="stack-tool">Square</p>
-        <p class="stack-desc">Kim still sends invoices from Square after every job, on her phone, exactly the way she always has. Square was not broken. Zapier just listens for the payment confirmation and logs it back to Airtable. The dashboard updates without Kim doing anything extra.</p>
+        <p class="stack-desc">Kim still sends invoices from Square after every job, on her phone, the way she always has. Square was not broken. Zapier just listens for the payment confirmation and logs it back to Airtable, so the dashboard updates without Kim doing anything extra.</p>
       </div>
       <div class="stack-item">
         <p class="stack-role">Client emails</p>
         <p class="stack-tool">MailerLite</p>
-        <p class="stack-desc">Booking confirmations and appointment reminders go out automatically, triggered by Zapier when a new job lands in Google Calendar. Post-clean follow-ups and rebooking nudges fire on a schedule based on the job date. Kim&rsquo;s name is on every email. She is not writing any of them.</p>
+        <p class="stack-desc">Booking confirmations and day-before reminders go out automatically when a job lands in Google Calendar. Post-clean follow-ups and rebooking nudges fire on a schedule based on the job date. Kim&rsquo;s name is on every one. She is not writing any of them.</p>
       </div>
     </div>
-    <p class="stack-note"><strong>A note on Square:</strong> some consolidation projects try to replace existing tools with an all-in-one platform. That usually means retraining staff and migrating data for marginal gain. Square handles invoicing well and Kim already knows how to use it. The better move was letting Zapier listen rather than asking Kim to change how she bills.</p>
+    <div class="stack-note">
+      <strong>A note on Square</strong>
+      <p>Some systems try to replace existing tools with an all-in-one platform even when the current tool is doing its job fine. That usually means retraining staff and moving data around for not much practical gain.</p>
+      <p>Square handles invoicing well and Kim already knows how to use it. The better move was to leave Square in place and let Zapier listen for payment updates quietly in the background.</p>
+    </div>
     <div class="cost-line">
-      <p>The tools in this stack are either free or cost somewhere around a tank of gas a month combined, depending on what the business already has. The time it saves is harder to put a number on, but Kim knows exactly what it cost her when she spent a Tuesday afternoon cross-referencing her calendar, her Square history, and a text thread to figure out whether a client had paid. That kind of afternoon does not have to happen twice.</p>
+      <p>The tools in this stack are either free or cost somewhere around a tank of gas a month combined, depending on what the business already has. The time saved is harder to put a number on, but Kim knows exactly what it cost her when she spent a Tuesday afternoon cross-referencing her calendar, her Square history, and a text thread to figure out whether a client had paid. That afternoon does not have to happen again.</p>
     </div>
   </div>
 </section>
@@ -330,27 +431,13 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
   <div style="background:var(--stone);">
     <div class="container">
       <div class="step-nav" role="tablist">
-        <button class="step-btn active" onclick="goTo(0)" role="tab">
-          <span class="step-num">Step 0</span><span class="step-title">Job booked</span><span class="step-timing">Dani adds it</span>
-        </button>
-        <button class="step-btn" onclick="goTo(1)" role="tab">
-          <span class="step-num">Step 1</span><span class="step-title">Client confirmed</span><span class="step-timing">Instant</span><span class="step-type">Automatic</span>
-        </button>
-        <button class="step-btn" onclick="goTo(2)" role="tab">
-          <span class="step-num">Step 2</span><span class="step-title">Kim&rsquo;s dashboard</span><span class="step-timing">Instant</span><span class="step-type">Automatic</span>
-        </button>
-        <button class="step-btn" onclick="goTo(3)" role="tab">
-          <span class="step-num">Step 3</span><span class="step-title">Day-before reminder</span><span class="step-timing">24 hrs out</span><span class="step-type">Automatic</span>
-        </button>
-        <button class="step-btn" onclick="goTo(4)" role="tab">
-          <span class="step-num">Step 4</span><span class="step-title">Invoice sent</span><span class="step-timing">Kim sends</span><span class="step-type">Kim&rsquo;s action</span>
-        </button>
-        <button class="step-btn" onclick="goTo(5)" role="tab">
-          <span class="step-num">Step 5</span><span class="step-title">Payment logged</span><span class="step-timing">On payment</span><span class="step-type">Automatic</span>
-        </button>
-        <button class="step-btn" onclick="goTo(6)" role="tab">
-          <span class="step-num">Step 6</span><span class="step-title">Rebooking nudge</span><span class="step-timing">3 weeks out</span><span class="step-type">Automatic</span>
-        </button>
+        <button class="step-btn active" onclick="goTo(0)" role="tab"><span class="step-num">Step 0</span><span class="step-title">Job booked</span><span class="step-timing">Dani adds it</span></button>
+        <button class="step-btn" onclick="goTo(1)" role="tab"><span class="step-num">Step 1</span><span class="step-title">Client confirmed</span><span class="step-timing">Instant</span><span class="step-type">Automatic</span></button>
+        <button class="step-btn" onclick="goTo(2)" role="tab"><span class="step-num">Step 2</span><span class="step-title">Kim&rsquo;s dashboard</span><span class="step-timing">Instant</span><span class="step-type">Automatic</span></button>
+        <button class="step-btn" onclick="goTo(3)" role="tab"><span class="step-num">Step 3</span><span class="step-title">Day-before reminder</span><span class="step-timing">24 hrs out</span><span class="step-type">Automatic</span></button>
+        <button class="step-btn" onclick="goTo(4)" role="tab"><span class="step-num">Step 4</span><span class="step-title">Invoice sent</span><span class="step-timing">Kim sends</span><span class="step-type">Kim&rsquo;s action</span></button>
+        <button class="step-btn" onclick="goTo(5)" role="tab"><span class="step-num">Step 5</span><span class="step-title">Payment logged</span><span class="step-timing">On payment</span><span class="step-type">Automatic</span></button>
+        <button class="step-btn" onclick="goTo(6)" role="tab"><span class="step-num">Step 6</span><span class="step-title">Rebooking nudge</span><span class="step-timing">3 weeks out</span><span class="step-type">Automatic</span></button>
       </div>
     </div>
   </div>
@@ -379,21 +466,12 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
           <div>
             <div class="gcal-card">
               <div class="gcal-header">
-                <div class="gcal-logo">
-                  <div class="gcal-icon">31</div>
-                  <span class="gcal-title">Google Calendar &mdash; The Clean Co.</span>
-                </div>
+                <div class="gcal-logo"><div class="gcal-icon">31</div><span class="gcal-title">Google Calendar &mdash; The Clean Co.</span></div>
                 <span class="gcal-month">July 2026</span>
               </div>
               <div class="gcal-body">
-                <div class="gcal-employee-badge">
-                  <span style="width:8px;height:8px;background:#15803d;border-radius:50%;display:inline-block;"></span>
-                  Dani&rsquo;s calendar &mdash; shared with Kim (view only)
-                </div>
-                <div class="gcal-week">
-                  <div class="gcal-day-head">SUN</div><div class="gcal-day-head">MON</div><div class="gcal-day-head">TUE</div>
-                  <div class="gcal-day-head">WED</div><div class="gcal-day-head">THU</div><div class="gcal-day-head">FRI</div><div class="gcal-day-head">SAT</div>
-                </div>
+                <div class="gcal-employee-badge"><span style="width:8px;height:8px;background:#15803d;border-radius:50%;display:inline-block;"></span>Dani&rsquo;s calendar &mdash; shared with Kim (view only)</div>
+                <div class="gcal-week"><div class="gcal-day-head">SUN</div><div class="gcal-day-head">MON</div><div class="gcal-day-head">TUE</div><div class="gcal-day-head">WED</div><div class="gcal-day-head">THU</div><div class="gcal-day-head">FRI</div><div class="gcal-day-head">SAT</div></div>
                 <div class="gcal-days">
                   <div class="gcal-day"><span class="gcal-day-num">6</span></div>
                   <div class="gcal-day"><span class="gcal-day-num">7</span><div class="gcal-event teal">Chen &mdash; 9am</div></div>
@@ -431,11 +509,11 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
           <div class="panel-context">
             <p class="panel-label">Step 1 of 6</p>
             <h3 class="panel-heading">Lauren gets a confirmation before Dani closes the tab.</h3>
-            <p class="panel-body">Within minutes of Dani adding the job to Google Calendar, Lauren has a confirmation email. Her date, her address, the time, who to expect. <strong>Kim did not write this.</strong></p>
+            <p class="panel-body">Within minutes of Dani adding the job, Lauren has a confirmation in her inbox. Her date, her address, the time, who to expect. <strong>Kim did not write this.</strong></p>
             <p class="panel-body">The email also notes that this is a first clean and lets Lauren know it may run a little longer. That detail comes from a field Dani checks when she books a new client.</p>
             <div class="why-box">
               <p class="why-label">Why this matters</p>
-              <p class="why-text">Before this system, Kim sent confirmation emails when she got around to it, which was not always the same day. Clients booked over the phone and then had nothing in writing. Now the confirmation goes out on its own and it reads like Kim sat down and typed it.</p>
+              <p class="why-text">Before this system, Kim sent confirmation emails when she got around to it, which was not always the same day. Clients booked over the phone and then had nothing in writing. Now the confirmation goes out on its own and reads like Kim sat down and typed it.</p>
             </div>
             <div class="trigger-line">
               <span class="trigger-label">Trigger</span>
@@ -457,9 +535,9 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
                   <div class="cem-box">
                     <div class="cem-row"><span class="cem-lbl">Date</span><span>Monday, July 14</span></div>
                     <div class="cem-row"><span class="cem-lbl">Time</span><span>9:00 am &ndash; 11:30 am (approx.)</span></div>
-                    <div class="cem-row"><span class="cem-lbl">Address</span><span>47 Birchwood Cres., Wolfville NS</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Address</span><span>123 Pretend Street, Wolfville NS</span></div>
                     <div class="cem-row"><span class="cem-lbl">Your cleaner</span><span>Dani</span></div>
-                    <div class="cem-row"><span class="cem-lbl">Service</span><span>Standard clean &mdash; bi-weekly</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Service</span><span>Standard clean - bi-weekly</span></div>
                   </div>
                   <p class="cem-p">Since this is your first clean with us, it may run a little longer than usual. No extra charge &mdash; just making sure everything is done right from the start.</p>
                   <p class="cem-p">You don&rsquo;t need to be home, but please make sure we have access. If anything changes before Monday, just reply here.</p>
@@ -477,48 +555,49 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
         <div class="panel-layout">
           <div class="panel-context">
             <p class="panel-label">Step 2 of 6</p>
-            <h3 class="panel-heading">Kim&rsquo;s dashboard updates. No one told it to.</h3>
-            <p class="panel-body">At the same moment the confirmation goes to Lauren, Zapier creates a new row in Kim&rsquo;s Airtable base. Client name, address, job date, service type, payment status. It shows up tagged as a new client, unpaid.</p>
-            <p class="panel-body">This is the view Kim checks instead of texting Dani. Every client, every job, every payment status. When Square confirms a payment, the row updates on its own. The dashboard is always current.</p>
+            <h3 class="panel-heading">The owner dashboard gives the business one clear view.</h3>
+            <p class="panel-body">At the same moment the confirmation goes to Lauren, Zapier creates a new record in Airtable. Client details, job date, service type, visit history, and payment status all land in one place.</p>
+            <p class="panel-body">Instead of opening the calendar, checking Square, and texting for updates, Kim opens one dashboard and sees what needs attention.</p>
             <div class="why-box">
               <p class="why-label">Why this matters</p>
-              <p class="why-text">Kim knew roughly what was booked and roughly who had paid, but &ldquo;roughly&rdquo; meant chasing down information that should have been in one place. The dashboard is not a reporting tool. It is her operational view. Glance at it Monday morning and know exactly where the week stands.</p>
+              <p class="why-text">The dashboard is not just a report. It is a calm operational view of the week: what is booked, what is paid, what still needs attention, and which clients are coming up next.</p>
             </div>
             <div class="trigger-line">
               <span class="trigger-label">Trigger</span>
-              <span>Same Zapier trigger that fires the client email also creates the Airtable record. One calendar event, two actions. Kim does nothing.</span>
+              <span>The same Zapier trigger that sends the client email also creates the Airtable record. One calendar event, two quiet actions in the background.</span>
             </div>
-            <button class="dashboard-btn" onclick="openDashboard()">&#9654; Open Kim&rsquo;s dashboard</button>
             <div class="panel-nav" style="margin-top:16px;"><button class="panel-prev" onclick="goTo(1)">&larr; Back</button><button class="panel-next" onclick="goTo(3)">Next: Day-before reminder &rarr;</button></div>
           </div>
           <div>
-            <div class="airtable-card">
-              <div class="airtable-header">
-                <div class="at-logo">A</div>
-                <span class="at-title">The Clean Co. &mdash; Client Jobs</span>
-                <span class="at-subtitle">Last synced 2 min ago</span>
+            <div class="ops-dashboard-card">
+              <div class="ops-header"><div><p class="ops-kicker">Owner dashboard</p><h4>The Clean Co. Client Hub</h4></div><span class="ops-sync">Synced 2 min ago</span></div>
+              <div class="ops-stats">
+                <div class="ops-stat"><span class="ops-stat-number">6</span><span class="ops-stat-label">Jobs this week</span></div>
+                <div class="ops-stat"><span class="ops-stat-number">2</span><span class="ops-stat-label">Unpaid</span></div>
+                <div class="ops-stat"><span class="ops-stat-number">1</span><span class="ops-stat-label">New client</span></div>
+                <div class="ops-stat"><span class="ops-stat-number">$420</span><span class="ops-stat-label">Expected</span></div>
               </div>
-              <div class="airtable-tabs">
-                <div class="at-tab active">All Jobs</div>
-                <div class="at-tab">This Week</div>
-                <div class="at-tab">Unpaid</div>
-                <div class="at-tab">New Clients</div>
+              <div class="ops-main">
+                <div class="ops-list">
+                  <div class="ops-list-head"><span>Upcoming jobs</span><span>Payment</span></div>
+                  <button class="ops-row active" onclick="openDashboard()"><div><strong>Lauren Arsenault</strong><span>Mon, Jul 14 &middot; 9:00am &middot; First clean</span></div><em class="ops-pill unpaid">Unpaid</em></button>
+                  <button class="ops-row" onclick="openDashboard()"><div><strong>Marcus Chen</strong><span>Mon, Jul 14 &middot; 1:00pm &middot; Recurring</span></div><em class="ops-pill paid">Paid</em></button>
+                  <button class="ops-row" onclick="openDashboard()"><div><strong>Sandra Novak</strong><span>Wed, Jul 16 &middot; 10:00am &middot; Deep clean</span></div><em class="ops-pill unpaid">Unpaid</em></button>
+                  <button class="ops-row" onclick="openDashboard()"><div><strong>Tomas Bergmann</strong><span>Fri, Jul 18 &middot; 11:30am &middot; Recurring</span></div><em class="ops-pill pending">Pending</em></button>
+                </div>
+                <div class="ops-preview">
+                  <p class="ops-preview-label">Selected client</p>
+                  <h5>Lauren Arsenault</h5>
+                  <div class="ops-preview-grid">
+                    <div><span>Service</span><strong>Bi-weekly clean</strong></div>
+                    <div><span>Cleaner</span><strong>Dani</strong></div>
+                    <div><span>Status</span><strong>New client</strong></div>
+                    <div><span>Payment</span><strong>Awaiting</strong></div>
+                  </div>
+                  <p class="ops-note">Confirmation sent. Reminder scheduled. Payment will update automatically once Square confirms.</p>
+                  <button class="dashboard-btn" onclick="openDashboard()">Open full client view</button>
+                </div>
               </div>
-              <div class="airtable-body">
-                <table class="at-table">
-                  <thead><tr><th>Client</th><th>Date</th><th>Service</th><th>Type</th><th>Payment</th></tr></thead>
-                  <tbody>
-                    <tr class="at-highlight">
-                      <td><strong>Arsenault, Lauren</strong></td><td>Jul 14</td><td>Standard &mdash; bi-weekly</td><td><span class="at-new">New client</span></td><td><span class="at-unpaid">Unpaid</span></td>
-                    </tr>
-                    <tr><td>Chen, Marcus</td><td>Jul 14</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td></tr>
-                    <tr><td>Novak, Sandra</td><td>Jul 16</td><td>Deep clean</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-unpaid">Unpaid</span></td></tr>
-                    <tr><td>Bergmann, T.</td><td>Jul 11</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td></tr>
-                    <tr><td>Arsenault, Lauren</td><td>Jul 28</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-pending">Pending</span></td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="at-foot"><span>5 records &middot; Filtered: All</span><span class="at-add">+ Add record</span></div>
             </div>
           </div>
         </div>
@@ -530,7 +609,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
           <div class="panel-context">
             <p class="panel-label">Step 3 of 6</p>
             <h3 class="panel-heading">The day before, Lauren gets a reminder. Kim didn&rsquo;t send it.</h3>
-            <p class="panel-body">Twenty-four hours before the job, MailerLite sends Lauren a reminder. Date, time, what to have ready, how to reach them if plans change. Short, useful, done.</p>
+            <p class="panel-body">Twenty-four hours before the job, MailerLite sends Lauren a reminder. Date, time, what to have ready, how to reach them if plans change. Short, useful, and done.</p>
             <p class="panel-body"><strong>Kim wrote this email once when setting up the system.</strong> It fires automatically before every appointment, for every client, without anyone touching anything.</p>
             <div class="why-box">
               <p class="why-label">Why this matters</p>
@@ -584,20 +663,17 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
             </div>
             <div class="trigger-line">
               <span class="trigger-label">Trigger</span>
-              <span>Kim sends the invoice from Square as usual. Zapier watches for a payment confirmation event from Square and holds until it fires.</span>
+              <span>Kim sends the invoice from Square as usual. Zapier watches for a payment confirmation event and holds until it fires.</span>
             </div>
             <div class="panel-nav"><button class="panel-prev" onclick="goTo(3)">&larr; Back</button><button class="panel-next" onclick="goTo(5)">Next: Payment logged &rarr;</button></div>
           </div>
           <div>
             <div class="internal-card">
-              <div class="internal-header">
-                <span style="font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);">Square invoice &mdash; sent by Kim</span>
-                <span class="internal-badge">Kim&rsquo;s action</span>
-              </div>
+              <div class="internal-header"><span style="font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);">Square invoice &mdash; sent by Kim</span><span class="internal-badge">Kim&rsquo;s action</span></div>
               <div class="internal-body">
                 <div class="internal-heading">Invoice #CC-2026-0714 &mdash; Lauren Arsenault</div>
                 <div class="internal-row"><span class="internal-lbl">Service date</span><span class="internal-val">Monday, July 14, 2026</span></div>
-                <div class="internal-row"><span class="internal-lbl">Service</span><span class="internal-val">Standard residential clean &mdash; first clean</span></div>
+                <div class="internal-row"><span class="internal-lbl">Service</span><span class="internal-val">Standard residential clean - first clean</span></div>
                 <div class="internal-row"><span class="internal-lbl">Duration</span><span class="internal-val">2.5 hrs</span></div>
                 <div class="internal-row"><span class="internal-lbl">Amount</span><span class="internal-val">$140.00</span></div>
                 <div class="internal-row"><span class="internal-lbl">Invoice sent to</span><span class="internal-val">lauren.arsenault@notarealemail.com</span></div>
@@ -618,7 +694,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
             <p class="panel-label">Step 5 of 6</p>
             <h3 class="panel-heading">Lauren pays. Airtable updates. Kim finds out when she checks in.</h3>
             <p class="panel-body">Lauren pays through the Square link. Square handles the receipt. That is Square&rsquo;s job.</p>
-            <p class="panel-body">Zapier catches the payment confirmation from Square and updates Lauren&rsquo;s Airtable record from Unpaid to Paid. <strong>Kim did not touch anything.</strong> Next time she opens the dashboard, the row is green.</p>
+            <p class="panel-body">Zapier catches the payment confirmation and updates Lauren&rsquo;s Airtable record from Unpaid to Paid. <strong>Kim did not touch anything.</strong> Next time she opens the dashboard, the row is green.</p>
             <div class="why-box">
               <p class="why-label">Why this matters</p>
               <p class="why-text">Kim used to end every week going through Square manually, checking who had paid, updating a note somewhere, following up with anyone who had not. Now the dashboard tells her. She follows up only when a row is still Unpaid after a few days.</p>
@@ -631,28 +707,17 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
           </div>
           <div>
             <div class="airtable-card">
-              <div class="airtable-header">
-                <div class="at-logo">A</div>
-                <span class="at-title">The Clean Co. &mdash; Client Jobs</span>
-                <span class="at-subtitle">Last synced just now</span>
-              </div>
-              <div class="airtable-tabs">
-                <div class="at-tab active">All Jobs</div>
-                <div class="at-tab">This Week</div>
-                <div class="at-tab">Unpaid</div>
-                <div class="at-tab">New Clients</div>
-              </div>
+              <div class="airtable-header"><div class="at-logo">A</div><span class="at-title">The Clean Co. &mdash; Client Jobs</span><span class="at-subtitle">Last synced just now</span></div>
+              <div class="airtable-tabs"><div class="at-tab active">All Jobs</div><div class="at-tab">This Week</div><div class="at-tab">Unpaid</div><div class="at-tab">New Clients</div></div>
               <div class="airtable-body">
                 <table class="at-table">
                   <thead><tr><th>Client</th><th>Date</th><th>Service</th><th>Type</th><th>Payment</th></tr></thead>
                   <tbody>
-                    <tr class="at-highlight">
-                      <td><strong>Arsenault, Lauren</strong></td><td>Jul 14</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid &#10003;</span></td>
-                    </tr>
-                    <tr><td>Chen, Marcus</td><td>Jul 14</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td></tr>
+                    <tr class="at-highlight"><td><strong>Arsenault, Lauren</strong></td><td>Jul 14</td><td>Standard - bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid &#10003;</span></td></tr>
+                    <tr><td>Chen, Marcus</td><td>Jul 14</td><td>Standard - bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td></tr>
                     <tr><td>Novak, Sandra</td><td>Jul 16</td><td>Deep clean</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-unpaid">Unpaid</span></td></tr>
-                    <tr><td>Bergmann, T.</td><td>Jul 11</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td></tr>
-                    <tr><td>Arsenault, Lauren</td><td>Jul 28</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-pending">Pending</span></td></tr>
+                    <tr><td>Bergmann, T.</td><td>Jul 11</td><td>Standard - bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td></tr>
+                    <tr><td>Arsenault, Lauren</td><td>Jul 28</td><td>Standard - bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-pending">Pending</span></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -668,17 +733,17 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
           <div class="panel-context">
             <p class="panel-label">Step 6 of 6</p>
             <h3 class="panel-heading">Three weeks later, Lauren hears from them again.</h3>
-            <p class="panel-body">For recurring clients, the next appointment is already in Google Calendar and the whole sequence repeats on its own. For one-time clients, MailerLite sends a short note three weeks after the job date.</p>
+            <p class="panel-body">For recurring clients, the next appointment is already in Google Calendar and the whole sequence repeats. For one-time clients, MailerLite sends a short note three weeks after the job date.</p>
             <p class="panel-body">It is not a sales pitch. It is a personal check-in that asks how things went and whether they would like to get on the schedule. <strong>Kim wrote it once. It sends itself.</strong></p>
             <div class="why-box">
               <p class="why-label">Why this matters</p>
-              <p class="why-text">Most small cleaning companies lose one-time clients not because anything went wrong, but because nobody followed up. Life gets busy on both sides. The email does the follow-up so Kim does not have to scroll back through Square trying to remember who to call.</p>
+              <p class="why-text">Most small cleaning companies lose one-time clients not because anything went wrong, but because nobody followed up. Life gets busy on both sides. The email handles the follow-up so Kim does not have to scroll back through Square trying to remember who to call.</p>
             </div>
             <div class="trigger-line">
               <span class="trigger-label">Trigger</span>
               <span>MailerLite fires 21 days after the job date for any client flagged as a one-time booking in Airtable. Recurring clients skip this step because their next appointment is already booked.</span>
             </div>
-            <p class="closing-note">That is the full system. Five tools that were already in the room, connected so they work together. Kim checks one dashboard instead of three apps and a text thread. Want to build something like this for your business? <a href="lets-talk.html">Let&rsquo;s talk.</a></p>
+            <p class="closing-note">That is the full system. Five tools that were already in the room, connected so they work together. Kim checks one dashboard instead of three apps and a text thread. Want to build something like this? <a href="lets-talk.html">Let&rsquo;s talk.</a></p>
             <div class="panel-nav"><button class="panel-prev" onclick="goTo(5)">&larr; Back</button></div>
           </div>
           <div>
@@ -711,62 +776,60 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 <div class="modal-overlay" id="dashboardModal" onclick="closeDashboardOutside(event)">
   <div class="modal-window">
     <div class="modal-topbar">
-      <span class="modal-topbar-title">Kim&rsquo;s Airtable Dashboard &mdash; The Clean Co.</span>
+      <div class="modal-topbar-left"><div class="modal-at-logo">A</div><div><div class="modal-topbar-title">The Clean Co. &mdash; Client Hub</div><div class="modal-topbar-sub">Last synced just now &middot; 7 records</div></div></div>
       <button class="modal-close" onclick="closeDashboard()">&times;</button>
     </div>
+    <div class="modal-tabs"><div class="modal-tab active">All Jobs</div><div class="modal-tab">This Week</div><div class="modal-tab">Unpaid</div><div class="modal-tab">New Clients</div></div>
     <div class="modal-body">
-      <div class="airtable-card" style="border-radius:0;box-shadow:none;border:none;">
-        <div class="airtable-header">
-          <div class="at-logo">A</div>
-          <span class="at-title">The Clean Co. &mdash; Client Jobs</span>
-          <span class="at-subtitle">Last synced just now</span>
-        </div>
-        <div class="airtable-tabs">
-          <div class="at-tab active">All Jobs</div>
-          <div class="at-tab">This Week</div>
-          <div class="at-tab">Unpaid</div>
-          <div class="at-tab">New Clients</div>
-        </div>
-        <div class="airtable-body">
-          <table class="at-table">
-            <thead><tr><th>Client</th><th>Date</th><th>Address</th><th>Service</th><th>Type</th><th>Payment</th><th>Notes</th></tr></thead>
-            <tbody>
-              <tr class="at-highlight"><td><strong>Arsenault, Lauren</strong></td><td>Jul 14</td><td>47 Birchwood Cres., Wolfville</td><td>Standard &mdash; bi-weekly</td><td><span class="at-new">New client</span></td><td><span class="at-unpaid">Unpaid</span></td><td style="color:#9ca3af;font-size:10px;">First clean</td></tr>
-              <tr><td>Chen, Marcus</td><td>Jul 14</td><td>12 Elm St., Kentville</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td><td style="color:#9ca3af;font-size:10px;"></td></tr>
-              <tr><td>Novak, Sandra</td><td>Jul 16</td><td>88 Valley Rd., Wolfville</td><td>Deep clean</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-unpaid">Unpaid</span></td><td style="color:#9ca3af;font-size:10px;">Has a dog</td></tr>
-              <tr><td>Bergmann, T.</td><td>Jul 11</td><td>3 Maple Ave., New Minas</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-paid">Paid</span></td><td style="color:#9ca3af;font-size:10px;"></td></tr>
-              <tr><td>Arsenault, Lauren</td><td>Jul 28</td><td>47 Birchwood Cres., Wolfville</td><td>Standard &mdash; bi-weekly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-pending">Pending</span></td><td style="color:#9ca3af;font-size:10px;"></td></tr>
-              <tr><td>Doucette, R.</td><td>Aug 4</td><td>22 Shore Dr., Hantsport</td><td>Standard &mdash; monthly</td><td><span class="at-recurring">Recurring</span></td><td><span class="at-pending">Pending</span></td><td style="color:#9ca3af;font-size:10px;">Gate code 4491</td></tr>
-              <tr><td>MacPherson, T.</td><td>Aug 5</td><td>9 Orchard Lane, Wolfville</td><td>Deep clean</td><td><span class="at-new">New client</span></td><td><span class="at-pending">Pending</span></td><td style="color:#9ca3af;font-size:10px;">Moving out clean</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="at-foot"><span>7 records &middot; Filtered: All &middot; July&ndash;August 2026</span><span class="at-add">+ Add record</span></div>
+      <div class="modal-list">
+        <div class="modal-list-header"><span class="modal-list-title">Clients</span><span class="modal-list-count">7 records</span></div>
+        <div class="modal-row selected" onclick="showClient(0)"><div class="modal-row-avatar">LA</div><div><div class="modal-row-name">Lauren Arsenault</div><div class="modal-row-sub">Jul 14 &middot; Standard bi-weekly</div></div><div class="modal-row-badge"><span class="at-new">New</span></div></div>
+        <div class="modal-row" onclick="showClient(1)"><div class="modal-row-avatar">MC</div><div><div class="modal-row-name">Marcus Chen</div><div class="modal-row-sub">Jul 14 &middot; Standard bi-weekly</div></div><div class="modal-row-badge"><span class="at-paid">Paid</span></div></div>
+        <div class="modal-row" onclick="showClient(2)"><div class="modal-row-avatar">SN</div><div><div class="modal-row-name">Sandra Novak</div><div class="modal-row-sub">Jul 16 &middot; Deep clean</div></div><div class="modal-row-badge"><span class="at-unpaid">Unpaid</span></div></div>
+        <div class="modal-row" onclick="showClient(3)"><div class="modal-row-avatar">TB</div><div><div class="modal-row-name">Tomas Bergmann</div><div class="modal-row-sub">Jul 11 &middot; Standard bi-weekly</div></div><div class="modal-row-badge"><span class="at-paid">Paid</span></div></div>
+        <div class="modal-row" onclick="showClient(4)"><div class="modal-row-avatar">RD</div><div><div class="modal-row-name">Ren&eacute;e Doucette</div><div class="modal-row-sub">Aug 4 &middot; Standard monthly</div></div><div class="modal-row-badge"><span class="at-pending">Pending</span></div></div>
+        <div class="modal-row" onclick="showClient(5)"><div class="modal-row-avatar">TM</div><div><div class="modal-row-name">Trish MacPherson</div><div class="modal-row-sub">Aug 5 &middot; Deep clean</div></div><div class="modal-row-badge"><span class="at-new">New</span></div></div>
+        <div class="modal-row" onclick="showClient(6)"><div class="modal-row-avatar">PL</div><div><div class="modal-row-name">Pat LeBlanc</div><div class="modal-row-sub">Aug 8 &middot; Standard bi-weekly</div></div><div class="modal-row-badge"><span class="at-recurring">Recurring</span></div></div>
+      </div>
+      <div class="modal-detail" id="modalDetail">
+        <div class="modal-detail-empty" id="detailEmpty"><span style="font-size:28px;opacity:.3;">&#9635;</span>Select a client to see their details</div>
+        <div id="detailContent" style="display:none;"></div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="pre-footer">
+<div class="prefooter">
   <div class="container">
-    <p style="font-family:var(--f-head);font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(19,36,71,0.65);max-width:580px;margin:0 auto;line-height:1.85;">A marketing studio for small businesses who do good work and want the outside to reflect it.</p>
+    <p class="prefooter-copy">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
   </div>
 </div>
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-logo-wrap">
-      <img src="roundlogo.png" alt="The Yellow Front Door">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-wrap"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
+        <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+      </div>
+      <nav aria-label="Studio">
+        <p class="footer-heading">Studio</p>
+        <div class="footer-list">
+          <a href="what-we-do.html">What We Do</a>
+          <a href="the-proof.html">The Proof</a>
+          <a href="about.html">About</a>
+          <a href="the-doorstep.html">The Doorstep</a>
+        </div>
+      </nav>
+      <nav aria-label="Start here">
+        <p class="footer-heading">Start here</p>
+        <div class="footer-list">
+          <a href="lets-talk.html">Request a free Drive-By</a>
+          <a href="the-scorecard.html">Take the Scorecard</a>
+          <a href="lets-talk.html">Let&rsquo;s Talk</a>
+        </div>
+      </nav>
     </div>
-    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
-    <hr class="footer-divider">
-    <nav class="footer-nav">
-      <a href="what-we-do.html">What We Do</a>
-      <a href="the-proof.html">The Proof</a>
-      <a href="about.html">About</a>
-      <a href="the-doorstep.html">The Doorstep</a>
-      <a href="lets-talk.html">Let's Talk</a>
-    </nav>
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
       <div class="footer-dot-sm" aria-hidden="true"></div>
@@ -789,10 +852,29 @@ function goTo(i){
   document.querySelectorAll('.step-panel').forEach(function(p,idx){p.classList.toggle('active',idx===i);});
   if(window.innerWidth<900){document.querySelector('.step-nav').scrollIntoView({behavior:'smooth',block:'nearest'});}
 }
-function openDashboard(){document.getElementById('dashboardModal').classList.add('open');document.body.style.overflow='hidden';}
+function openDashboard(){document.getElementById('dashboardModal').classList.add('open');document.body.style.overflow='hidden';showClient(0);}
 function closeDashboard(){document.getElementById('dashboardModal').classList.remove('open');document.body.style.overflow='';}
 function closeDashboardOutside(e){if(e.target===document.getElementById('dashboardModal')){closeDashboard();}}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDashboard();}});
+
+var clients=[
+  {name:'Lauren Arsenault',initials:'LA',email:'lauren.arsenault@notarealemail.com',phone:'902-555-0112',address:'123 Pretend Street, Wolfville NS',since:'July 2026',frequency:'Bi-weekly',service:'Standard clean',type:'<span class="at-new">New client</span>',payment:'<span class="at-unpaid">Unpaid</span>',amount:'$140.00',notes:'First clean — may run a bit longer. Key in lockbox, code is 7823. Has a cat, no allergies noted.',history:[{date:'Jul 14, 2026',service:'Standard clean (first)',amount:'$140.00',status:'<span class="at-unpaid">Unpaid</span>'}]},
+  {name:'Marcus Chen',initials:'MC',email:'marcus.chen@notarealemail.com',phone:'902-555-0247',address:'456 Nowhere Avenue, Kentville NS',since:'January 2025',frequency:'Bi-weekly',service:'Standard clean',type:'<span class="at-recurring">Recurring</span>',payment:'<span class="at-paid">Paid</span>',amount:'$130.00',notes:'Has two kids, prefers afternoon slots. Does not want anything moved on the desk in the home office.',history:[{date:'Jul 14, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 30, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 16, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 2, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'}]},
+  {name:'Sandra Novak',initials:'SN',email:'s.novak@notarealemail.com',phone:'902-555-0389',address:'789 Fictional Lane, Wolfville NS',since:'March 2025',frequency:'Bi-weekly',service:'Deep clean (alternating)',type:'<span class="at-recurring">Recurring</span>',payment:'<span class="at-unpaid">Unpaid</span>',amount:'$210.00',notes:'Large golden retriever named Biscuit — not aggressive but will follow Dani everywhere. Deep clean every 4th visit. Prefers scent-free products.',history:[{date:'Jul 16, 2026',service:'Deep clean',amount:'$210.00',status:'<span class="at-unpaid">Unpaid</span>'},{date:'Jul 2, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 18, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 4, 2026',service:'Deep clean',amount:'$210.00',status:'<span class="at-paid">Paid</span>'}]},
+  {name:'Tomas Bergmann',initials:'TB',email:'tbergmann@notarealemail.com',phone:'902-555-0451',address:'22 Somewhere Street, New Minas NS',since:'October 2024',frequency:'Bi-weekly',service:'Standard clean',type:'<span class="at-recurring">Recurring</span>',payment:'<span class="at-paid">Paid</span>',amount:'$130.00',notes:'Retired, often home. Very particular about the bathroom — always check the grout. Tips in cash at the door.',history:[{date:'Jul 11, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 27, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 13, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'May 30, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'May 16, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'}]},
+  {name:'Ren\u00e9e Doucette',initials:'RD',email:'renee.d@notarealemail.com',phone:'902-555-0578',address:'100 Made Up Road, Hantsport NS',since:'April 2026',frequency:'Monthly',service:'Standard clean',type:'<span class="at-recurring">Recurring</span>',payment:'<span class="at-pending">Pending</span>',amount:'$130.00',notes:'Gate code is 4491. Park on the street, not the driveway. Pays by e-transfer within a day or two, very reliable.',history:[{date:'Aug 4, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-pending">Pending</span>'},{date:'Jul 7, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 9, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'}]},
+  {name:'Trish MacPherson',initials:'TM',email:'tmacpherson@notarealemail.com',phone:'902-555-0634',address:'55 Not A Real Place Drive, Wolfville NS',since:'August 2026',frequency:'One-time',service:'Moving-out deep clean',type:'<span class="at-new">New client</span>',payment:'<span class="at-pending">Pending</span>',amount:'$280.00',notes:'Moving out August 5. Needs the full unit done — oven, fridge, bathrooms, baseboards. Landlord inspection same afternoon. No pets, unit will be empty.',history:[{date:'Aug 5, 2026',service:'Moving-out deep clean',amount:'$280.00',status:'<span class="at-pending">Pending</span>'}]},
+  {name:'Pat LeBlanc',initials:'PL',email:'pat.leblanc@notarealemail.com',phone:'902-555-0719',address:'8 Completely Fake Crescent, Berwick NS',since:'February 2025',frequency:'Bi-weekly',service:'Standard clean',type:'<span class="at-recurring">Recurring</span>',payment:'<span class="at-pending">Pending</span>',amount:'$130.00',notes:'Pays by cheque, usually left on the counter. Two young kids — toys on the floor are normal. Dani knows the layout.',history:[{date:'Aug 8, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-pending">Pending</span>'},{date:'Jul 25, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jul 11, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'},{date:'Jun 27, 2026',service:'Standard clean',amount:'$130.00',status:'<span class="at-paid">Paid</span>'}]}
+];
+
+function showClient(i){
+  document.querySelectorAll('.modal-row').forEach(function(r,idx){r.classList.toggle('selected',idx===i);});
+  var c=clients[i];
+  var histRows=c.history.map(function(h){return '<div class="md-history-row"><span class="md-history-date">'+h.date+'</span><span class="md-history-service">'+h.service+'</span><span style="font-size:11px;font-weight:600;color:#111827;font-family:var(--f-body);">'+h.amount+'</span>'+h.status+'</div>';}).join('');
+  document.getElementById('detailEmpty').style.display='none';
+  document.getElementById('detailContent').style.display='block';
+  document.getElementById('detailContent').innerHTML='<div class="md-name">'+c.name+'</div><div class="md-sub">Client since '+c.since+' &middot; '+c.frequency+'</div><div class="md-section"><div class="md-section-title">Contact</div><div class="md-grid"><div class="md-field"><div class="md-field-label">Email</div><div class="md-field-value"><a href="#">'+c.email+'</a></div></div><div class="md-field"><div class="md-field-label">Phone</div><div class="md-field-value">'+c.phone+'</div></div><div class="md-field" style="grid-column:span 2"><div class="md-field-label">Address</div><div class="md-field-value">'+c.address+'</div></div></div></div><div class="md-section"><div class="md-section-title">Current job</div><div class="md-grid-3"><div class="md-field"><div class="md-field-label">Service</div><div class="md-field-value">'+c.service+'</div></div><div class="md-field"><div class="md-field-label">Status</div><div class="md-field-value">'+c.type+'</div></div><div class="md-field"><div class="md-field-label">Payment</div><div class="md-field-value">'+c.payment+' &nbsp;'+c.amount+'</div></div></div></div><div class="md-section"><div class="md-section-title">Job history</div><div class="md-history">'+histRows+'</div></div><div class="md-section"><div class="md-section-title">Notes</div><div class="md-notes-box">'+c.notes+'</div></div>';
+}
 </script>
 </body>
 </html>
