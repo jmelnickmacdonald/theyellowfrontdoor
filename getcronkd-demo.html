@@ -8,6 +8,8 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+@media(max-width:600px){.hero{padding-top:clamp(9rem,22vw,12rem);}}
+  
 <style>
 
 /* NAV - centered stacked */
@@ -43,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;box-shadow:0
   --radius:8px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;scroll-padding-top:105px;}
+html{scroll-behavior:smooth;scroll-padding-top:185px;} @media(max-width:600px){html{scroll-padding-top:155px;}}
 body{font-family:var(--body);font-weight:400;color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;}
 
 
@@ -52,7 +54,7 @@ body{font-family:var(--body);font-weight:400;color:var(--ink);background:var(--w
 .hero{color:#fff;
   background-image:url('hero.jpeg');
   background-size:cover;background-position:center 40%;
-  padding:clamp(8rem,16vw,12rem) 1.5rem clamp(5rem,10vw,8rem);text-align:center;position:relative;overflow:hidden;}
+  padding:clamp(8rem,16vw,12rem) 1.5rem clamp(5rem,10vw,8rem);padding-top:clamp(11rem,20vw,14rem);text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:"";position:absolute;inset:0;
   background:linear-gradient(165deg, rgba(130,165,15,.85) 0%, rgba(162,197,35,.78) 40%, rgba(59,176,224,.75) 100%);}
 .hero-inner{position:relative;max-width:800px;margin:0 auto;}
