@@ -4,94 +4,375 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Share Lydia's Info — Lydia Nichols, Elevated Homes</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: #F5F2EF; font-family: 'Montserrat', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; color: #1E1A24; }
+body {
+  background: #F7F5EF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  color: #111111;
+}
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 
+:root {
+  --ink: #080808;
+  --charcoal: #1E1A24;
+  --paper: #FFFFFF;
+  --cream: #F7F5EF;
+  --warm: #FBF8F3;
+  --blue: #D9E2EA;
+  --blue-deep: #B9C5D1;
+  --lavender: #A99AAF;
+  --lavender-soft: #EDE7EE;
+  --line: #D7DDE1;
+  --muted: #596674;
+  --gold: #B3975B;
+}
+
 /* DEMO BAR */
-.demo-bar { background: #2A242C; text-align: center; padding: 10px 24px; }
-.demo-bar p { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+.demo-bar {
+  background: var(--charcoal);
+  text-align: center;
+  padding: 10px 24px;
+}
+.demo-bar p {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
 
 /* NAV */
-.nav { background: #FBF8F3; border-bottom: 1px solid #DDD4DE; padding: 0 clamp(24px, 5vw, 64px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo { height: 48px; width: auto; display: block; }
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-links a { font-size: 12px; font-weight: 500; color: #596674; letter-spacing: 0.04em; transition: color 0.2s; }
-.nav-links a:hover { color: #1E1A24; }
-.nav-contact { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FBF8F3; background: #2A242C; padding: 10px 22px; transition: background 0.2s; white-space: nowrap; }
-.nav-contact:hover { background: #413548; }
+.nav {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 0 clamp(18px, 4vw, 64px);
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.nav-logo {
+  height: clamp(46px, 8vw, 58px);
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-contact {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 11px 20px;
+  transition: background 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-contact:hover { background: var(--charcoal); }
 
 /* HERO */
-.hero { position: relative; height: clamp(380px, 52vw, 540px); overflow: hidden; }
-.hero img { width: 100%; height: 100%; object-fit: cover; object-position: left 20%; display: block; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(30,26,36,0.45) 0%, rgba(30,26,36,0.1) 60%, rgba(245,242,239,0.0) 100%); }
-@media (max-width: 700px) {
-  .hero-overlay { background: linear-gradient(to bottom, rgba(30,26,36,0.0) 0%, rgba(30,26,36,0.55) 60%, rgba(30,26,36,0.65) 100%); }
+.hero {
+  position: relative;
+  height: clamp(380px, 52vw, 540px);
+  overflow: hidden;
+  background: var(--blue);
 }
-.hero-content { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(28px, 6vw, 80px); }
-.hero-text { max-width: 400px; text-align: right; }
-.hero-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 14px; }
-.hero-heading { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 44px); font-weight: 400; color: #1E1A24; line-height: 1.25; margin-bottom: 12px; }
-.hero-sub { font-size: 14px; color: #596674; line-height: 1.8; }
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left 20%;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(8,8,8,0.42) 0%, rgba(8,8,8,0.08) 54%, rgba(255,255,255,0.72) 100%);
+}
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 clamp(28px, 6vw, 84px);
+}
+.hero-text {
+  max-width: 410px;
+  text-align: right;
+}
+.hero-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 14px;
+}
+.hero-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+.hero-sub {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+}
 
 /* COLOUR BAND */
-.colour-band { background: #A99AAF; padding: 20px clamp(24px, 5vw, 64px); text-align: center; }
-.colour-band p { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #FBF8F3; }
+.colour-band {
+  background: var(--lavender);
+  padding: 18px clamp(24px, 5vw, 64px);
+  text-align: center;
+}
+.colour-band p {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
 
 /* MAIN */
-.main { max-width: 1000px; margin: 0 auto; padding: clamp(48px, 6vw, 72px) clamp(24px, 5vw, 48px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 64px); align-items: start; }
+.main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: clamp(50px, 6vw, 76px) clamp(24px, 5vw, 50px);
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(36px, 5vw, 66px);
+  align-items: start;
+}
 
 /* LEFT */
-.left-col { }
-.section-label { font-size: 9px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #9B8BA0; margin-bottom: 18px; }
-.left-col p { font-size: 14px; line-height: 1.85; color: #2C2630; margin-bottom: 28px; }
-.btn-row { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-.btn { display: block; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 15px 24px; transition: background 0.2s, border-color 0.2s; border: none; width: 100%; text-decoration: none; cursor: pointer; }
-.btn-dark { background: #2A242C; color: #FBF8F3; }
-.btn-dark:hover { background: #413548; }
-.btn-purple { background: #A99AAF; color: #FBF8F3; }
-.btn-purple:hover { background: #8B7A8F; }
-.thank-you { font-size: 13px; line-height: 1.85; color: #9B8BA0; border-top: 1px solid #DDD4DE; padding-top: 24px; }
+.section-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 18px;
+}
+.left-col p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #2C2630;
+  margin-bottom: 28px;
+}
+.btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.btn {
+  display: block;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 15px 24px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  border: 1px solid transparent;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-dark:hover { background: var(--charcoal); }
+.btn-light {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn-light:hover { border-color: var(--ink); }
+.thank-you {
+  font-size: 13px !important;
+  line-height: 1.9 !important;
+  color: var(--muted) !important;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
 
 /* MESSAGE CARD */
-.message-card { background: #2A242C; padding: 32px; }
-.message-card-label { font-size: 9px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #A99AAF; margin-bottom: 18px; }
-.message-text { font-size: 14px; line-height: 1.9; color: rgba(251,248,243,0.8); margin-bottom: 28px; border-left: 2px solid #A99AAF; padding-left: 16px; white-space: pre-line; }
-.copy-btn { display: block; width: 100%; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: #A99AAF; color: #FBF8F3; border: none; padding: 14px 20px; cursor: pointer; transition: background 0.2s; margin-bottom: 10px; }
-.copy-btn:hover { background: #8B7A8F; }
-.copy-btn.copied { background: #5a7a5a; }
-.copy-link-btn { display: block; width: 100%; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: transparent; color: rgba(251,248,243,0.7); border: 1px solid rgba(251,248,243,0.2); padding: 14px 20px; cursor: pointer; transition: border-color 0.2s; }
-.copy-link-btn:hover { border-color: rgba(251,248,243,0.5); color: #FBF8F3; }
-.copy-link-btn.copied { border-color: #5a7a5a; color: #5a7a5a; }
+.message-card {
+  background: var(--ink);
+  padding: clamp(28px, 4vw, 36px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 50px rgba(8,8,8,0.08);
+}
+.message-card-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+  margin-bottom: 18px;
+}
+.message-text {
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 28px;
+  border-left: 2px solid var(--lavender);
+  padding-left: 17px;
+  white-space: pre-line;
+}
+.copy-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--paper);
+  color: var(--ink);
+  border: none;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+}
+.copy-btn:hover { background: var(--blue); }
+.copy-btn.copied { background: #5a7a5a; color: #fff; }
+.copy-link-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: transparent;
+  color: rgba(255,255,255,0.74);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.copy-link-btn:hover {
+  border-color: rgba(255,255,255,0.55);
+  color: var(--paper);
+}
+.copy-link-btn.copied {
+  border-color: #5a7a5a;
+  color: #98c798;
+}
 
 /* SIGN OFF BAND */
-.signoff-band { background: #EDE7EE; border-top: 1px solid #DDD4DE; border-bottom: 1px solid #DDD4DE; padding: clamp(32px, 4vw, 48px) clamp(24px, 5vw, 64px); text-align: center; }
-.signoff-band img { height: 56px; width: auto; margin: 0 auto 16px; }
-.signoff-band p { font-size: 13px; line-height: 1.85; color: #596674; max-width: 480px; margin: 0 auto; }
+.signoff-band {
+  background: var(--blue);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(34px, 4vw, 50px) clamp(24px, 5vw, 64px);
+  text-align: center;
+}
+.signoff-band img {
+  height: 58px;
+  width: auto;
+  margin: 0 auto 16px;
+}
+.signoff-band p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
 
 /* FOOTER */
-.footer { background: #2A242C; padding: 20px clamp(24px,5vw,64px); text-align: center; }
-.footer p { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); line-height: 1.9; }
-.footer a { color: rgba(255,255,255,0.4); }
-.footer a:hover { color: rgba(255,255,255,0.7); }
+.footer {
+  background: var(--ink);
+  padding: 22px clamp(24px,5vw,64px);
+  text-align: center;
+}
+.footer p {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.9;
+}
+.footer a { color: rgba(255,255,255,0.42); }
+.footer a:hover { color: rgba(255,255,255,0.72); }
 
-@media (max-width: 700px) {
-  .main { grid-template-columns: 1fr; gap: 28px; }
-  .hero-content { justify-content: flex-start; padding: 0 24px; align-items: flex-end; padding-bottom: 28px; }
-  .hero-text { text-align: left; max-width: 100%; }
-  .hero-heading { font-size: clamp(22px, 6vw, 30px); color: #FBF8F3; }
-  .hero-sub { color: rgba(251,248,243,0.8); }
-  .hero-eyebrow { color: rgba(251,248,243,0.6); }
-  .hero img { object-position: 40% 20%; }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav { height: 72px; }
   .nav-links { display: none; }
-  .colour-band p { font-size: 10px; }
+  .nav-logo { height: clamp(48px, 10vw, 64px); }
+  .nav-contact { padding: 10px 15px; font-size: 9px; letter-spacing: 0.14em; }
+
+  .hero {
+    height: clamp(350px, 78vw, 460px);
+  }
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(8,8,8,0.0) 0%, rgba(8,8,8,0.55) 60%, rgba(8,8,8,0.72) 100%);
+  }
+  .hero-content {
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 0 24px 30px;
+  }
+  .hero-text {
+    text-align: left;
+    max-width: 100%;
+  }
+  .hero-heading {
+    font-size: clamp(24px, 6vw, 32px);
+    color: var(--paper);
+  }
+  .hero-sub { color: rgba(255,255,255,0.82); }
+  .hero-eyebrow { color: rgba(255,255,255,0.65); }
+  .hero img { object-position: 40% 20%; }
+
+  .main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 42px 24px;
+  }
+  .colour-band p { font-size: 10px; line-height: 1.7; }
 }
 </style>
 </head>
+
 <body>
 
 <div class="demo-bar">
@@ -108,8 +389,9 @@ a { color: inherit; text-decoration: none; }
   <a href="mailto:lydia@thisisnotarealemail.com" class="nav-contact">Contact Lydia</a>
 </nav>
 
-<div class="hero">
+<section class="hero">
   <img src="lydia-headshot.png" alt="Lydia Nichols — Elevated Homes">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-text">
       <p class="hero-eyebrow">A personal introduction</p>
@@ -117,27 +399,29 @@ a { color: inherit; text-decoration: none; }
       <p class="hero-sub">I've made it easy to share my information with someone who could use the right person in their corner.</p>
     </div>
   </div>
-</div>
+</section>
 
 <div class="colour-band">
   <p>An easy introduction — ready to share in one click</p>
 </div>
 
-<div class="main">
-  <div class="left-col">
+<main class="main">
+  <section class="left-col">
     <p class="section-label">An easy introduction</p>
     <p>I've put together a note that's ready to share by text, email, or DM. Feel free to use it as-is, or make it your own.</p>
-    <div class="btn-row">
-      <a href="mailto:?subject=Someone%20I%20think%20you%20should%20meet&body=Hi!%20I%20wanted%20to%20pass%20along%20my%20realtor%27s%20name.%20Lydia%20Nichols%20helped%20me%20through%20my%20sale%20and%20she%20was%20everything%20you%27d%20want%20%E2%80%94%20patient%2C%20knowledgeable%2C%20and%20completely%20unflappable%20when%20things%20got%20complicated.%20She%20knows%20the%20Annapolis%20Valley%20inside%20and%20out.%20If%20you%27re%20thinking%20about%20buying%20or%20selling%2C%20she%27s%20worth%20a%20conversation.%0A%0AYou%20can%20connect%20with%20her%20here%3A%20https%3A%2F%2Flydia-connect.html%0A%0AYou%20can%20also%20reach%20her%20directly%20at%20902%20555-5555." class="btn btn-dark">Send by Email</a>
-      <a href="lydia-connect.html" class="btn btn-purple">Preview Introduction Page</a>
-    </div>
-    <p class="thank-you">Thank you for thinking of me when someone you care about needs real estate guidance. A thoughtful introduction means so much, and I'm always grateful for the trust. When they reach out, I'll make sure they feel supported and well cared for from the very first conversation.</p>
-  </div>
 
-  <div class="right-col">
+    <div class="btn-row">
+      <a href="mailto:?subject=Someone%20I%20think%20you%20should%20meet&body=Hi!%20I%20wanted%20to%20pass%20along%20Lydia%20Nichols%27%20name.%20She%20helped%20me%20through%20my%20sale%20and%20was%20calm%2C%20practical%2C%20and%20easy%20to%20talk%20to%20when%20things%20got%20complicated.%20She%20knows%20the%20Annapolis%20Valley%20well%2C%20and%20if%20you%27re%20thinking%20about%20buying%20or%20selling%2C%20she%27d%20be%20worth%20a%20conversation.%0A%0AYou%20can%20connect%20with%20her%20here%3A%20https%3A%2F%2Flydia-connect.html%0A%0AYou%20can%20also%20reach%20her%20directly%20at%20902%20555-5555." class="btn btn-dark">Send by Email</a>
+      <a href="lydia-connect.html" class="btn btn-light">Preview Introduction Page</a>
+    </div>
+
+    <p class="thank-you">Thank you for thinking of me when someone you care about needs real estate guidance. A thoughtful introduction means so much, and I'm always grateful for the trust. When they reach out, I'll make sure they feel supported and well cared for from the very first conversation.</p>
+  </section>
+
+  <section class="right-col">
     <div class="message-card">
       <p class="message-card-label">Ready to share</p>
-      <p class="message-text" id="share-message">Hi! I wanted to pass along my realtor's name. Lydia Nichols helped me through my sale and she was everything you'd want — patient, knowledgeable, and completely unflappable when things got complicated. She knows the Annapolis Valley inside and out. If you're thinking about buying or selling, she's worth a conversation.
+      <p class="message-text" id="share-message">Hi! I wanted to pass along Lydia Nichols' name. She helped me through my sale and was calm, practical, and easy to talk to when things got complicated. She knows the Annapolis Valley well, and if you're thinking about buying or selling, she'd be worth a conversation.
 
 You can connect with her here: lydia-connect.html
 
@@ -145,13 +429,13 @@ You can also reach her directly at 902 555-5555.</p>
       <button class="copy-btn" id="copy-msg-btn" onclick="copyMessage()">Copy Message</button>
       <button class="copy-link-btn" id="copy-link-btn" onclick="copyLink()">Copy Intro Page Link</button>
     </div>
-  </div>
-</div>
+  </section>
+</main>
 
-<div class="signoff-band">
+<section class="signoff-band">
   <img src="lydia-logo.png" alt="Lydia Nichols — Elevated Homes">
   <p>Thank you for being someone who sends people in the right direction. It matters more than you know.</p>
-</div>
+</section>
 
 <footer class="footer">
   <p>Lydia Nichols · Elevated Homes · Annapolis Valley Real Estate<br>
@@ -166,18 +450,26 @@ function copyMessage() {
     var btn = document.getElementById('copy-msg-btn');
     btn.textContent = 'Copied!';
     btn.classList.add('copied');
-    setTimeout(function(){ btn.textContent = 'Copy Message'; btn.classList.remove('copied'); }, 2500);
+    setTimeout(function(){
+      btn.textContent = 'Copy Message';
+      btn.classList.remove('copied');
+    }, 2500);
   });
 }
+
 function copyLink() {
   var link = window.location.origin + '/lydia-connect.html';
   navigator.clipboard.writeText(link).then(function() {
     var btn = document.getElementById('copy-link-btn');
     btn.textContent = 'Link Copied!';
     btn.classList.add('copied');
-    setTimeout(function(){ btn.textContent = 'Copy Intro Page Link'; btn.classList.remove('copied'); }, 2500);
+    setTimeout(function(){
+      btn.textContent = 'Copy Intro Page Link';
+      btn.classList.remove('copied');
+    }, 2500);
   });
 }
 </script>
+
 </body>
 </html>
