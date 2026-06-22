@@ -6,9 +6,11 @@
 <title>Share Lydia's Info — Lydia Nichols, Elevated Homes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
 body {
   background: #F7F5EF;
   font-family: 'Montserrat', sans-serif;
@@ -17,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   color: #111111;
 }
+
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 
@@ -41,6 +44,7 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   padding: 10px 24px;
 }
+
 .demo-bar p {
   font-size: 10px;
   font-weight: 600;
@@ -52,47 +56,67 @@ a { color: inherit; text-decoration: none; }
 
 /* NAV */
 .nav {
+  position: relative;
+  z-index: 20;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
+  height: 96px;
   padding: 0 clamp(18px, 4vw, 64px);
-  height: 76px;
+}
+
+.nav-inner {
+  position: relative;
+  height: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(230px, 23vw, 300px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(16px, 3vw, 38px);
+}
+
+.nav-side {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+  gap: clamp(22px, 3vw, 34px);
 }
-.nav-logo {
-  height: clamp(46px, 8vw, 58px);
-  width: auto;
-  display: block;
-  flex-shrink: 0;
+
+.nav-left {
+  justify-content: flex-end;
 }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
+
+.nav-right {
+  justify-content: flex-start;
 }
-.nav-links a {
+
+.nav-side a {
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: var(--muted);
   letter-spacing: 0.04em;
+  line-height: 1.4;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--ink); }
-.nav-contact {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--paper);
-  background: var(--ink);
-  padding: 11px 20px;
-  transition: background 0.2s;
-  white-space: nowrap;
-  flex-shrink: 0;
+
+.nav-side a:hover {
+  color: var(--ink);
 }
-.nav-contact:hover { background: var(--charcoal); }
+
+.nav-logo-link {
+  justify-self: center;
+  align-self: start;
+  background: var(--paper);
+  padding: 7px 16px 9px;
+  transform: translateY(-1px);
+  z-index: 2;
+}
+
+.nav-logo {
+  height: clamp(80px, 7.5vw, 96px);
+  width: auto;
+  display: block;
+}
 
 /* HERO */
 .hero {
@@ -101,18 +125,21 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   background: var(--blue);
 }
+
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: left 20%;
 }
+
 .hero-overlay {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(to right, rgba(8,8,8,0.42) 0%, rgba(8,8,8,0.08) 54%, rgba(255,255,255,0.72) 100%);
 }
+
 .hero-content {
   position: absolute;
   inset: 0;
@@ -121,10 +148,12 @@ a { color: inherit; text-decoration: none; }
   justify-content: flex-end;
   padding: 0 clamp(28px, 6vw, 84px);
 }
+
 .hero-text {
   max-width: 410px;
   text-align: right;
 }
+
 .hero-eyebrow {
   font-size: 9px;
   font-weight: 700;
@@ -133,6 +162,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--lavender);
   margin-bottom: 14px;
 }
+
 .hero-heading {
   font-family: 'Playfair Display', serif;
   font-size: clamp(28px, 4vw, 46px);
@@ -141,6 +171,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.18;
   margin-bottom: 14px;
 }
+
 .hero-sub {
   font-size: 14px;
   color: var(--muted);
@@ -153,6 +184,7 @@ a { color: inherit; text-decoration: none; }
   padding: 18px clamp(24px, 5vw, 64px);
   text-align: center;
 }
+
 .colour-band p {
   font-size: 10px;
   font-weight: 700;
@@ -181,18 +213,21 @@ a { color: inherit; text-decoration: none; }
   color: var(--lavender);
   margin-bottom: 18px;
 }
+
 .left-col p {
   font-size: 14px;
   line-height: 1.9;
   color: #2C2630;
   margin-bottom: 28px;
 }
+
 .btn-row {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-bottom: 32px;
 }
+
 .btn {
   display: block;
   text-align: center;
@@ -208,17 +243,26 @@ a { color: inherit; text-decoration: none; }
   text-decoration: none;
   cursor: pointer;
 }
+
 .btn-dark {
   background: var(--ink);
   color: var(--paper);
 }
-.btn-dark:hover { background: var(--charcoal); }
+
+.btn-dark:hover {
+  background: var(--charcoal);
+}
+
 .btn-light {
   background: transparent;
   color: var(--ink);
   border-color: var(--line);
 }
-.btn-light:hover { border-color: var(--ink); }
+
+.btn-light:hover {
+  border-color: var(--ink);
+}
+
 .thank-you {
   font-size: 13px !important;
   line-height: 1.9 !important;
@@ -234,6 +278,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 18px 50px rgba(8,8,8,0.08);
 }
+
 .message-card-label {
   font-size: 9px;
   font-weight: 700;
@@ -242,6 +287,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--blue-deep);
   margin-bottom: 18px;
 }
+
 .message-text {
   font-size: 14px;
   line-height: 1.9;
@@ -251,6 +297,7 @@ a { color: inherit; text-decoration: none; }
   padding-left: 17px;
   white-space: pre-line;
 }
+
 .copy-btn {
   display: block;
   width: 100%;
@@ -268,8 +315,16 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.2s;
   margin-bottom: 10px;
 }
-.copy-btn:hover { background: var(--blue); }
-.copy-btn.copied { background: #5a7a5a; color: #fff; }
+
+.copy-btn:hover {
+  background: var(--blue);
+}
+
+.copy-btn.copied {
+  background: #5a7a5a;
+  color: #fff;
+}
+
 .copy-link-btn {
   display: block;
   width: 100%;
@@ -286,10 +341,12 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
 }
+
 .copy-link-btn:hover {
   border-color: rgba(255,255,255,0.55);
   color: var(--paper);
 }
+
 .copy-link-btn.copied {
   border-color: #5a7a5a;
   color: #98c798;
@@ -303,11 +360,13 @@ a { color: inherit; text-decoration: none; }
   padding: clamp(34px, 4vw, 50px) clamp(24px, 5vw, 64px);
   text-align: center;
 }
+
 .signoff-band img {
   height: 58px;
   width: auto;
   margin: 0 auto 16px;
 }
+
 .signoff-band p {
   font-size: 13px;
   line-height: 1.85;
@@ -322,6 +381,7 @@ a { color: inherit; text-decoration: none; }
   padding: 22px clamp(24px,5vw,64px);
   text-align: center;
 }
+
 .footer p {
   font-size: 10px;
   font-weight: 500;
@@ -330,45 +390,111 @@ a { color: inherit; text-decoration: none; }
   color: rgba(255,255,255,0.42);
   line-height: 1.9;
 }
-.footer a { color: rgba(255,255,255,0.42); }
-.footer a:hover { color: rgba(255,255,255,0.72); }
+
+.footer a {
+  color: rgba(255,255,255,0.42);
+}
+
+.footer a:hover {
+  color: rgba(255,255,255,0.72);
+}
 
 /* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav {
+    height: 88px;
+  }
+
+  .nav-inner {
+    grid-template-columns: minmax(0, 1fr) clamp(210px, 27vw, 260px) minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .nav-side {
+    gap: 18px;
+  }
+
+  .nav-side a {
+    font-size: 11px;
+  }
+
+  .nav-logo {
+    height: clamp(72px, 8vw, 86px);
+  }
+}
+
 @media (max-width: 768px) {
-  .nav { height: 72px; }
-  .nav-links { display: none; }
-  .nav-logo { height: clamp(48px, 10vw, 64px); }
-  .nav-contact { padding: 10px 15px; font-size: 9px; letter-spacing: 0.14em; }
+  .nav {
+    height: 84px;
+    padding: 0 18px;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-side {
+    display: none;
+  }
+
+  .nav-logo-link {
+    padding: 6px 12px 8px;
+    transform: translateY(0);
+  }
+
+  .nav-logo {
+    height: clamp(64px, 15vw, 76px);
+    width: auto;
+  }
 
   .hero {
     height: clamp(350px, 78vw, 460px);
   }
+
   .hero-overlay {
     background: linear-gradient(to bottom, rgba(8,8,8,0.0) 0%, rgba(8,8,8,0.55) 60%, rgba(8,8,8,0.72) 100%);
   }
+
   .hero-content {
     justify-content: flex-start;
     align-items: flex-end;
     padding: 0 24px 30px;
   }
+
   .hero-text {
     text-align: left;
     max-width: 100%;
   }
+
   .hero-heading {
     font-size: clamp(24px, 6vw, 32px);
     color: var(--paper);
   }
-  .hero-sub { color: rgba(255,255,255,0.82); }
-  .hero-eyebrow { color: rgba(255,255,255,0.65); }
-  .hero img { object-position: 40% 20%; }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.82);
+  }
+
+  .hero-eyebrow {
+    color: rgba(255,255,255,0.65);
+  }
+
+  .hero img {
+    object-position: 40% 20%;
+  }
 
   .main {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 42px 24px;
   }
-  .colour-band p { font-size: 10px; line-height: 1.7; }
+
+  .colour-band p {
+    font-size: 10px;
+    line-height: 1.7;
+  }
 }
 </style>
 </head>
@@ -380,13 +506,21 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <nav class="nav">
-  <img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="nav-logo">
-  <div class="nav-links">
-    <a href="#">About</a>
-    <a href="#">Listings</a>
-    <a href="#">Communities</a>
+  <div class="nav-inner">
+    <div class="nav-side nav-left">
+      <a href="#">About</a>
+      <a href="#">Listings</a>
+    </div>
+
+    <a href="#" class="nav-logo-link" aria-label="Lydia Nichols — Elevated Homes">
+      <img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="nav-logo">
+    </a>
+
+    <div class="nav-side nav-right">
+      <a href="#">Communities</a>
+      <a href="mailto:lydia@thisisnotarealemail.com">Contact Lydia</a>
+    </div>
   </div>
-  <a href="mailto:lydia@thisisnotarealemail.com" class="nav-contact">Contact Lydia</a>
 </nav>
 
 <section class="hero">
