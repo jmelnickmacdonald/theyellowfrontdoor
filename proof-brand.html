@@ -74,10 +74,29 @@ ul { list-style: none; }
 .project-desc { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 16px; }
 .project-desc:last-of-type { margin-bottom: 0; }
 .project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.project-link { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 12px 22px; transition: background 0.2s; }
+.project-link { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 12px 22px; transition: background 0.2s; cursor: pointer; border: none; font-family: var(--f-body); }
 .project-link:hover { background: var(--brass); }
 .project-link-outline { background: transparent; color: var(--ink); border: 1px solid var(--stone); }
 .project-link-outline:hover { border-color: var(--ink); background: transparent; }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(19,36,71,0.7); z-index: 200; overflow-y: auto; padding: 40px var(--gutter); }
+.modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal { background: var(--paper); max-width: 780px; width: 100%; margin: auto; padding: clamp(36px, 5vw, 64px); position: relative; }
+.modal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; cursor: pointer; font-size: 24px; color: var(--slate); line-height: 1; padding: 4px 8px; }
+.modal-close:hover { color: var(--ink); }
+.modal-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
+.modal-title { font-family: var(--f-accent); font-size: clamp(32px, 4vw, 48px); color: var(--ink); line-height: 1.0; margin-bottom: 32px; font-weight: normal; }
+.modal-section { margin-bottom: 32px; }
+.modal-section h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); margin-bottom: 12px; }
+.modal-section p { font-size: 15px; line-height: 1.85; color: var(--ink); }
+.modal-divider { border: none; border-top: 1px solid var(--stone); margin: 32px 0; }
+.modal-images { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.modal-images img { width: 100%; height: auto; display: block; border: 1px solid var(--stone); }
+.modal-images-trio { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.modal-newsletter { margin-top: 32px; }
+.modal-newsletter img { width: 60%; margin: 0 auto; border: 1px solid var(--stone); }
+.modal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
 /* PRE-FOOTER */
 .pre-footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: clamp(32px,4vw,52px) 0; text-align: center; }
@@ -98,6 +117,8 @@ ul { list-style: none; }
 
 @media (max-width: 860px) {
   .project-inner, .project-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+  .modal-images, .modal-images-trio { grid-template-columns: 1fr; }
+  .modal-newsletter img { width: 80%; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
@@ -105,6 +126,8 @@ ul { list-style: none; }
   .nav-toggle { display: flex; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .modal-overlay { padding: 20px 16px; }
+  .modal-newsletter img { width: 100%; }
 }
 </style>
 </head>
@@ -143,23 +166,23 @@ ul { list-style: none; }
   <div class="container">
 
     <!-- FIN & OAK BRAND GUIDE -->
-<div class="project">
-  <div class="project-inner">
-    <div class="project-image">
-      <img src="finandoakbrandguide.png" alt="Fin & Oak Brand Guide — open spread showing brand story pages">
-    </div>
-    <div class="project-body">
-      <p class="project-eyebrow">Client · Brand System</p>
-      <h2 class="project-name">Fin & Oak Brand Guide</h2>
-      <p class="project-scope">Brand Book · Voice & Tone · Identity System</p>
-      <p class="project-desc">A complete brand system for a mom-and-daughter pet bakery in the Annapolis Valley. The guide covers the logo, the colours, the typography, the voice rules, and the things the brand would never say — all written so that anyone picking it up three years from now can keep it consistent without asking.</p>
-      <p class="project-desc">The test for every rule in here was the same: does this sound like the people who actually run this bakery?</p>
-      <div class="project-links">
-        <a href="finoak-brand-book.html" target="_blank" class="project-link">View the brand guide →</a>
+    <div class="project">
+      <div class="project-inner">
+        <div class="project-image">
+          <img src="finandoakbrandguide.png" alt="Fin & Oak Brand Guide — open spread showing brand story pages">
+        </div>
+        <div class="project-body">
+          <p class="project-eyebrow">Client · Brand System</p>
+          <h2 class="project-name">Fin & Oak Brand Guide</h2>
+          <p class="project-scope">Brand Book · Voice & Tone · Identity System</p>
+          <p class="project-desc">A complete brand system for a mom-and-daughter pet bakery in the Annapolis Valley. The guide covers the logo, the colours, the typography, the voice rules, and the things the brand would never say — all written so that anyone picking it up three years from now can keep it consistent without asking.</p>
+          <p class="project-desc">The test for every rule in here was the same: does this sound like the people who actually run this bakery?</p>
+          <div class="project-links">
+            <a href="finoak-brand-book.html" target="_blank" class="project-link">View the brand guide →</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- COPPER + BEAN BRAND -->
     <div class="project">
@@ -199,22 +222,21 @@ ul { list-style: none; }
       </div>
     </div>
 
-    <!-- LYDIA NICHOLS EMAIL -->
+    <!-- LYDIA NICHOLS -->
     <div class="project">
       <div class="project-inner reverse">
         <div class="project-image">
-          <img src="lydia-lupins.png" alt="Lydia Nichols email newsletter">
+          <img src="Lydia_Newsletter__1_.png" alt="Lydia Nichols June newsletter">
         </div>
         <div class="project-body">
-          <p class="project-eyebrow">Concept · Email Design</p>
+          <p class="project-eyebrow">Concept · Brand Identity · Print · Email</p>
           <h2 class="project-name">Lydia Nichols</h2>
-          <p class="project-scope">Email Newsletter · Brand Voice · Visual Design</p>
-          <p class="project-desc">A referral email newsletter for a fictional Annapolis Valley real estate agent, designed to feel like something worth opening. The brief was to make it look and sound like a person: warm, grounded in place, and completely unlike the average real estate email blast.</p>
-          <p class="project-desc">The lupin field header is Lydia's brand in a single image. Rural Nova Scotia, quietly beautiful, unmistakably local. The suite includes the newsletter, a client referral page, and a private introduction page.</p>
+          <p class="project-scope">Logo · Colour Palette · Business Card · Newsletter · Print Collateral</p>
+          <p class="project-desc">Lydia doesn't exist, but the problem she represents does. Most real estate agents in this province are great at their jobs and invisible in their branding. We built the agent we kept wishing existed and gave her a full brand to match — logo, business card, newsletter template, social graphics, and door knocker.</p>
+          <p class="project-desc">The brand story explains where the decisions came from.</p>
           <div class="project-links">
-            <a href="lydia-email.html" target="_blank" class="project-link">The email →</a>
-            <a href="lydia-share.html" target="_blank" class="project-link project-link-outline">Referral page →</a>
-            <a href="lydia-connect.html" target="_blank" class="project-link project-link-outline">Connect page →</a>
+            <button class="project-link" onclick="openModal()">The brand story →</button>
+            <a href="lydia-email.html" target="_blank" class="project-link project-link-outline">The newsletter →</a>
           </div>
         </div>
       </div>
@@ -222,6 +244,59 @@ ul { list-style: none; }
 
   </div>
 </section>
+
+<!-- LYDIA BRAND STORY MODAL -->
+<div class="modal-overlay" id="lydia-modal" role="dialog" aria-modal="true" aria-label="Lydia Nichols brand story">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow">Concept · Brand Identity</p>
+    <h2 class="modal-title">Lydia Nichols</h2>
+
+    <div class="modal-section">
+      <p>Lydia doesn't exist, but the problem she represents does. We've talked to enough real estate agents in this province to know that most of them are great at their jobs and invisible in their branding. Same navy. Same headshot. Same "call me for all your real estate needs." So we built the agent we kept wishing existed and gave her a brand to match.</p>
+    </div>
+
+    <hr class="modal-divider">
+
+    <div class="modal-section">
+      <h3>Logo</h3>
+      <p>We wanted something that felt personal without being cutesy. The arch monogram is a nod to doorways and thresholds — which felt right for a real estate brand — without being on the nose about it. The botanical detail softens it just enough. It scales well, which matters when the same mark has to live on a business card and a newsletter header.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Colour</h3>
+      <p>The palette came from the landscape more than anything else. Off-white and black as the base, clean and uncluttered, letting the photography breathe. The dusty blue and lupin purple are pulled straight from a Nova Scotia June: that particular shade of sky and the purple that shows up along every back road for about three weeks a year. The gold only appears on the business card as a foil treatment on cream stock, which is exactly where it should be. Something you notice when you're holding it, not something plastered across every touchpoint.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Tagline</h3>
+      <p>"Elevated service. Homegrown in the Valley." We liked that the two halves push against each other slightly. Elevated implies polish. Homegrown implies the opposite. But that's actually Lydia — someone who knows every back road and still shows up prepared.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>What we built</h3>
+      <p>Logo suite, colour palette, business card designed for gold foil on cream stock, a monthly newsletter template, social templates for listings, and a door knocker in two versions.</p>
+    </div>
+
+    <hr class="modal-divider">
+
+    <div class="modal-images">
+      <img src="lydiabusinesscard.png" alt="Lydia Nichols business card — gold foil on cream stock">
+      <img src="Lydia_Newsletter__1_.png" alt="Lydia Nichols June newsletter">
+    </div>
+
+    <div class="modal-images-trio" style="margin-top: 16px;">
+      <img src="lydia-doorknocker-1.png" alt="Lydia Nichols door knocker — front">
+      <img src="lydia-doorknocker-2.png" alt="Lydia Nichols door knocker — back">
+    </div>
+
+    <div class="modal-links">
+      <a href="lydia-email.html" target="_blank" class="project-link">The newsletter →</a>
+      <a href="lydia-share.html" target="_blank" class="project-link project-link-outline">Referral page →</a>
+      <a href="lydia-connect.html" target="_blank" class="project-link project-link-outline">Connect page →</a>
+    </div>
+  </div>
+</div>
 
 <div class="pre-footer">
   <div class="container">
@@ -267,6 +342,26 @@ ul { list-style: none; }
   var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
   toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
 })();
+
+function openModal() {
+  var modal = document.getElementById('lydia-modal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  var modal = document.getElementById('lydia-modal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lydia-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
 </script>
 </body>
 </html>
