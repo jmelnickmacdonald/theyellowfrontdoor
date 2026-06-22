@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Cronk'd — The Yellow Front Door</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:CasualHandwriting;src:url(CasualHandwriting.woff2) format(woff2),url(CasualHandwriting.woff) format(woff);font-display:block;}
+:root{
+  --ink:#132447;--paper:#fff;--yellow:#fcd346;--stone:#D8D1C3;--slate:#596674;--brass:#e6b800;--clay:#B86B4B;--paper-mid:#F5EFE0;--navy:#132447;
+  --f-accent:CasualHandwriting,cursive;--f-head:Montserrat,sans-serif;--f-body:Montserrat,sans-serif;--max:1120px;--gutter:clamp(24px,5vw,80px);
+  --ck-lime:#A2C523;--ck-lime-dark:#8AB01C;--ck-lime-glow:rgba(162,197,35,.13);
+  --ck-blue:#3BB0E0;--ck-blue-dark:#2A9ACC;--ck-blue-light:#EAF6FC;
+  --ck-ink:#1a1a1a;--ck-ink-muted:#555;--ck-ink-dim:#888;
+  --ck-bg:#f7f7f5;--ck-white:#fff;--ck-border:#e5e0d8;
+  --ck-red:#e04848;--ck-red-light:#fdf0f0;--ck-amber:#d4960a;--ck-amber-light:#fff7e5;--ck-green:#2d8a4e;--ck-green-light:#edf7f1;
+  --ck-purple:#7c3aed;--ck-purple-light:#f5f3ff;
+  --ck-display:'Oswald',sans-serif;--ck-body:'Inter',-apple-system,sans-serif;
+  --ck-radius:10px;--ck-shadow:0 2px 12px rgba(0,0,0,.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:none;}ul{list-style:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);transition:box-shadow .3s;}
+.nav::after{content:"";position:absolute;top:100%;left:0;right:0;height:4px;background:var(--navy);}
+.nav.scrolled{box-shadow:0 2px 24px rgba(19,36,71,.5);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.nav-logo img{height:56px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,252,244,.75);letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--paper);}
+.nav-links a.active{font-weight:600;}
+.nav-cta{background:var(--yellow)!important;color:var(--navy)!important;padding:10px 20px;font-size:12px!important;font-weight:700!important;letter-spacing:.03em!important;}
+.nav-cta:hover{background:var(--brass)!important;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
+
+/* PAGE HEADER */
+.page-header{padding:clamp(80px,10vw,120px) 0 clamp(40px,5vw,60px);margin-top:72px;border-bottom:1px solid var(--stone);}
+.page-header-inner{max-width:560px;}
+.breadcrumb{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:20px;}
+.breadcrumb a{color:var(--slate);transition:color .2s;}.breadcrumb a:hover{color:var(--ink);}
+.breadcrumb span{margin:0 8px;color:var(--stone);}
+.page-header h1{font-family:var(--f-head);font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;}
+.page-header .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(24px,3vw,38px);font-weight:normal;color:var(--slate);line-height:1.3;margin-top:20px;margin-bottom:4px;letter-spacing:0;}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.meta-tag{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:5px 11px;}
+
+/* BENEFIT CALLOUT */
+.benefit-callout{background:var(--navy);padding:clamp(32px,4vw,48px) 0;}
+.benefit-callout-inner{max-width:640px;}
+.benefit-eyebrow{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow);margin-bottom:20px;}
+.benefit-item{display:flex;gap:16px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.benefit-item:last-child{border-bottom:none;}
+.benefit-dot{width:4px;height:4px;background:var(--yellow);border-radius:50%;flex-shrink:0;margin-top:9px;}
+.benefit-text{font-size:15px;line-height:1.7;color:rgba(255,255,255,.8);font-weight:400;}
+
+/* CONTEXT STRIP */
+.context-strip{background:var(--stone);padding:clamp(28px,4vw,44px) 0;}
+.context-inner{max-width:640px;}
+.context-strip p{font-size:15px;line-height:1.9;color:var(--navy);margin-bottom:10px;}
+.context-strip p:last-child{margin-bottom:0;}
+
+/* STACK */
+.stack-section{padding:clamp(48px,6vw,72px) 0;border-bottom:1px solid var(--stone);}
+.section-label{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:16px;}
+.section-heading{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.body-text{font-size:15px;line-height:1.9;color:var(--ink);margin-bottom:14px;max-width:600px;}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);margin-top:28px;}
+.stack-item{background:var(--paper);padding:22px 24px;}
+.stack-role{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
+.stack-tool{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.stack-desc{font-size:12px;line-height:1.7;color:var(--slate);}
+.stack-note{font-size:12px;line-height:1.8;color:var(--slate);margin-top:20px;max-width:600px;}
+.stack-note strong{color:var(--ink);font-weight:600;}
+.cost-line{margin-top:28px;padding:20px 24px;border:1px solid var(--stone);background:var(--paper-mid);max-width:600px;}
+.cost-line p{font-size:14px;line-height:1.85;color:var(--ink);}
+
+/* LIVE STRIP */
+.live-strip{background:var(--ck-ink);padding:clamp(24px,3vw,36px) 0;}
+.live-strip-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.live-strip-text p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;max-width:500px;}
+.live-strip-text strong{color:#fff;}
+.live-link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ck-lime);color:#fff;font-family:var(--f-body);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;transition:background .2s;text-decoration:none;white-space:nowrap;flex-shrink:0;border-radius:999px;}
+.live-link-btn:hover{background:var(--ck-lime-dark);}
+
+/* STEPPER */
+.stepper-section{padding:0;}
+.stepper-head{background:var(--stone);padding:clamp(36px,5vw,56px) 0 0;}
+.section-heading-stepper{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.stepper-intro{font-size:14px;color:var(--slate);max-width:560px;line-height:1.8;padding-bottom:clamp(28px,4vw,44px);}
+.step-nav{display:flex;align-items:stretch;overflow-x:auto;border:1px solid #c4bdb0;border-top:none;}
+.step-btn{flex:1;min-width:130px;background:var(--paper);border:none;border-right:1px solid var(--stone);padding:14px 16px;text-align:left;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;gap:4px;position:relative;}
+.step-btn:last-child{border-right:none;}
+.step-btn:hover{background:#ede7dc;}
+.step-btn.active{background:var(--navy);}
+.step-btn::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:3px;background:var(--yellow);opacity:0;transition:opacity .2s;}
+.step-btn.active::after{opacity:1;}
+.step-num{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);transition:color .2s;}
+.step-btn.active .step-num{color:rgba(255,255,255,.5);}
+.step-title{font-size:12px;font-weight:600;color:var(--ink);transition:color .2s;}
+.step-btn.active .step-title{color:var(--paper);}
+.step-timing{font-size:10px;color:var(--slate);transition:color .2s;}
+.step-btn.active .step-timing{color:rgba(255,255,255,.55);}
+.step-type{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:2px;}
+.step-btn.active .step-type{color:var(--yellow);}
+
+/* PANELS */
+.stepper-panels{background:var(--paper);padding:clamp(40px,5vw,64px) 0 clamp(48px,6vw,72px);}
+.step-panel{display:none;}
+.step-panel.active{display:block;}
+.panel-layout{display:grid;grid-template-columns:420px minmax(0,560px);gap:clamp(32px,4vw,56px);align-items:start;max-width:1060px;}
+.panel-context{max-width:420px;}
+.panel-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
+.panel-heading{font-family:var(--f-accent);font-size:clamp(20px,2.2vw,28px);color:var(--ink);font-weight:normal;line-height:1.25;margin-bottom:16px;}
+.panel-body{font-size:14px;line-height:1.85;color:var(--slate);margin-bottom:12px;}
+.panel-body strong{color:var(--ink);font-weight:600;}
+.why-box{border:1px solid var(--stone);padding:18px 22px;margin-top:20px;}
+.why-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
+.why-text{font-size:13px;line-height:1.8;color:var(--slate);}
+.trigger-line{display:flex;gap:8px;align-items:flex-start;margin-top:16px;font-size:12px;color:var(--slate);}
+.trigger-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);flex-shrink:0;padding-top:2px;}
+.panel-nav{display:flex;gap:12px;margin-top:24px;}
+.panel-next{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--yellow);padding:11px 20px;border:none;cursor:pointer;transition:background .2s;font-family:var(--f-body);}
+.panel-next:hover{background:var(--brass);}
+.panel-prev{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:transparent;padding:11px 20px;border:1px solid var(--stone);cursor:pointer;transition:border-color .2s;font-family:var(--f-body);}
+.panel-prev:hover{border-color:var(--ink);}
+.closing-note{font-size:14px;line-height:1.85;color:var(--slate);margin-top:20px;}
+.closing-note a{color:var(--clay);font-weight:600;}
+
+/* REGISTRATION PAGE REPLICA */
+.reg-page-wrap{background:var(--ck-bg);border-radius:12px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,.10);border:1px solid var(--ck-border);}
+.reg-page-nav{background:#fff;border-bottom:1px solid var(--ck-border);padding:.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.reg-page-logo{height:48px;width:auto;display:block;}
+.reg-page-navlinks{display:flex;gap:1rem;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--ck-ink-muted);font-family:var(--ck-body);}
+.reg-page-hero{padding:1.8rem 1.5rem 1.4rem;text-align:center;background:linear-gradient(135deg,rgba(130,165,15,.93),rgba(59,176,224,.86));}
+.reg-page-hero h1{font-family:var(--ck-display);font-size:1.5rem;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:.4rem;}
+.reg-page-hero p{font-size:12px;color:rgba(255,255,255,.9);max-width:44ch;margin:0 auto;font-family:var(--ck-body);}
+.reg-page-body{padding:1.4rem 1.5rem;}
+.reg-section-head{margin-bottom:1.2rem;}
+.reg-label{font-family:var(--ck-display);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ck-blue);margin-bottom:.2rem;}
+.reg-h2{font-family:var(--ck-display);font-size:1.3rem;text-transform:uppercase;line-height:1;}
+.reg-lead{font-size:12px;color:var(--ck-ink-muted);margin-top:.4rem;font-family:var(--ck-body);}
+.reg-layout{display:grid;grid-template-columns:1fr 200px;gap:1rem;align-items:start;}
+.reg-form-card{background:#fff;border:1px solid var(--ck-border);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.06);}
+.reg-form-label{background:var(--ck-ink);color:#fff;font-family:var(--ck-display);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1rem;border-bottom:3px solid var(--ck-lime);}
+.reg-iframe-wrap{background:#fff;min-height:340px;display:flex;align-items:stretch;}
+.reg-iframe-wrap iframe{width:100%;min-height:340px;border:0;display:block;background:#fff;}
+.reg-side{display:grid;gap:.65rem;}
+.reg-side-card{background:#fff;border:1px solid var(--ck-border);border-radius:10px;padding:.85rem;font-size:11px;color:var(--ck-ink-muted);font-family:var(--ck-body);}
+.reg-side-card strong{display:block;font-family:var(--ck-display);font-size:11px;color:var(--ck-ink);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.25rem;}
+.reg-side-card a{display:inline-block;margin-top:.4rem;color:var(--ck-blue-dark);font-weight:800;text-decoration:none;font-size:11px;}
+.reg-page-footer{text-align:center;padding:.9rem 1rem;border-top:1px solid var(--ck-border);font-size:10px;color:var(--ck-ink-muted);letter-spacing:.05em;font-family:var(--ck-body);}
+
+/* CONFIRMATION EMAIL */
+.email-client{border-radius:10px;overflow:hidden;box-shadow:0 4px 32px rgba(19,36,71,.10);border:1px solid #d1d5db;}
+.client-chrome{background:#f3f4f6;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:10px;}
+.chrome-dots{display:flex;gap:6px;}
+.chrome-dot{width:12px;height:12px;border-radius:50%;}
+.chrome-dot.red{background:#ff5f57;}.chrome-dot.yellow{background:#febc2e;}.chrome-dot.green{background:#28c840;}
+.chrome-bar{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:5px 10px;font-size:11px;color:#9ca3af;font-family:var(--f-body);}
+.inbox-header{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.inbox-from{display:flex;align-items:center;gap:10px;}
+.inbox-avatar{width:34px;height:34px;border-radius:50%;background:var(--ck-lime);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;font-family:var(--f-body);flex-shrink:0;}
+.inbox-sender{font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);}
+.inbox-email-addr{font-size:11px;color:#6b7280;font-family:var(--f-body);}
+.inbox-time{font-size:11px;color:#9ca3af;font-family:var(--f-body);white-space:nowrap;}
+.inbox-subject-row{padding:10px 16px 8px;border-bottom:1px solid #f3f4f6;}
+.inbox-subject{font-size:14px;font-weight:600;color:#111827;font-family:var(--f-body);}
+.inbox-to{font-size:11px;color:#9ca3af;margin-top:2px;font-family:var(--f-body);}
+.email-scroll{max-height:480px;overflow-y:auto;background:#f3f4f6;padding:14px;}
+.email-inner{background:#fff;border-radius:6px;overflow:hidden;}
+.cem-header-ck{background:var(--ck-ink);padding:14px 20px;display:flex;align-items:center;gap:8px;}
+.ck-email-logo{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.01em;font-family:var(--ck-display);text-transform:uppercase;}
+.ck-email-logo span{color:var(--ck-lime);}
+.cem-body{padding:18px 20px 14px;}
+.cem-subject{font-family:var(--ck-display);font-size:14px;color:var(--ck-ink);font-weight:700;text-transform:uppercase;margin-bottom:12px;line-height:1.2;}
+.cem-p{font-size:13px;line-height:1.75;color:#3D3D3D;margin-bottom:10px;font-family:var(--ck-body);}
+.cem-box{background:var(--ck-lime-glow);border:0.5px solid rgba(162,197,35,.3);border-radius:6px;padding:12px 14px;margin:12px 0;}
+.cem-row{display:flex;justify-content:space-between;font-size:12px;color:#3D3D3D;padding:3px 0;font-family:var(--ck-body);}
+.cem-lbl{color:var(--ck-lime-dark);font-weight:700;}
+.cem-sign{color:var(--ck-lime-dark);font-size:12px;margin-top:6px;font-family:var(--ck-body);}
+.cem-foot{padding:10px 16px;border-top:0.5px solid rgba(162,197,35,.2);font-size:10px;color:#999;letter-spacing:.04em;text-align:center;font-family:var(--ck-body);}
+
+/* DASHBOARD REPLICA — using Cronkd's actual styles */
+.dash-wrap{font-family:var(--ck-body);color:var(--ck-ink);background:var(--ck-bg);border-radius:12px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,.10);border:1px solid var(--ck-border);}
+.dash-demo-bar{background:var(--ck-blue);text-align:center;padding:.35rem 1rem;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);font-family:var(--ck-body);}
+.dash-demo-bar a{color:#fff;font-weight:700;text-decoration:none;}
+.dash-topbar{background:#fff;border-bottom:1px solid var(--ck-border);padding:.55rem 1.2rem;display:flex;align-items:center;gap:.8rem;}
+.dash-topbar-logo{height:24px;width:auto;display:block;}
+.dash-topbar-nav{display:flex;align-items:center;gap:.1rem;flex:1;overflow-x:auto;}
+.dash-tnav-btn{background:none;border:0;font-family:var(--ck-display);font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ck-ink-muted);padding:.35rem .6rem;border-radius:6px;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.dash-tnav-btn.active{background:var(--ck-lime-glow);color:var(--ck-lime-dark);}
+.dash-topbar-right{display:flex;align-items:center;gap:.5rem;flex:none;}
+.dash-greeting{font-size:11px;color:var(--ck-ink-muted);white-space:nowrap;font-family:var(--ck-body);}
+.dash-avatar{width:26px;height:26px;background:var(--ck-lime);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--ck-display);font-size:10px;font-weight:700;color:#fff;}
+.dash-body{padding:1.2rem;}
+.dash-kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem;margin-bottom:1.1rem;}
+.dash-kpi{background:#fff;border:1px solid var(--ck-border);border-radius:var(--ck-radius);padding:.75rem 1rem;box-shadow:var(--ck-shadow);}
+.dash-kpi-val{font-family:var(--ck-display);font-size:1.6rem;font-weight:700;line-height:1;}
+.dash-kpi-val.lime{color:var(--ck-lime-dark);}.dash-kpi-val.blue{color:var(--ck-blue);}.dash-kpi-val.amber{color:var(--ck-amber);}.dash-kpi-val.green{color:var(--ck-green);}.dash-kpi-val.red{color:var(--ck-red);}
+.dash-kpi-label{font-size:9px;color:var(--ck-ink-dim);letter-spacing:.06em;text-transform:uppercase;margin-top:.15rem;font-family:var(--ck-body);}
+.dash-sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;gap:1rem;flex-wrap:wrap;}
+.dash-sec-head h2{font-family:var(--ck-display);font-size:1rem;font-weight:700;text-transform:uppercase;}
+.dash-sec-note{font-size:10px;color:var(--ck-ink-dim);font-family:var(--ck-body);}
+.dash-day-block{margin-bottom:1rem;}
+.dash-day-lbl{font-family:var(--ck-display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ck-blue);border-bottom:2px solid var(--ck-blue);padding-bottom:.25rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem;}
+.dash-day-lbl.today{color:var(--ck-lime-dark);border-color:var(--ck-lime);}
+.dash-today-pill{background:var(--ck-lime);color:#fff;font-size:8px;font-weight:800;letter-spacing:.1em;padding:.1rem .4rem;border-radius:999px;font-family:var(--ck-body);}
+.dash-class-row{background:#fff;border:1px solid var(--ck-border);border-radius:var(--ck-radius);margin-bottom:.35rem;box-shadow:var(--ck-shadow);overflow:hidden;}
+.dash-class-hdr{display:grid;grid-template-columns:3.2rem 1fr 4.5rem 1.1rem;gap:.6rem;align-items:center;padding:.6rem .85rem;cursor:pointer;}
+.dash-class-hdr:hover{background:#fafaf8;}
+.dash-ch-time{font-family:var(--ck-display);font-size:.82rem;font-weight:700;}
+.dash-ch-name{font-family:var(--ck-display);font-size:.78rem;font-weight:600;text-transform:uppercase;line-height:1.1;}
+.dash-ch-trainer{font-size:9px;color:var(--ck-ink-muted);margin-top:.08rem;font-family:var(--ck-body);}
+.dash-fill-txt{font-family:var(--ck-display);font-size:10px;font-weight:700;text-align:right;}
+.dash-fill-txt.ok{color:var(--ck-green);}.dash-fill-txt.low{color:var(--ck-amber);}.dash-fill-txt.full{color:var(--ck-red);}
+.dash-ch-arrow{font-size:11px;color:var(--ck-ink-dim);text-align:center;transition:transform .2s;}
+.dash-class-row.open .dash-ch-arrow{transform:rotate(180deg);}
+.dash-roster{display:none;border-top:1px solid var(--ck-border);padding:.05rem .85rem .7rem;}
+.dash-class-row.open .dash-roster{display:block;}
+.dash-roster-hdr{display:grid;grid-template-columns:minmax(120px,2fr) minmax(90px,2fr) 80px 72px;gap:.6rem;padding:.4rem 0;border-bottom:1px solid var(--ck-border);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ck-ink-dim);font-family:var(--ck-body);}
+.dash-roster-row{display:grid;grid-template-columns:minmax(120px,2fr) minmax(90px,2fr) 80px 72px;gap:.6rem;align-items:center;padding:.38rem .2rem;border-bottom:1px solid #f0ede8;font-size:11px;font-family:var(--ck-body);}
+.dash-roster-row:last-child{border-bottom:0;}
+.dash-rr-name{font-weight:600;}
+.dash-new-badge{display:inline-block;font-size:7px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;background:var(--ck-blue-light);color:var(--ck-blue-dark);padding:.08rem .25rem;border-radius:3px;margin-left:.25rem;vertical-align:middle;font-family:var(--ck-body);}
+.dash-rr-email{color:var(--ck-ink-muted);font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.dash-paid-badge{display:inline-block;font-size:8px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.15rem .4rem;border-radius:999px;background:var(--ck-green-light);color:var(--ck-green);font-family:var(--ck-body);}
+.dash-unpaid-badge{display:inline-block;font-size:8px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.15rem .4rem;border-radius:999px;background:var(--ck-red-light);color:var(--ck-red);font-family:var(--ck-body);}
+.dash-sess-chip{display:inline-flex;align-items:center;gap:.2rem;font-size:10px;font-weight:700;font-family:var(--ck-body);}
+.dash-dot{width:6px;height:6px;border-radius:50%;flex:none;display:inline-block;}
+.dash-dot.green{background:var(--ck-green);}.dash-dot.amber{background:var(--ck-amber);}.dash-dot.red{background:var(--ck-red);}
+.dash-waitlist-sep{font-family:var(--ck-display);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ck-amber);padding:.45rem 0 .15rem;border-top:1px dashed var(--ck-border);margin-top:.35rem;}
+
+/* CLIENT TABLE */
+.dash-filter-bar{display:flex;gap:.4rem;margin-bottom:.8rem;flex-wrap:wrap;}
+.dash-filter-btn{border:1px solid var(--ck-border);background:#fff;border-radius:999px;padding:.3rem .7rem;font-size:10px;font-weight:700;color:var(--ck-ink-muted);cursor:pointer;transition:all .15s;font-family:var(--ck-body);}
+.dash-filter-btn.active{background:var(--ck-ink);color:#fff;border-color:var(--ck-ink);}
+.dash-filter-btn.f-red.active{background:var(--ck-red);border-color:var(--ck-red);}
+.dash-filter-btn.f-amber.active{background:var(--ck-amber);border-color:var(--ck-amber);}
+.dash-filter-btn.f-purple.active{background:var(--ck-purple);border-color:var(--ck-purple);}
+.dash-client-table{background:#fff;border:1px solid var(--ck-border);border-radius:var(--ck-radius);overflow:hidden;box-shadow:var(--ck-shadow);}
+.dash-ct-hdr{display:grid;grid-template-columns:minmax(120px,2.5fr) 120px 72px 76px 72px 20px;gap:.6rem;padding:.5rem .85rem;background:var(--ck-bg);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ck-ink-dim);border-bottom:1px solid var(--ck-border);font-family:var(--ck-body);}
+.dash-ct-row{display:grid;grid-template-columns:minmax(120px,2.5fr) 120px 72px 76px 72px 20px;gap:.6rem;align-items:center;padding:.58rem .85rem;border-bottom:1px solid #f0ede8;font-size:11px;cursor:pointer;transition:background .15s;font-family:var(--ck-body);}
+.dash-ct-row:last-child{border-bottom:0;}
+.dash-ct-row:hover{background:var(--ck-lime-glow);}
+.dash-ct-name{font-weight:700;display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;}
+.dash-at-risk{font-size:7px;font-weight:800;background:var(--ck-red-light);color:var(--ck-red);padding:.08rem .28rem;border-radius:3px;letter-spacing:.05em;text-transform:uppercase;font-family:var(--ck-body);}
+.dash-bday{font-size:7px;font-weight:800;background:var(--ck-purple-light);color:var(--ck-purple);padding:.08rem .28rem;border-radius:3px;font-family:var(--ck-body);}
+.dash-ct-program{color:var(--ck-ink-muted);font-size:10px;}
+.dash-ct-arrow{color:var(--ck-ink-dim);font-size:12px;text-align:right;}
+
+/* MARKETING VIEW */
+.dash-mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin-bottom:1.2rem;}
+.dash-mkt-segment{background:#fff;border:1px solid var(--ck-border);border-radius:var(--ck-radius);padding:.9rem;box-shadow:var(--ck-shadow);}
+.dash-mkt-segment-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:.65rem;}
+.dash-mkt-title{font-family:var(--ck-display);font-size:.85rem;font-weight:700;text-transform:uppercase;margin-bottom:.15rem;}
+.dash-mkt-desc{font-size:11px;color:var(--ck-ink-muted);font-family:var(--ck-body);}
+.dash-mkt-count{font-family:var(--ck-display);font-size:1.3rem;font-weight:700;color:var(--ck-blue);flex:none;}
+.dash-mkt-row{display:flex;align-items:center;justify-content:space-between;padding:.32rem 0;border-bottom:1px solid #f0ede8;font-size:11px;font-family:var(--ck-body);}
+.dash-mkt-row:last-of-type{border-bottom:0;}
+.dash-mkt-name{font-weight:600;}
+.dash-mkt-detail{font-size:10px;color:var(--ck-ink-muted);}
+.dash-mkt-btn{background:none;border:1px solid var(--ck-border);border-radius:999px;padding:.18rem .5rem;font-size:9px;font-weight:700;cursor:pointer;color:var(--ck-ink-muted);transition:all .15s;font-family:var(--ck-display);letter-spacing:.05em;text-transform:uppercase;}
+.dash-mkt-btn:hover{background:var(--ck-ink);color:#fff;border-color:var(--ck-ink);}
+.dash-mkt-send-all{display:inline-flex;align-items:center;gap:.3rem;background:var(--ck-lime);color:#fff;border:0;border-radius:999px;padding:.42rem .85rem;font-family:var(--ck-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;margin-top:.65rem;transition:background .2s;font-family:var(--ck-body);}
+.dash-mkt-send-all:hover{background:var(--ck-lime-dark);}
+
+/* TOAST */
+.dash-toast{position:fixed;bottom:1.4rem;right:1.4rem;background:var(--ck-ink);color:#fff;border-radius:12px;padding:.75rem 1rem;font-size:12px;box-shadow:0 8px 30px rgba(0,0,0,.25);z-index:999;transform:translateY(20px);opacity:0;transition:all .3s;max-width:280px;border-left:4px solid var(--ck-lime);font-family:var(--ck-body);}
+.dash-toast.show{transform:translateY(0);opacity:1;}
+.dash-toast-title{font-weight:700;margin-bottom:.08rem;}
+.dash-toast-sub{font-size:10px;color:rgba(255,255,255,.7);}
+
+/* SIMULATE BTN */
+.dash-sim-btn{background:var(--ck-lime);color:#fff;border:0;border-radius:999px;padding:.4rem .9rem;font-family:var(--ck-display);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;display:flex;align-items:center;gap:.35rem;}
+.dash-sim-btn:hover{background:var(--ck-lime-dark);}
+.dash-pulse{width:7px;height:7px;border-radius:50%;background:#fff;animation:dpulse 1.4s ease infinite;}
+@keyframes dpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* PRE FOOTER + FOOTER */
+.pre-footer{background:var(--stone);border-top:1px solid #c4bdb0;padding:clamp(32px,4vw,52px) 0;text-align:center;}
+.footer{background:var(--paper);padding:48px 0 32px;border-top:1px solid var(--stone);}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);text-align:center;}
+.footer-logo-wrap{margin-bottom:16px;}
+.footer-logo-wrap img{width:64px;height:64px;margin:0 auto;}
+.footer-tagline{font-size:13px;color:var(--slate);max-width:320px;margin:0 auto 28px;line-height:1.7;}
+.footer-divider{border:none;border-top:1px solid var(--stone);margin:0 0 24px;}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin-bottom:28px;}
+.footer-nav a{font-size:13px;color:var(--slate);transition:color .2s;}
+.footer-nav a:hover{color:var(--ink);}
+.footer-bottom{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.footer-copy{font-size:11px;color:var(--slate);letter-spacing:.05em;}
+.footer-dot-sm{width:6px;height:6px;background:var(--yellow);border-radius:50%;flex-shrink:0;}
+
+@media(max-width:1000px){.panel-layout{grid-template-columns:1fr;}.panel-context{max-width:100%;}.reg-layout{grid-template-columns:1fr;}.reg-side{grid-template-columns:1fr 1fr 1fr;}}
+@media(max-width:760px){.stack-grid{grid-template-columns:1fr 1fr;}.dash-kpi-row{grid-template-columns:repeat(3,1fr);}.dash-mkt-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){
+  .nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;border-bottom:1px solid rgba(255,255,255,.08);gap:20px;z-index:99;}
+  .nav-toggle{display:flex;}.footer-bottom{flex-direction:column;text-align:center;}
+  .stack-grid{grid-template-columns:1fr;}.step-btn{min-width:110px;}
+  .dash-kpi-row{grid-template-columns:1fr 1fr;}.reg-side{grid-template-columns:1fr;}
+  .live-strip-inner{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html" class="active">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>&rsaquo;</span><a href="proof-strategy.html">Strategy &amp; Systems</a><span>&rsaquo;</span>Get Cronk&rsquo;d</p>
+      <h1>A boutique fitness studio.<br>One workspace to run it.<span class="accent-line">registration, rosters, and the whole client picture.</span></h1>
+      <div class="meta-row">
+        <span class="meta-tag">Real client</span>
+        <span class="meta-tag">Registration system</span>
+        <span class="meta-tag">Airtable</span>
+        <span class="meta-tag">Operations dashboard</span>
+        <span class="meta-tag">Client management</span>
+        <span class="meta-tag">Marketing automation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="benefit-callout">
+  <div class="container">
+    <div class="benefit-callout-inner">
+      <p class="benefit-eyebrow">What this does</p>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Get Cronk&rsquo;d runs its full registration and class management inside one Airtable workspace.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Every registration goes straight into the base. The dashboard updates on its own. No manual entry.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">Rebecca can see who is at risk of lapsing before they actually disappear.</p></div>
+      <div class="benefit-item"><div class="benefit-dot"></div><p class="benefit-text">The marketing layer is built and ready. Activating it is one connection away.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="context-strip">
+  <div class="container">
+    <div class="context-inner">
+      <p>Get Cronk&rsquo;d is a boutique fitness studio in Kemptville, Ontario. Nine years in business. Owner Rebecca Cronk is a UFE Pro Wellness World Champion with a full roster of group classes, personal training, and specialty programs.</p>
+      <p>We built a registration and operations system from scratch inside Airtable, confirmation emails, class rosters, client tracking, renewal flags, and a marketing layer, at a fraction of the cost of a dedicated platform subscription. The demo data below is fictional. The system is not.</p>
+    </div>
+  </div>
+</div>
+
+<section class="stack-section">
+  <div class="container">
+    <p class="section-label">The stack</p>
+    <h2 class="section-heading">one tool, the whole operation.</h2>
+    <p class="body-text">The entire system lives inside Airtable. The registration form, the client base, and the dashboard all read from the same data. Nothing needs a second tool to talk to a first one.</p>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <p class="stack-role">Registration</p>
+        <p class="stack-tool">Airtable form</p>
+        <p class="stack-desc">Clients register directly through an Airtable-embedded form on the website. Class selection, contact details, package type. On submit, the record lands in the base and the dashboard updates immediately.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Confirmation</p>
+        <p class="stack-tool">Airtable automation</p>
+        <p class="stack-desc">A native Airtable automation sends a confirmation email the moment a new record is created. No Zapier, no third-party email tool. The form submits, the record is created, and the email goes out. All inside one workspace.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Operations and marketing</p>
+        <p class="stack-tool">Dashboard</p>
+        <p class="stack-desc">Rebecca opens one view and sees the full week&rsquo;s schedule with expandable rosters, session counts per client, payment status, renewal flags for lapsing members, and pre-built marketing segments ready to connect to an email tool when she wants to activate them.</p>
+      </div>
+    </div>
+    <p class="stack-note"><strong>A note on payments:</strong> Payments run through the studio&rsquo;s existing system, and that part wasn&rsquo;t broken. If bringing everything into one place becomes the goal, Stripe connects to Airtable and the path is short.</p>
+    <div class="cost-line">
+      <p>Airtable&rsquo;s free tier handles this comfortably for a studio of this size. The paid plan, if needed, runs around $20 a month. The gap between that and a dedicated platform subscription is not the tools. It is knowing what to build and how to connect it.</p>
+    </div>
+  </div>
+</section>
+
+<div class="live-strip">
+  <div class="container">
+    <div class="live-strip-inner">
+      <div class="live-strip-text">
+        <p><strong>The dashboard is live.</strong> Click through to see the full thing &mdash; real login screen, class rosters, client profiles, at-risk flags, marketing segments, staff notes, and a simulate registration button.</p>
+      </div>
+      <a href="https://www.theyellowfrontdoor.ca/getcronkd-dashboard.html" target="_blank" class="live-link-btn">Open the live dashboard &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<section class="stepper-section">
+  <div class="stepper-head">
+    <div class="container">
+      <p class="section-label">Walk through the system</p>
+      <h2 class="section-heading-stepper">from registration to roster to renewal flag.</h2>
+      <p class="stepper-intro">Click through each step to see how a single registration flows through the system. What the client experiences, what Rebecca sees in the dashboard, and how the marketing layer works.</p>
+    </div>
+  </div>
+  <div style="background:var(--stone);">
+    <div class="container">
+      <div class="step-nav" role="tablist">
+        <button class="step-btn active" onclick="goTo(0)" role="tab">
+          <span class="step-num">Step 0</span><span class="step-title">Registration</span><span class="step-timing">Client signs up</span>
+        </button>
+        <button class="step-btn" onclick="goTo(1)" role="tab">
+          <span class="step-num">Step 1</span><span class="step-title">Confirmation</span><span class="step-timing">Instant</span><span class="step-type">Automatic</span>
+        </button>
+        <button class="step-btn" onclick="goTo(2)" role="tab">
+          <span class="step-num">Step 2</span><span class="step-title">Schedule &amp; rosters</span><span class="step-timing">Live view</span><span class="step-type">Dashboard</span>
+        </button>
+        <button class="step-btn" onclick="goTo(3)" role="tab">
+          <span class="step-num">Step 3</span><span class="step-title">Client tracking</span><span class="step-timing">Always current</span><span class="step-type">Dashboard</span>
+        </button>
+        <button class="step-btn" onclick="goTo(4)" role="tab">
+          <span class="step-num">Step 4</span><span class="step-title">Marketing layer</span><span class="step-timing">Ready to activate</span><span class="step-type">Built in</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stepper-panels">
+    <div class="container">
+
+      <!-- STEP 0: Real registration page replica -->
+      <div class="step-panel active" id="panel-0">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 0 of 4</p>
+            <h3 class="panel-heading">A client registers. The whole system starts here.</h3>
+            <p class="panel-body">The registration form on Get Cronk&rsquo;d&rsquo;s website is an Airtable form embedded directly on the page. No separate form tool. No integration to set up and maintain. The client fills it in, submits, and a record is created in the Airtable base immediately.</p>
+            <p class="panel-body">What you see on the right is the actual registration page layout &mdash; the same form that is live on the site, embedded the same way, with the same sidebar cards.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Most studio registration systems live in a separate platform from the management system. A staff member manually copies registrations across. Here the form and the database are the same thing. There is no transfer step and no room for anything to fall through.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Client submits the Airtable form. New record created in the base. Dashboard updates immediately. Confirmation automation fires.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-next" onclick="goTo(1)">Next: Confirmation &rarr;</button></div>
+          </div>
+          <div>
+            <!-- Exact replica of getcronkd-register.html layout -->
+            <div class="reg-page-wrap">
+              <div class="reg-page-nav">
+                <img class="reg-page-logo" src="cronkd-logo-final.png" alt="Get Cronk'd">
+                <div class="reg-page-navlinks">
+                  <span>Schedule</span>
+                  <span>Register</span>
+                </div>
+              </div>
+              <div class="reg-page-hero">
+                <h1>Register, waitlist, or get notified.</h1>
+                <p>Start with this week&rsquo;s drop-in classes, or check which programs are open, full, currently running, or accepting interest for the next intake.</p>
+              </div>
+              <div class="reg-page-body">
+                <div class="reg-section-head">
+                  <div class="reg-label">Registration</div>
+                  <div class="reg-h2">Register, waitlist, or get notified.</div>
+                  <p class="reg-lead">Use this form to register for a class, join a waitlist, ask about an upcoming program, or get notified when a spot opens.</p>
+                </div>
+                <div class="reg-layout">
+                  <div class="reg-form-card">
+                    <div class="reg-form-label">Get Cronk&rsquo;d registration form</div>
+                    <div class="reg-iframe-wrap">
+                      <iframe src="https://airtable.com/embed/appTXfAYqeKi1CWVH/paga2F4EJ1JABGbge/form" frameborder="0" width="100%" height="533" style="background:transparent;border:1px solid #ccc;"></iframe>
+                    </div>
+                  </div>
+                  <aside class="reg-side">
+                    <div class="reg-side-card">
+                      <strong>Before you submit</strong>
+                      <p>Submitting the form does not guarantee a spot until the studio confirms it with you.</p>
+                    </div>
+                    <div class="reg-side-card">
+                      <strong>Not sure what to choose?</strong>
+                      <p>Select &ldquo;Not sure yet&rdquo; or use the notes field. The team can help point you in the right direction.</p>
+                    </div>
+                    <div class="reg-side-card">
+                      <strong>Looking for the schedule?</strong>
+                      <p>The live weekly schedule is the best place to check what&rsquo;s running this week.</p>
+                      <a href="https://www.theyellowfrontdoor.ca/getcronkd-schedule.html" target="_blank">View live schedule &rarr;</a>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+              <div class="reg-page-footer">Get Cronk&rsquo;d Fitness Studio &middot; 9 Clothier St E, Kemptville &middot; registration@getcronkd.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 1: Confirmation email -->
+      <div class="step-panel" id="panel-1">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 1 of 4</p>
+            <h3 class="panel-heading">Linda gets a confirmation before she closes the tab.</h3>
+            <p class="panel-body">The moment the form submits, an Airtable automation fires a confirmation email. Class details, what to bring, what to expect as a first-timer. It reads like Rebecca wrote it personally.</p>
+            <p class="panel-body"><strong>Rebecca did not write it for Linda specifically.</strong> She wrote it once. Airtable sends it every time a new registration comes in, personalised with the client&rsquo;s name and class details pulled directly from the record.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">A new client who just signed up for a 6am class has a small window of doubt between registering and showing up. The confirmation closes it. It tells them their spot is held, what to expect, and that someone is expecting them. That email is the difference between a trial client who comes in and one who quietly does not.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Airtable detects a new record in the registrations base and fires the confirmation automation. No Zapier, no third-party tool. All inside one workspace.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(0)">&larr; Back</button><button class="panel-next" onclick="goTo(2)">Next: Schedule &amp; rosters &rarr;</button></div>
+          </div>
+          <div>
+            <div class="email-client">
+              <div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; lindap@notarealemail.com</div></div>
+              <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">GC</div><div><div class="inbox-sender">Get Cronk&rsquo;d</div><div class="inbox-email-addr">hello@getcronkd.ca</div></div></div><div class="inbox-time">Monday, 8:14 am</div></div>
+              <div class="inbox-subject-row"><div class="inbox-subject">You&rsquo;re registered &mdash; see you Monday at 6am.</div><div class="inbox-to">To: lindap@notarealemail.com</div></div>
+              <div class="email-scroll"><div class="email-inner">
+                <div class="cem-header-ck"><span class="ck-email-logo">Get Cronk<span>&rsquo;d</span></span></div>
+                <div class="cem-body">
+                  <p class="cem-subject">You&rsquo;re registered &mdash; see you Monday at 6am.</p>
+                  <p class="cem-p">Hi Linda,</p>
+                  <p class="cem-p">Your spot in Monday&rsquo;s Group Training class is confirmed. Here&rsquo;s what you need to know before you come in.</p>
+                  <div class="cem-box">
+                    <div class="cem-row"><span class="cem-lbl">Class</span><span>Group Training</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Date</span><span>Monday, June 22</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Time</span><span>6:00 AM &mdash; 7:00 AM</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Coach</span><span>Rebecca Cronk</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Location</span><span>123 Pretend Street, Kemptville ON</span></div>
+                    <div class="cem-row"><span class="cem-lbl">Package</span><span>Free trial class</span></div>
+                  </div>
+                  <p class="cem-p">Arrive 5 minutes early if you can &mdash; Rebecca will get you set up and show you around before class starts. Wear clothes you can move in and bring water.</p>
+                  <p class="cem-p">If anything comes up and you can&rsquo;t make it, please let us know as soon as possible so we can open your spot for someone on the list.</p>
+                  <p class="cem-p">Looking forward to seeing you Monday.</p>
+                  <p class="cem-sign">&mdash; Rebecca &amp; the Get Cronk&rsquo;d team</p>
+                </div>
+                <div class="cem-foot">getcronkd.ca &middot; hello@getcronkd.ca &middot; Kemptville, ON</div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Dashboard schedule view -->
+      <div class="step-panel" id="panel-2">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 2 of 4</p>
+            <h3 class="panel-heading">Rebecca opens the dashboard. The week is already there.</h3>
+            <p class="panel-body">Every class for the week, with expandable rosters showing who is in each class, how many sessions each person has left, and payment status. Linda&rsquo;s registration is already in the Monday 6am roster, tagged as New.</p>
+            <p class="panel-body">Click any class row to expand the roster. Click &ldquo;Simulate new registration&rdquo; to watch a registration appear live.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Most studio owners cross-reference a registration platform with a spreadsheet or a whiteboard before each class. This is the single source of truth. Click a class, see the roster, see who is on the cancellation list. One screen.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">How it works</span>
+              <span>Linda&rsquo;s registration record is in the Airtable base. The dashboard reads live from the base. No manual update required.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(1)">&larr; Back</button><button class="panel-next" onclick="goTo(3)">Next: Client tracking &rarr;</button></div>
+          </div>
+          <div>
+            <div class="dash-wrap">
+              <div class="dash-demo-bar">Staff dashboard demo &middot; <a href="https://www.theyellowfrontdoor.ca/getcronkd-dashboard.html" target="_blank">Open full live version &rarr;</a></div>
+              <div class="dash-topbar">
+                <img class="dash-topbar-logo" src="cronkd-logo-final.png" alt="Get Cronk'd">
+                <div class="dash-topbar-nav">
+                  <button class="dash-tnav-btn active">Schedule</button>
+                  <button class="dash-tnav-btn">Clients</button>
+                  <button class="dash-tnav-btn">Marketing</button>
+                  <button class="dash-tnav-btn">Coaches</button>
+                  <button class="dash-tnav-btn">Staff notes</button>
+                </div>
+                <div class="dash-topbar-right">
+                  <span class="dash-greeting">Rebecca Cronk</span>
+                  <div class="dash-avatar">RC</div>
+                </div>
+              </div>
+              <div class="dash-body">
+                <div class="dash-kpi-row">
+                  <div class="dash-kpi"><div class="dash-kpi-val lime">6</div><div class="dash-kpi-label">Classes today</div></div>
+                  <div class="dash-kpi"><div class="dash-kpi-val blue">87</div><div class="dash-kpi-label">Registered this week</div></div>
+                  <div class="dash-kpi"><div class="dash-kpi-val amber">3</div><div class="dash-kpi-label">Classes full</div></div>
+                  <div class="dash-kpi"><div class="dash-kpi-val red">2</div><div class="dash-kpi-label">Cancellation lists</div></div>
+                  <div class="dash-kpi"><div class="dash-kpi-val green">$2,340</div><div class="dash-kpi-label">Revenue this week</div></div>
+                </div>
+                <div class="dash-sec-head">
+                  <div><h2>This week&rsquo;s classes</h2><div class="dash-sec-note">Click a class to expand roster</div></div>
+                  <button class="dash-sim-btn" onclick="simReg()"><span class="dash-pulse"></span>Simulate new registration</button>
+                </div>
+                <div class="dash-day-block">
+                  <div class="dash-day-lbl today">Monday &middot; June 22 <span class="dash-today-pill">Today</span></div>
+                  <div class="dash-class-row" onclick="dashToggle(this)">
+                    <div class="dash-class-hdr">
+                      <div class="dash-ch-time">6:00 AM</div>
+                      <div><div class="dash-ch-name">Group Training</div><div class="dash-ch-trainer">Rebecca Cronk</div></div>
+                      <div class="dash-fill-txt low" id="dash-ft-mon6">6/8</div>
+                      <div class="dash-ch-arrow">&#9662;</div>
+                    </div>
+                    <div class="dash-roster">
+                      <div class="dash-roster-hdr"><div>Name</div><div>Email</div><div>Sessions</div><div>Payment</div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Sarah Mitchell</div><div class="dash-rr-email">s.mitchell@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>8 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Dave Carruthers</div><div class="dash-rr-email">dcarruthers@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot amber"></span>2 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Tom Granger</div><div class="dash-rr-email">tgranger@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>&infin; mbr</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Diane Wyatt</div><div class="dash-rr-email">dwyatt@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>&infin; mbr</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Bonnie Kammer</div><div class="dash-rr-email">bkammer@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>6 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Kyle Brenton</div><div class="dash-rr-email">kbrenton@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>4 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row" id="dash-linda-row" style="display:none;background:rgba(162,197,35,.08);"><div class="dash-rr-name">Linda Park <span class="dash-new-badge">New</span></div><div class="dash-rr-email">lindap@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>Trial</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                    </div>
+                  </div>
+                  <div class="dash-class-row" onclick="dashToggle(this)">
+                    <div class="dash-class-hdr">
+                      <div class="dash-ch-time">7:15 PM</div>
+                      <div><div class="dash-ch-name">Fitboots Rebounding</div><div class="dash-ch-trainer">Genevieve Ethier</div></div>
+                      <div class="dash-fill-txt full">8/8</div>
+                      <div class="dash-ch-arrow">&#9662;</div>
+                    </div>
+                    <div class="dash-roster">
+                      <div class="dash-roster-hdr"><div>Name</div><div>Email</div><div>Sessions</div><div>Payment</div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Lisa Farnsworth</div><div class="dash-rr-email">lfarnsworth@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot red"></span>0 left</span></div><div><span class="dash-unpaid-badge">Renew</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Megan Chu</div><div class="dash-rr-email">mchu@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>&infin; mbr</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Paula Klein</div><div class="dash-rr-email">pklein@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>5 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Rachel O&rsquo;Brien</div><div class="dash-rr-email">robrien@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>&infin; mbr</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Josee Martin</div><div class="dash-rr-email">jmartin@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>3 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Cathy Moreau</div><div class="dash-rr-email">cmoreau@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>7 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Pam Fenton</div><div class="dash-rr-email">pfenton@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot amber"></span>1 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Nick Savard</div><div class="dash-rr-email">nsavard@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>&infin; mbr</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-waitlist-sep">Cancellation list</div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Andrea Simmons</div><div class="dash-rr-email">asimmons@notarealemail.com</div><div>&mdash;</div><div>&mdash;</div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dash-day-block">
+                  <div class="dash-day-lbl">Tuesday &middot; June 23</div>
+                  <div class="dash-class-row" onclick="dashToggle(this)">
+                    <div class="dash-class-hdr">
+                      <div class="dash-ch-time">10:00 AM</div>
+                      <div><div class="dash-ch-name">Squats N&rsquo; Tots</div><div class="dash-ch-trainer">Rebecca Cronk</div></div>
+                      <div class="dash-fill-txt low">5/6</div>
+                      <div class="dash-ch-arrow">&#9662;</div>
+                    </div>
+                    <div class="dash-roster">
+                      <div class="dash-roster-hdr"><div>Name</div><div>Email</div><div>Sessions</div><div>Payment</div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Emma Trudeau</div><div class="dash-rr-email">etrudeau@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>&infin; mbr</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Sarah Mitchell</div><div class="dash-rr-email">s.mitchell@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>8 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Aisha Rana</div><div class="dash-rr-email">aisha.r@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot red"></span>0 left</span></div><div><span class="dash-unpaid-badge">Renew</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Martine Dubois</div><div class="dash-rr-email">m.dubois@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>9 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                      <div class="dash-roster-row"><div class="dash-rr-name">Cathy Moreau</div><div class="dash-rr-email">cmoreau@notarealemail.com</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>7 left</span></div><div><span class="dash-paid-badge">Paid</span></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Client tracking -->
+      <div class="step-panel" id="panel-3">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 3 of 4</p>
+            <h3 class="panel-heading">The client list tells Rebecca who needs attention before they disappear.</h3>
+            <p class="panel-body">The Clients tab shows every member with their session count, payment status, how long they have been coming, and a flag when they are at risk. At risk means they have been coming less frequently or their package is nearly out and they have not renewed.</p>
+            <p class="panel-body">Rebecca does not have to notice these things herself. The dashboard surfaces them. Use the filter buttons to sort by status.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The clients most likely to quietly stop coming are the ones nobody notices drifting. A member who used to come three times a week and is now coming once is at risk. By the time they cancel, the relationship is already over. Catching it two weeks earlier means there is still time to reach out.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">How it works</span>
+              <span>Airtable calculates each client&rsquo;s session count and attendance from their registration records. The at-risk flag is a formula field. No manual review required.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(2)">&larr; Back</button><button class="panel-next" onclick="goTo(4)">Next: Marketing layer &rarr;</button></div>
+          </div>
+          <div>
+            <div class="dash-wrap">
+              <div class="dash-demo-bar">Staff dashboard demo &middot; <a href="https://www.theyellowfrontdoor.ca/getcronkd-dashboard.html" target="_blank">Open full live version &rarr;</a></div>
+              <div class="dash-topbar">
+                <img class="dash-topbar-logo" src="cronkd-logo-final.png" alt="Get Cronk'd">
+                <div class="dash-topbar-nav">
+                  <button class="dash-tnav-btn">Schedule</button>
+                  <button class="dash-tnav-btn active">Clients</button>
+                  <button class="dash-tnav-btn">Marketing</button>
+                  <button class="dash-tnav-btn">Coaches</button>
+                  <button class="dash-tnav-btn">Staff notes</button>
+                </div>
+                <div class="dash-topbar-right">
+                  <span class="dash-greeting">Rebecca Cronk</span>
+                  <div class="dash-avatar">RC</div>
+                </div>
+              </div>
+              <div class="dash-body">
+                <div class="dash-sec-head"><h2>All clients</h2><span class="dash-sec-note">Click any row to open their profile</span></div>
+                <div class="dash-filter-bar">
+                  <button class="dash-filter-btn active" onclick="dashFilter('all',this)">All</button>
+                  <button class="dash-filter-btn f-red" onclick="dashFilter('atrisk',this)">&#9888; At risk</button>
+                  <button class="dash-filter-btn f-amber" onclick="dashFilter('expiring',this)">Expiring soon</button>
+                  <button class="dash-filter-btn f-red" onclick="dashFilter('renew',this)">Needs renewal</button>
+                  <button class="dash-filter-btn f-purple" onclick="dashFilter('bday',this)">&#127874; Birthday</button>
+                </div>
+                <div class="dash-client-table">
+                  <div class="dash-ct-hdr"><div>Name</div><div>Program</div><div>Sessions</div><div>Payment</div><div>Since</div><div></div></div>
+                  <div class="dash-ct-row" data-f="all expiring"><div class="dash-ct-name">Sarah Mitchell</div><div class="dash-ct-program">Group Training &middot; Squats N&rsquo; Tots</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>8 left</span></div><div><span class="dash-paid-badge">Paid</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Jan 2024</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all expiring atrisk"><div class="dash-ct-name">Dave Carruthers <span class="dash-at-risk">At risk</span></div><div class="dash-ct-program">Group Training</div><div><span class="dash-sess-chip"><span class="dash-dot amber"></span>2 left</span></div><div><span class="dash-paid-badge">Paid</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Mar 2023</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all renew"><div class="dash-ct-name">Aisha Rana</div><div class="dash-ct-program">Squats N&rsquo; Tots</div><div><span class="dash-sess-chip"><span class="dash-dot red"></span>0 left</span></div><div><span class="dash-unpaid-badge">Renew</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Sep 2024</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all bday"><div class="dash-ct-name">Bonnie Kammer <span class="dash-bday">&#127874; Jun 3</span></div><div class="dash-ct-program">Group Training &middot; S3 Hybrid</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>6 left</span></div><div><span class="dash-paid-badge">Paid</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Feb 2022</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all"><div class="dash-ct-name">Tom Granger</div><div class="dash-ct-program">Monthly membership</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>&infin; mbr</span></div><div><span class="dash-paid-badge">Paid</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Aug 2021</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all renew atrisk"><div class="dash-ct-name">Lisa Farnsworth <span class="dash-at-risk">At risk</span></div><div class="dash-ct-program">Fitboots &middot; Pilates</div><div><span class="dash-sess-chip"><span class="dash-dot red"></span>0 left</span></div><div><span class="dash-unpaid-badge">Renew</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Jun 2023</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all"><div class="dash-ct-name">Linda Park <span class="dash-new-badge">New</span></div><div class="dash-ct-program">Group Training</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>Trial</span></div><div><span class="dash-paid-badge">Paid</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Jun 2026</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all expiring"><div class="dash-ct-name">Pam Fenton</div><div class="dash-ct-program">Fitboots &middot; SPYNergy</div><div><span class="dash-sess-chip"><span class="dash-dot amber"></span>1 left</span></div><div><span class="dash-paid-badge">Paid</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Oct 2023</div><div class="dash-ct-arrow">&#8250;</div></div>
+                  <div class="dash-ct-row" data-f="all bday"><div class="dash-ct-name">Kyle Brenton <span class="dash-bday">&#127874; Jun 18</span></div><div class="dash-ct-program">Group Training &middot; S3 Hybrid</div><div><span class="dash-sess-chip"><span class="dash-dot green"></span>4 left</span></div><div><span class="dash-paid-badge">Paid</span></div><div style="font-size:10px;color:var(--ck-ink-dim)">Nov 2023</div><div class="dash-ct-arrow">&#8250;</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Marketing layer -->
+      <div class="step-panel" id="panel-4">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 4 of 4</p>
+            <h3 class="panel-heading">The marketing segments are built. The emails are one connection away.</h3>
+            <p class="panel-body">The Marketing tab has five pre-built segments: renewal nudges, lapsed member re-engagement, at-risk outreach, birthday notes, and free trial follow-ups. Each segment pulls automatically from the client base.</p>
+            <p class="panel-body">Right now Rebecca reviews these and reaches out when she has time. <strong>Connecting them to MailerLite or Brevo makes them fire automatically.</strong> The segments are already built. That step is one Zapier connection.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The value of a marketing automation layer is not the technology. It is knowing which clients to talk to, when, and what to say. That thinking is already done here. Turning it on is not a project &mdash; it is an afternoon.</p>
+            </div>
+            <p class="closing-note">That is the full system. One Airtable workspace doing what a platform subscription used to. Want to build something like this for your studio? <a href="lets-talk.html">Let&rsquo;s talk.</a></p>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(3)">&larr; Back</button></div>
+          </div>
+          <div>
+            <div class="dash-wrap">
+              <div class="dash-demo-bar">Staff dashboard demo &middot; <a href="https://www.theyellowfrontdoor.ca/getcronkd-dashboard.html" target="_blank">Open full live version &rarr;</a></div>
+              <div class="dash-topbar">
+                <img class="dash-topbar-logo" src="cronkd-logo-final.png" alt="Get Cronk'd">
+                <div class="dash-topbar-nav">
+                  <button class="dash-tnav-btn">Schedule</button>
+                  <button class="dash-tnav-btn">Clients</button>
+                  <button class="dash-tnav-btn active">Marketing</button>
+                  <button class="dash-tnav-btn">Coaches</button>
+                  <button class="dash-tnav-btn">Staff notes</button>
+                </div>
+                <div class="dash-topbar-right">
+                  <span class="dash-greeting">Rebecca Cronk</span>
+                  <div class="dash-avatar">RC</div>
+                </div>
+              </div>
+              <div class="dash-body">
+                <div class="dash-sec-head"><h2>Marketing &amp; reminders</h2><span class="dash-sec-note">Preview emails by segment &middot; click Send all to trigger the batch</span></div>
+                <div class="dash-mkt-grid">
+                  <div class="dash-mkt-segment">
+                    <div class="dash-mkt-segment-head"><div><div class="dash-mkt-title" style="color:var(--ck-red)">&#9888; Expiring &mdash; 1&ndash;2 sessions left</div><div class="dash-mkt-desc">Send a renewal nudge before they run out.</div></div><div class="dash-mkt-count">3</div></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Pam Fenton</div><div class="dash-mkt-detail">1 session left</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Renewal nudge queued for Pam Fenton.')">Preview</button></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Jeff Collins</div><div class="dash-mkt-detail">2 sessions left</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Renewal nudge queued for Jeff Collins.')">Preview</button></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Dave Carruthers</div><div class="dash-mkt-detail">2 sessions left &middot; At risk</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Renewal nudge queued for Dave Carruthers.')">Preview</button></div>
+                    <button class="dash-mkt-send-all" onclick="dashToast('Renewal reminders sent','3 members will receive a renewal nudge.')">Send all renewal reminders</button>
+                  </div>
+                  <div class="dash-mkt-segment">
+                    <div class="dash-mkt-segment-head"><div><div class="dash-mkt-title" style="color:var(--ck-amber)">Package expired &mdash; 0 sessions</div><div class="dash-mkt-desc">Still showing up. Follow up before they disappear.</div></div><div class="dash-mkt-count">2</div></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Lisa Farnsworth</div><div class="dash-mkt-detail">Expired Jun 21 &middot; attending Pilates &amp; Fitboots</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Renewal email queued for Lisa Farnsworth.')">Preview</button></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Aisha Rana</div><div class="dash-mkt-detail">Expired &middot; attending Squats N&rsquo; Tots</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Renewal email queued for Aisha Rana.')">Preview</button></div>
+                    <button class="dash-mkt-send-all" onclick="dashToast('Renewal emails sent','2 members notified their package has run out.')">Send all renewal emails</button>
+                  </div>
+                  <div class="dash-mkt-segment">
+                    <div class="dash-mkt-segment-head"><div><div class="dash-mkt-title" style="color:var(--ck-red)">At risk &mdash; low engagement</div><div class="dash-mkt-desc">Not been in 3+ weeks or showing signs of lapsing.</div></div><div class="dash-mkt-count">3</div></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Dave Carruthers</div><div class="dash-mkt-detail">Last seen 3 weeks ago</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Check-in queued for Dave Carruthers.')">Preview</button></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Steve Allard</div><div class="dash-mkt-detail">Last seen 4 weeks ago</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Check-in queued for Steve Allard.')">Preview</button></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Lisa Farnsworth</div><div class="dash-mkt-detail">Package expired + no new booking</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Check-in queued for Lisa Farnsworth.')">Preview</button></div>
+                    <button class="dash-mkt-send-all" onclick="dashToast('Check-in emails sent','3 at-risk members will receive a personal check-in.')">Send all check-ins</button>
+                  </div>
+                  <div class="dash-mkt-segment">
+                    <div class="dash-mkt-segment-head"><div><div class="dash-mkt-title" style="color:var(--ck-purple)">&#127874; Birthdays this month</div><div class="dash-mkt-desc">A quick personal note from Rebecca. No pitch.</div></div><div class="dash-mkt-count">2</div></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Bonnie Kammer</div><div class="dash-mkt-detail">June 3 &middot; 4 years at the studio</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Birthday note queued for Bonnie Kammer.')">Preview</button></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Kyle Brenton</div><div class="dash-mkt-detail">June 18 &middot; Member since Nov 2023</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Birthday note queued for Kyle Brenton.')">Preview</button></div>
+                    <button class="dash-mkt-send-all" onclick="dashToast('Birthday emails sent','2 members will receive a birthday note.')">Send all birthday emails</button>
+                  </div>
+                  <div class="dash-mkt-segment">
+                    <div class="dash-mkt-segment-head"><div><div class="dash-mkt-title" style="color:var(--ck-green)">Free trial follow-up</div><div class="dash-mkt-desc">Reach out within 48 hours while it&rsquo;s fresh.</div></div><div class="dash-mkt-count">1</div></div>
+                    <div class="dash-mkt-row"><div><div class="dash-mkt-name">Linda Park</div><div class="dash-mkt-detail">Attended Mon 6am Group Training &middot; Jun 22</div></div><button class="dash-mkt-btn" onclick="dashToast('Email preview','Follow-up queued for Linda Park.')">Preview</button></div>
+                    <button class="dash-mkt-send-all" onclick="dashToast('Follow-up sent','Linda Park will hear from Rebecca within the hour.')">Send follow-up</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="dash-toast" id="dashToastEl"><div class="dash-toast-title" id="dashToastTitle"></div><div class="dash-toast-sub" id="dashToastSub"></div></div>
+
+<div class="pre-footer">
+  <div class="container">
+    <p style="font-family:var(--f-head);font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(19,36,71,0.65);max-width:580px;margin:0 auto;line-height:1.85;">A marketing studio for small businesses who do good work and want the outside to reflect it.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  var toggle=document.getElementById('nav-toggle'),navLinks=document.getElementById('nav-links');
+  toggle.addEventListener('click',function(){var open=navLinks.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+})();
+function goTo(i){
+  document.querySelectorAll('.step-btn').forEach(function(b,idx){b.classList.toggle('active',idx===i);});
+  document.querySelectorAll('.step-panel').forEach(function(p,idx){p.classList.toggle('active',idx===i);});
+  if(window.innerWidth<900){document.querySelector('.step-nav').scrollIntoView({behavior:'smooth',block:'nearest'});}
+}
+function dashToggle(row){row.classList.toggle('open');}
+var simDone=false;
+function simReg(){
+  if(simDone){dashToast('Already simulated','Reload the page to run the demo again.');return;}
+  simDone=true;
+  var rows=document.querySelectorAll('.dash-class-row');
+  if(rows[0])rows[0].classList.add('open');
+  setTimeout(function(){
+    var row=document.getElementById('dash-linda-row');
+    var ft=document.getElementById('dash-ft-mon6');
+    if(row){row.style.display='grid';}
+    if(ft){ft.textContent='7/8';ft.className='dash-fill-txt low';}
+    dashToast('New registration','Linda Park \u2014 Mon 6:00am Group Training');
+    if(row){setTimeout(function(){row.style.background='';},2500);}
+  },400);
+}
+var toastTimer=null;
+function dashToast(title,sub){
+  var el=document.getElementById('dashToastEl');
+  document.getElementById('dashToastTitle').textContent=title;
+  document.getElementById('dashToastSub').textContent=sub;
+  el.classList.add('show');
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){el.classList.remove('show');},3500);
+}
+function dashFilter(f,btn){
+  document.querySelectorAll('.dash-filter-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.dash-ct-row').forEach(function(r){
+    var filters=r.getAttribute('data-f')||'';
+    r.style.display=(f==='all'||filters.indexOf(f)>-1)?'':'none';
+  });
+}
+</script>
+</body>
+</html>
