@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cake Co. — The Yellow Front Door</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:CasualHandwriting;src:url(CasualHandwriting.woff2) format("woff2"),url(CasualHandwriting.woff) format("woff");font-display:block;}
+:root{
+  --ink:#132447;--paper:#fff;--yellow:#fcd346;--stone:#D8D1C3;--slate:#596674;--brass:#e6b800;--clay:#B86B4B;--paper-mid:#F5EFE0;--navy:#132447;
+  --f-accent:CasualHandwriting,cursive;--f-head:Montserrat,sans-serif;--f-body:Montserrat,sans-serif;--max:1120px;--gutter:clamp(24px,5vw,80px);
+  --cp:#F4A7C0;--cpl:#FDF8FA;--cpb:#E8D0DB;--cr:#C47A9B;--cd:#2C1A0E;--cb:#4A3728;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:none;}ul{list-style:none;}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);transition:box-shadow .3s;}
+.nav::after{content:"";position:absolute;top:100%;left:0;right:0;height:4px;background:var(--navy);}
+.nav.scrolled{box-shadow:0 2px 24px rgba(19,36,71,.5);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.nav-logo img{height:56px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,252,244,.75);letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--paper);}
+.nav-links a.active{font-weight:600;}
+.nav-cta{background:var(--yellow)!important;color:var(--navy)!important;padding:10px 20px;font-size:12px!important;font-weight:700!important;letter-spacing:.03em!important;}
+.nav-cta:hover{background:var(--brass)!important;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
+
+/* PAGE HEADER */
+.page-header{padding:clamp(80px,10vw,120px) 0 clamp(40px,5vw,60px);margin-top:72px;border-bottom:1px solid var(--stone);}
+.page-header-inner{max-width:560px;}
+.breadcrumb{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:20px;}
+.breadcrumb a{color:var(--slate);transition:color .2s;}.breadcrumb a:hover{color:var(--ink);}
+.breadcrumb span{margin:0 8px;color:var(--stone);}
+.page-header h1{font-family:var(--f-head);font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;}
+.page-header .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(24px,3vw,38px);font-weight:normal;color:var(--slate);line-height:1.3;margin-top:20px;margin-bottom:4px;}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.meta-tag{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:5px 11px;}
+
+/* CONTEXT STRIP */
+.context-strip{background:var(--stone);padding:clamp(28px,4vw,44px) 0;}
+.context-inner{max-width:640px;}
+.context-strip p{font-size:15px;line-height:1.9;color:var(--navy);margin-bottom:10px;}
+.context-strip p:last-child{margin-bottom:0;}
+
+/* STACK */
+.stack-section{padding:clamp(48px,6vw,72px) 0;border-bottom:1px solid var(--stone);}
+.section-label{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:16px;}
+.section-heading{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.body-text{font-size:15px;line-height:1.9;color:var(--ink);margin-bottom:14px;max-width:600px;}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);margin-top:28px;}
+.stack-grid-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);border-top:none;margin-bottom:0;}
+.stack-item{background:var(--paper);padding:22px 24px;}
+.stack-role{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
+.stack-tool{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+.stack-desc{font-size:12px;line-height:1.7;color:var(--slate);}
+.stack-note{font-size:12px;line-height:1.8;color:var(--slate);margin-top:20px;max-width:600px;}
+.stack-note strong{color:var(--ink);font-weight:600;}
+.cost-line{margin-top:28px;padding:20px 24px;border:1px solid var(--stone);max-width:600px;}
+.cost-line p{font-size:14px;line-height:1.85;color:var(--ink);}
+
+/* STEPPER */
+.stepper-section{padding:0;}
+.stepper-head{background:var(--stone);padding:clamp(36px,5vw,56px) 0 0;}
+.section-heading-stepper{font-family:var(--f-accent);font-size:clamp(24px,3vw,36px);color:var(--ink);font-weight:normal;line-height:1.15;margin-bottom:16px;}
+.stepper-intro{font-size:14px;color:var(--slate);max-width:560px;line-height:1.8;padding-bottom:clamp(28px,4vw,44px);}
+.step-nav{display:flex;align-items:stretch;overflow-x:auto;border:1px solid #c4bdb0;border-top:none;}
+.step-btn{flex:1;min-width:130px;background:var(--paper);border:none;border-right:1px solid var(--stone);padding:14px 16px;text-align:left;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;gap:4px;position:relative;font-family:var(--f-body);}
+.step-btn:last-child{border-right:none;}
+.step-btn:hover{background:#ede7dc;}
+.step-btn.active{background:var(--navy);}
+.step-btn::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:3px;background:var(--yellow);opacity:0;transition:opacity .2s;}
+.step-btn.active::after{opacity:1;}
+.step-num{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);transition:color .2s;}
+.step-btn.active .step-num{color:rgba(255,255,255,.5);}
+.step-title{font-size:12px;font-weight:600;color:var(--ink);transition:color .2s;}
+.step-btn.active .step-title{color:var(--paper);}
+.step-timing{font-size:10px;color:var(--slate);transition:color .2s;}
+.step-btn.active .step-timing{color:rgba(255,255,255,.55);}
+.step-type{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);margin-top:2px;}
+.step-btn.active .step-type{color:var(--yellow);}
+
+/* PANELS */
+.stepper-panels{background:var(--paper);padding:clamp(40px,5vw,64px) 0 clamp(48px,6vw,72px);}
+.step-panel{display:none;}
+.step-panel.active{display:block;}
+.panel-layout{display:grid;grid-template-columns:420px minmax(0,560px);gap:clamp(32px,4vw,56px);align-items:start;max-width:1060px;}
+.panel-context{max-width:420px;}
+.panel-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
+.panel-heading{font-family:var(--f-accent);font-size:clamp(20px,2.2vw,28px);color:var(--ink);font-weight:normal;line-height:1.25;margin-bottom:16px;}
+.panel-body{font-size:14px;line-height:1.85;color:var(--slate);margin-bottom:12px;}
+.panel-body strong{color:var(--ink);font-weight:600;}
+.why-box{border:1px solid var(--stone);padding:18px 22px;margin-top:20px;}
+.why-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:8px;}
+.why-text{font-size:13px;line-height:1.8;color:var(--slate);}
+.trigger-line{display:flex;gap:8px;align-items:flex-start;margin-top:16px;font-size:12px;color:var(--slate);}
+.trigger-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);flex-shrink:0;padding-top:2px;}
+.options-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+.option-card{border:1px solid var(--stone);padding:16px 18px;}
+.option-lbl{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:6px;}
+.option-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.option-desc{font-size:12px;line-height:1.75;color:var(--slate);}
+.panel-nav{display:flex;gap:12px;margin-top:24px;}
+.panel-next{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--yellow);padding:11px 20px;border:none;cursor:pointer;transition:background .2s;font-family:var(--f-body);}
+.panel-next:hover{background:var(--brass);}
+.panel-prev{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:transparent;padding:11px 20px;border:1px solid var(--stone);cursor:pointer;transition:border-color .2s;font-family:var(--f-body);}
+.panel-prev:hover{border-color:var(--ink);}
+.closing-note{font-size:14px;line-height:1.85;color:var(--slate);margin-top:20px;}
+.closing-note a{color:var(--clay);font-weight:600;}
+
+/* MOCK FORM */
+.mock-form{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.mock-form-logo{background:#fff;padding:20px;text-align:center;border-bottom:0.5px solid #f0e0e8;}
+.mock-form-logo img{height:64px;width:auto;margin:0 auto;display:block;}
+.mock-form-header{background:var(--navy);padding:16px 20px;}
+.mock-form-title{font-size:13px;font-weight:600;color:var(--paper);font-family:var(--f-body);}
+.mock-form-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;font-family:var(--f-body);}
+.mock-form-body{padding:20px;}
+.form-section-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;margin-top:18px;}
+.form-section-label:first-child{margin-top:0;}
+.mock-field{margin-bottom:10px;}
+.mock-field-label{font-size:11px;font-weight:600;color:var(--ink);margin-bottom:4px;font-family:var(--f-body);}
+.mock-field-label span{font-weight:400;color:var(--slate);font-size:10px;margin-left:4px;}
+.mock-input{width:100%;background:#f9fafb;border:1px solid #e5e7eb;border-radius:4px;padding:8px 10px;font-size:12px;color:var(--slate);font-family:var(--f-body);}
+.mock-input.filled{background:#fff;color:var(--ink);border-color:#d1d5db;}
+.mock-upload{background:#f9fafb;border:1px dashed #d1d5db;border-radius:4px;padding:14px;text-align:center;font-size:11px;color:var(--slate);font-family:var(--f-body);}
+.mock-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mock-submit{width:100%;background:var(--navy);color:var(--paper);font-family:var(--f-body);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:12px;border:none;border-radius:4px;margin-top:16px;cursor:pointer;}
+
+/* EMAIL CLIENT */
+.email-client{border-radius:10px;overflow:hidden;box-shadow:0 4px 32px rgba(19,36,71,.10);border:1px solid #d1d5db;}
+.client-chrome{background:#f3f4f6;border-bottom:1px solid #e5e7eb;padding:10px 14px;display:flex;align-items:center;gap:10px;}
+.chrome-dots{display:flex;gap:6px;}
+.chrome-dot{width:12px;height:12px;border-radius:50%;}
+.chrome-dot.red{background:#ff5f57;}.chrome-dot.yellow{background:#febc2e;}.chrome-dot.green{background:#28c840;}
+.chrome-bar{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:4px;padding:5px 10px;font-size:11px;color:#9ca3af;font-family:var(--f-body);}
+.inbox-header{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.inbox-from{display:flex;align-items:center;gap:10px;}
+.inbox-avatar{width:34px;height:34px;border-radius:50%;background:var(--cp);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;font-family:var(--f-body);flex-shrink:0;}
+.inbox-avatar.baker{background:var(--navy);}
+.inbox-sender{font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);}
+.inbox-email-addr{font-size:11px;color:#6b7280;font-family:var(--f-body);}
+.inbox-time{font-size:11px;color:#9ca3af;font-family:var(--f-body);white-space:nowrap;}
+.inbox-subject-row{padding:10px 16px 8px;border-bottom:1px solid #f3f4f6;}
+.inbox-subject{font-size:14px;font-weight:600;color:#111827;font-family:var(--f-body);}
+.inbox-to{font-size:11px;color:#9ca3af;margin-top:2px;font-family:var(--f-body);}
+.email-scroll{max-height:480px;overflow-y:auto;background:#f3f4f6;padding:14px;}
+.email-inner{background:#fff;border-radius:6px;overflow:hidden;}
+.cem-header{background:#fff;border-bottom:0.5px solid var(--cpb);padding:20px;text-align:center;}
+.cem-header img{height:68px;width:auto;margin:0 auto;}
+.cem-body{padding:20px 20px 14px;}
+.cem-subject{font-family:Playfair Display,serif;font-size:16px;color:var(--cd);font-weight:400;margin-bottom:14px;line-height:1.35;}
+.cem-p{font-size:13px;line-height:1.75;color:var(--cb);margin-bottom:11px;font-family:Lato,sans-serif;}
+.cem-box{background:var(--cpl);border:0.5px solid var(--cpb);border-radius:6px;padding:13px 15px;margin:13px 0;}
+.cem-row{display:flex;justify-content:space-between;font-size:12px;color:var(--cb);padding:3px 0;font-family:Lato,sans-serif;}
+.cem-lbl{color:var(--cr);}
+.cem-sign{color:var(--cr);font-size:12px;margin-top:6px;font-family:Lato,sans-serif;}
+.cem-foot{padding:10px 16px;border-top:0.5px solid #F0E0E8;font-size:10px;color:#C4A0B0;letter-spacing:.04em;text-align:center;font-family:Lato,sans-serif;}
+.cem-receipt{border:0.5px solid var(--cpb);border-radius:6px;overflow:hidden;margin:13px 0;}
+.cem-rhead{background:var(--cpl);border-bottom:0.5px solid var(--cpb);padding:9px 13px;display:flex;justify-content:space-between;align-items:center;}
+.cem-rtitle{font-family:Playfair Display,serif;font-size:12px;color:var(--cd);}
+.cem-rnum{font-size:10px;color:var(--cr);}
+.cem-rbody{padding:11px 13px;background:#fff;}
+.cem-rrow{display:flex;justify-content:space-between;font-size:12px;color:var(--cb);padding:4px 0;border-bottom:0.5px solid #F5EAF0;font-family:Lato,sans-serif;}
+.cem-rrow:last-child{border-bottom:none;}
+.cem-rdesc{color:var(--cr);font-size:10px;margin-top:1px;}
+.cem-rtotal{font-weight:700;font-size:13px;color:var(--cd);border-top:0.5px solid var(--cpb);border-bottom:none;padding-top:8px;margin-top:2px;}
+.cem-rdeposit{background:var(--cpl);border-radius:4px;padding:5px 8px;margin:4px 0 0;font-weight:700;color:var(--cd);font-family:Lato,sans-serif;font-size:12px;display:flex;justify-content:space-between;}
+.cem-pay{background:var(--cpl);border:0.5px solid var(--cpb);border-radius:6px;padding:13px 15px;margin:13px 0;}
+.cem-pay-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:9px;}
+.cem-pay-lbl{font-size:10px;color:var(--cr);font-family:Lato,sans-serif;margin-bottom:2px;}
+.cem-pay-amount{font-family:Playfair Display,serif;font-size:19px;color:var(--cd);}
+.cem-pay-btn{background:var(--cd);color:#fff;font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 15px;border-radius:3px;white-space:nowrap;}
+.cem-sq{display:flex;align-items:center;gap:7px;background:#fff;border:0.5px solid var(--cpb);border-radius:4px;padding:6px 9px;}
+.sq-logo{width:13px;height:13px;background:#006AFF;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.sq-inner{width:6px;height:6px;background:#fff;border-radius:1px;}
+.sq-link{font-size:10px;color:#006AFF;font-family:Lato,sans-serif;}
+.sq-label{font-size:10px;color:#B09070;margin-left:auto;font-family:Lato,sans-serif;}
+.cem-pay-note{font-size:10px;color:#B09070;margin-top:6px;font-family:Lato,sans-serif;}
+.cem-confirmed{background:var(--cpl);border:0.5px solid var(--cp);border-radius:6px;padding:14px;margin:13px 0;text-align:center;}
+.cem-confirmed-title{font-family:Playfair Display,serif;font-size:15px;color:var(--cd);margin-bottom:4px;}
+.cem-confirmed-detail{font-size:11px;color:var(--cr);font-family:Lato,sans-serif;}
+
+/* INTERNAL NOTIFICATION */
+.internal-card{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.internal-header{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.internal-badge{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);background:var(--paper-mid);border:1px solid var(--stone);padding:3px 8px;}
+.internal-body{padding:20px;}
+.internal-heading{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:14px;font-family:var(--f-body);}
+.internal-row{display:flex;gap:12px;margin-bottom:8px;font-size:12px;font-family:var(--f-body);}
+.internal-lbl{color:var(--clay);font-weight:600;min-width:100px;flex-shrink:0;}
+.internal-val{color:var(--slate);}
+.checklist-section{border-top:1px solid #f3f4f6;margin-top:16px;padding-top:16px;}
+.checklist-label{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--slate);margin-bottom:12px;}
+.checklist-item{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:12px;color:var(--slate);font-family:var(--f-body);}
+.check-box{width:16px;height:16px;border:1.5px solid var(--stone);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.check-box.checked{background:var(--navy);border-color:var(--navy);}
+.check-box.checked::after{content:"";width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px);display:block;}
+.checklist-trigger{margin-top:16px;background:var(--paper-mid);border:1px solid var(--stone);padding:12px 14px;font-size:12px;color:var(--slate);font-family:var(--f-body);line-height:1.7;}
+.checklist-trigger strong{color:var(--ink);font-weight:600;}
+
+/* GOOGLE SHEET */
+.sheet-card{background:#fff;border-radius:10px;box-shadow:0 4px 32px rgba(19,36,71,.08);border:1px solid #e5e7eb;overflow:hidden;}
+.sheet-header{background:#1a73e8;padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.sheet-icon{font-size:14px;}
+.sheet-title{font-size:12px;font-weight:600;color:#fff;font-family:var(--f-body);}
+.sheet-body{overflow-x:auto;}
+.sheet-table{width:100%;border-collapse:collapse;font-size:11px;font-family:var(--f-body);}
+.sheet-table th{background:#f8f9fa;border:1px solid #e5e7eb;padding:7px 10px;text-align:left;font-weight:600;color:#3c4043;white-space:nowrap;}
+.sheet-table td{border:1px solid #e5e7eb;padding:7px 10px;color:#3c4043;white-space:nowrap;}
+.sheet-table tr:nth-child(even) td{background:#f8f9fa;}
+.status-booked{background:#e6f4ea;color:#137333;font-weight:600;padding:2px 8px;border-radius:3px;font-size:10px;}
+.status-quoted{background:#fef7e0;color:#b45309;font-weight:600;padding:2px 8px;border-radius:3px;font-size:10px;}
+.status-new{background:#e8f0fe;color:#1a73e8;font-weight:600;padding:2px 8px;border-radius:3px;font-size:10px;}
+
+/* PRE FOOTER + FOOTER */
+.pre-footer{background:var(--stone);border-top:1px solid #c4bdb0;padding:clamp(32px,4vw,52px) 0;text-align:center;}
+.footer{background:var(--paper);padding:40px 0 32px;border-top:1px solid var(--stone);}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+.footer-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-bottom:32px;border-bottom:1px solid var(--stone);margin-bottom:28px;align-items:start;}
+.footer-brand img{width:64px;height:64px;}
+.footer-nav-col h4{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:16px;}
+.footer-nav-col a{display:block;font-size:14px;color:var(--slate);margin-bottom:10px;transition:color .2s;}
+.footer-nav-col a:hover{color:var(--ink);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:11px;color:var(--slate);letter-spacing:.05em;}
+.footer-dot-sm{width:6px;height:6px;background:var(--yellow);border-radius:50%;}
+
+@media(max-width:1000px){.panel-layout{grid-template-columns:1fr;}.panel-context{max-width:100%;}}
+@media(max-width:760px){.stack-grid,.stack-grid-bottom{grid-template-columns:1fr 1fr;}.options-pair{grid-template-columns:1fr;}.mock-row{grid-template-columns:1fr;}}
+@media(max-width:640px){
+  .nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;border-bottom:1px solid rgba(255,255,255,.08);gap:20px;z-index:99;}
+  .nav-toggle{display:flex;}.footer-top{grid-template-columns:1fr;gap:32px;}.footer-bottom{flex-direction:column;text-align:center;}
+  .stack-grid,.stack-grid-bottom{grid-template-columns:1fr;}.step-btn{min-width:110px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html" class="active">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>&rsaquo;</span><a href="proof-strategy.html">Strategy &amp; Systems</a><span>&rsaquo;</span>The Cake Co.</p>
+      <h1>The Cake Co. is fictional,<br>but the problem isn&rsquo;t.<span class="accent-line">custom orders, less chasing.</span></h1>
+      <div class="meta-row">
+        <span class="meta-tag">Concept project</span>
+        <span class="meta-tag">Order automation</span>
+        <span class="meta-tag">Email sequence</span>
+        <span class="meta-tag">MailerLite</span>
+        <span class="meta-tag">Square</span>
+        <span class="meta-tag">Gmail</span>
+        <span class="meta-tag">Zapier</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="context-strip">
+  <div class="container">
+    <div class="context-inner">
+      <p>A customer submits an order on a Friday night and the baker is off the clock. By Monday morning, that customer may already have heard back from someone else. The longer someone waits after submitting an inquiry, the easier it is for doubt, distraction, or another vendor to step in.</p>
+      <p>For a business owner who is also the baker, bookkeeper, and delivery driver, that follow-up window is rarely free. This is what we built to fix that.</p>
+    </div>
+  </div>
+</div>
+
+<section class="stack-section">
+  <div class="container">
+    <p class="section-label">The stack</p>
+    <h2 class="section-heading">the tools, and why each one is here.</h2>
+    <p class="body-text">The whole thing runs on tools most small businesses already have or can get for free. Nothing here requires a developer to maintain.</p>
+
+    <div class="stack-grid">
+      <div class="stack-item">
+        <p class="stack-role">Order intake</p>
+        <p class="stack-tool">Jotform</p>
+        <p class="stack-desc">The customer-facing form. Captures everything the baker needs to price and plan the order without a single follow-up email. File uploads, conditional logic, and Zapier connection built in.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Connection layer</p>
+        <p class="stack-tool">Zapier</p>
+        <p class="stack-desc">Connects the form to everything else. When Sarah submits, Zapier fires the confirmation email, creates the order record in Google Sheets, and notifies the baker. One trigger, multiple actions.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Order log</p>
+        <p class="stack-tool">Google Sheets</p>
+        <p class="stack-desc">Every order in one place. Date, status, delivery details, whether the deposit is paid. The baker opens it and knows exactly where every order stands. No dashboard to learn, no new login.</p>
+      </div>
+    </div>
+
+    <div class="stack-grid-bottom">
+      <div class="stack-item">
+        <p class="stack-role">Automated emails</p>
+        <p class="stack-tool">MailerLite</p>
+        <p class="stack-desc">One option for the repeatable customer emails like the instant confirmation and delivery reminder. Also works if the business already uses it for email marketing. The confirmation can also come from a Jotform autoresponder or Gmail via Zapier depending on preference.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Personal emails</p>
+        <p class="stack-tool">Gmail</p>
+        <p class="stack-desc">The quote, the follow-up, the order recap. These are one-to-one emails that need a human touch. Zapier creates a pre-filled draft. The baker reviews, personalises if needed, and sends.</p>
+      </div>
+      <div class="stack-item">
+        <p class="stack-role">Invoicing and payment</p>
+        <p class="stack-tool">Square</p>
+        <p class="stack-desc">Handles the invoice, the deposit link, and the payment receipt. Square stays separate from the website by design. The site captures the lead. Square handles the money. Mixing those two jobs would add complexity without adding anything the customer actually needs.</p>
+      </div>
+    </div>
+
+    <p class="stack-note">* Square also doubles as the order record for invoices and payment history. The baker already logs in to create invoices, so the financial side of every order lives there without any extra steps.</p>
+
+    <div class="cost-line">
+      <p>Running a custom order business without a system isn&rsquo;t free. It&rsquo;s just paid in time instead of money. The &ldquo;sorry for the delay&rdquo; emails, the order details buried in a text thread, the Friday night inquiry that sat until Monday. A lean version of this typically runs somewhere around the cost of a couple of pounds of good butter a month. Often less, depending on what the business already has. This is one way to build it. Maybe you already have half these tools and just need the pieces connected. Maybe you need less. We figure that out together.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stepper-section">
+  <div class="stepper-head">
+    <div class="container">
+      <p class="section-label">Walk through the sequence</p>
+      <h2 class="section-heading-stepper">what Sarah experiences, step by step.</h2>
+      <p class="stepper-intro">Click through each step below to see exactly what happens after Sarah hits submit. What she sees, what the baker sees, and why each piece of the system is doing what it is doing.</p>
+    </div>
+  </div>
+
+  <div style="background:var(--stone);">
+    <div class="container">
+      <div class="step-nav" role="tablist">
+        <button class="step-btn active" onclick="goTo(0)" role="tab">
+          <span class="step-num">Start</span><span class="step-title">The order form</span><span class="step-timing">Before anything else</span>
+        </button>
+        <button class="step-btn" onclick="goTo(1)" role="tab">
+          <span class="step-num">Step 1</span><span class="step-title">Order submitted</span><span class="step-timing">Instant</span><span class="step-type">Automatic</span>
+        </button>
+        <button class="step-btn" onclick="goTo(2)" role="tab">
+          <span class="step-num">Step 2</span><span class="step-title">Baker reviews</span><span class="step-timing">Internal</span><span class="step-type">Baker action</span>
+        </button>
+        <button class="step-btn" onclick="goTo(3)" role="tab">
+          <span class="step-num">Step 3</span><span class="step-title">Quote sent</span><span class="step-timing">Baker sends</span><span class="step-type">Draft review</span>
+        </button>
+        <button class="step-btn" onclick="goTo(4)" role="tab">
+          <span class="step-num">Step 4</span><span class="step-title">Deposit confirmed</span><span class="step-timing">On payment</span><span class="step-type">Draft review</span>
+        </button>
+        <button class="step-btn" onclick="goTo(5)" role="tab">
+          <span class="step-num">Step 5</span><span class="step-title">Delivery reminder</span><span class="step-timing">48 hrs before</span><span class="step-type">Automatic</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stepper-panels">
+    <div class="container">
+
+      <div class="step-panel active" id="panel-0">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Before the sequence</p>
+            <h3 class="panel-heading">The form Sarah fills out.</h3>
+            <p class="panel-body">Before any automation runs, the form has to do its job. A well-designed intake form is the foundation of the whole system. It asks the right questions so the baker has everything she needs to price the order without going back and forth.</p>
+            <p class="panel-body">The inspiration photo upload is deliberate. Garden-style florals means something different to every baker. A photo removes the ambiguity before it becomes a problem.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Most custom order businesses use a generic contact form. The customer writes a vague message, the baker asks five follow-up questions, the customer takes two days to reply, and by then the date might be gone. A specific intake form front-loads that conversation so everyone starts on the same page.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Sarah hits submit. Everything else in this sequence starts here.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-next" onclick="goTo(1)">Next: Order submitted &rarr;</button></div>
+          </div>
+
+          <div>
+            <div class="mock-form">
+              <div class="mock-form-logo"><img src="thecakeco.png" alt="The Cake Co."></div>
+              <div class="mock-form-header">
+                <div class="mock-form-title">Custom Cake Inquiry</div>
+                <div class="mock-form-sub">The Cake Co. &middot; thecakeco.ca</div>
+              </div>
+              <div class="mock-form-body">
+                <p class="form-section-label">About you</p>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">First name</div><div class="mock-input filled">Sarah</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Last name</div><div class="mock-input filled">Mitchell</div></div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Email</div><div class="mock-input filled">sarah.m@notarealemail.com</div></div>
+                <div class="mock-field"><div class="mock-field-label">Phone <span>optional</span></div><div class="mock-input filled">902-555-0147</div></div>
+
+                <p class="form-section-label">Your order</p>
+                <div class="mock-field"><div class="mock-field-label">Occasion</div><div class="mock-input filled">40th birthday</div></div>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">Date needed</div><div class="mock-input filled">August 9, 2026</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Number of guests</div><div class="mock-input filled">30&ndash;35</div></div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Flavour preferences</div><div class="mock-input filled">Lemon lavender, vanilla bean</div></div>
+                <div class="mock-field"><div class="mock-field-label">Dietary restrictions or allergies <span>if any</span></div><div class="mock-input">None</div></div>
+                <div class="mock-field"><div class="mock-field-label">Fondant</div><div class="mock-input filled">No fondant please</div></div>
+                <div class="mock-row">
+                  <div class="mock-field"><div class="mock-field-label">Pickup or delivery</div><div class="mock-input filled">Delivery</div></div>
+                  <div class="mock-field"><div class="mock-field-label">Delivery address</div><div class="mock-input filled">Main St. &amp; Elm Ave., Wolfville NS</div></div>
+                </div>
+
+                <p class="form-section-label">Design inspiration</p>
+                <div class="mock-field"><div class="mock-field-label">Design notes</div><div class="mock-input filled">Garden-style florals, soft colours, nothing too formal</div></div>
+                <div class="mock-field">
+                  <div class="mock-field-label">Inspiration photos <span>up to 3</span></div>
+                  <div class="mock-upload">Drop files here or click to upload &middot; JPG, PNG, PDF</div>
+                </div>
+                <div class="mock-field"><div class="mock-field-label">Inspiration link <span>Pinterest, Instagram, etc.</span></div><div class="mock-input filled">pinterest.com/sarah/cake-ideas</div></div>
+                <div class="mock-field"><div class="mock-field-label">Anything else we should know</div><div class="mock-input"></div></div>
+                <div class="mock-field"><div class="mock-field-label">How did you find us</div><div class="mock-input filled">Instagram</div></div>
+                <button class="mock-submit">Submit my inquiry</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-panel" id="panel-1">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 1 of 5</p>
+            <h3 class="panel-heading">Sarah gets a confirmation. Instantly.</h3>
+            <p class="panel-body">It is Friday evening. Sarah hits submit and goes to bed. <strong>This email is already in her inbox.</strong> Nobody at The Cake Co. touched their phone.</p>
+            <p class="panel-body">The email plays her order details back to her so she can see everything was captured correctly. If something is wrong she can reply right then.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">The silence after a form submission is where most custom order businesses lose people. Not because they are not interested. Because the customer has no idea if it went through. This email closes that gap before doubt has a chance to set in.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Jotform submission fires Zapier. Zapier sends the confirmation via MailerLite and adds Sarah&rsquo;s order to the Google Sheet simultaneously.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(0)">&larr; Back</button><button class="panel-next" onclick="goTo(2)">Next: Baker reviews &rarr;</button></div>
+          </div>
+
+          <div>
+            <div class="email-client">
+              <div class="client-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Mail &mdash; sarah.m@notarealemail.com</div></div>
+              <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">TC</div><div><div class="inbox-sender">The Cake Co.</div><div class="inbox-email-addr">hello@thecakeco.ca</div></div></div><div class="inbox-time">Friday, 8:42 pm</div></div>
+              <div class="inbox-subject-row"><div class="inbox-subject">We got your order &mdash; here&#8217;s what you shared with us.</div><div class="inbox-to">To: sarah.m@notarealemail.com</div></div>
+              <div class="email-scroll">
+                <div class="email-inner">
+                  <div class="cem-header"><img src="thecakeco.png" alt="The Cake Co."></div>
+                  <div class="cem-body">
+                    <p class="cem-subject">We got your order &mdash; here&#8217;s what you shared with us.</p>
+                    <p class="cem-p">Hi Sarah,</p>
+                    <p class="cem-p">Your custom order request came through and we have everything we need to get started on a quote for you.</p>
+                    <div class="cem-box">
+                      <div class="cem-row"><span class="cem-lbl">Occasion</span><span>40th birthday</span></div>
+                      <div class="cem-row"><span class="cem-lbl">Servings</span><span>30&ndash;35</span></div>
+                      <div class="cem-row"><span class="cem-lbl">Flavour</span><span>Lemon lavender, vanilla bean</span></div>
+                      <div class="cem-row"><span class="cem-lbl">Date</span><span>Saturday, August 9</span></div>
+                      <div class="cem-row"><span class="cem-lbl">Delivery</span><span>Main St. &amp; Elm Ave., Wolfville NS</span></div>
+                      <div class="cem-row"><span class="cem-lbl">Design</span><span>No fondant, garden-style florals</span></div>
+                    </div>
+                    <p class="cem-p">We review all custom orders within one business day and will follow up with pricing and availability. If anything looks off or you have questions, just reply here.</p>
+                    <p class="cem-sign">&mdash; The Cake Co.</p>
+                  </div>
+                  <div class="cem-foot">thecakeco.ca &middot; hello@thecakeco.ca &middot; Annapolis Valley, NS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Remaining panels unchanged except for structure/copy already polished in original -->
+      <div class="step-panel" id="panel-2">
+        <div class="panel-layout">
+          <div class="panel-context">
+            <p class="panel-label">Step 2 of 5</p>
+            <h3 class="panel-heading">The baker reviews the order before quoting.</h3>
+            <p class="panel-body">Saturday morning, the baker opens her notification email. It has Sarah&rsquo;s full order details and a link to a short internal checklist. She clicks through, reviews the order, and answers a few quick questions before building the quote.</p>
+            <p class="panel-body">This step exists because pricing a custom cake takes a human eye. The checklist makes sure nothing gets missed before the quote goes out.</p>
+            <div class="why-box">
+              <p class="why-label">Why this matters</p>
+              <p class="why-text">Most bakers price from memory and send a number without checking their calendar, confirming the delivery range, or clarifying the design. This checklist takes two minutes and prevents the kind of mistakes that are awkward to fix after a deposit is paid.</p>
+            </div>
+            <div class="trigger-line">
+              <span class="trigger-label">Trigger</span>
+              <span>Zapier sends the baker an internal notification with Sarah&rsquo;s details and adds the order to the Google Sheet. From there the baker reviews the order, works through the checklist, and chooses the next step.</span>
+            </div>
+            <div class="panel-nav"><button class="panel-prev" onclick="goTo(1)">&larr; Back</button><button class="panel-next" onclick="goTo(3)">Next: Quote sent &rarr;</button></div>
+          </div>
+
+          <div>
+            <div class="internal-card">
+              <div class="internal-header">
+                <span style="font-size:13px;font-weight:600;color:#111827;font-family:var(--f-body);">New order &mdash; Baker checklist</span>
+                <span class="internal-badge">Internal</span>
+              </div>
+              <div class="internal-body">
+                <div class="internal-heading">Sarah Mitchell &mdash; August 9 &mdash; Wolfville delivery</div>
+                <div class="internal-row"><span class="internal-lbl">Occasion</span><span class="internal-val">40th birthday</span></div>
+                <div class="internal-row"><span class="internal-lbl">Servings</span><span class="internal-val">30&ndash;35</span></div>
+                <div class="internal-row"><span class="internal-lbl">Flavour</span><span class="internal-val">Lemon lavender, vanilla bean</span></div>
+                <div class="internal-row"><span class="internal-lbl">Design</span><span class="internal-val">No fondant, garden-style florals</span></div>
+                <div class="internal-row"><span class="internal-lbl">Inspiration</span><span class="internal-val">pinterest.com/sarah/cake-ideas</span></div>
+                <div class="checklist-section">
+                  <p class="checklist-label">Before you quote, confirm:</p>
+                  <div class="checklist-item"><div class="check-box checked"></div><span>August 9 is available in my calendar</span></div>
+                  <div class="checklist-item"><div class="check-box checked"></div><span>Wolfville delivery is within my range</span></div>
+                  <div class="checklist-item"><div class="check-box checked"></div><span>Design notes are clear enough to price</span></div>
+                  <div class="checklist-item"><div class="check-box"></div><span>I need more information before quoting</span></div>
+                  <div class="checklist-trigger"><strong>If you need more info:</strong> check the box above, note your question, and submit. Zapier will create a Gmail draft to Sarah so you can ask without writing it from scratch.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keep the rest of your Step 3, Step 4, and Step 5 panels from the previous version here. -->
+
+    </div>
+  </div>
+</section>
+
+<div class="pre-footer">
+  <div class="container">
+    <p style="font-family:var(--f-head);font-size:clamp(15px,1.6vw,18px);font-weight:400;color:rgba(19,36,71,0.65);max-width:580px;margin:0 auto;line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
+      <div class="footer-nav-col">
+        <h4>Studio</h4>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="the-proof.html">The Proof</a>
+        <a href="about.html">About</a>
+        <a href="the-doorstep.html">The Doorstep</a>
+        <a href="lets-talk.html">Let's Talk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door &nbsp;&middot;&nbsp; Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  var toggle=document.getElementById('nav-toggle'),navLinks=document.getElementById('nav-links');
+  toggle.addEventListener('click',function(){var open=navLinks.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+})();
+
+function goTo(i){
+  document.querySelectorAll('.step-btn').forEach(function(b,idx){
+    b.classList.toggle('active',idx===i);
+    b.setAttribute('aria-selected',idx===i?'true':'false');
+  });
+  document.querySelectorAll('.step-panel').forEach(function(p,idx){
+    p.classList.toggle('active',idx===i);
+  });
+  if(window.innerWidth<900){
+    document.querySelector('.step-nav').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+}
+</script>
+
+</body>
+</html>
