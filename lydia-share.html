@@ -57,10 +57,10 @@ a { color: inherit; text-decoration: none; }
 /* NAV */
 .nav {
   position: relative;
-  z-index: 20;
+  z-index: 30;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
-  height: 96px;
+  height: 92px;
   padding: 0 clamp(18px, 4vw, 64px);
 }
 
@@ -69,24 +69,26 @@ a { color: inherit; text-decoration: none; }
   height: 100%;
   max-width: 1180px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(230px, 23vw, 300px) minmax(0, 1fr);
+  display: flex;
   align-items: center;
-  gap: clamp(16px, 3vw, 38px);
+  justify-content: space-between;
 }
 
 .nav-side {
+  width: calc(50% - 170px);
   display: flex;
   align-items: center;
-  gap: clamp(22px, 3vw, 34px);
+  gap: clamp(22px, 3vw, 36px);
 }
 
 .nav-left {
   justify-content: flex-end;
+  padding-right: 20px;
 }
 
 .nav-right {
   justify-content: flex-start;
+  padding-left: 20px;
 }
 
 .nav-side a {
@@ -104,17 +106,26 @@ a { color: inherit; text-decoration: none; }
 }
 
 .nav-logo-link {
-  justify-self: center;
-  align-self: start;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: clamp(260px, 25vw, 330px);
+  height: 86px;
   background: var(--paper);
-  padding: 7px 16px 9px;
-  transform: translateY(-1px);
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px 12px;
+  z-index: 4;
 }
 
 .nav-logo {
-  height: clamp(80px, 7.5vw, 96px);
+  max-width: 100%;
+  max-height: 72px;
   width: auto;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
@@ -357,21 +368,21 @@ a { color: inherit; text-decoration: none; }
   background: var(--blue);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: clamp(34px, 4vw, 50px) clamp(24px, 5vw, 64px);
+  padding: clamp(42px, 5vw, 66px) clamp(24px, 5vw, 64px);
   text-align: center;
 }
 
 .signoff-band img {
-  height: 58px;
-  width: auto;
-  margin: 0 auto 16px;
+  width: clamp(190px, 22vw, 280px);
+  height: auto;
+  margin: 0 auto 20px;
 }
 
 .signoff-band p {
   font-size: 13px;
   line-height: 1.85;
   color: var(--muted);
-  max-width: 500px;
+  max-width: 540px;
   margin: 0 auto;
 }
 
@@ -401,16 +412,8 @@ a { color: inherit; text-decoration: none; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .nav {
-    height: 88px;
-  }
-
-  .nav-inner {
-    grid-template-columns: minmax(0, 1fr) clamp(210px, 27vw, 260px) minmax(0, 1fr);
-    gap: 18px;
-  }
-
   .nav-side {
+    width: calc(50% - 150px);
     gap: 18px;
   }
 
@@ -418,14 +421,18 @@ a { color: inherit; text-decoration: none; }
     font-size: 11px;
   }
 
+  .nav-logo-link {
+    width: clamp(235px, 29vw, 300px);
+  }
+
   .nav-logo {
-    height: clamp(72px, 8vw, 86px);
+    max-height: 68px;
   }
 }
 
 @media (max-width: 768px) {
   .nav {
-    height: 84px;
+    height: 82px;
     padding: 0 18px;
   }
 
@@ -440,13 +447,18 @@ a { color: inherit; text-decoration: none; }
   }
 
   .nav-logo-link {
-    padding: 6px 12px 8px;
-    transform: translateY(0);
+    position: static;
+    transform: none;
+    width: clamp(230px, 68vw, 300px);
+    height: auto;
+    padding: 8px 12px;
+    background: transparent;
   }
 
   .nav-logo {
-    height: clamp(64px, 15vw, 76px);
+    max-height: 64px;
     width: auto;
+    height: auto;
   }
 
   .hero {
@@ -494,6 +506,15 @@ a { color: inherit; text-decoration: none; }
   .colour-band p {
     font-size: 10px;
     line-height: 1.7;
+  }
+
+  .signoff-band {
+    padding: 42px 24px 48px;
+  }
+
+  .signoff-band img {
+    width: clamp(180px, 56vw, 245px);
+    margin-bottom: 18px;
   }
 }
 </style>
