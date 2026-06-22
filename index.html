@@ -142,18 +142,7 @@ body.is-night .scene-night { display: block; }
 .prefooter { background:var(--navy); border-top:1px solid rgba(255,255,255,0.08); padding:clamp(32px,4vw,52px) 0; text-align:center; }
 .prefooter-copy { font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.58); max-width:620px; margin:0 auto; line-height:1.85; }
 
-/* UPDATED FOOTER */
-.footer { text-align: left; }
-.footer-inner { text-align: left; }
-.footer-grid { display: grid; grid-template-columns: minmax(220px, 1.4fr) 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; margin-bottom: 34px; }
-.footer-logo-wrap { margin-bottom: 14px; }
-.footer-logo-wrap img { width: 76px; height: 76px; margin: 0; }
-.footer-tagline { font-size: 13px; color: var(--slate); max-width: 360px; margin: 0; line-height: 1.75; }
-.footer-heading { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
-.footer-list { display: grid; gap: 10px; }
-.footer-list a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
-.footer-list a:hover { color: var(--ink); }
-.footer-bottom { border-top: 1px solid var(--stone); padding-top: 22px; }
+
 
 /* CTA */
 .cta-section { background: var(--navy); text-align: center; position: relative; overflow: hidden; }
@@ -213,8 +202,8 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
       <li><a href="the-proof.html">The Proof</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="the-scorecard.html">The Scorecard</a></li>
       <li><a href="lets-talk.html" class="nav-cta">Let's Talk</a></li>
+      <li><a href="the-scorecard.html">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -337,39 +326,22 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo-wrap">
-          <img src="roundlogo.png" alt="The Yellow Front Door">
-        </div>
-        <p class="footer-tagline">A marketing studio for small businesses shaping the experience people find before, during, and after they come through the door.</p>
-      </div>
-
-      <nav class="footer-column" aria-label="Studio">
-        <p class="footer-heading">Studio</p>
-        <div class="footer-list">
-          <a href="what-we-do.html">What We Do</a>
-          <a href="the-proof.html">The Proof</a>
-          <a href="about.html">About</a>
-          <a href="the-doorstep.html">The Doorstep</a>
-        </div>
-      </nav>
-
-      <nav class="footer-column" aria-label="Start here">
-        <p class="footer-heading">Start here</p>
-        <div class="footer-list">
-          <a href="lets-talk.html">Request a free Drive-By</a>
-          <a href="the-scorecard.html">Take the Scorecard</a>
-          <a href="lets-talk.html">Let's Talk</a>
-        </div>
-      </nav>
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
     </div>
-
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door</p>
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
       <div class="footer-dot-sm" aria-hidden="true"></div>
       <p class="footer-copy">Annapolis Valley, NS</p>
       <div class="footer-dot-sm" aria-hidden="true"></div>
@@ -377,7 +349,7 @@ body.is-night .nav-cta { background: var(--yellow) !important; color: var(--navy
     </div>
   </div>
 </footer>
-
+  
 <script>
 (function () {
   function applyTimeOfDay() {
