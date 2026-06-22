@@ -1,399 +1,307 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Websites — The Proof — The Yellow Front Door</title>
-<meta name="description" content="Full sites, landing pages, and the copy that makes them work.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<!-- WEBSITES SECTION -->
+<section class="websites-section" id="websites">
+  <div class="websites-shell">
+
+    <div class="section-kicker">Websites</div>
+
+    <div class="websites-intro">
+      <h2>Websites that give people somewhere clear to land.</h2>
+      <p>
+        A website does not need to be huge to work well. It needs to explain who you are,
+        what you offer, and what someone should do next. These builds were designed to feel
+        like the business behind them while making the path forward easier for the people visiting.
+      </p>
+    </div>
+
+    <div class="website-grid">
+
+      <!-- GET CRONK'D -->
+      <article class="website-card">
+        <div class="website-image-wrap">
+          <img
+            src="getcronkdwebsitemockup.png"
+            alt="Get Cronk'd website mockup shown on a laptop"
+            class="website-image"
+          >
+        </div>
+
+        <div class="website-content">
+          <p class="website-label">Fitness Studio Website</p>
+          <h3>Get Cronk’d Fitness Studio</h3>
+
+          <p>
+            A full website refresh for a boutique fitness studio in Greenwood, Nova Scotia.
+            The new site needed to feel welcoming, energetic, and clear, while helping visitors
+            understand the difference between personal training, group fitness, nutrition support,
+            and specialty programs.
+          </p>
+
+          <div class="website-details">
+            <p class="details-heading">Behind the decisions</p>
+            <p>
+              The structure was built around reducing confusion. Instead of treating every offer
+              the same, the site separates drop-in classes, programs, coaching, and nutrition so
+              new clients can quickly find the right starting point.
+            </p>
+          </div>
+
+          <a href="#" class="website-link" aria-label="View the Get Cronk'd website">
+            View the site
+          </a>
+        </div>
+      </article>
+
+      <!-- RAVEN HOUSE CO. -->
+      <article class="website-card website-card-reverse">
+        <div class="website-image-wrap">
+          <img
+            src="ravenhousemockup.png"
+            alt="Raven House Co. website mockup shown on a laptop"
+            class="website-image"
+          >
+        </div>
+
+        <div class="website-content">
+          <p class="website-label">Farm, Homestead & Studio Website</p>
+          <h3>Raven House Co.</h3>
+
+          <p>
+            A warm, story-led website for a rural Nova Scotia family business with several
+            connected pieces, including the farm, homestead life, handmade goods, and studio work.
+            The site needed to feel personal and atmospheric without becoming unclear.
+          </p>
+
+          <div class="website-details">
+            <p class="details-heading">Behind the decisions</p>
+            <p>
+              The design keeps the emotional pull of the brand front and centre while giving each
+              part of the business a place to belong. The goal was to make the experience feel
+              calm, rooted, and easy to explore.
+            </p>
+          </div>
+
+          <a href="#" class="website-link" aria-label="View the Raven House Co. website">
+            View the site
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <style>
-@font-face {
-  font-family: 'CasualHandwriting';
-  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
-  font-weight: normal; font-style: normal; font-display: block;
-}
-:root {
-  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
-  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
-  --navy: #132447;
-  --f-accent: 'CasualHandwriting', cursive;
-  --f-head: 'Montserrat', sans-serif;
-  --f-body: 'Montserrat', sans-serif;
-  --max: 1120px;
-  --gutter: clamp(24px, 5vw, 80px);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .websites-section {
+    background: #f6f6f6;
+    padding: 96px 20px;
+  }
 
-/* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
-.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
-.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo img { height: 56px; width: auto; display: block; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--paper); }
-.nav-links a.active { font-weight: 600; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
-.nav-cta:hover { background: var(--brass) !important; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+  .websites-shell {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+  }
 
-/* PAGE HEADER */
-.page-header { padding: clamp(80px, 10vw, 120px) 0 clamp(40px, 5vw, 60px); margin-top: 72px; border-bottom: 1px solid var(--stone); }
-.page-header-inner { max-width: 640px; }
-.breadcrumb { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 20px; }
-.breadcrumb a { color: var(--slate); transition: color 0.2s; }
-.breadcrumb a:hover { color: var(--ink); }
-.breadcrumb span { margin: 0 8px; color: var(--stone); }
-.page-header h1 { font-family: var(--f-head); font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1.08; }
-.page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 20px; max-width: 520px; }
+  .section-kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7b6f65;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
 
-/* PROJECTS */
-.projects { padding: clamp(56px, 7vw, 96px) 0; }
-.project { padding: clamp(48px, 6vw, 80px) 0; border-bottom: 1px solid var(--stone); }
-.project:first-child { padding-top: 0; }
-.project:last-child { border-bottom: none; }
-.project-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 72px); align-items: start; }
-.project-inner.reverse { direction: rtl; }
-.project-inner.reverse > * { direction: ltr; }
-.project-image img { width: 100%; height: auto; display: block; border: 1px solid var(--stone); }
-.project-image-placeholder { width: 100%; aspect-ratio: 16/10; background: var(--paper-mid); border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center; }
-.project-image-placeholder span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(19,36,71,0.2); }
-.project-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px; }
-.project-name { font-family: var(--f-accent); font-size: clamp(32px, 4vw, 48px); color: var(--ink); line-height: 1.0; margin-bottom: 6px; font-weight: normal; }
-.project-scope { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 24px; }
-.project-intro { font-size: 13px; font-style: italic; line-height: 1.75; color: var(--slate); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--stone); }
-.project-desc { font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 16px; }
-.project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; align-items: center; }
-.project-link { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 12px 22px; transition: background 0.2s; }
-.project-link:hover { background: var(--brass); }
-.project-link-outline { background: transparent; color: var(--ink); border: 1px solid var(--stone); }
-.project-link-outline:hover { border-color: var(--ink); background: transparent; }
+  .websites-intro {
+    max-width: 780px;
+    margin-bottom: 52px;
+  }
 
-/* BEHIND THE DECISIONS BUTTON */
-.decisions-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); background: none; border: none; cursor: pointer; padding: 0; border-bottom: 1px solid var(--stone); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; font-family: var(--f-body); }
-.decisions-btn:hover { color: var(--ink); border-color: var(--ink); }
-.decisions-btn svg { width: 14px; height: 14px; }
+  .websites-intro h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    color: #181818;
+    font-weight: 400;
+  }
 
-/* MODAL */
-.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(19,36,71,0.6); z-index: 200; align-items: center; justify-content: center; padding: 24px; }
-.modal-overlay.open { display: flex; }
-.modal { background: var(--paper); max-width: 620px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
-.modal-header { padding: 28px 32px 20px; border-bottom: 1px solid var(--stone); display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; background: var(--paper); z-index: 1; }
-.modal-title { font-family: var(--f-head); font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); }
-.modal-close { background: none; border: none; cursor: pointer; color: var(--slate); font-size: 20px; line-height: 1; padding: 4px; transition: color 0.2s; }
-.modal-close:hover { color: var(--ink); }
-.modal-body { padding: 28px 32px 36px; }
-.modal-item { padding: 20px 0; border-bottom: 1px solid var(--stone); }
-.modal-item:last-child { border-bottom: none; padding-bottom: 0; }
-.modal-item-num { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
-.modal-item-text { font-size: 14px; line-height: 1.85; color: var(--ink); }
+  .websites-intro p {
+    margin: 0;
+    color: #514941;
+    font-size: 1.04rem;
+    line-height: 1.75;
+    max-width: 700px;
+  }
 
-/* PRE-FOOTER */
-.pre-footer { background: var(--navy); padding: clamp(32px,4vw,52px) 0; text-align: center; }
+  .website-grid {
+    display: grid;
+    gap: 34px;
+  }
 
-/* FOOTER */
-.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
-.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.footer-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--stone); margin-bottom: 28px; align-items: start; }
-.footer-brand { display: flex; flex-direction: column; gap: 14px; }
-.footer-brand img { width: 72px; height: 72px; }
-.footer-tagline { font-size: 13px; color: var(--slate); line-height: 1.65; font-weight: 400; max-width: 260px; }
-.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.footer-col a, .footer-col p { display: block; font-size: 14px; color: var(--slate); margin-bottom: 10px; transition: color 0.2s; font-weight: 400; }
-.footer-col a:hover { color: var(--ink); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+  .website-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+    gap: 36px;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid rgba(24, 24, 24, 0.08);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(24, 24, 24, 0.06);
+  }
 
-@media (max-width: 860px) {
-  .project-inner, .project-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-}
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
-  .nav-toggle { display: flex; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .modal { max-height: 90vh; }
-  .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
-}
+  .website-card-reverse .website-image-wrap {
+    order: 2;
+  }
+
+  .website-card-reverse .website-content {
+    order: 1;
+  }
+
+  .website-image-wrap {
+    border-radius: 22px;
+    overflow: hidden;
+    background: #eee8df;
+    border: 1px solid rgba(24, 24, 24, 0.08);
+  }
+
+  .website-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 11;
+    object-fit: cover;
+  }
+
+  .website-content {
+    padding: 8px 8px 8px 0;
+  }
+
+  .website-label {
+    margin: 0 0 12px;
+    color: #8b7665;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+
+  .website-content h3 {
+    margin: 0 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: #181818;
+    font-weight: 400;
+  }
+
+  .website-content p {
+    margin: 0;
+    color: #514941;
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .website-details {
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(24, 24, 24, 0.1);
+  }
+
+  .website-details .details-heading {
+    margin: 0 0 8px;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #181818;
+    font-weight: 700;
+  }
+
+  .website-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 999px;
+    background: #181818;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .website-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  @media (max-width: 860px) {
+    .websites-section {
+      padding: 72px 18px;
+    }
+
+    .websites-intro {
+      margin-bottom: 34px;
+    }
+
+    .website-card,
+    .website-card-reverse {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 18px;
+      border-radius: 24px;
+    }
+
+    .website-card-reverse .website-image-wrap,
+    .website-card-reverse .website-content {
+      order: initial;
+    }
+
+    .website-content {
+      padding: 2px 4px 8px;
+    }
+
+    .website-image-wrap {
+      border-radius: 18px;
+    }
+
+    .website-image {
+      aspect-ratio: 16 / 10.8;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .websites-section {
+      padding: 62px 16px;
+    }
+
+    .websites-intro h2 {
+      font-size: 2.55rem;
+    }
+
+    .websites-intro p,
+    .website-content p {
+      font-size: 0.98rem;
+      line-height: 1.68;
+    }
+
+    .website-card {
+      padding: 14px;
+    }
+
+    .website-content h3 {
+      font-size: 2.15rem;
+    }
+
+    .website-link {
+      width: 100%;
+      min-height: 48px;
+    }
+  }
 </style>
-</head>
-<body>
-
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="what-we-do.html">What We Do</a></li>
-      <li><a href="the-proof.html" class="active">The Proof</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html">Let's Talk</a></li>
-      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
-    </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<section class="page-header">
-  <div class="container">
-    <div class="page-header-inner">
-      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>›</span>Websites</p>
-      <h1>Websites</h1>
-      <p>Full sites, landing pages, and the copy that makes them work. Every project here started with a real brief and a real problem to solve.</p>
-    </div>
-  </div>
-</section>
-
-<section class="projects">
-  <div class="container">
-
-    <div class="project">
-      <div class="project-inner">
-        <div class="project-image">
-          <img src="finandoakwebsite.png" alt="Fin & Oak Bark Bakery website">
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Client · Full Build</p>
-          <h2 class="project-name">Fin & Oak</h2>
-          <p class="project-scope">Brand · Website · Voice · Systems</p>
-          <p class="project-desc">Fin & Oak is a mom-and-daughter pet bakery in the Annapolis Valley — and yes, that's us. We built the whole thing: brand identity, brand book, website, and all the customer-facing copy. The brief was "make it feel like us," which turned out to mean warm, a little chaotic, and nothing that looked like it was pulled off a shelf.</p>
-          <div class="project-links">
-            <a href="https://finandoak.ca" target="_blank" class="project-link">Visit the site →</a>
-            <button class="decisions-btn" onclick="openModal('finoak')">
-              Behind the decisions
-              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 6v4M7 4.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-inner reverse">
-        <div class="project-image">
-          <img src="anchoredprose.png" alt="Anchored Prose website">
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Own Project · Full Build</p>
-          <h2 class="project-name">Anchored Prose</h2>
-          <p class="project-scope">Full Site · Copy · Brand Voice</p>
-          <p class="project-intro">This one is personal. Anchored Prose is my own writing business, and the site reflects that — it's layered, it's detailed, and it's unapologetically a lot. Not everyone's cup of tea, and I know that. But everything here was chosen deliberately, and that same precision is what I bring to every client project.</p>
-          <p class="project-desc">Full site design and build, all original copy, and a voice that stays consistent from the homepage through to the portfolio. The brief to myself was to make it feel professional without being stiff, and personal without being casual.</p>
-          <div class="project-links">
-            <a href="https://anchoredprose.ca" target="_blank" class="project-link">Visit the site →</a>
-            <button class="decisions-btn" onclick="openModal('anchored')">
-              Behind the decisions
-              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 6v4M7 4.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-inner">
-        <div class="project-image">
-          <img src="copperandbeancupandmenu.png" alt="Copper + Bean">
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Concept · Full Build</p>
-          <h2 class="project-name">Copper + Bean</h2>
-          <p class="project-scope">Website · Landing Page · Menu</p>
-          <p class="project-desc">We invented Copper + Bean to demonstrate what the full pipeline looks like when voice, identity, and execution are built as one connected thing. A sharp modern coffee bar in Halifax's north end, run by two people who left corporate after the kids moved out. The site is where all the thinking lands.</p>
-          <div class="project-links">
-            <a href="copper-bean-site.html" target="_blank" class="project-link">View the site →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-inner reverse">
-        <div class="project-image">
-          <div class="project-image-placeholder"><span>Screenshot coming soon</span></div>
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Client · Full Build</p>
-          <h2 class="project-name">Get Cronk'd</h2>
-          <p class="project-scope">Website · Landing Page · User Registration</p>
-          <p class="project-desc">I built the GetCronk’d website to move the studio from a pretty-but-basic first version into a fuller brand experience. The bones were there; this build brought in the energy. Stronger visuals, warmer copy, clearer service paths, and more of their personality made the site feel less like a placeholder and more like walking into the studio.</p>
-          <div class="project-links">
-            <a href="getcronkd-demo.html" target="_blank" class="project-link">Go to Website →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-inner">
-        <div class="project-image">
-          <div class="project-image-placeholder"><span>Screenshot coming soon</span></div>
-        </div>
-        <div class="project-body">
-          <p class="project-eyebrow">Client · Landing Page</p>
-          <h2 class="project-name">Raven House</h2>
-          <p class="project-scope">Landing Page · Voice Direction · Copy</p>
-          <p class="project-desc">The existing site was dated, the messaging was scattered, and people were leaving before they understood what the business actually offered. We rebuilt the landing page from scratch — cleaner structure, rewritten copy, and a voice direction they could carry into everything else.</p>
-          <div class="project-links">
-            <a href="https://ravenhouseco.com" target="_blank" class="project-link">Visit the site →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="modal-overlay" id="modal-finoak" onclick="handleOverlayClick(event, 'finoak')">
-  <div class="modal">
-    <div class="modal-header">
-      <p class="modal-title">Fin & Oak — Behind the decisions</p>
-      <button class="modal-close" onclick="closeModal('finoak')" aria-label="Close">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-item">
-        <p class="modal-item-num">01 — The hero photos</p>
-        <p class="modal-item-text">Most pet food brands lead with the product. We led with Oak and Piper because the whole point of Fin & Oak is who's behind it and who it's for. You should feel that before you read a single word.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">02 — The headline</p>
-        <p class="modal-item-text">You want your website to feel like something the second you land on it. "Small batches. Big messes. Happy critters." does that. It tells you exactly what it's like in this kitchen before you've scrolled, clicked, or read anything else.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">03 — The subhead copy</p>
-        <p class="modal-item-text">"The rest of the menagerie" is the phrase you use when you've genuinely stopped counting. Two dogs, six cats, chickens with strong opinions, geese who don't like anyone. This is a real house. The copy should sound like it.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">04 — "Real ingredients. Spoiled regulars."</p>
-        <p class="modal-item-text">What's in it, and is it worth it. Two questions, six words. "Spoiled regulars" also does something quietly useful: it tells you people come back. No testimonials needed.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">05 — Willow & Mom</p>
-        <p class="modal-item-text">Three words that tell the whole story. You know exactly who made this before you've read anything else on the page. That's the whole point of signing off with names.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">06 — The logo</p>
-        <p class="modal-item-text">We needed something that could live on a website, stamp onto a bag, and shrink down to a sticker without falling apart. Playfair gave us the presence and polish without tipping into cute territory, which was the line we were trying not to cross. "Bark Bakery" tracked out underneath grounds it and makes the whole mark stamp cleanly. No icon needed. The type does the work.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-anchored" onclick="handleOverlayClick(event, 'anchored')">
-  <div class="modal">
-    <div class="modal-header">
-      <p class="modal-title">Anchored Prose — Behind the decisions</p>
-      <button class="modal-close" onclick="closeModal('anchored')" aria-label="Close">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-item">
-        <p class="modal-item-num">01 — The hero image</p>
-        <p class="modal-item-text">I live in Nova Scotia and I write by the water whenever I can, so it made no sense to use a stock image of a desk or a coffee cup when the place that actually inspires my work looks like this. The hero image isn't decoration. It's context.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">02 — The headline</p>
-        <p class="modal-item-text">"Every word, anchored in purpose" is the whole philosophy of this business in five words. I don't do filler, I don't write around a point or pad a paragraph to make something feel weightier than it is, and every word on this site is there because it earns its place. The headline isn't a tagline. It's a promise.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">03 — The frosted overlay panel</p>
-        <p class="modal-item-text">I didn't want the landscape to disappear behind the words, so the frosted panel lets the copy sit clearly without swallowing the water entirely. The setting belongs on this page as much as anything I've written on it.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">04 — Captain's Log</p>
-        <p class="modal-item-text">This is my ship and the navigation language runs through the whole site because it means something, not because it's a cute theme. Captain's Log is my blog, still finding its sea legs, but the name was never going to be anything else.</p>
-      </div>
-      <div class="modal-item">
-        <p class="modal-item-num">05 — The colour palette</p>
-        <p class="modal-item-text">These are my colours, the ones I reach for because they feel true to me. Serene, coastal, a little moody at the edges, they didn't come from a brand brief or a trend report but from paying close attention to where I live and what the water looks like at different hours of the day.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="pre-footer">
-  <div class="container">
-    <p style="font-family:var(--f-head); font-size:clamp(16px,1.8vw,20px); font-weight:400; color:rgba(255,255,255,0.55); max-width:620px; margin:0 auto; line-height:1.85;">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="roundlogo.png" alt="The Yellow Front Door">
-        <p class="footer-tagline">A marketing studio for small businesses trying to show up with the same care on the outside that they bring to the work itself.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Studio</h4>
-        <a href="what-we-do.html">What We Do</a>
-        <a href="the-proof.html">The Proof</a>
-        <a href="about.html">About</a>
-        <a href="the-doorstep.html">The Doorstep</a>
-        <a href="lets-talk.html">Let's Talk</a>
-      </div>
-      <div class="footer-col">
-        <h4>Get in touch</h4>
-        <a href="lets-talk.html">Start a conversation</a>
-        <a href="lets-talk.html">Request a Drive-By</a>
-        <a href="the-scorecard.html">Take the Scorecard</a>
-        <p style="margin-top:8px;">Annapolis Valley, NS</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door &nbsp;·&nbsp; Annapolis Valley, NS</p>
-      <div class="footer-dot-sm" aria-hidden="true"></div>
-      <p class="footer-copy">theyellowfrontdoor.ca</p>
-    </div>
-  </div>
-</footer>
-
-<script>
-(function(){
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
-})();
-
-function openModal(id) {
-  var modal = document.getElementById('modal-' + id);
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(id) {
-  var modal = document.getElementById('modal-' + id);
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function handleOverlayClick(e, id) {
-  if (e.target === document.getElementById('modal-' + id)) {
-    closeModal(id);
-  }
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
-      m.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  }
-});
-</script>
-</body>
-</html>
