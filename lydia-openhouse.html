@@ -46,7 +46,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .meta-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:5px 11px;}
 
 /* CONTEXT */
-.context-strip{background:var(--lydia-lav);padding:clamp(30px,4vw,48px) 0;border-bottom:1px solid rgba(8,8,8,.15);}
+.context-strip{background:var(--paper-mid);padding:clamp(30px,4vw,48px) 0;border-bottom:1px solid var(--stone);}
 .context-inner{max-width:720px;}
 .context-strip p{font-size:15px;line-height:1.9;color:#111;margin-bottom:10px;}
 .context-strip p:last-child{margin-bottom:0;}
@@ -138,10 +138,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 .ln-email{background:#fff;border-radius:8px;overflow:hidden;border:1px solid rgba(8,8,8,.08);}
 .ln-hero{height:170px;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.72) 48%,rgba(255,255,255,.08) 100%),url('lydia-open-house-hero.jpg') center/cover;background-color:var(--lydia-blue-2);border-bottom:1px solid rgba(8,8,8,.12);}
 .ln-header{padding:38px 36px 26px;text-align:center;background:#fff;}
-.ln-logo-fallback{display:inline-block;margin:0 auto 24px;text-align:center;color:#050505;}
-.ln-logo-mark{width:72px;height:72px;border:2px solid #050505;border-radius:40px 40px 8px 8px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:28px;font-weight:600;line-height:1;}
-.ln-logo-name{font-family:'Playfair Display',serif;font-size:25px;font-weight:600;letter-spacing:.01em;line-height:1;}
-.ln-logo-sub{font-family:var(--f-accent);font-size:18px;line-height:1;margin-top:5px;letter-spacing:0;}
+.ln-email-logo{height:72px;width:auto;margin:0 auto 24px;}
 .ln-rule{width:76px;height:1px;background:var(--lydia-gold);margin:0 auto 22px;opacity:.8;}
 .ln-kicker{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#70777d;margin-bottom:10px;}
 .ln-title{font-family:'Playfair Display',serif;font-size:28px;line-height:1.22;color:#080808;font-weight:500;max-width:500px;margin:0 auto;}
@@ -162,6 +159,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 /* SIGN-IN MOCK */
 .signin-card{background:#fff;border-radius:12px;box-shadow:0 4px 32px rgba(19,36,71,.10);border:1px solid #e1e4e8;overflow:hidden;}
 .signin-top{background:linear-gradient(180deg,var(--lydia-blue-2),#fff);padding:34px 34px 24px;text-align:center;border-bottom:1px solid #e1e4e8;}
+.signin-logo{height:64px;width:auto;margin:0 auto 20px;}
 .signin-title{font-family:'Playfair Display',serif;font-size:29px;line-height:1.2;color:#080808;margin-bottom:8px;}
 .signin-sub{font-size:13px;color:#596674;line-height:1.6;max-width:430px;margin:0 auto;}
 .signin-body{padding:28px 32px;}
@@ -364,7 +362,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
 
           <div class="signin-card">
             <div class="signin-top">
-              <div class="ln-logo-fallback"><div class="ln-logo-mark">L<br>N</div><div class="ln-logo-name">Lydia Nichols</div><div class="ln-logo-sub">elevated homes</div></div>
+              <img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="signin-logo">
               <h4 class="signin-title">Welcome in.</h4>
               <p class="signin-sub">Thanks for coming through today. Leave your details below and let me know what would be most helpful after the open house.</p>
             </div>
@@ -407,7 +405,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
             <div class="inbox-subject-row"><div class="inbox-subject">Thank you for coming through today</div><div class="inbox-to">To: Sarah Mitchell</div></div>
             <div class="email-scroll"><div class="ln-email">
               <div class="ln-hero"></div>
-              <div class="ln-header"><div class="ln-logo-fallback"><div class="ln-logo-mark">L<br>N</div><div class="ln-logo-name">Lydia Nichols</div><div class="ln-logo-sub">elevated homes</div></div><div class="ln-rule"></div><p class="ln-kicker">A note from Lydia</p><h4 class="ln-title">Thank you for coming through the open house.</h4></div>
+              <div class="ln-header"><img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="ln-email-logo"><div class="ln-rule"></div><p class="ln-kicker">A note from Lydia</p><h4 class="ln-title">Thank you for coming through the open house.</h4></div>
               <div class="ln-body">
                 <p class="ln-p">Hi Sarah,</p>
                 <p class="ln-p">Thank you for stopping by today. I know there is a lot to take in when you are walking through a home, so I wanted to send the key details in one place.</p>
@@ -477,7 +475,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
             <div class="email-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Email draft - Lydia Nichols</div></div>
             <div class="inbox-subject-row"><div class="inbox-subject">A few more details on 123 Valley Ridge Road</div><div class="inbox-to">To: Sarah Mitchell</div></div>
             <div class="email-scroll"><div class="ln-email">
-              <div class="ln-header"><div class="ln-logo-fallback"><div class="ln-logo-mark">L<br>N</div><div class="ln-logo-name">Lydia Nichols</div><div class="ln-logo-sub">elevated homes</div></div><div class="ln-rule"></div><p class="ln-kicker">Following up</p><h4 class="ln-title">A few more details while the home is still fresh.</h4></div>
+              <div class="ln-header"><img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="ln-email-logo"><div class="ln-rule"></div><p class="ln-kicker">Following up</p><h4 class="ln-title">A few more details while the home is still fresh.</h4></div>
               <div class="ln-body">
                 <p class="ln-p">Hi Sarah,</p>
                 <p class="ln-p">It was lovely meeting you at the open house. You had asked about timing and next steps, so I wanted to send a quick note while everything is still fresh.</p>
@@ -512,7 +510,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
             <div class="email-chrome"><div class="chrome-dots"><div class="chrome-dot red"></div><div class="chrome-dot yellow"></div><div class="chrome-dot green"></div></div><div class="chrome-bar">Email draft - Lydia Nichols</div></div>
             <div class="inbox-subject-row"><div class="inbox-subject">A few homes with a similar feel</div><div class="inbox-to">To: Ben Carter</div></div>
             <div class="email-scroll"><div class="ln-email">
-              <div class="ln-header"><div class="ln-logo-fallback"><div class="ln-logo-mark">L<br>N</div><div class="ln-logo-name">Lydia Nichols</div><div class="ln-logo-sub">elevated homes</div></div><div class="ln-rule"></div><p class="ln-kicker">Similar homes</p><h4 class="ln-title">The right home may have a similar feeling, not the same address.</h4></div>
+              <div class="ln-header"><img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="ln-email-logo"><div class="ln-rule"></div><p class="ln-kicker">Similar homes</p><h4 class="ln-title">The right home may have a similar feeling, not the same address.</h4></div>
               <div class="ln-body">
                 <p class="ln-p">Hi Ben,</p>
                 <p class="ln-p">Thanks again for coming through the open house. You mentioned you would like to see similar homes, so I wanted to follow up and get a better sense of what stood out to you.</p>
@@ -551,7 +549,7 @@ img{display:block;max-width:100%;height:auto;}a{color:inherit;text-decoration:no
             <div class="inbox-header"><div class="inbox-from"><div class="inbox-avatar">LN</div><div><div class="inbox-sender">Lydia Nichols</div><div class="inbox-email-addr">hello@lydianichols.ca</div></div></div><div class="inbox-time">Sunday, 5:36 pm</div></div>
             <div class="inbox-subject-row"><div class="inbox-subject">Today's open house recap</div><div class="inbox-to">To: Seller</div></div>
             <div class="email-scroll"><div class="ln-email">
-              <div class="ln-header"><div class="ln-logo-fallback"><div class="ln-logo-mark">L<br>N</div><div class="ln-logo-name">Lydia Nichols</div><div class="ln-logo-sub">elevated homes</div></div><div class="ln-rule"></div><p class="ln-kicker">Open house recap</p><h4 class="ln-title">A clear look at today's activity.</h4></div>
+              <div class="ln-header"><img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="ln-email-logo"><div class="ln-rule"></div><p class="ln-kicker">Open house recap</p><h4 class="ln-title">A clear look at today's activity.</h4></div>
               <div class="ln-body">
                 <p class="ln-p">Hi there,</p>
                 <p class="ln-p">I wanted to send a recap while today's open house is still fresh.</p>
