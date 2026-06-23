@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pin Down What Matters — The Nuts and Bolts of Buying a Home</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #FAFAF8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  color: #111111;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+
+:root {
+  --ink: #080808;
+  --charcoal: #1E1A24;
+  --paper: #FFFFFF;
+  --cream: #FAFAF8;
+  --blue: #BBCAD6;
+  --blue-deep: #9FB1C0;
+  --lavender: #A99AAF;
+  --line: #D7DDE1;
+  --muted: #596674;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 14px;
+  z-index: 2000;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.skip-link:focus { top: 16px; }
+
+/* DEMO BAR */
+.demo-bar {
+  background: var(--charcoal);
+  text-align: center;
+  padding: 10px 24px;
+}
+
+.demo-bar p {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+  height: 92px;
+  padding: 0 clamp(18px, 4vw, 64px);
+}
+
+.nav-inner {
+  height: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(18px, 3vw, 42px);
+}
+
+.nav-side {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 32px);
+}
+
+.nav-left { justify-content: flex-end; }
+.nav-right { justify-content: flex-start; }
+
+.nav-side a {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.nav-side a:hover,
+.nav-side a:focus {
+  color: var(--ink);
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(170px, 16vw, 220px);
+}
+
+.nav-logo {
+  width: 100%;
+  max-height: 72px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* PAGE HEADER */
+.page-hero {
+  background: var(--blue);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(42px, 6vw, 78px) clamp(22px, 5vw, 80px);
+}
+
+.page-hero-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(34px, 5vw, 78px);
+  align-items: end;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(8,8,8,0.58);
+  margin-bottom: 18px;
+}
+
+.breadcrumb::before {
+  content: "←";
+  font-size: 13px;
+  line-height: 1;
+}
+
+.eyebrow,
+.section-label,
+.micro-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  line-height: 1.7;
+}
+
+.page-title h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 1.06;
+  color: var(--ink);
+  margin: 14px 0 16px;
+}
+
+.page-title p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #2C2630;
+  max-width: 610px;
+}
+
+.page-summary {
+  background: rgba(255,255,255,0.58);
+  border: 1px solid rgba(8,8,8,0.14);
+  padding: clamp(24px, 4vw, 34px);
+}
+
+.page-summary h2 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.page-summary ul {
+  list-style: none;
+}
+
+.page-summary li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: #2C2630;
+}
+
+.page-summary li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lavender);
+}
+
+/* MAIN LAYOUT */
+.lesson {
+  background: var(--paper);
+  padding: clamp(48px, 7vw, 86px) clamp(22px, 5vw, 80px);
+}
+
+.lesson-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: clamp(32px, 5vw, 78px);
+  align-items: start;
+}
+
+.side-card {
+  position: sticky;
+  top: 118px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 26px 24px;
+}
+
+.side-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 12px 0 14px;
+}
+
+.side-card p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.side-card .btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.lesson-content {
+  min-width: 0;
+}
+
+.content-block {
+  padding-bottom: clamp(34px, 5vw, 58px);
+  margin-bottom: clamp(34px, 5vw, 58px);
+  border-bottom: 1px solid var(--line);
+}
+
+.content-block:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.content-block h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(29px, 3.5vw, 43px);
+  font-weight: 500;
+  line-height: 1.16;
+  color: var(--ink);
+  margin: 12px 0 16px;
+}
+
+.content-block h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 22px 0 8px;
+}
+
+.content-block p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.callout {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 24px;
+  margin-top: 22px;
+}
+
+.callout p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #2C2630;
+  margin: 0;
+}
+
+/* FORM */
+.form-box {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: clamp(24px, 4vw, 34px);
+  margin-top: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-row {
+  margin-bottom: 18px;
+}
+
+.form-row.full {
+  grid-column: 1 / -1;
+}
+
+.form-row label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 13px 14px;
+}
+
+.form-row textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.helper-text {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* NOTE AREA */
+.note-box {
+  background: var(--blue);
+  border: 1px solid rgba(8,8,8,0.14);
+  padding: clamp(24px, 4vw, 34px);
+  margin-top: 24px;
+}
+
+.note-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 8px 0 10px;
+}
+
+.note-box p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #2C2630;
+  margin-bottom: 16px;
+}
+
+.note-box textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  background: var(--paper);
+  border: 1px solid rgba(8,8,8,0.18);
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 14px;
+}
+
+.note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 15px 24px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+  background: var(--charcoal);
+}
+
+.btn-light {
+  background: transparent;
+  color: var(--ink);
+  border-color: rgba(8,8,8,0.22);
+}
+
+.btn-light:hover,
+.btn-light:focus {
+  border-color: var(--ink);
+}
+
+.status-message {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #2C2630;
+  min-height: 22px;
+}
+
+textarea:focus,
+input:focus,
+select:focus,
+.btn:focus,
+a:focus {
+  outline: 2px solid var(--lavender);
+  outline-offset: 3px;
+}
+
+/* BOTTOM NAV */
+.next-section {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+  padding: clamp(38px, 5vw, 60px) clamp(22px, 5vw, 80px);
+}
+
+.next-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.next-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 26px 24px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.next-card:hover,
+.next-card:focus {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(8,8,8,0.08);
+  outline: none;
+}
+
+.next-card span {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 10px;
+}
+
+.next-card strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.next-card p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* SIGN OFF */
+.signoff {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  padding: clamp(42px, 5vw, 66px) clamp(20px, 5vw, 64px);
+  text-align: center;
+}
+
+.signoff img {
+  width: clamp(190px, 22vw, 280px);
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+.signoff p {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer {
+  background: var(--ink);
+  padding: 22px clamp(20px,5vw,64px);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.9;
+}
+
+.footer a {
+  color: rgba(255,255,255,0.42);
+}
+
+.footer a:hover,
+.footer a:focus {
+  color: rgba(255,255,255,0.72);
+}
+
+@media (max-width: 980px) {
+  .page-hero-inner,
+  .lesson-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .side-card {
+    position: static;
+  }
+
+  .nav {
+    height: 86px;
+    padding: 0 22px;
+  }
+
+  .nav-inner {
+    gap: 18px;
+  }
+
+  .nav-side {
+    gap: 16px;
+  }
+
+  .nav-side a {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-logo-link {
+    width: clamp(160px, 18vw, 200px);
+  }
+}
+
+@media (max-width: 720px) {
+  .form-grid,
+  .next-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row.full {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .demo-bar p {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .nav {
+    height: 78px;
+    padding: 0 18px;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-side {
+    display: none;
+  }
+
+  .nav-logo-link {
+    width: clamp(165px, 48vw, 215px);
+  }
+
+  .nav-logo {
+    width: 100%;
+    max-height: 66px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .page-hero,
+  .lesson,
+  .next-section {
+    padding: 42px 22px;
+  }
+
+  .page-title h1 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .page-summary,
+  .side-card,
+  .callout,
+  .form-box,
+  .note-box,
+  .next-card {
+    padding: 22px 20px;
+  }
+
+  .note-actions {
+    flex-direction: column;
+  }
+
+  .note-actions .btn {
+    width: 100%;
+  }
+
+  .signoff {
+    padding: 42px 24px 48px;
+  }
+
+  .signoff img {
+    width: clamp(180px, 56vw, 245px);
+    margin-bottom: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to section content</a>
+
+<div class="demo-bar">
+  <p>Portfolio demonstration — Lydia Nichols is a fictional client created by The Yellow Front Door</p>
+</div>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="nav-side nav-left">
+      <a href="buyer-guide.html">Guide Home</a>
+      <a href="#">Listings</a>
+    </div>
+
+    <a href="buyer-guide.html" class="nav-logo-link" aria-label="Lydia Nichols — Elevated Homes">
+      <img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="nav-logo">
+    </a>
+
+    <div class="nav-side nav-right">
+      <a href="#">Communities</a>
+      <a href="mailto:lydia@thisisnotarealemail.com">Contact Lydia</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-title">
+      <a href="buyer-guide.html" class="breadcrumb">Back to guide home</a>
+      <p class="eyebrow">Section 03</p>
+      <h1>Pin Down What Matters</h1>
+      <p>A practical intake page to help me understand what you are looking for, what matters most, and what home needs to do for your life.</p>
+    </div>
+
+    <aside class="page-summary" aria-label="What this section covers">
+      <h2>In this section</h2>
+      <ul>
+        <li>Preferred areas, property type, budget comfort, and timing.</li>
+        <li>Must-haves, nice-to-haves, and dealbreakers.</li>
+        <li>Lifestyle details that can shape the search.</li>
+        <li>A note area for questions or anything that needs more context.</li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="lesson">
+  <div class="lesson-inner">
+    <aside class="side-card" aria-label="Section reminder">
+      <p class="section-label">The main idea</p>
+      <h2>The better I understand the life around the home, the better I can help you search.</h2>
+      <p>Bedrooms and budget matter, but so do routines, commute, privacy, storage, pets, family, work, and the way you want home to feel.</p>
+      <a href="#buyer-intake" class="btn btn-dark">Start the Form</a>
+    </aside>
+
+    <div class="lesson-content">
+      <section class="content-block">
+        <p class="section-label">Before the search narrows</p>
+        <h2>Let’s separate what matters from what would simply be nice.</h2>
+        <p>Most buyers begin with a mix of needs, hopes, and things they are still figuring out. That is normal. This section helps us sort those ideas before the search gets too narrow.</p>
+        <p>You do not need perfect answers. A rough answer is still helpful. The goal is to give us a clearer starting point so the homes we view are more aligned with your life, not just your search filters.</p>
+
+        <div class="callout">
+          <p><strong>Helpful reminder:</strong> a must-have should be something that truly affects whether the home works for you. A nice-to-have is something you would love, but could compromise on if the rest of the home made sense.</p>
+        </div>
+      </section>
+
+      <section class="content-block" id="buyer-intake">
+        <p class="section-label">Buyer intake</p>
+        <h2>What are you looking for?</h2>
+        <p>Use this as a starting point. Your answers are saved on this device as you go.</p>
+
+        <div class="form-box">
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="areas">Preferred areas or communities</label>
+              <input id="areas" data-save="pinAreas" type="text" placeholder="For example: Wolfville, Kentville, Berwick, rural within 20 minutes of town.">
+            </div>
+
+            <div class="form-row">
+              <label for="timeline">Ideal timeline</label>
+              <input id="timeline" data-save="pinTimeline" type="text" placeholder="For example: this spring, 3–6 months, flexible.">
+            </div>
+
+            <div class="form-row">
+              <label for="budget">Budget comfort</label>
+              <input id="budget" data-save="pinBudget" type="text" placeholder="A rough range is fine.">
+            </div>
+
+            <div class="form-row">
+              <label for="property">Property type</label>
+              <select id="property" data-save="pinProperty">
+                <option value="">Choose one</option>
+                <option>Detached home</option>
+                <option>Semi-detached or townhouse</option>
+                <option>Condo</option>
+                <option>Country property</option>
+                <option>Land</option>
+                <option>Open to a few options</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="beds">Bedrooms</label>
+              <input id="beds" data-save="pinBeds" type="text" placeholder="For example: 3 preferred, 2 possible.">
+            </div>
+
+            <div class="form-row">
+              <label for="baths">Bathrooms</label>
+              <input id="baths" data-save="pinBaths" type="text" placeholder="For example: 2 preferred.">
+            </div>
+
+            <div class="form-row full">
+              <label for="musts">Must-haves</label>
+              <textarea id="musts" data-save="pinMusts" placeholder="What would seriously affect whether the home works for you?"></textarea>
+              <p class="helper-text">Think layout, bedrooms, accessibility, outdoor space, parking, school area, commute, privacy, pets, or anything that would be hard to compromise on.</p>
+            </div>
+
+            <div class="form-row full">
+              <label for="nice">Nice-to-haves</label>
+              <textarea id="nice" data-save="pinNice" placeholder="What would you love, but could compromise on?"></textarea>
+            </div>
+
+            <div class="form-row full">
+              <label for="dealbreakers">Dealbreakers</label>
+              <textarea id="dealbreakers" data-save="pinDealbreakers" placeholder="What should we avoid from the beginning?"></textarea>
+            </div>
+
+            <div class="form-row full">
+              <label for="lifestyle">What does home need to do for your life?</label>
+              <textarea id="lifestyle" data-save="pinLifestyle" placeholder="For example: space for kids, quiet work-from-home area, room for animals, easy commute, walkability, privacy, storage, room to host family."></textarea>
+            </div>
+
+            <div class="form-row full">
+              <label for="feeling">What do you want home to feel like?</label>
+              <textarea id="feeling" data-save="pinFeeling" placeholder="This can be practical, emotional, or both."></textarea>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-dark" id="save-intake">Save my answers</button>
+          <p class="status-message" id="intake-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="content-block">
+        <p class="section-label">After you fill this out</p>
+        <h2>We can use this to make the search more useful.</h2>
+        <p>Once we know what matters most, we can make better decisions about which listings are worth viewing, which compromises are reasonable, and which homes look good online but may not fit your life in practice.</p>
+        <p>This also gives us a clearer way to talk after showings. Instead of asking whether a home was simply “nice,” we can ask whether it actually matched what you said mattered.</p>
+      </section>
+
+      <section class="content-block" id="note">
+        <p class="section-label">Your note</p>
+        <h2>Add a note for Lydia.</h2>
+        <p>Have a question, concern, or detail you want me to know? Add it here. You can keep it on this device, or choose to share this specific note with me before we talk.</p>
+
+        <div class="note-box">
+          <p class="micro-label">Pin Down What Matters</p>
+          <h3>Anything that needs more context?</h3>
+          <p>This is a good place to explain a priority that feels complicated, a tradeoff you are unsure about, or something that would be easier to talk through than put into a form.</p>
+
+          <label class="micro-label" for="lydia-note">Your note</label>
+          <textarea id="lydia-note" data-save="pinNote" placeholder="For example: I keep saying I want privacy, but I also do not want to feel isolated. Can we talk through what that might look like?"></textarea>
+
+          <div class="note-actions">
+            <button type="button" class="btn btn-light" id="save-note">Keep this note here</button>
+            <button type="button" class="btn btn-dark" id="share-note">Share this with Lydia</button>
+          </div>
+
+          <p class="status-message" id="note-status" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="next-section" aria-label="Guide navigation">
+  <div class="next-inner">
+    <a href="working-together.html" class="next-card">
+      <span>Back</span>
+      <strong>Working Together</strong>
+      <p>Return to the onboarding section and communication expectations.</p>
+    </a>
+
+    <a href="buyer-guide.html" class="next-card">
+      <span>Guide home</span>
+      <strong>Back to the Hub</strong>
+      <p>Return to the full guide and view the remaining preview sections.</p>
+    </a>
+  </div>
+</section>
+
+<section class="signoff">
+  <img src="lydialogoname.png" alt="Lydia Nichols — Elevated Homes">
+  <p>Annapolis Valley Real Estate · 902 555-5555</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Lydia Nichols · Elevated Homes · Annapolis Valley Real Estate<br>
+  <a href="tel:9025555555">902 555-5555</a> &nbsp;·&nbsp;
+  <a href="mailto:lydia@thisisnotarealemail.com">lydia@thisisnotarealemail.com</a></p>
+</footer>
+
+<script>
+const saveFields = document.querySelectorAll('[data-save]');
+const intakeButton = document.getElementById('save-intake');
+const intakeStatus = document.getElementById('intake-status');
+const note = document.getElementById('lydia-note');
+const noteStatus = document.getElementById('note-status');
+const saveNoteButton = document.getElementById('save-note');
+const shareNoteButton = document.getElementById('share-note');
+
+function setStatus(element, message) {
+  element.textContent = message;
+  window.setTimeout(() => {
+    if (element.textContent === message) element.textContent = '';
+  }, 3500);
+}
+
+saveFields.forEach(field => {
+  const key = field.dataset.save;
+  const savedValue = localStorage.getItem(key);
+  if (savedValue) field.value = savedValue;
+
+  field.addEventListener('input', () => {
+    localStorage.setItem(key, field.value);
+  });
+
+  field.addEventListener('change', () => {
+    localStorage.setItem(key, field.value);
+  });
+});
+
+intakeButton.addEventListener('click', () => {
+  saveFields.forEach(field => localStorage.setItem(field.dataset.save, field.value));
+  setStatus(intakeStatus, 'Saved here. Your answers will stay on this device.');
+});
+
+saveNoteButton.addEventListener('click', () => {
+  localStorage.setItem(note.dataset.save, note.value);
+  setStatus(noteStatus, 'Saved here. This note will stay on this device.');
+});
+
+shareNoteButton.addEventListener('click', () => {
+  localStorage.setItem(note.dataset.save, note.value);
+  setStatus(noteStatus, 'Got it. I’ll keep this in mind for our next conversation.');
+});
+</script>
+
+</body>
+</html>
