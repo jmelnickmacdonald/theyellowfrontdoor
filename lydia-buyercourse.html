@@ -23,21 +23,17 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
-button, input, select, textarea { font: inherit; }
 
 :root {
   --ink: #080808;
   --charcoal: #1E1A24;
   --paper: #FFFFFF;
   --cream: #FAFAF8;
-  --warm: #FFFFFF;
   --blue: #BBCAD6;
   --blue-deep: #9FB1C0;
   --lavender: #A99AAF;
-  --lavender-soft: #EDE7EE;
   --line: #D7DDE1;
   --muted: #596674;
-  --gold: #B3975B;
 }
 
 .skip-link {
@@ -51,6 +47,7 @@ button, input, select, textarea { font: inherit; }
   font-size: 12px;
   font-weight: 700;
 }
+
 .skip-link:focus { top: 16px; }
 
 /* DEMO BAR */
@@ -59,6 +56,7 @@ button, input, select, textarea { font: inherit; }
   text-align: center;
   padding: 10px 24px;
 }
+
 .demo-bar p {
   font-size: 10px;
   font-weight: 600;
@@ -74,10 +72,11 @@ button, input, select, textarea { font: inherit; }
   top: 0;
   z-index: 1000;
   background: var(--paper);
-  border-bottom: 2px solid #080808;
+  border-bottom: 2px solid var(--ink);
   height: 92px;
   padding: 0 clamp(18px, 4vw, 64px);
 }
+
 .nav-inner {
   height: 100%;
   max-width: 1120px;
@@ -87,13 +86,16 @@ button, input, select, textarea { font: inherit; }
   align-items: center;
   gap: clamp(18px, 3vw, 42px);
 }
+
 .nav-side {
   display: flex;
   align-items: center;
   gap: clamp(18px, 2.4vw, 32px);
 }
+
 .nav-left { justify-content: flex-end; }
 .nav-right { justify-content: flex-start; }
+
 .nav-side a {
   font-size: 12px;
   font-weight: 500;
@@ -102,18 +104,23 @@ button, input, select, textarea { font: inherit; }
   line-height: 1.4;
   transition: color 0.2s;
 }
-.nav-side a:hover, .nav-side a:focus { color: var(--ink); }
+
+.nav-side a:hover,
+.nav-side a:focus {
+  color: var(--ink);
+}
+
 .nav-logo-link {
   display: flex;
   align-items: center;
   justify-content: center;
   width: clamp(170px, 16vw, 220px);
 }
+
 .nav-logo {
   width: 100%;
   max-height: 72px;
   height: auto;
-  display: block;
   object-fit: contain;
 }
 
@@ -124,6 +131,7 @@ button, input, select, textarea { font: inherit; }
   overflow: hidden;
   background: var(--blue);
 }
+
 .hero img {
   width: 100%;
   height: 100%;
@@ -131,28 +139,31 @@ button, input, select, textarea { font: inherit; }
   object-fit: cover;
   object-position: left 36%;
 }
+
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.74) 56%, rgba(255,255,255,0.96) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.74) 56%, rgba(255,255,255,0.96) 100%);
 }
+
 .hero-content {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: clamp(30px, 5vw, 72px);
+  padding: clamp(30px, 6vw, 80px);
 }
+
 .hero-text {
   max-width: 500px;
   text-align: right;
 }
+
 .eyebrow,
 .section-label,
-.card-label,
-.module-step,
-.micro-label {
+.card-num,
+.card-status {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.28em;
@@ -160,46 +171,334 @@ button, input, select, textarea { font: inherit; }
   color: var(--lavender);
   line-height: 1.7;
 }
-.hero .eyebrow { margin-bottom: 14px; }
+
+.hero .eyebrow {
+  margin-bottom: 14px;
+}
+
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(34px, 4.9vw, 58px);
+  font-size: clamp(34px, 4.8vw, 58px);
   font-weight: 500;
-  color: var(--ink);
   line-height: 1.08;
+  color: var(--ink);
   margin-bottom: 18px;
 }
+
 .hero p {
   font-size: 14px;
-  color: var(--muted);
   line-height: 1.85;
+  color: var(--muted);
 }
 
 /* INTRO */
 .intro {
   background: var(--paper);
-  padding: clamp(38px, 5vw, 64px) clamp(22px, 5vw, 80px);
+  padding: clamp(44px, 6vw, 76px) clamp(22px, 5vw, 80px);
   border-top: 1px solid var(--line);
 }
+
 .intro-inner {
   max-width: 1040px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: clamp(34px, 5vw, 80px);
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(34px, 5vw, 72px);
   align-items: center;
 }
-.intro-copy p {
+
+.intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 12px 0 16px;
+}
+
+.intro p {
   font-size: 14px;
   line-height: 1.95;
   color: #2C2630;
-  margin-top: 15px;
+  margin-bottom: 14px;
 }
-.intro-actions {
+
+.how-box {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: clamp(24px, 4vw, 34px);
+}
+
+.how-box h3 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.how-box ul {
+  list-style: none;
+}
+
+.how-box li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.how-box li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lavender);
+}
+
+/* DEMO NOTE */
+.demo-note {
+  background: var(--blue);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(34px, 5vw, 54px) clamp(22px, 5vw, 80px);
+}
+
+.demo-note-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.demo-note h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.demo-note p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #2C2630;
+  margin-bottom: 12px;
+}
+
+.demo-note p:last-child {
+  margin-bottom: 0;
+}
+
+/* COURSE CARDS */
+.course {
+  background: var(--cream);
+  padding: clamp(48px, 7vw, 86px) clamp(22px, 5vw, 80px);
+  border-top: 1px solid var(--line);
+}
+
+.course-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.course-head {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.course-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 12px 0 14px;
+}
+
+.course-head p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.course-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  min-height: 292px;
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
+
+a.course-card:hover,
+a.course-card:focus {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(8,8,8,0.08);
+  outline: none;
+}
+
+.course-card.preview {
+  background: rgba(255,255,255,0.58);
+}
+
+.card-top {
+  margin-bottom: 28px;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.card-num {
+  display: block;
+  color: var(--lavender);
+}
+
+.card-status {
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-align: right;
+}
+
+.course-card.sample .card-status {
+  color: var(--ink);
+}
+
+.course-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(23px, 2.6vw, 31px);
+  font-weight: 500;
+  line-height: 1.16;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.course-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.card-link,
+.preview-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.card-link::after {
+  content: "→";
+  font-size: 13px;
+  line-height: 1;
+}
+
+.preview-link {
+  color: var(--muted);
+}
+
+/* NOTE SECTION */
+.note-section {
+  background: var(--paper);
+  padding: clamp(44px, 6vw, 76px) clamp(22px, 5vw, 80px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.note-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.note-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.note-copy p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: #2C2630;
+  margin-bottom: 14px;
+}
+
+.note-sample {
+  margin-top: 20px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 20px;
+}
+
+.note-sample p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* CTA */
+.final-cta {
+  background: var(--cream);
+  padding: clamp(48px, 6vw, 78px) clamp(22px, 5vw, 80px);
+  text-align: center;
+}
+
+.final-cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.final-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.7vw, 42px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.final-cta p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
 .btn {
   display: inline-flex;
   justify-content: center;
@@ -214,461 +513,31 @@ button, input, select, textarea { font: inherit; }
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
-.btn-dark { background: var(--ink); color: var(--paper); }
-.btn-dark:hover, .btn-dark:focus { background: var(--charcoal); }
-.btn-light { background: transparent; color: var(--ink); border-color: var(--line); }
-.btn-light:hover, .btn-light:focus { border-color: var(--ink); }
 
-/* PORTAL LANDING */
-.portal {
-  background: var(--cream);
-  padding: clamp(46px, 6vw, 82px) clamp(22px, 5vw, 80px);
-  border-top: 1px solid var(--line);
-}
-.portal-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-}
-.portal-head {
-  display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
-  gap: clamp(32px, 5vw, 72px);
-  align-items: end;
-  margin-bottom: 30px;
-}
-.portal-head h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3.7vw, 44px);
-  font-weight: 500;
-  line-height: 1.18;
-  color: var(--ink);
-  margin-top: 14px;
-}
-.portal-head p {
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--muted);
-}
-.progress-note {
-  background: var(--blue);
-  border: 1px solid rgba(8,8,8,0.14);
-  padding: 16px 18px;
-  margin-bottom: 18px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
-}
-.progress-note p {
-  font-size: 12px;
-  line-height: 1.7;
-  color: #2C2630;
-}
-.progress-note strong {
-  color: var(--ink);
-}
-.clear-progress {
-  background: transparent;
-  border: 1px solid rgba(8,8,8,0.26);
-  color: var(--ink);
-  padding: 9px 12px;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.clear-progress:hover,
-.clear-progress:focus { border-color: var(--ink); }
-
-.portal-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.portal-card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  min-height: 255px;
-  padding: 26px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 22px;
-  text-align: left;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-.portal-card:hover,
-.portal-card:focus {
-  transform: translateY(-3px);
-  border-color: var(--ink);
-  box-shadow: 0 18px 45px rgba(8,8,8,0.08);
-  outline: none;
-}
-.portal-card[aria-current="true"] {
-  border-color: var(--ink);
-  box-shadow: 0 18px 45px rgba(8,8,8,0.08);
-}
-.card-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 34px;
-  color: rgba(8,8,8,0.18);
-  line-height: 1;
-  margin-bottom: 12px;
-  font-style: italic;
-}
-.portal-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 1.18;
-  color: var(--ink);
-  margin-bottom: 10px;
-}
-.portal-card p {
-  font-size: 12px;
-  line-height: 1.75;
-  color: var(--muted);
-}
-.card-action {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink);
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-}
-
-/* MODULE VIEW */
-.module-area {
-  background: var(--paper);
-  padding: clamp(40px, 6vw, 76px) clamp(22px, 5vw, 80px);
-  border-top: 1px solid var(--line);
-}
-.module-area-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-}
-.module-panel {
-  display: none;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: 0 18px 50px rgba(8,8,8,0.06);
-}
-.module-panel.active { display: block; }
-.module-layout {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  min-height: 520px;
-}
-.module-lesson {
-  padding: clamp(30px, 4vw, 46px);
-  border-right: 1px solid var(--line);
-}
-.module-lesson h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3.3vw, 42px);
-  font-weight: 500;
-  line-height: 1.18;
-  color: var(--ink);
-  margin: 10px 0 16px;
-}
-.module-lesson p {
-  font-size: 14px;
-  line-height: 1.95;
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-.lesson-list {
-  list-style: none;
-  margin-top: 20px;
-}
-.lesson-list li {
-  position: relative;
-  padding-left: 18px;
-  margin-bottom: 9px;
-  font-size: 13px;
-  line-height: 1.75;
-  color: #2C2630;
-}
-.lesson-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 11px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--lavender);
-}
-.module-work {
-  background: var(--cream);
-  padding: clamp(30px, 4vw, 46px);
-}
-.work-card,
-.note-card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  padding: clamp(22px, 3vw, 32px);
-}
-.note-card { margin-top: 18px; }
-.work-card h4,
-.note-card h4 {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 18px;
-}
-.note-card p {
-  font-size: 12px;
-  line-height: 1.75;
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-.field-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.field { margin-bottom: 16px; }
-.field label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 7px;
-  line-height: 1.5;
-}
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 13px;
-  line-height: 1.6;
-  padding: 12px;
-  min-height: 46px;
-}
-.field textarea {
-  min-height: 96px;
-  resize: vertical;
-}
-.field input:focus,
-.field select:focus,
-.field textarea:focus,
-.btn:focus,
-a:focus,
-.portal-card:focus,
-.note-button:focus,
-.clear-progress:focus {
-  outline: 2px solid var(--lavender);
-  outline-offset: 3px;
-}
-.form-note {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-  font-size: 12px;
-  line-height: 1.75;
-  color: var(--muted);
-}
-.check-row {
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 10px;
-  align-items: start;
-  margin-bottom: 11px;
-}
-.check-row input {
-  width: 16px;
-  height: 16px;
-  margin-top: 4px;
-}
-.check-row label {
-  font-size: 12px;
-  color: #2C2630;
-  line-height: 1.65;
-}
-.note-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.note-button {
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--ink);
-  padding: 12px 14px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.note-button.primary {
+.btn-dark {
   background: var(--ink);
   color: var(--paper);
-  border-color: var(--ink);
-}
-.note-button:hover,
-.note-button:focus { border-color: var(--ink); }
-.note-confirm {
-  margin-top: 14px;
-  font-size: 12px;
-  line-height: 1.7;
-  color: var(--muted);
-  min-height: 20px;
-}
-.module-footer {
-  border-top: 1px solid var(--line);
-  padding: 18px clamp(24px, 4vw, 46px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  background: var(--paper);
-}
-.module-progress {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.module-buttons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-.module-nav-button {
-  background: var(--ink);
-  color: var(--paper);
-  border: 1px solid var(--ink);
-  padding: 12px 18px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.module-nav-button.secondary {
-  background: transparent;
-  color: var(--ink);
-  border-color: var(--line);
-}
-.module-nav-button:hover,
-.module-nav-button:focus { background: var(--charcoal); color: var(--paper); }
-.module-nav-button.secondary:hover,
-.module-nav-button.secondary:focus { background: var(--paper); color: var(--ink); border-color: var(--ink); }
-
-/* SOFT INFO */
-.info-section {
-  background: var(--blue);
-  padding: clamp(46px, 6vw, 78px) clamp(22px, 5vw, 80px);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.info-inner {
-  max-width: 1040px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: clamp(30px, 5vw, 70px);
-  align-items: start;
-}
-.info-copy h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3.7vw, 44px);
-  font-weight: 500;
-  line-height: 1.18;
-  color: var(--ink);
-  margin: 14px 0 16px;
-}
-.info-copy p {
-  font-size: 14px;
-  line-height: 1.9;
-  color: #2C2630;
-  margin-bottom: 14px;
-}
-.info-card {
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(8,8,8,0.14);
-  padding: clamp(24px, 4vw, 34px);
-}
-.info-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--ink);
-  margin-bottom: 14px;
-}
-.info-card p,
-.info-card li {
-  font-size: 13px;
-  line-height: 1.8;
-  color: #2C2630;
-}
-.info-card ul { list-style: none; margin-top: 14px; }
-.info-card li {
-  position: relative;
-  padding-left: 18px;
-  margin-bottom: 8px;
-}
-.info-card li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 11px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--lavender);
 }
 
-/* CTA + SIGNOFF */
-.final-cta {
-  background: var(--paper);
-  padding: clamp(48px, 6vw, 78px) clamp(22px, 5vw, 80px);
-  text-align: center;
+.btn-dark:hover,
+.btn-dark:focus {
+  background: var(--charcoal);
 }
-.final-cta-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-.final-cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3.7vw, 42px);
-  font-weight: 500;
-  line-height: 1.18;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.final-cta p {
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--muted);
-  margin-bottom: 28px;
-}
+
+/* SIGN OFF */
 .signoff {
   background: var(--paper);
   border-top: 1px solid var(--line);
   padding: clamp(42px, 5vw, 66px) clamp(20px, 5vw, 64px);
   text-align: center;
 }
+
 .signoff img {
   width: clamp(190px, 22vw, 280px);
   height: auto;
   margin: 0 auto 20px;
 }
+
 .signoff p {
   font-size: 11px;
   font-weight: 600;
@@ -683,6 +552,7 @@ a:focus,
   padding: 22px clamp(20px,5vw,64px);
   text-align: center;
 }
+
 .footer p {
   font-size: 10px;
   font-weight: 500;
@@ -691,59 +561,163 @@ a:focus,
   color: rgba(255,255,255,0.42);
   line-height: 1.9;
 }
-.footer a { color: rgba(255,255,255,0.42); }
-.footer a:hover, .footer a:focus { color: rgba(255,255,255,0.72); }
+
+.footer a {
+  color: rgba(255,255,255,0.42);
+}
+
+.footer a:hover,
+.footer a:focus {
+  color: rgba(255,255,255,0.72);
+}
 
 /* RESPONSIVE */
 @media (max-width: 980px) {
-  .portal-grid { grid-template-columns: repeat(2, 1fr); }
-  .portal-head,
-  .module-layout,
-  .info-inner { grid-template-columns: 1fr; }
-  .module-lesson { border-right: none; border-bottom: 1px solid var(--line); }
-  .nav { height: 86px; padding: 0 22px; }
-  .nav-inner { max-width: 940px; gap: 18px; }
-  .nav-side { gap: 16px; }
-  .nav-side a { font-size: 11px; letter-spacing: 0.03em; }
-  .nav-logo-link { width: clamp(160px, 18vw, 200px); }
+  .intro-inner,
+  .demo-note-inner,
+  .note-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav {
+    height: 86px;
+    padding: 0 22px;
+  }
+
+  .nav-inner {
+    max-width: 940px;
+    gap: 18px;
+  }
+
+  .nav-side {
+    gap: 16px;
+  }
+
+  .nav-side a {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-logo-link {
+    width: clamp(160px, 18vw, 200px);
+  }
 }
-@media (max-width: 768px) {
-  .intro-inner { grid-template-columns: 1fr; gap: 30px; }
-  .field-group { grid-template-columns: 1fr; gap: 0; }
-  .portal-grid { grid-template-columns: 1fr; }
-  .progress-note { align-items: flex-start; flex-direction: column; }
-  .module-footer { flex-direction: column; align-items: stretch; }
-  .module-buttons { flex-direction: column; }
-  .module-nav-button { width: 100%; }
-  .note-actions { grid-template-columns: 1fr; }
+
+@media (max-width: 680px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card {
+    min-height: auto;
+  }
 }
+
 @media (max-width: 560px) {
-  .demo-bar p { font-size: 9px; letter-spacing: 0.16em; }
-  .nav { height: 78px; padding: 0 18px; }
-  .nav-inner { display: flex; align-items: center; justify-content: center; }
-  .nav-side { display: none; }
-  .nav-logo-link { width: clamp(165px, 48vw, 215px); }
-  .nav-logo { width: 100%; max-height: 66px; height: auto; object-fit: contain; }
-  .hero { min-height: clamp(330px, 72vw, 430px); }
-  .hero img { min-height: clamp(330px, 72vw, 430px); object-position: 38% 20%; }
-  .hero-overlay { background: linear-gradient(to bottom, rgba(8,8,8,0.02) 0%, rgba(8,8,8,0.56) 58%, rgba(8,8,8,0.78) 100%); }
-  .hero-content { align-items: flex-end; justify-content: flex-start; padding: 0 24px 34px; }
-  .hero-text { max-width: 100%; text-align: left; }
-  .hero h1 { color: var(--paper); font-size: clamp(30px, 8vw, 42px); }
-  .hero p { color: rgba(255,255,255,0.84); }
-  .hero .eyebrow { color: rgba(255,255,255,0.68); }
+  .demo-bar p {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .nav {
+    height: 78px;
+    padding: 0 18px;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-side {
+    display: none;
+  }
+
+  .nav-logo-link {
+    width: clamp(165px, 48vw, 215px);
+  }
+
+  .nav-logo {
+    width: 100%;
+    max-height: 66px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero {
+    min-height: clamp(330px, 72vw, 430px);
+  }
+
+  .hero img {
+    min-height: clamp(330px, 72vw, 430px);
+    object-position: 38% 20%;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(8,8,8,0.02) 0%, rgba(8,8,8,0.54) 58%, rgba(8,8,8,0.76) 100%);
+  }
+
+  .hero-content {
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 24px 34px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero h1 {
+    color: var(--paper);
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.84);
+  }
+
+  .hero .eyebrow {
+    color: rgba(255,255,255,0.68);
+  }
+
   .intro,
-  .portal,
-  .module-area,
-  .info-section,
-  .final-cta { padding: 42px 22px; }
-  .work-card,
-  .note-card,
-  .module-lesson,
-  .module-work { padding: 24px 20px; }
-  .portal-card { min-height: auto; }
-  .signoff { padding: 42px 24px 48px; }
-  .signoff img { width: clamp(180px, 56vw, 245px); margin-bottom: 18px; }
+  .demo-note,
+  .course,
+  .note-section,
+  .final-cta {
+    padding: 42px 22px;
+  }
+
+  .how-box,
+  .course-card,
+  .note-sample {
+    padding: 24px 20px;
+  }
+
+  .card-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-status {
+    text-align: left;
+  }
+
+  .signoff {
+    padding: 42px 24px 48px;
+  }
+
+  .signoff img {
+    width: clamp(180px, 56vw, 245px);
+    margin-bottom: 18px;
+  }
 }
 </style>
 </head>
@@ -763,7 +737,7 @@ a:focus,
       <a href="#">Listings</a>
     </div>
 
-    <a href="#" class="nav-logo-link" aria-label="Lydia Nichols — Elevated Homes">
+    <a href="buyer-guide.html" class="nav-logo-link" aria-label="Lydia Nichols — Elevated Homes">
       <img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="nav-logo">
     </a>
 
@@ -779,7 +753,7 @@ a:focus,
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <p class="eyebrow">Buyer Guide</p>
+      <p class="eyebrow">Buyer Guide Sample</p>
       <h1>The Nuts and Bolts of Buying a Home</h1>
       <p>A practical guide to help you understand the process, get organized, and feel more prepared as we start looking together.</p>
     </div>
@@ -790,248 +764,138 @@ a:focus,
 
 <section class="intro">
   <div class="intro-inner">
-    <div class="intro-copy">
-      <p class="section-label">A note from Lydia</p>
-      <p>Buying a home comes with a lot of moving parts, but you do not need to figure them all out at once. This guide gives us a clear place to start, with simple sections you can use when they are useful.</p>
-      <p>Start wherever you are. If you are still learning, begin with the basics. If you are ready to view homes, jump ahead to showing day. If you found a home you are excited about, use the offer section to slow down and sort through the next steps.</p>
+    <div>
+      <p class="section-label">Start here</p>
+      <h2>A sample client experience, not a giant PDF.</h2>
+      <p>This sample guide shows how a real estate agent can make the early buying process feel clearer, calmer, and more organized. Instead of sending scattered links, long emails, or a static PDF, the buyer gets a guided home base with simple sections, saved notes, and practical next steps.</p>
+      <p>For this demo, two sections are fully built: one onboarding page and one buyer intake form. The remaining sections are shown as planned pieces of the full guide experience.</p>
     </div>
 
-    <div class="intro-actions">
-      <a href="#portal" class="btn btn-dark">Begin the Guide</a>
-      <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-light">Ask Lydia a Question</a>
-    </div>
-  </div>
-</section>
-
-<section class="portal" id="portal">
-  <div class="portal-inner">
-    <div class="portal-head">
-      <div>
-        <p class="section-label">Choose your starting point</p>
-        <h2>Use the part that matches where you are right now.</h2>
-      </div>
-      <p>This is designed more like a small buyer portal than a long course. Choose a section, read the short guide, fill in what you can, and add a note for anything you want to talk through.</p>
-    </div>
-
-    <div class="progress-note" aria-live="polite">
-      <p><strong>Your notes are saved on this device as you go.</strong> If you want me to see something before we talk, use “Share this with Lydia” on a specific note.</p>
-      <button class="clear-progress" type="button" id="clear-progress">Clear saved notes</button>
-    </div>
-
-    <div class="portal-grid" aria-label="Buyer guide sections">
-      <button class="portal-card" type="button" data-module="module-working" aria-current="true">
-        <div><p class="card-num">01</p><h3>Working Together</h3><p>What it looks like to work with me, what to expect, and how we start the process clearly.</p></div>
-        <span class="card-action">Open this section</span>
-      </button>
-
-      <button class="portal-card" type="button" data-module="module-before">
-        <div><p class="card-num">02</p><h3>Before We Start Looking</h3><p>Budget, pre-approval, closing costs, timing, and the pieces worth understanding early.</p></div>
-        <span class="card-action">Open this section</span>
-      </button>
-
-      <button class="portal-card" type="button" data-module="module-priorities">
-        <div><p class="card-num">03</p><h3>Pin Down What Matters</h3><p>A simple way to sort areas, must-haves, nice-to-haves, dealbreakers, and daily-life needs.</p></div>
-        <span class="card-action">Open this section</span>
-      </button>
-
-      <button class="portal-card" type="button" data-module="module-showing-day">
-        <div><p class="card-num">04</p><h3>Showing Tour Day</h3><p>What to expect when we view homes and what to pay attention to beyond photos and staging.</p></div>
-        <span class="card-action">Open this section</span>
-      </button>
-
-      <button class="portal-card" type="button" data-module="module-after">
-        <div><p class="card-num">05</p><h3>After a Showing</h3><p>A quick reflection tool to remember what worked, what gave you pause, and what needs a second look.</p></div>
-        <span class="card-action">Open this section</span>
-      </button>
-
-      <button class="portal-card" type="button" data-module="module-offer">
-        <div><p class="card-num">06</p><h3>Thinking About an Offer</h3><p>A calm place to review comfort level, timing, conditions, and what needs to be clarified.</p></div>
-        <span class="card-action">Open this section</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<section class="module-area" id="module-area">
-  <div class="module-area-inner">
-
-    <article class="module-panel active" id="module-working">
-      <div class="module-layout">
-        <div class="module-lesson">
-          <p class="module-step">Section 01</p>
-          <h3>Working Together</h3>
-          <p>The first step is not rushing into houses. It is making sure we both understand what you need, what you are hoping for, and how the process will work.</p>
-          <p>In Nova Scotia, if you choose to work with a brokerage as a client, that relationship is normally documented through a buyer brokerage agreement. The point is to make the relationship clearer: who is representing you, what duties are owed, how long the agreement lasts, and how compensation is handled.</p>
-          <ul class="lesson-list">
-            <li>We talk through where you are in the process.</li>
-            <li>We clarify what you need from me and what I can help with.</li>
-            <li>We make sure representation and expectations are understood before the search gets serious.</li>
-          </ul>
-        </div>
-        <div class="module-work">
-          <form class="work-card" aria-label="Working together questions">
-            <h4>Start here</h4>
-            <div class="field-group">
-              <div class="field"><label for="stage">Where are you right now?</label><select id="stage" name="stage"><option>Just starting to learn</option><option>Thinking about buying this year</option><option>Actively watching listings</option><option>Ready to start viewing homes</option></select></div>
-              <div class="field"><label for="timeline">What timeline feels realistic?</label><select id="timeline" name="timeline"><option>Not sure yet</option><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>More than a year</option></select></div>
-            </div>
-            <div class="field"><label for="big-question">What is your biggest question right now?</label><textarea id="big-question" name="big-question" placeholder="For example: I’m not sure what I can afford, when to get pre-approved, or how quickly I need to act."></textarea></div>
-            <p class="form-note">This gives me a better sense of where to begin, so our first conversation is useful instead of overwhelming.</p>
-          </form>
-          <div class="note-card" data-note-card="working"><h4>Add a note for Lydia</h4><p>Have a question, concern, or detail you want me to know? Add it here.</p><div class="field"><label for="note-working">Your note</label><textarea id="note-working" data-note-field placeholder="I want to talk about..."></textarea></div><div class="note-actions"><button type="button" class="note-button" data-save-note>Keep this note here</button><button type="button" class="note-button primary" data-share-note>Share this with Lydia</button></div><p class="note-confirm" data-note-confirm></p></div>
-        </div>
-      </div>
-      <div class="module-footer"><p class="module-progress">Section 1 of 6</p><div class="module-buttons"><button class="module-nav-button" data-next="module-before">Next: Before We Start Looking</button></div></div>
-    </article>
-
-    <article class="module-panel" id="module-before" hidden>
-      <div class="module-layout">
-        <div class="module-lesson">
-          <p class="module-step">Section 02</p>
-          <h3>Before We Start Looking</h3>
-          <p>Before we book a lot of showings, it helps to understand the practical pieces: budget, pre-approval, deposit, closing costs, legal fees, insurance, and timing.</p>
-          <p>In Nova Scotia, buyers should also be aware of deed transfer tax. It is set by each municipality and collected when the deed is registered, so it is worth asking about early instead of being surprised later.</p>
-          <ul class="lesson-list">
-            <li>Talk to a lender or mortgage broker about pre-approval.</li>
-            <li>Think about monthly comfort, not only purchase price.</li>
-            <li>Ask about deposit, legal fees, deed transfer tax, insurance, inspection costs, and adjustments.</li>
-          </ul>
-        </div>
-        <div class="module-work">
-          <form class="work-card" aria-label="Before we start looking questions">
-            <h4>Money + readiness</h4>
-            <div class="field-group">
-              <div class="field"><label for="preapproval">Have you started the pre-approval process?</label><select id="preapproval" name="preapproval"><option>Not yet</option><option>I have started</option><option>I am pre-approved</option><option>I need help understanding this step</option></select></div>
-              <div class="field"><label for="budget-comfort">How do you feel about budget right now?</label><select id="budget-comfort" name="budget-comfort"><option>Still unclear</option><option>Mostly comfortable</option><option>I want to be cautious</option><option>I need to revisit the numbers</option></select></div>
-            </div>
-            <div class="field"><label for="money-questions">What money-related questions should we talk through?</label><textarea id="money-questions" name="money-questions" placeholder="Deposit, closing costs, monthly payments, financing conditions, deed transfer tax, or what happens after an accepted offer."></textarea></div>
-            <p class="form-note">This does not replace advice from your lender, broker, lawyer, or accountant. It helps me understand where you may need more guidance before we move quickly.</p>
-          </form>
-          <div class="note-card" data-note-card="before"><h4>Add a note for Lydia</h4><p>Have a question, concern, or detail you want me to know? Add it here.</p><div class="field"><label for="note-before">Your note</label><textarea id="note-before" data-note-field placeholder="I want to ask about..."></textarea></div><div class="note-actions"><button type="button" class="note-button" data-save-note>Keep this note here</button><button type="button" class="note-button primary" data-share-note>Share this with Lydia</button></div><p class="note-confirm" data-note-confirm></p></div>
-        </div>
-      </div>
-      <div class="module-footer"><p class="module-progress">Section 2 of 6</p><div class="module-buttons"><button class="module-nav-button secondary" data-next="module-working">Back</button><button class="module-nav-button" data-next="module-priorities">Next: Pin Down What Matters</button></div></div>
-    </article>
-
-    <article class="module-panel" id="module-priorities" hidden>
-      <div class="module-layout">
-        <div class="module-lesson">
-          <p class="module-step">Section 03</p>
-          <h3>Pin Down What Matters</h3>
-          <p>A useful search is not just a list of features. It is about how you live, what you value, and what will make the home work after the excitement of a showing wears off.</p>
-          <p>Bedrooms and bathrooms matter, but so do storage, winter access, commute, school routes, yard work, road noise, heating type, internet availability, pets, guests, and how much maintenance you actually want.</p>
-          <ul class="lesson-list"><li>Separate must-haves from nice-to-haves.</li><li>Be honest about dealbreakers.</li><li>Think about daily life, not just the listing description.</li></ul>
-        </div>
-        <div class="module-work">
-          <form class="work-card" aria-label="Buyer priorities questions">
-            <h4>Your priorities</h4>
-            <div class="field"><label for="areas">Which areas are you drawn to?</label><textarea id="areas" name="areas" placeholder="List towns, neighbourhoods, communities, or even the kind of setting you like."></textarea></div>
-            <div class="field-group"><div class="field"><label for="must-haves">Top must-haves</label><textarea id="must-haves" name="must-haves" placeholder="The things that truly matter."></textarea></div><div class="field"><label for="nice-to-haves">Nice-to-haves</label><textarea id="nice-to-haves" name="nice-to-haves" placeholder="The things you would love, but could live without."></textarea></div></div>
-            <div class="field"><label for="dealbreakers">What would make a home a no?</label><textarea id="dealbreakers" name="dealbreakers" placeholder="Busy road, major repairs, no yard, too far from work, not enough storage, etc."></textarea></div>
-          </form>
-          <div class="note-card" data-note-card="priorities"><h4>Add a note for Lydia</h4><p>Have a question, concern, or detail you want me to know? Add it here.</p><div class="field"><label for="note-priorities">Your note</label><textarea id="note-priorities" data-note-field placeholder="I want to explain..."></textarea></div><div class="note-actions"><button type="button" class="note-button" data-save-note>Keep this note here</button><button type="button" class="note-button primary" data-share-note>Share this with Lydia</button></div><p class="note-confirm" data-note-confirm></p></div>
-        </div>
-      </div>
-      <div class="module-footer"><p class="module-progress">Section 3 of 6</p><div class="module-buttons"><button class="module-nav-button secondary" data-next="module-before">Back</button><button class="module-nav-button" data-next="module-showing-day">Next: Showing Tour Day</button></div></div>
-    </article>
-
-    <article class="module-panel" id="module-showing-day" hidden>
-      <div class="module-layout">
-        <div class="module-lesson">
-          <p class="module-step">Section 04</p>
-          <h3>Showing Tour Day</h3>
-          <p>Showings can be exciting, but they can also blur together. The goal is to look at the home with both sides of your brain: how it feels, and how it functions.</p>
-          <p>The Nova Scotia Real Estate Commission strongly recommends having a home inspection. A showing is not a replacement for an inspection, but it is a good time to notice what we may want to ask about later.</p>
-          <ul class="lesson-list"><li>Notice layout, storage, light, parking, access, and daily-life flow.</li><li>Look beyond furniture, paint colours, and staging.</li><li>Make note of visible repairs, systems, yard condition, and location questions.</li></ul>
-        </div>
-        <div class="module-work">
-          <form class="work-card" aria-label="Showing tour checklist">
-            <h4>Showing checklist</h4>
-            <div class="check-row"><input type="checkbox" id="layout"><label for="layout">Layout works for everyday life, not just the listing photos.</label></div>
-            <div class="check-row"><input type="checkbox" id="storage"><label for="storage">Storage, parking, laundry, and entry space feel realistic.</label></div>
-            <div class="check-row"><input type="checkbox" id="condition"><label for="condition">Visible condition, age of systems, and obvious repairs are worth asking about.</label></div>
-            <div class="check-row"><input type="checkbox" id="location"><label for="location">Street, noise, commute, services, school routes, and winter access make sense.</label></div>
-            <div class="check-row"><input type="checkbox" id="second-look"><label for="second-look">The home is worth a second look, or there are specific questions to answer first.</label></div>
-          </form>
-          <div class="note-card" data-note-card="showing-day"><h4>Add a note for Lydia</h4><p>Have a question, concern, or detail you want me to know? Add it here.</p><div class="field"><label for="note-showing-day">Your note</label><textarea id="note-showing-day" data-note-field placeholder="Can we pay attention to..."></textarea></div><div class="note-actions"><button type="button" class="note-button" data-save-note>Keep this note here</button><button type="button" class="note-button primary" data-share-note>Share this with Lydia</button></div><p class="note-confirm" data-note-confirm></p></div>
-        </div>
-      </div>
-      <div class="module-footer"><p class="module-progress">Section 4 of 6</p><div class="module-buttons"><button class="module-nav-button secondary" data-next="module-priorities">Back</button><button class="module-nav-button" data-next="module-after">Next: After a Showing</button></div></div>
-    </article>
-
-    <article class="module-panel" id="module-after" hidden>
-      <div class="module-layout">
-        <div class="module-lesson">
-          <p class="module-step">Section 05</p>
-          <h3>After a Showing</h3>
-          <p>It is easy for showings to blur together. A quick reflection helps us keep track of what actually worked, what did not, and what we should look into before you get too attached.</p>
-          <p>This is where we separate excitement from fit. A home can feel charming and still be wrong for your life. A home can also feel imperfect but be worth a second look if the important pieces are there.</p>
-          <ul class="lesson-list"><li>Write down your reaction while it is fresh.</li><li>Separate excitement from actual fit.</li><li>Flag questions before they get lost.</li></ul>
-        </div>
-        <div class="module-work">
-          <form class="work-card" aria-label="After showing reflection questions">
-            <h4>After a showing</h4>
-            <div class="field"><label for="showing-address">Which home are you reflecting on?</label><input id="showing-address" name="showing-address" type="text" placeholder="Address or listing name"></div>
-            <div class="field-group"><div class="field"><label for="liked">What did you like?</label><textarea id="liked" name="liked" placeholder="What stood out in a good way?"></textarea></div><div class="field"><label for="pause">What gave you pause?</label><textarea id="pause" name="pause" placeholder="Repairs, layout, location, price, size, feeling, or unanswered questions."></textarea></div></div>
-            <div class="field"><label for="fit">How would you describe this one?</label><select id="fit" name="fit"><option>Not the right fit</option><option>Maybe, but I have questions</option><option>Strong contender</option><option>I want to talk about next steps</option></select></div>
-          </form>
-          <div class="note-card" data-note-card="after"><h4>Add a note for Lydia</h4><p>Have a question, concern, or detail you want me to know? Add it here.</p><div class="field"><label for="note-after">Your note</label><textarea id="note-after" data-note-field placeholder="I keep thinking about..."></textarea></div><div class="note-actions"><button type="button" class="note-button" data-save-note>Keep this note here</button><button type="button" class="note-button primary" data-share-note>Share this with Lydia</button></div><p class="note-confirm" data-note-confirm></p></div>
-        </div>
-      </div>
-      <div class="module-footer"><p class="module-progress">Section 5 of 6</p><div class="module-buttons"><button class="module-nav-button secondary" data-next="module-showing-day">Back</button><button class="module-nav-button" data-next="module-offer">Next: Thinking About an Offer</button></div></div>
-    </article>
-
-    <article class="module-panel" id="module-offer" hidden>
-      <div class="module-layout">
-        <div class="module-lesson">
-          <p class="module-step">Section 06</p>
-          <h3>Thinking About an Offer</h3>
-          <p>When a home feels like the one, things can move quickly. If the seller accepts an offer, the Agreement of Purchase and Sale becomes the purchase contract, subject to the terms and conditions written into it.</p>
-          <p>Common buyer conditions may include financing, inspection, insurance, review of documents, sale of a current home, or other property-specific due diligence. In Nova Scotia, buyer conditions are explicitly waived using Form 408 by the condition deadline.</p>
-          <ul class="lesson-list"><li>Comfort with price and monthly cost.</li><li>Deposit and closing timeline.</li><li>Financing, inspection, insurance, legal, and any property-specific conditions.</li><li>What still needs to be confirmed before you feel confident.</li></ul>
-        </div>
-        <div class="module-work">
-          <form class="work-card" aria-label="Before offer readiness questions">
-            <h4>Offer readiness</h4>
-            <div class="field-group"><div class="field"><label for="offer-comfort">How comfortable do you feel right now?</label><select id="offer-comfort" name="offer-comfort"><option>I need to talk it through</option><option>I feel mostly comfortable</option><option>I feel ready, with a few questions</option><option>I am ready to discuss an offer</option></select></div><div class="field"><label for="offer-timing">How quickly do you feel comfortable moving?</label><select id="offer-timing" name="offer-timing"><option>I need time</option><option>I can decide within a day</option><option>I can move quickly if the details make sense</option><option>I am not sure</option></select></div></div>
-            <div class="field"><label for="offer-questions">What do you need clarified before making a decision?</label><textarea id="offer-questions" name="offer-questions" placeholder="Conditions, repairs, price, closing date, inclusions, financing, inspection, or anything else on your mind."></textarea></div>
-            <p class="form-note">You are not expected to know every detail. My job is to walk you through the pieces, explain what matters, and help you make a decision you understand.</p>
-          </form>
-          <div class="note-card" data-note-card="offer"><h4>Add a note for Lydia</h4><p>Have a question, concern, or detail you want me to know? Add it here.</p><div class="field"><label for="note-offer">Your note</label><textarea id="note-offer" data-note-field placeholder="Before I feel ready, I need to understand..."></textarea></div><div class="note-actions"><button type="button" class="note-button" data-save-note>Keep this note here</button><button type="button" class="note-button primary" data-share-note>Share this with Lydia</button></div><p class="note-confirm" data-note-confirm></p></div>
-        </div>
-      </div>
-      <div class="module-footer"><p class="module-progress">Section 6 of 6</p><div class="module-buttons"><button class="module-nav-button secondary" data-next="module-after">Back</button><button class="module-nav-button" data-next="module-working">Back to Start</button></div></div>
-    </article>
-
-  </div>
-</section>
-
-<section class="info-section">
-  <div class="info-inner">
-    <div class="info-copy">
-      <p class="section-label">How this helps us work together</p>
-      <h2>Your notes make our conversations better.</h2>
-      <p>As you move through the guide, your answers help me understand where you are, what matters most, and what we should talk through together.</p>
-      <p>It does not replace our conversations. It gives us a better starting point, so we can spend less time guessing and more time making thoughtful decisions.</p>
-    </div>
-
-    <div class="info-card">
-      <h3>What I pay attention to</h3>
-      <p>When you share notes with me, I am looking for patterns, not perfection.</p>
+    <aside class="how-box" aria-label="How to explore this sample">
+      <h3>How to explore this sample</h3>
       <ul>
-        <li>What feels clear and what still feels uncertain.</li>
-        <li>Where budget, timing, and comfort level may need more discussion.</li>
-        <li>Which homes feel promising and why.</li>
-        <li>What needs to be clarified before you make a decision.</li>
+        <li>Start with the guide home to see the full structure.</li>
+        <li>Open Working Together to see the onboarding experience.</li>
+        <li>Open Pin Down What Matters to see the buyer intake form.</li>
+        <li>The remaining sections show how the full guide could be expanded for a real client build.</li>
       </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="demo-note">
+  <div class="demo-note-inner">
+    <h2>Built to show the strategy, not give away the whole course.</h2>
+    <div>
+      <p>The purpose of this sample is to show the structure, tone, design system, and client workflow. In a live build, each section could be customized to the agent’s market, process, service boundaries, and preferred client communication style.</p>
+      <p>The result is part education, part intake, and part client care system.</p>
+    </div>
+  </div>
+</section>
+
+<section class="course">
+  <div class="course-inner">
+    <div class="course-head">
+      <p class="section-label">Guide structure</p>
+      <h2>A calm structure for the whole buyer experience.</h2>
+      <p>The full guide is designed as a series of small, useful sections instead of one overwhelming document. For this demo, the built samples show the tone, saved notes, and client intake experience.</p>
+    </div>
+
+    <div class="card-grid">
+      <a href="working-together.html" class="course-card sample">
+        <div class="card-top">
+          <div class="card-meta">
+            <span class="card-num">01</span>
+            <span class="card-status">Built sample</span>
+          </div>
+          <h3>Working Together</h3>
+          <p>What it looks like to work with me, how we will communicate, and what to expect from the first conversation.</p>
+        </div>
+        <span class="card-link">Open sample</span>
+      </a>
+
+      <article class="course-card preview">
+        <div class="card-top">
+          <div class="card-meta">
+            <span class="card-num">02</span>
+            <span class="card-status">Preview section</span>
+          </div>
+          <h3>Before We Start Looking</h3>
+          <p>Budget, pre-approval, timing, closing costs, and the pieces worth understanding before we book showings.</p>
+        </div>
+        <span class="preview-link">Available in full guide</span>
+      </article>
+
+      <a href="pin-down-what-matters.html" class="course-card sample">
+        <div class="card-top">
+          <div class="card-meta">
+            <span class="card-num">03</span>
+            <span class="card-status">Built sample</span>
+          </div>
+          <h3>Pin Down What Matters</h3>
+          <p>A practical intake page to help me understand your areas, needs, dealbreakers, lifestyle, and what home needs to do for you.</p>
+        </div>
+        <span class="card-link">Open sample</span>
+      </a>
+
+      <article class="course-card preview">
+        <div class="card-top">
+          <div class="card-meta">
+            <span class="card-num">04</span>
+            <span class="card-status">Preview section</span>
+          </div>
+          <h3>Showing Tour Day</h3>
+          <p>What to expect when we view homes, what to notice, and how to look beyond photos and staging.</p>
+        </div>
+        <span class="preview-link">Available in full guide</span>
+      </article>
+
+      <article class="course-card preview">
+        <div class="card-top">
+          <div class="card-meta">
+            <span class="card-num">05</span>
+            <span class="card-status">Preview section</span>
+          </div>
+          <h3>After a Showing</h3>
+          <p>A quick reflection tool for what worked, what gave you pause, and whether the home is worth another look.</p>
+        </div>
+        <span class="preview-link">Available in full guide</span>
+      </article>
+
+      <article class="course-card preview">
+        <div class="card-top">
+          <div class="card-meta">
+            <span class="card-num">06</span>
+            <span class="card-status">Preview section</span>
+          </div>
+          <h3>Thinking About an Offer</h3>
+          <p>Conditions, timing, comfort level, questions, and what needs to be clarified before moving forward.</p>
+        </div>
+        <span class="preview-link">Available in full guide</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="note-section">
+  <div class="note-inner">
+    <h2>Your notes help make the experience more personal.</h2>
+
+    <div class="note-copy">
+      <p>In the built sample pages, buyers can save notes on their device as they move through the guide. They can also choose to share a specific question or comment with the agent before a conversation.</p>
+      <p>That keeps the experience useful without making it feel like a heavy client portal or a full login system.</p>
+
+      <div class="note-sample">
+        <p><strong>Example note:</strong> “I’m not sure how firm I am on location yet. I like the idea of being closer to town, but I also want more privacy. Can we talk through that before we narrow the search too much?”</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <h2>You do not need to have it all figured out before we talk.</h2>
-    <p>That is what the first conversation is for. Bring your questions, your rough ideas, your wish list, your concerns, or even just the feeling that you may be ready to start. We can sort through it together.</p>
+    <h2>A better way to prepare clients before the first big decision.</h2>
+    <p>This kind of guided experience can be adapted for buyer onboarding, seller preparation, client intake, post-consultation follow-up, or any service where people need clarity before they can make confident decisions.</p>
     <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-dark">Ask Lydia a Question</a>
   </div>
 </section>
@@ -1048,91 +912,6 @@ a:focus,
   <a href="tel:9025555555">902 555-5555</a> &nbsp;·&nbsp;
   <a href="mailto:lydia@thisisnotarealemail.com">lydia@thisisnotarealemail.com</a></p>
 </footer>
-
-<script>
-const moduleCards = document.querySelectorAll('.portal-card');
-const panels = document.querySelectorAll('.module-panel');
-const navButtons = document.querySelectorAll('.module-nav-button');
-const moduleArea = document.getElementById('module-area');
-const storageKey = 'lydiaBuyerGuidePortalV1';
-
-function showModule(moduleId, shouldScroll = true) {
-  moduleCards.forEach(card => card.setAttribute('aria-current', card.dataset.module === moduleId ? 'true' : 'false'));
-  panels.forEach(panel => {
-    const active = panel.id === moduleId;
-    panel.classList.toggle('active', active);
-    panel.hidden = !active;
-  });
-  saveState();
-  if (shouldScroll) moduleArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function getState() {
-  const data = { activeModule: document.querySelector('.module-panel.active')?.id || 'module-working', fields: {}, notes: {} };
-  document.querySelectorAll('input, select, textarea').forEach(el => {
-    if (!el.id) return;
-    data.fields[el.id] = el.type === 'checkbox' ? el.checked : el.value;
-  });
-  return data;
-}
-
-function saveState() {
-  localStorage.setItem(storageKey, JSON.stringify(getState()));
-}
-
-function restoreState() {
-  const raw = localStorage.getItem(storageKey);
-  if (!raw) return;
-  try {
-    const data = JSON.parse(raw);
-    Object.entries(data.fields || {}).forEach(([id, value]) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      if (el.type === 'checkbox') el.checked = Boolean(value);
-      else el.value = value;
-    });
-    if (data.activeModule) showModule(data.activeModule, false);
-  } catch (e) {
-    console.warn('Could not restore guide state.');
-  }
-}
-
-moduleCards.forEach(card => card.addEventListener('click', () => showModule(card.dataset.module)));
-navButtons.forEach(button => button.addEventListener('click', () => showModule(button.dataset.next)));
-document.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('input', saveState));
-
-document.querySelectorAll('[data-save-note]').forEach(button => {
-  button.addEventListener('click', () => {
-    saveState();
-    const card = button.closest('.note-card');
-    const confirm = card.querySelector('[data-note-confirm]');
-    confirm.textContent = 'Saved here. This note stays on this device unless you choose to share it.';
-  });
-});
-
-document.querySelectorAll('[data-share-note]').forEach(button => {
-  button.addEventListener('click', () => {
-    saveState();
-    const card = button.closest('.note-card');
-    const note = card.querySelector('[data-note-field]').value.trim();
-    const confirm = card.querySelector('[data-note-confirm]');
-    confirm.textContent = note ? 'Got it. I’ll keep this in mind for our next conversation.' : 'Add a note first, then choose share.';
-  });
-});
-
-document.getElementById('clear-progress').addEventListener('click', () => {
-  localStorage.removeItem(storageKey);
-  document.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.type === 'checkbox') el.checked = false;
-    else if (el.tagName === 'SELECT') el.selectedIndex = 0;
-    else el.value = '';
-  });
-  document.querySelectorAll('[data-note-confirm]').forEach(el => el.textContent = '');
-  showModule('module-working', false);
-});
-
-restoreState();
-</script>
 
 </body>
 </html>
