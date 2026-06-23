@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Nuts and Bolts of Buying a Home — Lydia Nichols, Elevated Homes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #FAFAF8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  color: #111111;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+
+:root {
+  --ink: #080808;
+  --charcoal: #1E1A24;
+  --paper: #FFFFFF;
+  --cream: #FAFAF8;
+  --warm: #FFFFFF;
+  --blue: #BBCAD6;
+  --blue-deep: #9FB1C0;
+  --lavender: #A99AAF;
+  --lavender-soft: #EDE7EE;
+  --line: #D7DDE1;
+  --muted: #596674;
+  --gold: #B3975B;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 14px;
+  z-index: 2000;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* DEMO BAR */
+.demo-bar {
+  background: var(--charcoal);
+  text-align: center;
+  padding: 10px 24px;
+}
+
+.demo-bar p {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--paper);
+  border-bottom: 2px solid #080808;
+  height: 92px;
+  padding: 0 clamp(18px, 4vw, 64px);
+}
+
+.nav-inner {
+  height: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(18px, 3vw, 42px);
+}
+
+.nav-side {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 32px);
+}
+
+.nav-left {
+  justify-content: flex-end;
+}
+
+.nav-right {
+  justify-content: flex-start;
+}
+
+.nav-side a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.nav-side a:hover,
+.nav-side a:focus {
+  color: var(--ink);
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(170px, 16vw, 220px);
+}
+
+.nav-logo {
+  width: 100%;
+  max-height: 72px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: clamp(430px, 56vw, 620px);
+  overflow: hidden;
+  background: var(--blue);
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  min-height: clamp(430px, 56vw, 620px);
+  object-fit: cover;
+  object-position: left 32%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.74) 56%, rgba(255,255,255,0.96) 100%);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: clamp(34px, 6vw, 84px);
+}
+
+.hero-text {
+  max-width: 470px;
+  text-align: right;
+}
+
+.eyebrow,
+.section-label,
+.card-label,
+.form-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  line-height: 1.7;
+}
+
+.hero .eyebrow {
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 4.9vw, 58px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+/* INTRO */
+.intro {
+  background: var(--paper);
+  padding: clamp(46px, 6vw, 82px) clamp(22px, 5vw, 80px);
+  border-top: 1px solid var(--line);
+}
+
+.intro-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(34px, 5vw, 80px);
+  align-items: center;
+}
+
+.intro-copy p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: #2C2630;
+  margin-top: 15px;
+}
+
+.intro-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 15px 24px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+  background: var(--charcoal);
+}
+
+.btn-light {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn-light:hover,
+.btn-light:focus {
+  border-color: var(--ink);
+}
+
+/* GUIDE NAV */
+.guide-nav {
+  background: var(--blue);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 17px clamp(20px, 5vw, 80px);
+}
+
+.guide-nav-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.guide-nav a {
+  background: rgba(255,255,255,0.52);
+  border: 1px solid rgba(8,8,8,0.14);
+  padding: 9px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.guide-nav a:hover,
+.guide-nav a:focus {
+  background: var(--paper);
+  border-color: var(--ink);
+}
+
+/* SECTIONS */
+.section {
+  padding: clamp(50px, 7vw, 90px) clamp(22px, 5vw, 80px);
+}
+
+.section-white {
+  background: var(--paper);
+}
+
+.section-soft {
+  background: var(--cream);
+}
+
+.section-blue {
+  background: var(--blue);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-dark {
+  background: var(--ink);
+}
+
+.section-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.section-head {
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+.section-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.7vw, 44px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.section-head p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.section-dark .section-head h2,
+.section-dark .section-head p {
+  color: var(--paper);
+}
+
+.section-dark .section-head p {
+  color: rgba(255,255,255,0.72);
+}
+
+/* OVERVIEW CARDS */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.overview-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 26px 24px;
+  min-height: 220px;
+}
+
+.card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: rgba(8,8,8,0.18);
+  line-height: 1;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.overview-card h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 9px;
+}
+
+.overview-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* CHECKPOINTS */
+.checkpoint {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(28px, 5vw, 70px);
+  align-items: start;
+  padding: clamp(36px, 5vw, 60px) 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 110px;
+}
+
+.checkpoint:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.checkpoint h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 10px 0 14px;
+}
+
+.checkpoint p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.plain-list {
+  list-style: none;
+  margin-top: 18px;
+}
+
+.plain-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: #2C2630;
+}
+
+.plain-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lavender);
+}
+
+/* FORM STYLE */
+.form-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: clamp(24px, 4vw, 34px);
+}
+
+.form-card h4 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 7px;
+  line-height: 1.5;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 12px;
+  min-height: 46px;
+}
+
+.field textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.btn:focus,
+a:focus {
+  outline: 2px solid var(--lavender);
+  outline-offset: 3px;
+}
+
+.form-note {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.check-row {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-bottom: 11px;
+}
+
+.check-row input {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+}
+
+.check-row label {
+  font-size: 12px;
+  color: #2C2630;
+  line-height: 1.65;
+}
+
+/* DARK NOTE */
+.dark-note {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(30px, 5vw, 72px);
+  align-items: center;
+}
+
+.dark-note h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.8vw, 44px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--paper);
+}
+
+.dark-note p {
+  font-size: 14px;
+  line-height: 1.95;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 14px;
+}
+
+/* SUMMARY */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+}
+
+.summary-copy h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.7vw, 44px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 14px 0 16px;
+}
+
+.summary-copy p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #2C2630;
+  margin-bottom: 14px;
+}
+
+.summary-card {
+  background: var(--paper);
+  border: 1px solid rgba(8,8,8,0.14);
+  box-shadow: 0 18px 50px rgba(8,8,8,0.08);
+}
+
+.summary-card-head {
+  border-bottom: 2px solid var(--ink);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.summary-card-head img {
+  width: 150px;
+  height: auto;
+}
+
+.summary-card-head p {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+
+.summary-card-body {
+  padding: 22px 24px 24px;
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row strong {
+  font-size: 11px;
+  color: var(--ink);
+}
+
+.summary-row span {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--paper);
+  padding: clamp(48px, 6vw, 78px) clamp(22px, 5vw, 80px);
+  text-align: center;
+}
+
+.final-cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.final-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.7vw, 42px);
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.final-cta p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* SIGN OFF */
+.signoff {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  padding: clamp(42px, 5vw, 66px) clamp(20px, 5vw, 64px);
+  text-align: center;
+}
+
+.signoff img {
+  width: clamp(190px, 22vw, 280px);
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+.signoff p {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--ink);
+  padding: 22px clamp(20px,5vw,64px);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.9;
+}
+
+.footer a {
+  color: rgba(255,255,255,0.42);
+}
+
+.footer a:hover,
+.footer a:focus {
+  color: rgba(255,255,255,0.72);
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .checkpoint,
+  .summary-grid,
+  .dark-note {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    height: 86px;
+    padding: 0 22px;
+  }
+
+  .nav-inner {
+    max-width: 940px;
+    gap: 18px;
+  }
+
+  .nav-side {
+    gap: 16px;
+  }
+
+  .nav-side a {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-logo-link {
+    width: clamp(160px, 18vw, 200px);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .field-group {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .summary-card-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .summary-card-head p {
+    text-align: left;
+  }
+
+  .summary-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .guide-nav-inner {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .guide-nav a {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .demo-bar p {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .nav {
+    height: 78px;
+    padding: 0 18px;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-side {
+    display: none;
+  }
+
+  .nav-logo-link {
+    width: clamp(165px, 48vw, 215px);
+  }
+
+  .nav-logo {
+    width: 100%;
+    max-height: 66px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero {
+    min-height: clamp(430px, 92vw, 540px);
+  }
+
+  .hero img {
+    min-height: clamp(430px, 92vw, 540px);
+    object-position: 38% 20%;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(8,8,8,0.02) 0%, rgba(8,8,8,0.56) 58%, rgba(8,8,8,0.78) 100%);
+  }
+
+  .hero-content {
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 24px 34px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero h1 {
+    color: var(--paper);
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.84);
+  }
+
+  .hero .eyebrow {
+    color: rgba(255,255,255,0.68);
+  }
+
+  .section,
+  .intro,
+  .final-cta {
+    padding: 42px 22px;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-card {
+    min-height: auto;
+  }
+
+  .checkpoint {
+    gap: 24px;
+    padding: 34px 0;
+    scroll-margin-top: 92px;
+  }
+
+  .form-card {
+    padding: 24px 20px;
+  }
+
+  .signoff {
+    padding: 42px 24px 48px;
+  }
+
+  .signoff img {
+    width: clamp(180px, 56vw, 245px);
+    margin-bottom: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to guide content</a>
+
+<div class="demo-bar">
+  <p>Portfolio demonstration — Lydia Nichols is a fictional client created by The Yellow Front Door</p>
+</div>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="nav-side nav-left">
+      <a href="#">About</a>
+      <a href="#">Listings</a>
+    </div>
+
+    <a href="#" class="nav-logo-link" aria-label="Lydia Nichols — Elevated Homes">
+      <img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes" class="nav-logo">
+    </a>
+
+    <div class="nav-side nav-right">
+      <a href="#">Communities</a>
+      <a href="mailto:lydia@thisisnotarealemail.com">Contact Lydia</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="lydia-interior.png" alt="A calm home interior with natural light">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="eyebrow">Buyer Guide</p>
+      <h1>The Nuts and Bolts of Buying a Home</h1>
+      <p>A practical guide to help you understand the process, get organized, and feel more prepared before the search gets busy.</p>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-copy">
+      <p class="section-label">A note from Lydia</p>
+      <p>Buying a home comes with a lot of moving parts. Some buyers are just starting out. Some have bought before but need a refresher. Some know exactly what they want, and some are still figuring that out.</p>
+      <p>This guide gives you a clear place to begin. It is not meant to be homework, and you do not need to have everything figured out before we talk. Use it to understand the basics, sort your thoughts, and send me the details that will help me guide you well.</p>
+    </div>
+
+    <div class="intro-actions">
+      <a href="#start" class="btn btn-dark">Start the Guide</a>
+      <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-light">Ask Lydia a Question</a>
+    </div>
+  </div>
+</section>
+
+<nav class="guide-nav" aria-label="Buyer guide sections">
+  <div class="guide-nav-inner">
+    <a href="#start">Start Here</a>
+    <a href="#money">Money</a>
+    <a href="#priorities">Priorities</a>
+    <a href="#viewing">Viewings</a>
+    <a href="#after">After a Showing</a>
+    <a href="#offer">Before an Offer</a>
+  </div>
+</nav>
+
+<section class="section section-soft">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="section-label">What this guide helps with</p>
+      <h2>A clear path through the early decisions.</h2>
+      <p>The goal is not to make buying a home feel more complicated. It is to make sure we are paying attention to the right things before decisions start moving quickly.</p>
+    </div>
+
+    <div class="overview-grid">
+      <div class="overview-card">
+        <p class="card-num">01</p>
+        <h3>Understand the basic steps.</h3>
+        <p>What usually happens first, what comes later, and where the bigger decisions tend to show up.</p>
+      </div>
+
+      <div class="overview-card">
+        <p class="card-num">02</p>
+        <h3>Get clearer on what matters.</h3>
+        <p>Not just bedrooms and bathrooms, but how the home needs to work for your real life.</p>
+      </div>
+
+      <div class="overview-card">
+        <p class="card-num">03</p>
+        <h3>Know what to look for.</h3>
+        <p>A practical way to look past staging and notice layout, condition, systems, location, and fit.</p>
+      </div>
+
+      <div class="overview-card">
+        <p class="card-num">04</p>
+        <h3>Keep track of showings.</h3>
+        <p>A simple way to remember what felt right, what gave you pause, and what needs a second look.</p>
+      </div>
+
+      <div class="overview-card">
+        <p class="card-num">05</p>
+        <h3>Feel steadier before an offer.</h3>
+        <p>A calm check-in on timing, comfort level, conditions, and the questions still on your mind.</p>
+      </div>
+
+      <div class="overview-card">
+        <p class="card-num">06</p>
+        <h3>Help me guide you better.</h3>
+        <p>The more I understand what matters to you, the better I can help you make smart decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="section-label">Buyer checkpoints</p>
+      <h2>Short, useful questions at the right time.</h2>
+      <p>You can move through the whole guide or jump to the part that matches where you are right now.</p>
+    </div>
+
+    <article class="checkpoint" id="start">
+      <div>
+        <p class="card-label">Start Here</p>
+        <h3>Where are you in the process?</h3>
+        <p>Everyone starts in a different place. You might be ready to view homes this week, or you might just be trying to understand what buying could look like. Both are completely fine.</p>
+        <ul class="plain-list">
+          <li>Tell me what you already know.</li>
+          <li>Share what feels unclear or overwhelming.</li>
+          <li>Let me know how soon you hope to move.</li>
+        </ul>
+      </div>
+
+      <form class="form-card" aria-label="Start here buyer questions">
+        <h4>Start here</h4>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="stage">Where are you right now?</label>
+            <select id="stage" name="stage">
+              <option>Just starting to learn</option>
+              <option>Thinking about buying this year</option>
+              <option>Actively watching listings</option>
+              <option>Ready to start viewing homes</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="timeline">What timeline feels realistic?</label>
+            <select id="timeline" name="timeline">
+              <option>Not sure yet</option>
+              <option>0–3 months</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>More than a year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="big-question">What is your biggest question right now?</label>
+          <textarea id="big-question" name="big-question" placeholder="For example: I’m not sure what I can afford, when to get pre-approved, or how quickly I need to act."></textarea>
+        </div>
+
+        <p class="form-note">This gives me a better sense of where to begin, so our first conversation is useful instead of overwhelming.</p>
+      </form>
+    </article>
+
+    <article class="checkpoint" id="money">
+      <div>
+        <p class="card-label">Money + Readiness</p>
+        <h3>What do you need to understand before viewing?</h3>
+        <p>You do not need every financial detail perfect before we talk, but it helps to know what still needs to be sorted out. Budget, deposit, pre-approval, monthly comfort, and closing costs all matter.</p>
+        <ul class="plain-list">
+          <li>Know whether you have spoken with a lender or mortgage broker.</li>
+          <li>Think about what monthly payment feels comfortable, not just what you may be approved for.</li>
+          <li>Flag questions about deposits, closing costs, or conditions.</li>
+        </ul>
+      </div>
+
+      <form class="form-card" aria-label="Money and readiness buyer questions">
+        <h4>Money + readiness</h4>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="preapproval">Have you started the pre-approval process?</label>
+            <select id="preapproval" name="preapproval">
+              <option>Not yet</option>
+              <option>I have started</option>
+              <option>I am pre-approved</option>
+              <option>I need help understanding this step</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="budget-comfort">How do you feel about budget right now?</label>
+            <select id="budget-comfort" name="budget-comfort">
+              <option>Still unclear</option>
+              <option>Mostly comfortable</option>
+              <option>I want to be cautious</option>
+              <option>I need to revisit the numbers</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="money-questions">What money-related questions should we talk through?</label>
+          <textarea id="money-questions" name="money-questions" placeholder="Deposit, closing costs, monthly payments, financing conditions, or what happens after an accepted offer."></textarea>
+        </div>
+
+        <p class="form-note">This does not replace advice from your lender, broker, lawyer, or accountant. It helps me understand where you may need more guidance before we move quickly.</p>
+      </form>
+    </article>
+
+    <article class="checkpoint" id="priorities">
+      <div>
+        <p class="card-label">What You’re Looking For</p>
+        <h3>What does the home need to do for your life?</h3>
+        <p>A useful search is not just a list of features. It is about how you live, what you value, and what will make the home work after the excitement of the showing wears off.</p>
+        <ul class="plain-list">
+          <li>Separate must-haves from nice-to-haves.</li>
+          <li>Be honest about dealbreakers.</li>
+          <li>Think about daily life, not just the listing description.</li>
+        </ul>
+      </div>
+
+      <form class="form-card" aria-label="Buyer priorities questions">
+        <h4>Your priorities</h4>
+
+        <div class="field">
+          <label for="areas">Which areas are you drawn to?</label>
+          <textarea id="areas" name="areas" placeholder="List towns, neighbourhoods, communities, or even the kind of setting you like."></textarea>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="must-haves">Top must-haves</label>
+            <textarea id="must-haves" name="must-haves" placeholder="The things that truly matter."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="nice-to-haves">Nice-to-haves</label>
+            <textarea id="nice-to-haves" name="nice-to-haves" placeholder="The things you would love, but could live without."></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="dealbreakers">What would make a home a no?</label>
+          <textarea id="dealbreakers" name="dealbreakers" placeholder="Busy road, major repairs, no yard, too far from work, not enough storage, etc."></textarea>
+        </div>
+      </form>
+    </article>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="section-inner dark-note">
+    <h2>A good showing is not only about whether you like the house.</h2>
+    <div>
+      <p>It is also about noticing what you might be taking on. Layout, light, storage, heating, water, road noise, stairs, parking, yard maintenance, future repairs, and the feel of the street all matter.</p>
+      <p>You do not need to inspect the home yourself. That is what qualified professionals are for. But you can learn to notice what deserves a closer look.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="section-inner">
+    <article class="checkpoint" id="viewing">
+      <div>
+        <p class="card-label">Before You View</p>
+        <h3>What should you pay attention to during a showing?</h3>
+        <p>Photos can make a home look simple. Walking through it tells you more. This section helps you stay practical while still paying attention to how the home feels.</p>
+        <ul class="plain-list">
+          <li>How does the layout work for your daily routines?</li>
+          <li>Is there enough storage, parking, and practical space?</li>
+          <li>What looks well cared for, and what might need attention?</li>
+          <li>How does the street, driveway, yard, or building feel?</li>
+        </ul>
+      </div>
+
+      <form class="form-card" aria-label="Before viewing checklist">
+        <h4>Showing checklist</h4>
+
+        <div class="check-row">
+          <input type="checkbox" id="layout">
+          <label for="layout">Layout works for everyday life, not just the listing photos.</label>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="storage">
+          <label for="storage">Storage, parking, laundry, and entry space feel realistic.</label>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="condition">
+          <label for="condition">Visible condition, age of systems, and obvious repairs are worth asking about.</label>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="location">
+          <label for="location">Street, noise, commute, services, school routes, and winter access make sense.</label>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="second-look">
+          <label for="second-look">The home is worth a second look, or there are specific questions to answer first.</label>
+        </div>
+      </form>
+    </article>
+
+    <article class="checkpoint" id="after">
+      <div>
+        <p class="card-label">After a Showing</p>
+        <h3>What felt right, and what gave you pause?</h3>
+        <p>It is easy for showings to blur together. A quick reflection helps us keep track of what actually worked, what did not, and what we should look into before you get too attached.</p>
+        <ul class="plain-list">
+          <li>Write down your reaction while it is fresh.</li>
+          <li>Separate excitement from actual fit.</li>
+          <li>Flag questions before they get lost.</li>
+        </ul>
+      </div>
+
+      <form class="form-card" aria-label="After showing reflection questions">
+        <h4>After a showing</h4>
+
+        <div class="field">
+          <label for="showing-address">Which home are you reflecting on?</label>
+          <input id="showing-address" name="showing-address" type="text" placeholder="Address or listing name">
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="liked">What did you like?</label>
+            <textarea id="liked" name="liked" placeholder="What stood out in a good way?"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="pause">What gave you pause?</label>
+            <textarea id="pause" name="pause" placeholder="Repairs, layout, location, price, size, feeling, or unanswered questions."></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fit">How would you describe this one?</label>
+          <select id="fit" name="fit">
+            <option>Not the right fit</option>
+            <option>Maybe, but I have questions</option>
+            <option>Strong contender</option>
+            <option>I want to talk about next steps</option>
+          </select>
+        </div>
+      </form>
+    </article>
+
+    <article class="checkpoint" id="offer">
+      <div>
+        <p class="card-label">Before You Write an Offer</p>
+        <h3>Are you clear enough to move forward?</h3>
+        <p>When a home feels like the one, things can move quickly. This check-in helps us slow down just enough to make sure you understand the major pieces before we talk about an offer.</p>
+        <ul class="plain-list">
+          <li>Comfort with price and monthly cost.</li>
+          <li>Deposit and closing timeline.</li>
+          <li>Financing, inspection, insurance, legal, and any property-specific conditions.</li>
+          <li>What still needs to be confirmed before you feel confident.</li>
+        </ul>
+      </div>
+
+      <form class="form-card" aria-label="Before offer readiness questions">
+        <h4>Offer readiness</h4>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="offer-comfort">How comfortable do you feel right now?</label>
+            <select id="offer-comfort" name="offer-comfort">
+              <option>I need to talk it through</option>
+              <option>I feel mostly comfortable</option>
+              <option>I feel ready, with a few questions</option>
+              <option>I am ready to discuss an offer</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="offer-timing">How quickly do you feel comfortable moving?</label>
+            <select id="offer-timing" name="offer-timing">
+              <option>I need time</option>
+              <option>I can decide within a day</option>
+              <option>I can move quickly if the details make sense</option>
+              <option>I am not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="offer-questions">What do you need clarified before making a decision?</label>
+          <textarea id="offer-questions" name="offer-questions" placeholder="Conditions, repairs, price, closing date, inclusions, financing, inspection, or anything else on your mind."></textarea>
+        </div>
+
+        <p class="form-note">You are not expected to know every detail. My job is to walk you through the pieces, explain what matters, and help you make a decision you understand.</p>
+      </form>
+    </article>
+  </div>
+</section>
+
+<section class="section section-blue">
+  <div class="section-inner summary-grid">
+    <div class="summary-copy">
+      <p class="section-label">What I receive</p>
+      <h2>A clearer picture of what you need, without a long questionnaire.</h2>
+      <p>When you complete a checkpoint, I receive a simple summary of your priorities, questions, and comfort level. That means I can guide you with better context and spend less time guessing what matters most.</p>
+      <p>It does not replace our conversations. It makes them better.</p>
+    </div>
+
+    <div class="summary-card" aria-label="Example buyer summary">
+      <div class="summary-card-head">
+        <img src="lydiafulllogo.png" alt="Lydia Nichols — Elevated Homes">
+        <p>Buyer Summary</p>
+      </div>
+
+      <div class="summary-card-body">
+        <div class="summary-row"><strong>Buyer stage</strong><span>Early search, hoping to move within 3–6 months.</span></div>
+        <div class="summary-row"><strong>Budget comfort</strong><span>Pre-approval started. Wants to stay cautious on monthly payments.</span></div>
+        <div class="summary-row"><strong>Areas</strong><span>Wolfville, Gaspereau, Port Williams, or similar community feel.</span></div>
+        <div class="summary-row"><strong>Must-haves</strong><span>Natural light, three bedrooms, usable yard, good storage.</span></div>
+        <div class="summary-row"><strong>Dealbreakers</strong><span>Busy road, major foundation concerns, no bathtub.</span></div>
+        <div class="summary-row"><strong>Questions</strong><span>Offer timing, inspection conditions, closing costs, and heating system age.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>You do not need to have it all figured out before we talk.</h2>
+    <p>That is what the first conversation is for. Bring your questions, your rough ideas, your wish list, your concerns, or even just the feeling that you may be ready to start. We can sort through it together.</p>
+    <a href="mailto:lydia@thisisnotarealemail.com" class="btn btn-dark">Ask Lydia a Question</a>
+  </div>
+</section>
+
+<section class="signoff">
+  <img src="lydialogoname.png" alt="Lydia Nichols — Elevated Homes">
+  <p>Annapolis Valley Real Estate · 902 555-5555</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Lydia Nichols · Elevated Homes · Annapolis Valley Real Estate<br>
+  <a href="tel:9025555555">902 555-5555</a> &nbsp;·&nbsp;
+  <a href="mailto:lydia@thisisnotarealemail.com">lydia@thisisnotarealemail.com</a></p>
+</footer>
+
+</body>
+</html>
