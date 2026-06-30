@@ -110,14 +110,19 @@ h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.7rem);line-height:1;t
       <div class="register-layout">
         <div class="register-form-card">
           <div class="form-frame-label dropin">Book a drop-in class</div>
-          <div class="form-loader-wrap">
-            <div class="form-loader" id="loader-dropin">Loading form…</div>
-            <iframe
-              src="https://airtable.com/embed/appTXfAYqeKi1CWVH/paga2F4EJ1JABGbge/form"
-              height="580"
-              onload="document.getElementById('loader-dropin').style.display='none'">
-            </iframe>
-          </div>
+       <div style="padding:1.8rem;">
+            <div style="font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;">Sample registration form</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem;">
+              <div><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">First name</label><input type="text" value="Jane" disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"></div>
+              <div><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Last name</label><input type="text" value="Smith" disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"></div>
+            </div>
+            <div style="margin-bottom:.8rem;"><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Email</label><input type="email" value="jane@email.com" disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"></div>
+            <div style="margin-bottom:.8rem;"><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Phone</label><input type="tel" value="(613) 555-0123" disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"></div>
+            <div style="margin-bottom:.8rem;"><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Which class?</label><select disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"><option>Group Training — Monday 5:30 AM</option></select></div>
+            <div style="margin-bottom:1rem;"><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Anything we should know?</label><textarea disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;min-height:70px;resize:none;">First-timer, excited to try it out!</textarea></div>
+            <button disabled style="display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:.65rem 1.2rem;font-family:var(--display);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:#ccc;cursor:not-allowed;">Register →</button>
+            <p style="font-size:11px;color:var(--ink-dim);margin-top:.8rem;letter-spacing:.04em;">This is a sample form for the portfolio demo. In production, this connects to Airtable.</p>
+          </div>   
         </div>
 
         <aside class="register-side">
@@ -153,13 +158,17 @@ h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.7rem);line-height:1;t
       <div class="register-layout">
         <div class="register-form-card">
           <div class="form-frame-label programs">Programs &amp; consultations</div>
-          <div class="form-loader-wrap">
-            <div class="form-loader" id="loader-programs">Loading form…</div>
-            <iframe
-              src="https://airtable.com/embed/appTXfAYqeKi1CWVH/paga2F4EJ1JABGbge/form"
-              height="620"
-              onload="document.getElementById('loader-programs').style.display='none'">
-            </iframe>
+         <div style="padding:1.8rem;">
+            <div style="font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;">Sample inquiry form</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem;">
+              <div><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">First name</label><input type="text" value="Jane" disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"></div>
+              <div><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Last name</label><input type="text" value="Smith" disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"></div>
+            </div>
+            <div style="margin-bottom:.8rem;"><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Email</label><input type="email" value="jane@email.com" disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"></div>
+            <div style="margin-bottom:.8rem;"><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">I'm interested in…</label><select disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;"><option>Personal Training — Free consultation</option></select></div>
+            <div style="margin-bottom:1rem;"><label style="display:block;font-size:12px;font-weight:700;color:var(--ink-muted);margin-bottom:.25rem;">Tell us about your goals</label><textarea disabled style="width:100%;border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:14px;background:#fafafa;color:#999;min-height:70px;resize:none;">Looking to get back into a routine after a few years off.</textarea></div>
+            <button disabled style="display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:.65rem 1.2rem;font-family:var(--display);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:#ccc;cursor:not-allowed;">Submit inquiry →</button>
+            <p style="font-size:11px;color:var(--ink-dim);margin-top:.8rem;letter-spacing:.04em;">This is a sample form for the portfolio demo. In production, this connects to Airtable.</p>
           </div>
         </div>
 
