@@ -98,24 +98,25 @@ body { background: var(--navy); color: var(--ink); font-family: var(--f-body); f
 .stop-bar-inner.strong { background: linear-gradient(90deg, var(--navy), #2a4a8a); }
 .stop-bar-inner.mid { background: linear-gradient(90deg, var(--yellow), #e6b800); }
 .stop-bar-inner.weak { background: linear-gradient(90deg, var(--clay), #d4845c); }
-.stop-insight { font-size: 14px; color: var(--slate); line-height: 1.75; margin-bottom: 8px; padding-bottom: 20px; border-bottom: 1px solid rgba(19,36,71,0.06); }
+.stop-insight { font-size: 14px; color: var(--slate); line-height: 1.75; margin-bottom: 8px; padding-bottom: 12px; }
+.stop-audit-link { font-size: 13px; margin-bottom: 8px; padding-bottom: 20px; border-bottom: 1px solid rgba(19,36,71,0.06); }
+.stop-audit-link a { color: var(--clay); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--clay); }
+.stop-audit-link a:hover { color: var(--navy); border-color: var(--navy); }
+.stop-section:not(.has-audit-link) .stop-insight { border-bottom: 1px solid rgba(19,36,71,0.06); }
 
-/* EMAIL */
-.email-block { background: var(--navy); border-radius: 10px; padding: 36px 32px; text-align: center; margin: 48px 0; }
-.email-block p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
-.email-block .email-row { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
-.email-block input { flex: 1; padding: 14px 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; font-family: var(--f-body); font-size: 14px; outline: none; }
-.email-block input:focus { border-color: var(--yellow); }
-.email-block button { padding: 14px 24px; background: var(--yellow); color: var(--navy); border: none; border-radius: 4px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
-.email-confirm { font-size: 13px; color: var(--yellow); margin-top: 12px; display: none; }
-
-/* RESULTS CTA */
-.results-cta { text-align: center; margin-top: 48px; }
-.results-cta h3 { font-size: 24px; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-.results-cta .accent { font-family: var(--f-accent); font-size: 22px; color: var(--slate); margin-bottom: 20px; display: block; }
-.results-cta p { font-size: 15px; color: var(--slate); max-width: 440px; margin: 0 auto 28px; line-height: 1.75; }
-.btn-cta { display: inline-block; background: var(--yellow); color: var(--navy); padding: 16px 40px; font-family: var(--f-body); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: transform 0.2s; }
-.btn-cta:hover { transform: translateY(-2px); }
+/* NEXT STEP BLOCK — replaces plain email box */
+.next-step-block { background: var(--navy); border-radius: 10px; padding: 40px 32px; margin: 48px 0; }
+.next-step-heading { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); text-align: center; margin-bottom: 28px; }
+.next-step-options { display: flex; gap: 16px; flex-wrap: wrap; }
+.next-step-option { flex: 1; min-width: 220px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 24px 22px; text-align: center; }
+.next-step-option-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.next-step-option-body { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 18px; }
+.next-step-btn-primary { display: inline-block; background: var(--yellow); color: var(--navy); padding: 12px 26px; border: none; border-radius: 4px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; cursor: pointer; }
+.next-step-email-row { display: flex; gap: 8px; }
+.next-step-email-row input { flex: 1; padding: 12px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; font-family: var(--f-body); font-size: 13px; outline: none; }
+.next-step-email-row input:focus { border-color: var(--yellow); }
+.next-step-email-row button { padding: 12px 18px; background: transparent; color: var(--yellow); border: 1px solid var(--yellow); border-radius: 4px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
+.email-confirm { font-size: 12px; color: var(--yellow); margin-top: 10px; display: none; }
 
 .results-footer { text-align: center; padding: 32px 0; font-size: 12px; color: var(--stone); }
 .results-footer span { color: var(--clay); }
@@ -123,10 +124,11 @@ body { background: var(--navy); color: var(--ink); font-family: var(--f-body); f
 @media (max-width: 600px) {
   .intro-stats { gap: 24px; }
   .intro-stat .num { font-size: 22px; }
-  .email-block .email-row { flex-direction: column; }
   .stop-name { font-size: 18px; }
   .score-ring { width: 140px; height: 140px; }
   .score-ring .score-num { font-size: 42px; }
+  .next-step-options { flex-direction: column; }
+  .next-step-email-row { flex-direction: column; }
 }
 </style>
 </head>
@@ -180,20 +182,24 @@ body { background: var(--navy); color: var(--ink); font-family: var(--f-body); f
   <div class="results-body">
     <div id="stopSections"></div>
 
-    <div class="email-block">
-      <p>Want a copy of your results? We'll email them — no list, no spam, just your scorecard.</p>
-      <div class="email-row">
-        <input type="email" placeholder="your@email.com" id="emailInput">
-        <button onclick="captureEmail()">Send it</button>
+    <div class="next-step-block">
+      <div class="next-step-heading">What's next</div>
+      <div class="next-step-options">
+        <div class="next-step-option">
+          <div class="next-step-option-title">Ready to talk about it?</div>
+          <div class="next-step-option-body">A free, no-pitch Drive-By. Send us your site and we'll tell you what we see.</div>
+          <a href="lets-talk.html" class="next-step-btn-primary">Get in touch →</a>
+        </div>
+        <div class="next-step-option">
+          <div class="next-step-option-title">Just want a copy?</div>
+          <div class="next-step-option-body">We'll email your results. No list, no spam.</div>
+          <div class="next-step-email-row">
+            <input type="email" placeholder="your@email.com" id="emailInput">
+            <button onclick="captureEmail()">Send it</button>
+          </div>
+          <p class="email-confirm" id="emailConfirm"></p>
+        </div>
       </div>
-      <p class="email-confirm" id="emailConfirm"></p>
-    </div>
-
-    <div class="results-cta">
-      <h3>Want us to take a closer look?</h3>
-      <span class="accent">That's what the Drive-By is for.</span>
-      <p>Send us your website and we'll tell you what we see. Free, no pitch, and your scorecard results give us a head start.</p>
-      <a href="lets-talk.html" class="btn-cta">Get in touch →</a>
     </div>
 
     <div class="results-footer">
@@ -373,13 +379,15 @@ function showResults() {
     const pct = (stopScores[i] / stopMax[i]) * 100;
     const cls = pct >= 75 ? 'strong' : pct >= 50 ? 'mid' : 'weak';
     const note = pct >= 75 ? insights.high[i] : pct >= 50 ? insights.mid[i] : insights.low[i];
-    html += `<div class="stop-section">
+    const isWindow = name === "The Window";
+    html += `<div class="stop-section${isWindow ? ' has-audit-link' : ''}">
       <div class="stop-header">
         <span class="stop-name">${name}</span>
         <span class="stop-score-label">${stopScores[i]} / ${stopMax[i]}</span>
       </div>
       <div class="stop-bar-outer"><div class="stop-bar-inner ${cls}" data-width="${pct}"></div></div>
       <p class="stop-insight">${note}</p>
+      ${isWindow ? `<p class="stop-audit-link"><a href="website-audit.html">Want to go deeper on just the website? Take the audit →</a></p>` : ''}
     </div>`;
   });
   document.getElementById('stopSections').innerHTML = html;
