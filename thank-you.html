@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Sent — The Yellow Front Door</title>
+<meta name="description" content="Thanks for reaching out. We'll be in touch within a day.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: block;
+}
+:root {
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
+  --navy: #132447;
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
+  --max: 1120px; --gutter: clamp(24px, 5vw, 80px);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); }
+.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo img { height: 56px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--paper); }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta:hover { background: var(--brass) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+
+/* CONFIRMATION */
+.confirm { flex: 1; display: flex; align-items: center; justify-content: center; margin-top: 72px; padding: clamp(48px, 8vw, 96px) var(--gutter); text-align: center; }
+.confirm-inner { max-width: 520px; }
+.confirm-dot { width: 10px; height: 10px; background: var(--yellow); border-radius: 50%; margin: 0 auto 28px; }
+.confirm-title { font-family: var(--f-head); font-size: clamp(28px, 4vw, 42px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
+.confirm-accent { display: block; font-family: var(--f-accent); font-size: clamp(26px, 3.5vw, 38px); font-weight: normal; color: var(--slate); line-height: 1.2; margin-top: 4px; margin-bottom: 24px; }
+.confirm-body { font-size: 16px; line-height: 1.8; color: var(--ink); margin-bottom: 36px; }
+.confirm-back { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
+.confirm-back:hover { background: var(--slate); }
+
+/* FOOTER */
+.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
+.footer-logo-wrap { margin-bottom: 16px; }
+.footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
+.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
+.footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
+.footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
+.footer-nav a:hover { color: var(--ink); }
+.footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
+  .nav-toggle { display: flex; }
+  .footer-bottom { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo2.png" alt="The Yellow Front Door">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="confirm">
+  <div class="confirm-inner">
+    <div class="confirm-dot"></div>
+    <h1 class="confirm-title">Got it.
+      <span class="confirm-accent">We'll be in touch soon.</span>
+    </h1>
+    <p class="confirm-body">We read every message ourselves, and you'll hear back within a day. If you asked for a Drive-By, we'll take a look at your site first and come back with what we see.</p>
+    <a href="index.html" class="confirm-back">← Back to the site</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
+    </div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+})();
+</script>
+</body>
+</html>
