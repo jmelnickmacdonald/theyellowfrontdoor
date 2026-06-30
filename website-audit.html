@@ -545,22 +545,21 @@
   }
 
   .gate-preview-row {
+    margin-top: 18px;
     display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    margin-top: 16px;
+    gap: 22px;
+    align-items: center;
   }
 
   .gate-preview-thumb {
-    width: 64px;
+    width: 130px;
     flex-shrink: 0;
-    border: 1px solid var(--stone);
-    box-shadow: 0 4px 14px rgba(19,36,71,0.12);
   }
 
   .gate-preview-thumb img {
     width: 100%;
     display: block;
+    border-radius: 2px;
   }
 
   .gate-preview-text {
@@ -568,7 +567,7 @@
   }
 
   .gate-preview-title {
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--navy);
     margin-bottom: 4px;
@@ -579,6 +578,11 @@
     font-weight: 500;
     color: var(--stone);
     letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 480px) {
+    .gate-preview-row { flex-direction: column; align-items: flex-start; }
+    .gate-preview-thumb { width: 110px; }
   }
 
   .email-form { padding: 24px 28px; }
@@ -832,7 +836,7 @@
           <div class="gate-intro-body">A short guide that walks through what each section of this audit actually means, what good looks like in practice, and what to do first if a section stung a little.</div>
           <div class="gate-preview-row">
             <div class="gate-preview-thumb">
-              <img src="guide-cover.png" alt="Your Website, Honestly — companion guide cover">
+              <img src="guide-mockup.png" alt="Your Website, Honestly — companion guide">
             </div>
             <div class="gate-preview-text">
               <div class="gate-preview-title">Your Website, Honestly.</div>
