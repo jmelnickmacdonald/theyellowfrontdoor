@@ -108,7 +108,7 @@
   }
 
   .intro-grid {
-    max-width: 520px;
+    max-width: 620px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -162,7 +162,7 @@
     color: var(--stone);
     line-height: 1.75;
     margin-bottom: 14px;
-    max-width: 400px;
+    max-width: 520px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -199,7 +199,10 @@
     .audit-header { padding: 0 24px; height: 80px; }
     .audit-logo img { height: 56px; }
     .audit-back { font-size: 10px; }
-    .intro-screen { padding: 36px 24px; }
+    .intro-screen {
+      padding: 36px 24px;
+      min-height: calc(100vh - 80px);
+    }
     .intro-title { font-size: 26px; }
   }
 
