@@ -544,6 +544,43 @@
     line-height: 1.65;
   }
 
+  .gate-preview-row {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+
+  .gate-preview-thumb {
+    width: 64px;
+    flex-shrink: 0;
+    border: 1px solid var(--stone);
+    box-shadow: 0 4px 14px rgba(19,36,71,0.12);
+  }
+
+  .gate-preview-thumb img {
+    width: 100%;
+    display: block;
+  }
+
+  .gate-preview-text {
+    flex: 1;
+  }
+
+  .gate-preview-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .gate-preview-meta {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--stone);
+    letter-spacing: 0.02em;
+  }
+
   .email-form { padding: 24px 28px; }
 
   .form-row {
@@ -792,7 +829,16 @@
       <div class="gate-card">
         <div class="gate-intro">
           <div class="gate-intro-title">The companion guide</div>
-          <div class="gate-intro-body">A companion doc that explains what each section means, what good actually looks like, and what to do if a section stung a little. Pop your email below and we'll send it over.</div>
+          <div class="gate-intro-body">A short guide that walks through what each section of this audit actually means, what good looks like in practice, and what to do first if a section stung a little.</div>
+          <div class="gate-preview-row">
+            <div class="gate-preview-thumb">
+              <img src="guide-cover.png" alt="Your Website, Honestly — companion guide cover">
+            </div>
+            <div class="gate-preview-text">
+              <div class="gate-preview-title">Your Website, Honestly.</div>
+              <div class="gate-preview-meta">8 pages · about a 10 minute read</div>
+            </div>
+          </div>
         </div>
 
         <div class="email-form">
