@@ -15,7 +15,7 @@
     --stone: #D8D1C3;
     --slate: #596674;
     --clay: #B86B4B;
-    --paper: #EFEAE0;
+    --paper: #ffffff;
     --white: #ffffff;
   }
 
@@ -59,6 +59,18 @@
     text-transform: uppercase;
     color: var(--slate);
   }
+
+  .audit-back {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .audit-back:hover { color: var(--navy); }
 
   /* ───────── SCREENS ───────── */
   .screen {
@@ -341,7 +353,7 @@
   .response-line {
     margin-top: 24px;
     padding: 16px 20px;
-    background: var(--paper);
+    background: #f5f5f5;
     border-left: 3px solid var(--yellow);
     opacity: 0;
     visibility: hidden;
@@ -757,8 +769,11 @@
 <body>
 
 <header class="audit-header">
-  <a href="index.html" class="audit-logo">The Yellow Front Door</a>
-  <span class="audit-label">Website Audit</span>
+  <a href="index.html" class="audit-logo">
+    <img src="roundlogo2.png" alt="The Yellow Front Door" style="height: 36px; width: auto; display: inline-block; vertical-align: middle; margin-right: 10px;">
+    <span>The Yellow Front Door</span>
+  </a>
+  <a href="index.html" class="audit-back">← Back to site</a>
 </header>
 
 <!-- ══ INTRO ══ -->
