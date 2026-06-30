@@ -23,7 +23,7 @@
 
   body {
     font-family: 'Montserrat', sans-serif;
-    background: var(--paper);
+    background: #f7f4ef;
     color: var(--navy);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -35,29 +35,33 @@
 
   /* ───────── HEADER ───────── */
   .audit-header {
-    background: var(--paper);
-    border-bottom: 1px solid var(--stone);
-    padding: 22px 40px;
+    background: var(--navy);
+    border-bottom: none;
+    padding: 0 40px;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
   }
 
   .audit-logo {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .audit-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--slate);
+  .audit-logo img {
+    height: 44px;
+    width: auto;
+  }
+
+  .audit-logo span {
+    display: none;
   }
 
   .audit-back {
@@ -65,12 +69,14 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--slate);
+    color: rgba(255,255,255,0.5);
     text-decoration: none;
     transition: color 0.2s;
+    position: relative;
+    z-index: 1;
   }
 
-  .audit-back:hover { color: var(--navy); }
+  .audit-back:hover { color: var(--yellow); }
 
   /* ───────── SCREENS ───────── */
   .screen {
@@ -194,19 +200,25 @@
 
   /* ───────── SECTION TRANSITION SCREEN ───────── */
   .transition-screen {
-    background: var(--paper);
+    background: #f7f4ef;
+    flex: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 56px 40px;
     text-align: center;
+    width: 100%;
   }
 
   .transition-inner {
     max-width: 480px;
+    width: 100%;
     min-height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin: 0 auto;
   }
 
   .transition-eyebrow {
@@ -242,7 +254,7 @@
 
   /* ───────── QUESTION SCREEN ───────── */
   .question-screen {
-    background: var(--paper);
+    background: #f7f4ef;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -409,7 +421,7 @@
 
   /* ───────── SCORE SCREEN ───────── */
   .score-screen {
-    background: var(--paper);
+    background: #f7f4ef;
     justify-content: center;
     padding: 56px 40px;
   }
