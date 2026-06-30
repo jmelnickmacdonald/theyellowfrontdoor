@@ -129,6 +129,9 @@ body.is-night .scene-night { display: block; }
 .cta-title { font-family: var(--f-head); font-size: clamp(22px, 3vw, 32px); font-weight: 400; color: #fff; margin-bottom: 12px; }
 .cta-copy { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 28px; line-height: 1.75; }
 .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.cta-secondary-line { margin-top: 22px; font-size: 13px; color: rgba(255,255,255,0.45); }
+.cta-secondary-line a { color: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s, border-color 0.2s; }
+.cta-secondary-line a:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
 
 /* FOOTER */
 .footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
@@ -292,6 +295,7 @@ body.is-night .scene-night { display: block; }
           <a href="the-scorecard.html" class="btn-yellow">Take the Scorecard</a>
           <a href="lets-talk.html" class="btn-outline-light">Request a free Drive-By →</a>
         </div>
+        <p class="cta-secondary-line">Already know it's the website specifically? <a href="website-audit.html">Take the audit instead →</a></p>
       </div>
 
     </div>
@@ -338,16 +342,4 @@ body.is-night .scene-night { display: block; }
     } else {
       if (day) day.style.display = 'block';
       if (night) night.style.display = 'none';
-    }
-  }
-  applyTimeOfDay();
-  setInterval(applyTimeOfDay, 60000);
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function () { var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
-  navLinks.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }); });
-})();
-</script>
-</body>
-</html>
+ 
