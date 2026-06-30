@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Website, Honestly — A Self-Guided Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #132447;
+    --yellow: #fcd346;
+    --stone: #D8D1C3;
+    --slate: #596674;
+    --clay: #B86B4B;
+    --paper: #EFEAE0;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--paper);
+    color: var(--navy);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+  }
+
+  /* ───────── HEADER ───────── */
+  .audit-header {
+    background: var(--paper);
+    border-bottom: 1px solid var(--stone);
+    padding: 22px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .audit-logo {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .audit-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* ───────── SCREENS ───────── */
+  .screen {
+    display: none;
+    min-height: calc(100vh - 81px);
+  }
+
+  .screen.active {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 81px);
+    animation: fadeIn 0.5s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ───────── INTRO SCREEN ───────── */
+  .intro-screen {
+    background: var(--navy);
+    justify-content: center;
+    padding: 56px 40px;
+  }
+
+  .intro-grid {
+    max-width: 920px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .intro-door {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .intro-door img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 18px 40px rgba(0,0,0,0.35));
+  }
+
+  .intro-copy { }
+
+  .intro-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 18px;
+  }
+
+  .intro-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .intro-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--yellow);
+    margin-bottom: 18px;
+  }
+
+  .intro-body {
+    font-size: 14.5px;
+    font-weight: 400;
+    color: var(--stone);
+    line-height: 1.75;
+    margin-bottom: 14px;
+    max-width: 380px;
+  }
+
+  .intro-meta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(216,209,195,0.55);
+    margin-bottom: 28px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 15px 34px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  @media (max-width: 720px) {
+    .intro-grid { grid-template-columns: 1fr; text-align: center; }
+    .intro-door { max-width: 180px; }
+    .intro-body, .intro-meta { max-width: 100%; }
+    .intro-rule { margin-left: auto; margin-right: auto; }
+  }
+
+  /* ───────── SECTION TRANSITION SCREEN ───────── */
+  .transition-screen {
+    background: var(--paper);
+    justify-content: center;
+    align-items: center;
+    padding: 56px 40px;
+    text-align: center;
+  }
+
+  .transition-inner {
+    max-width: 480px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .transition-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 16px;
+  }
+
+  .transition-title {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+
+  .transition-rule {
+    width: 28px;
+    height: 2px;
+    background: var(--yellow);
+    margin: 0 auto 20px;
+  }
+
+  .transition-body {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--slate);
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  /* ───────── QUESTION SCREEN ───────── */
+  .question-screen {
+    background: var(--paper);
+    flex-direction: column;
+    flex: 1;
+    display: flex;
+  }
+
+  .question-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 40px;
+    width: 100%;
+  }
+
+  .question-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    padding: 44px 44px 40px;
+    position: relative;
+    max-width: 640px;
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* the ribbon: a vertical rule that fills as you progress through the 15 questions */
+  .ribbon-track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #ece5d6;
+  }
+
+  .ribbon-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    background: var(--yellow);
+    transition: height 0.5s ease;
+  }
+
+  .section-name {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 8px;
+  }
+
+  .question-number {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+    margin-bottom: 28px;
+  }
+
+  .question-text {
+    font-size: clamp(17px, 2.6vw, 21px);
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 32px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .answer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .answer-btn {
+    text-align: left;
+    padding: 15px 20px;
+    background: var(--white);
+    border: 1.5px solid var(--stone);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .answer-btn:hover {
+    border-color: var(--navy);
+    background: var(--paper);
+  }
+
+  .answer-btn.selected {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  /* response line shown after answering */
+  .response-line {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border-left: 3px solid var(--yellow);
+    opacity: 0;
+    visibility: hidden;
+    min-height: 84px;
+  }
+
+  .response-line.show { opacity: 1; visibility: visible; animation: fadeIn 0.4s ease; }
+
+  .response-eyebrow {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 6px;
+  }
+
+  .response-text {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  .next-wrap {
+    margin-top: 20px;
+    text-align: right;
+    min-height: 40px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .next-wrap.show { opacity: 1; visibility: visible; animation: fadeIn 0.4s ease; }
+
+  .btn-next {
+    background: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    cursor: pointer;
+    padding: 8px 4px;
+  }
+
+  .btn-next:hover { color: var(--clay); }
+
+  @media (max-width: 600px) {
+    .question-card { padding: 32px 24px 30px; }
+  }
+
+  /* ───────── SCORE SCREEN ───────── */
+  .score-screen {
+    background: var(--paper);
+    justify-content: center;
+    padding: 56px 40px;
+  }
+
+  .score-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .score-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    padding: 44px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .score-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 18px;
+  }
+
+  .score-number {
+    font-size: clamp(48px, 8vw, 64px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .score-denom {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--slate);
+    margin-bottom: 18px;
+  }
+
+  .score-rule {
+    width: 28px;
+    height: 2px;
+    background: var(--yellow);
+    margin: 0 auto 18px;
+  }
+
+  .score-tier-title {
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .score-tier-body {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--slate);
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .start-here-card {
+    background: var(--navy);
+    padding: 26px 30px;
+    margin-bottom: 24px;
+  }
+
+  .start-here-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+
+  .start-here-body {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  .breakdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .breakdown-item {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    padding: 12px 10px;
+    text-align: center;
+  }
+
+  .breakdown-label {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .breakdown-score {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .breakdown-max {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--stone);
+  }
+
+  @media (max-width: 560px) {
+    .breakdown { grid-template-columns: repeat(2, 1fr); }
+    .score-card { padding: 32px 22px; }
+  }
+
+  /* email gate */
+  .gate-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+  }
+
+  .gate-intro {
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--stone);
+  }
+
+  .gate-intro-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .gate-intro-body {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .email-form { padding: 24px 28px; }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .form-field {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .form-input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--navy);
+    background: var(--paper);
+    border: 1.5px solid var(--stone);
+    padding: 11px 14px;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+
+  .form-input:focus { border-color: var(--navy); }
+
+  .form-checkrow {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .form-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--stone);
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--navy);
+    cursor: pointer;
+  }
+
+  .form-check-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  .form-privacy {
+    font-size: 10px;
+    color: var(--stone);
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--yellow);
+    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 4px;
+  }
+
+  .btn-submit:hover { opacity: 0.9; }
+
+  /* ───────── THANK YOU SCREEN ───────── */
+  .thankyou-screen {
+    background: var(--navy);
+    justify-content: center;
+    align-items: center;
+    padding: 56px 40px;
+    text-align: center;
+  }
+
+  .thankyou-inner { max-width: 460px; }
+
+  .thankyou-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--yellow);
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .thankyou-mark svg { width: 20px; height: 20px; }
+
+  .thankyou-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 14px;
+  }
+
+  .thankyou-title {
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .thankyou-body {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--stone);
+    line-height: 1.75;
+    margin-bottom: 30px;
+  }
+
+  .thankyou-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 12px 26px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: var(--stone);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+</style>
+</head>
+<body>
+
+<header class="audit-header">
+  <a href="index.html" class="audit-logo">The Yellow Front Door</a>
+  <span class="audit-label">Website Audit</span>
+</header>
+
+<!-- ══ INTRO ══ -->
+<div class="screen active" id="screen-intro">
+  <div class="intro-screen">
+    <div class="intro-grid">
+      <div class="intro-door">
+        <img src="door.png" alt="The yellow front door">
+      </div>
+      <div class="intro-copy">
+        <div class="intro-eyebrow">A self-guided audit</div>
+        <h1 class="intro-title">Your Website, Honestly.</h1>
+        <div class="intro-rule"></div>
+        <p class="intro-body">Most websites were built during a quiet week and haven't been looked at since. This walks you through yours the way a new customer would. Five minutes, fifteen questions.</p>
+        <p class="intro-body">Answer honestly. The point isn't a perfect score. It's finding the one thing worth fixing first.</p>
+        <p class="intro-meta">15 questions · about 5 minutes</p>
+        <button class="btn-primary" onclick="startAudit()">Begin</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION TRANSITIONS ══ -->
+<div class="screen" id="screen-transition">
+  <div class="transition-screen">
+    <div class="transition-inner">
+      <div class="transition-eyebrow" id="t-eyebrow"></div>
+      <h2 class="transition-title" id="t-title"></h2>
+      <div class="transition-rule"></div>
+      <p class="transition-body" id="t-body"></p>
+      <button class="btn-primary" onclick="continueFromTransition()" id="t-button">Continue</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ QUESTIONS ══ -->
+<div class="screen" id="screen-questions">
+  <div class="question-screen">
+    <div class="question-body">
+      <div class="question-card">
+        <div class="ribbon-track"></div>
+        <div class="ribbon-fill" id="ribbonFill" style="height: 0%;"></div>
+        <div class="section-name" id="q-section"></div>
+        <div class="question-number" id="q-number"></div>
+        <div class="question-text" id="q-text"></div>
+        <div class="answer-options" id="answer-options"></div>
+        <div class="response-line" id="response-line">
+          <div class="response-eyebrow" id="response-eyebrow"></div>
+          <div class="response-text" id="response-text"></div>
+        </div>
+        <div class="next-wrap" id="next-wrap">
+          <button class="btn-next" onclick="nextQuestion()" id="next-button">Next question →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCORE ══ -->
+<div class="screen" id="screen-score">
+  <div class="score-screen">
+    <div class="score-inner">
+
+      <div class="score-card">
+        <div class="score-eyebrow">Your results</div>
+        <div class="score-number" id="score-display">0</div>
+        <div class="score-denom">out of 30</div>
+        <div class="score-rule"></div>
+        <div class="score-tier-title" id="tier-title"></div>
+        <div class="score-tier-body" id="tier-body"></div>
+      </div>
+
+      <div class="breakdown" id="breakdown"></div>
+
+      <div class="start-here-card">
+        <div class="start-here-eyebrow">Where to start</div>
+        <div class="start-here-body" id="start-here-body"></div>
+      </div>
+
+      <div class="gate-card">
+        <div class="gate-intro">
+          <div class="gate-intro-title">The companion guide</div>
+          <div class="gate-intro-body">A companion doc that explains what each section means, what good actually looks like, and what to do if a section stung a little. Pop your email below and we'll send it over.</div>
+        </div>
+
+        <div class="email-form">
+          <form id="auditForm" onsubmit="submitForm(event)">
+            <input type="hidden" name="score" id="hidden-score">
+            <input type="hidden" name="breakdown" id="hidden-breakdown">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="fname">First name</label>
+                <input class="form-input" type="text" id="fname" name="first_name" placeholder="Sarah" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="email">Email address</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="sarah@yourbusiness.ca" required>
+              </div>
+            </div>
+
+            <div class="form-checkrow">
+              <input class="form-checkbox" type="checkbox" id="followup" name="wants_followup" value="yes">
+              <label class="form-check-label" for="followup">Send my results to Julianna — I'd love her thoughts.</label>
+            </div>
+
+            <button class="btn-submit" type="submit">Send me the guide</button>
+            <p class="form-privacy">A copy will also be sent to The Yellow Front Door if you check the box above. We don't share your email.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ THANK YOU ══ -->
+<div class="screen" id="screen-thankyou">
+  <div class="thankyou-screen">
+    <div class="thankyou-inner">
+      <div class="thankyou-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#132447" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div class="thankyou-eyebrow">It's on its way</div>
+      <h2 class="thankyou-title">Check your inbox, shortly.</h2>
+      <p class="thankyou-body">The companion guide is heading to you now. If anything in the audit made you want a second set of eyes on your site, a Drive-By is free and takes about twenty minutes.</p>
+      <div class="thankyou-links">
+        <a href="lets-talk.html" class="btn-primary">Book a Drive-By</a>
+        <a href="index.html" class="btn-outline">Back to the site</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const sections = ["First Impression", "Clarity", "Trust", "Action"];
+  const sectionMax = [8, 8, 8, 6]; // 4Q/4Q/4Q/3Q x max 2pts each
+
+  const transitions = [
+    {
+      eyebrow: "Section 01 of 04",
+      title: "First Impression",
+      body: "The first three seconds. We tend to overthink the rest of the site and forget this part matters most."
+    },
+    {
+      eyebrow: "Section 02 of 04",
+      title: "Clarity",
+      body: "Clarity is the difference between someone leaving and someone reaching out. It's also the hardest thing to see in your own work."
+    },
+    {
+      eyebrow: "Section 03 of 04",
+      title: "Trust",
+      body: "This is where most small business sites quietly lose people, not because the owner doesn't care, but because trust signals are easy to overlook when you built the thing yourself."
+    },
+    {
+      eyebrow: "Section 04 of 04",
+      title: "Action",
+      body: "The last step is the one people forget. If someone's ready to act, make it obvious what happens next."
+    }
+  ];
+
+  const questions = [
+    // SECTION 1 — First Impression
+    {
+      section: 0,
+      text: "My site loads in a reasonable amount of time on a phone. I'm not watching a blank screen for five or more seconds waiting for something to appear.",
+      responses: {
+        2: "That's the cost of admission. Most don't have it.",
+        1: "Mostly close is where bounce rates live. Worth a real test on your phone, on cellular, on a Tuesday morning.",
+        0: "Slow sites lose people before they've seen anything. Usually an image file size problem, worth checking."
+      }
+    },
+    {
+      section: 0,
+      text: "On my phone, I can actually use the site. Read the text without zooming, tap the buttons without missing them, and find what I'm looking for without frustration.",
+      responses: {
+        2: "Good. More than half of people land on your site through their phone. They notice.",
+        1: "If it's almost there, the gap is usually one of three things: button size, tap target spacing, or text too small to read.",
+        0: "If using your site on a phone is work, people just leave. That's the whole sentence."
+      }
+    },
+    {
+      section: 0,
+      text: "Within ten seconds of landing on my homepage, it's clear what I do, who I do it for, and where I'm based.",
+      responses: {
+        2: "That's the hardest one to get right. Most sites don't.",
+        1: "Mostly clear isn't clear. People skim for the answer, and if it isn't obvious, they move on.",
+        0: "This is the single biggest fix on most sites. Often just a headline change."
+      }
+    },
+    {
+      section: 0,
+      text: "The site looks current. No old promotions, outdated hours, or anything that makes someone wonder if we're still open.",
+      responses: {
+        2: "Quiet but important. People notice old dates more than you'd think.",
+        1: "Even one outdated detail, like a stale promo or last year's hours, makes everything else seem unsure.",
+        0: "Old dates make the whole site feel uncertain. An easy weekend fix that buys real trust."
+      }
+    },
+    // SECTION 2 — Clarity
+    {
+      section: 1,
+      text: "A stranger could read my homepage and describe my business back to me accurately. Not just the industry, but what we actually do and who we do it for.",
+      responses: {
+        2: "If a stranger can repeat it back, your homepage is doing real work.",
+        1: "Mostly means they're guessing. Worth testing on someone who doesn't already know what you do.",
+        0: "If people can't tell strangers who you are, you have to tell them yourself every time. That doesn't scale."
+      }
+    },
+    {
+      section: 1,
+      text: "My services are described in plain language. Not buzzwords, not industry jargon. Language a real customer would use when searching for what I offer.",
+      responses: {
+        2: "Plain language reads as confident. Buzzwords read as hiding.",
+        1: "There's almost always one paragraph hiding the jargon, words like solutions or comprehensive or tailored. Find it. Rewrite it.",
+        0: "Search like a customer would. The words on your site should be the words they'd type."
+      }
+    },
+    {
+      section: 1,
+      text: "Someone could tell from my site whether I'm the right fit for them before they have to contact me. We're not making them guess.",
+      responses: {
+        2: "You're saving yourself wasted enquiries. That's the whole point.",
+        1: "Mostly means you're still fielding calls that aren't a fit. Be specific about who you're for, and quietly, who you aren't.",
+        0: "Vague sites attract everyone, which means they attract no one in particular. Pick your person."
+      }
+    },
+    {
+      section: 1,
+      text: "There's at least a general sense of what things cost somewhere on the site. Even a starting price or a range, something that lets people decide if they're in the right place.",
+      responses: {
+        2: "Brave. You filter out the wrong leads and keep the warm ones.",
+        1: "A starting from or a range is enough. People aren't asking for a quote, they're asking if they can afford to ask.",
+        0: "No pricing is the most common reason people don't reach out. They assume it's not for them, and they're often wrong."
+      }
+    },
+    // SECTION 3 — Trust
+    {
+      section: 2,
+      text: "There's at least one real photo on the site. Me, my work, my space, or my team. Not stock images. Something that shows a real person is behind this.",
+      responses: {
+        2: "A real photo is worth a page of copy.",
+        1: "One real photo of you, even imperfect, beats ten polished stock shots. Every time.",
+        0: "People hire people. Stock photos signal absence, they tell visitors there's no one home."
+      }
+    },
+    {
+      section: 2,
+      text: "There are reviews or testimonials on the site. Specific ones, not just 'great service.' Something a new customer could actually learn from.",
+      responses: {
+        2: "Specific testimonials are the closest thing to free new clients.",
+        1: "Vague praise reads as fake. One detailed quote does more than ten generic ones.",
+        0: "Just one. Even a short, specific quote from one real client moves the needle more than anything else on the page."
+      }
+    },
+    {
+      section: 2,
+      text: "The site feels consistent throughout. Same fonts, same colours, same general feeling. It doesn't look like different pages were built in different years.",
+      responses: {
+        2: "Consistency is design's quiet job, and trust's.",
+        1: "If pages feel like they were built in different years, people sense it before they can name it.",
+        0: "Inconsistency tells visitors there isn't one person looking after things. Usually fixable with shared colours, fonts, and a once-over."
+      }
+    },
+    {
+      section: 2,
+      text: "My contact information is easy to find. Not buried in a footer in tiny text.",
+      responses: {
+        2: "Good. Hidden contact info is the friction people don't tell you about.",
+        1: "Mostly findable still means some people give up. Easiest fix in the whole audit.",
+        0: "If finding you takes work, people who were nearly ready stop being ready. Put it where the eye lands first."
+      }
+    },
+    // SECTION 4 — Action
+    {
+      section: 3,
+      text: "Every page has a clear next step, not just the contact page. Someone who decides they like us halfway through the About page can act on that right there.",
+      responses: {
+        2: "You're meeting people where they decide. Most sites only ask once.",
+        1: "Mostly means a few pages are dead ends. Find them. They're the leaks.",
+        0: "Every page is a chance. A page without a next step is a conversation that just stopped."
+      }
+    },
+    {
+      section: 3,
+      text: "The call to action tells people exactly what happens when they click. Not just 'get in touch,' something specific enough that they know what they're signing up for.",
+      responses: {
+        2: "'Book a free 20-minute call' beats 'get in touch' every time.",
+        1: "If your button says get in touch or contact us, you're asking people to imagine the rest. Tell them.",
+        0: "Specific CTAs convert. Book a Drive-By, twenty minutes, no pitch, beats contact us a hundred ways."
+      }
+    },
+    {
+      section: 3,
+      text: "That next step is easy to find without scrolling all the way to the bottom.",
+      responses: {
+        2: "Good. Hidden next steps are a slow leak.",
+        1: "Mostly findable still means some people quietly give up before they get there.",
+        0: "If finding the next step takes effort, the page is asking too much of someone who was already ready."
+      }
+    }
+  ];
+
+  let currentSection = -1;
+  let currentQ = 0;
+  let answers = [];
+  let pendingAnswer = null;
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function startAudit() {
+    currentSection = -1;
+    advanceSection();
+  }
+
+  function advanceSection() {
+    currentSection++;
+    if (currentSection >= sections.length) {
+      showScore();
+      return;
+    }
+    const t = transitions[currentSection];
+    document.getElementById('t-eyebrow').textContent = t.eyebrow;
+    document.getElementById('t-title').textContent = t.title;
+    document.getElementById('t-body').textContent = t.body;
+    showScreen('screen-transition');
+  }
+
+  function continueFromTransition() {
+    showScreen('screen-questions');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = questions[currentQ];
+    document.getElementById('q-section').textContent = sections[q.section];
+    document.getElementById('q-number').textContent = `Question ${currentQ + 1} of ${questions.length}`;
+    document.getElementById('q-text').textContent = q.text;
+
+    const fillPct = (currentQ / questions.length) * 100;
+    document.getElementById('ribbonFill').style.height = fillPct + '%';
+
+    const optWrap = document.getElementById('answer-options');
+    optWrap.innerHTML = `
+      <button class="answer-btn" data-val="2" onclick="selectAnswer(this, 2)">Yes</button>
+      <button class="answer-btn" data-val="1" onclick="selectAnswer(this, 1)">Mostly</button>
+      <button class="answer-btn" data-val="0" onclick="selectAnswer(this, 0)">Not yet</button>
+    `;
+
+    document.getElementById('response-line').classList.remove('show');
+    document.getElementById('next-wrap').classList.remove('show');
+
+    const isLast = currentQ === questions.length - 1;
+    document.getElementById('next-button').textContent = isLast ? 'See your results →' : 'Next question →';
+  }
+
+  function selectAnswer(btn, val) {
+    document.querySelectorAll('.answer-btn').forEach(b => {
+      b.classList.remove('selected');
+      b.disabled = true;
+    });
+    btn.classList.add('selected');
+
+    pendingAnswer = val;
+    const q = questions[currentQ];
+    const eyebrowMap = { 2: "Nailed it", 1: "Mostly there", 0: "Worth a look" };
+
+    document.getElementById('response-eyebrow').textContent = eyebrowMap[val];
+    document.getElementById('response-text').textContent = q.responses[val];
+    document.getElementById('response-line').classList.add('show');
+    document.getElementById('next-wrap').classList.add('show');
+  }
+
+  function nextQuestion() {
+    answers.push(pendingAnswer);
+    pendingAnswer = null;
+    currentQ++;
+
+    const finishedSection = currentQ < questions.length && questions[currentQ].section !== questions[currentQ - 1].section;
+
+    if (currentQ >= questions.length) {
+      showScore();
+    } else if (finishedSection) {
+      advanceSection();
+    } else {
+      renderQuestion();
+    }
+  }
+
+  function showScore() {
+    const total = answers.reduce((a, b) => a + b, 0);
+
+    const sectionScores = [0, 0, 0, 0];
+    questions.forEach((q, i) => { sectionScores[q.section] += answers[i]; });
+
+    document.getElementById('score-display').textContent = total;
+
+    let tierTitle, tierBody;
+    if (total >= 26) {
+      tierTitle = "Your site is doing its job.";
+      tierBody = "You've got the fundamentals, and then some. From here, it's refinement: tightening copy, sharpening calls to action, and making sure your site is actively bringing people in, not just holding space online.";
+    } else if (total >= 17) {
+      tierTitle = "Some solid pieces, some gaps.";
+      tierBody = "You don't need to rebuild. A few focused changes, most of them in the lowest-scoring section below, could change how your site performs more than you'd expect.";
+    } else {
+      tierTitle = "An honest starting point.";
+      tierBody = "That's not a criticism. A lot of business owners are exactly here. The site exists, but it isn't pulling its weight yet. That's fixable, and most of the work is in one or two areas, not everywhere.";
+    }
+
+    document.getElementById('tier-title').textContent = tierTitle;
+    document.getElementById('tier-body').textContent = tierBody;
+
+    const bd = document.getElementById('breakdown');
+    bd.innerHTML = sections.map((s, i) => `
+      <div class="breakdown-item">
+        <div class="breakdown-label">${s}</div>
+        <div class="breakdown-score">${sectionScores[i]}<span class="breakdown-max"> / ${sectionMax[i]}</span></div>
+      </div>
+    `).join('');
+
+    // Determine lowest scoring section (by percentage)
+    let lowestIdx = 0;
+    let lowestPct = 1;
+    sections.forEach((s, i) => {
+      const pct = sectionScores[i] / sectionMax[i];
+      if (pct < lowestPct) { lowestPct = pct; lowestIdx = i; }
+    });
+
+    const startHere = {
+      0: "This is the cheapest section to fix and the highest-leverage one. Page speed, mobile feel, a clear headline in the first ten seconds. None of it takes long. All of it matters.",
+      1: "Most clarity problems aren't design problems, they're language ones. Try writing your homepage as if you were explaining your business to a friend over coffee. Then put that on the page.",
+      2: "You're missing some of the small signals that tell a stranger you're real: real photos, real testimonials, consistent details across the web. None are hard to add, and any one of them moves the needle.",
+      3: "A great site that doesn't ask for the next step is just a brochure. Every page should give someone the chance to move. Even a quiet one."
+    };
+
+    document.getElementById('start-here-body').textContent = startHere[lowestIdx];
+
+    document.getElementById('hidden-score').value = `${total} / 30`;
+    document.getElementById('hidden-breakdown').value = sections.map((s, i) => `${s}: ${sectionScores[i]}/${sectionMax[i]}`).join(', ');
+
+    showScreen('screen-score');
+  }
+
+  async function submitForm(e) {
+    e.preventDefault();
+    const form = document.getElementById('auditForm');
+    const btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        showScreen('screen-thankyou');
+      } else {
+        btn.textContent = 'Something went wrong, try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Something went wrong, try again';
+      btn.disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>
