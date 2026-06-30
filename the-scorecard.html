@@ -403,11 +403,49 @@ function showResults() {
 
 function captureEmail() {
   const email = document.getElementById('emailInput').value;
-  if (email && email.includes('@')) {
-    const el = document.getElementById('emailConfirm');
-    el.textContent = "We'll send your results to " + email + " shortly.";
+  const btn = document.querySelector('.next-step-email-row button');
+  const el = document.getElementById('emailConfirm');
+
+  if (!email || !email.includes('@')) {
+    el.textContent = "That doesn't look like a valid email — mind double-checking?";
     el.style.display = 'block';
+    return;
   }
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  let stopScores = [0,0,0,0,0], stopMax = [0,0,0,0,0], total = 0;
+  answers.forEach(a => { stopScores[a.stop] += a.score; stopMax[a.stop] += 4; total += a.score; });
+  const breakdown = stopNames.map((name, i) => `${name}: ${stopScores[i]}/${stopMax[i]}`).join(', ');
+
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('total_score', `${total} / 40`);
+  formData.append('breakdown', breakdown);
+  formData.append('_subject', 'Scorecard Results Request');
+
+  fetch('https://formspree.io/f/xrewablz', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(res => {
+    if (res.ok) {
+      el.textContent = "We'll send your results to " + email + " shortly.";
+    } else {
+      el.textContent = "Something went wrong — mind trying again?";
+      btn.disabled = false;
+      btn.textContent = 'Send it';
+    }
+    el.style.display = 'block';
+  })
+  .catch(() => {
+    el.textContent = "Something went wrong — mind trying again?";
+    btn.disabled = false;
+    btn.textContent = 'Send it';
+    el.style.display = 'block';
+  });
 }
 </script>
 
