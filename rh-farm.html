@@ -50,7 +50,7 @@
   h1, h2, h3, h4 { font-family: Georgia, serif; font-weight: 400; line-height: 1.08; letter-spacing: .005em; }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
 
-  /* ─── HEADER ─────────────────────────────── */
+  /* HEADER */
   .site-header {
     position: fixed; top: 0; left: 0; right: 0; z-index: 300;
     display: flex; flex-direction: column; align-items: center;
@@ -72,9 +72,11 @@
     margin-bottom: 0;
     transition: all 0.45s ease;
     overflow: hidden;
+    display: none;
   }
   .site-header.scrolled .header-logo {
-    height: 36px; margin-bottom: 4px;
+    display: block;
+    height: 42px; margin-bottom: 4px;
     opacity: 1;
   }
 
@@ -99,7 +101,7 @@
   .site-header.scrolled .header-nav a:hover { color: var(--clay); }
   .site-header.scrolled .header-nav .nav-hi { color: var(--clay); }
 
-  /* Hamburger button — hidden on desktop */
+  /* Hamburger */
   .menu-toggle {
     display: none;
     position: absolute; top: 18px; right: 20px; z-index: 310;
@@ -115,12 +117,11 @@
     transform-origin: center;
   }
   .site-header.scrolled .menu-toggle span { background: var(--ink); }
-  /* X state */
   .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
   .menu-toggle.open span:nth-child(2) { opacity: 0; }
   .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
 
-  /* Mobile overlay nav */
+  /* Mobile nav */
   .mobile-nav {
     display: none;
     position: fixed; inset: 0; z-index: 305;
@@ -142,7 +143,7 @@
   .mobile-nav a:hover { color: var(--gold); }
   .mobile-nav .nav-hi-m { color: var(--gold); }
 
-  /* ─── HERO ───────────────────────────────── */
+  /* HERO */
   .hero {
     position: relative;
     height: 100vh; min-height: 660px;
@@ -162,22 +163,22 @@
   .hero__veil {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 70% 50% at 35% 38%, rgba(244,238,226,.2), transparent 60%),
+      radial-gradient(ellipse 60% 45% at 35% 38%, rgba(244,238,226,.12), transparent 55%),
       linear-gradient(180deg,
-        rgba(40,46,38,.28) 0%,
-        rgba(40,46,38,.05) 26%,
-        rgba(40,46,38,.08) 64%,
-        rgba(250,245,234,.92) 100%
+        rgba(40,46,38,.22) 0%,
+        rgba(40,46,38,.03) 28%,
+        rgba(40,46,38,.06) 60%,
+        rgba(250,245,234,.82) 100%
       );
   }
   .hero__rays {
     position: absolute; inset: 0;
-    background: radial-gradient(circle at 30% 28%, rgba(255,243,205,.5), rgba(255,243,205,0) 36%);
+    background: radial-gradient(circle at 30% 28%, rgba(255,243,205,.45), rgba(255,243,205,0) 34%);
     mix-blend-mode: screen;
     animation: pulse 8s ease-in-out infinite alternate;
     pointer-events: none;
   }
-  @keyframes pulse { from { opacity: .55; } to { opacity: 1; } }
+  @keyframes pulse { from { opacity: .5; } to { opacity: .9; } }
   .motes { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
   .mote {
     position: absolute;
@@ -238,7 +239,7 @@
     50% { transform: translate(-50%,8px); opacity: 1; }
   }
 
-  /* ─── REVEAL ─────────────────────────────── */
+  /* REVEAL */
   .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s ease; }
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
@@ -250,14 +251,14 @@
     .hero__content { animation: none; }
   }
 
-  /* ─── LABEL ──────────────────────────────── */
+  /* LABEL */
   .lab {
     font-size: .74rem; text-transform: uppercase;
     letter-spacing: .26em; color: var(--clay);
     margin-bottom: 14px;
   }
 
-  /* ─── INTRO ──────────────────────────────── */
+  /* INTRO */
   .intro { padding: 96px 0 80px; }
   .intro-grid {
     display: grid; grid-template-columns: .9fr 1.1fr;
@@ -274,7 +275,7 @@
   }
   .intro p:last-child { margin-bottom: 0; }
 
-  /* ─── PARALLAX BAND ──────────────────────── */
+  /* PARALLAX BAND */
   .band {
     height: 42vh; min-height: 280px;
     background-size: cover; background-position: center;
@@ -290,7 +291,7 @@
   .band--cosmos { background-image: url('cosmos-flowers.jpg'); background-position: center 60%; }
   .band--autumn { background-image: url('meadow-autumn.jpg'); }
 
-  /* ─── BRIEF / DARK SECTION ───────────────── */
+  /* BRIEF / DARK SECTION */
   .brief {
     position: relative; color: var(--cream);
     background: url('meadow-autumn.jpg') center / cover no-repeat fixed;
@@ -320,7 +321,7 @@
   }
   section { padding: 92px 0; }
 
-  /* ─── SPLIT ──────────────────────────────── */
+  /* SPLIT */
   .split {
     display: grid; grid-template-columns: 1fr 1fr;
     background: var(--paper);
@@ -351,7 +352,7 @@
   }
   .split-text p:last-of-type { margin-bottom: 1.8rem; }
   .btn-moss {
-    display: inline-block; align-self: flex-start;
+    display: inline-flex; align-items: center; align-self: flex-start;
     background: var(--moss); color: var(--cream);
     font-family: var(--f-serif);
     font-size: 0.68rem; font-weight: 500;
@@ -359,13 +360,12 @@
     padding: 0.85rem 2rem;
     transition: background 0.3s;
     min-height: 44px;
-    display: inline-flex; align-items: center;
   }
   .btn-moss:hover { background: var(--clay); }
   .split.flip .split-photo { order: 2; }
   .split.flip .split-text { order: 1; }
 
-  /* ─── QUOTE ──────────────────────────────── */
+  /* QUOTE */
   .quote-section {
     padding: 88px 32px;
     text-align: center;
@@ -383,7 +383,7 @@
     background: var(--clay); margin: 0 auto 28px;
   }
 
-  /* ─── GALLERY ────────────────────────────── */
+  /* GALLERY */
   .gallery { background: var(--mist); padding: 88px 0; }
   .gallery-head {
     text-align: center; max-width: 560px;
@@ -410,7 +410,7 @@
   }
   .gallery-item:hover img { transform: scale(1.06); }
 
-  /* ─── EGGS ───────────────────────────────── */
+  /* EGGS */
   .eggs-feature {
     position: relative; overflow: hidden;
     height: 75vh; min-height: 500px;
@@ -455,7 +455,7 @@
   }
   .btn-ghost:hover { background: rgba(244,238,226,.1); border-color: rgba(244,238,226,.7); }
 
-  /* ─── EGG SIGNUP ──────────────────────────── */
+  /* EGG SIGNUP */
   .egg-signup {
     position: relative; color: var(--cream);
     background: url('meadow-moody.jpg') center / cover no-repeat fixed;
@@ -486,7 +486,6 @@
     border-radius: 4px;
     color: white;
     font-family: var(--f-serif);
-    /* 16px prevents iOS zoom on focus */
     font-size: 16px; font-weight: 300;
     padding: 0.9rem 1.2rem;
     min-height: 48px;
@@ -518,7 +517,7 @@
     line-height: 1.6; padding: 1.5rem 0;
   }
 
-  /* ─── FOOTER ─────────────────────────────── */
+  /* FOOTER */
   footer {
     position: relative; color: rgba(244,238,226,.8);
     padding: 88px 0 44px; text-align: center;
@@ -571,66 +570,41 @@
     letter-spacing: .04em;
   }
 
-  /* ═══════════════════════════════════════════
-     TABLET — 761px to 1024px
-     ═══════════════════════════════════════════ */
+  /* TABLET */
   @media (max-width: 1024px) {
-    .header-logo { height: 70px; }
     .header-nav { gap: 1.6rem; }
     .header-nav a { font-size: .66rem; }
     .intro-grid { gap: 40px; }
     .brief-grid { gap: 40px; }
     .split-photo { min-height: 440px; }
     .split-text { padding: 4rem 3.5vw; }
-    .gallery-grid {
-      grid-template-rows: 240px 240px;
-    }
+    .gallery-grid { grid-template-rows: 240px 240px; }
     .egg-signup-grid { gap: 40px; }
   }
 
-  /* ═══════════════════════════════════════════
-     MOBILE — 760px and below
-     ═══════════════════════════════════════════ */
+  /* MOBILE */
   @media (max-width: 760px) {
     body { font-size: 17px; }
     .wrap { padding: 0 24px; }
-
-    /* Show hamburger, hide desktop nav */
     .menu-toggle { display: flex; }
     .header-nav { display: none; }
     .mobile-nav { display: flex; }
-
-    /* Header */
     .site-header { padding: 12px 20px 10px; align-items: flex-start; }
-    .header-logo { height: 0; }
-    .site-header.scrolled .header-logo { height: 28px; }
+    .site-header.scrolled .header-logo { height: 32px; }
     .site-header.scrolled { padding: 8px 20px 6px; }
-
-    /* Hero */
     .hero { min-height: 560px; }
     .hero__logo { width: clamp(80px, 20vw, 120px); }
     .hero__scroll { bottom: 24px; }
     .hero__bg { background-position: center 30%; }
-
-    /* Intro */
     .intro { padding: 64px 0 50px; }
     .intro-grid { grid-template-columns: 1fr; gap: 24px; }
     .intro h2 { font-size: clamp(1.9rem, 7vw, 2.6rem); }
     .intro p { font-size: 1rem; }
-
-    /* Bands */
-    .band {
-      background-attachment: scroll;
-      height: 28vh; min-height: 180px;
-    }
-
-    /* Brief */
+    .band { background-attachment: scroll; height: 28vh; min-height: 180px; }
     .brief { background-attachment: scroll; }
     .brief-grid { grid-template-columns: 1fr; gap: 24px; }
     section { padding: 60px 0; }
     .brief .open { font-size: 1.2rem; }
-
-    /* Split */
     .split, .split.flip { grid-template-columns: 1fr; }
     .split.flip .split-photo { order: 0; }
     .split.flip .split-text { order: 0; }
@@ -638,12 +612,8 @@
     .split-text { padding: 2.5rem 24px; }
     .split-text p { max-width: none; }
     .split-text h2 { font-size: clamp(1.9rem, 7vw, 2.6rem); }
-
-    /* Quote */
     .quote-section { padding: 56px 24px; }
     .quote-section blockquote { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
-
-    /* Gallery */
     .gallery { padding: 60px 0; }
     .gallery-head { margin-bottom: 32px; }
     .gallery-grid {
@@ -653,39 +623,22 @@
       gap: 5px;
     }
     .gallery-item.tall { grid-row: span 1; }
-    /* Make last item span full width */
-    .gallery-item:last-child {
-      grid-column: 1 / -1;
-    }
-
-    /* Eggs feature */
-    .eggs-feature {
-      height: auto; min-height: 0;
-      padding: 0;
-    }
-    .eggs-feature__bg {
-      position: relative;
-      height: 50vh; min-height: 280px;
-    }
+    .gallery-item:last-child { grid-column: 1 / -1; }
+    .eggs-feature { height: auto; min-height: 0; padding: 0; }
+    .eggs-feature__bg { position: relative; height: 50vh; min-height: 280px; }
     .eggs-feature__veil {
       background:
         linear-gradient(to top, rgba(36,44,32,1) 0%, rgba(36,44,32,.6) 50%, transparent 80%),
         linear-gradient(to bottom, rgba(250,245,234,.3) 0%, transparent 20%);
     }
     .eggs-feature__body {
-      position: relative;
-      padding: 2rem 24px 2.5rem;
-      background: var(--moss);
-      max-width: none;
+      position: relative; padding: 2rem 24px 2.5rem;
+      background: var(--moss); max-width: none;
     }
     .eggs-feature h2 { font-size: clamp(1.8rem, 6vw, 2.4rem); }
-
-    /* Egg signup */
     .egg-signup { background-attachment: scroll; }
     .egg-signup-grid { grid-template-columns: 1fr; gap: 24px; }
     .egg-form button { align-self: stretch; }
-
-    /* Footer */
     footer { background-attachment: scroll; padding: 60px 0 36px; }
     .foot-nav a { margin: 0 .5rem .5rem; font-size: .72rem; }
     .foot-tagline { font-size: 1.1rem; }
@@ -693,13 +646,10 @@
     .foot-meta { font-size: .72rem; }
   }
 
-  /* ═══════════════════════════════════════════
-     SMALL PHONES — 400px and below
-     ═══════════════════════════════════════════ */
+  /* SMALL PHONES */
   @media (max-width: 400px) {
     body { font-size: 16px; }
     .wrap { padding: 0 18px; }
-    .header-logo { height: 0; }
     .site-header { padding: 10px 16px 8px; }
     .menu-toggle { top: 12px; right: 14px; }
     .hero { min-height: 480px; }
@@ -711,18 +661,13 @@
     section { padding: 48px 0; }
     .brief h2 { font-size: 1.8rem; }
     .split-text { padding: 2rem 18px; }
-    .gallery-grid {
-      padding: 0 12px;
-      grid-template-rows: 150px 150px 190px;
-    }
+    .gallery-grid { padding: 0 12px; grid-template-rows: 150px 150px 190px; }
     .quote-section { padding: 44px 18px; }
     .eggs-feature__body { padding: 1.8rem 18px 2.2rem; }
     .mobile-nav a { font-size: 1.35rem; padding: 14px 0; }
   }
 
-  /* ═══════════════════════════════════════════
-     LANDSCAPE PHONES
-     ═══════════════════════════════════════════ */
+  /* LANDSCAPE */
   @media (max-height: 500px) and (orientation: landscape) {
     .hero { min-height: 400px; }
     .hero__logo { width: 70px; margin-bottom: 8px; }
@@ -732,7 +677,6 @@
     .hero__scroll { display: none; }
   }
 
-  /* iOS safe areas */
   @supports (padding-bottom: env(safe-area-inset-bottom)) {
     footer { padding-bottom: calc(44px + env(safe-area-inset-bottom)); }
     .mobile-nav { padding-bottom: env(safe-area-inset-bottom); }
@@ -741,9 +685,8 @@
 </head>
 <body>
 
-<!-- ─── HEADER ─────────────────────────────── -->
 <header class="site-header" id="site-header">
-  <img src="ravenhouselogo.png" alt="Raven House Co." class="header-logo">
+  <img src="ravenhouse.png" alt="Raven House Co." class="header-logo">
   <ul class="header-nav">
     <li><a href="rh-about.html">About</a></li>
     <li><a href="rh-farm.html">Farm & Homestead</a></li>
@@ -755,7 +698,6 @@
   </button>
 </header>
 
-<!-- Mobile fullscreen nav -->
 <nav class="mobile-nav" id="mobile-nav">
   <a href="rh-about.html">About</a>
   <a href="rh-farm.html">Farm & Homestead</a>
@@ -763,7 +705,6 @@
   <a href="rh-contact.html" class="nav-hi-m">Say Hello</a>
 </nav>
 
-<!-- ─── HERO ───────────────────────────────── -->
 <header class="hero">
   <div class="hero__bg"></div>
   <div class="hero__veil"></div>
@@ -778,7 +719,6 @@
   <div class="hero__scroll">scroll &darr;</div>
 </header>
 
-<!-- ─── INTRO ──────────────────────────────── -->
 <section class="intro">
   <div class="wrap intro-grid">
     <div class="reveal">
@@ -792,10 +732,8 @@
   </div>
 </section>
 
-<!-- ─── MEADOW BAND ────────────────────────── -->
 <div class="band band--grasses" role="presentation"></div>
 
-<!-- ─── FARM & HOMESTEAD ───────────────────── -->
 <section class="brief">
   <div class="wrap brief-grid">
     <div class="reveal">
@@ -811,10 +749,8 @@
   </div>
 </section>
 
-<!-- ─── COSMOS BAND ────────────────────────── -->
 <div class="band band--cosmos" role="presentation"></div>
 
-<!-- ─── GALLERY ────────────────────────────── -->
 <section class="gallery">
   <div class="gallery-head reveal">
     <span class="script">Life at Raven House</span>
@@ -829,10 +765,8 @@
   </div>
 </section>
 
-<!-- ─── SPRING BAND ────────────────────────── -->
 <div class="band band--spring" role="presentation"></div>
 
-<!-- ─── SHOP & STUDIO ──────────────────────── -->
 <div class="split reveal">
   <div class="split-photo">
     <img src="studio-shed.jpg" alt="The Raven House studio shed">
@@ -846,13 +780,11 @@
   </div>
 </div>
 
-<!-- ─── QUOTE ──────────────────────────────── -->
 <section class="quote-section reveal">
   <div class="quote-rule"></div>
   <blockquote>"We are raising our children to notice, to wonder, to adapt, and to work hard. We are thrilled to have them joining us on this crazy little adventure."</blockquote>
 </section>
 
-<!-- ─── RAVEN HOUSE SIGN ───────────────────── -->
 <div class="split flip reveal">
   <div class="split-photo">
     <img src="raven-sign.jpg" alt="The Raven House sign">
@@ -865,10 +797,8 @@
   </div>
 </div>
 
-<!-- ─── AUTUMN BAND ────────────────────────── -->
 <div class="band band--autumn" role="presentation"></div>
 
-<!-- ─── EGGS FEATURE ───────────────────────── -->
 <div class="eggs-feature reveal">
   <div class="eggs-feature__bg"></div>
   <div class="eggs-feature__veil"></div>
@@ -880,7 +810,6 @@
   </div>
 </div>
 
-<!-- ─── EGG SIGNUP ─────────────────────────── -->
 <section class="egg-signup">
   <div class="wrap egg-signup-grid">
     <div class="reveal">
@@ -907,7 +836,6 @@
   </div>
 </section>
 
-<!-- ─── FOOTER ─────────────────────────────── -->
 <footer>
   <div class="wrap">
     <img class="foot-logo" src="ravenhouselogo.png" alt="Raven House Co.">
@@ -932,13 +860,10 @@
 
 <script>
 (function(){
-  // Header scroll
   var h = document.getElementById('site-header');
   window.addEventListener('scroll', function(){
     h.classList.toggle('scrolled', window.scrollY > 80);
   }, { passive: true });
-
-  // Mobile menu
   var toggle = document.getElementById('menu-toggle');
   var mobileNav = document.getElementById('mobile-nav');
   toggle.addEventListener('click', function(){
@@ -947,7 +872,6 @@
     document.body.classList.toggle('menu-open', isOpen);
     toggle.setAttribute('aria-expanded', isOpen);
   });
-  // Close menu when a link is tapped
   mobileNav.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){
       toggle.classList.remove('open');
@@ -956,8 +880,6 @@
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
-
-  // Reveal on scroll
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
@@ -967,10 +889,7 @@
     el.style.transitionDelay = (i % 3 * 70) + 'ms';
     io.observe(el);
   });
-
-  // Motes — floating dust particles
   var m = document.getElementById('motes');
-  // Fewer motes on mobile for performance
   var count = window.innerWidth < 760 ? 10 : 18;
   for(var i = 0; i < count; i++){
     var d = document.createElement('div');
@@ -983,8 +902,6 @@
     d.style.animationDelay = (-Math.random() * 20) + 's';
     m.appendChild(d);
   }
-
-  // Egg form
   var form = document.getElementById('egg-form');
   if(form){
     form.addEventListener('submit', function(e){
