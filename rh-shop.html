@@ -396,12 +396,24 @@
   // Farm stand — Google Sheet
   var SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0fThcz27k0AnyMyA03VfvO3kLgj-Tl6sLSXCASgGR65ZKyP2FLecjnNIgTxJ8gkFO3sMBEBvQEEol/pub?output=csv';
   var FALLBACK = [
-    { item: 'Chicken Eggs (dozen)', status: 'available', notes: 'Brown, cream, and blue-green', price: '$6' },
-    { item: 'Duck Eggs (half dozen)', status: 'available', notes: 'Rich yolks, great for baking', price: '$7' },
-    { item: 'Seasonal Vegetables', status: 'limited', notes: 'What the garden gives us', price: 'Varies' },
-    { item: 'Goat Milk Soap', status: 'coming soon', notes: 'Lavender and unscented. Available next month.', price: '' },
-    { item: 'Soy Candles', status: 'coming soon', notes: 'Hand-poured, seasonal scents. Available next month.', price: '' }
+    { item: 'Chicken Eggs (dozen)', status: 'available', notes: 'Brown, cream, and blue-green', price: '$6', quantity: '8 dozen' },
+    { item: 'Duck Eggs (half dozen)', status: 'available', notes: 'Rich yolks, great for baking', price: '$7', quantity: '4 half-dozen' },
+    { item: 'Seasonal Vegetables', status: 'limited', notes: 'What the garden gives us', price: 'Varies', quantity: '' },
+    { item: 'Goat Milk Soap', status: 'coming soon', notes: 'Lavender and unscented. Available next month.', price: '', quantity: '' },
+    { item: 'Soy Candles', status: 'coming soon', notes: 'Hand-poured, seasonal scents. Available next month.', price: '', quantity: '' }
   ];
+
+  function parseRow(row){
+    var cols = [], cur = '', inQ = false;
+    for(var i = 0; i < row.length; i++){
+      var ch = row[i];
+      if(ch === '"'){ inQ = !inQ; }
+      else if(ch === ',' && !inQ){ cols.push(cur.trim()); cur = ''; }
+      else { cur += ch; }
+    }
+    cols.push(cur.trim());
+    return cols;
+  }
 
   function renderStand(items, updated){
     var c = document.getElementById('stand-items');
@@ -411,9 +423,10 @@
       var s = (item.status || 'available').toLowerCase().replace(/\s+/g, '-');
       var label = s === 'sold-out' ? 'Sold out' : s === 'limited' ? 'Limited' : s === 'coming-soon' ? 'Coming soon' : 'Available';
       var cls = s === 'sold-out' ? 'stand-row is-sold-out' : s === 'coming-soon' ? 'stand-row is-coming-soon' : 'stand-row';
+      var qty = item.quantity ? ' <span style="color:var(--sage);font-size:.82rem;font-weight:700;">' + item.quantity + '</span>' : '';
       return '<div class="' + cls + '">' +
         '<div class="stand-dot ' + s + '"></div>' +
-        '<div><div class="stand-item-name">' + item.item + (item.price ? ' <span style="color:var(--terracotta);font-size:.85rem;font-style:italic;">' + item.price + '</span>' : '') + '</div>' +
+        '<div><div class="stand-item-name">' + item.item + (item.price ? ' <span style="color:var(--terracotta);font-size:.85rem;font-style:italic;">' + item.price + '</span>' : '') + qty + '</div>' +
         (item.notes ? '<div class="stand-item-note">' + item.notes + '</div>' : '') +
         '</div>' +
         '<span class="stand-item-status ' + s + '">' + label + '</span></div>';
@@ -424,9 +437,8 @@
   fetch(SHEET_URL).then(function(r){ return r.text(); }).then(function(csv){
     var rows = csv.split('\n').slice(1);
     var items = rows.map(function(row){
-      var cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
-      var clean = function(v){ return (v||'').replace(/^"|"$/g,'').trim(); };
-      return { item: clean(cols[0]), status: clean(cols[1]), notes: clean(cols[2]), price: clean(cols[3]) };
+      var cols = parseRow(row);
+      return { item: cols[0]||'', status: cols[1]||'', notes: cols[2]||'', price: cols[3]||'', quantity: cols[4]||'' };
     }).filter(function(item){ return item.item; });
     if(items.length === 0){ renderStand(FALLBACK, 'No items listed yet'); return; }
     var now = new Date();
