@@ -58,7 +58,7 @@ ul { list-style: none; }
 /* CATEGORIES */
 .categories { padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 9vw, 112px); }
 .categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--stone); }
-.category-card { display: block; background: var(--paper); border-right: 1px solid var(--stone); text-decoration: none; color: inherit; position: relative; transition: background 0.25s; overflow: hidden; }
+.category-card { display: flex; flex-direction: column; background: var(--paper); border-right: 1px solid var(--stone); text-decoration: none; color: inherit; position: relative; transition: background 0.25s; overflow: hidden; }
 .category-card:last-child { border-right: none; }
 .category-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--yellow); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
 .category-card:hover { background: #fafaf8; }
