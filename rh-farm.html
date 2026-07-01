@@ -76,7 +76,7 @@
   }
   .site-header.scrolled .header-logo {
     display: block;
-    height: 70px; margin-bottom: 4px;
+    height: 56px; margin-bottom: 6px;
     opacity: 1;
   }
 
@@ -87,8 +87,8 @@
   }
   .header-nav a {
     font-family: var(--f-serif);
-    font-size: 0.72rem; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
     color: rgba(255,255,255,0.55);
     transition: color 0.3s;
     text-shadow: 0 1px 6px rgba(42,38,32,0.3);
@@ -455,7 +455,156 @@
   }
   .btn-ghost:hover { background: rgba(244,238,226,.1); border-color: rgba(244,238,226,.7); }
 
-  /* EGG SIGNUP */
+  /* FARM STAND */
+  .farm-stand { padding: 80px 0; background: var(--mist); }
+  .farm-stand-head { text-align: center; margin-bottom: 40px; }
+  .farm-stand-head .script {
+    font-style: italic; font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--clay); line-height: 1; display: block; margin-bottom: 6px;
+  }
+  .farm-stand-head p { font-size: 1rem; color: var(--ink-light); margin-top: 8px; }
+  .stand-board {
+    max-width: 720px; margin: 0 auto;
+    background: var(--paper); border: 1px solid var(--blush);
+    border-radius: 6px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(42,38,32,.06);
+  }
+  .stand-board-header {
+    background: var(--moss); color: var(--cream);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .stand-board-title {
+    font-family: Georgia, serif; font-size: 1.1rem;
+    font-weight: 400; letter-spacing: .02em;
+  }
+  .stand-board-updated {
+    font-size: .72rem; color: rgba(244,238,226,.55);
+    font-style: italic;
+  }
+  .stand-items { padding: 8px; }
+  .stand-row {
+    display: grid; grid-template-columns: 10px 1fr auto;
+    gap: 14px; align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--blush);
+  }
+  .stand-row:last-child { border-bottom: none; }
+  .stand-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .stand-dot.available { background: var(--sage); }
+  .stand-dot.limited { background: var(--gold); }
+  .stand-dot.sold-out { background: var(--blush); }
+  .stand-item-name {
+    font-family: Georgia, serif; font-size: 1rem;
+    color: var(--ink); font-weight: 400;
+  }
+  .stand-item-note {
+    font-size: .85rem; color: var(--ink-light);
+    font-style: italic; margin-top: 2px;
+  }
+  .stand-item-status {
+    font-size: .7rem; font-weight: 500;
+    letter-spacing: .1em; text-transform: uppercase;
+    white-space: nowrap; padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .stand-item-status.available { background: rgba(58,70,50,.08); color: var(--moss); }
+  .stand-item-status.limited { background: rgba(199,154,82,.12); color: var(--gold); }
+  .stand-item-status.sold-out { background: rgba(231,212,193,.4); color: var(--stone); }
+  .stand-row.is-sold-out { opacity: .5; }
+  .stand-footer {
+    padding: 12px 24px;
+    background: rgba(58,70,50,.04);
+    border-top: 1px solid var(--blush);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .stand-footer p {
+    font-size: .78rem; color: var(--ink-light);
+    font-style: italic;
+  }
+  .stand-legend {
+    display: flex; gap: 14px; font-size: .7rem; color: var(--stone);
+  }
+  .stand-legend span { display: flex; align-items: center; gap: 5px; }
+  .stand-legend .sd { width: 7px; height: 7px; border-radius: 50%; }
+
+  /* EGG SHARE */
+  .egg-share {
+    position: relative; color: var(--cream);
+    background: url('meadow-moody.jpg') center / cover no-repeat fixed;
+    padding: 92px 0;
+  }
+  .egg-share::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(36,44,32,.88), rgba(36,44,32,.85));
+  }
+  .egg-share .wrap { position: relative; z-index: 2; }
+  .egg-share-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: start;
+  }
+  .egg-share .lab { color: var(--gold); }
+  .egg-share h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--cream); margin-bottom: 14px;
+  }
+  .egg-share .desc {
+    font-size: 1rem; color: rgba(244,238,226,.6);
+    line-height: 1.85; margin-bottom: 12px;
+  }
+  .egg-share-perks {
+    margin-top: 20px;
+  }
+  .egg-share-perk {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .perk-dot {
+    width: 5px; height: 5px; background: var(--gold);
+    border-radius: 50%; flex-shrink: 0; margin-top: 8px;
+  }
+  .perk-text { font-size: .95rem; color: rgba(244,238,226,.7); line-height: 1.6; }
+  .egg-share-form { display: flex; flex-direction: column; gap: 0.9rem; }
+  .egg-share-form input, .egg-share-form select {
+    width: 100%;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 4px;
+    color: white;
+    font-family: var(--f-serif);
+    font-size: 16px; font-weight: 300;
+    padding: 0.9rem 1.2rem;
+    min-height: 48px;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+  }
+  .egg-share-form input::placeholder { color: rgba(255,255,255,.3); }
+  .egg-share-form input:focus, .egg-share-form select:focus {
+    outline: none; border-color: rgba(199,154,82,.5);
+  }
+  .egg-share-form select { cursor: pointer; color: rgba(255,255,255,.5); }
+  .egg-share-form select option { background: var(--moss); color: white; }
+  .egg-share-form button {
+    background: var(--clay); color: var(--cream);
+    border: none; border-radius: 4px; cursor: pointer;
+    font-family: var(--f-serif);
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 0.95rem 2.2rem;
+    min-height: 48px;
+    transition: background 0.3s;
+    align-self: flex-start;
+  }
+  .egg-share-form button:hover { background: var(--gold); }
+  .egg-share-thankyou {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 1.3rem; font-style: italic; font-weight: 400;
+    line-height: 1.6; padding: 1.5rem 0;
+  }
+
+  /* EGG SIGNUP (notification list) */
   .egg-signup {
     position: relative; color: var(--cream);
     background: url('meadow-moody.jpg') center / cover no-repeat fixed;
@@ -525,7 +674,7 @@
   }
   footer::before {
     content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(30,34,28,.88), rgba(30,34,28,.94));
+    background: linear-gradient(180deg, rgba(30,34,28,.78), rgba(30,34,28,.84));
   }
   footer .wrap { position: relative; z-index: 2; }
   .foot-logo {
@@ -639,6 +788,12 @@
     .egg-signup { background-attachment: scroll; }
     .egg-signup-grid { grid-template-columns: 1fr; gap: 24px; }
     .egg-form button { align-self: stretch; }
+    .egg-share { background-attachment: scroll; }
+    .egg-share-grid { grid-template-columns: 1fr; gap: 24px; }
+    .egg-share-form button { align-self: stretch; }
+    .stand-row { grid-template-columns: 10px 1fr; gap: 10px; }
+    .stand-item-status { grid-column: 2; justify-self: start; }
+    .stand-footer { flex-direction: column; align-items: flex-start; }
     footer { background-attachment: scroll; padding: 60px 0 36px; }
     .foot-nav a { margin: 0 .5rem .5rem; font-size: .72rem; }
     .foot-tagline { font-size: 1.1rem; }
@@ -689,7 +844,7 @@
   <img src="blackrhlogo.png" alt="Raven House Co." class="header-logo">
   <ul class="header-nav">
     <li><a href="rh-about.html">About</a></li>
-    <li><a href="rh-farm.html">Farm & Homestead</a></li>
+    <li><a href="rh-learning.html">RH Learning</a></li>
     <li><a href="rh-shop.html">Shop & Studio</a></li>
     <li><a href="rh-contact.html" class="nav-hi">Say Hello</a></li>
   </ul>
@@ -700,7 +855,7 @@
 
 <nav class="mobile-nav" id="mobile-nav">
   <a href="rh-about.html">About</a>
-  <a href="rh-farm.html">Farm & Homestead</a>
+  <a href="rh-learning.html">RH Learning</a>
   <a href="rh-shop.html">Shop & Studio</a>
   <a href="rh-contact.html" class="nav-hi-m">Say Hello</a>
 </nav>
@@ -803,34 +958,75 @@
   <div class="eggs-feature__bg"></div>
   <div class="eggs-feature__veil"></div>
   <div class="eggs-feature__body">
-    <p class="lab">Available now</p>
+    <p class="lab">From the farm</p>
     <h2>Laid by happy birds.<br>Collected by <em>noisy kids.</em></h2>
     <p>Pasture-raised and collected daily. Chicken eggs in cream, brown, and blue-green, or duck eggs if that's your thing. Cluckers or quackers, your call. Sold by the dozen, Greenwood area pickup.</p>
-    <a href="rh-contact.html" class="btn-ghost">Get on the egg list</a>
   </div>
 </div>
 
-<section class="egg-signup">
-  <div class="wrap egg-signup-grid">
+<!-- FARM STAND -->
+<section class="farm-stand">
+  <div class="wrap">
+    <div class="farm-stand-head reveal">
+      <span class="script">The Farm Stand</span>
+      <p>What we've got today. Updated at 9am, 2pm, and 7pm.</p>
+    </div>
+    <div class="stand-board reveal" id="stand-board">
+      <div class="stand-board-header">
+        <span class="stand-board-title">Available today</span>
+        <span class="stand-board-updated" id="stand-updated">Updated just now</span>
+      </div>
+      <div class="stand-items" id="stand-items">
+        <!-- Populated by JS from Google Sheet or fallback -->
+      </div>
+      <div class="stand-footer">
+        <p>Greenwood area pickup. Message us to claim.</p>
+        <div class="stand-legend">
+          <span><div class="sd" style="background:var(--sage)"></div> Available</span>
+          <span><div class="sd" style="background:var(--gold)"></div> Limited</span>
+          <span><div class="sd" style="background:var(--blush)"></div> Sold out</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EGG SHARE + NOTIFICATION -->
+<section class="egg-share">
+  <div class="wrap egg-share-grid">
     <div class="reveal">
-      <p class="lab">Join the list</p>
-      <h2>Never miss a dozen.</h2>
-      <p class="desc">We'll let you know when eggs are available and when something new comes out of the studio. No spam. Just eggs and the occasional exciting animal update.</p>
+      <p class="lab">The egg share</p>
+      <h2>A standing order. Your dozen, every week.</h2>
+      <p class="desc">Sign up for a regular dozen and skip the "do you have eggs?" text. We'll have yours set aside. Chicken, duck, or both. Weekly or every two weeks. Greenwood area pickup.</p>
+      <div class="egg-share-perks">
+        <div class="egg-share-perk"><div class="perk-dot"></div><p class="perk-text">Your eggs are set aside before the stand opens.</p></div>
+        <div class="egg-share-perk"><div class="perk-dot"></div><p class="perk-text">Pick your schedule. Weekly or biweekly.</p></div>
+        <div class="egg-share-perk"><div class="perk-dot"></div><p class="perk-text">Pause or cancel any time. No commitment.</p></div>
+        <div class="egg-share-perk"><div class="perk-dot"></div><p class="perk-text">We'll ping you when extras, veg, or new studio products are available too.</p></div>
+      </div>
     </div>
     <div class="reveal">
-      <form class="egg-form" id="egg-form" action="https://formspree.io/f/mjgddzpn" method="POST">
+      <form class="egg-share-form" id="egg-share-form" action="https://formspree.io/f/mjgddzpn" method="POST">
+        <input type="hidden" name="_subject" value="New egg share signup">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Your email" required>
-        <select name="preference">
+        <input type="tel" name="phone" placeholder="Phone (for pickup coordination)">
+        <select name="eggs" required>
           <option value="" disabled selected>Cluckers or quackers?</option>
           <option value="chicken">Chicken eggs</option>
           <option value="duck">Duck eggs</option>
           <option value="both">Both, please</option>
         </select>
-        <button type="submit">Get me on the list</button>
+        <select name="frequency" required>
+          <option value="" disabled selected>How often?</option>
+          <option value="weekly">Every week</option>
+          <option value="biweekly">Every two weeks</option>
+          <option value="notify">Just notify me when available</option>
+        </select>
+        <button type="submit">Sign me up</button>
       </form>
-      <div class="egg-thankyou" id="egg-thankyou" style="display:none;">
-        You're on the list. We'll be in touch when the girls (and the quackers) are feeling productive.
+      <div class="egg-share-thankyou" id="egg-share-thankyou" style="display:none;">
+        You're in. We'll be in touch with pickup details. The girls are already working on your order.
       </div>
     </div>
   </div>
@@ -841,7 +1037,7 @@
     <img class="foot-logo" src="ravenhouselogo.png" alt="Raven House Co.">
     <nav class="foot-nav">
       <a href="rh-about.html">About</a>
-      <a href="rh-farm.html">Farm</a>
+      <a href="rh-learning.html">Learning</a>
       <a href="rh-shop.html">Shop</a>
       <a href="rh-contact.html">Contact</a>
     </nav>
@@ -902,19 +1098,75 @@
     d.style.animationDelay = (-Math.random() * 20) + 's';
     m.appendChild(d);
   }
-  var form = document.getElementById('egg-form');
-  if(form){
-    form.addEventListener('submit', function(e){
+
+  // Egg share form
+  var shareForm = document.getElementById('egg-share-form');
+  if(shareForm){
+    shareForm.addEventListener('submit', function(e){
       e.preventDefault();
-      fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} })
+      fetch(shareForm.action, { method:'POST', body: new FormData(shareForm), headers:{'Accept':'application/json'} })
         .then(function(r){
           if(r.ok){
-            form.style.display = 'none';
-            document.getElementById('egg-thankyou').style.display = 'block';
+            shareForm.style.display = 'none';
+            document.getElementById('egg-share-thankyou').style.display = 'block';
           }
         });
     });
   }
+
+  // Farm stand — Google Sheet integration
+  // To connect: publish your Google Sheet to the web, then paste the sheet ID below.
+  // Sheet columns: A = Item, B = Status (available/limited/sold out), C = Notes, D = Price
+  var SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0fThcz27k0AnyMyA03VfvO3kLgj-Tl6sLSXCASgGR65ZKyP2FLecjnNIgTxJ8gkFO3sMBEBvQEEol/pub?output=csv';
+  var FALLBACK_STAND = [
+    { item: 'Chicken Eggs (dozen)', status: 'available', notes: 'Brown, cream, and blue-green', price: '$6' },
+    { item: 'Duck Eggs (half dozen)', status: 'limited', notes: 'Rich yolks, great for baking', price: '$7' },
+    { item: 'Goat Milk Soap', status: 'available', notes: 'Lavender and unscented', price: '$8' },
+    { item: 'Soy Candles', status: 'available', notes: 'Hand-poured, seasonal scents', price: '$14' },
+    { item: 'Garlic (bag of 6)', status: 'sold out', notes: 'Back next week', price: '$5' },
+    { item: 'Mixed Greens', status: 'limited', notes: 'Harvested this morning', price: '$4' }
+  ];
+
+  function renderStand(items, updated){
+    var container = document.getElementById('stand-items');
+    var updatedEl = document.getElementById('stand-updated');
+    if(!container) return;
+    container.innerHTML = items.map(function(item){
+      var s = (item.status || 'available').toLowerCase().replace(/\s+/g, '-');
+      var statusText = s === 'sold-out' ? 'Sold out' : s === 'limited' ? 'Limited' : 'Available';
+      var rowClass = s === 'sold-out' ? 'stand-row is-sold-out' : 'stand-row';
+      return '<div class="' + rowClass + '">' +
+        '<div class="stand-dot ' + s + '"></div>' +
+        '<div><div class="stand-item-name">' + item.item + (item.price ? ' <span style="color:var(--clay);font-size:.85rem;font-style:italic;">' + item.price + '</span>' : '') + '</div>' +
+        (item.notes ? '<div class="stand-item-note">' + item.notes + '</div>' : '') +
+        '</div>' +
+        '<span class="stand-item-status ' + s + '">' + statusText + '</span>' +
+        '</div>';
+    }).join('');
+    if(updatedEl && updated) updatedEl.textContent = updated;
+  }
+
+  function loadStand(){
+    fetch(SHEET_URL).then(function(r){ return r.text(); }).then(function(csv){
+      var rows = csv.split('\n').slice(1); // skip header
+      var items = rows.map(function(row){
+        var cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+        var clean = function(v){ return (v||'').replace(/^"|"$/g,'').trim(); };
+        return { item: clean(cols[0]), status: clean(cols[1]), notes: clean(cols[2]), price: clean(cols[3]) };
+      }).filter(function(item){ return item.item; });
+      if(items.length === 0){
+        renderStand(FALLBACK_STAND, 'No items listed yet');
+        return;
+      }
+      var now = new Date();
+      var timeStr = now.toLocaleTimeString('en-CA', {hour:'numeric', minute:'2-digit'});
+      renderStand(items, 'Updated at ' + timeStr);
+    }).catch(function(){
+      renderStand(FALLBACK_STAND, 'Could not load live data');
+    });
+  }
+
+  loadStand();
 })();
 </script>
 </body>
