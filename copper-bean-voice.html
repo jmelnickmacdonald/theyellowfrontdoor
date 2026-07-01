@@ -32,75 +32,62 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
   opacity: 0.4; }
 
 /* PAGE */
-.page { max-width: 860px; margin: 0 auto; padding: clamp(32px, 6vw, 64px) clamp(24px, 5vw, 56px); }
+.page { max-width: 820px; margin: 0 auto; padding: clamp(36px, 7vw, 72px) clamp(24px, 5vw, 56px); }
 
 /* HEADER */
-.header { padding-bottom: clamp(36px, 5vw, 56px); margin-bottom: clamp(36px, 5vw, 56px); border-bottom: 1px solid rgba(245,237,224,0.1); text-align: center; }
-.doc-type { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--olive-light); margin-bottom: 32px; }
-.header-logo { max-width: 220px; margin: 0 auto 32px; }
-.header-sub { font-family: var(--f-body); font-size: 15px; color: var(--stone); margin-bottom: 28px; }
-.header-details { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-.header-detail { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); }
-.header-detail strong { font-weight: 700; color: var(--stone); display: block; margin-bottom: 2px; font-size: 10px; letter-spacing: 0.25em; }
-
-/* COPPER BAR */
-.copper-bar { height: 3px; background: linear-gradient(90deg, var(--copper) 0%, var(--olive) 100%); margin-bottom: clamp(36px, 5vw, 56px); }
+.header { padding-bottom: clamp(40px, 6vw, 64px); margin-bottom: clamp(40px, 6vw, 64px); border-bottom: 1px solid rgba(245,237,224,0.1); }
+.doc-type { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--olive-light); margin-bottom: 36px; }
+.header-logo { max-width: 200px; margin-bottom: 36px; }
+.header-sub { font-size: 16px; color: var(--stone); line-height: 1.7; margin-bottom: 10px; }
+.header-meta { font-size: 12px; color: var(--slate); }
 
 /* SECTIONS */
-.section { padding-bottom: clamp(36px, 5vw, 52px); margin-bottom: clamp(36px, 5vw, 52px); border-bottom: 1px solid rgba(245,237,224,0.08); }
+.section { padding-bottom: clamp(40px, 6vw, 60px); margin-bottom: clamp(40px, 6vw, 60px); border-bottom: 1px solid rgba(245,237,224,0.08); }
 .section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.section-num { font-family: var(--f-body); font-size: 10px; font-weight: 700; color: var(--slate); letter-spacing: 0.15em; margin-bottom: 4px; }
-.section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--olive-light); margin-bottom: 24px; }
-.section-heading { font-family: var(--f-display); font-size: clamp(32px, 5vw, 52px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 0.95; margin-bottom: 24px; }
-.section-heading .copper { color: var(--copper); }
-.section-heading .olive { color: var(--olive-light); }
+.section-num { font-family: var(--f-body); font-size: 10px; font-weight: 700; color: rgba(245,237,224,0.2); letter-spacing: 0.15em; margin-bottom: 6px; }
+.section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--olive-light); margin-bottom: 28px; }
 
-/* POSITIONING */
-.positioning-text { font-size: 17px; color: var(--stone); line-height: 1.85; max-width: 620px; }
+/* 01 — POSITIONING */
+.positioning-text { font-size: 18px; color: var(--stone); line-height: 1.8; max-width: 600px; }
 
-/* VOICE WORDS */
-.voice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.voice-card { background: rgba(245,237,224,0.04); border: 1px solid rgba(245,237,224,0.08); padding: 24px 16px; text-align: center; position: relative; overflow: hidden; }
-.voice-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--olive), var(--copper)); }
-.voice-card .word { font-family: var(--f-display); font-size: clamp(20px, 2.8vw, 28px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; margin-bottom: 10px; }
-.voice-card .meaning { font-size: 12px; color: var(--slate); line-height: 1.55; }
+/* 02 — VOICE WORDS */
+.voice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 8px; }
+.voice-word { text-align: left; }
+.voice-word .word { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 1.0; margin-bottom: 10px; }
+.voice-word .meaning { font-size: 13px; color: var(--slate); line-height: 1.6; }
 
-/* SOUND LIKE */
-.sound-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-.sound-col h3 { font-family: var(--f-display); font-size: 20px; text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; margin-bottom: 18px; }
+/* 03 — SOUND LIKE */
+.sound-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.sound-col h3 { font-family: var(--f-display); font-size: 22px; text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; margin-bottom: 20px; }
 .sound-col.avoid h3 { color: var(--slate); }
-.sound-col p { font-size: 14px; color: var(--stone); line-height: 1.75; margin-bottom: 14px; padding-left: 18px; position: relative; }
-.sound-col p::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
-.sound-col.do p::before { background: var(--olive-light); }
-.sound-col.avoid p::before { background: rgba(245,237,224,0.15); }
+.sound-item { font-size: 14px; color: var(--stone); line-height: 1.75; margin-bottom: 16px; padding-left: 16px; border-left: 2px solid var(--olive); }
+.sound-col.avoid .sound-item { border-left-color: rgba(245,237,224,0.1); }
 
-/* SAMPLE COPY */
-.sample { margin-bottom: 36px; }
+/* 04 — SAMPLE COPY */
+.sample { margin-bottom: 40px; }
 .sample:last-child { margin-bottom: 0; }
-.sample-context { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--olive-light); margin-bottom: 10px; }
-.sample-text { font-family: var(--f-display); font-size: clamp(20px, 3vw, 30px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 1.05; padding-left: 20px; border-left: 3px solid var(--copper); }
-.sample-text.body-voice { font-family: var(--f-body); font-size: 15px; text-transform: none; letter-spacing: 0; line-height: 1.8; color: var(--stone); }
+.sample-context { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--olive-light); margin-bottom: 12px; }
+.sample-headline { font-family: var(--f-display); font-size: clamp(24px, 3.5vw, 36px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 1.05; padding-left: 20px; border-left: 3px solid var(--copper); }
+.sample-body { font-family: var(--f-body); font-size: 15px; line-height: 1.85; color: var(--stone); padding-left: 20px; border-left: 3px solid var(--copper); }
 
-/* WORDS LIST */
-.words-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-.words-col h3 { font-family: var(--f-display); font-size: 20px; text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; margin-bottom: 16px; }
+/* 05 — WORD LIST */
+.words-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.words-col h3 { font-family: var(--f-display); font-size: 22px; text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; margin-bottom: 18px; }
 .words-col.avoid h3 { color: var(--slate); }
 .words-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.words-list span { font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 2px; }
+.words-list span { font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 2px; }
 .words-col.do .words-list span { background: var(--olive); color: var(--ivory); }
 .words-col.avoid .words-list span { background: transparent; color: var(--slate); border: 1px solid rgba(245,237,224,0.12); }
 
 /* FOOTER */
-.guide-footer { padding-top: clamp(28px, 4vw, 40px); text-align: center; border-top: 1px solid rgba(245,237,224,0.08); }
-.guide-footer p { font-size: 12px; color: var(--slate); line-height: 1.7; }
+.guide-footer { padding-top: clamp(32px, 5vw, 48px); text-align: center; border-top: 1px solid rgba(245,237,224,0.08); }
+.guide-footer p { font-size: 13px; color: var(--slate); line-height: 1.7; }
 .guide-footer .studio { font-weight: 700; color: var(--olive-light); text-transform: uppercase; letter-spacing: 0.25em; font-size: 10px; margin-top: 10px; }
 
 /* RESPONSIVE */
 @media (max-width: 640px) {
-  .voice-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .voice-card { padding: 18px 12px; }
-  .sound-grid, .words-grid { grid-template-columns: 1fr; gap: 28px; }
-  .header-details { gap: 20px; }
+  .voice-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .sound-grid, .words-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 </style>
 </head>
@@ -108,105 +95,98 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 
 <div class="page">
 
-  <!-- HEADER -->
   <header class="header">
     <p class="doc-type">Voice &amp; Messaging Guide</p>
     <img src="c+bsquarelogo.png" alt="Copper + Bean" class="header-logo">
     <p class="header-sub">A voice guide for Steve and Alexa's coffee bar.</p>
-    <div class="header-details">
-      <div class="header-detail"><strong>Location</strong> Halifax, NS · Downtown</div>
-      <div class="header-detail"><strong>Type</strong> Coffee bar &amp; light lunch</div>
-      <div class="header-detail"><strong>Status</strong> Concept piece</div>
-    </div>
+    <p class="header-meta">Halifax, NS · Downtown · Concept piece</p>
   </header>
 
-  <div class="copper-bar"></div>
-
-  <!-- 01 POSITIONING -->
+  <!-- 01 -->
   <section class="section">
     <p class="section-num">01</p>
     <p class="section-label">Positioning</p>
     <p class="positioning-text">A coffee bar and light-lunch spot run by Steve and Alexa, a couple who left corporate jobs after the kids flew the coop, found a space just down the road from home, and opened something of their own. The coffee is great, the food is made that morning, and the menu is short on purpose.</p>
   </section>
 
-  <!-- 02 VOICE WORDS -->
+  <!-- 02 -->
   <section class="section">
     <p class="section-num">02</p>
     <p class="section-label">The voice in four words</p>
     <div class="voice-grid">
-      <div class="voice-card">
+      <div class="voice-word">
         <p class="word">Confident</p>
         <p class="meaning">Knows what it is. Doesn't over-explain or apologise.</p>
       </div>
-      <div class="voice-card">
+      <div class="voice-word">
         <p class="word">Minimal</p>
         <p class="meaning">Says less. Means it. No filler, no fluff.</p>
       </div>
-      <div class="voice-card">
+      <div class="voice-word">
         <p class="word">Warm</p>
         <p class="meaning">Friendly without trying. You feel it when you walk in.</p>
       </div>
-      <div class="voice-card">
+      <div class="voice-word">
         <p class="word">Sharp</p>
-        <p class="meaning">Says exactly what it means. No filler words, no hedging.</p>
+        <p class="meaning">Says exactly what it means. No hedging.</p>
       </div>
     </div>
   </section>
 
-  <!-- 03 SOUND LIKE -->
+  <!-- 03 -->
   <section class="section">
     <p class="section-num">03</p>
     <p class="section-label">We sound like / We don't sound like</p>
     <div class="sound-grid">
       <div class="sound-col do">
         <h3>We sound like</h3>
-        <p>A bartender who remembers your order and doesn't make a thing of it.</p>
-        <p>Someone who takes the work seriously but would never make you sit through a speech about it.</p>
-        <p>Talks like a real person. A little dry. Doesn't ramble.</p>
-        <p>The kind of place you go back to because it's always good, not because they asked you to leave a review.</p>
+        <p class="sound-item">A bartender who remembers your order and doesn't make a thing of it.</p>
+        <p class="sound-item">Someone who takes the work seriously but would never make you sit through a speech about it.</p>
+        <p class="sound-item">Talks like a real person. A little dry. Doesn't ramble.</p>
+        <p class="sound-item">The kind of place you go back to because it's always good, not because they asked you to leave a review.</p>
       </div>
       <div class="sound-col avoid">
         <h3>We don't sound like</h3>
-        <p>A third-wave coffee blog explaining terroir to someone who just wants a flat white.</p>
-        <p>Corporate catering copy with stock-photo energy.</p>
-        <p>Trying too hard to be quirky, punny, or relatable.</p>
-        <p>Loud. Trying to be the Main Character. We're just making coffee over here.</p>
+        <p class="sound-item">A third-wave coffee blog explaining terroir to someone who just wants a flat white.</p>
+        <p class="sound-item">Corporate catering copy with stock-photo energy.</p>
+        <p class="sound-item">Trying too hard to be quirky, punny, or relatable.</p>
+        <p class="sound-item">Loud. Trying to be the Main Character. We're just making coffee over here.</p>
       </div>
     </div>
   </section>
 
-  <!-- 04 SAMPLE COPY -->
+  <!-- 04 -->
   <section class="section">
     <p class="section-num">04</p>
     <p class="section-label">Sample copy in the voice</p>
 
     <div class="sample">
       <p class="sample-context">Homepage headline</p>
-      <p class="sample-text">Good coffee. Simple food. No fuss.</p>
+      <p class="sample-headline">Good coffee. Simple food. No fuss.</p>
     </div>
 
     <div class="sample">
       <p class="sample-context">Menu description — the signature bowl</p>
-      <p class="sample-text body-voice">Roasted squash, pickled onion, toasted seeds, and tahini. It's one of those meals that just makes you feel like everything's going to be fine. People order it once and then it becomes their usual.</p>
+      <p class="sample-body">Roasted squash, pickled onion, toasted seeds, and tahini. It's one of those meals that just makes you feel like everything's going to be fine. People order it once and then it becomes their usual.</p>
     </div>
 
     <div class="sample">
       <p class="sample-context">Instagram caption — morning post</p>
-      <p class="sample-text body-voice">First batch of pastries just came out of the oven and the coffee's on. We're here till three. Come say hi.</p>
+      <p class="sample-body">First batch of pastries just came out of the oven and the coffee's on. We're here till three. Come say hi.</p>
     </div>
 
     <div class="sample">
       <p class="sample-context">Welcome sign — inside the door</p>
-      <p class="sample-text">Come in. Grab the seat by the window. We'll take it from here.</p>
+      <p class="sample-headline">Come in. Grab the seat by the window. We'll take it from here.</p>
     </div>
 
     <div class="sample">
       <p class="sample-context">About page — opening line</p>
-      <p class="sample-text body-voice">We are Steve and Alexa. We cashed in two corporate jobs, found a space just down the road from home, spent a chunk of change on paint and lumber, and a short six weeks later we opened a coffee bar. The coffee is significantly better than what we were drinking at our desks; the hours are significantly worse. We'd trade the pension for this again any day.</p>
+      <p class="sample-body">We are Steve and Alexa. We cashed in two corporate jobs, found a space just down the road from home, spent a chunk of change on paint and lumber, and a short six weeks later we opened a coffee bar. The coffee is significantly better than what we were drinking at our desks; the hours are significantly worse. We'd trade the pension for this again any day.</p>
     </div>
   </section>
 
-  <!-- 05 WORDS -->
+  <!-- 05 -->
   <section class="section">
     <p class="section-num">05</p>
     <p class="section-label">Words we reach for / Words we don't</p>
@@ -248,7 +228,6 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="guide-footer">
     <p>Copper + Bean is a concept piece — a voice and messaging guide<br>showing the thinking behind the words.</p>
     <p class="studio">Prepared by The Yellow Front Door</p>
