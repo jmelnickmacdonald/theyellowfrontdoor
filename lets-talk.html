@@ -62,7 +62,6 @@ ul { list-style: none; }
 
 /* FORM */
 .contact-form { display: flex; flex-direction: column; gap: 22px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-field { display: flex; flex-direction: column; gap: 8px; }
 .form-field label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
 .form-field input, .form-field select, .form-field textarea { font-family: var(--f-body); font-size: 15px; font-weight: 400; color: var(--ink); background: #fff; border: 1px solid var(--stone); padding: 13px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 4px; }
@@ -105,7 +104,6 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
-  .form-row { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; }
   .eyebrow-label { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
@@ -157,23 +155,20 @@ ul { list-style: none; }
         <form class="contact-form" name="contact" action="https://formspree.io/f/mqevdajp" method="POST">
           <input type="hidden" name="_next" value="https://www.theyellowfrontdoor.ca/thank-you.html">
           <input type="hidden" name="_subject" value="New inquiry from theyellowfrontdoor.ca">
-          <div class="form-row">
-            <div class="form-field"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required></div>
-            <div class="form-field"><label for="business">Business name</label><input type="text" id="business" name="business" placeholder="Smith & Co."></div>
-          </div>
+          <div class="form-field"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required></div>
+          <div class="form-field"><label for="business">Business name</label><input type="text" id="business" name="business" placeholder="Smith & Co."></div>
           <div class="form-field"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="jane@yourbusiness.ca" required></div>
           <div class="form-field"><label for="website">Website (if you have one)</label><input type="url" id="website" name="website" placeholder="https://yourbusiness.ca"></div>
           <div class="form-field">
-            <label for="interest">Where would you like to start?</label>
+            <label for="interest">What are you looking for?</label>
             <select id="interest" name="interest">
               <option value="">Not sure yet — that's okay</option>
-              <option value="drive-by">A free Drive-By first</option>
-              <option value="first-look">The First Look</option>
-              <option value="window">The Window</option>
-              <option value="open-door">The Open Door</option>
-              <option value="reception-desk">The Reception Desk</option>
-              <option value="upkeep">The Upkeep (ongoing)</option>
-              <option value="everything">The whole in-market experience</option>
+              <option value="drive-by">A free Drive-By (we look at your site and tell you what we see)</option>
+              <option value="website">Help with my website</option>
+              <option value="brand">Help with brand, voice, or copy</option>
+              <option value="systems">Help with systems, email, or automations</option>
+              <option value="full">The whole picture</option>
+              <option value="question">I just have a question</option>
             </select>
           </div>
           <div class="form-field"><label for="message">What's going on?</label><textarea id="message" name="message" placeholder="What's feeling stuck? What prompted you to reach out? No need to be polished — just tell us what's going on."></textarea></div>
