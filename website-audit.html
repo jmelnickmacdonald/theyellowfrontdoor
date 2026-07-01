@@ -577,29 +577,30 @@
 
   /* email gate */
   .gate-card {
-    background: var(--white);
-    border: 1px solid var(--stone);
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 8px;
   }
 
   .gate-intro {
-    padding: 22px 28px;
-    border-bottom: 1px solid var(--stone);
+    padding: 0 0 22px 0;
+    border-bottom: none;
   }
 
   .gate-intro-title {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
     color: var(--navy);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .gate-intro-body {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     color: var(--slate);
-    line-height: 1.65;
+    line-height: 1.75;
+    max-width: 480px;
   }
 
   .gate-preview-row {
@@ -610,9 +611,8 @@
   }
 
   .gate-preview-thumb {
-    width: 80px;
+    width: 110px;
     flex-shrink: 0;
-    box-shadow: 0 2px 12px rgba(19,36,71,0.15);
   }
 
   .gate-preview-thumb img {
@@ -644,7 +644,10 @@
     .gate-preview-thumb { width: 110px; }
   }
 
-  .email-form { padding: 24px 28px; }
+  .email-form {
+    padding: 20px 0 0 0;
+    background: transparent;
+  }
 
   .form-row {
     display: flex;
@@ -895,11 +898,11 @@
 
       <div class="gate-card">
         <div class="gate-intro">
-          <div class="gate-intro-title">The companion guide</div>
-          <div class="gate-intro-body">A short guide that walks through what each section of this audit actually means, what good looks like in practice, and what to do first if a section stung a little.</div>
+          <div class="gate-intro-title">Before you go</div>
+          <div class="gate-intro-body">We put this together because we've watched a lot of small business owners stare at their own site and not know where to start. It walks through what each section of this audit actually means and what to do first. Pop your email below and we'll send it over.</div>
           <div class="gate-preview-row">
             <div class="gate-preview-thumb">
-              <img src="guide-cover.png" alt="Your Website, Honestly — companion guide">
+              <img src="guide-mockup.png" alt="Your Website, Honestly — companion guide">
             </div>
             <div class="gate-preview-text">
               <div class="gate-preview-title">Your Website, Honestly.</div>
