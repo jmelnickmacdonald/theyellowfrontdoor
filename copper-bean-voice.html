@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copper + Bean — Voice & Messaging Guide</title>
+<title>Copper + Bean — Voice & Brand Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
@@ -79,6 +79,33 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 .words-col.do .words-list span { background: var(--olive); color: var(--ivory); }
 .words-col.avoid .words-list span { background: transparent; color: var(--slate); border: 1px solid rgba(245,237,224,0.12); }
 
+/* BRIDGE */
+.bridge { padding: clamp(40px, 6vw, 64px) 0; text-align: center; border-bottom: 1px solid rgba(245,237,224,0.08); margin-bottom: clamp(40px, 6vw, 60px); }
+.bridge p { font-size: 14px; color: var(--slate); letter-spacing: 0.06em; }
+.bridge-line { width: 48px; height: 1px; background: var(--copper); margin: 0 auto 16px; }
+
+/* 06 — LOGO SUITE */
+.logo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: center; }
+.logo-cell { background: rgba(245,237,224,0.04); border: 1px solid rgba(245,237,224,0.08); padding: clamp(24px, 4vw, 40px); display: flex; align-items: center; justify-content: center; }
+.logo-cell img { max-width: 100%; max-height: 120px; width: auto; height: auto; }
+.logo-cell.dark { background: var(--ivory); }
+.logo-caption { font-size: 11px; color: var(--slate); margin-top: 10px; text-align: center; }
+
+/* 07 — COLOUR */
+.colour-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.colour-swatch { flex: 1; min-width: 120px; }
+.swatch-block { height: 80px; border-radius: 2px; margin-bottom: 10px; }
+.swatch-block.bordered { border: 1px solid rgba(245,237,224,0.12); }
+.swatch-name { font-size: 13px; font-weight: 600; color: var(--ivory); }
+.swatch-hex { font-size: 12px; color: var(--slate); font-family: var(--f-body); }
+
+/* 08 — TYPOGRAPHY */
+.type-pair { margin-bottom: 32px; }
+.type-pair:last-child { margin-bottom: 0; }
+.type-sample-display { font-family: var(--f-display); font-size: clamp(36px, 5vw, 56px); text-transform: uppercase; color: var(--ivory); letter-spacing: 0.02em; line-height: 1.0; margin-bottom: 8px; }
+.type-sample-body { font-family: var(--f-body); font-size: 16px; color: var(--stone); line-height: 1.8; max-width: 520px; }
+.type-meta { font-size: 11px; color: var(--slate); margin-top: 6px; letter-spacing: 0.05em; }
+
 /* FOOTER */
 .guide-footer { padding-top: clamp(32px, 5vw, 48px); text-align: center; border-top: 1px solid rgba(245,237,224,0.08); }
 .guide-footer p { font-size: 13px; color: var(--slate); line-height: 1.7; }
@@ -88,6 +115,11 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 @media (max-width: 640px) {
   .voice-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .sound-grid, .words-grid { grid-template-columns: 1fr; gap: 32px; }
+  .logo-grid { grid-template-columns: 1fr; gap: 16px; }
+  .logo-grid + div { grid-template-columns: 1fr !important; }
+  .colour-row { gap: 12px; }
+  .colour-swatch { min-width: 0; }
+  .swatch-block { height: 60px; }
 }
 </style>
 </head>
@@ -96,9 +128,9 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
 <div class="page">
 
   <header class="header">
-    <p class="doc-type">Voice &amp; Messaging Guide</p>
+    <p class="doc-type">Voice &amp; Brand Guide</p>
     <img src="c+bsquarelogo.png" alt="Copper + Bean" class="header-logo">
-    <p class="header-sub">A voice guide for Steve and Alexa's coffee bar.</p>
+    <p class="header-sub">A voice and brand guide for Steve and Alexa's coffee bar.</p>
     <p class="header-meta">Halifax, NS · Downtown · Concept piece</p>
   </header>
 
@@ -228,8 +260,85 @@ body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-in
     </div>
   </section>
 
+  <!-- BRIDGE -->
+  <div class="bridge">
+    <div class="bridge-line"></div>
+    <p>Voice came first. The visual identity grew from there.</p>
+  </div>
+
+  <!-- 06 — LOGO -->
+  <section class="section">
+    <p class="section-num">06</p>
+    <p class="section-label">Logo Suite</p>
+    <div class="logo-grid">
+      <div class="logo-cell">
+        <img src="c+bsquarelogo.png" alt="Copper + Bean — primary mark">
+      </div>
+      <div class="logo-cell">
+        <img src="c+brectlogo.png" alt="Copper + Bean — horizontal mark">
+      </div>
+      <div class="logo-cell dark">
+        <img src="candblogodark.png" alt="Copper + Bean — dark version for light backgrounds">
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-top:8px;">
+      <p class="logo-caption">Primary mark · dark backgrounds</p>
+      <p class="logo-caption">Horizontal · nav, footer</p>
+      <p class="logo-caption">Dark version · light backgrounds</p>
+    </div>
+  </section>
+
+  <!-- 07 — COLOUR -->
+  <section class="section">
+    <p class="section-num">07</p>
+    <p class="section-label">Colour Palette</p>
+    <div class="colour-row">
+      <div class="colour-swatch">
+        <div class="swatch-block" style="background:#111111;"></div>
+        <p class="swatch-name">Black</p>
+        <p class="swatch-hex">#111111</p>
+      </div>
+      <div class="colour-swatch">
+        <div class="swatch-block bordered" style="background:#F5EDE0;"></div>
+        <p class="swatch-name">Ivory</p>
+        <p class="swatch-hex">#F5EDE0</p>
+      </div>
+      <div class="colour-swatch">
+        <div class="swatch-block" style="background:#B87333;"></div>
+        <p class="swatch-name">Copper</p>
+        <p class="swatch-hex">#B87333</p>
+      </div>
+      <div class="colour-swatch">
+        <div class="swatch-block" style="background:#4A5A3C;"></div>
+        <p class="swatch-name">Deep Olive</p>
+        <p class="swatch-hex">#4A5A3C</p>
+      </div>
+      <div class="colour-swatch">
+        <div class="swatch-block" style="background:#C4B9AB;"></div>
+        <p class="swatch-name">Stone</p>
+        <p class="swatch-hex">#C4B9AB</p>
+      </div>
+    </div>
+    <p style="font-size:13px; color:var(--slate); margin-top:20px; line-height:1.7;">Copper and olive never sit on each other as text. They each live on their own surfaces. The palette is warm without being soft — materials, not pastels.</p>
+  </section>
+
+  <!-- 08 — TYPOGRAPHY -->
+  <section class="section">
+    <p class="section-num">08</p>
+    <p class="section-label">Typography</p>
+    <div class="type-pair">
+      <p class="type-sample-display">Good coffee. Simple food.</p>
+      <p class="type-meta">Anton · Display · Uppercase only</p>
+    </div>
+    <div class="type-pair">
+      <p class="type-sample-body">Roasted squash, pickled onion, toasted seeds, and tahini. It's one of those meals that just makes you feel like everything's going to be fine. People order it once and then it becomes their usual.</p>
+      <p class="type-meta">DM Sans · Body · 15–17px · Regular weight</p>
+    </div>
+    <p style="font-size:13px; color:var(--slate); margin-top:24px; line-height:1.7;">Anton does the heavy lifting. It's loud enough to carry a headline without decoration and quiet enough to not compete with the food. DM Sans handles everything else — menu descriptions, social captions, about copy. Clean and readable, no personality contest.</p>
+  </section>
+
   <footer class="guide-footer">
-    <p>Copper + Bean is a concept piece — a voice and messaging guide<br>showing the thinking behind the words.</p>
+    <p>Copper + Bean is a concept piece — a voice, messaging, and brand identity guide<br>showing the thinking behind the words and the decisions behind the visuals.</p>
     <p class="studio">Prepared by The Yellow Front Door</p>
   </footer>
 
