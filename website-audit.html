@@ -423,8 +423,26 @@
 
   .btn-next:hover { color: var(--clay); }
 
+  .keyboard-hint {
+    font-size: 10px;
+    color: var(--stone);
+    margin-top: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .keyboard-hint kbd {
+    display: inline-block;
+    background: #f0ede8;
+    border: 1px solid var(--stone);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    color: var(--slate);
+  }
+
   @media (max-width: 600px) {
-    .question-card { padding: 32px 24px 30px; }
+    .keyboard-hint { display: none; }
   }
 
   /* ───────── SCORE SCREEN ───────── */
@@ -841,6 +859,7 @@
         <div class="question-number" id="q-number"></div>
         <div class="question-text" id="q-text"></div>
         <div class="answer-options" id="answer-options"></div>
+        <p class="keyboard-hint">Press <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> to answer · <kbd>Enter</kbd> to continue</p>
         <div class="response-line" id="response-line">
           <div class="response-eyebrow" id="response-eyebrow"></div>
           <div class="response-text" id="response-text"></div>
@@ -1280,6 +1299,45 @@
       btn.disabled = false;
     }
   }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    const activeScreen = document.querySelector('.screen.active');
+    if (!activeScreen) return;
+
+    // On transition screen: Enter or Space continues
+    if (activeScreen.id === 'screen-transition') {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        continueFromTransition();
+      }
+      return;
+    }
+
+    // On question screen
+    if (activeScreen.id === 'screen-questions') {
+      // 1, 2, 3 select answers (Yes, Mostly, Not yet)
+      const keyMap = { '1': 2, '2': 1, '3': 0 };
+      if (keyMap[e.key] !== undefined) {
+        const btns = document.querySelectorAll('.answer-btn');
+        if (btns.length && !btns[0].disabled) {
+          const vals = [2, 1, 0];
+          const idx = vals.indexOf(keyMap[e.key]);
+          if (idx !== -1) selectAnswer(btns[idx], keyMap[e.key]);
+        }
+        return;
+      }
+
+      // Enter or Space advances to next question if answered
+      if (e.key === 'Enter' || e.key === ' ') {
+        const nextWrap = document.getElementById('next-wrap');
+        if (nextWrap.classList.contains('show')) {
+          e.preventDefault();
+          nextQuestion();
+        }
+      }
+    }
+  });
 </script>
 
 </body>
