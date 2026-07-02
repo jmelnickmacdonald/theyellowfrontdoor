@@ -314,11 +314,19 @@
     <h2 class="section-title">Handmade & homegrown</h2>
     <div class="studio-grid">
       <div class="studio-card">
-        <img class="studio-card-img" src="516800915_122238290534215594_3554167806495023009_n.jpg" alt="The studio shed at Raven House">
+        <img class="studio-card-img" src="candles.png" alt="Soy candles from the Raven House studio">
         <div class="studio-card-body">
           <span class="studio-card-tag">Year-round</span>
           <h3>Soy Candles</h3>
           <p>Small-batch soy candles made in the studio. Scents change with the season, what we're growing, what the land smells like, what feels right for the time of year.</p>
+        </div>
+      </div>
+      <div class="studio-card">
+        <img class="studio-card-img" src="soap.jpg" alt="Goat milk soap from Raven House">
+        <div class="studio-card-body">
+          <span class="studio-card-tag">Coming soon</span>
+          <h3>Goat Milk Soap</h3>
+          <p>Made with milk from our own goats. Lavender and unscented to start. Small batches, simple ingredients, nothing we wouldn't use ourselves.</p>
         </div>
       </div>
       <div class="studio-card">
@@ -329,14 +337,6 @@
           <p>What the garden produces in excess. Preserves, dried herbs, seasonal vegetables. Availability depends entirely on the year and what the weather decided to do.</p>
         </div>
       </div>
-      <div class="studio-card">
-        <img class="studio-card-img" src="518970090_122240299196215594_7373583921405675048_n.jpg" alt="Handmade goods from Raven House">
-        <div class="studio-card-body">
-          <span class="studio-card-tag">As available</span>
-          <h3>Handmade Crafts</h3>
-          <p>Seasonal and occasional. Wreaths, ornaments, small home goods. Made when time allows, sold locally. Follow along on social to see what's coming.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -345,9 +345,9 @@
 <section class="the-shed">
   <div class="the-shed-inner">
     <div class="the-shed-imgs">
-      <div class="si-main"><img src="516800915_122238290534215594_3554167806495023009_n.jpg" alt="The studio shed with door open"></div>
-      <div class="si-sm"><img src="506626320_122231613062215594_3741641693581821848_n.jpg" alt="Raven House sign at the property entrance"></div>
-      <div class="si-sm"><img src="518375573_122240008490215594_5551288576474088861_n.jpg" alt="Child with chick indoors"></div>
+      <div class="si-main"><img src="studio-shed.jpg" alt="The studio shed with door open"></div>
+      <div class="si-sm"><img src="candles.png" alt="Candles made in the studio"></div>
+      <div class="si-sm"><img src="soap.jpg" alt="Goat milk soap"></div>
     </div>
     <div class="the-shed-text">
       <span class="section-label">The studio</span>
@@ -413,7 +413,6 @@
 
 <script>
 (function(){
-  // Farm stand — Google Sheet
   var SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0fThcz27k0AnyMyA03VfvO3kLgj-Tl6sLSXCASgGR65ZKyP2FLecjnNIgTxJ8gkFO3sMBEBvQEEol/pub?output=csv';
   var FALLBACK = [
     { item: 'Chicken Eggs (dozen)', status: 'available', notes: 'Brown, cream, and blue-green', price: '$6', quantity: '8 dozen' },
@@ -448,8 +447,8 @@
         '<div class="stand-dot ' + s + '"></div>' +
         '<div><div class="stand-item-name">' + item.item + '</div>' +
         (item.notes ? '<div class="stand-item-note">' + item.notes + '</div>' : '') + '</div>' +
-        '<div class="stand-item-price">' + (item.price || '—') + '</div>' +
-        '<div class="stand-item-qty">' + (item.quantity || '—') + '</div>' +
+        '<div class="stand-item-price">' + (item.price || '\u2014') + '</div>' +
+        '<div class="stand-item-qty">' + (item.quantity || '\u2014') + '</div>' +
         '<span class="stand-item-status ' + s + '">' + label + '</span></div>';
     }).join('');
     c.innerHTML = header + rows;
@@ -467,7 +466,6 @@
     renderStand(items, 'Updated at ' + now.toLocaleTimeString('en-CA', {hour:'numeric', minute:'2-digit'}));
   }).catch(function(){ renderStand(FALLBACK, 'Could not load live data'); });
 
-  // Egg share form
   var form = document.getElementById('egg-share-form');
   if(form){
     form.addEventListener('submit', function(e){
