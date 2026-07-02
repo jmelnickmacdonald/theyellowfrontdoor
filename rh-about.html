@@ -7,491 +7,113 @@
   <meta name="description" content="The story of how we found a nearly 200-year-old home in the Annapolis Valley — and what happened next.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream:       #F7F2E8;
-      --cream-deep:  #EFE7D5;
-      --ink:         #1C1A17;
-      --ink-mid:     #3D3830;
-      --sage:        #6B7C5E;
-      --sage-light:  #8FA082;
-      --sage-pale:   #E8EDE4;
-      --terracotta:  #C47A52;
-      --terra-pale:  #F2E4D8;
-      --blush:       #E8D5C4;
-      --stone:       #9C9080;
-      --stone-light: #D4CDBF;
+      --cream: #F7F2E8; --cream-deep: #EFE7D5;
+      --ink: #1C1A17; --ink-mid: #3D3830;
+      --sage: #6B7C5E; --sage-light: #8FA082; --sage-pale: #E8EDE4;
+      --terracotta: #C47A52; --terra-pale: #F2E4D8;
+      --blush: #E8D5C4; --stone: #9C9080; --stone-light: #D4CDBF;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      font-size: 17px;
-      line-height: 1.7;
-    }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--ink); font-size: 17px; line-height: 1.7; }
 
-    /* ─── NAV ─────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(247, 242, 232, 0.96);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--stone-light);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,242,232,0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--stone-light); padding: 12px 2rem 10px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
     .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo img { height: 38px; width: auto; }
+    .nav-logo img { height: 42px; width: auto; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      transition: color 0.2s;
-    }
+    .nav-links a { text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); transition: color 0.2s; }
     .nav-links a:hover { color: var(--terracotta); }
     .nav-links a.active { color: var(--sage); }
-    .nav-cta {
-      background: var(--sage);
-      color: var(--cream) !important;
-      padding: 0.4rem 1.1rem;
-      border-radius: 2px;
-    }
+    .nav-cta { background: var(--sage); color: var(--cream) !important; padding: 0.4rem 1.1rem; border-radius: 2px; }
     .nav-cta:hover { background: var(--ink) !important; }
 
-    /* ─── PAGE HEADER ─────────────────────────── */
-    .page-header {
-      margin-top: 60px;
-      position: relative;
-      height: 55vh;
-      min-height: 380px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: 3rem 2rem;
-    }
-    .page-header-img {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-    }
-    .page-header-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(28,26,23,0.75) 0%, rgba(28,26,23,0.1) 60%);
-    }
-    .page-header-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1050px;
-      width: 100%;
-      margin: 0 auto;
-    }
-    .page-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage-light);
-      margin-bottom: 0.6rem;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 400;
-      color: white;
-      line-height: 1.15;
-    }
-    .page-header h1 em {
-      font-style: italic;
-      color: var(--blush);
-    }
+    /* PAGE HEADER */
+    .page-header { margin-top: 88px; position: relative; height: 55vh; min-height: 380px; overflow: hidden; display: flex; align-items: flex-end; padding: 3rem 2rem; }
+    .page-header-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+    .page-header-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,26,23,0.75) 0%, rgba(28,26,23,0.1) 60%); }
+    .page-header-content { position: relative; z-index: 2; max-width: 1050px; width: 100%; margin: 0 auto; }
+    .page-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 0.6rem; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; color: white; line-height: 1.15; }
+    .page-header h1 em { font-style: italic; color: var(--blush); }
 
-    /* ─── LAYOUT WRAPPER ──────────────────────── */
-    .content-wrap {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    /* SECTION LABEL */
+    .section-label { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--terracotta); display: block; margin-bottom: 0.4rem; }
 
-    /* ─── OPENING ─────────────────────────────── */
-    .opening {
-      padding: 6rem 2rem;
-      background: var(--cream);
-    }
-    .opening-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-    .opening-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 1.5rem;
-    }
-    .opening-text h2 em {
-      font-style: italic;
-      color: var(--sage);
-    }
-    .opening-text p {
-      color: var(--ink-mid);
-      margin-bottom: 1.1rem;
-      font-size: 1rem;
-    }
-    .opening-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 260px 180px;
-      gap: 8px;
-    }
-    .opening-photos .photo-main {
-      grid-column: 1 / -1;
-      overflow: hidden;
-      border-radius: 2px;
-    }
-    .opening-photos .photo-main img,
-    .opening-photos .photo-sm img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .opening-photos .photo-sm {
-      overflow: hidden;
-      border-radius: 2px;
-    }
-    .opening-photos .photo-main:hover img,
-    .opening-photos .photo-sm:hover img { transform: scale(1.04); }
+    /* OPENING */
+    .opening { padding: 6rem 2rem; background: var(--cream); }
+    .opening-inner { max-width: 1050px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .opening-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; line-height: 1.3; margin-bottom: 1.5rem; }
+    .opening-text h2 em { font-style: italic; color: var(--sage); }
+    .opening-text p { color: var(--ink-mid); margin-bottom: 1.1rem; font-size: 1rem; }
+    .opening-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 260px 180px; gap: 8px; }
+    .opening-photos .photo-main { grid-column: 1 / -1; overflow: hidden; border-radius: 2px; }
+    .opening-photos .photo-main img, .opening-photos .photo-sm img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .opening-photos .photo-sm { overflow: hidden; border-radius: 2px; }
+    .opening-photos .photo-main:hover img, .opening-photos .photo-sm:hover img { transform: scale(1.04); }
 
-    /* ─── PULL QUOTE ──────────────────────────── */
-    .pull-quote {
-      background: var(--ink);
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-    .pull-quote blockquote {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 500;
-      color: var(--cream);
-      max-width: 700px;
-      margin: 0 auto 1rem;
-      line-height: 1.4;
-    }
-    .pull-quote cite {
-      font-size: 0.78rem;
-      font-style: normal;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sage-light);
-    }
+    /* PULL QUOTE */
+    .pull-quote { background: var(--ink); padding: 5rem 2rem; text-align: center; }
+    .pull-quote blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; font-style: italic; color: var(--cream); max-width: 700px; margin: 0 auto 1rem; line-height: 1.4; }
+    .pull-quote cite { font-size: 0.78rem; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-light); }
 
-    /* ─── RAVENS ──────────────────────────────── */
-    .ravens {
-      padding: 6rem 2rem;
-      background: var(--cream-deep);
-    }
-    .ravens-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 6rem;
-      align-items: center;
-    }
-    .ravens-img {
-      position: relative;
-    }
-    .ravens-img img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      border-radius: 2px;
-      display: block;
-    }
-    .ravens-text .section-label {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.5rem;
-      color: var(--terracotta);
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .ravens-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: 1.4rem;
-    }
-    .ravens-text p {
-      color: var(--ink-mid);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
+    /* RAVENS */
+    .ravens { padding: 6rem 2rem; background: var(--cream-deep); }
+    .ravens-inner { max-width: 1050px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: center; }
+    .ravens-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 2px; display: block; }
+    .ravens-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 400; line-height: 1.3; margin-bottom: 1.4rem; }
+    .ravens-text p { color: var(--ink-mid); margin-bottom: 1rem; font-size: 1rem; }
 
-    /* ─── FAMILY STRIP ────────────────────────── */
-    .family {
-      padding: 6rem 2rem;
-      background: var(--sage-pale);
-    }
-    .family-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
-    .family-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .family-header .section-label {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.5rem;
-      color: var(--terracotta);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .family-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 400;
-    }
+    /* VALUES */
+    .values { padding: 6rem 2rem; background: var(--cream); }
+    .values-inner { max-width: 1050px; margin: 0 auto; }
+    .values-header { max-width: 560px; margin-bottom: 4rem; }
+    .values-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; line-height: 1.3; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .value-item { padding: 2rem 1.5rem; border-top: 2px solid var(--stone-light); }
+    .value-item h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.6rem; color: var(--ink); }
+    .value-item p { font-size: 0.9rem; color: var(--stone); line-height: 1.7; }
 
-    .family-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .family-card {
-      background: var(--cream);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .family-card-img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-    .family-card-body {
-      padding: 1.2rem;
-    }
-    .family-card-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-    }
-    .family-card-body p {
-      font-size: 0.85rem;
-      color: var(--stone);
-      line-height: 1.6;
-    }
-
-    /* ─── VALUES ──────────────────────────────── */
-    .values {
-      padding: 6rem 2rem;
-      background: var(--cream);
-    }
-    .values-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
-    .values-header {
-      max-width: 560px;
-      margin-bottom: 4rem;
-    }
-    .values-header .section-label {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.5rem;
-      color: var(--terracotta);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .values-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 400;
-      line-height: 1.3;
-    }
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .value-item {
-      padding: 2rem 1.5rem;
-      border-top: 2px solid var(--stone-light);
-    }
-    .value-item h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 0.6rem;
-      color: var(--ink);
-    }
-    .value-item p {
-      font-size: 0.9rem;
-      color: var(--stone);
-      line-height: 1.7;
-    }
-
-    /* ─── PHOTO ROW ───────────────────────────── */
-    .photo-row {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      height: 320px;
-      gap: 4px;
-    }
-    .photo-row-item {
-      overflow: hidden;
-    }
-    .photo-row-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
+    /* PHOTO ROW */
+    .photo-row { display: grid; grid-template-columns: repeat(5, 1fr); height: 320px; gap: 4px; }
+    .photo-row-item { overflow: hidden; }
+    .photo-row-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
     .photo-row-item:hover img { transform: scale(1.05); }
 
-    /* ─── CTA ─────────────────────────────────── */
-    .about-cta {
-      padding: 6rem 2rem;
-      background: var(--terra-pale);
-      text-align: center;
-    }
-    .about-cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-    .about-cta p {
-      color: var(--ink-mid);
-      max-width: 480px;
-      margin: 0 auto 2rem;
-      font-size: 1rem;
-    }
-    .cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-solid {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--cream);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.8rem;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
+    /* CTA */
+    .about-cta { padding: 6rem 2rem; background: var(--terra-pale); text-align: center; }
+    .about-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1rem; }
+    .about-cta p { color: var(--ink-mid); max-width: 480px; margin: 0 auto 2rem; font-size: 1rem; }
+    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-solid { display: inline-block; background: var(--ink); color: var(--cream); text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.85rem 1.8rem; border-radius: 2px; transition: background 0.2s; }
     .btn-solid:hover { background: var(--sage); }
-    .btn-outline {
-      display: inline-block;
-      border: 1.5px solid var(--ink);
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.8rem;
-      border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
-    }
+    .btn-outline { display: inline-block; border: 1.5px solid var(--ink); color: var(--ink); text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.85rem 1.8rem; border-radius: 2px; transition: background 0.2s, color 0.2s; }
     .btn-outline:hover { background: var(--ink); color: var(--cream); }
 
-    /* ─── FOOTER ─────────────────────────────── */
-    footer {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 4rem 2rem 2rem;
-    }
-    .footer-inner {
-      max-width: 1050px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(247,242,232,0.1);
-    }
-    .footer-brand img {
-      height: 60px; width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.85;
-      margin-bottom: 1rem;
-    }
-    .footer-brand p {
-      font-size: 0.9rem;
-      color: rgba(247,242,232,0.55);
-      line-height: 1.7;
-      max-width: 280px;
-    }
-    .footer-col h4 {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sage-light);
-      margin-bottom: 1.2rem;
-    }
+    /* FOOTER */
+    footer { background: var(--ink); color: var(--cream); padding: 4rem 2rem 2rem; }
+    .footer-inner { max-width: 1050px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(247,242,232,0.1); }
+    .footer-brand img { height: 60px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.9rem; color: rgba(247,242,232,0.55); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 1.2rem; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 0.6rem; }
-    .footer-col ul a {
-      text-decoration: none;
-      color: rgba(247,242,232,0.65);
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
+    .footer-col ul a { text-decoration: none; color: rgba(247,242,232,0.65); font-size: 0.9rem; transition: color 0.2s; }
     .footer-col ul a:hover { color: var(--terracotta); }
-    .footer-bottom {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding-top: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      color: rgba(247,242,232,0.35);
-    }
+    .footer-bottom { max-width: 1050px; margin: 0 auto; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(247,242,232,0.35); }
     .footer-email a { color: var(--terracotta); text-decoration: none; }
 
-    /* ─── MOBILE ─────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .opening-inner { grid-template-columns: 1fr; gap: 3rem; }
       .opening-photos { grid-template-rows: 220px 150px; }
       .ravens-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .family-grid { grid-template-columns: 1fr 1fr; }
       .values-grid { grid-template-columns: 1fr; }
       .photo-row { grid-template-columns: repeat(3, 1fr); height: 220px; }
-      .photo-row-item:nth-child(4),
-      .photo-row-item:nth-child(5) { display: none; }
+      .photo-row-item:nth-child(4), .photo-row-item:nth-child(5) { display: none; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
@@ -499,23 +121,20 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="rh-index.html" class="nav-logo">
-    <img src="ravenhouseLogo.png" alt="Raven House Co.">
+  <a href="rh-farm.html" class="nav-logo">
+    <img src="blackrhlogo.png" alt="Raven House Co.">
   </a>
   <ul class="nav-links">
     <li><a href="rh-about.html" class="active">About Us</a></li>
-    <li><a href="rh-farm.html">Farm & Homestead</a></li>
     <li><a href="rh-learning.html">RH Learning</a></li>
     <li><a href="rh-shop.html">Shop & Studio</a></li>
     <li><a href="rh-contact.html" class="nav-cta">Say Hello</a></li>
   </ul>
 </nav>
 
-<!-- PAGE HEADER -->
 <header class="page-header">
-  <img class="page-header-img" src="480197074_122203419698215594_6155014477959465842_n.jpg" alt="Children walking the path at Raven House">
+  <img class="page-header-img" src="goosehero.png" alt="Geese at Raven House">
   <div class="page-header-overlay"></div>
   <div class="page-header-content">
     <p class="page-eyebrow">Our story</p>
@@ -523,13 +142,12 @@
   </div>
 </header>
 
-<!-- OPENING -->
 <section class="opening">
   <div class="opening-inner">
     <div class="opening-text">
       <h2>In 2023, we found ourselves owners of a nearly 200-year-old home. It felt less like moving in and more like stepping into <em>a living history.</em></h2>
       <p>We moved to the Annapolis Valley, just outside Greenwood, where the Black River winds its way through. The house had creaking floors, deep roots, and stories tucked into every corner. Six of us. No farm experience to speak of.</p>
-      <p>We traded the commute for birdsong and noisy roosters, river walks, and the everyday rhythm of a life lived differently. We gained a slower pace — and an appreciation for small things. Mushroom fairy circles under decades-old spruce. The way the river rises and falls as the year turns.</p>
+      <p>We traded the commute for birdsong and noisy roosters, river walks, and the everyday rhythm of a life lived differently. We gained a slower pace and an appreciation for small things. Mushroom fairy circles under decades-old spruce. The way the river rises and falls as the year turns.</p>
       <p>We are raising our kids to notice things. To do the actual work. To be outside more than inside. The farm has been the best teacher we've found.</p>
     </div>
     <div class="opening-photos">
@@ -546,13 +164,11 @@
   </div>
 </section>
 
-<!-- PULL QUOTE -->
 <section class="pull-quote">
   <blockquote>"We are raising our children to notice, to wonder, and to take part in the crazy we call life."</blockquote>
   <cite>— Raven House Co.</cite>
 </section>
 
-<!-- RAVENS -->
 <section class="ravens">
   <div class="ravens-inner">
     <div class="ravens-img">
@@ -561,13 +177,12 @@
     <div class="ravens-text">
       <span class="section-label">The name</span>
       <h2>Two ravens were waiting in the driveway on moving day.</h2>
-      <p>Pulling into the driveway on moving day, there stood two ravens — as if waiting. Not long after, we realized they were here before us and weren't going anywhere.</p>
+      <p>Pulling into the driveway on moving day, there stood two ravens, as if waiting. Not long after, we realized they were here before us and weren't going anywhere.</p>
       <p>Even now, they circle above us several times a day, keeping watch, and happily accepting eggs when offered. We named the place after them. It felt right.</p>
     </div>
   </div>
 </section>
 
-<!-- VALUES -->
 <section class="values">
   <div class="values-inner">
     <div class="values-header">
@@ -577,11 +192,11 @@
     <div class="values-grid">
       <div class="value-item">
         <h3>The animals don't care what's on the calendar</h3>
-        <p>Feed them anyway. That rhythm has done more for this family than any routine we've tried to build intentionally.</p>
+        <p>Feed them anyway. That rhythm has done more for this family than any routine we've tried to build.</p>
       </div>
       <div class="value-item">
         <h3>Kids do better with real stakes</h3>
-        <p>A sick goat. A late frost. An egg that didn't make it. The farm teaches things no curriculum does — and the kids are better for it.</p>
+        <p>A sick goat. A late frost. An egg that didn't make it. The farm teaches things no curriculum does, and the kids are better for it.</p>
       </div>
       <div class="value-item">
         <h3>Loud and muddy is fine</h3>
@@ -603,47 +218,33 @@
   </div>
 </section>
 
-<!-- PHOTO ROW -->
 <div class="photo-row">
-  <div class="photo-row-item">
-    <img src="520105646_122240299328215594_1696924346446169414_n.jpg" alt="Boy with the calf">
-  </div>
-  <div class="photo-row-item">
-    <img src="518970090_122240299196215594_7373583921405675048_n.jpg" alt="Raven House learning materials">
-  </div>
-  <div class="photo-row-item">
-    <img src="512690907_122235266804215594_4171212690145249456_n.jpg" alt="Child on horse in princess dress">
-  </div>
-  <div class="photo-row-item">
-    <img src="524331212_122242383350215594_2793304318457154875_n.jpg" alt="Baby goat portrait">
-  </div>
-  <div class="photo-row-item">
-    <img src="488856518_122215201838215594_6727058613650988504_n.jpg" alt="Farm fresh eggs">
-  </div>
+  <div class="photo-row-item"><img src="520105646_122240299328215594_1696924346446169414_n.jpg" alt="Boy with the calf"></div>
+  <div class="photo-row-item"><img src="518970090_122240299196215594_7373583921405675048_n.jpg" alt="Raven House learning materials"></div>
+  <div class="photo-row-item"><img src="512690907_122235266804215594_4171212690145249456_n.jpg" alt="Child on horse in princess dress"></div>
+  <div class="photo-row-item"><img src="524331212_122242383350215594_2793304318457154875_n.jpg" alt="Baby goat portrait"></div>
+  <div class="photo-row-item"><img src="488856518_122215201838215594_6727058613650988504_n.jpg" alt="Farm fresh eggs"></div>
 </div>
 
-<!-- CTA -->
 <section class="about-cta">
   <h2>Come find us on the farm.</h2>
-  <p>If you're curious about RH Learning, looking for eggs, or just want to say hello — we're easy to reach.</p>
+  <p>If you're curious about RH Learning, looking for eggs, or just want to say hello, we're easy to reach.</p>
   <div class="cta-group">
     <a href="rh-contact.html" class="btn-solid">Say hello</a>
-    <a href="rh-farm.html" class="btn-outline">See the farm</a>
+    <a href="rh-shop.html" class="btn-outline">Visit the shop</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="ravenhouseLogo.png" alt="Raven House Co.">
-      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, small-group learning, handmade goods, and the honest work of raising a family close to the land.</p>
+      <img src="ravenhouselogo.png" alt="Raven House Co.">
+      <p>A working homestead in the Annapolis Valley of Nova Scotia. Farm life, handmade goods, and the honest work of raising a family close to the land.</p>
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
       <ul>
         <li><a href="rh-about.html">About Us</a></li>
-        <li><a href="rh-farm.html">Farm & Homestead</a></li>
         <li><a href="rh-learning.html">RH Learning</a></li>
         <li><a href="rh-shop.html">Shop & Studio</a></li>
         <li><a href="rh-contact.html">Contact</a></li>
@@ -662,7 +263,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Raven House Co. — Annapolis Valley, NS</span>
+    <span>&copy; 2025 Raven House Co. &mdash; Annapolis Valley, NS</span>
     <span>Laid by happy birds. Collected by noisy kids.</span>
   </div>
 </footer>
