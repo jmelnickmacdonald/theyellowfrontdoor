@@ -133,12 +133,41 @@
     .footer-bottom { max-width: 1050px; margin: 0 auto; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(247,242,232,0.35); }
     .footer-email a { color: var(--terracotta); text-decoration: none; }
 
+    /* HAMBURGER */
+    .menu-toggle { display: none; position: absolute; top: 14px; right: 16px; background: none; border: none; cursor: pointer; width: 44px; height: 44px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; padding: 0; z-index: 110; }
+    .menu-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink-mid); transition: all 0.3s ease; }
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+    .mobile-nav { display: none; position: fixed; inset: 0; z-index: 105; background: var(--ink); flex-direction: column; align-items: center; justify-content: center; gap: 0; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; color: var(--cream); padding: 16px 0; text-decoration: none; transition: color 0.3s; }
+    .mobile-nav a:hover { color: var(--terracotta); }
+    .mobile-nav .nav-hi-m { color: var(--sage-light); }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .rhl-intro-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .menu-toggle { display: flex; }
+      .mobile-nav { display: flex; }
+      nav { position: relative; }
+
+      /* Hero - compact on mobile */
+      .page-header { height: 22vh; min-height: 160px; margin-top: 70px; padding: 1.2rem; }
+      .page-header h1 { font-size: clamp(1.4rem, 4.5vw, 1.8rem); }
+      .page-eyebrow { font-size: 0.6rem; margin-bottom: 0.2rem; }
+
+      /* Sections - tighter padding */
+      .rhl-intro { padding: 3rem 1.2rem; }
+      .rhl-intro-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .what-it-is { padding: 3rem 1.2rem; }
       .offerings-grid { grid-template-columns: 1fr; }
-      .approach-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .approach { padding: 3rem 1.2rem; }
+      .approach-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .wonder { padding: 3rem 1.2rem; }
       .wonder-grid { grid-template-columns: 1fr; }
+      .curriculum { padding: 3rem 1.2rem; }
+      .rhl-cta { padding: 3rem 1.2rem; }
+      .status-notice { padding: 2rem 1.2rem; }
       .photo-strip { grid-template-columns: 1fr 1fr; height: 200px; }
       .photo-strip-item:nth-child(3), .photo-strip-item:nth-child(4) { display: none; }
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
@@ -158,7 +187,16 @@
     <li><a href="rh-shop.html">Shop & Studio</a></li>
     <li><a href="rh-contact.html" class="nav-cta">Say Hello</a></li>
   </ul>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="rh-about.html">About Us</a>
+  <a href="rh-learning.html">RH Learning</a>
+  <a href="rh-shop.html">Shop & Studio</a>
+  <a href="rh-contact.html" class="nav-hi-m">Say Hello</a>
+</div>
 
 <header class="page-header">
   <img class="page-header-img" src="learninghero.png" alt="Children learning outdoors at Raven House">
@@ -250,7 +288,7 @@
 <section class="approach">
   <div class="approach-inner">
     <div class="approach-img">
-      <img src="526277777_122243389178215594_5894167671965188844_n.jpg" alt="Children learning at an outdoor table">
+      <img src="child-chick.jpg" alt="Child reading with a baby chick">
     </div>
     <div class="approach-text">
       <span class="section-label">How we teach</span>
@@ -353,5 +391,23 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var toggle = document.getElementById('menu-toggle');
+  var mobileNav = document.getElementById('mobile-nav');
+  toggle.addEventListener('click', function(){
+    var isOpen = toggle.classList.toggle('open');
+    mobileNav.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      toggle.classList.remove('open');
+      mobileNav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 </body>
 </html>
