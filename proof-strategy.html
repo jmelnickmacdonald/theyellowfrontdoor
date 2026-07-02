@@ -20,8 +20,6 @@ img{display:block;max-width:100%;height:auto;}
 a{color:inherit;text-decoration:none;}
 ul{list-style:none;}
 .container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
-
-/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);transition:box-shadow .3s;}
 .nav.scrolled{box-shadow:0 2px 24px rgba(19,36,71,.5);}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
@@ -33,24 +31,18 @@ ul{list-style:none;}
 .nav-cta:hover{background:var(--brass)!important;}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
-
-/* PAGE HEADER */
 .page-header{padding:clamp(80px,10vw,120px) 0 clamp(42px,6vw,66px);margin-top:72px;border-bottom:1px solid var(--stone);background:linear-gradient(180deg,#fff 0%,#fbfaf7 100%);}
 .page-header-inner{max-width:680px;}
 .breadcrumb{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:20px;}
 .breadcrumb a{color:var(--slate);transition:color .2s;}
 .breadcrumb a:hover{color:var(--ink);}
 .breadcrumb span{margin:0 8px;color:var(--stone);}
-.page-header h1 { font-family: var(--f-head); font-size: clamp(32px, 4.5vw, 52px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; } .page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(28px, 3.5vw, 44px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 14px; letter-spacing: 0; }
+.page-header h1{font-family:var(--f-head);font-size:clamp(32px,4.5vw,52px);font-weight:500;color:var(--ink);letter-spacing:-.02em;line-height:1.08;}
 .accent-line{display:block;font-family:var(--f-accent);font-size:clamp(28px,3.5vw,44px);font-weight:normal;color:var(--slate);line-height:1.25;margin-top:14px;letter-spacing:0;}
 .page-intro{font-size:15px;line-height:1.9;color:var(--slate);max-width:620px;margin-top:22px;}
-
-/* GRID */
 .proof-grid{padding:clamp(56px,7vw,96px) 0;}
 .proof-grid-inner{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--stone);}
 .proof-card{background:var(--paper);padding:clamp(32px,4vw,52px);}
-.card-image{width:100%;height:220px;object-fit:cover;display:block;margin-bottom:28px;background:var(--paper-mid);}
-.card-image-placeholder{width:100%;height:220px;background:var(--paper-mid);margin-bottom:28px;display:flex;align-items:center;justify-content:center;}
 .card-eyebrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
 .card-tag{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);background:transparent;border:1px solid var(--stone);padding:4px 10px;}
 .card-tag-concept{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);background:transparent;border:1px solid var(--clay);padding:4px 10px;opacity:.8;}
@@ -63,12 +55,13 @@ ul{list-style:none;}
 .card-link:hover{color:var(--clay);}
 .card-link-coming{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);}
 
-/* LYDIA SECTION — spans full width */
+/* FULL-WIDTH CARD for odd count */
+.proof-card.full-width{grid-column:1 / -1;}
+
 .lydia-section{padding:clamp(56px,7vw,96px) 0;border-top:2px solid var(--stone);}
 .lydia-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px);align-items:start;}
 .lydia-image-wrap{position:relative;}
 .lydia-image{width:100%;height:480px;object-fit:cover;display:block;}
-.lydia-content{}
 .section-eyebrow{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
 .lydia-heading{font-family:var(--f-head);font-size:clamp(22px,2.5vw,32px);font-weight:500;color:var(--ink);letter-spacing:-.015em;line-height:1.2;margin-bottom:18px;}
 .lydia-body{font-size:15px;line-height:1.9;color:var(--slate);margin-bottom:14px;}
@@ -79,15 +72,11 @@ ul{list-style:none;}
 .lydia-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
 .lydia-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--yellow);padding-bottom:2px;transition:color .2s;}
 .lydia-link:hover{color:var(--clay);}
-
-/* COMING SOON */
 .coming-strip{background:var(--paper-mid);border-top:1px solid var(--stone);border-bottom:1px solid var(--stone);padding:clamp(36px,4vw,52px) 0;}
 .coming-inner{max-width:640px;}
 .coming-label{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--clay);margin-bottom:12px;}
 .coming-heading{font-family:var(--f-head);font-size:clamp(18px,2vw,24px);font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:10px;}
 .coming-body{font-size:14px;line-height:1.85;color:var(--slate);}
-
-/* FOOTER */
 .footer{background:var(--paper);padding:48px 0 32px;border-top:1px solid var(--stone);}
 .footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
 .footer-logo{display:block;width:96px;height:96px;margin:0 auto 12px;}
@@ -99,9 +88,9 @@ ul{list-style:none;}
 .footer-bottom{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
 .footer-copy{font-size:11px;color:var(--slate);letter-spacing:.05em;}
 .footer-dot{width:4px;height:4px;background:var(--yellow);border-radius:50%;flex-shrink:0;}
-
 @media(max-width:860px){
   .proof-grid-inner{grid-template-columns:1fr;}
+  .proof-card.full-width{grid-column:auto;}
   .lydia-inner{grid-template-columns:1fr;}
   .lydia-image{height:320px;}
 }
@@ -217,11 +206,30 @@ ul{list-style:none;}
         <a href="writing-tool.html" class="card-link">Walk through the workflow &rarr;</a>
       </div>
 
+      <!-- RAVEN HOUSE -->
+      <div class="proof-card full-width">
+        <div class="card-eyebrow">
+          <span class="card-tag">Own project</span>
+          <span class="card-tag">Live inventory automation</span>
+        </div>
+        <h2 class="card-heading">Raven House Co.</h2>
+        <p class="card-sub">One spreadsheet runs the whole stand</p>
+        <p class="card-body">A working homestead selling eggs, soap, candles, and garden goods. The owner needed to update what was available without logging into anything, and a way to let egg share subscribers know when the stand was restocked. We built it on a Google Sheet. She updates one spreadsheet on her phone between morning chores, and two things happen automatically: the farm stand board on the website refreshes with current inventory, and subscribers get a formatted email with what's available. No CMS, no app, no monthly fees.</p>
+        <div class="card-stack">
+          <span class="stack-pip">Google Sheets</span>
+          <span class="stack-pip">CSV publish</span>
+          <span class="stack-pip">Live website board</span>
+          <span class="stack-pip">MailerLite</span>
+          <span class="stack-pip">Formspree</span>
+        </div>
+        <a href="farm-stand-demo.html" class="card-link">See how it works &rarr;</a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- LYDIA NICHOLS — full-width feature -->
+<!-- LYDIA NICHOLS -->
 <section class="lydia-section">
   <div class="container">
     <div class="lydia-inner">
