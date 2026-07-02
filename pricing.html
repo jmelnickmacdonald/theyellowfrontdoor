@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — The Yellow Front Door</title>
+<meta name="description" content="Website pricing for small businesses in the Annapolis Valley. Custom sites with copy included, platform refreshes, and ongoing support. Starting at $750.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: block;
+}
+:root {
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
+  --navy: #132447; --sky: #4d5c7b;
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
+  --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(56px, 8vw, 96px);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
+.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
+.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo img { height: 56px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-links a.active { font-weight: 600; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta:hover { background: var(--brass) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+
+/* HERO */
+.pkg-hero { margin-top: 72px; background: var(--paper); padding: clamp(48px, 7vw, 88px) 0 clamp(24px, 4vw, 48px); }
+.pkg-hero-inner { max-width: 780px; }
+.pkg-hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.pkg-hero-badge { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; }
+.pkg-hero-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
+.pkg-hero h1 { font-family: var(--f-head); font-size: clamp(32px, 4.5vw, 52px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 24px; }
+.pkg-hero p { font-size: 17px; line-height: 1.8; color: var(--ink); font-weight: 400; margin-bottom: 16px; max-width: 640px; }
+.pkg-hero p:last-of-type { margin-bottom: 0; }
+
+/* COPY CALLOUT */
+.copy-callout { background: var(--navy); padding: clamp(36px, 5vw, 56px) 0; }
+.copy-callout-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.copy-callout-mark { font-family: var(--f-accent); font-size: clamp(64px, 8vw, 96px); color: var(--yellow); line-height: 0.8; margin-bottom: 12px; display: block; }
+.copy-callout p { font-size: 17px; line-height: 1.85; color: rgba(255,252,244,0.9); font-weight: 400; }
+.copy-callout p strong { color: var(--paper); font-weight: 600; }
+
+/* SECTION HEADERS */
+.section-header { margin-bottom: clamp(32px, 4vw, 48px); }
+.section-header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px; display: block; }
+.section-header h2 { font-family: var(--f-head); font-size: clamp(28px, 3.5vw, 42px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
+.section-header p { font-size: 16px; line-height: 1.75; color: var(--ink); max-width: 600px; }
+
+/* PACKAGE CARDS */
+.build-section { background: var(--paper); padding: var(--section-gap) 0; }
+.pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
+.pkg-card { background: var(--paper); padding: clamp(28px, 3vw, 40px); display: grid; grid-template-rows: auto 1fr; }
+.pkg-card.featured { border-top: 4px solid var(--yellow); }
+.pkg-for { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
+.pkg-name { font-family: var(--f-accent); font-size: clamp(28px, 3vw, 36px); color: var(--ink); line-height: 1.1; margin-bottom: 6px; }
+.pkg-price { font-family: var(--f-head); font-size: clamp(24px, 2.5vw, 32px); font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+.pkg-price .pkg-original { text-decoration: line-through; color: var(--slate); font-size: 0.75em; font-weight: 400; margin-right: 6px; }
+.pkg-launch-tag { display: inline-block; background: var(--yellow); color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 16px; }
+.pkg-price-note { font-size: 13px; color: var(--slate); margin-bottom: 20px; display: block; }
+.pkg-desc { font-size: 15px; line-height: 1.75; color: var(--ink); margin-bottom: 24px; }
+.pkg-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 20px; }
+.pkg-includes-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px; display: block; }
+.pkg-list { list-style: none; margin-bottom: 28px; flex-grow: 1; }
+.pkg-list li { font-size: 14px; line-height: 1.6; color: var(--ink); padding: 7px 0; padding-left: 20px; position: relative; border-bottom: 1px solid rgba(216,209,195,0.4); }
+.pkg-list li:last-child { border-bottom: none; }
+.pkg-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+.pkg-top { flex-grow: 0; flex-shrink: 0; }
+.pkg-bottom { display: flex; flex-direction: column; flex-grow: 1; }
+.pkg-cta { display: block; text-align: center; background: var(--ink); color: var(--paper); padding: 14px 24px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; margin-top: auto; }
+.pkg-cta:hover { background: var(--slate); }
+.pkg-card.featured .pkg-cta { background: var(--yellow); color: var(--ink); }
+.pkg-card.featured .pkg-cta:hover { background: var(--brass); }
+
+/* VALUE PROOF */
+.pkg-value { margin-top: 28px; padding: clamp(20px, 3vw, 32px); background: var(--paper); border: 1px solid var(--stone); border-left: 4px solid var(--yellow); }
+.pkg-value-title { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 10px; display: block; }
+.pkg-value p { font-size: 14px; line-height: 1.7; color: var(--ink); }
+
+/* ALREADY HAVE SECTION */
+.existing-section { background: var(--paper); padding: var(--section-gap) 0; border-top: 1px solid var(--stone); }
+.existing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
+.existing-card { background: var(--paper); padding: clamp(28px, 3vw, 40px); display: grid; grid-template-rows: auto 1fr; }
+
+/* SYSTEMS SECTION */
+.systems-section { background: var(--navy); padding: var(--section-gap) 0; }
+.systems-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
+.systems-inner h2 { font-family: var(--f-head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 500; color: var(--paper); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+.systems-inner h2 span { font-family: var(--f-accent); color: var(--yellow); font-weight: normal; display: block; font-size: 1.05em; }
+.systems-left p { font-size: 16px; line-height: 1.85; color: rgba(255,252,244,0.8); margin-bottom: 16px; }
+.systems-left p:last-child { margin-bottom: 0; }
+.systems-examples { border-top: 1px solid rgba(255,252,244,0.15); padding-top: 28px; }
+.systems-example { padding: 18px 0; border-bottom: 1px solid rgba(255,252,244,0.1); }
+.systems-example:last-child { border-bottom: none; }
+.systems-pain { font-size: 15px; font-weight: 500; color: var(--yellow); margin-bottom: 4px; }
+.systems-fix { font-size: 14px; color: rgba(255,252,244,0.75); line-height: 1.65; }
+.systems-cta { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; margin-top: 28px; }
+.systems-cta:hover { background: var(--brass); }
+
+/* A LA CARTE */
+.alacarte-section { background: var(--paper); padding: var(--section-gap) 0; border-top: 1px solid var(--stone); }
+.alacarte-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
+.alacarte-left h2 { font-family: var(--f-head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+.alacarte-left p { font-size: 16px; line-height: 1.85; color: var(--ink); margin-bottom: 20px; }
+.alacarte-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.alacarte-btn:hover { background: var(--slate); }
+.alacarte-list { columns: 2; column-gap: 32px; }
+.alacarte-item { break-inside: avoid; padding: 14px 0; border-bottom: 1px solid var(--stone); }
+.alacarte-item-name { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+.alacarte-item-desc { font-size: 13px; color: var(--slate); line-height: 1.55; }
+
+/* FIRST LOOK BANNER */
+.firstlook-section { background: var(--paper); padding: clamp(36px, 5vw, 56px) 0; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); }
+.firstlook-inner { display: grid; grid-template-columns: 1fr auto; gap: clamp(28px, 4vw, 56px); align-items: center; }
+.firstlook-inner h3 { font-family: var(--f-head); font-size: clamp(22px, 2.8vw, 30px); font-weight: 500; color: var(--ink); line-height: 1.2; margin-bottom: 8px; }
+.firstlook-inner p { font-size: 15px; line-height: 1.75; color: var(--ink); max-width: 560px; }
+.firstlook-price { font-family: var(--f-head); font-size: clamp(28px, 3vw, 38px); font-weight: 500; color: var(--ink); white-space: nowrap; }
+.firstlook-price span { display: block; font-size: 13px; font-weight: 400; color: var(--slate); letter-spacing: 0.05em; margin-top: 2px; }
+
+/* CTA */
+.cta-section { background: var(--sky); text-align: center; position: relative; overflow: hidden; }
+.cta-inner { position: relative; z-index: 1; padding: var(--section-gap) 0; }
+.cta-dot { width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; margin: 0 auto 28px; }
+.cta-section h2 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 44px); font-weight: 500; color: var(--paper); letter-spacing: -0.02em; margin-bottom: 8px; }
+.cta-accent { font-family: var(--f-accent); font-size: clamp(32px, 4.5vw, 56px); color: var(--yellow); display: block; line-height: 1.2; margin-bottom: 20px; }
+.cta-p { font-size: 17px; color: rgba(255,252,244,0.85); max-width: 480px; margin: 0 auto 40px; line-height: 1.75; font-weight: 400; }
+.cta-btn { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.cta-btn:hover { background: var(--brass); }
+.cta-note { margin-top: 16px; font-size: 11px; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* FOOTER */
+.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
+.footer-logo-wrap { margin-bottom: 16px; }
+.footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
+.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
+.footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
+.footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
+.footer-nav a:hover { color: var(--ink); }
+.footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .pkg-grid { grid-template-columns: 1fr; }
+  .existing-grid { grid-template-columns: 1fr; }
+  .systems-inner { grid-template-columns: 1fr; }
+  .alacarte-inner { grid-template-columns: 1fr; }
+  .alacarte-list { columns: 1; }
+  .firstlook-inner { grid-template-columns: 1fr; text-align: center; }
+  .firstlook-inner p { margin-left: auto; margin-right: auto; }
+  .firstlook-price { margin-top: 8px; }
+  .systems-examples { margin-top: 32px; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
+  .nav-toggle { display: flex; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .pkg-hero-eyebrow { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .copy-callout-mark { font-size: 56px; }
+  .copy-callout p { font-size: 15px; }
+  .pkg-card, .existing-card { padding: 28px 24px; }
+  .pkg-name { font-size: 28px; }
+  .pkg-desc { font-size: 14px; }
+  .pkg-list li { font-size: 13px; }
+  .systems-pain { font-size: 14px; }
+  .systems-fix { font-size: 13px; }
+  .alacarte-item-name { font-size: 13px; }
+  .alacarte-item-desc { font-size: 12px; }
+  .pkg-value p { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo2.png" alt="The Yellow Front Door">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pkg-hero">
+  <div class="container">
+    <div class="pkg-hero-inner">
+      <div class="pkg-hero-eyebrow">
+        <span class="pkg-hero-badge">Pricing</span>
+        <span class="pkg-hero-label">What it costs and what you get</span>
+      </div>
+      <h1>What it costs, what you get,<br>and why nothing is left to guess.</h1>
+      <p>Every package includes the copy. Not a template with blanks to fill in. Julianna sits with you, learns your business, and writes the words so you never have to stare at an empty About page wondering what it is supposed to say.</p>
+      <p>Every site we build is also structured so that search engines and AI tools can find you and recommend you. We do not charge extra for that. It is just part of how we work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COPY CALLOUT -->
+<div class="copy-callout">
+  <div class="container">
+    <div class="copy-callout-inner">
+      <span class="copy-callout-mark">"</span>
+      <p><strong>Your copy is written for you.</strong> Every package includes the words, written by someone who has spent a career helping people find the right language and refine their voice. You will never sit at your computer trying to fill in a template wondering what your About page is supposed to say. That part is done for you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BUILDING SOMETHING -->
+<section class="build-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header-label">Building something</span>
+      <h2>Pick the one that fits where you are right now.</h2>
+    </div>
+
+    <div class="pkg-grid">
+
+      <!-- THE STARTER -->
+      <div class="pkg-card">
+        <div class="pkg-top">
+          <span class="pkg-for">Just getting started</span>
+          <h3 class="pkg-name">The Starter</h3>
+          <div class="pkg-price"><span class="pkg-original">Starting at $900</span> $750</div>
+          <span class="pkg-launch-tag">Launch pricing</span>
+          <p class="pkg-desc">You need to be findable. We start with a short conversation to understand your business, then build a clean, professional site that tells people who you are and how to reach you. The copy is included, and there are no monthly platform fees.</p>
+        </div>
+        <div class="pkg-bottom">
+          <hr class="pkg-divider">
+          <span class="pkg-includes-label">What you get</span>
+          <ul class="pkg-list">
+            <li>A conversation to understand your business before we build anything</li>
+            <li>Custom-built one-to-three page website</li>
+            <li>Copy for every page, written by Julianna</li>
+            <li>Simple editing panel for text, photos, and hours</li>
+            <li>Google Business Profile claimed and optimized</li>
+            <li>Contact form connected to your email</li>
+            <li>Structured for Google and AI search from day one</li>
+            <li>No monthly platform fees. The site is yours.</li>
+          </ul>
+          <a href="lets-talk.html" class="pkg-cta">Get started →</a>
+        </div>
+      </div>
+
+      <!-- THE OPEN DOOR -->
+      <div class="pkg-card featured">
+        <div class="pkg-top">
+          <span class="pkg-for">Ready for a real site</span>
+          <h3 class="pkg-name">The Open Door</h3>
+          <div class="pkg-price">Starting at $2,200</div>
+          <span class="pkg-price-note">Custom-scoped to your business</span>
+          <p class="pkg-desc">Your business has outgrown its website and people can tell. This is a full custom site with copy written around how your customers actually think and decide. Built on whatever platform makes sense for you, whether that is WordPress or our own faster, lighter stack.</p>
+        </div>
+        <div class="pkg-bottom">
+          <hr class="pkg-divider">
+          <span class="pkg-includes-label">What you get</span>
+          <ul class="pkg-list">
+            <li>Custom-built website, scoped to your business (typically five to eight pages)</li>
+            <li>Full copy for every page, written by Julianna</li>
+            <li>Site structure designed around your customer's decision process</li>
+            <li>Simple editing panel for text, photos, and pricing</li>
+            <li>Google Business Profile setup and optimization</li>
+            <li>Structured for search engines and AI recommendations</li>
+            <li>Platform chosen to fit your needs. No monthly fees on our stack.</li>
+          </ul>
+          <a href="lets-talk.html" class="pkg-cta">Let's talk →</a>
+        </div>
+      </div>
+
+      <!-- THE GRAND OPENING -->
+      <div class="pkg-card">
+        <div class="pkg-top">
+          <span class="pkg-for">Starting fresh or starting over</span>
+          <h3 class="pkg-name">The Grand Opening</h3>
+          <div class="pkg-price">Starting at $3,200</div>
+          <span class="pkg-price-note">Custom-scoped to your business</span>
+          <p class="pkg-desc">The whole thing, built at the same time by the same people. Brand, website, copy, and collateral that all match because they were never separate projects stitched together after the fact.</p>
+        </div>
+        <div class="pkg-bottom">
+          <hr class="pkg-divider">
+          <span class="pkg-includes-label">What you get</span>
+          <ul class="pkg-list">
+            <li>Brand foundation: logo, colour palette, typography, voice direction</li>
+            <li>Custom-built website with full copy, scoped to your business</li>
+            <li>Simple editing panel for ongoing content updates</li>
+            <li>Google Business Profile setup and optimization</li>
+            <li>Business card design, print-ready files</li>
+            <li>One additional collateral piece (flyer, postcard, social templates, or door knocker)</li>
+            <li>Structured for search engines and AI from the ground up</li>
+            <li>Everything designed together so it matches from day one</li>
+          </ul>
+          <a href="lets-talk.html" class="pkg-cta">Let's talk →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VALUE PROOF -->
+    <div class="pkg-value">
+      <span class="pkg-value-title">Why this is worth it</span>
+      <p>Most web designers do not write your copy. They hand you a template and wait for you to fill it in, which means you end up paying for a website and then doing the hardest part yourself. Here, the copy is part of every package because the words and the design need to be built at the same time or neither one works properly. We also structure every site so that Google and AI tools understand what your business does, where it operates, and who it is for.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ALREADY HAVE SOMETHING -->
+<section class="existing-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header-label">Already have something</span>
+      <h2>Your site exists. It just needs work.</h2>
+      <p>You don't need to start from scratch. Sometimes the smartest move is fixing what you have.</p>
+    </div>
+
+    <div class="existing-grid">
+
+      <!-- THE REFRESH -->
+      <div class="existing-card">
+        <div class="pkg-top">
+          <span class="pkg-for">Fix what's there</span>
+          <h3 class="pkg-name">The Refresh</h3>
+          <div class="pkg-price">Starting at $900</div>
+          <span class="pkg-price-note">Scoped after we see your site</span>
+          <p class="pkg-desc">You are on Squarespace, WordPress, Shopify, or something else, and it is not doing what it should. We log in, work on your platform, and sort out the copy, the layout, and the things that are making people leave before they get in touch. You keep your site. It just finally starts pulling its weight.</p>
+        </div>
+        <div class="pkg-bottom">
+          <hr class="pkg-divider">
+          <span class="pkg-includes-label">What you get</span>
+          <ul class="pkg-list">
+            <li>We work on your platform, whatever it is</li>
+            <li>Copy refresh on your key pages (homepage, about, services at minimum)</li>
+            <li>Layout and structure cleanup for clarity and flow</li>
+            <li>Trust signals reviewed and improved</li>
+            <li>Google Business Profile checked and updated</li>
+            <li>Recommendations on what to fix first and what can wait</li>
+          </ul>
+          <a href="lets-talk.html" class="pkg-cta">Let's take a look →</a>
+        </div>
+      </div>
+
+      <!-- THE TOUCH-UP -->
+      <div class="existing-card">
+        <div class="pkg-top">
+          <span class="pkg-for">Ongoing partner</span>
+          <h3 class="pkg-name">The Touch-Up</h3>
+          <div class="pkg-price">Starting at $250/month</div>
+          <span class="pkg-price-note">Month to month. Cancel anytime.</span>
+          <p class="pkg-desc">You want someone who already knows your business on call for the things you keep meaning to get to but never do. This is not a hosting plan or a plugin update service. It is a real person handling the updates, the seasonal changes, and the odd requests that come up when you are running a business and the website is the last thing on your mind.</p>
+        </div>
+        <div class="pkg-bottom">
+          <hr class="pkg-divider">
+          <span class="pkg-includes-label">What you get</span>
+          <ul class="pkg-list">
+            <li>Ongoing copy updates as your business changes</li>
+            <li>Seasonal refreshes so the site never goes stale</li>
+            <li>New pages or sections when you need them</li>
+            <li>Content updates that keep search engines and AI paying attention</li>
+            <li>Collateral tweaks and template updates</li>
+            <li>A real person to call when you need something and do not want to figure it out yourself</li>
+          </ul>
+          <a href="lets-talk.html" class="pkg-cta">Let's talk →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS SECTION -->
+<section class="systems-section">
+  <div class="container">
+    <div class="systems-inner">
+      <div class="systems-left">
+        <h2>Behind the desk.<span>The stuff that quietly eats your day.</span></h2>
+        <p>Maybe your scheduling system is driving you nuts. Maybe you keep forgetting to follow up with new leads because there is no system for it, just your memory. Maybe your tools do not talk to each other and you are copying the same information into three different places every week.</p>
+        <p>We step behind your desk and sort it out. We look at what you are already using, figure out what should be connected, and build the systems so the repetitive stuff runs on its own. We are not here to add more software to your life. We are here to make the tools you have actually work together.</p>
+        <p>Every business is different, so we scope this through conversation, not a fixed price on a page. Tell us what is slowing you down.</p>
+        <a href="lets-talk.html" class="systems-cta">Tell us what's not working →</a>
+      </div>
+      <div class="systems-examples">
+        <div class="systems-example">
+          <p class="systems-pain">"I keep forgetting to follow up with new leads."</p>
+          <p class="systems-fix">We connect your contact form to an automatic welcome email and a follow-up sequence so nobody falls through the cracks.</p>
+        </div>
+        <div class="systems-example">
+          <p class="systems-pain">"My booking system is a mess."</p>
+          <p class="systems-fix">We set up a booking tool that talks to your calendar and sends confirmations and reminders without you lifting a finger.</p>
+        </div>
+        <div class="systems-example">
+          <p class="systems-pain">"I waste an hour a day on admin that should be automatic."</p>
+          <p class="systems-fix">We look at where your time goes and build the connections between your tools so the routine tasks handle themselves.</p>
+        </div>
+        <div class="systems-example">
+          <p class="systems-pain">"I want reviews but I never remember to ask."</p>
+          <p class="systems-fix">We set up automatic review requests that go out after a visit or a completed job. You get reviews without the awkward ask.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST LOOK BANNER -->
+<section class="firstlook-section">
+  <div class="container">
+    <div class="firstlook-inner">
+      <div>
+        <h3>Not sure where you fit? Start with The First Look.</h3>
+        <p>A 15-minute recorded or live walkthrough of your current online presence with up to three prioritized action items. Credited toward any package you book within 30 days.</p>
+      </div>
+      <div class="firstlook-price">$97<span>Credited toward any project</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- A LA CARTE -->
+<section class="alacarte-section">
+  <div class="container">
+    <div class="alacarte-inner">
+      <div class="alacarte-left">
+        <h2>Need something that doesn't fit a package?</h2>
+        <p>Most of our work starts as a conversation, not a checkout. If what you need is not on this page, it does not mean we do not do it. Tell us what you are working with and we will put something together that makes sense.</p>
+        <a href="lets-talk.html" class="alacarte-btn">Let's talk →</a>
+      </div>
+      <div class="alacarte-list">
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Brand strategy and identity</p>
+          <p class="alacarte-item-desc">Logo, colours, type, and voice direction. The foundation everything else builds from.</p>
+        </div>
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Voice and messaging</p>
+          <p class="alacarte-item-desc">How your business sounds in writing. Guides, tone, and language that actually fits.</p>
+        </div>
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Standalone copywriting</p>
+          <p class="alacarte-item-desc">Website copy, bios, service descriptions, or email sequences when you just need the words.</p>
+        </div>
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Marketing consults</p>
+          <p class="alacarte-item-desc">A focused session to figure out what to do next and where your energy is best spent.</p>
+        </div>
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Social media and newsletter planning</p>
+          <p class="alacarte-item-desc">Content pillars, posting rhythm, and voice guidance. We build the plan and you run it.</p>
+        </div>
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Print and collateral</p>
+          <p class="alacarte-item-desc">Business cards, flyers, postcards, and door knockers. Designed and delivered print-ready.</p>
+        </div>
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Editable templates</p>
+          <p class="alacarte-item-desc">Canva templates for social posts, flyers, and more that match your brand so you can make your own.</p>
+        </div>
+        <div class="alacarte-item">
+          <p class="alacarte-item-name">Systems and automations</p>
+          <p class="alacarte-item-desc">We connect your tools and set up the systems so the repetitive work handles itself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner container">
+    <div class="cta-dot"></div>
+    <h2>Still deciding?</h2>
+    <span class="cta-accent">That's what the conversation is for.</span>
+    <p class="cta-p">Request a free Drive-By. We will take an honest look at what you have and tell you where we would start. No pitch. No pressure. Just a second pair of eyes.</p>
+    <a href="lets-talk.html" class="cta-btn">Request a free Drive-By</a>
+    <p class="cta-note">Free &nbsp;·&nbsp; No pitch &nbsp;·&nbsp; No commitment</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
+    </div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 The Yellow Front Door</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+})();
+</script>
+</body>
+</html>
