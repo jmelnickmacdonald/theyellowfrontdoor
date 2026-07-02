@@ -168,22 +168,26 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
 
-      /* Hero - taller on mobile, better text positioning */
-      .page-header { height: 45vh; min-height: 320px; padding: 2rem 1.5rem; }
-      .page-header h1 { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+      /* Hero - shorter on mobile */
+      .page-header { height: 30vh; min-height: 220px; padding: 1.5rem; }
+      .page-header h1 { font-size: clamp(1.6rem, 5vw, 2rem); }
+      .page-eyebrow { font-size: 0.65rem; margin-bottom: 0.3rem; }
 
       /* Farm stand - single column */
       .farm-stand { padding: 3rem 1.2rem; }
       .farm-stand-layout { grid-template-columns: 1fr; gap: 1.5rem; }
       .farm-stand-head .script { font-size: 1.8rem; }
 
-      /* Stand board - cleaner mobile rows */
+      /* Stand board - keep price and qty visible */
       .stand-col-headers { display: none; }
-      .stand-row { grid-template-columns: 10px 1fr auto; gap: 8px; padding: 14px 16px; }
-      .stand-item-price, .stand-item-qty { display: none; }
-      .stand-item-status { justify-self: end; }
-      .stand-board-header { padding: 12px 16px; }
-      .stand-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 16px; }
+      .stand-row { grid-template-columns: 10px 1fr 60px 70px auto; gap: 6px; padding: 12px 12px; font-size: 0.9rem; }
+      .stand-item-price { font-size: .8rem; }
+      .stand-item-qty { font-size: .78rem; }
+      .stand-item-status { font-size: .6rem; padding: 3px 6px; }
+      .stand-item-name { font-size: .9rem; }
+      .stand-item-note { font-size: .75rem; }
+      .stand-board-header { padding: 12px 14px; }
+      .stand-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 14px; }
       .stand-legend { flex-wrap: wrap; gap: 10px; }
 
       /* Sidebar cards - stack vertically */
