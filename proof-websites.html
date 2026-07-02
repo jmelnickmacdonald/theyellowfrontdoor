@@ -30,8 +30,6 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-
-/* NAV */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
 .nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
 .nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
@@ -45,18 +43,15 @@ ul { list-style: none; }
 .nav-cta:hover { background: var(--brass) !important; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
-
-/* PAGE HEADER */
 .page-header { padding: clamp(80px, 10vw, 120px) 0 clamp(40px, 5vw, 60px); margin-top: 72px; border-bottom: 1px solid var(--stone); }
 .page-header-inner { max-width: 640px; }
 .breadcrumb { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 20px; }
 .breadcrumb a { color: var(--slate); transition: color 0.2s; }
 .breadcrumb a:hover { color: var(--ink); }
 .breadcrumb span { margin: 0 8px; color: var(--stone); }
-.page-header h1 { font-family: var(--f-head); font-size: clamp(32px, 4.5vw, 52px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; } .page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(28px, 3.5vw, 44px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 14px; letter-spacing: 0; }
+.page-header h1 { font-family: var(--f-head); font-size: clamp(32px, 4.5vw, 52px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; }
+.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(28px, 3.5vw, 44px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 14px; letter-spacing: 0; }
 .page-header p { font-size: clamp(15px, 1.8vw, 17px); color: var(--slate); line-height: 1.85; margin-top: 20px; max-width: 520px; }
-
-/* PROJECTS */
 .projects { padding: clamp(56px, 7vw, 96px) 0; }
 .project { padding: clamp(48px, 6vw, 80px) 0; border-bottom: 1px solid var(--stone); }
 .project:first-child { padding-top: 0; }
@@ -77,13 +72,9 @@ ul { list-style: none; }
 .project-link-outline:hover { border-color: var(--ink); background: transparent; }
 .project-aside { margin-top: 24px; padding: 16px 20px; border-left: 3px solid var(--yellow); background: var(--paper-mid); font-size: 13px; line-height: 1.8; color: var(--slate); }
 .project-aside a { color: var(--clay); font-weight: 600; }
-
-/* BEHIND THE DECISIONS BUTTON */
 .decisions-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); background: none; border: none; cursor: pointer; padding: 0; border-bottom: 1px solid var(--stone); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; font-family: var(--f-body); }
 .decisions-btn:hover { color: var(--ink); border-color: var(--ink); }
 .decisions-btn svg { width: 14px; height: 14px; }
-
-/* MODAL */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(19,36,71,0.6); z-index: 200; align-items: center; justify-content: center; padding: 24px; }
 .modal-overlay.open { display: flex; }
 .modal { background: var(--paper); max-width: 620px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
@@ -96,11 +87,7 @@ ul { list-style: none; }
 .modal-item:last-child { border-bottom: none; padding-bottom: 0; }
 .modal-item-num { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
 .modal-item-text { font-size: 14px; line-height: 1.85; color: var(--ink); }
-
-/* PRE-FOOTER */
 .pre-footer { background: var(--navy); padding: clamp(32px,4vw,52px) 0; text-align: center; }
-
-/* FOOTER */
 .footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 .footer-logo { display: block; width: 96px; height: 96px; margin: 0 auto 12px; }
@@ -112,7 +99,6 @@ ul { list-style: none; }
 .footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
 .footer-dot { width: 4px; height: 4px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
-
 @media (max-width: 860px) {
   .project-inner, .project-inner.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
 }
@@ -246,15 +232,19 @@ ul { list-style: none; }
     <div class="project">
       <div class="project-inner">
         <div class="project-image">
-          <img src="ravenhousemockup.png" alt="Raven House Co. website mockup">
+          <img src="rhwebsitemockup.png" alt="Raven House Co. website">
         </div>
         <div class="project-body">
-          <p class="project-eyebrow">Client · Landing Page</p>
+          <p class="project-eyebrow">Client · Full Build</p>
           <h2 class="project-name">Raven House</h2>
-          <p class="project-scope">Landing Page · Voice Direction · Copy</p>
-          <p class="project-desc">The existing site was dated, the messaging was scattered, and people were leaving before they understood what the business actually offered. We rebuilt the landing page from scratch: cleaner structure, rewritten copy, and a voice direction they could carry into everything else.</p>
+          <p class="project-scope">Website · Copy · Farm Stand Board · Egg Share Signup</p>
+          <p class="project-desc">A five-page site for a working homestead in the Annapolis Valley. The homepage sets the tone (warm, funny, real), the learning page positions a farm-based tutoring program, and the shop page runs a live inventory board powered by a Google Sheet the owner updates from her phone.</p>
+          <p class="project-desc">Copy, design, and the systems layer were all built together. The egg share signup feeds Formspree, the farm stand pulls from a published CSV, and the whole thing deploys on Vercel with no CMS and no login.</p>
+          <div class="project-aside">
+            Raven House is also a systems case study. The farm stand board, automated email updates, and egg share signup all run from one Google Sheet. <a href="farm-stand-demo.html">See how the wiring works &rarr;</a>
+          </div>
           <div class="project-links">
-            <a href="ravenhouse.html" class="project-link">View the site &rarr;</a>
+            <a href="https://theyellowfrontdoor.ca/rh-farm.html" target="_blank" class="project-link">Visit the site &rarr;</a>
           </div>
         </div>
       </div>
@@ -365,7 +355,6 @@ ul { list-style: none; }
   var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
   toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
 })();
-
 function openModal(id) {
   document.getElementById('modal-' + id).classList.add('open');
   document.body.style.overflow = 'hidden';
