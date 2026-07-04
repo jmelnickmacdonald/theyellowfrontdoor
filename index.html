@@ -363,6 +363,7 @@ body.is-night .scene-night { display: block; }
 
 <script>
 (function () {
+  // Time of day
   function applyTimeOfDay() {
     var h = new Date().getHours();
     var isNight = h >= 18 || h < 6;
@@ -375,4 +376,24 @@ body.is-night .scene-night { display: block; }
     } else {
       if (day) day.style.display = 'block';
       if (night) night.style.display = 'none';
- 
+    }
+  }
+  applyTimeOfDay();
+
+  // Nav scroll
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+  // Hamburger toggle
+  var toggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+  function toggleMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  }
+  toggle.addEventListener('click', toggleMenu);
+  toggle.addEventListener('touchend', toggleMenu);
+})();
+</script>
