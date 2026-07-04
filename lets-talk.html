@@ -255,8 +255,16 @@ ul { list-style: none; }
 (function(){
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+  var toggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+  function toggleMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  }
+  toggle.addEventListener('click', toggleMenu);
+  toggle.addEventListener('touchend', toggleMenu);
 })();
 </script>
 
