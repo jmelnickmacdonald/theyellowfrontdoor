@@ -107,7 +107,17 @@ ul { list-style: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* STREET SCENE */
-.street-scene { width: 100%; margin-top: 62px; display: block; line-height: 0; font-size: 0; }
+.street-scene { width: 100%; margin-top: 62px; display: block; line-height: 0; font-size: 0; position: relative; }
+.street-scene::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--navy));
+  pointer-events: none;
+}
 .street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
 .scene-day { display: block; }
 .scene-night { display: none; }
@@ -194,7 +204,8 @@ body.is-night .scene-night { display: block; }
   .footer-bottom { flex-direction: column; }
   .cta-actions { flex-direction: column; align-items: center; }
   .cta-actions a { width: 100%; justify-content: center; text-align: center; }
-.street-scene img { height: 140px; object-fit: cover; object-position: center top; }
+  .street-scene img { height: 140px; object-fit: cover; object-position: center top; }
+  .street-scene::after { height: 50px; }
 }
 </style>
 </head>
@@ -207,13 +218,13 @@ body.is-night .scene-night { display: block; }
       <img src="roundlogo2.png" alt="The Yellow Front Door">
     </a>
     <ul class="nav-links" id="nav-links">
-<li><a href="what-we-do.html">What We Do</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-<li><a href="the-proof.html">The Proof</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="the-doorstep.html">The Doorstep</a></li>
-<li><a href="lets-talk.html">Let's Talk</a></li>
-<li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -344,13 +355,13 @@ body.is-night .scene-night { display: block; }
     <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
     <hr class="footer-divider">
     <nav class="footer-nav" aria-label="Footer navigation">
-     <a href="what-we-do.html">What We Do</a>
-<a href="pricing.html">Pricing</a>
-<a href="the-proof.html">The Proof</a>
-<a href="about.html">About</a>
-<a href="the-doorstep.html">The Doorstep</a>
-<a href="lets-talk.html">Let's Talk</a>
-<a href="website-audit.html">Website Audit</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+      <a href="website-audit.html">Website Audit</a>
     </nav>
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
@@ -398,3 +409,5 @@ body.is-night .scene-night { display: block; }
   toggle.addEventListener('touchend', toggleMenu);
 })();
 </script>
+</body>
+</html>
