@@ -101,23 +101,14 @@ ul { list-style: none; }
 .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--paper); }
 .nav-links a.active { font-weight: 600; }
-.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; border: none !important; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; border: none !important; white-space: nowrap; }
 .nav-cta:hover { background: var(--brass) !important; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+.cta-short { display: none; }
 
 /* STREET SCENE */
-.street-scene { width: 100%; margin-top: 62px; display: block; line-height: 0; font-size: 0; position: relative; }
-.street-scene::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent 0%, transparent 40%, var(--navy) 100%);
-  pointer-events: none;
-}
+.street-scene { width: 100%; margin-top: 62px; display: block; line-height: 0; font-size: 0; }
 .street-scene img { width: 100%; height: auto; display: block; vertical-align: bottom; }
 .scene-day { display: block; }
 .scene-night { display: none; }
@@ -199,13 +190,14 @@ body.is-night .scene-night { display: block; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
+  .cta-long { display: none; }
+  .cta-short { display: inline; }
   .hero-actions { flex-direction: column; align-items: center; }
   .hero-actions a { width: 100%; justify-content: center; text-align: center; }
   .footer-bottom { flex-direction: column; }
   .cta-actions { flex-direction: column; align-items: center; }
   .cta-actions a { width: 100%; justify-content: center; text-align: center; }
   .street-scene img { height: 140px; object-fit: cover; object-position: center top; }
-  .street-scene::after { height: 40px; background: linear-gradient(to bottom, transparent 0%, transparent 40%, var(--navy) 100%); }
 }
 </style>
 </head>
@@ -224,7 +216,7 @@ body.is-night .scene-night { display: block; }
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
       <li><a href="lets-talk.html">Let's Talk</a></li>
-      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta"><span class="cta-long">The Scorecard</span><span class="cta-short">Scorecard</span></a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
