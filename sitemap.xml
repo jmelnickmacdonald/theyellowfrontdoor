@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.w3.org/2000/svg"
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/what-we-do.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/what-we-do.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/pricing.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/pricing.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/the-proof.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/the-proof.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/proof-websites.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/proof-websites.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/proof-brand.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/proof-brand.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/proof-strategy.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/proof-strategy.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.theyellowfrontdoor.ca/the-doorstep.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <loc>https://theyellowfrontdoor.ca/about.html</loc>
+    <lastmod>2026-07-03</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/the-scorecard.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <priority>0.7</priority>
+    <loc>https://theyellowfrontdoor.ca/the-doorstep.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/website-audit.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <priority>0.7</priority>
+    <loc>https://theyellowfrontdoor.ca/the-scorecard.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.theyellowfrontdoor.ca/lets-talk.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <priority>0.8</priority>
+    <loc>https://theyellowfrontdoor.ca/website-audit.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://theyellowfrontdoor.ca/lets-talk.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <priority>0.5</priority>
   </url>
 </urlset>
