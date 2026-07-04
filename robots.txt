@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.theyellowfrontdoor.ca/sitemap.xml
+Sitemap: https://theyellowfrontdoor.ca/sitemap.xml
