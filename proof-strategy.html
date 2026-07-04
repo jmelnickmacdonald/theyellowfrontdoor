@@ -4,7 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The infrastructure behind a business that runs smoothly.">
+<link rel="canonical" href="https://theyellowfrontdoor.ca/proof-strategy.html">
+<meta property="og:title" content="Strategy &amp; Systems — The Proof — The Yellow Front Door">
+<meta property="og:description" content="The infrastructure behind a business that runs smoothly.">
+<meta property="og:url" content="https://theyellowfrontdoor.ca/proof-strategy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Yellow Front Door">
+<meta property="og:locale" content="en_CA">
 <title>Strategy &amp; Systems — The Proof — The Yellow Front Door</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "The Proof",
+      "item": "https://theyellowfrontdoor.ca/the-proof.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Strategy & Systems",
+      "item": "https://theyellowfrontdoor.ca/proof-strategy.html"
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -108,13 +135,14 @@ ul{list-style:none;}
     <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
     <ul class="nav-links" id="nav-links">
       <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="the-proof.html" class="active">The Proof</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="the-doorstep.html">The Doorstep</a></li>
       <li><a href="lets-talk.html">Let's Talk</a></li>
       <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="nav-toggle" onclick="void(0)" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -233,9 +261,10 @@ ul{list-style:none;}
         </div>
         <h2 class="card-heading">Lydia Nichols</h2>
         <p class="card-sub">Relationship infrastructure for real estate</p>
-        <p class="card-body">Most real estate agents treat the transaction as the job. Lydia treats the relationship as the job. We built the systems to match: an email suite for sellers, an open house flow for visitors, and the kind of follow-up infrastructure that makes clients feel like they're the only one on her list. Everything is written to sound like Lydia, her market, her values, her voice. Nothing reads like a template.</p>
+        <p class="card-body">Most real estate agents treat the transaction as the job. Lydia treats the relationship as the job. We built the systems to match: an email suite for sellers, a six-part buyer guide, an open house flow for visitors, and the kind of follow-up infrastructure that makes clients feel like they're the only one on her list. Everything is written to sound like Lydia, her market, her values, her voice. Nothing reads like a template.</p>
         <div class="card-stack">
           <span class="stack-pip">Seller welcome sequence</span>
+          <span class="stack-pip">Buyer guide</span>
           <span class="stack-pip">Referral email</span>
           <span class="stack-pip">Open house flow</span>
           <span class="stack-pip">Visitor tracker</span>
@@ -244,6 +273,7 @@ ul{list-style:none;}
         <div style="display:flex; flex-wrap:wrap; gap:14px;">
           <a href="lydia-email.html" class="card-link">View the referral email &rarr;</a>
           <a href="lydia-openhouse.html" class="card-link">View the open house flow &rarr;</a>
+          <a href="lydia-buyercourse.html" class="card-link">View the buyer guide &rarr;</a>
         </div>
       </div>
 
@@ -269,9 +299,11 @@ ul{list-style:none;}
     <hr class="footer-rule">
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="what-we-do.html">What We Do</a>
+      <a href="pricing.html">Pricing</a>
       <a href="the-proof.html">The Proof</a>
       <a href="about.html">About</a>
       <a href="the-doorstep.html">The Doorstep</a>
+      <a href="website-audit.html">Website Audit</a>
       <a href="lets-talk.html">Let's Talk</a>
     </nav>
     <div class="footer-bottom">
@@ -289,7 +321,9 @@ ul{list-style:none;}
   var nav=document.getElementById('nav');
   window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
   var toggle=document.getElementById('nav-toggle'),links=document.getElementById('nav-links');
-  toggle.addEventListener('click',function(){var open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+  function toggleMenu(e){e.preventDefault();e.stopPropagation();var open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));}
+  toggle.addEventListener('click',toggleMenu);
+  toggle.addEventListener('touchend',toggleMenu);
 })();
 </script>
 
