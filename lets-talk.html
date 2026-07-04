@@ -22,9 +22,8 @@
   --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(56px, 8vw, 96px);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; margin: 0; padding: 0; width: 100%; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
@@ -45,7 +44,7 @@ ul { list-style: none; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
-/* HERO — navy */
+/* HERO */
 .lt-hero { background: var(--navy); padding: clamp(120px, 14vw, 172px) 0 clamp(64px, 8vw, 96px); margin-top: 72px; position: relative; overflow: hidden; }
 .lt-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(252,211,70,0.06) 0%, transparent 60%); pointer-events: none; }
 .lt-hero-inner { max-width: 780px; position: relative; z-index: 1; }
@@ -81,6 +80,7 @@ ul { list-style: none; }
 .contact-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
 .contact-detail-text { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 400; }
 .contact-detail-text strong { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 6px; opacity: 0.7; }
+.contact-detail-text a { color: rgba(255,255,255,0.65); text-decoration: underline; text-underline-offset: 3px; }
 
 /* FOOTER */
 .footer { background: #ffffff; padding: 48px 0 32px; border-top: 1px solid var(--stone); }
@@ -106,11 +106,11 @@ ul { list-style: none; }
   .nav-toggle { display: flex; }
   .footer-bottom { flex-direction: column; }
   .eyebrow-label { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .lt-hero { padding-top: 88px; margin-top: 72px; overflow: hidden; }
+  .lt-hero { padding: 88px 0 48px; }
   .lt-hero::before { display: none; }
 }
 </style>
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ContactPage",
@@ -129,20 +129,19 @@ ul { list-style: none; }
       <img src="roundlogo2.png" alt="The Yellow Front Door">
     </a>
     <ul class="nav-links" id="nav-links">
-  <li><a href="what-we-do.html">What We Do</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-<li><a href="the-proof.html">The Proof</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="the-doorstep.html">The Doorstep</a></li>
-<li><a href="lets-talk.html">Let's Talk</a></li>
-<li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
-
 
 <!-- HERO -->
 <section class="lt-hero">
@@ -217,10 +216,9 @@ ul { list-style: none; }
           <div class="contact-dot"></div>
           <div class="contact-detail-text">
             <strong>Email</strong>
-            <a href="mailto:hello@theyellowfrontdoor.ca" style="color: rgba(255,255,255,0.65); text-decoration: underline; text-underline-offset: 3px;">hello@theyellowfrontdoor.ca</a>
+            <a href="mailto:hello@theyellowfrontdoor.ca">hello@theyellowfrontdoor.ca</a>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -235,13 +233,13 @@ ul { list-style: none; }
     <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
     <hr class="footer-divider">
     <nav class="footer-nav">
-     <a href="what-we-do.html">What We Do</a>
-<a href="pricing.html">Pricing</a>
-<a href="the-proof.html">The Proof</a>
-<a href="about.html">About</a>
-<a href="the-doorstep.html">The Doorstep</a>
-<a href="lets-talk.html">Let's Talk</a>
-<a href="website-audit.html">Website Audit</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+      <a href="website-audit.html">Website Audit</a>
     </nav>
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 The Yellow Front Door</p>
