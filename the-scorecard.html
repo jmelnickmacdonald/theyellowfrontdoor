@@ -432,7 +432,7 @@ function captureEmail() {
   })
   .then(res => {
     if (res.ok) {
-      el.textContent = "We'll send your results to " + email + " shortly.";
+      window.location.href = 'message-sent.html';
     } else {
       el.textContent = "Something went wrong — mind trying again?";
       btn.disabled = false;
