@@ -164,10 +164,9 @@ ul { list-style: none; }
   <div class="container">
     <div class="contact-inner">
       <div>
-        <form class="contact-form" name="contact" action="https://formspree.io/f/mqevdajp" method="POST">
-          <input type="hidden" name="_next" value="https://www.theyellowfrontdoor.ca/thank-you.html">
+<form class="contact-form" name="contact" id="contact-form">
           <input type="hidden" name="_subject" value="New inquiry from theyellowfrontdoor.ca">
-          <div class="form-field"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required></div>
+  <div class="form-field"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required></div>
           <div class="form-field"><label for="business">Business name</label><input type="text" id="business" name="business" placeholder="Smith & Co."></div>
           <div class="form-field"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="jane@yourbusiness.ca" required></div>
           <div class="form-field"><label for="website">Website (if you have one)</label><input type="url" id="website" name="website" placeholder="https://yourbusiness.ca"></div>
@@ -184,7 +183,7 @@ ul { list-style: none; }
             </select>
           </div>
           <div class="form-field"><label for="message">What's going on?</label><textarea id="message" name="message" placeholder="What's feeling stuck? What prompted you to reach out? No need to be polished — just tell us what's going on."></textarea></div>
-          <button type="submit" class="btn-primary">Send it over →</button>
+          <button type="button" class="btn-primary" id="submit-btn" onclick="submitContact()">Send it over →</button>
         </form>
       </div>
 
@@ -264,7 +263,33 @@ ul { list-style: none; }
     toggle.setAttribute('aria-expanded', String(isOpen));
   }
   toggle.addEventListener('click', toggleMenu);
-  toggle.addEventListener('touchend', toggleMenu);
+ toggle.addEventListener('touchend', toggleMenu);
+})();
+
+async function submitContact() {
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('submit-btn');
+  if (!form.reportValidity()) return;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/mqevdajp', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      window.location.href = 'thank-you.html';
+    } else {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Something went wrong — try again';
+    btn.disabled = false;
+  }
+}
+</script>
 })();
 </script>
 
