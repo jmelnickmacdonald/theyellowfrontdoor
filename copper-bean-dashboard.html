@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copper + Bean — Owner Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #111111;
+  --black-soft: #1A1A1A;
+  --black-mid: #222222;
+  --black-card: #1e1e1e;
+  --border: #2e2e2e;
+  --border-light: #272727;
+  --ivory: #F5EDE0;
+  --ivory-dim: rgba(245,237,224,0.6);
+  --ivory-muted: rgba(245,237,224,0.35);
+  --copper: #B87333;
+  --copper-dim: rgba(184,115,51,0.15);
+  --copper-border: rgba(184,115,51,0.25);
+  --copper-hover: #a06528;
+  --olive: #4A5A3C;
+  --olive-dim: rgba(74,90,60,0.3);
+  --olive-border: rgba(74,90,60,0.4);
+  --olive-text: #7a9e65;
+  --slate: #888;
+  --slate-dim: #555;
+  --f-display: 'Anton', 'Impact', sans-serif;
+  --f-body: 'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--ivory); font-family: var(--f-body); font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--f-body); cursor: pointer; }
+
+/* TOPBAR */
+.topbar { background: var(--black-soft); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-logo { font-family: var(--f-display); font-size: 16px; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1; }
+.topbar-logo .plus { color: var(--copper); }
+.topbar-divider { width: 1px; height: 20px; background: var(--border); }
+.topbar-label { font-size: 11px; color: var(--slate-dim); letter-spacing: 0.1em; text-transform: uppercase; }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-live { font-size: 10px; padding: 4px 10px; border-radius: 20px; background: var(--olive-dim); color: var(--olive-text); border: 1px solid var(--olive-border); display: flex; align-items: center; gap: 5px; }
+.topbar-live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--olive-text); }
+.topbar-site-link { font-size: 11px; color: var(--slate); border: 1px solid var(--border); padding: 5px 12px; border-radius: 4px; transition: border-color 0.2s, color 0.2s; display: flex; align-items: center; gap: 6px; }
+.topbar-site-link:hover { border-color: var(--copper); color: var(--copper); }
+
+/* LAYOUT */
+.shell { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - 56px); margin-top: 56px; }
+
+/* SIDEBAR */
+.sidebar { background: var(--black-soft); border-right: 1px solid var(--border); padding: 20px 8px; position: fixed; top: 56px; left: 0; bottom: 0; width: 200px; overflow-y: auto; display: flex; flex-direction: column; }
+.sidebar-section { font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate-dim); padding: 12px 10px 6px; }
+.sidebar-item { display: flex; align-items: center; gap: 9px; padding: 9px 10px; border-radius: 5px; font-size: 12px; color: var(--slate); cursor: pointer; margin-bottom: 1px; border: none; background: none; width: 100%; text-align: left; transition: background 0.15s, color 0.15s; }
+.sidebar-item svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.7; }
+.sidebar-item:hover { background: #242424; color: #ccc; }
+.sidebar-item:hover svg { opacity: 1; }
+.sidebar-item.active { background: var(--copper-dim); color: var(--copper); }
+.sidebar-item.active svg { opacity: 1; }
+.sidebar-item.locked { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+.sidebar-lock { font-size: 8px; letter-spacing: 0.06em; background: #252525; color: var(--slate-dim); padding: 2px 5px; border-radius: 3px; margin-left: auto; }
+
+/* MAIN */
+.main { margin-left: 200px; padding: 28px 32px 80px; }
+.main-header { margin-bottom: 24px; }
+.main-title { font-family: var(--f-display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ivory); line-height: 1; }
+.main-subtitle { font-size: 12px; color: var(--slate-dim); margin-top: 5px; }
+
+/* PANELS */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* CARDS */
+.card { background: var(--black-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; margin-bottom: 16px; }
+.card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.card-title { font-size: 11px; font-weight: 600; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.card-title svg { width: 15px; height: 15px; color: var(--copper); }
+
+/* NOTICE BOX */
+.notice { background: rgba(184,115,51,0.08); border: 1px solid var(--copper-border); border-radius: 6px; padding: 12px 16px; margin-bottom: 16px; }
+.notice-title { font-size: 11px; font-weight: 600; color: var(--copper); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+.notice-body { font-size: 12px; color: var(--slate); line-height: 1.65; }
+
+/* FIELDS */
+.field { margin-bottom: 12px; }
+.field:last-child { margin-bottom: 0; }
+.field-label { font-size: 10px; color: var(--slate-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+.field-val { font-size: 13px; color: #ccc; background: #252525; border: 1px solid #333; border-radius: 4px; padding: 8px 10px; width: 100%; font-family: var(--f-body); outline: none; transition: border-color 0.2s; }
+.field-val:focus, .field-val:hover { border-color: var(--copper); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* HOURS */
+.hour-row { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border-light); gap: 12px; }
+.hour-row:last-child { border-bottom: none; }
+.hour-day { font-size: 13px; color: var(--slate); min-width: 96px; }
+.hour-controls { display: flex; align-items: center; gap: 10px; flex: 1; }
+.toggle { width: 32px; height: 17px; border-radius: 9px; background: #333; cursor: pointer; position: relative; flex-shrink: 0; border: none; transition: background 0.2s; }
+.toggle.on { background: var(--olive); }
+.toggle::after { content: ''; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px; border-radius: 50%; background: #666; transition: left 0.2s, background 0.2s; }
+.toggle.on::after { left: 17px; background: var(--olive-text); }
+.hour-closed { font-size: 12px; color: var(--slate-dim); }
+.time-input { font-size: 12px; color: #ccc; background: #252525; border: 1px solid #333; border-radius: 3px; padding: 4px 8px; width: 76px; font-family: var(--f-body); outline: none; }
+.time-input:focus { border-color: var(--copper); }
+.time-sep { font-size: 12px; color: var(--slate-dim); }
+
+/* MENU */
+.menu-section-label { font-family: var(--f-display); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); margin: 16px 0 8px; padding-bottom: 6px; border-bottom: 1px solid #252525; }
+.menu-section-label:first-child { margin-top: 0; }
+.menu-item { display: grid; grid-template-columns: 1fr 64px 52px; align-items: start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border-light); }
+.menu-item:last-of-type { border-bottom: none; }
+.menu-name { font-size: 13px; color: #ccc; }
+.menu-desc { font-size: 11px; color: var(--slate-dim); margin-top: 2px; line-height: 1.4; }
+.menu-price { font-size: 13px; color: var(--copper); text-align: right; padding-top: 1px; }
+.menu-actions { display: flex; gap: 4px; justify-content: flex-end; }
+.icon-btn { background: none; border: none; color: #444; font-size: 14px; padding: 3px; transition: color 0.2s; }
+.icon-btn:hover { color: #888; }
+.add-row { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--slate-dim); cursor: pointer; padding: 8px 0 2px; border: none; background: none; transition: color 0.2s; }
+.add-row:hover { color: var(--copper); }
+.add-row svg { width: 14px; height: 14px; }
+
+/* PHOTOS */
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.photo-slot { aspect-ratio: 16/9; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; }
+.photo-slot-bg { position: absolute; inset: 0; opacity: 0.35; }
+.photo-slot-content { position: relative; z-index: 1; text-align: center; }
+.photo-slot-filename { font-size: 11px; color: var(--slate); font-family: 'DM Sans', monospace; }
+.photo-slot-overlay { position: absolute; inset: 0; background: rgba(184,115,51,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; z-index: 2; }
+.photo-slot:hover .photo-slot-overlay { opacity: 1; }
+.photo-slot-overlay svg { width: 22px; height: 22px; color: var(--ivory); }
+.photo-meta { margin-top: 7px; }
+.photo-meta-name { font-size: 12px; color: #999; font-weight: 500; }
+.photo-meta-where { font-size: 10px; color: var(--slate-dim); margin-top: 1px; }
+
+/* LOCKED NOTE */
+.locked-note { font-size: 11px; color: var(--slate-dim); display: flex; align-items: flex-start; gap: 6px; padding: 10px 0 2px; line-height: 1.6; }
+.locked-note svg { width: 13px; height: 13px; color: #444; flex-shrink: 0; margin-top: 1px; }
+
+/* ADD BTN */
+.add-btn { font-size: 11px; color: var(--copper); background: var(--copper-dim); border: 1px solid var(--copper-border); padding: 5px 12px; border-radius: 4px; display: flex; align-items: center; gap: 5px; transition: background 0.2s; }
+.add-btn:hover { background: rgba(184,115,51,0.25); }
+.add-btn svg { width: 13px; height: 13px; }
+
+/* SAVE BAR */
+.save-bar { position: fixed; bottom: 0; left: 200px; right: 0; background: var(--black-soft); border-top: 1px solid var(--border); padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 50; }
+.save-note { font-size: 11px; color: var(--slate-dim); }
+.save-btn { background: var(--copper); color: var(--ivory); border: none; padding: 9px 24px; border-radius: 4px; font-size: 12px; font-weight: 600; transition: background 0.2s; }
+.save-btn:hover { background: var(--copper-hover); }
+.save-confirm { font-size: 12px; color: var(--olive-text); display: none; align-items: center; gap: 6px; }
+.save-confirm svg { width: 14px; height: 14px; }
+
+/* CONCEPT BADGE */
+.concept-badge { position: fixed; bottom: 60px; right: 20px; background: var(--ivory); color: var(--black); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 7px 12px; border-radius: 2px; z-index: 200; }
+.concept-badge span { color: var(--olive); }
+
+@media (max-width: 768px) {
+  .shell { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding: 20px 16px 80px; }
+  .save-bar { left: 0; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="concept-badge">Concept · <span>The Yellow Front Door</span></div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">Copper <span class="plus">+</span> Bean</div>
+    <div class="topbar-divider"></div>
+    <span class="topbar-label">Owner Dashboard</span>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-live"><span class="topbar-live-dot"></span>Site live</span>
+    <a href="copper-bean-site.html" target="_blank" class="topbar-site-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1v-3M9 2h5m0 0v5m0-5L7 10"/></svg>
+      View live site
+    </a>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-section">Your content</div>
+  <button class="sidebar-item active" onclick="showPanel('hours', this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+    Hours
+  </button>
+  <button class="sidebar-item" onclick="showPanel('menu', this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h10M3 8h10M3 12h6"/></svg>
+    Menu
+  </button>
+  <button class="sidebar-item" onclick="showPanel('photos', this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="1"/><circle cx="5.5" cy="6.5" r="1"/><path d="M2 11l3-3 2 2 3-3 4 4"/></svg>
+    Photos
+  </button>
+  <button class="sidebar-item" onclick="showPanel('notice', this)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2a6 6 0 016 6c0 2-.8 3.8-2 5H4a7 7 0 01-2-5 6 6 0 016-6zM6 13v1a2 2 0 004 0v-1"/></svg>
+    Notice
+  </button>
+
+  <div class="sidebar-section">Design &amp; copy</div>
+  <button class="sidebar-item locked">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5" r="3"/><path d="M3 14a5 5 0 0110 0"/></svg>
+    Brand &amp; colours
+    <span class="sidebar-lock">Locked</span>
+  </button>
+  <button class="sidebar-item locked">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12M2 8h8M2 12h6"/></svg>
+    Page copy
+    <span class="sidebar-lock">Locked</span>
+  </button>
+  <button class="sidebar-item locked">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+    Layout
+    <span class="sidebar-lock">Locked</span>
+  </button>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HOURS -->
+  <div class="panel active" id="panel-hours">
+    <div class="main-header">
+      <h1 class="main-title">Hours</h1>
+      <p class="main-subtitle">Updates your website and Google Business Profile at the same time.</p>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+          Weekly hours
+        </span>
+      </div>
+      <div class="hour-row">
+        <span class="hour-day">Monday</span>
+        <div class="hour-controls">
+          <button class="toggle" onclick="toggleDay(this)" aria-label="Toggle Monday"></button>
+          <span class="hour-closed">Closed</span>
+        </div>
+      </div>
+      <div class="hour-row">
+        <span class="hour-day">Tuesday</span>
+        <div class="hour-controls">
+          <button class="toggle on" onclick="toggleDay(this)" aria-label="Toggle Tuesday"></button>
+          <input class="time-input" value="7:00 am" aria-label="Open time">
+          <span class="time-sep">–</span>
+          <input class="time-input" value="3:00 pm" aria-label="Close time">
+        </div>
+      </div>
+      <div class="hour-row">
+        <span class="hour-day">Wednesday</span>
+        <div class="hour-controls">
+          <button class="toggle on" onclick="toggleDay(this)" aria-label="Toggle Wednesday"></button>
+          <input class="time-input" value="7:00 am">
+          <span class="time-sep">–</span>
+          <input class="time-input" value="3:00 pm">
+        </div>
+      </div>
+      <div class="hour-row">
+        <span class="hour-day">Thursday</span>
+        <div class="hour-controls">
+          <button class="toggle on" onclick="toggleDay(this)" aria-label="Toggle Thursday"></button>
+          <input class="time-input" value="7:00 am">
+          <span class="time-sep">–</span>
+          <input class="time-input" value="3:00 pm">
+        </div>
+      </div>
+      <div class="hour-row">
+        <span class="hour-day">Friday</span>
+        <div class="hour-controls">
+          <button class="toggle on" onclick="toggleDay(this)" aria-label="Toggle Friday"></button>
+          <input class="time-input" value="7:00 am">
+          <span class="time-sep">–</span>
+          <input class="time-input" value="3:00 pm">
+        </div>
+      </div>
+      <div class="hour-row">
+        <span class="hour-day">Saturday</span>
+        <div class="hour-controls">
+          <button class="toggle on" onclick="toggleDay(this)" aria-label="Toggle Saturday"></button>
+          <input class="time-input" value="8:00 am">
+          <span class="time-sep">–</span>
+          <input class="time-input" value="3:00 pm">
+        </div>
+      </div>
+      <div class="hour-row">
+        <span class="hour-day">Sunday</span>
+        <div class="hour-controls">
+          <button class="toggle" onclick="toggleDay(this)" aria-label="Toggle Sunday"></button>
+          <span class="hour-closed">Closed</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M5 2v2M11 2v2M2 7h12"/></svg>
+          Holiday closures
+        </span>
+        <button class="add-btn">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg>
+          Add date
+        </button>
+      </div>
+      <div style="font-size:12px; color:var(--slate-dim);">No upcoming closures. Add a date to show a banner on your site.</div>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <div class="panel" id="panel-menu">
+    <div class="main-header">
+      <h1 class="main-title">Menu</h1>
+      <p class="main-subtitle">Add, edit, or remove items. Changes reflect on your site immediately.</p>
+    </div>
+    <div class="card">
+
+      <div class="menu-section-label">Food</div>
+      <div class="menu-item"><div><div class="menu-name">The Squash Bowl</div><div class="menu-desc">Roasted squash, pickled onion, toasted seeds, tahini</div></div><div class="menu-price">$14</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">The Egg Sandwich</div><div class="menu-desc">Fried egg, cheddar, chili oil, greens, toasted bun</div></div><div class="menu-price">$8.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">The Daily Soup</div><div class="menu-desc">Changes daily, comes with warm bread</div></div><div class="menu-price">$11</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Toast &amp; Jam</div><div class="menu-desc">Thick-cut sourdough, real butter</div></div><div class="menu-price">$6</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Granola Bowl</div><div class="menu-desc">House granola, yogurt, seasonal fruit, honey</div></div><div class="menu-price">$10</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <button class="add-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg> Add food item</button>
+
+      <div class="menu-section-label">Pastries</div>
+      <div class="menu-item"><div><div class="menu-name">Croissant</div><div class="menu-desc">Butter. Layers.</div></div><div class="menu-price">$5</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Scone</div><div class="menu-desc">Rotating flavours</div></div><div class="menu-price">$4.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Muffin</div><div class="menu-desc">Big ones. Not the sad, dry kind.</div></div><div class="menu-price">$4</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Cookie</div><div class="menu-desc">Chocolate chip or whatever experiment this week</div></div><div class="menu-price">$3.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <button class="add-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg> Add pastry</button>
+
+      <div class="menu-section-label">Little Ones</div>
+      <div class="menu-item"><div><div class="menu-name">Grilled Cheese</div><div class="menu-desc">Cheddar on sourdough, cut in triangles</div></div><div class="menu-price">$6</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">PB&amp;J</div></div><div class="menu-price">$5</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Kid's Hot Chocolate</div><div class="menu-desc">Smaller cup, extra marshmallows</div></div><div class="menu-price">$3.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Juice Box</div></div><div class="menu-price">$2.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <button class="add-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg> Add item</button>
+
+      <div class="menu-section-label">Coffee</div>
+      <div class="menu-item"><div><div class="menu-name">Drip Coffee</div></div><div class="menu-price">$4</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Pour-Over</div></div><div class="menu-price">$5.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Espresso</div></div><div class="menu-price">$4</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Americano</div></div><div class="menu-price">$4.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Latte</div></div><div class="menu-price">$5.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Cappuccino</div></div><div class="menu-price">$5.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Cortado</div></div><div class="menu-price">$5</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Loose-Leaf Tea</div><div class="menu-desc">Ask us what we've got</div></div><div class="menu-price">$4</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Hot Chocolate</div><div class="menu-desc">Made with actual chocolate</div></div><div class="menu-price">$5.50</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Fresh Juice</div><div class="menu-desc">Orange or whatever looked good at the market</div></div><div class="menu-price">$6</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <div class="menu-item"><div><div class="menu-name">Sparkling Water</div></div><div class="menu-price">$3</div><div class="menu-actions"><button class="icon-btn" aria-label="Edit">✎</button><button class="icon-btn" aria-label="Delete">✕</button></div></div>
+      <button class="add-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg> Add drink</button>
+
+    </div>
+    <div class="locked-note">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="8" height="7" rx="1"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
+      Section names (Food, Pastries, Little Ones, Coffee) are part of the site design. Contact us to add or rename a section.
+    </div>
+  </div>
+
+  <!-- PHOTOS -->
+  <div class="panel" id="panel-photos">
+    <div class="main-header">
+      <h1 class="main-title">Photos</h1>
+      <p class="main-subtitle">Hover any slot to replace the image. Recommended minimum: 1800px wide.</p>
+    </div>
+    <div class="card">
+      <div class="photo-grid">
+        <div>
+          <div class="photo-slot">
+            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #3a2a18, #1a1008);"></div>
+            <div class="photo-slot-content">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
+              <div class="photo-slot-filename">cb-hero.jpg</div>
+            </div>
+            <div class="photo-slot-overlay">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+            </div>
+          </div>
+          <div class="photo-meta">
+            <div class="photo-meta-name">Hero image</div>
+            <div class="photo-meta-where">Full-screen background, top of page</div>
+          </div>
+        </div>
+        <div>
+          <div class="photo-slot">
+            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #1e2a18, #0e1a08);"></div>
+            <div class="photo-slot-content">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
+              <div class="photo-slot-filename">cb-collage.jpg</div>
+            </div>
+            <div class="photo-slot-overlay">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+            </div>
+          </div>
+          <div class="photo-meta">
+            <div class="photo-meta-name">About photo</div>
+            <div class="photo-meta-where">Beside your story, About section</div>
+          </div>
+        </div>
+        <div>
+          <div class="photo-slot">
+            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #1a2030, #0a1020);"></div>
+            <div class="photo-slot-content">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
+              <div class="photo-slot-filename">coffeewide1.png</div>
+            </div>
+            <div class="photo-slot-overlay">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+            </div>
+          </div>
+          <div class="photo-meta">
+            <div class="photo-meta-name">Photo strip 1</div>
+            <div class="photo-meta-where">Full-width strip, after menu intro</div>
+          </div>
+        </div>
+        <div>
+          <div class="photo-slot">
+            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #281a28, #180a18);"></div>
+            <div class="photo-slot-content">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
+              <div class="photo-slot-filename">coffeewide2.png</div>
+            </div>
+            <div class="photo-slot-overlay">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+            </div>
+          </div>
+          <div class="photo-meta">
+            <div class="photo-meta-name">Photo strip 2</div>
+            <div class="photo-meta-where">Full-width strip, before hours section</div>
+          </div>
+        </div>
+      </div>
+      <div class="locked-note" style="margin-top:14px;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="8" height="7" rx="1"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
+        Photo placement and number of slots are part of the site design. Contact us to add or rearrange sections.
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="panel" id="panel-notice">
+    <div class="main-header">
+      <h1 class="main-title">Notice</h1>
+      <p class="main-subtitle">Post a temporary banner at the top of your site — closures, holiday hours, or anything time-sensitive.</p>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2a6 6 0 016 6c0 2-.8 3.8-2 5H4a7 7 0 01-2-5 6 6 0 016-6zM6 13v1a2 2 0 004 0v-1"/></svg>
+          Site notice
+        </span>
+      </div>
+      <div class="field">
+        <div class="field-label">Notice text</div>
+        <input class="field-val" type="text" value="We're closed Dec 25–26. Back at it the 27th.">
+      </div>
+      <div class="field">
+        <div class="field-label">Show until</div>
+        <input class="field-val" type="text" value="December 26, 2025" style="max-width:240px;">
+      </div>
+      <div style="font-size:11px;color:var(--slate-dim);margin-top:8px;">Leave both fields blank to hide the notice.</div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="card-title">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1zM1 4l7 5 7-5"/></svg>
+          Contact details
+        </span>
+      </div>
+      <div class="field">
+        <div class="field-label">Email</div>
+        <input class="field-val" type="email" value="hello@copperandbean.ca">
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <div class="field-label">Instagram handle</div>
+          <input class="field-val" type="text" value="@copperandbean">
+        </div>
+        <div class="field">
+          <div class="field-label">Facebook handle</div>
+          <input class="field-val" type="text" value="copperandbean">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- SAVE BAR -->
+<div class="save-bar">
+  <span class="save-note">Changes publish to your live site immediately.</span>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div class="save-confirm" id="save-confirm">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 8 6 12 14 4"/></svg>
+      Saved
+    </div>
+    <button class="save-btn" onclick="saveChanges()">Save changes</button>
+  </div>
+</div>
+
+<script>
+function showPanel(id, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.querySelectorAll('.sidebar-item:not(.locked)').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function toggleDay(btn) {
+  btn.classList.toggle('on');
+  var controls = btn.parentElement;
+  var isOn = btn.classList.contains('on');
+  var closed = controls.querySelector('.hour-closed');
+  var inputs = controls.querySelectorAll('.time-input');
+  var sep = controls.querySelector('.time-sep');
+  if (isOn) {
+    if (closed) closed.remove();
+    if (!inputs.length) {
+      var open = document.createElement('input');
+      open.className = 'time-input'; open.value = '7:00 am'; open.setAttribute('aria-label','Open time');
+      var s = document.createElement('span');
+      s.className = 'time-sep'; s.textContent = '–';
+      var close = document.createElement('input');
+      close.className = 'time-input'; close.value = '3:00 pm'; close.setAttribute('aria-label','Close time');
+      controls.appendChild(open); controls.appendChild(s); controls.appendChild(close);
+    }
+  } else {
+    inputs.forEach(i => i.remove());
+    if (sep) sep.remove();
+    if (!controls.querySelector('.hour-closed')) {
+      var c = document.createElement('span');
+      c.className = 'hour-closed'; c.textContent = 'Closed';
+      controls.appendChild(c);
+    }
+  }
+}
+
+function saveChanges() {
+  var confirm = document.getElementById('save-confirm');
+  confirm.style.display = 'flex';
+  setTimeout(function() { confirm.style.display = 'none'; }, 3000);
+}
+</script>
+</body>
+</html>
