@@ -52,11 +52,10 @@ ul { list-style: none; }
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
 .nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
 .nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
-.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.nav-logo img { height: 56px; width: auto; display: block; }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-logo img { height: 52px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: nowrap; }
+.nav-links a { font-size: 12px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; white-space: nowrap; }.nav-links a:hover, .nav-links a.active { color: var(--paper); }
 .nav-links a.active { font-weight: 600; }
 .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
 .nav-cta:hover { background: var(--brass) !important; }
@@ -112,8 +111,8 @@ ul { list-style: none; }
   .person, .person.reverse { grid-template-columns: 1fr; gap: 28px; }
   .person.reverse .person-media { order: 0; }
   .person.reverse .person-body { order: 0; }
-  .person-photo, .person-photo-placeholder { aspect-ratio: 3 / 2; max-width: 100%; }
-}
+.person-photo, .person-photo-placeholder { aspect-ratio: 4 / 3; max-width: 480px; }
+
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
