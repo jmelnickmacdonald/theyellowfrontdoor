@@ -9,42 +9,63 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --lime:#A2C523;--lime-dark:#8AB01C;--lime-light:rgba(162,197,35,.1);
+  --lime:#A2C523;--lime-dark:#8AB01C;--lime-light:rgba(162,197,35,.12);
   --blue:#3BB0E0;--blue-dark:#2A9ACC;--blue-light:#EAF6FC;
   --ink:#1a1a1a;--ink-muted:#555;--ink-dim:#999;
   --bg:#f2f2ef;--white:#fff;--border:#e4dfd6;
   --red:#e04848;--red-light:#fdf0f0;
   --amber:#d4960a;--amber-light:#fff8e5;
   --green:#2d8a4e;--green-light:#edf7f1;
+  --sidebar-bg:#1a1a1a;--sidebar-w:220px;
   --display:'Oswald',sans-serif;--body:'Inter',-apple-system,sans-serif;
   --radius:10px;--shadow:0 2px 12px rgba(0,0,0,.07);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;}
-body{font-family:var(--body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5;}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5;overflow:hidden;}
 button{font-family:var(--body);cursor:pointer;}
 textarea,input,select{font-family:var(--body);}
 
 /* DEMO BAR */
-.demo-bar{background:var(--blue);text-align:center;padding:.4rem 1rem;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);}
+.demo-bar{background:var(--blue);text-align:center;padding:.35rem 1rem;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);position:relative;z-index:60;}
 .demo-bar a{color:#fff;font-weight:700;text-decoration:none;}
 
-/* TOPBAR */
-.topbar{background:var(--white);border-bottom:1px solid var(--border);padding:.6rem 1.3rem;display:flex;align-items:center;gap:.9rem;position:sticky;top:0;z-index:50;}
-.topbar-logo img{height:28px;display:block;}
-.topbar-nav{display:flex;align-items:center;gap:.15rem;flex:1;overflow-x:auto;}
-.tnav-btn{background:none;border:0;font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-muted);padding:.4rem .7rem;border-radius:6px;cursor:pointer;transition:all .15s;white-space:nowrap;}
-.tnav-btn.active,.tnav-btn:hover{background:var(--lime-light);color:var(--lime-dark);}
-.tnav-btn.locked{opacity:.35;cursor:not-allowed;pointer-events:none;}
-.topbar-right{display:flex;align-items:center;gap:.65rem;flex:none;}
-.live-badge{font-size:10px;padding:.25rem .7rem;border-radius:999px;background:var(--green-light);color:var(--green);border:1px solid rgba(45,138,78,.2);display:flex;align-items:center;gap:5px;white-space:nowrap;}
-.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);}
-.view-site-btn{font-size:11px;font-weight:700;color:var(--blue);border:0;background:none;text-decoration:none;white-space:nowrap;}
-.view-site-btn:hover{color:var(--blue-dark);}
-.lock-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--bg);color:var(--ink-dim);padding:.15rem .45rem;border-radius:3px;border:1px solid var(--border);}
+/* LAYOUT */
+.app-shell{display:flex;height:calc(100vh - 28px);overflow:hidden;}
 
-/* BODY */
-.app-body{flex:1;padding:1.4rem;max-width:1120px;margin:0 auto;width:100%;}
+/* SIDEBAR */
+.sidebar{width:var(--sidebar-w);background:var(--sidebar-bg);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;}
+.sidebar-logo{padding:1.1rem 1rem .9rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.sidebar-logo img{height:26px;display:block;}
+.sidebar-scroll{flex:1;overflow-y:auto;padding:.6rem 0;}
+.sidebar-scroll::-webkit-scrollbar{width:3px;}
+.sidebar-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px;}
+
+.nav-group{margin-bottom:.25rem;}
+.nav-group-label{font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:.5rem 1rem .3rem;display:block;}
+
+.snav-btn{display:flex;align-items:center;gap:.65rem;width:100%;border:0;background:none;color:rgba(255,255,255,.55);padding:.55rem 1rem;font-family:var(--body);font-size:12.5px;font-weight:500;text-align:left;cursor:pointer;transition:all .15s;border-left:3px solid transparent;position:relative;}
+.snav-btn:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.05);}
+.snav-btn.active{color:#fff;background:rgba(162,197,35,.15);border-left-color:var(--lime);}
+.snav-btn .nav-icon{font-size:13px;width:16px;text-align:center;flex-shrink:0;}
+.snav-btn .nav-label{flex:1;}
+
+.nav-divider{height:1px;background:rgba(255,255,255,.07);margin:.4rem .9rem;}
+
+.locked-group{padding:.4rem 0 .3rem;}
+.locked-item{display:flex;align-items:center;gap:.65rem;padding:.45rem 1rem;color:rgba(255,255,255,.2);font-size:12px;cursor:not-allowed;}
+.locked-item .nav-icon{font-size:12px;width:16px;text-align:center;}
+.locked-item .lock-pip{font-size:8px;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.07);color:rgba(255,255,255,.22);padding:.1rem .4rem;border-radius:3px;margin-left:auto;}
+
+.sidebar-footer{padding:.75rem 1rem;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:.5rem;}
+.live-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--green);background:rgba(45,138,78,.18);border:1px solid rgba(45,138,78,.25);padding:.2rem .65rem;border-radius:999px;width:fit-content;}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);}
+.view-site-btn{font-size:11px;font-weight:700;color:var(--blue);border:0;background:none;text-decoration:none;text-align:left;padding:0;}
+.view-site-btn:hover{color:var(--blue-dark);}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.main-scroll{flex:1;overflow-y:auto;padding:1.4rem;}
 .view{display:none;}
 .view.active{display:block;}
 
@@ -119,16 +140,32 @@ textarea,input,select{font-family:var(--body);}
 .toast-sub{font-size:11px;color:rgba(255,255,255,.7);}
 
 /* SAVE BAR */
-.save-bar{background:var(--ink);padding:.75rem 1.3rem;display:flex;align-items:center;justify-content:space-between;position:sticky;bottom:0;z-index:40;}
-.save-note{font-size:11px;color:rgba(255,255,255,.45);}
+.save-bar{background:var(--ink);padding:.65rem 1.3rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.save-note{font-size:11px;color:rgba(255,255,255,.35);}
 .save-right{display:flex;align-items:center;gap:.85rem;}
 .save-confirm{font-size:12px;color:var(--lime);display:none;align-items:center;gap:.35rem;}
-.save-btn{background:var(--lime);color:#fff;border:0;border-radius:999px;padding:.5rem 1.3rem;font-family:var(--display);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:background .2s;}
+.save-btn{background:var(--lime);color:#fff;border:0;border-radius:999px;padding:.45rem 1.2rem;font-family:var(--display);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:background .2s;}
 .save-btn:hover{background:var(--lime-dark);}
 
+/* MOBILE NAV */
+.mob-topbar{display:none;background:var(--sidebar-bg);padding:.65rem 1rem;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.mob-logo img{height:22px;display:block;}
+.mob-menu-btn{background:none;border:0;color:rgba(255,255,255,.7);font-size:1.1rem;padding:.25rem;}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:55;}
+.mob-overlay.open{display:block;}
+.sidebar.mob-open{transform:translateX(0) !important;}
+
 @media(max-width:700px){
+  body{overflow:auto;}
+  .app-shell{height:auto;overflow:visible;flex-direction:column;}
+  .sidebar{display:none;}
+  .mob-topbar{display:flex;}
+  .sidebar.mob-open{display:flex;position:fixed;left:0;top:0;bottom:0;z-index:60;transform:translateX(0);}
+  .main{overflow:visible;}
+  .main-scroll{overflow:visible;padding:1rem;}
   .g2,.g3{grid-template-columns:1fr;}
   .photo-grid{grid-template-columns:1fr 1fr;}
+  .save-bar{position:sticky;bottom:0;}
 }
 </style>
 </head>
@@ -136,222 +173,300 @@ textarea,input,select{font-family:var(--body);}
 
 <div class="demo-bar">Site editor demo &middot; <a href="getcronkd-demo.html">Public site</a> &middot; <a href="getcronkd-systems.html">Staff dashboard</a> &middot; Built by <a href="/">The Yellow Front Door</a></div>
 
-<div class="topbar">
-  <img src="cronkd-logo-final.png" alt="Get Cronk'd" style="height:28px;display:block;">
-  <div class="topbar-nav">
-    <button class="tnav-btn active" onclick="switchView('hero',this)">Hero</button>
-    <button class="tnav-btn" onclick="switchView('notice',this)">Notice</button>
-    <button class="tnav-btn" onclick="switchView('why',this)">Why us</button>
-    <button class="tnav-btn" onclick="switchView('schedule',this)">Schedule</button>
-    <button class="tnav-btn" onclick="switchView('services',this)">Services</button>
-    <button class="tnav-btn" onclick="switchView('team',this)">Team</button>
-    <button class="tnav-btn" onclick="switchView('testimonials',this)">Testimonials</button>
-    <button class="tnav-btn" onclick="switchView('awards',this)">Awards</button>
-    <button class="tnav-btn" onclick="switchView('gallery',this)">Gallery</button>
-    <button class="tnav-btn" onclick="switchView('contact',this)">Contact</button>
-    <button class="tnav-btn locked">Navigation <span class="lock-label">Locked</span></button>
-    <button class="tnav-btn locked">Layout <span class="lock-label">Locked</span></button>
-    <button class="tnav-btn locked">Brand <span class="lock-label">Locked</span></button>
-  </div>
-  <div class="topbar-right">
-    <span class="live-badge"><span class="live-dot"></span>Site live</span>
-    <a href="getcronkd-demo.html" target="_blank" class="view-site-btn">View site →</a>
-  </div>
+<!-- Mobile topbar -->
+<div class="mob-topbar">
+  <div class="mob-logo"><img src="cronkd-logo-final.png" alt="Get Cronk'd"></div>
+  <button class="mob-menu-btn" onclick="toggleMobNav()" aria-label="Open menu">☰</button>
 </div>
+<div class="mob-overlay" id="mob-overlay" onclick="closeMobNav()"></div>
 
-<div class="app-body">
+<div class="app-shell">
 
-  <!-- HERO -->
-  <div class="view active" id="view-hero">
-    <div class="sec-head"><h2>Hero</h2><span class="sec-note">The first thing people see — keep the headline specific and earned.</span></div>
-    <div class="card">
-      <div class="card-head"><span class="card-title">Headline and copy</span></div>
-      <div class="field"><label class="field-label">Eyebrow (small text above headline)</label><input class="field-input" type="text" value="Kemptville's Boutique Fitness Studio"></div>
-      <div class="field"><label class="field-label">Main headline</label><input class="field-input" type="text" value="Nine years of getting Cronk'd."></div>
-      <div class="field"><label class="field-label">Subtext</label><textarea class="field-textarea">A 2,000 sqft private training facility in the heart of Old Town Kemptville. Personal training, group fitness, and specialty programs — welcoming, judgement-free, and built for every body.</textarea></div>
-      <div class="g2">
-        <div class="field"><label class="field-label">Primary button</label><input class="field-input" type="text" value="Book a free consult →"></div>
-        <div class="field"><label class="field-label">Secondary button</label><input class="field-input" type="text" value="See what we offer"></div>
-      </div>
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="cronkd-logo-final.png" alt="Get Cronk'd">
     </div>
-    <div class="card">
-      <div class="card-head"><span class="card-title">Hero image</span></div>
-      <div style="display:grid;grid-template-columns:160px 1fr;gap:1rem;align-items:center;">
-        <div class="photo-slot" style="aspect-ratio:16/9;">
-          <div class="photo-slot-icon">🖼</div>
-          <div class="photo-slot-name">hero.jpeg</div>
-          <div class="photo-slot-overlay">Replace</div>
+    <div class="sidebar-scroll">
+
+      <div class="nav-group">
+        <span class="nav-group-label">Content</span>
+        <button class="snav-btn active" onclick="switchView('hero',this)">
+          <span class="nav-icon">🏠</span><span class="nav-label">Hero</span>
+        </button>
+        <button class="snav-btn" onclick="switchView('notice',this)">
+          <span class="nav-icon">📢</span><span class="nav-label">Notice banner</span>
+        </button>
+        <button class="snav-btn" onclick="switchView('why',this)">
+          <span class="nav-icon">⭐</span><span class="nav-label">Why us</span>
+        </button>
+        <button class="snav-btn" onclick="switchView('services',this)">
+          <span class="nav-icon">📋</span><span class="nav-label">Services</span>
+        </button>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Schedule &amp; Team</span>
+        <button class="snav-btn" onclick="switchView('schedule',this)">
+          <span class="nav-icon">📅</span><span class="nav-label">Schedule</span>
+        </button>
+        <button class="snav-btn" onclick="switchView('team',this)">
+          <span class="nav-icon">👥</span><span class="nav-label">Team</span>
+        </button>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Social proof</span>
+        <button class="snav-btn" onclick="switchView('testimonials',this)">
+          <span class="nav-icon">💬</span><span class="nav-label">Testimonials</span>
+        </button>
+        <button class="snav-btn" onclick="switchView('awards',this)">
+          <span class="nav-icon">🏆</span><span class="nav-label">Awards</span>
+        </button>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Media &amp; Info</span>
+        <button class="snav-btn" onclick="switchView('gallery',this)">
+          <span class="nav-icon">🖼</span><span class="nav-label">Gallery</span>
+        </button>
+        <button class="snav-btn" onclick="switchView('contact',this)">
+          <span class="nav-icon">📍</span><span class="nav-label">Contact</span>
+        </button>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <div class="locked-group">
+        <span class="nav-group-label">Site design</span>
+        <div class="locked-item">
+          <span class="nav-icon">🔗</span>
+          <span>Navigation</span>
+          <span class="lock-pip">Locked</span>
         </div>
-        <div style="font-size:12px;color:var(--ink-muted);line-height:1.7;">Hover to replace. Recommended: landscape, minimum 1800px wide, high contrast so the overlay text reads clearly over it.</div>
+        <div class="locked-item">
+          <span class="nav-icon">⬛</span>
+          <span>Layout</span>
+          <span class="lock-pip">Locked</span>
+        </div>
+        <div class="locked-item">
+          <span class="nav-icon">🎨</span>
+          <span>Brand</span>
+          <span class="lock-pip">Locked</span>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- NOTICE -->
-  <div class="view" id="view-notice">
-    <div class="sec-head"><h2>Notice banner</h2><span class="sec-note">Appears at the top of the site. Leave blank to hide.</span></div>
-    <div class="card">
-      <div class="field"><label class="field-label">Notice text</label><input class="field-input" type="text" placeholder="e.g. Studio closed Dec 25–26. Back at it the 27th."></div>
-      <div class="g2">
-        <div class="field"><label class="field-label">Show from</label><input class="field-input" type="text" placeholder="Dec 24, 2025"></div>
-        <div class="field"><label class="field-label">Show until</label><input class="field-input" type="text" placeholder="Dec 26, 2025"></div>
+    </div>
+    <div class="sidebar-footer">
+      <span class="live-badge"><span class="live-dot"></span>Site live</span>
+      <a href="getcronkd-demo.html" target="_blank" class="view-site-btn">View live site →</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="main-scroll">
+
+      <!-- HERO -->
+      <div class="view active" id="view-hero">
+        <div class="sec-head"><h2>Hero</h2><span class="sec-note">The first thing people see — keep the headline specific and earned.</span></div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Headline and copy</span></div>
+          <div class="field"><label class="field-label">Eyebrow (small text above headline)</label><input class="field-input" type="text" value="Kemptville's Boutique Fitness Studio"></div>
+          <div class="field"><label class="field-label">Main headline</label><input class="field-input" type="text" value="Nine years of getting Cronk'd."></div>
+          <div class="field"><label class="field-label">Subtext</label><textarea class="field-textarea">A 2,000 sqft private training facility in the heart of Old Town Kemptville. Personal training, group fitness, and specialty programs — welcoming, judgement-free, and built for every body.</textarea></div>
+          <div class="g2">
+            <div class="field"><label class="field-label">Primary button</label><input class="field-input" type="text" value="Book a free consult →"></div>
+            <div class="field"><label class="field-label">Secondary button</label><input class="field-input" type="text" value="See what we offer"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Hero image</span></div>
+          <div style="display:grid;grid-template-columns:160px 1fr;gap:1rem;align-items:center;">
+            <div class="photo-slot" style="aspect-ratio:16/9;">
+              <div class="photo-slot-icon">🖼</div>
+              <div class="photo-slot-name">hero.jpeg</div>
+              <div class="photo-slot-overlay">Replace</div>
+            </div>
+            <div style="font-size:12px;color:var(--ink-muted);line-height:1.7;">Hover to replace. Recommended: landscape, minimum 1800px wide, high contrast so the overlay text reads clearly over it.</div>
+          </div>
+        </div>
       </div>
-      <div style="font-size:11px;color:var(--ink-dim);margin-top:.25rem;">Leave both dates blank to show the notice indefinitely until you clear the text.</div>
-    </div>
-  </div>
 
-  <!-- WHY US -->
-  <div class="view" id="view-why">
-    <div class="sec-head"><h2>Why us</h2><span class="sec-note">Edit, reorder, add, or remove as the studio evolves.</span></div>
-    <div class="card">
-      <div class="card-head"><span class="card-title">Section heading</span></div>
-      <div class="field"><label class="field-label">Headline</label><input class="field-input" type="text" value="This isn't a gym. It's the place you stop starting over."></div>
-      <div class="field"><label class="field-label">Subtext</label><input class="field-input" type="text" value="There are plenty of places to work out. Here's why people drive past all of them to come here."></div>
-    </div>
-    <div id="why-items">
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 1</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="It's private."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">2,000 square feet, no walk-ins, no strangers on the treadmill behind you. You'll know every face in the room within a week.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 2</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="It's coached, not supervised."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Every session — personal or group — has a certified trainer watching your form, adjusting your program, and pushing you the right amount.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 3</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="It's for everyone. Actually."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Ages 7 to 70+. New moms with babies strapped to their chest. Competitive athletes. People who haven't worked out in a decade. All in the same space, all respected equally.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 4</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="Nine years and counting."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Rebecca built this studio in 2017 and it's still here because people keep coming back. That's the only testimonial that matters.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 5</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="The owner is a world champion."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Rebecca Cronk holds the UFE Pro Wellness World Champion title. She's competed in 15+ shows across 6 federations. And she'll still get on the floor and coach your first squat.</textarea></div></div>
-    </div>
-    <button class="add-btn" onclick="addWhyItem()">+ Add item</button>
-  </div>
-
-  <!-- SCHEDULE -->
-  <div class="view" id="view-schedule">
-    <div class="sec-head">
-      <div><h2>Schedule</h2><span class="sec-note">Changes appear on the live schedule page.</span></div>
-      <button class="save-btn" style="background:var(--lime);color:#fff;border:0;border-radius:999px;padding:.4rem 1rem;font-family:var(--display);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;" onclick="addClassRow()">+ Add class</button>
-    </div>
-    <div class="card">
-      <div class="sched-wrap">
-        <table class="sched-table">
-          <thead><tr><th>Day</th><th>Time</th><th>Class name</th><th>Instructor</th><th style="width:60px;">Cap</th><th></th></tr></thead>
-          <tbody id="sched-body">
-            <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="6:00 AM"></td><td><input type="text" value="Group Training"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="8" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option selected>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="10:00 AM"></td><td><input type="text" value="Squats N' Tots"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="6" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option selected>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="6:00 PM"></td><td><input type="text" value="SMART"></td><td><input type="text" value="Brad"></td><td><input type="text" value="12" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option>Tuesday</option><option selected>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="5:30 AM"></td><td><input type="text" value="S3 Hybrid"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="7" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option>Tuesday</option><option selected>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="5:15 PM"></td><td><input type="text" value="Pilates"></td><td><input type="text" value="Cynthia"></td><td><input type="text" value="6" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option>Tuesday</option><option selected>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="7:00 PM"></td><td><input type="text" value="Adult Power Hour"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="8" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option selected>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="6:00 PM"></td><td><input type="text" value="SPYNergy Crank'd"></td><td><input type="text" value="Luc Vincent"></td><td><input type="text" value="12" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option selected>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="9:00 AM"></td><td><input type="text" value="Fitboots Rebounding"></td><td><input type="text" value="Genevieve Ethier"></td><td><input type="text" value="8" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-            <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option selected>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="10:00 AM"></td><td><input type="text" value="Pound Rockout"></td><td><input type="text" value="Genevieve Ethier"></td><td><input type="text" value="12" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
-          </tbody>
-        </table>
+      <!-- NOTICE -->
+      <div class="view" id="view-notice">
+        <div class="sec-head"><h2>Notice banner</h2><span class="sec-note">Appears at the top of the site. Leave blank to hide.</span></div>
+        <div class="card">
+          <div class="field"><label class="field-label">Notice text</label><input class="field-input" type="text" placeholder="e.g. Studio closed Dec 25–26. Back at it the 27th."></div>
+          <div class="g2">
+            <div class="field"><label class="field-label">Show from</label><input class="field-input" type="text" placeholder="Dec 24, 2025"></div>
+            <div class="field"><label class="field-label">Show until</label><input class="field-input" type="text" placeholder="Dec 26, 2025"></div>
+          </div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:.25rem;">Leave both dates blank to show the notice indefinitely until you clear the text.</div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- SERVICES -->
-  <div class="view" id="view-services">
-    <div class="sec-head"><h2>Services</h2><span class="sec-note">The tag shows as a small pill on the card (e.g. "First class free").</span></div>
-    <div id="services-items">
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Personal Training</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Personal Training"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="Free consultation"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">One-on-one or semi-private coaching built around your goals, your body, and your pace.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Group Fitness</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Group Fitness"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="First class free"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">Small-group classes with real coaching, great energy, and options for every fitness level.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Squats N' Tots</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Squats N' Tots"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="Tue &amp; Thu · 10am"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">A parent-friendly strength class where your cutest training partner can come along too.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Fit4Life · Active Aging 50+</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Fit4Life · Active Aging 50+"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="Mon–Sat · 11am"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">Low-impact strength and movement for daily life, built to help you feel capable and confident.</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Nutrition Coaching</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Nutrition Coaching"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="12 weeks"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">A 12-week whole-food nutrition program with macros, meal ideas, grocery support, and realistic strategy.</textarea></div></div>
-    </div>
-    <button class="add-btn" onclick="addServiceItem()">+ Add service</button>
-  </div>
-
-  <!-- TEAM -->
-  <div class="view" id="view-team">
-    <div class="sec-head"><h2>Team</h2><span class="sec-note">Update bios and roles as the team changes. Photo file name must match the uploaded image.</span></div>
-    <div id="team-items">
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Rebecca Cronk</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Rebecca Cronk"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Owner · Head Trainer"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">Honours BSc in Human Kinetics, CSEP-CPT, Precision Nutrition L1, competitive bodybuilder for 10+ years, UFE Pro Wellness World Champion. Don't let the credentials intimidate you — she'll meet you exactly where you are.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="rebeccaheadshot.png"></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Becky Sharko</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Becky Sharko"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Trainer · Holistic Nutritionist"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">CSEP-CPT, TRX certified, Registered Holistic Nutritionist. Clients from ages 8 to 70+. Passionate about making fitness enjoyable. Don't be fooled by her innocent sweet demeanor — she can definitely put you through your paces.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="becky.png"></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Jacob McLellan</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Jacob McLellan"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Trainer"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">CanFitPro Personal Training Specialist, dual graduate in Physiotherapy Assistant and Fitness & Health Promotion. Energetic, cheerful, and approachable.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="jacob.jpg"></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Genevieve</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Genevieve"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Pound &amp; Fitboots Rebound Instructor"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">The energy behind Pound and Fitboots Rebound classes. If you're looking for something upbeat, sweaty, and a little different, she's your person.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="genevieve.png"></div></div>
-    </div>
-    <button class="add-btn" onclick="addTeamItem()">+ Add team member</button>
-  </div>
-
-  <!-- TESTIMONIALS -->
-  <div class="view" id="view-testimonials">
-    <div class="sec-head"><h2>Testimonials</h2><span class="sec-note">Specific quotes convert better than short ones. Add them as they come in.</span></div>
-    <div id="test-items">
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Tracey · Fit4Life</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Quote</label><textarea class="field-textarea">In September 2024 my 9-year-old grandson challenged me to get up off the floor without assistance. I couldn't do it. Five months later I've lost 20 lbs and I can now get up off the floor hands-free, squat, and put my socks on without a struggle.</textarea></div><div class="field"><label class="field-label">Name / attribution</label><input class="field-input" type="text" value="— Tracey · Fit4Life 50+ Member"></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Diane Wyatt</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Quote</label><textarea class="field-textarea">Get Cronk'd has truly changed my life. I have felt welcome and comfortable since day one. All of the trainers truly care about their clients' well-being. I am beyond grateful for helping me find my confidence.</textarea></div><div class="field"><label class="field-label">Name / attribution</label><input class="field-input" type="text" value="— Diane Wyatt"></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Bonnie Kammer</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Quote</label><textarea class="field-textarea">I joined a little over 2 years ago with the Fit4Life Active Aging class and more recently for golf improvement sessions. Becky, Alex and Neil are amazing trainers. Rebecca, you and your trainers make an awesome team.</textarea></div><div class="field"><label class="field-label">Name / attribution</label><input class="field-input" type="text" value="— Bonnie Kammer"></div></div>
-    </div>
-    <button class="add-btn" onclick="addTestItem()">+ Add testimonial</button>
-  </div>
-
-  <!-- AWARDS -->
-  <div class="view" id="view-awards">
-    <div class="sec-head"><h2>Awards</h2><span class="sec-note">Update each year when Metroland Readers' Choice results come in.</span></div>
-    <div id="award-items">
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Diamond — 2025</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Year</label><input class="field-input" type="text" value="2025"></div><div class="field"><label class="field-label">Tier</label><select class="field-input"><option selected>Diamond</option><option>Platinum</option><option>Gold</option><option>Silver</option></select></div></div><div class="field"><label class="field-label">Categories (comma-separated)</label><textarea class="field-textarea" style="min-height:56px;">Best Fitness Club, Best Personal Training, Best Fitness Class, Best Nutritional Services, Best Pilates, Best Recreational Facility, Best Overall Business for Kids, Best Overall Business Health &amp; Wellness</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Platinum — 2025</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Year</label><input class="field-input" type="text" value="2025"></div><div class="field"><label class="field-label">Tier</label><select class="field-input"><option>Diamond</option><option selected>Platinum</option><option>Gold</option><option>Silver</option></select></div></div><div class="field"><label class="field-label">Categories</label><textarea class="field-textarea" style="min-height:44px;">Best Overall Business — Sports, Recreation &amp; Fitness</textarea></div></div>
-      <div class="item-row"><div class="item-row-head"><span class="item-row-label">Gold — 2025</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Year</label><input class="field-input" type="text" value="2025"></div><div class="field"><label class="field-label">Tier</label><select class="field-input"><option>Diamond</option><option>Platinum</option><option selected>Gold</option><option>Silver</option></select></div></div><div class="field"><label class="field-label">Categories</label><textarea class="field-textarea" style="min-height:44px;">Best Kids Activities, Best Overall Business Service</textarea></div></div>
-    </div>
-    <button class="add-btn" onclick="addAwardItem()">+ Add award year</button>
-  </div>
-
-  <!-- GALLERY -->
-  <div class="view" id="view-gallery">
-    <div class="sec-head"><h2>Gallery</h2><span class="sec-note">Hover any photo to replace it. Recommended: square crop, 800px minimum.</span></div>
-    <div class="card">
-      <div class="photo-grid" id="gallery-grid">
-        <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">rebeccateach.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Rebecca teaching</div></div></div>
-        <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">lucspin.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Luc — spin class</div></div></div>
-        <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">trainers.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Trainers</div></div></div>
-        <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">fitnessclass.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Fitness class</div></div></div>
-        <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">class.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Class</div></div></div>
-        <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">studio.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Studio</div></div></div>
-        <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">studio3.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Studio interior</div></div></div>
-        <div><div class="photo-slot add-slot" onclick="addGallerySlot(this)"><div class="photo-slot-icon" style="font-size:1.8rem;">+</div><div class="photo-slot-name">Add photo</div></div></div>
+      <!-- WHY US -->
+      <div class="view" id="view-why">
+        <div class="sec-head"><h2>Why us</h2><span class="sec-note">Edit, reorder, add, or remove as the studio evolves.</span></div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Section heading</span></div>
+          <div class="field"><label class="field-label">Headline</label><input class="field-input" type="text" value="This isn't a gym. It's the place you stop starting over."></div>
+          <div class="field"><label class="field-label">Subtext</label><input class="field-input" type="text" value="There are plenty of places to work out. Here's why people drive past all of them to come here."></div>
+        </div>
+        <div id="why-items">
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 1</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="It's private."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">2,000 square feet, no walk-ins, no strangers on the treadmill behind you. You'll know every face in the room within a week.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 2</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="It's coached, not supervised."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Every session — personal or group — has a certified trainer watching your form, adjusting your program, and pushing you the right amount.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 3</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="It's for everyone. Actually."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Ages 7 to 70+. New moms with babies strapped to their chest. Competitive athletes. People who haven't worked out in a decade. All in the same space, all respected equally.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 4</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="Nine years and counting."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Rebecca built this studio in 2017 and it's still here because people keep coming back. That's the only testimonial that matters.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Item 5</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Heading</label><input class="field-input" type="text" value="The owner is a world champion."></div><div class="field"><label class="field-label">Body</label><textarea class="field-textarea" style="min-height:56px;">Rebecca Cronk holds the UFE Pro Wellness World Champion title. She's competed in 15+ shows across 6 federations. And she'll still get on the floor and coach your first squat.</textarea></div></div>
+        </div>
+        <button class="add-btn" onclick="addWhyItem()">+ Add item</button>
       </div>
-      <div class="locked-note" style="margin-top:.75rem;">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;margin-top:1px;"><rect x="4" y="7" width="8" height="7" rx="1"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
-        Gallery grid layout is part of the site design. Contact us to add more slots or change the layout.
-      </div>
-    </div>
-  </div>
 
-  <!-- CONTACT -->
-  <div class="view" id="view-contact">
-    <div class="sec-head"><h2>Contact</h2><span class="sec-note">Feeds the contact section and footer. Keep it current.</span></div>
-    <div class="card">
-      <div class="card-head"><span class="card-title">Studio details</span></div>
-      <div class="field"><label class="field-label">Address</label><input class="field-input" type="text" value="9 Clothier St E, Kemptville, ON K0G 1J0"></div>
-      <div class="g2">
-        <div class="field"><label class="field-label">Phone</label><input class="field-input" type="text" value="(613) 555-5555"></div>
-        <div class="field"><label class="field-label">General email</label><input class="field-input" type="email" value="rebecca@getcronkd.ca"></div>
+      <!-- SCHEDULE -->
+      <div class="view" id="view-schedule">
+        <div class="sec-head">
+          <div><h2>Schedule</h2><span class="sec-note">Changes appear on the live schedule page.</span></div>
+          <button class="save-btn" style="background:var(--lime);color:#fff;border:0;border-radius:999px;padding:.4rem 1rem;font-family:var(--display);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;" onclick="addClassRow()">+ Add class</button>
+        </div>
+        <div class="card">
+          <div class="sched-wrap">
+            <table class="sched-table">
+              <thead><tr><th>Day</th><th>Time</th><th>Class name</th><th>Instructor</th><th style="width:60px;">Cap</th><th></th></tr></thead>
+              <tbody id="sched-body">
+                <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="6:00 AM"></td><td><input type="text" value="Group Training"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="8" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option selected>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="10:00 AM"></td><td><input type="text" value="Squats N' Tots"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="6" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option selected>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="6:00 PM"></td><td><input type="text" value="SMART"></td><td><input type="text" value="Brad"></td><td><input type="text" value="12" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option>Tuesday</option><option selected>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="5:30 AM"></td><td><input type="text" value="S3 Hybrid"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="7" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option>Tuesday</option><option selected>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="5:15 PM"></td><td><input type="text" value="Pilates"></td><td><input type="text" value="Cynthia"></td><td><input type="text" value="6" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option>Tuesday</option><option selected>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="7:00 PM"></td><td><input type="text" value="Adult Power Hour"></td><td><input type="text" value="Rebecca Cronk"></td><td><input type="text" value="8" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option selected>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="6:00 PM"></td><td><input type="text" value="SPYNergy Crank'd"></td><td><input type="text" value="Luc Vincent"></td><td><input type="text" value="12" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option selected>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="9:00 AM"></td><td><input type="text" value="Fitboots Rebounding"></td><td><input type="text" value="Genevieve Ethier"></td><td><input type="text" value="8" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+                <tr><td><select><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option selected>Saturday</option><option>Sunday</option></select></td><td><input type="text" value="10:00 AM"></td><td><input type="text" value="Pound Rockout"></td><td><input type="text" value="Genevieve Ethier"></td><td><input type="text" value="12" class="cap-input"></td><td><button class="del-btn" onclick="this.closest('tr').remove()">✕</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="field"><label class="field-label">Registration email</label><input class="field-input" type="email" value="registration@getcronkd.ca"></div>
-    </div>
-    <div class="card">
-      <div class="card-head"><span class="card-title">Social</span></div>
-      <div class="g2">
-        <div class="field"><label class="field-label">Facebook URL</label><input class="field-input" type="text" value="https://www.facebook.com/GetCronkd/"></div>
-        <div class="field"><label class="field-label">Instagram handle</label><input class="field-input" type="text" value="@getcronkd"></div>
+
+      <!-- SERVICES -->
+      <div class="view" id="view-services">
+        <div class="sec-head"><h2>Services</h2><span class="sec-note">The tag shows as a small pill on the card (e.g. "First class free").</span></div>
+        <div id="services-items">
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Personal Training</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Personal Training"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="Free consultation"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">One-on-one or semi-private coaching built around your goals, your body, and your pace.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Group Fitness</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Group Fitness"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="First class free"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">Small-group classes with real coaching, great energy, and options for every fitness level.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Squats N' Tots</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Squats N' Tots"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="Tue &amp; Thu · 10am"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">A parent-friendly strength class where your cutest training partner can come along too.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Fit4Life · Active Aging 50+</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Fit4Life · Active Aging 50+"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="Mon–Sat · 11am"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">Low-impact strength and movement for daily life, built to help you feel capable and confident.</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Nutrition Coaching</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Nutrition Coaching"></div><div class="field"><label class="field-label">Tag / time</label><input class="field-input" type="text" value="12 weeks"></div></div><div class="field"><label class="field-label">Description</label><textarea class="field-textarea" style="min-height:52px;">A 12-week whole-food nutrition program with macros, meal ideas, grocery support, and realistic strategy.</textarea></div></div>
+        </div>
+        <button class="add-btn" onclick="addServiceItem()">+ Add service</button>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-head"><span class="card-title">Studio hours</span></div>
-      <div class="info-strip">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;color:var(--amber);"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5L10 10"/></svg>
-        These are general studio access hours shown in the contact section — separate from the class schedule.
+
+      <!-- TEAM -->
+      <div class="view" id="view-team">
+        <div class="sec-head"><h2>Team</h2><span class="sec-note">Update bios and roles as the team changes. Photo file name must match the uploaded image.</span></div>
+        <div id="team-items">
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Rebecca Cronk</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Rebecca Cronk"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Owner · Head Trainer"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">Honours BSc in Human Kinetics, CSEP-CPT, Precision Nutrition L1, competitive bodybuilder for 10+ years, UFE Pro Wellness World Champion. Don't let the credentials intimidate you — she'll meet you exactly where you are.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="rebeccaheadshot.png"></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Becky Sharko</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Becky Sharko"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Trainer · Holistic Nutritionist"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">CSEP-CPT, TRX certified, Registered Holistic Nutritionist. Clients from ages 8 to 70+. Passionate about making fitness enjoyable. Don't be fooled by her innocent sweet demeanor — she can definitely put you through your paces.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="becky.png"></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Jacob McLellan</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Jacob McLellan"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Trainer"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">CanFitPro Personal Training Specialist, dual graduate in Physiotherapy Assistant and Fitness & Health Promotion. Energetic, cheerful, and approachable.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="jacob.jpg"></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Genevieve</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Name</label><input class="field-input" type="text" value="Genevieve"></div><div class="field"><label class="field-label">Role</label><input class="field-input" type="text" value="Pound &amp; Fitboots Rebound Instructor"></div></div><div class="field"><label class="field-label">Bio</label><textarea class="field-textarea">The energy behind Pound and Fitboots Rebound classes. If you're looking for something upbeat, sweaty, and a little different, she's your person.</textarea></div><div class="field"><label class="field-label">Photo file</label><input class="field-input" type="text" value="genevieve.png"></div></div>
+        </div>
+        <button class="add-btn" onclick="addTeamItem()">+ Add team member</button>
       </div>
-      <div class="field"><label class="field-label">Hours (plain text)</label><textarea class="field-textarea">Monday – Friday: 5:30 AM – 8:00 PM
+
+      <!-- TESTIMONIALS -->
+      <div class="view" id="view-testimonials">
+        <div class="sec-head"><h2>Testimonials</h2><span class="sec-note">Specific quotes convert better than short ones. Add them as they come in.</span></div>
+        <div id="test-items">
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Tracey · Fit4Life</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Quote</label><textarea class="field-textarea">In September 2024 my 9-year-old grandson challenged me to get up off the floor without assistance. I couldn't do it. Five months later I've lost 20 lbs and I can now get up off the floor hands-free, squat, and put my socks on without a struggle.</textarea></div><div class="field"><label class="field-label">Name / attribution</label><input class="field-input" type="text" value="— Tracey · Fit4Life 50+ Member"></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Diane Wyatt</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Quote</label><textarea class="field-textarea">Get Cronk'd has truly changed my life. I have felt welcome and comfortable since day one. All of the trainers truly care about their clients' well-being. I am beyond grateful for helping me find my confidence.</textarea></div><div class="field"><label class="field-label">Name / attribution</label><input class="field-input" type="text" value="— Diane Wyatt"></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Bonnie Kammer</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="field"><label class="field-label">Quote</label><textarea class="field-textarea">I joined a little over 2 years ago with the Fit4Life Active Aging class and more recently for golf improvement sessions. Becky, Alex and Neil are amazing trainers. Rebecca, you and your trainers make an awesome team.</textarea></div><div class="field"><label class="field-label">Name / attribution</label><input class="field-input" type="text" value="— Bonnie Kammer"></div></div>
+        </div>
+        <button class="add-btn" onclick="addTestItem()">+ Add testimonial</button>
+      </div>
+
+      <!-- AWARDS -->
+      <div class="view" id="view-awards">
+        <div class="sec-head"><h2>Awards</h2><span class="sec-note">Update each year when Metroland Readers' Choice results come in.</span></div>
+        <div id="award-items">
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Diamond — 2025</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Year</label><input class="field-input" type="text" value="2025"></div><div class="field"><label class="field-label">Tier</label><select class="field-input"><option selected>Diamond</option><option>Platinum</option><option>Gold</option><option>Silver</option></select></div></div><div class="field"><label class="field-label">Categories (comma-separated)</label><textarea class="field-textarea" style="min-height:56px;">Best Fitness Club, Best Personal Training, Best Fitness Class, Best Nutritional Services, Best Pilates, Best Recreational Facility, Best Overall Business for Kids, Best Overall Business Health &amp; Wellness</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Platinum — 2025</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Year</label><input class="field-input" type="text" value="2025"></div><div class="field"><label class="field-label">Tier</label><select class="field-input"><option>Diamond</option><option selected>Platinum</option><option>Gold</option><option>Silver</option></select></div></div><div class="field"><label class="field-label">Categories</label><textarea class="field-textarea" style="min-height:44px;">Best Overall Business — Sports, Recreation &amp; Fitness</textarea></div></div>
+          <div class="item-row"><div class="item-row-head"><span class="item-row-label">Gold — 2025</span><div class="item-actions"><button class="del-btn" onclick="removeItem(this)">✕</button></div></div><div class="g2"><div class="field"><label class="field-label">Year</label><input class="field-input" type="text" value="2025"></div><div class="field"><label class="field-label">Tier</label><select class="field-input"><option>Diamond</option><option>Platinum</option><option selected>Gold</option><option>Silver</option></select></div></div><div class="field"><label class="field-label">Categories</label><textarea class="field-textarea" style="min-height:44px;">Best Kids Activities, Best Overall Business Service</textarea></div></div>
+        </div>
+        <button class="add-btn" onclick="addAwardItem()">+ Add award year</button>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="view" id="view-gallery">
+        <div class="sec-head"><h2>Gallery</h2><span class="sec-note">Hover any photo to replace it. Recommended: square crop, 800px minimum.</span></div>
+        <div class="card">
+          <div class="photo-grid" id="gallery-grid">
+            <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">rebeccateach.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Rebecca teaching</div></div></div>
+            <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">lucspin.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Luc — spin class</div></div></div>
+            <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">trainers.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Trainers</div></div></div>
+            <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">fitnessclass.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Fitness class</div></div></div>
+            <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">class.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Class</div></div></div>
+            <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">studio.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Studio</div></div></div>
+            <div><div class="photo-slot"><div class="photo-slot-icon">🖼</div><div class="photo-slot-name">studio3.jpeg</div><div class="photo-slot-overlay">Replace</div></div><div class="photo-meta"><div class="photo-meta-name">Studio interior</div></div></div>
+            <div><div class="photo-slot add-slot" onclick="addGallerySlot(this)"><div class="photo-slot-icon" style="font-size:1.8rem;">+</div><div class="photo-slot-name">Add photo</div></div></div>
+          </div>
+          <div class="locked-note" style="margin-top:.75rem;">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;margin-top:1px;"><rect x="4" y="7" width="8" height="7" rx="1"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
+            Gallery grid layout is part of the site design. Contact us to add more slots or change the layout.
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="view" id="view-contact">
+        <div class="sec-head"><h2>Contact</h2><span class="sec-note">Feeds the contact section and footer. Keep it current.</span></div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Studio details</span></div>
+          <div class="field"><label class="field-label">Address</label><input class="field-input" type="text" value="9 Clothier St E, Kemptville, ON K0G 1J0"></div>
+          <div class="g2">
+            <div class="field"><label class="field-label">Phone</label><input class="field-input" type="text" value="(613) 555-5555"></div>
+            <div class="field"><label class="field-label">General email</label><input class="field-input" type="email" value="rebecca@getcronkd.ca"></div>
+          </div>
+          <div class="field"><label class="field-label">Registration email</label><input class="field-input" type="email" value="registration@getcronkd.ca"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Social</span></div>
+          <div class="g2">
+            <div class="field"><label class="field-label">Facebook URL</label><input class="field-input" type="text" value="https://www.facebook.com/GetCronkd/"></div>
+            <div class="field"><label class="field-label">Instagram handle</label><input class="field-input" type="text" value="@getcronkd"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Studio hours</span></div>
+          <div class="info-strip">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;color:var(--amber);"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5L10 10"/></svg>
+            These are general studio access hours shown in the contact section — separate from the class schedule.
+          </div>
+          <div class="field"><label class="field-label">Hours (plain text)</label><textarea class="field-textarea">Monday – Friday: 5:30 AM – 8:00 PM
 Saturday: 8:00 AM – 4:00 PM
 Sunday: Closed</textarea></div>
+        </div>
+      </div>
+
+    </div><!-- /main-scroll -->
+
+    <div class="save-bar">
+      <span class="save-note">Changes publish to your live site when you save.</span>
+      <div class="save-right">
+        <span class="save-confirm" id="save-confirm">✓ Saved</span>
+        <button class="save-btn" onclick="saveChanges()">Save changes</button>
+      </div>
     </div>
-  </div>
+  </div><!-- /main -->
 
-</div><!-- /app-body -->
-
-<div class="save-bar">
-  <span class="save-note">Changes publish to your live site when you save.</span>
-  <div class="save-right">
-    <span class="save-confirm" id="save-confirm">✓ Saved</span>
-    <button class="save-btn" onclick="saveChanges()">Save changes</button>
-  </div>
-</div>
+</div><!-- /app-shell -->
 
 <div class="toast" id="toast"><div class="toast-title" id="toast-title"></div><div class="toast-sub" id="toast-sub"></div></div>
 
@@ -359,9 +474,10 @@ Sunday: Closed</textarea></div>
 function switchView(id,btn){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById('view-'+id).classList.add('active');
-  document.querySelectorAll('.tnav-btn:not(.locked)').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.snav-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  window.scrollTo(0,0);
+  document.querySelector('.main-scroll').scrollTo(0,0);
+  closeMobNav();
 }
 function removeItem(btn){btn.closest('.item-row').remove();}
 function addWhyItem(){
@@ -415,6 +531,14 @@ function saveChanges(){
   c.style.display='flex';
   showToast('Changes saved','Your site will update within a few seconds.');
   setTimeout(()=>{c.style.display='none';},3000);
+}
+function toggleMobNav(){
+  document.getElementById('sidebar').classList.toggle('mob-open');
+  document.getElementById('mob-overlay').classList.toggle('open');
+}
+function closeMobNav(){
+  document.getElementById('sidebar').classList.remove('mob-open');
+  document.getElementById('mob-overlay').classList.remove('open');
 }
 </script>
 </body>
