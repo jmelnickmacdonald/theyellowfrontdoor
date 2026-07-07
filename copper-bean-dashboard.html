@@ -123,13 +123,13 @@ button { font-family: var(--f-body); cursor: pointer; }
 
 /* PHOTOS */
 .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.photo-slot { aspect-ratio: 16/9; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; }
-.photo-slot-bg { position: absolute; inset: 0; opacity: 0.35; }
-.photo-slot-content { position: relative; z-index: 1; text-align: center; }
-.photo-slot-filename { font-size: 11px; color: var(--slate); font-family: 'DM Sans', monospace; }
-.photo-slot-overlay { position: absolute; inset: 0; background: rgba(184,115,51,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; z-index: 2; }
+.photo-slot { aspect-ratio: 16/9; border-radius: 6px; border: 1px solid var(--border); overflow: hidden; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; background: #1a1a1a; }
+.photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-slot-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; z-index: 2; }
 .photo-slot:hover .photo-slot-overlay { opacity: 1; }
+.photo-slot-overlay-inner { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .photo-slot-overlay svg { width: 22px; height: 22px; color: var(--ivory); }
+.photo-slot-overlay-label { font-size: 11px; color: var(--ivory); letter-spacing: 0.08em; text-transform: uppercase; }
 .photo-meta { margin-top: 7px; }
 .photo-meta-name { font-size: 12px; color: #999; font-weight: 500; }
 .photo-meta-where { font-size: 10px; color: var(--slate-dim); margin-top: 1px; }
@@ -373,70 +373,75 @@ button { font-family: var(--f-body); cursor: pointer; }
     </div>
     <div class="card">
       <div class="photo-grid">
+
         <div>
-          <div class="photo-slot">
-            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #3a2a18, #1a1008);"></div>
-            <div class="photo-slot-content">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
-              <div class="photo-slot-filename">cb-hero.jpg</div>
-            </div>
+          <div class="photo-slot" onclick="triggerUpload('input-hero')">
+            <img src="cb-hero.jpg" alt="Hero image">
             <div class="photo-slot-overlay">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+              <div class="photo-slot-overlay-inner">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v8M6 8l4-4 4 4M4 16h12"/></svg>
+                <span class="photo-slot-overlay-label">Replace photo</span>
+              </div>
             </div>
           </div>
+          <input type="file" id="input-hero" accept="image/*" style="display:none" onchange="previewPhoto(this, 0)">
           <div class="photo-meta">
             <div class="photo-meta-name">Hero image</div>
             <div class="photo-meta-where">Full-screen background, top of page</div>
           </div>
         </div>
+
         <div>
-          <div class="photo-slot">
-            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #1e2a18, #0e1a08);"></div>
-            <div class="photo-slot-content">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
-              <div class="photo-slot-filename">cb-collage.jpg</div>
-            </div>
+          <div class="photo-slot" onclick="triggerUpload('input-collage')">
+            <img src="cb-collage.jpg" alt="About photo">
             <div class="photo-slot-overlay">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+              <div class="photo-slot-overlay-inner">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v8M6 8l4-4 4 4M4 16h12"/></svg>
+                <span class="photo-slot-overlay-label">Replace photo</span>
+              </div>
             </div>
           </div>
+          <input type="file" id="input-collage" accept="image/*" style="display:none" onchange="previewPhoto(this, 1)">
           <div class="photo-meta">
             <div class="photo-meta-name">About photo</div>
             <div class="photo-meta-where">Beside your story, About section</div>
           </div>
         </div>
+
         <div>
-          <div class="photo-slot">
-            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #1a2030, #0a1020);"></div>
-            <div class="photo-slot-content">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
-              <div class="photo-slot-filename">coffeewide1.png</div>
-            </div>
+          <div class="photo-slot" onclick="triggerUpload('input-wide1')">
+            <img src="coffeewide1.png" alt="Photo strip 1">
             <div class="photo-slot-overlay">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+              <div class="photo-slot-overlay-inner">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v8M6 8l4-4 4 4M4 16h12"/></svg>
+                <span class="photo-slot-overlay-label">Replace photo</span>
+              </div>
             </div>
           </div>
+          <input type="file" id="input-wide1" accept="image/*" style="display:none" onchange="previewPhoto(this, 2)">
           <div class="photo-meta">
             <div class="photo-meta-name">Photo strip 1</div>
             <div class="photo-meta-where">Full-width strip, after menu intro</div>
           </div>
         </div>
+
         <div>
-          <div class="photo-slot">
-            <div class="photo-slot-bg" style="background: linear-gradient(135deg, #281a28, #180a18);"></div>
-            <div class="photo-slot-content">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:#555;margin:0 auto 4px;display:block;"><rect x="2" y="4" width="16" height="12" rx="1"/><circle cx="7" cy="8" r="1.5"/><path d="M2 13l4-4 3 3 3-4 6 5"/></svg>
-              <div class="photo-slot-filename">coffeewide2.png</div>
-            </div>
+          <div class="photo-slot" onclick="triggerUpload('input-wide2')">
+            <img src="coffeewide2.png" alt="Photo strip 2">
             <div class="photo-slot-overlay">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-4 8-8M14 2l4 4M9 7l4 4"/></svg>
+              <div class="photo-slot-overlay-inner">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v8M6 8l4-4 4 4M4 16h12"/></svg>
+                <span class="photo-slot-overlay-label">Replace photo</span>
+              </div>
             </div>
           </div>
+          <input type="file" id="input-wide2" accept="image/*" style="display:none" onchange="previewPhoto(this, 3)">
           <div class="photo-meta">
             <div class="photo-meta-name">Photo strip 2</div>
             <div class="photo-meta-where">Full-width strip, before hours section</div>
           </div>
         </div>
+
       </div>
       <div class="locked-note" style="margin-top:14px;">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="8" height="7" rx="1"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
@@ -541,6 +546,21 @@ function toggleDay(btn) {
       controls.appendChild(c);
     }
   }
+}
+
+function triggerUpload(inputId) {
+  document.getElementById(inputId).click();
+}
+
+function previewPhoto(input, slotIndex) {
+  if (!input.files || !input.files[0]) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var slots = document.querySelectorAll('.photo-slot');
+    var img = slots[slotIndex].querySelector('img');
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
 }
 
 function saveChanges() {
