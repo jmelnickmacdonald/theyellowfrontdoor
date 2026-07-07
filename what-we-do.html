@@ -131,12 +131,24 @@ ul { list-style: none; }
 .website-section-header { margin-bottom: 40px; max-width: 680px; }
 .website-section-header h2 { font-family: var(--f-head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 400; color: var(--ink); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
 .website-section-header p { font-size: 16px; line-height: 1.75; color: var(--ink); font-weight: 400; }
-.website-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
-.website-option { background: var(--paper); padding: clamp(24px, 3vw, 36px); }
-.website-option-name { font-family: var(--f-head); font-size: 17px; font-weight: 500; color: var(--ink); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.website-option-name::before { content: ''; width: 8px; height: 8px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
-.website-option p { font-size: 16px; line-height: 1.75; color: var(--ink); font-weight: 400; }
-.website-option p + p { margin-top: 12px; }
+
+/* WEBSITE TAB SWITCHER */
+.website-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--stone); margin-bottom: 40px; }
+.website-tab-btn { font-family: var(--f-body); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--slate); background: none; border: none; border-bottom: 3px solid transparent; padding: 12px 24px 12px; cursor: pointer; margin-bottom: -1px; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+.website-tab-btn:hover { color: var(--ink); }
+.website-tab-btn.active { color: var(--ink); border-bottom-color: var(--yellow); }
+.website-tab-panel { display: none; }
+.website-tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: start; }
+.website-tab-body p { font-size: 16px; line-height: 1.75; color: var(--ink); font-weight: 400; }
+.website-tab-body p + p { margin-top: 14px; }
+.website-tab-detail { background: var(--paper-mid); padding: clamp(20px, 3vw, 32px); }
+.website-tab-detail-item { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--stone); }
+.website-tab-detail-item:first-child { padding-top: 0; }
+.website-tab-detail-item:last-child { border-bottom: none; padding-bottom: 0; }
+.website-tab-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; margin-top: 9px; }
+.website-tab-detail-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; letter-spacing: 0.02em; }
+.website-tab-detail-text span { font-size: 14px; color: var(--slate); line-height: 1.6; }
+
 .website-note { margin-top: 28px; font-size: 15px; line-height: 1.75; color: var(--ink); max-width: 760px; }
 
 /* ACT 3 — FOUNDATION */
@@ -176,12 +188,16 @@ ul { list-style: none; }
 /* RESPONSIVE */
 @media (max-width: 960px) {
   .path-header, .foundation-inner { grid-template-columns: 1fr; gap: 28px; }
-  .website-options { grid-template-columns: 1fr; }
   .path-panel { grid-template-columns: 1fr; align-items: start; }
   .path-footer-note { flex-direction: column; align-items: flex-start; }
   .foundation-item { grid-template-columns: 16px 1fr; row-gap: 4px; }
   .foundation-item-desc { grid-column: 2; }
   .path-road { height: 56px; }
+}
+@media (max-width: 760px) {
+  .website-tab-panel.active { grid-template-columns: 1fr; }
+  .website-tabs { overflow-x: auto; }
+  .website-tab-btn { padding: 10px 16px; font-size: 12px; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
@@ -240,7 +256,7 @@ ul { list-style: none; }
       <img src="roundlogo2.png" alt="The Yellow Front Door">
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="what-we-do.html" class="active">What We Do</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="the-proof.html">The Proof</a></li>
       <li><a href="about.html">About</a></li>
@@ -339,21 +355,52 @@ ul { list-style: none; }
       <h2>Three ways to work on a website.</h2>
       <p>Not every business needs a new site. Some need theirs fixed. Some want it handled entirely. Here is how we approach each one.</p>
     </div>
-    <div class="website-options">
-      <div class="website-option">
-        <h3 class="website-option-name">Already have a site?</h3>
-        <p>If you're on Squarespace, WordPress, Shopify, or another platform and the whole thing feels like it's working against you, we can help. We'll clean up the layout, sharpen the copy, and make what you already have feel like it actually fits your business. You don't need to start over just because the template isn't doing you any favours.</p>
+
+    <div class="website-tabs" role="tablist">
+      <button class="website-tab-btn active" role="tab" aria-selected="true" onclick="switchWebTab('fix',this)">Already have a site?</button>
+      <button class="website-tab-btn" role="tab" aria-selected="false" onclick="switchWebTab('build',this)">Want it built for you?</button>
+      <button class="website-tab-btn" role="tab" aria-selected="false" onclick="switchWebTab('hand',this)">Rather not think about it?</button>
+    </div>
+
+    <div class="website-tab-panel active" id="wtab-fix" role="tabpanel">
+      <div class="website-tab-body">
+        <p>If you're on Squarespace, WordPress, Shopify, or another platform and the whole thing feels like it's working against you, we can help. We'll clean up the layout, sharpen the copy, and make what you already have feel like it actually fits your business.</p>
+        <p>You don't need to start over just because the template isn't doing you any favours.</p>
       </div>
-      <div class="website-option">
-        <h3 class="website-option-name">Want something built for you?</h3>
-        <p>Most custom sites leave you with a choice you shouldn't have to make: call someone every time something needs updating, or risk breaking something trying to do it yourself. We build custom sites that take that off the table entirely.</p>
-        <p>The design is built for your business, not pulled from a theme. And it comes with a simple dashboard so you can swap a photo, update a price, change your hours, or add something new without touching any code or calling anyone. The design stays locked. The content stays yours.</p>
-      </div>
-      <div class="website-option">
-        <h3 class="website-option-name">Rather not think about it at all?</h3>
-        <p>Some people want the keys. Some people want a driver. We can handle the build and then stick around for monthly maintenance. Content updates, seasonal swaps, new pages when you need them. You run your business. We keep the site current.</p>
+      <div class="website-tab-detail">
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Copy rewrite</strong><span>Headlines, page text, and calls to action that sound like you.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Layout cleanup</strong><span>We reorganize what's there so it's easier to read and easier to follow.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Visual polish</strong><span>Fonts, colours, and spacing that feel considered, not default.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>The Refresh — starting at $900</strong><span>Scoped to what actually needs fixing.</span></div></div>
       </div>
     </div>
+
+    <div class="website-tab-panel" id="wtab-build" role="tabpanel">
+      <div class="website-tab-body">
+        <p>Most custom sites leave you with a choice you shouldn't have to make: call someone every time something needs updating, or risk breaking it yourself. We build sites that take that off the table.</p>
+        <p>The design is built for your business, not pulled from a theme. And it comes with a simple dashboard so you can swap a photo, update a price, or add something new without touching any code. The design stays locked. The content stays yours.</p>
+      </div>
+      <div class="website-tab-detail">
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Custom build</strong><span>No templates. Designed for your business from the ground up.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Copy written for you</strong><span>We write every word. Most builders don't include this.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Built to be editable</strong><span>You'll be able to update it yourself without breaking anything.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>The Open Door — starting at $2,200</strong><span>Scoped to your pages and goals.</span></div></div>
+      </div>
+    </div>
+
+    <div class="website-tab-panel" id="wtab-hand" role="tabpanel">
+      <div class="website-tab-body">
+        <p>Some people want the keys. Some people want a driver. We can handle the build and then stick around for monthly maintenance. Content updates, seasonal swaps, new pages when you need them.</p>
+        <p>You run your business. We keep the site current.</p>
+      </div>
+      <div class="website-tab-detail">
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Monthly updates</strong><span>Content, photos, seasonal pages, whatever needs changing.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>No login required</strong><span>You send us the change. We handle it.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>Includes the build</strong><span>We do the full project first, then stay on.</span></div></div>
+        <div class="website-tab-detail-item"><div class="website-tab-dot"></div><div class="website-tab-detail-text"><strong>The Touch-Up — $250/month</strong><span>After the initial build is complete.</span></div></div>
+      </div>
+    </div>
+
     <p class="website-note">Every site we build or fix is structured so that search engines and AI tools can understand what your business does and recommend you to the right people. That is not an add-on. It is how we work.</p>
     <p class="website-note" style="margin-top: 16px;">Not looking to touch the site at all? If your business cards, letterhead, email signature, or printed materials are out of date or out of step with the rest of your brand, we handle that too. No rebuild required.</p>
   </div>
@@ -577,6 +624,14 @@ ul { list-style: none; }
 
   render();
 })();
+
+function switchWebTab(id, btn) {
+  document.querySelectorAll('.website-tab-btn').forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  document.querySelectorAll('.website-tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+  document.getElementById('wtab-'+id).classList.add('active');
+}
 </script>
 </body>
 </html>
