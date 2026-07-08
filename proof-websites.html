@@ -72,6 +72,26 @@ ul { list-style: none; }
 .project-link:hover { background: var(--brass); }
 .project-link-outline { background: transparent; color: var(--ink); border: 1px solid var(--stone); padding: 12px 22px; }
 .project-link-outline:hover { border-color: var(--ink); background: transparent; }
+  .project-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 520px;
+  gap: 12px;
+}
+
+.project-links-grid .project-link {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  min-height: 54px;
+}
+
+@media (max-width: 640px) {
+  .project-links-grid {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+}
 .project-aside { margin-top: 24px; padding: 16px 20px; border-left: 3px solid var(--yellow); background: var(--paper-mid); font-size: 13px; line-height: 1.8; color: var(--slate); }
 .project-aside a { color: var(--clay); font-weight: 600; }
 .decisions-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); background: none; border: none; cursor: pointer; padding: 0; border-bottom: 1px solid var(--stone); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; font-family: var(--f-body); }
@@ -267,7 +287,7 @@ ul { list-style: none; }
           <a href="getcronkd.html" class="project-link">Full case study &rarr;</a>
           <a href="getcronkd-demo.html" target="_blank" class="project-link">View the demo site &rarr;</a>
           <a href="getcronkd-site-editor.html" target="_blank" class="project-link project-link-outline">See the dashboard &rarr;</a>
-          <a href="getcronkd-systems.html" target="_blank" class="project-link project-link-outline">Staff systems &rarr;</a>
+          <a href="getcronkd-systems.html" target="_blank" class="project-link project-link-outline">Operations systems &rarr;</a>
         </div>
           <div style="margin-top: 20px;">
             <button class="decisions-btn" onclick="openModal('cronkd')">
