@@ -236,6 +236,9 @@
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
+    .footer-legal-links { display: flex; justify-content: center; gap: 20px; margin-top: 16px; }
+.footer-legal-links a { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+.footer-legal-links a:hover { color: var(--ink); }
   </style>
   <link rel="canonical" href="https://www.theyellowfrontdoor.ca/rh-shop.html" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
@@ -479,9 +482,13 @@
   <div class="footer-bottom">
     <span>&copy; 2025 Raven House Co. &mdash; Annapolis Valley, NS</span>
     <span>Laid by happy birds. Collected by noisy kids.</span>
+ </div>
+    <div class="footer-legal-links">
+      <a href="legal.html">Privacy Policy</a>
+      <a href="legal.html#tos">Terms of Service</a>
+    </div>
   </div>
 </footer>
-
 <script>
 (function(){
   var SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0fThcz27k0AnyMyA03VfvO3kLgj-Tl6sLSXCASgGR65ZKyP2FLecjnNIgTxJ8gkFO3sMBEBvQEEol/pub?output=csv';
