@@ -75,7 +75,11 @@ ul { list-style: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* PAGE HEADER */
-.page-header { padding: clamp(80px,10vw,120px) 0 clamp(40px,5vw,60px); margin-top: 72px; border-bottom: 1px solid var(--stone); }
+.page-header {
+  padding: clamp(56px, 7vw, 88px) 0 clamp(32px, 4vw, 48px);
+  margin-top: 72px;
+  border-bottom: 1px solid var(--stone);
+}
 .page-header-inner { max-width: 680px; }
 .breadcrumb { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 20px; }
 .breadcrumb a { color: var(--slate); transition: color 0.2s; }
@@ -273,7 +277,9 @@ ul { list-style: none; }
 
 <!-- HERO IMAGE -->
 <div class="case-hero-img">
-  <img src="getcronkdwebsitemockup.png" alt="Get Cronk'd website mockup — desktop view">
+  <div class="case-hero-img-inner">
+    <img src="getcronkdwebsitemockup.png" alt="Get Cronk'd website mockup — desktop view">
+  </div>
 </div>
 
 <!-- INTRO BAND -->
