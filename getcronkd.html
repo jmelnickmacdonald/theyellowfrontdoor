@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Cronk'd — Website, Brand & Systems — The Yellow Front Door</title>
+  <meta name="description" content="A nine-year fitness studio needed a website that matched what they'd built. We rebuilt it from scratch, wrote the copy, and built the operations system behind it — all as one connected project.">
+  <link rel="canonical" href="https://www.theyellowfrontdoor.ca/getcronkd.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet"></noscript>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NPL1XCH6H7');
+  </script>
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: block;
+}
+:root {
+  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
+  --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
+  --navy: #132447;
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif;
+  --f-body: 'Montserrat', sans-serif;
+  --max: 1120px;
+  --gutter: clamp(24px, 5vw, 80px);
+  --ck-lime: #A2C523;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
+.nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
+.nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-logo img { height: 52px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: nowrap; }
+.nav-links a { font-size: 12px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-links a.active { font-weight: 600; }
+.nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
+.nav-cta:hover { background: var(--brass) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+
+/* PAGE HEADER */
+.page-header { padding: clamp(80px,10vw,120px) 0 clamp(40px,5vw,60px); margin-top: 72px; border-bottom: 1px solid var(--stone); }
+.page-header-inner { max-width: 680px; }
+.breadcrumb { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); margin-bottom: 20px; }
+.breadcrumb a { color: var(--slate); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--ink); }
+.breadcrumb span { margin: 0 8px; color: var(--stone); }
+.page-header h1 { font-family: var(--f-head); font-size: clamp(30px,4.5vw,52px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; }
+.page-header .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(26px,3.5vw,44px); font-weight: normal; color: var(--slate); line-height: 1.25; margin-top: 14px; }
+.page-header p { font-size: clamp(15px,1.8vw,17px); color: var(--slate); line-height: 1.85; margin-top: 24px; max-width: 560px; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.meta-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); background: transparent; border: 1px solid var(--stone); padding: 5px 11px; }
+.meta-tag.real { color: var(--clay); border-color: var(--clay); }
+
+/* HERO IMAGE */
+.case-hero-img { width: 100%; border-bottom: 1px solid var(--stone); }
+.case-hero-img img { width: 100%; max-height: 520px; object-fit: cover; object-position: center top; display: block; }
+
+/* INTRO BAND */
+.intro-band { background: var(--navy); padding: clamp(40px,5vw,64px) 0; }
+.intro-band-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: start; }
+.intro-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 16px; }
+.intro-heading { font-family: var(--f-head); font-size: clamp(20px,2.5vw,28px); font-weight: 400; color: #fff; line-height: 1.25; margin-bottom: 20px; }
+.intro-body { font-size: 15px; line-height: 1.85; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+.intro-body:last-child { margin-bottom: 0; }
+.intro-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
+.intro-stat { background: rgba(255,255,255,0.04); padding: 24px 20px; }
+.intro-stat-val { font-family: var(--f-accent); font-size: clamp(32px,4vw,48px); color: var(--yellow); line-height: 1; margin-bottom: 8px; font-weight: normal; }
+.intro-stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1.4; }
+
+/* WHAT WE BUILT */
+.built-section { padding: clamp(56px,7vw,96px) 0; border-bottom: 1px solid var(--stone); }
+.built-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+.built-heading { font-family: var(--f-accent); font-size: clamp(28px,3.5vw,44px); color: var(--ink); font-weight: normal; line-height: 1.1; margin-bottom: 48px; }
+.built-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
+.built-card { background: var(--paper); padding: clamp(28px,3vw,40px); display: flex; flex-direction: column; }
+.built-card-num { font-family: var(--f-accent); font-size: 48px; color: var(--stone); line-height: 1; margin-bottom: 16px; font-weight: normal; }
+.built-card-title { font-family: var(--f-head); font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; margin-bottom: 12px; }
+.built-card-body { font-size: 14px; line-height: 1.85; color: var(--slate); margin-bottom: 24px; flex: 1; }
+.built-card-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; transition: color 0.2s; }
+.built-card-link:hover { color: var(--clay); }
+
+/* THE STORY */
+.story-section { padding: clamp(56px,7vw,96px) 0; border-bottom: 1px solid var(--stone); }
+.story-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: start; }
+.story-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+.story-heading { font-family: var(--f-accent); font-size: clamp(26px,3vw,38px); color: var(--ink); font-weight: normal; line-height: 1.15; margin-bottom: 24px; }
+.story-body { font-size: 15px; line-height: 1.9; color: var(--ink); margin-bottom: 16px; }
+.story-body:last-child { margin-bottom: 0; }
+.story-pullquote { border-left: 3px solid var(--yellow); padding: 20px 24px; background: var(--paper-mid); margin: 32px 0; }
+.story-pullquote p { font-size: 16px; line-height: 1.75; color: var(--ink); font-style: italic; }
+.story-img { border: 1px solid var(--stone); }
+.story-img img { width: 100%; height: auto; display: block; }
+.story-img-caption { font-size: 11px; color: var(--slate); padding: 12px 16px; border-top: 1px solid var(--stone); letter-spacing: 0.04em; }
+
+/* AWARDS STRIP */
+.awards-strip { background: var(--paper-mid); border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); padding: clamp(36px,4vw,52px) 0; }
+.awards-inner { display: grid; grid-template-columns: auto 1fr; gap: clamp(32px,4vw,56px); align-items: center; }
+.awards-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 12px; }
+.awards-heading { font-family: var(--f-head); font-size: clamp(18px,2vw,24px); font-weight: 500; color: var(--ink); line-height: 1.2; max-width: 240px; }
+.awards-list { display: flex; flex-direction: column; gap: 10px; }
+.award-item { display: flex; gap: 12px; align-items: flex-start; }
+.award-tier { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 10px; flex-shrink: 0; }
+.award-tier.diamond { background: #e8f0fe; color: #3BB0E0; }
+.award-tier.platinum { background: #f0f0f0; color: #666; }
+.award-tier.gold { background: #fdf8ee; color: var(--clay); }
+.award-text { font-size: 13px; line-height: 1.65; color: var(--slate); }
+
+/* TESTIMONIALS */
+.testimonials-section { padding: clamp(56px,7vw,96px) 0; border-bottom: 1px solid var(--stone); }
+.testimonials-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+.testimonials-heading { font-family: var(--f-accent); font-size: clamp(26px,3vw,38px); color: var(--ink); font-weight: normal; line-height: 1.15; margin-bottom: 40px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: clamp(20px,3vw,32px); }
+.testimonial-card { background: var(--paper-mid); padding: clamp(24px,3vw,36px); }
+.testimonial-quote { font-size: 15px; line-height: 1.8; color: var(--ink); font-style: italic; margin-bottom: 16px; }
+.testimonial-cite { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); }
+
+/* EXPLORE LINKS */
+.explore-section { padding: clamp(56px,7vw,96px) 0; background: var(--navy); }
+.explore-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 16px; }
+.explore-heading { font-family: var(--f-head); font-size: clamp(20px,2.5vw,28px); font-weight: 400; color: #fff; line-height: 1.25; margin-bottom: 36px; max-width: 560px; }
+.explore-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
+.explore-card { background: rgba(255,255,255,0.04); padding: clamp(24px,3vw,36px); display: flex; flex-direction: column; gap: 12px; transition: background 0.2s; }
+.explore-card:hover { background: rgba(255,255,255,0.08); }
+.explore-card-label { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); }
+.explore-card-title { font-family: var(--f-head); font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3; }
+.explore-card-body { font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.6); flex: 1; }
+.explore-card-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--yellow); margin-top: 8px; }
+
+/* CTA */
+.cta-section { padding: clamp(48px,6vw,80px) 0; border-top: 1px solid var(--stone); text-align: center; }
+.cta-heading { font-family: var(--f-head); font-size: clamp(22px,3vw,32px); font-weight: 400; color: var(--ink); margin-bottom: 12px; }
+.cta-body { font-size: 15px; color: var(--slate); max-width: 480px; margin: 0 auto 28px; line-height: 1.75; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-yellow { display: inline-flex; align-items: center; background: var(--yellow); color: var(--ink); padding: 15px 32px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.btn-yellow:hover { background: var(--brass); }
+.btn-outline { display: inline-flex; align-items: center; background: transparent; color: var(--slate); padding: 14px 28px; font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--stone); transition: border-color 0.2s, color 0.2s; }
+.btn-outline:hover { border-color: var(--slate); color: var(--ink); }
+
+/* FOOTER */
+.footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
+.footer-logo-wrap { margin-bottom: 16px; }
+.footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
+.footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
+.footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
+.footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
+.footer-nav a:hover { color: var(--ink); }
+.footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
+.footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+.footer-legal-links { display: flex; justify-content: center; gap: 20px; margin-top: 16px; }
+.footer-legal-links a { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+.footer-legal-links a:hover { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .intro-band-inner { grid-template-columns: 1fr; }
+  .built-grid { grid-template-columns: 1fr; }
+  .story-inner { grid-template-columns: 1fr; }
+  .awards-inner { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .explore-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 20px; z-index: 99; }
+  .nav-toggle { display: flex; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions a { width: 100%; justify-content: center; }
+  .intro-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo2.png" alt="The Yellow Front Door">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="the-proof.html" class="active">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href="the-proof.html">The Proof</a><span>›</span>Get Cronk'd</p>
+      <h1>Get Cronk'd Fitness Studio
+        <span class="accent-line">website, copy & systems.</span>
+      </h1>
+      <p>A nine-year fitness studio with a world champion owner, a wall of awards, and a website that wasn't saying any of it. We rebuilt the whole thing — website, copy, and the operations system behind it — as one connected project.</p>
+      <div class="meta-row">
+        <span class="meta-tag real">Real client</span>
+        <span class="meta-tag">Website rebuild</span>
+        <span class="meta-tag">Copywriting</span>
+        <span class="meta-tag">Brand voice</span>
+        <span class="meta-tag">Airtable systems</span>
+        <span class="meta-tag">Operations dashboard</span>
+        <span class="meta-tag">Kemptville, Ontario</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<div class="case-hero-img">
+  <img src="getcronkdwebsitemockup.png" alt="Get Cronk'd website mockup — desktop view">
+</div>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <div class="container">
+    <div class="intro-band-inner">
+      <div>
+        <p class="intro-eyebrow">The brief</p>
+        <h2 class="intro-heading">Nine years of building something real. The website wasn't keeping up.</h2>
+        <p class="intro-body">Rebecca Cronk opened Get Cronk'd in 2017. By 2025 she had a UFE Pro Wellness World Champion title, eight Diamond-level Readers' Choice Awards, a full roster of trainers, and a studio that had outlasted most gyms in the region by years.</p>
+        <p class="intro-body">The site was fine. It looked okay. But "fine" wasn't doing justice to nine years of work, a wall of awards, and a genuine community built class by class. The words were careful and generic. The design was serviceable. Nothing on it felt like walking into the actual studio.</p>
+        <p class="intro-body">The brief underneath the brief: make it feel like that.</p>
+      </div>
+      <div class="intro-stats">
+        <div class="intro-stat">
+          <div class="intro-stat-val">9</div>
+          <div class="intro-stat-label">Years in business</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-val">8</div>
+          <div class="intro-stat-label">Diamond awards in 2025</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-val">1</div>
+          <div class="intro-stat-label">World champion on staff</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-val">3</div>
+          <div class="intro-stat-label">Deliverables: site, copy & system</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-val">7+</div>
+          <div class="intro-stat-label">Trainers featured</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-val">$20</div>
+          <div class="intro-stat-label">Monthly system cost vs platform fees</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE BUILT -->
+<section class="built-section">
+  <div class="container">
+    <p class="built-eyebrow">What we built</p>
+    <h2 class="built-heading">Three things, built together.</h2>
+    <div class="built-grid">
+      <div class="built-card">
+        <div class="built-card-num">01</div>
+        <h3 class="built-card-title">The Website</h3>
+        <p class="built-card-body">A full rebuild from scratch. New structure, new copy, new visual direction — designed to feel like walking into the studio before you've ever been there. Every section was written around a real person's decision: the first-timer who's nervous, the parent looking for youth programs, the competitive athlete who wants to know they'll be taken seriously. The site also includes a custom owner dashboard so Rebecca can update the class schedule, testimonials, and team bios without touching the design or calling anyone.</p>
+        <a href="getcronkd-demo.html" target="_blank" class="built-card-link">View the demo site &rarr;</a>
+      </div>
+      <div class="built-card">
+        <div class="built-card-num">02</div>
+        <h3 class="built-card-title">The Copy</h3>
+        <p class="built-card-body">Every word on the site was written from scratch. The homepage, the services, the team bios, the visitor path cards, the about section, the contact page. The goal was simple: sound like Rebecca, not like a gym. That means warm, direct, a little wry, and honest about who this studio is actually for — which is everyone, including people who haven't worked out in a decade and are quietly terrified to walk through the door.</p>
+        <a href="getcronkd-demo.html" target="_blank" class="built-card-link">Read the copy live &rarr;</a>
+      </div>
+      <div class="built-card">
+        <div class="built-card-num">03</div>
+        <h3 class="built-card-title">The Operations System</h3>
+        <p class="built-card-body">The website was only half the build. We also built the operations layer: a full registration and class management system inside Airtable. Registration form, confirmation email, class rosters, client tracking, renewal flags, and a marketing automation layer — all in one workspace, at a fraction of what a dedicated platform subscription costs. Rebecca opens one screen and sees everything she needs to run the week.</p>
+        <a href="getcronkd-systems.html" class="built-card-link">Walk through the system &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE STORY -->
+<section class="story-section">
+  <div class="container">
+    <div class="story-inner">
+      <div>
+        <p class="story-eyebrow">Behind the decisions</p>
+        <h2 class="story-heading">Leading with nine years, not a tagline.</h2>
+        <p class="story-body">Most fitness studio sites lead with transformation language. Before and after photos. Motivational copy. Generic promises about reaching your goals. We didn't want any of that.</p>
+        <p class="story-body">What Rebecca had built over nine years was specific, earned, and hard to fake. A private 2,000 square foot facility. A world champion coaching your first squat. A 6am crew that keeps showing up because the studio genuinely earned their loyalty.</p>
+        <p class="story-body">That's what the site needed to say. Not "get fit." Not "we're here to help you reach your goals." The copy leads with longevity because nine years in this industry is the real thing worth saying — it's confident without being loud, and it makes you curious before you've read anything else.</p>
+        <div class="story-pullquote">
+          <p>"There are plenty of places to work out. Here's why people drive past all of them to come here."</p>
+        </div>
+        <p class="story-body">The visitor path cards were a deliberate structural choice too. Instead of asking someone to navigate a services page, the site meets them where they actually are: "I want a personal trainer." "I haven't worked out in a long time." "I'm looking for something for my child." Six entry points, each written for the real person standing in front of it.</p>
+      </div>
+      <div>
+        <div class="story-img">
+          <img src="getcronkdwebsitemockup.png" alt="Get Cronk'd website on desktop">
+          <div class="story-img-caption">The rebuilt site — desktop view</div>
+        </div>
+        <div style="margin-top: 24px; padding: 28px 32px; background: var(--paper-mid); border: 1px solid var(--stone);">
+          <p style="font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); margin-bottom: 14px;">The dashboard</p>
+          <p style="font-size: 14px; line-height: 1.85; color: var(--slate); margin-bottom: 16px;">Every section Rebecca touches regularly — the class schedule, team bios, testimonials, awards — lives in a clean editing dashboard. She can update anything in minutes without touching the design or calling us.</p>
+          <a href="getcronkd-site-editor.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); border-bottom: 2px solid var(--yellow); padding-bottom: 2px;">See the owner dashboard &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<div class="awards-strip">
+  <div class="container">
+    <div class="awards-inner">
+      <div>
+        <p class="awards-eyebrow">Recognition</p>
+        <h2 class="awards-heading">Voted Kemptville's best. Year after year.</h2>
+      </div>
+      <div class="awards-list">
+        <div class="award-item">
+          <span class="award-tier diamond">Diamond</span>
+          <span class="award-text">Best Fitness Club · Best Personal Training · Best Fitness Class · Best Nutritional Services · Best Pilates · Best Recreational Facility · Best Overall Business for Kids · Best Overall Business Health &amp; Wellness</span>
+        </div>
+        <div class="award-item">
+          <span class="award-tier platinum">Platinum</span>
+          <span class="award-text">Best Overall Business — Sports, Recreation &amp; Fitness</span>
+        </div>
+        <div class="award-item">
+          <span class="award-tier gold">Gold</span>
+          <span class="award-text">Best Kids Activities · Best Overall Business Service</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <p class="testimonials-eyebrow">What clients say</p>
+    <h2 class="testimonials-heading">The only testimonial that matters is who keeps coming back.</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"In September 2024 my 9-year-old grandson challenged me to get up off the floor without assistance. I couldn't do it. I decided to join Fit4Life 50+ at Get Cronk'd. Five months later I've lost 20 lbs, increased my weights from 3 lbs to 10–15 lbs. Most importantly I can now get up off the floor hands-free, squat, and put my socks on without a struggle."</p>
+        <p class="testimonial-cite">— Tracey, Fit4Life 50+ Member</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Get Cronk'd has truly changed my life. I have felt welcome and comfortable since day one. All of the trainers truly care about their clients' well-being. When doubting myself, the trainers are quick to remind me of my potential. I am beyond grateful for helping me find my confidence."</p>
+        <p class="testimonial-cite">— Diane Wyatt</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"I am very self-conscious and not once did you make me feel bad about myself. Until now that has not been my experience with trainers and you cannot imagine how much of a difference this makes. Thank you."</p>
+        <p class="testimonial-cite">— Studio Member</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"I joined a little over 2 years ago with the Fit4Life Active Aging class and more recently for golf improvement sessions. Rebecca, you and your trainers make an awesome team."</p>
+        <p class="testimonial-cite">— Bonnie Kammer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="explore-section">
+  <div class="container">
+    <p class="explore-eyebrow">Explore the build</p>
+    <h2 class="explore-heading">Three pieces. Each one worth looking at on its own.</h2>
+    <div class="explore-grid">
+      <a href="getcronkd-demo.html" target="_blank" class="explore-card">
+        <p class="explore-card-label">The website</p>
+        <h3 class="explore-card-title">Full demo site</h3>
+        <p class="explore-card-body">The complete rebuilt website with all copy, visitor path cards, team bios, services, gallery, and the sample bar at the bottom so you know it's a demo.</p>
+        <span class="explore-card-link">View the demo site &rarr;</span>
+      </a>
+      <a href="getcronkd-systems.html" class="explore-card">
+        <p class="explore-card-label">The system</p>
+        <h3 class="explore-card-title">Registration & operations walkthrough</h3>
+        <p class="explore-card-body">A step-by-step walkthrough of the full Airtable system — registration form, confirmation email, class rosters, client tracking, renewal flags, and marketing layer.</p>
+        <span class="explore-card-link">Walk through the system &rarr;</span>
+      </a>
+      <a href="getcronkd-dashboard.html" target="_blank" class="explore-card">
+        <p class="explore-card-label">The dashboard</p>
+        <h3 class="explore-card-title">Live operations dashboard</h3>
+        <p class="explore-card-body">The actual dashboard — live login screen, class rosters with expandable views, client profiles, at-risk flags, marketing segments, and a simulate registration button.</p>
+        <span class="explore-card-link">Open the live dashboard &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-heading">Want something like this for your business?</h2>
+    <p class="cta-body">We work with small businesses on websites, copy, branding, and the systems behind them — all as one connected thing.</p>
+    <div class="cta-actions">
+      <a href="lets-talk.html" class="btn-yellow">Let's Talk</a>
+      <a href="the-proof.html" class="btn-outline">See more work &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap">
+      <img src="roundlogo.png" alt="The Yellow Front Door">
+    </div>
+    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+      <a href="website-audit.html">Website Checkup</a>
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door. All rights reserved.</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+    <div class="footer-legal-links">
+      <a href="legal.html">Privacy Policy</a>
+      <a href="legal.html#tos">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+})();
+</script>
+</body>
+</html>
