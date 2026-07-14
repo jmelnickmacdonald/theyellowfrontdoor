@@ -456,7 +456,7 @@ legend{width:100%;}
           </div>
           <div class="next-item">
             <span class="next-num">02</span>
-            <div><p class="next-title">We read before we meet</p><p class="next-copy">We'll review the business, your current online presence, and what you may need.</p></div>
+            <div><p class="next-title">We come prepared</p><p class="next-copy">Before we talk, we'll spend a little time with your business, your website, and anything else you've shared, so we can skip the generic questions and get into the useful stuff.</p></div>
           </div>
           <div class="next-item">
             <span class="next-num">03</span>
@@ -477,8 +477,7 @@ legend{width:100%;}
           <div class="progress-step" data-short="04">Final details</div>
         </div>
 
-        <!-- Replace REPLACE_WITH_YOUR_FORM_ID with the same Formspree endpoint used on your current contact form. -->
-        <form id="project-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" novalidate>
+        <form id="project-form" action="https://formspree.io/f/mpqvzgry" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New website project inquiry — The Yellow Front Door">
           <input type="hidden" name="form_name" value="Website project inquiry">
           <div class="website-field" aria-hidden="true">
@@ -515,7 +514,7 @@ legend{width:100%;}
                 </div>
                 <div class="field full">
                   <label for="online-links">Where can we see your business online? <span class="optional">Optional</span></label>
-                  <textarea class="text-area" id="online-links" name="current_online_links" placeholder="Add as many links as you like: your current website, Google Business Profile, Facebook, Instagram, online shop, or anywhere else people find you."></textarea>
+                  <textarea class="text-area" id="online-links" name="current_online_links" placeholder="Add as many as you like: your website, Google Business Profile, Facebook, Instagram, online shop, or anywhere else people find you. You can enter theyellowfrontdoor.ca — no https:// needed."></textarea>
                 </div>
                 <div class="field full">
                   <label for="business-description">Tell us a little about the business and what you offer. <span class="required-note">Required</span></label>
@@ -885,16 +884,40 @@ legend{width:100%;}
     }
   });
 
+  function normalizeOnlineLinks(value){
+    return value.split(/\n/).map(function(line){
+      var trimmed=line.trim();
+      if(!trimmed){return '';}
+
+      if(/^(https?:\/\/|mailto:)/i.test(trimmed)){return trimmed;}
+
+      if(
+        /^www\./i.test(trimmed) ||
+        /^[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[\/?#].*)?$/i.test(trimmed)
+      ){
+        return 'https://' + trimmed;
+      }
+
+      return line.replace(
+        /(^|[\s,(])((?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[\/?#][^\s,)]*)?)/gi,
+        function(match,prefix,url){
+          if(url.indexOf('@')!==-1){return match;}
+          return prefix+'https://'+url;
+        }
+      );
+    }).join('\n');
+  }
+
   form.addEventListener('submit',function(event){
     event.preventDefault();
     if(!validateStep(steps[current])){return;}
 
-    var endpoint=form.getAttribute('action');
-    if(endpoint.indexOf('REPLACE_WITH_YOUR_FORM_ID')!==-1){
-      alert('Before publishing, replace REPLACE_WITH_YOUR_FORM_ID in the form action with your Formspree form ID.');
-      return;
+    var onlineLinks=document.getElementById('online-links');
+    if(onlineLinks && onlineLinks.value.trim()){
+      onlineLinks.value=normalizeOnlineLinks(onlineLinks.value);
     }
 
+    var endpoint=form.getAttribute('action');
     var submit=document.getElementById('submit-btn');
     var originalText=submit.textContent;
     submit.disabled=true;
