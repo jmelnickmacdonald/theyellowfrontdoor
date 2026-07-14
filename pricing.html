@@ -93,6 +93,59 @@ a { color: inherit; text-decoration: none; }
 .pkg-card.featured .pkg-cta { background: var(--yellow); color: var(--ink); }
 .pkg-card.featured .pkg-cta:hover { background: var(--brass); }
 
+/* PACKAGE FIT CTA */
+.package-fit {
+  margin-top: 28px;
+  padding: clamp(28px, 4vw, 42px);
+  background: var(--paper-mid);
+  border: 1px solid var(--stone);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+.package-fit-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+.package-fit h3 {
+  font-family: var(--f-head);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.package-fit p {
+  max-width: 670px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink);
+}
+.package-fit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 15px 26px;
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.package-fit-btn:hover { background: var(--slate); }
+
 /* VALUE PROOF */
 .pkg-value { margin-top: 28px; padding: clamp(20px, 3vw, 32px); background: var(--paper); border: 1px solid var(--stone); border-left: 4px solid var(--yellow); }
 .pkg-value-title { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 10px; display: block; }
@@ -178,6 +231,8 @@ a { color: inherit; text-decoration: none; }
   .alacarte-list { columns: 1; }
   .firstlook-inner { grid-template-columns: 1fr; text-align: center; }
   .firstlook-inner p { margin-left: auto; margin-right: auto; }
+  .package-fit { grid-template-columns: 1fr; }
+  .package-fit-btn { width: 100%; min-width: 0; }
   .firstlook-price { margin-top: 8px; }
   .systems-examples { margin-top: 32px; }
 }
@@ -332,7 +387,7 @@ a { color: inherit; text-decoration: none; }
             <li>Structured for Google and AI search from day one</li>
             <li>No monthly platform fees. The site is yours.</li>
           </ul>
-          <a href="lets-talk.html" class="pkg-cta">Get started →</a>
+          <a href="start-a-project.html" class="pkg-cta">Tell us about your project →</a>
         </div>
       </div>
 
@@ -357,7 +412,7 @@ a { color: inherit; text-decoration: none; }
             <li>Structured for search engines and AI recommendations</li>
             <li>Platform chosen to fit your needs. No monthly fees on our stack.</li>
           </ul>
-          <a href="lets-talk.html" class="pkg-cta">Let's talk →</a>
+          <a href="start-a-project.html" class="pkg-cta">Tell us about your project →</a>
         </div>
       </div>
 
@@ -383,10 +438,20 @@ a { color: inherit; text-decoration: none; }
             <li>Structured for search engines and AI from the ground up</li>
             <li>Everything designed together so it matches from day one</li>
           </ul>
-          <a href="lets-talk.html" class="pkg-cta">Let's talk →</a>
+          <a href="start-a-project.html" class="pkg-cta">Tell us about your project →</a>
         </div>
       </div>
 
+    </div>
+
+    <!-- PACKAGE FIT CTA -->
+    <div class="package-fit">
+      <div>
+        <span class="package-fit-label">Not sure which option fits?</span>
+        <h3>You do not need to choose a package before you reach out.</h3>
+        <p>Tell us a little about your business, what you need the website to do, and what you already have in place. We will review it before a short call, talk through the details together, and recommend a scope that fits the project.</p>
+      </div>
+      <a href="start-a-project.html" class="package-fit-btn">Tell us about your project →</a>
     </div>
 
     <!-- VALUE PROOF -->
@@ -441,7 +506,7 @@ a { color: inherit; text-decoration: none; }
             <li>Google Business Profile checked and updated</li>
             <li>Recommendations on what to fix first and what can wait</li>
           </ul>
-          <a href="lets-talk.html" class="pkg-cta">Let's take a look →</a>
+          <a href="start-a-project.html" class="pkg-cta">Tell us about your website →</a>
         </div>
       </div>
 
