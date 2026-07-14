@@ -129,12 +129,13 @@ legend{width:100%;}
 .question-help{font-size:12px;line-height:1.65;color:var(--slate);margin-bottom:14px;}
 
 /* CHOICE CARDS */
-.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;grid-auto-rows:1fr;}
+.call-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
 .package-grid{grid-auto-rows:1fr;}
 .package-grid .choice-card{height:100%;}
 .package-grid .choice-content{min-height:142px;}
 .choice-card{position:relative;display:block;cursor:pointer;}
-.choice-card.wide{grid-column:1/-1;}
+.choice-card.wide{grid-column:auto;}
 .choice-card input{position:absolute;opacity:0;pointer-events:none;}
 .choice-content{display:block;height:100%;border:1px solid var(--stone);padding:17px 18px;background:#fff;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;}
 .choice-card:hover .choice-content{border-color:#a9a394;transform:translateY(-1px);}
@@ -165,6 +166,7 @@ legend{width:100%;}
 .invalid .choice-content,.invalid .check-box{border-color:#b85d43;}
 
 .form-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:34px;padding-top:24px;border-top:1px solid var(--stone);}
+.form-actions .btn{width:205px;min-width:205px;}
 .btn{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-width:150px;min-height:48px;padding:13px 24px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s,transform .2s;}
 .btn:hover{transform:translateY(-1px);}
 .btn-primary{background:var(--navy);color:#fff;}
@@ -210,6 +212,9 @@ legend{width:100%;}
   .aside-copy{margin-bottom:0;}
   .price-link{margin-top:16px;}
 }
+@media(max-width:760px){
+  .call-grid{grid-template-columns:1fr;}
+}
 @media(max-width:640px){
   .nav-links{display:none;}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;gap:20px;z-index:99;}
@@ -226,6 +231,7 @@ legend{width:100%;}
   .form-actions{flex-wrap:wrap;}
   .step-count{width:100%;order:-1;}
   .btn{flex:1;}
+  .form-actions .btn{width:auto;min-width:0;}
   .footer-bottom{flex-direction:column;text-align:center;}
 }
 @media(prefers-reduced-motion:reduce){
@@ -456,7 +462,7 @@ legend{width:100%;}
           </div>
           <div class="next-item">
             <span class="next-num">02</span>
-            <div><p class="next-title">We come prepared</p><p class="next-copy">Before we talk, we'll spend a little time with your business, your website, and anything else you've shared, so we can skip the generic questions and get into the useful stuff.</p></div>
+            <div><p class="next-title">We come prepared</p><p class="next-copy">Before we talk, we'll spend a little time getting to know your business and looking through whatever you've shared, whether that's a current website, a few social pages, or an idea that's still taking shape. That way, we can skip the generic questions and get into the useful stuff.</p></div>
           </div>
           <div class="next-item">
             <span class="next-num">03</span>
@@ -634,7 +640,7 @@ legend{width:100%;}
                   <label class="check-option"><input type="checkbox" name="features[]" value="Blog or resources"><span class="check-box"><span class="check-mark"></span>Blog, news, resources, or downloads</span></label>
                   <label class="check-option"><input type="checkbox" name="features[]" value="Email signup"><span class="check-box"><span class="check-mark"></span>Email sign-up or newsletter connection</span></label>
                   <label class="check-option"><input type="checkbox" name="features[]" value="Client portal or gated content"><span class="check-box"><span class="check-mark"></span>Client area, course, portal, or gated content</span></label>
-                  <label class="check-option"><input type="checkbox" name="features[]" value="Integrations or automations"><span class="check-box"><span class="check-mark"></span>Connections with booking, email, payment, CRM, or other tools</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Integrations or automations"><span class="check-box"><span class="check-mark"></span>Connect a booking, email, payment, or other tool</span></label>
                   <label class="check-option"><input type="checkbox" name="features[]" value="Would like recommendations"><span class="check-box"><span class="check-mark"></span>I would like recommendations based on the business</span></label>
                 </div>
               </fieldset>
@@ -652,31 +658,29 @@ legend{width:100%;}
                   <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Professional photos"><span class="check-box"><span class="check-mark"></span>Photos or other strong visual material</span></label>
                   <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Domain"><span class="check-box"><span class="check-mark"></span>A domain name</span></label>
                   <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Existing website content"><span class="check-box"><span class="check-mark"></span>Existing website copy or content we can draw from</span></label>
-                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Booking, store, CRM, or other tools"><span class="check-box"><span class="check-mark"></span>Booking, store, CRM, email, or other tools already in use</span></label>
+                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Booking, store, CRM, or other tools"><span class="check-box"><span class="check-mark"></span>Booking, store, email, or other tools already in use</span></label>
                   <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Not sure or starting from scratch"><span class="check-box"><span class="check-mark"></span>Not much yet, or I am not sure what will be useful</span></label>
                 </div>
               </fieldset>
 
               <fieldset class="question-block">
-                <legend class="question-title">What else might need to come together around the website?</legend>
-                <p class="question-help">These are optional. Checking one doesn’t commit you to adding it; it simply helps us see the fuller picture.</p>
+                <legend class="question-title">Is there anything else you may want help with?</legend>
+                <p class="question-help">Completely optional. Choose anything you would like us to keep in mind.</p>
                 <div class="check-grid">
                   <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Brand or logo refinement"><span class="check-box"><span class="check-mark"></span>Brand or logo refinement</span></label>
-                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Photography planning or sourcing"><span class="check-box"><span class="check-mark"></span>Help planning or sourcing product, team, or space photography</span></label>
-                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Print materials"><span class="check-box"><span class="check-mark"></span>Business cards, brochures, signs, or other print pieces</span></label>
-                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Social templates or launch graphics"><span class="check-box"><span class="check-mark"></span>Social media templates or launch graphics</span></label>
-                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Email sequences or newsletter setup"><span class="check-box"><span class="check-mark"></span>Email follow-up, welcome sequences, or newsletter setup</span></label>
-                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Forms and follow-up workflows"><span class="check-box"><span class="check-mark"></span>Forms and follow-up workflows after someone inquires or orders</span></label>
-                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Tool setup or integration"><span class="check-box"><span class="check-mark"></span>Booking, payment, CRM, or email tool setup</span></label>
-                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Internal systems or automations"><span class="check-box"><span class="check-mark"></span>Internal systems, connected tools, or automations</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Photography planning or sourcing"><span class="check-box"><span class="check-mark"></span>Help planning or sourcing photography</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Print materials"><span class="check-box"><span class="check-mark"></span>Business cards, signs, or other print pieces</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Social templates or launch graphics"><span class="check-box"><span class="check-mark"></span>Social templates or launch graphics</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Email or newsletter setup"><span class="check-box"><span class="check-mark"></span>Email or newsletter setup</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Booking, forms, payments, or other tool setup"><span class="check-box"><span class="check-mark"></span>Booking, forms, payments, or other tool setup</span></label>
                   <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Google Business Profile"><span class="check-box"><span class="check-mark"></span>Google Business Profile setup or cleanup</span></label>
                   <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Open to recommendations"><span class="check-box"><span class="check-mark"></span>I’m not sure, but I’m open to recommendations</span></label>
                 </div>
               </fieldset>
 
               <div class="field">
-                <label for="beyond-website">Anything else that should connect to the website? <span class="optional">Optional</span></label>
-                <textarea class="text-area" id="beyond-website" name="beyond_website" placeholder="Tell us about any client materials, tools, systems, or ideas we should keep in mind."></textarea>
+                <label for="beyond-website">Anything else we should keep in mind? <span class="optional">Optional</span></label>
+                <textarea class="text-area" id="beyond-website" name="beyond_website" placeholder="Add anything that does not fit above."></textarea>
               </div>
 
               <div class="form-actions">
@@ -699,7 +703,7 @@ legend{width:100%;}
                   <label class="choice-card"><input type="radio" name="timeline" value="Within one to two months"><span class="choice-content"><span class="choice-name">Within the next one to two months</span></span></label>
                   <label class="choice-card"><input type="radio" name="timeline" value="Within three to six months"><span class="choice-content"><span class="choice-name">Within the next three to six months</span></span></label>
                   <label class="choice-card"><input type="radio" name="timeline" value="Flexible"><span class="choice-content"><span class="choice-name">I’m flexible</span></span></label>
-                  <label class="choice-card wide"><input type="radio" name="timeline" value="No timeline yet"><span class="choice-content"><span class="choice-name">I don’t have a timeline yet</span></span></label>
+                  <label class="choice-card"><input type="radio" name="timeline" value="No timeline yet"><span class="choice-content"><span class="choice-name">I don’t have a timeline yet</span></span></label>
                 </div>
               </fieldset>
 
@@ -717,10 +721,10 @@ legend{width:100%;}
               <fieldset class="question-block">
                 <legend class="question-title">How would you prefer to have the first conversation?</legend>
                 <p class="question-help">We’ll send the booking link after we review your form.</p>
-                <div class="choice-grid">
+                <div class="choice-grid call-grid">
                   <label class="choice-card"><input type="radio" name="call_preference" value="Phone call"><span class="choice-content"><span class="choice-name">Phone call</span></span></label>
                   <label class="choice-card"><input type="radio" name="call_preference" value="Google Meet"><span class="choice-content"><span class="choice-name">Google Meet</span></span></label>
-                  <label class="choice-card wide"><input type="radio" name="call_preference" value="No preference"><span class="choice-content"><span class="choice-name">No preference</span></span></label>
+                  <label class="choice-card"><input type="radio" name="call_preference" value="No preference"><span class="choice-content"><span class="choice-name">No preference</span></span></label>
                 </div>
               </fieldset>
 
