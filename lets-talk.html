@@ -55,7 +55,23 @@ ul { list-style: none; }
 .eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
 .lt-hero h1 { font-family: var(--f-head); font-size: clamp(30px, 4.5vw, 50px); font-weight: 400; color: #fff; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
 .lt-hero .accent-line { display: block; font-family: var(--f-accent); font-size: clamp(32px, 4.8vw, 56px); font-weight: normal; color: var(--yellow); line-height: 1.2; margin-top: 8px; opacity: 0.85; }
-.lt-hero p { font-size: 16px); line-height: 1.85; color: rgba(255,255,255,0.55); font-weight: 400; margin-top: 28px; max-width: 520px; }
+.lt-hero p { font-size: 16px; line-height: 1.85; color: rgba(255,255,255,0.55); font-weight: 400; margin-top: 28px; max-width: 520px; }
+.hero-actions { margin-top: 28px; }
+.hero-project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 14px 28px;
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.hero-project-btn:hover { background: var(--brass); }
 
 /* CONTACT */
 .contact-section { padding: clamp(48px, 6vw, 80px) 0 var(--section-gap); background: var(--paper); }
@@ -168,6 +184,9 @@ ul { list-style: none; }
         <span class="accent-line">We'll figure out where to start.</span>
       </h1>
       <p>Or send us your site and let us take a look first. No pitch, no obligation. Just an honest outside eye.</p>
+      <div class="hero-actions">
+        <a href="start-a-project.html" class="hero-project-btn">Start a project →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -290,7 +309,7 @@ async function submitContact() {
   btn.textContent = 'Sending…';
   btn.disabled = true;
   try {
-    const res = await fetch('https://formspree.io/f/mqevdajp', {
+    const res = await fetch('https://formspree.io/f/xeeyqbzk', {
       method: 'POST',
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
