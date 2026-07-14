@@ -46,13 +46,55 @@ a { color: inherit; text-decoration: none; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
 
 /* HERO */
-.pkg-hero { margin-top: 72px; background: var(--paper); padding: clamp(48px, 7vw, 88px) 0 clamp(24px, 4vw, 48px); }
-.pkg-hero-inner { max-width: 780px; }
-.pkg-hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.pkg-hero {
+  margin-top: 72px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(118deg, var(--paper) 0%, var(--paper) 66%, var(--paper-mid) 66%, var(--paper-mid) 100%);
+  padding: clamp(52px, 6.5vw, 82px) 0 clamp(48px, 6vw, 72px);
+  border-bottom: 1px solid var(--stone);
+}
+.pkg-hero::after {
+  content: "";
+  position: absolute;
+  right: clamp(-90px, -5vw, -30px);
+  bottom: clamp(-120px, -8vw, -70px);
+  width: clamp(210px, 24vw, 340px);
+  aspect-ratio: 1;
+  border: clamp(22px, 3vw, 40px) solid rgba(252, 211, 70, 0.34);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.pkg-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  gap: clamp(42px, 7vw, 92px);
+  align-items: end;
+}
+.pkg-hero-heading { max-width: 680px; }
+.pkg-hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
 .pkg-hero-badge { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; }
 .pkg-hero-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
-.pkg-hero h1 { font-family: var(--f-head); font-size: clamp(30px, 4.5vw, 50px); font-weight: 400; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 24px; }
-.pkg-hero p { font-size: 16px; line-height: 1.8; color: var(--ink); font-weight: 400; margin-bottom: 16px; max-width: 640px; }
+.pkg-hero h1 { font-family: var(--f-head); font-size: clamp(34px, 4.8vw, 56px); font-weight: 400; color: var(--ink); letter-spacing: -0.035em; line-height: 1.06; margin: 0; }
+.pkg-hero-copy {
+  max-width: 470px;
+  padding: 4px 0 4px clamp(22px, 3vw, 34px);
+  border-left: 3px solid var(--yellow);
+}
+.pkg-hero-script {
+  display: block;
+  font-family: var(--f-accent);
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 400;
+  font-synthesis: none;
+  color: var(--clay);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.pkg-hero p { font-size: 15px; line-height: 1.8; color: var(--ink); font-weight: 400; margin-bottom: 14px; }
 .pkg-hero p:last-of-type { margin-bottom: 0; }
 
 /* COPY CALLOUT */
@@ -63,18 +105,27 @@ a { color: inherit; text-decoration: none; }
 .copy-callout p strong { color: var(--paper); font-weight: 600; }
 
 /* SECTION HEADERS */
-.section-header { margin-bottom: clamp(32px, 4vw, 48px); }
+.section-header { margin-bottom: clamp(30px, 4vw, 44px); max-width: 760px; }
 .section-header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px; display: block; }
 .section-header h2 { font-family: var(--f-head); font-size: clamp(28px, 3.5vw, 42px); font-weight: 400; color: var(--ink); letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 14px; }
 .section-header p { font-size: 16px; line-height: 1.75; color: var(--ink); max-width: 600px; }
 
 /* PACKAGE CARDS */
-.build-section { background: var(--paper); padding: var(--section-gap) 0; }
-.pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
-.pkg-card { background: var(--paper); padding: clamp(28px, 3vw, 40px); display: grid; grid-template-rows: auto 1fr; }
-.pkg-card.featured { border-top: 4px solid var(--yellow); }
-.pkg-for { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 16px; }
-.pkg-name { font-family: var(--f-accent); font-size: clamp(22px, 2.5vw, 28px); font-weight: 5400; color: var(--ink); line-height: 1.1; margin-bottom: 6px; letter-spacing: -0.01em; }
+.build-section { background: var(--paper); padding: clamp(54px, 6.5vw, 78px) 0 var(--section-gap); }
+.pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 22px); }
+.pkg-card {
+  background: var(--paper);
+  padding: clamp(28px, 3vw, 40px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid var(--stone);
+  box-shadow: 0 14px 36px rgba(19,36,71,0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pkg-card:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(19,36,71,0.1); }
+.pkg-card.featured { border-top: 5px solid var(--yellow); box-shadow: 0 20px 48px rgba(19,36,71,0.12); }
+.pkg-for { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px; }
+.pkg-name { font-family: var(--f-accent); font-size: clamp(28px, 3vw, 36px); font-weight: 400; font-synthesis: none; color: var(--ink); line-height: 1.05; margin-bottom: 10px; letter-spacing: 0; }
 .pkg-price { font-family: var(--f-head); font-size: clamp(24px, 2.5vw, 32px); font-weight: 500; color: var(--ink); margin-bottom: 4px; }
 .pkg-price .pkg-original { text-decoration: line-through; color: var(--slate); font-size: 0.75em; font-weight: 400; margin-right: 6px; }
 .pkg-launch-tag { display: inline-block; background: var(--yellow); color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 16px; }
@@ -158,9 +209,16 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 640px) { .pkg-flexible { grid-template-columns: 1fr; gap: 24px; } }
 
 /* ALREADY HAVE SECTION */
-.existing-section { background: var(--paper); padding: var(--section-gap) 0; border-top: 1px solid var(--stone); }
-.existing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--stone); border: 1px solid var(--stone); }
-.existing-card { background: var(--paper); padding: clamp(28px, 3vw, 40px); display: grid; grid-template-rows: auto 1fr; }
+.existing-section { background: #fbfaf7; padding: var(--section-gap) 0; border-top: 1px solid var(--stone); }
+.existing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 22px); }
+.existing-card {
+  background: var(--paper);
+  padding: clamp(28px, 3vw, 40px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid var(--stone);
+  box-shadow: 0 12px 32px rgba(19,36,71,0.055);
+}
 
 /* SYSTEMS SECTION */
 .systems-section { background: var(--navy); padding: var(--section-gap) 0; }
@@ -224,7 +282,12 @@ a { color: inherit; text-decoration: none; }
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
+  .pkg-hero { background: var(--paper); }
+  .pkg-hero::after { opacity: 0.55; }
+  .pkg-hero-inner { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+  .pkg-hero-copy { max-width: 680px; }
   .pkg-grid { grid-template-columns: 1fr; }
+  .pkg-card:hover { transform: none; }
   .existing-grid { grid-template-columns: 1fr; }
   .systems-inner { grid-template-columns: 1fr; }
   .alacarte-inner { grid-template-columns: 1fr; }
@@ -241,7 +304,10 @@ a { color: inherit; text-decoration: none; }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
   .nav-toggle { display: flex; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .pkg-hero-eyebrow { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .pkg-hero { padding-top: 42px; padding-bottom: 44px; }
+  .pkg-hero::after { display: none; }
+  .pkg-hero-eyebrow { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
+  .pkg-hero-copy { padding-left: 20px; }
   .copy-callout-mark { font-size: 56px; }
   .copy-callout p { font-size: 15px; }
   .pkg-card, .existing-card { padding: 28px 24px; }
@@ -344,13 +410,18 @@ a { color: inherit; text-decoration: none; }
 <section class="pkg-hero">
   <div class="container">
     <div class="pkg-hero-inner">
-      <div class="pkg-hero-eyebrow">
-        <span class="pkg-hero-badge">Pricing</span>
-        <span class="pkg-hero-label">What it costs and what you get</span>
+      <div class="pkg-hero-heading">
+        <div class="pkg-hero-eyebrow">
+          <span class="pkg-hero-badge">Pricing</span>
+          <span class="pkg-hero-label">What it costs and what you get</span>
+        </div>
+        <h1>What it costs, what you get, and why nothing is left to guess.</h1>
       </div>
-      <h1>What it costs, what you get,<br>and why nothing is left to guess.</h1>
-      <p>Every package includes the copy. Not a template with blanks to fill in. Julianna sits with you, learns your business, and writes the words so you never have to stare at an empty About page wondering what it is supposed to say.</p>
-      <p>Every site we build is also structured so that search engines and AI tools can find you and recommend you. We do not charge extra for that. It is just part of how we work.</p>
+      <div class="pkg-hero-copy">
+        <span class="pkg-hero-script">The words are included.</span>
+        <p>Every package includes the copy. Not a template with blanks to fill in. Julianna sits with you, learns your business, and writes the words so you never have to stare at an empty About page wondering what it is supposed to say.</p>
+        <p>Every site we build is also structured so that search engines and AI tools can find you and recommend you. We do not charge extra for that. It is simply part of how we work.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -419,7 +490,7 @@ a { color: inherit; text-decoration: none; }
       <!-- THE GRAND OPENING -->
       <div class="pkg-card">
         <div class="pkg-top">
-          <span class="pkg-for">Starting fresh or starting over</span>
+          <span class="pkg-for">A full fresh start</span>
           <h3 class="pkg-name">The Grand Opening</h3>
           <div class="pkg-price">Starting at $3,200</div>
           <span class="pkg-price-note">Custom-scoped to your business</span>
