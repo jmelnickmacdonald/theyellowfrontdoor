@@ -161,16 +161,22 @@
     to { transform: scale(1.12) translate(-1.5%,-1%); }
   }
   .hero__veil {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 45% at 35% 38%, rgba(244,238,226,.12), transparent 55%),
-      linear-gradient(180deg,
-        rgba(40,46,38,.22) 0%,
-        rgba(40,46,38,.03) 28%,
-        rgba(40,46,38,.06) 60%,
-        rgba(250,245,234,.82) 100%
-      );
-  }
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 50% 42%,
+      rgba(31, 37, 28, 0.08),
+      rgba(31, 37, 28, 0.28) 75%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(31, 37, 28, 0.46) 0%,
+      rgba(31, 37, 28, 0.28) 35%,
+      rgba(31, 37, 28, 0.30) 65%,
+      rgba(250, 245, 234, 0.82) 100%
+    );
+}
   .hero__rays {
     position: absolute; inset: 0;
     background: radial-gradient(circle at 30% 28%, rgba(255,243,205,.45), rgba(255,243,205,0) 34%);
