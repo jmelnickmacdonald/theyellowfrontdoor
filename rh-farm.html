@@ -412,10 +412,14 @@
 
   /* EGGS */
   .eggs-feature {
-    position: relative; overflow: hidden;
-    height: 75vh; min-height: 500px;
-    display: flex; align-items: flex-end;
-  }
+  position: relative;
+  overflow: hidden;
+  min-height: 75vh;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  padding-top: clamp(72px, 10vw, 120px);
+}
   .eggs-feature__bg {
     position: absolute; inset: 0;
     background: url('ducks-pond.jpg') center / cover no-repeat;
