@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Real Estate Work — The Yellow Front Door</title>
+<meta name="description" content="A private look at real estate marketing, client experience, and campaign work by The Yellow Front Door.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family: 'CasualHandwriting';
+  src: url('CasualHandwriting.woff2') format('woff2'),
+       url('CasualHandwriting.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --ink:#132447;
+  --paper:#ffffff;
+  --yellow:#fcd346;
+  --stone:#D8D1C3;
+  --slate:#596674;
+  --brass:#e6b800;
+  --clay:#B86B4B;
+  --paper-mid:#F5EFE0;
+  --navy:#132447;
+  --f-accent:'CasualHandwriting',cursive;
+  --f-head:'Montserrat',sans-serif;
+  --f-body:'Montserrat',sans-serif;
+  --max:1120px;
+  --gutter:clamp(24px,5vw,80px);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+ul{list-style:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* ACCESS GATE */
+.access-gate{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:var(--navy);
+}
+.access-gate.hidden{display:none}
+.access-card{
+  width:min(100%,520px);
+  background:var(--paper);
+  padding:clamp(34px,6vw,62px);
+  box-shadow:0 24px 80px rgba(0,0,0,.28);
+}
+.access-mark{
+  width:74px;
+  height:74px;
+  margin:0 auto 24px;
+  object-fit:contain;
+}
+.access-eyebrow{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--clay);
+  text-align:center;
+  margin-bottom:14px;
+}
+.access-card h1{
+  font-family:var(--f-head);
+  font-size:clamp(28px,5vw,42px);
+  line-height:1.12;
+  font-weight:500;
+  text-align:center;
+  margin-bottom:12px;
+}
+.access-script{
+  display:block;
+  font-family:var(--f-accent);
+  font-size:clamp(27px,5vw,40px);
+  color:var(--slate);
+  font-weight:normal;
+  margin-top:8px;
+}
+.access-copy{
+  font-size:14px;
+  line-height:1.85;
+  color:var(--slate);
+  text-align:center;
+  margin:0 auto 24px;
+  max-width:390px;
+}
+.access-form{display:grid;grid-template-columns:1fr auto;gap:10px}
+.access-form input{
+  min-width:0;
+  border:1px solid var(--stone);
+  padding:13px 14px;
+  color:var(--ink);
+  background:#fff;
+}
+.access-form button{
+  border:none;
+  background:var(--yellow);
+  color:var(--navy);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:13px 20px;
+  cursor:pointer;
+}
+.access-form button:hover{background:var(--brass)}
+.access-error{
+  min-height:22px;
+  margin-top:10px;
+  font-size:12px;
+  color:var(--clay);
+  text-align:center;
+}
+
+/* NAV */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  background:var(--navy);
+  transition:box-shadow .3s;
+}
+.nav::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:0;right:0;
+  height:4px;
+  background:var(--navy);
+}
+.nav.scrolled{box-shadow:0 2px 24px rgba(19,36,71,.5)}
+.nav-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 var(--gutter);
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.nav-logo img{height:52px;width:auto}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{
+  font-size:12px;
+  font-weight:500;
+  color:rgba(255,252,244,.75);
+  letter-spacing:.03em;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:var(--paper)}
+.nav-private{
+  color:var(--navy)!important;
+  background:var(--yellow);
+  padding:10px 18px;
+  font-weight:700!important;
+}
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  padding:4px;
+  background:none;
+  border:none;
+}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--paper)}
+
+/* HEADER */
+.page-header{
+  padding:clamp(84px,11vw,132px) 0 clamp(52px,7vw,82px);
+  margin-top:72px;
+  border-bottom:1px solid var(--stone);
+  background:linear-gradient(180deg,#fff 0%,#fbfaf7 100%);
+}
+.page-header-inner{max-width:760px}
+.breadcrumb{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:20px;
+}
+.page-header h1{
+  font-family:var(--f-head);
+  font-size:clamp(36px,5vw,62px);
+  font-weight:500;
+  letter-spacing:-.03em;
+  line-height:1.04;
+}
+.page-header .accent-line{
+  display:block;
+  font-family:var(--f-accent);
+  font-size:clamp(30px,4.4vw,52px);
+  color:var(--slate);
+  font-weight:normal;
+  letter-spacing:0;
+  margin-top:14px;
+  line-height:1.12;
+}
+.page-header p{
+  max-width:650px;
+  margin-top:26px;
+  font-size:clamp(15px,1.8vw,17px);
+  line-height:1.9;
+  color:var(--slate);
+}
+
+/* INTRO STRIP */
+.intro-strip{
+  background:var(--navy);
+  padding:clamp(38px,5vw,58px) 0;
+}
+.intro-strip-inner{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:clamp(30px,6vw,82px);
+  align-items:start;
+}
+.intro-kicker{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--yellow);
+  margin-bottom:14px;
+}
+.intro-strip h2{
+  font-family:var(--f-head);
+  color:#fff;
+  font-size:clamp(24px,3vw,36px);
+  font-weight:500;
+  line-height:1.25;
+}
+.intro-strip p{
+  color:rgba(255,255,255,.72);
+  font-size:15px;
+  line-height:1.9;
+}
+.intro-strip p+p{margin-top:14px}
+
+/* SECTIONS */
+.section{
+  padding:clamp(58px,8vw,100px) 0;
+  border-bottom:1px solid var(--stone);
+}
+.section:nth-of-type(even){background:#fbfaf7}
+.section-head{
+  max-width:720px;
+  margin-bottom:clamp(34px,5vw,58px);
+}
+.eyebrow{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--clay);
+  margin-bottom:14px;
+}
+.section-title{
+  font-family:var(--f-head);
+  font-size:clamp(28px,4vw,46px);
+  font-weight:500;
+  letter-spacing:-.025em;
+  line-height:1.12;
+}
+.section-title .script{
+  display:block;
+  font-family:var(--f-accent);
+  color:var(--slate);
+  font-weight:normal;
+  letter-spacing:0;
+  margin-top:8px;
+}
+.section-copy{
+  margin-top:18px;
+  font-size:15px;
+  line-height:1.9;
+  color:var(--slate);
+  max-width:680px;
+}
+.section-copy strong{color:var(--ink);font-weight:600}
+
+/* FEATURE ROWS */
+.feature-row{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:clamp(34px,6vw,74px);
+  align-items:start;
+}
+.feature-row.reverse{grid-template-columns:.95fr 1.05fr}
+.feature-row.reverse .feature-media{order:2}
+.feature-body{padding-top:8px}
+.feature-title{
+  font-family:var(--f-accent);
+  font-size:clamp(30px,4vw,46px);
+  font-weight:normal;
+  line-height:1.05;
+  margin-bottom:10px;
+}
+.feature-scope{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:20px;
+}
+.feature-body p{
+  font-size:15px;
+  line-height:1.88;
+  margin-bottom:15px;
+}
+.feature-body p:last-of-type{margin-bottom:0}
+.button-row{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid transparent;
+  padding:12px 20px;
+  font-size:10px;
+  line-height:1.3;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.2s;
+}
+.button-primary{background:var(--yellow);color:var(--navy)}
+.button-primary:hover{background:var(--brass)}
+.button-outline{border-color:var(--stone);background:#fff;color:var(--ink)}
+.button-outline:hover{border-color:var(--ink)}
+.media-frame{
+  border:1px solid var(--stone);
+  background:#fff;
+  padding:14px;
+}
+.media-frame img{width:100%}
+.media-caption{
+  font-size:11px;
+  line-height:1.65;
+  color:var(--slate);
+  margin-top:10px;
+}
+
+/* GALLERIES */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:34px;
+}
+.gallery.two{grid-template-columns:repeat(2,1fr)}
+.gallery-item{
+  border:1px solid var(--stone);
+  background:#fff;
+  padding:10px;
+  cursor:zoom-in;
+  transition:transform .2s,box-shadow .2s;
+}
+.gallery-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(19,36,71,.08);
+}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+.gallery-label{
+  font-size:10px;
+  color:var(--slate);
+  line-height:1.55;
+  margin-top:9px;
+}
+.gallery-item.wide{grid-column:span 2}
+
+/* LYDIA */
+.lydia-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:clamp(30px,5vw,66px);
+  align-items:start;
+}
+.link-stack{
+  margin-top:24px;
+  border:1px solid var(--stone);
+  background:var(--stone);
+  display:grid;
+  gap:1px;
+}
+.link-stack a{
+  background:#fff;
+  padding:15px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  font-size:13px;
+  font-weight:600;
+}
+.link-stack a:hover{background:var(--paper-mid)}
+.link-stack span{color:var(--clay)}
+
+/* SUNDI */
+.sundi-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.sundi-grid .gallery-item:nth-child(5){grid-column:1/-1}
+.testimonial-box{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:clamp(22px,4vw,46px);
+  align-items:center;
+  background:var(--paper-mid);
+  border:1px solid var(--stone);
+  padding:clamp(22px,4vw,36px);
+}
+.testimonial-copy{
+  font-family:var(--f-head);
+  font-size:clamp(18px,2.2vw,26px);
+  line-height:1.5;
+  font-weight:400;
+}
+.testimonial-copy small{
+  display:block;
+  margin-top:14px;
+  font-family:var(--f-body);
+  font-size:11px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--slate);
+}
+
+/* VIDEO */
+.video-wrap{
+  background:#0e172d;
+  padding:14px;
+  border:1px solid var(--stone);
+}
+.video-wrap video{
+  width:100%;
+  max-height:720px;
+  background:#000;
+}
+
+/* PDF */
+.pdf-frame{
+  border:1px solid var(--stone);
+  background:#fff;
+  min-height:640px;
+}
+.pdf-frame object{
+  width:100%;
+  min-height:640px;
+  display:block;
+}
+.pdf-fallback{
+  padding:28px;
+  font-size:14px;
+  color:var(--slate);
+}
+
+/* KENDRA TEAM */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:30px;
+}
+.team-grid .gallery-item{padding:7px}
+
+/* CTA */
+.cta{
+  background:var(--navy);
+  padding:clamp(58px,8vw,92px) 0;
+  text-align:center;
+}
+.cta-inner{max-width:760px;margin:0 auto}
+.cta .eyebrow{color:var(--yellow)}
+.cta h2{
+  font-family:var(--f-head);
+  font-size:clamp(30px,4.2vw,48px);
+  line-height:1.15;
+  font-weight:500;
+  color:#fff;
+}
+.cta h2 span{
+  display:block;
+  font-family:var(--f-accent);
+  font-weight:normal;
+  color:rgba(255,255,255,.58);
+  margin-top:10px;
+}
+.cta p{
+  margin:20px auto 28px;
+  color:rgba(255,255,255,.72);
+  font-size:15px;
+  line-height:1.9;
+  max-width:620px;
+}
+.cta .button-outline{
+  background:transparent;
+  color:#fff;
+  border-color:rgba(255,255,255,.28);
+}
+.cta .button-outline:hover{border-color:#fff}
+
+/* FOOTER */
+.footer{
+  background:var(--paper);
+  padding:46px 0 30px;
+  border-top:1px solid var(--stone);
+}
+.footer-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr;
+  gap:42px;
+  padding-bottom:34px;
+  border-bottom:1px solid var(--stone);
+}
+.footer-brand img{width:74px;height:74px;margin-bottom:14px}
+.footer-tagline{font-size:13px;color:var(--slate);max-width:280px}
+.footer-col h3{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:14px;
+}
+.footer-col a,.footer-col p{
+  display:block;
+  font-size:13px;
+  color:var(--slate);
+  margin-bottom:9px;
+}
+.footer-col a:hover{color:var(--ink)}
+.footer-bottom{
+  padding-top:24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.footer-copy{font-size:11px;color:var(--slate);letter-spacing:.04em}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,0,0,.92);
+}
+.lightbox.open{display:flex}
+.lightbox img{
+  max-width:92vw;
+  max-height:90vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+}
+.lightbox-close{
+  position:fixed;
+  right:22px;
+  top:18px;
+  border:none;
+  background:none;
+  color:#fff;
+  font-size:34px;
+  cursor:pointer;
+}
+
+@media(max-width:980px){
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  .feature-row,.feature-row.reverse,.lydia-grid,.testimonial-box,.intro-strip-inner{
+    grid-template-columns:1fr;
+  }
+  .feature-row.reverse .feature-media{order:0}
+  .pdf-frame,.pdf-frame object{min-height:520px}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-links.open{
+    display:flex;
+    flex-direction:column;
+    position:fixed;
+    top:72px;
+    left:0;
+    right:0;
+    background:var(--navy);
+    padding:24px var(--gutter) 30px;
+    gap:18px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .nav-toggle{display:flex}
+  .access-form{grid-template-columns:1fr}
+  .gallery,.gallery.two,.sundi-grid,.team-grid{grid-template-columns:1fr}
+  .gallery-item.wide,.sundi-grid .gallery-item:nth-child(5){grid-column:auto}
+  .pdf-frame,.pdf-frame object{min-height:440px}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{justify-content:center;text-align:center}
+}
+</style>
+</head>
+
+<body class="locked">
+
+<div class="access-gate" id="access-gate">
+  <div class="access-card">
+    <img src="roundlogo.png" alt="The Yellow Front Door" class="access-mark">
+    <p class="access-eyebrow">Private portfolio</p>
+    <h1>Real estate work
+      <span class="access-script">all in one place.</span>
+    </h1>
+    <p class="access-copy">This page includes commissioned work, client faces, and behind-the-scenes concepts that are not part of the public portfolio.</p>
+    <form class="access-form" id="access-form">
+      <input type="password" id="access-code" aria-label="Access code" placeholder="Enter access code" autocomplete="current-password">
+      <button type="submit">Open the door</button>
+    </form>
+    <p class="access-error" id="access-error" aria-live="polite"></p>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+      <li><a href="#" class="nav-private">Private Real Estate Work</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <div class="page-header-inner">
+      <p class="breadcrumb">Private Portfolio &nbsp;›&nbsp; Real Estate</p>
+      <h1>Real estate work
+        <span class="accent-line">built around the way agents actually work.</span>
+      </h1>
+      <p>This is the fuller picture: listing campaigns, client resources, print pieces, brand work, follow-up systems, and the ideas that help an agent feel memorable long after a single post has disappeared from the feed.</p>
+    </div>
+  </div>
+</header>
+
+<section class="intro-strip">
+  <div class="container">
+    <div class="intro-strip-inner">
+      <div>
+        <p class="intro-kicker">A private look</p>
+        <h2>More than a stack of listing graphics.</h2>
+      </div>
+      <div>
+        <p>Good real estate marketing has a lot of jobs to do. Sometimes it needs to make one property impossible to scroll past. Sometimes it needs to make an agent's value easier to understand. And sometimes it needs to quietly make the client experience feel more organized.</p>
+        <p>The work below moves between all three. Some pieces were built for active clients. Lydia Nichols is a fictional brand we created so we could show the full range without borrowing someone else's business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<section class="section" id="lydia">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">A complete fictional agent brand</p>
+      <h2 class="section-title">Lydia Nichols
+        <span class="script">from first impression to client follow-up.</span>
+      </h2>
+      <p class="section-copy">Lydia started as a way to answer a simple question: what could an agent's marketing look like if the brand, the words, and the client experience were all built together? The answer became much bigger than a logo.</p>
+    </div>
+
+    <div class="lydia-grid">
+      <div>
+        <div class="media-frame">
+          <img src="lydiamockup.png" alt="Lydia Nichols brand and newsletter mockup">
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item" data-lightbox="businesscard.png">
+            <img src="businesscard.png" alt="Lydia Nichols business card">
+            <p class="gallery-label">Business card designed for cream stock and gold foil.</p>
+          </div>
+          <div class="gallery-item" data-lightbox="lydianewsletter.png">
+            <img src="lydianewsletter.png" alt="Lydia Nichols newsletter">
+            <p class="gallery-label">A monthly newsletter that feels like Lydia, not a brokerage template.</p>
+          </div>
+          <div class="gallery-item" data-lightbox="doorknocker.png">
+            <img src="doorknocker.png" alt="Lydia Nichols door knocker">
+            <p class="gallery-label">Print collateral built from the same visual system.</p>
+          </div>
+          <div class="gallery-item" data-lightbox="justlisted.png">
+            <img src="justlisted.png" alt="Lydia Nichols Just Listed template">
+            <p class="gallery-label">Just Listed.</p>
+          </div>
+          <div class="gallery-item" data-lightbox="justsold.png">
+            <img src="justsold.png" alt="Lydia Nichols Just Sold template">
+            <p class="gallery-label">Just Sold.</p>
+          </div>
+          <div class="gallery-item" data-lightbox="openhouse.png">
+            <img src="openhouse.png" alt="Lydia Nichols Open House template">
+            <p class="gallery-label">Open House.</p>
+          </div>
+          <div class="gallery-item wide" data-lightbox="lydiachamberposter.png">
+            <img src="lydiachamberposter.png" alt="Lydia Nichols chamber poster">
+            <p class="gallery-label">A lighter ongoing-brand piece that is not tied to a listing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-body">
+        <h3 class="feature-title">One brand, a lot of useful places to take it.</h3>
+        <p class="feature-scope">Brand Identity · Print · Email · Buyer Experience · Referral Flow · Open House System</p>
+        <p>The visual pieces matter, but the strongest part of Lydia is what happens after someone pays attention. Her referral email has somewhere useful to send people. Her buyer guide gives clients one calm place to start. Her open house system helps turn a good event into thoughtful follow-up instead of a messy list of names.</p>
+        <p>It is all written in the same voice and built to feel like one agent is genuinely looking after the details.</p>
+
+        <div class="link-stack">
+          <a href="lydia-buyercourse.html" target="_blank">The buyer course <span>→</span></a>
+          <a href="lydia-email.html" target="_blank">The referral email <span>→</span></a>
+          <a href="lydia-connect.html" target="_blank">The private introduction page <span>→</span></a>
+          <a href="lydia-openhouse.html" target="_blank">The open house follow-up system <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="listing-marketing">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Listing campaigns</p>
+      <h2 class="section-title">The house is the same.
+        <span class="script">The angle should not be.</span>
+      </h2>
+      <p class="section-copy">A good listing campaign finds the part of the property people can actually picture themselves caring about. Sometimes that is the garage. Sometimes it is the space for a parent. Sometimes it is simply helping people see past an empty room.</p>
+    </div>
+
+    <div class="sundi-grid">
+      <div class="gallery-item" data-lightbox="sundi-youknowtheone.png">
+        <img src="sundi-youknowtheone.png" alt="Sundi Clark acreage buyer campaign">
+        <p class="gallery-label">A direct buyer callout built around a very specific wish list.</p>
+      </div>
+      <div class="gallery-item" data-lightbox="sundi-mothersday.png">
+        <img src="sundi-mothersday.png" alt="Sundi Clark Mother's Day listing campaign">
+        <p class="gallery-label">A lifestyle-led way into a property story.</p>
+      </div>
+      <div class="gallery-item" data-lightbox="sundi-garage.png">
+        <img src="sundi-garage.png" alt="Sundi Clark garage listing carousel">
+        <p class="gallery-label">Leading with the feature that deserved the attention.</p>
+      </div>
+      <div class="gallery-item" data-lightbox="sundi-beforeandafter.png">
+        <img src="sundi-beforeandafter.png" alt="Sundi Clark before and after virtual staging">
+        <p class="gallery-label">Helping buyers see what an empty room could become.</p>
+      </div>
+      <div class="gallery-item" data-lightbox="sundi-testimonial.png">
+        <img src="sundi-testimonial.png" alt="Agent testimonial about Sundi Clark listing marketing">
+        <p class="gallery-label">A small piece of proof that the writing and presentation stood out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="keys-chemistry">
+  <div class="container">
+    <div class="feature-row">
+      <div class="feature-media">
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata">
+            <source src="keyschemistry.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="feature-body">
+        <p class="eyebrow">Creative listing concept</p>
+        <h2 class="feature-title">Keys + Chemistry</h2>
+        <p class="feature-scope">Concept · Social Carousel · Listing Relaunch</p>
+        <p>This one treated a listing like a dating profile. Slightly cheeky, still useful, and a much better fit for a property that needed a fresh way back into the conversation.</p>
+        <p>The point was not to be cute for the sake of it. It was to make the details easier to notice and give people a reason to keep swiping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kendra">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Agent positioning</p>
+      <h2 class="section-title">When the agent has a real point of difference,
+        <span class="script">the marketing should make it obvious.</span>
+      </h2>
+      <p class="section-copy">Kendra's previous experience with Edmonton Police Service is not a small biography detail. It gives her a genuine understanding of the schedules, pressure, and privacy concerns first responders bring into a move. The campaign makes that useful without turning it into a gimmick.</p>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-media">
+        <div class="pdf-frame">
+          <object data="kendaad.pdf" type="application/pdf">
+            <div class="pdf-fallback">
+              Your browser could not display the PDF here.
+              <a href="kendaad.pdf" target="_blank" class="button button-primary" style="margin-top:18px;">Open the PDF</a>
+            </div>
+          </object>
+        </div>
+      </div>
+      <div class="feature-body">
+        <h3 class="feature-title">Real estate designed for first responders.</h3>
+        <p class="feature-scope">Positioning · Long-Form Copy · Print Design</p>
+        <p>The copy is practical on purpose. Flexible scheduling. Clear communication. Discretion. One person coordinating the moving parts. It speaks to the reality of the job instead of piling on generic claims about service.</p>
+        <p>That makes the piece feel credible because it comes from lived experience, not a marketing brainstorm.</p>
+        <div class="button-row">
+          <a href="kendaad.pdf" target="_blank" class="button button-primary">Open the full piece →</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(52px,7vw,86px);">
+      <div class="section-head" style="margin-bottom:28px;">
+        <p class="eyebrow">Recruitment campaign</p>
+        <h3 class="section-title" style="font-size:clamp(24px,3.2vw,38px);">Building a smaller team on purpose.</h3>
+        <p class="section-copy">This campaign was written for agents who are ready to build something with more care than a wide-open recruiting pitch. It talks about standards, ownership, and long-term fit because those are the things Kendra actually wanted to protect.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="gallery-item" data-lightbox="kendrateam1.png"><img src="kendrateam1.png" alt="Kendra team recruitment campaign slide 1"></div>
+        <div class="gallery-item" data-lightbox="kendrateam2.png"><img src="kendrateam2.png" alt="Kendra team recruitment campaign slide 2"></div>
+        <div class="gallery-item" data-lightbox="kendrateam3.png"><img src="kendrateam3.png" alt="Kendra team recruitment campaign slide 3"></div>
+        <div class="gallery-item" data-lightbox="kendrateam4.png"><img src="kendrateam4.png" alt="Kendra team recruitment campaign slide 4"></div>
+        <div class="gallery-item" data-lightbox="kendrateam5.png"><img src="kendrateam5.png" alt="Kendra team recruitment campaign slide 5"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="albion">
+  <div class="container">
+    <div class="feature-row reverse">
+      <div class="feature-media">
+        <div class="media-frame">
+          <img src="albionpostcard.png" alt="Albion and Diamond Ridge grand opening postcard">
+        </div>
+      </div>
+      <div class="feature-body">
+        <p class="eyebrow">Print and event marketing</p>
+        <h2 class="feature-title">Sunset at Diamond Ridge</h2>
+        <p class="feature-scope">Campaign Concept · Postcard · Event Copy · Development Marketing</p>
+        <p>A development event could have been advertised as a list of showhomes and a date. Instead, this one was built around the feeling of seeing the foothills at sunset, meeting local makers, and imagining what could be built there.</p>
+        <p>The practical details are still easy to find. They just are not the only reason to care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <p class="eyebrow">The bigger picture</p>
+      <h2>Marketing that helps the right people notice.
+        <span>And gives them somewhere useful to go next.</span>
+      </h2>
+      <p>That might mean a stronger listing story, a more recognizable agent brand, a client guide, a referral page, a postcard, or a follow-up system that finally stops living in five different places.</p>
+      <div class="button-row" style="justify-content:center;">
+        <a href="lets-talk.html" class="button button-primary">Start a conversation →</a>
+        <a href="the-proof.html" class="button button-outline">Back to The Proof</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="roundlogo.png" alt="The Yellow Front Door">
+        <p class="footer-tagline">A small creative studio building clearer brands, better marketing, and client experiences that feel properly thought through.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Studio</h3>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="the-proof.html">The Proof</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h3>Get in touch</h3>
+        <a href="lets-talk.html">Start a conversation</a>
+        <a href="the-scorecard.html">Take the Scorecard</a>
+        <p>Annapolis Valley, NS</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 The Yellow Front Door. All rights reserved.</p>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
+  <img id="lightbox-image" src="" alt="">
+</div>
+
+<script>
+const ACCESS_HASH = "6a0c257efbd79877ef76d286f783daf4277b9b7eebcbc4c17f2159ea8f9d338d";
+const gate = document.getElementById('access-gate');
+const accessForm = document.getElementById('access-form');
+const accessInput = document.getElementById('access-code');
+const accessError = document.getElementById('access-error');
+
+function unlockPage() {
+  gate.classList.add('hidden');
+  document.body.classList.remove('locked');
+  sessionStorage.setItem('tyfd-real-estate-access', 'granted');
+}
+
+async function hashText(value) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest))
+    .map(byte => byte.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+if (sessionStorage.getItem('tyfd-real-estate-access') === 'granted') {
+  unlockPage();
+}
+
+accessForm.addEventListener('submit', async function(event) {
+  event.preventDefault();
+  accessError.textContent = '';
+  const enteredHash = await hashText(accessInput.value.trim());
+  if (enteredHash === ACCESS_HASH) {
+    unlockPage();
+  } else {
+    accessError.textContent = 'That code did not work. Please try again.';
+    accessInput.select();
+  }
+});
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+navToggle.addEventListener('click', function() {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+});
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxClose = document.getElementById('lightbox-close');
+
+document.querySelectorAll('[data-lightbox]').forEach(function(item) {
+  item.addEventListener('click', function() {
+    const source = item.getAttribute('data-lightbox');
+    const image = item.querySelector('img');
+    lightboxImage.src = source;
+    lightboxImage.alt = image ? image.alt : '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.src = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', function(event) {
+  if (event.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') closeLightbox();
+});
+</script>
+
+</body>
+</html>
