@@ -461,6 +461,40 @@ ul{list-style:none}
   color:var(--slate);
 }
 
+/* EQUAL-WEIGHT CAMPAIGN PAIR */
+.project-pair{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:clamp(22px,4vw,42px);
+  align-items:start;
+}
+.project-card{
+  border:1px solid var(--stone);
+  background:#fff;
+  padding:clamp(16px,2.4vw,24px);
+}
+.project-card .video-wrap{
+  margin-bottom:24px;
+}
+.project-card h3{
+  font-family:var(--f-accent);
+  font-size:clamp(28px,3.4vw,40px);
+  line-height:1.05;
+  font-weight:normal;
+  margin-bottom:9px;
+}
+.project-card .feature-scope{
+  margin-bottom:16px;
+}
+.project-card p{
+  font-size:14px;
+  line-height:1.85;
+  color:var(--ink);
+}
+.project-card p+p{
+  margin-top:12px;
+}
+
 /* VIDEO */
 .video-wrap{
   background:#0e172d;
@@ -615,6 +649,9 @@ ul{list-style:none}
   .gallery{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:860px){
+  .project-pair{
+    grid-template-columns:1fr;
+  }
   .feature-row,.feature-row.reverse,.lydia-grid,.testimonial-box,.intro-strip-inner{
     grid-template-columns:1fr;
   }
@@ -652,13 +689,13 @@ ul{list-style:none}
   <div class="access-card">
     <img src="roundlogo.png" alt="The Yellow Front Door" class="access-mark">
     <p class="access-eyebrow">Private portfolio</p>
-    <h1>Real estate work
-      <span class="access-script">all in one place.</span>
+    <h1>Private real estate portfolio
+      <span class="access-script">for invited viewing.</span>
     </h1>
-    <p class="access-copy">This page includes commissioned work, client faces, and behind-the-scenes concepts that are not part of the public portfolio.</p>
+    <p class="access-copy">This page includes commissioned work, client faces, and projects that are not shown in the public portfolio.</p>
     <form class="access-form" id="access-form">
       <input type="password" id="access-code" aria-label="Access code" placeholder="Enter access code" autocomplete="current-password">
-      <button type="submit">Open the door</button>
+      <button type="submit">View portfolio</button>
     </form>
     <p class="access-error" id="access-error" aria-live="polite"></p>
   </div>
@@ -686,9 +723,9 @@ ul{list-style:none}
     <div class="page-header-inner">
       <p class="breadcrumb">Private Portfolio &nbsp;›&nbsp; Real Estate</p>
       <h1>Real estate work
-        <span class="accent-line">built around the way agents actually work.</span>
+        <span class="accent-line">for listings, brands, and the client experience.</span>
       </h1>
-      <p>This is the fuller picture: listing campaigns, client resources, print pieces, brand work, follow-up systems, and the ideas that help an agent feel memorable long after a single post has disappeared from the feed.</p>
+      <p>A private collection of listing campaigns, agent branding, print pieces, client resources, and follow-up systems. The commissioned work lives here rather than in the public portfolio because it includes client faces and active brands.</p>
     </div>
   </div>
 </header>
@@ -698,11 +735,11 @@ ul{list-style:none}
     <div class="intro-strip-inner">
       <div>
         <p class="intro-kicker">A private look</p>
-        <h2>More than a stack of listing graphics.</h2>
+        <h2>Real estate marketing has more than one job.</h2>
       </div>
       <div>
-        <p>Good real estate marketing has a lot of jobs to do. Sometimes it needs to make one property impossible to scroll past. Sometimes it needs to make an agent's value easier to understand. And sometimes it needs to quietly make the client experience feel more organized.</p>
-        <p>The work below moves between all three. Some pieces were built for active clients. Lydia Nichols is a fictional brand we created so we could show the full range without borrowing someone else's business.</p>
+        <p>It needs to help a property stand out, make an agent's value clear, and give people a useful next step. The work below ranges from listing campaigns and postcards to buyer resources, referral pages, and open-house follow-up.</p>
+        <p>The client projects are shown here privately. Lydia Nichols is fictional and was built from scratch to show what a complete agent brand and client experience can look like.</p>
       </div>
     </div>
   </div>
@@ -782,7 +819,7 @@ ul{list-style:none}
       <h2 class="section-title">The house is the same.
         <span class="script">The angle should not be.</span>
       </h2>
-      <p class="section-copy">A good listing campaign finds the part of the property people can actually picture themselves caring about. Sometimes that is the garage. Sometimes it is the space for a parent. Sometimes it is simply helping people see past an empty room.</p>
+      <p class="section-copy">A good listing campaign starts with the detail that gives people a way into the property. Here, that meant the garage, room for a parent, and a before-and-after concept that helped buyers see past an empty room.</p>
     </div>
 
     <div class="sundi-grid">
@@ -810,24 +847,44 @@ ul{list-style:none}
   </div>
 </section>
 
-<section class="section" id="keys-chemistry">
+<section class="section" id="creative-campaigns">
   <div class="container">
-    <div class="feature-row">
-      <div class="feature-media">
+    <div class="section-head">
+      <p class="eyebrow">Two listing relaunches</p>
+      <h2 class="section-title">Different properties.
+        <span class="script">Different reasons to keep watching.</span>
+      </h2>
+      <p class="section-copy">Both of these campaigns were built to give an existing listing a fresh way back into the feed. One leaned into the life a family could picture there. The other used a playful match-making idea to make the property details easier to remember.</p>
+    </div>
+
+    <div class="project-pair">
+      <article class="project-card">
+        <div class="video-wrap">
+          <video controls playsinline preload="metadata">
+            <source src="Carousel.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="eyebrow">Listing carousel</p>
+        <h3>607 9 Street SE</h3>
+        <p class="feature-scope">Listing Relaunch · Social Carousel · Property Copy</p>
+        <p>This campaign moved through the home as a family story rather than another feature list. The rooms, outdoor space, and lake view were arranged to build a picture of everyday life there.</p>
+        <p>The writing, image order, and design were developed together so it felt like one complete piece.</p>
+      </article>
+
+      <article class="project-card">
         <div class="video-wrap">
           <video controls playsinline preload="metadata">
             <source src="keyschemistry.webm" type="video/webm">
             Your browser does not support the video tag.
           </video>
         </div>
-      </div>
-      <div class="feature-body">
         <p class="eyebrow">Creative listing concept</p>
-        <h2 class="feature-title">Keys + Chemistry</h2>
+        <h3>Keys + Chemistry</h3>
         <p class="feature-scope">Concept · Social Carousel · Listing Relaunch</p>
-        <p>This one treated a listing like a dating profile. Slightly cheeky, still useful, and a much better fit for a property that needed a fresh way back into the conversation.</p>
-        <p>The point was not to be cute for the sake of it. It was to make the details easier to notice and give people a reason to keep swiping.</p>
-      </div>
+        <p>This version treated the listing like a dating profile. It was a little cheeky, but the idea still had a practical job: make the details more noticeable and give people a reason to keep swiping.</p>
+        <p>It gave the same property a completely different way back into the conversation.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -845,10 +902,10 @@ ul{list-style:none}
     <div class="feature-row">
       <div class="feature-media">
         <div class="pdf-frame">
-          <object data="kendrasnapshot.png" type="application/pdf">
+          <object data="kendaad.pdf" type="application/pdf">
             <div class="pdf-fallback">
               Your browser could not display the PDF here.
-              <a href="kendraad.pdf" target="_blank" class="button button-primary" style="margin-top:18px;">Open the PDF</a>
+              <a href="kendaad.pdf" target="_blank" class="button button-primary" style="margin-top:18px;">Open the PDF</a>
             </div>
           </object>
         </div>
@@ -905,10 +962,10 @@ ul{list-style:none}
   <div class="container">
     <div class="cta-inner">
       <p class="eyebrow">The bigger picture</p>
-      <h2>Marketing that helps the right people notice.
-        <span>And gives them somewhere useful to go next.</span>
+      <h2>Clearer marketing, from the listing post to the follow-up.
+        <span>Built to fit the agent, not a generic template.</span>
       </h2>
-      <p>That might mean a stronger listing story, a more recognizable agent brand, a client guide, a referral page, a postcard, or a follow-up system that finally stops living in five different places.</p>
+      <p>The right mix may be a stronger listing campaign, a more recognizable agent brand, a useful client guide, a referral page, a postcard, or a follow-up system that keeps the details from getting scattered.</p>
       <div class="button-row" style="justify-content:center;">
         <a href="lets-talk.html" class="button button-primary">Start a conversation →</a>
         <a href="the-proof.html" class="button button-outline">Back to The Proof</a>
