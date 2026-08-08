@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For Small Business — The Yellow Front Door</title>
 
-<meta name="description" content="Websites, messaging, marketing, customer experience, and practical systems for small businesses. See how The Yellow Front Door helps good businesses show up as good as they are.">
+<meta
+  name="description"
+  content="Websites, messaging, marketing, customer experience, and practical systems for small businesses. See how The Yellow Front Door helps good businesses show up as good as they are."
+>
 
-<link rel="canonical" href="https://www.theyellowfrontdoor.ca/for-small-business">
+<link
+  rel="canonical"
+  href="https://www.theyellowfrontdoor.ca/for-small-business.html"
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,24 +27,35 @@
 
 <style>
 
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
 @font-face {
   font-family: 'CasualHandwriting';
-  src: url('CasualHandwriting.woff2') format('woff2'),
-       url('CasualHandwriting.woff') format('woff');
+  src:
+    url('CasualHandwriting.woff2') format('woff2'),
+    url('CasualHandwriting.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
+
+
+/* =========================================
+   TYFD CORE SYSTEM
+========================================= */
 
 :root {
   --ink: #132447;
+  --navy: #132447;
   --paper: #ffffff;
-  --yellow: #fcd346;
+  --paper-mid: #F7F6F1;
   --stone: #DEDAD1;
   --slate: #596674;
+  --yellow: #fcd346;
   --brass: #e6b800;
-  --paper-mid: #F7F6F1;
-  --navy: #132447;
+  --clay: #B86B4B;
 
   --f-accent: 'CasualHandwriting', cursive;
   --f-head: 'Montserrat', sans-serif;
@@ -45,10 +63,20 @@
 
   --max: 1120px;
   --gutter: clamp(24px, 5vw, 80px);
-  --section-gap: clamp(56px, 7vw, 88px);
+  --section-gap: clamp(52px, 7vw, 84px);
+
+  --nav-height: 72px;
+  --page-top: clamp(44px, 5vw, 64px);
 }
 
-*, *::before, *::after {
+
+/* =========================================
+   RESET / GLOBAL
+========================================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -56,9 +84,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 20px);
 }
 
 body {
+  margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--f-body);
@@ -83,24 +113,57 @@ ul {
   list-style: none;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   SHARED LAYOUT
+========================================= */
+
 .container {
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 var(--gutter);
-}
-
-.eyebrow {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--slate);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
 
-/* NAV */
+/* =========================================
+   NAVIGATION
+========================================= */
 
 .nav {
   position: fixed;
@@ -108,68 +171,106 @@ ul {
   left: 0;
   right: 0;
   z-index: 100;
+  height: var(--nav-height);
   background: var(--navy);
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.25s ease;
 }
 
 .nav.scrolled {
-  box-shadow: 0 2px 24px rgba(19,36,71,0.5);
+  box-shadow: 0 2px 16px rgba(19, 36, 71, 0.22);
 }
 
 .nav-inner {
+  width: 100%;
   max-width: var(--max);
+  height: var(--nav-height);
   margin: 0 auto;
   padding: 0 var(--gutter);
-  height: 72px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 18px;
+}
+
+
+/* Keep logo perfectly circular */
+
+.nav-logo {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  flex: 0 0 52px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-logo img {
+  width: 52px;
   height: 52px;
-  width: auto;
+  max-width: none;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  flex-shrink: 0;
 }
+
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
 }
 
 .nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3px;
+
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255,252,244,0.75);
-  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: 0.02em;
   white-space: nowrap;
-  transition: color 0.2s;
+
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
   color: var(--paper);
 }
 
-.nav-cta {
-  background: var(--yellow) !important;
-  color: var(--navy) !important;
-  padding: 10px 20px;
-  font-weight: 700 !important;
+.nav-links .nav-cta {
+  min-height: 44px;
+  padding: 0 18px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-weight: 700;
 }
 
-.nav-cta:hover {
-  background: var(--brass) !important;
+.nav-links .nav-cta:hover {
+  background: var(--brass);
+  color: var(--navy);
 }
+
 
 .nav-toggle {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+
   display: none;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-  background: none;
+
   border: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 .nav-toggle span {
@@ -179,82 +280,124 @@ ul {
 }
 
 
-/* HERO */
+/* =========================================
+   PAGE HERO
+========================================= */
 
-.hero {
-  margin-top: 72px;
+.page-hero {
+  margin-top: var(--nav-height);
+  padding: var(--page-top) 0 clamp(36px, 5vw, 56px);
   background: var(--paper-mid);
-  padding: clamp(42px, 5.5vw, 68px) 0;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: clamp(36px, 6vw, 72px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.92fr);
+  gap: clamp(38px, 6vw, 76px);
   align-items: center;
 }
 
-.hero .eyebrow {
-  margin-bottom: 16px;
+
+/* Official subpage badge */
+
+.eyebrow-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
 }
 
-.hero h1 {
+.eyebrow-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  background: var(--navy);
+  padding: 6px 13px;
+}
+
+.eyebrow-desc {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+
+.page-hero h1 {
+  max-width: 650px;
+
   font-family: var(--f-head);
-  font-size: clamp(34px, 4vw, 51px);
+  font-size: clamp(34px, 4vw, 50px);
   font-weight: 400;
   letter-spacing: -0.035em;
-  line-height: 1.08;
-  max-width: 650px;
-  margin-bottom: 16px;
+  line-height: 1.1;
 }
 
 .hero-accent {
   display: block;
+  margin-top: 11px;
+
   font-family: var(--f-accent);
-  font-size: clamp(29px, 3.2vw, 41px);
+  font-size: clamp(29px, 3.2vw, 40px);
   font-weight: normal;
-  color: var(--slate);
   letter-spacing: 0.025em;
   word-spacing: 0.08em;
-  line-height: 1.22;
-  margin-top: 10px;
+  line-height: 1.2;
+
+  color: var(--slate);
 }
 
 .hero-copy {
+  max-width: 600px;
+  margin-top: 22px;
+
   font-size: 16px;
-  line-height: 1.72;
-  max-width: 590px;
-  margin-bottom: 24px;
+  line-height: 1.75;
 }
 
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 26px;
 }
 
 
-/* BUTTONS */
+/* =========================================
+   BUTTONS
+========================================= */
 
 .btn-primary,
 .btn-secondary,
 .btn-yellow {
+  min-height: 44px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 13px 24px;
+
+  padding: 12px 22px;
+
   font-family: var(--f-body);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: all 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .btn-primary {
-  background: var(--ink);
+  background: var(--navy);
   color: var(--paper);
-  border: 2px solid var(--ink);
+  border: 2px solid var(--navy);
 }
 
 .btn-primary:hover {
@@ -264,26 +407,30 @@ ul {
 
 .btn-secondary {
   background: transparent;
-  color: var(--ink);
-  border: 2px solid var(--ink);
+  color: var(--navy);
+  border: 2px solid var(--navy);
 }
 
 .btn-secondary:hover {
-  background: var(--ink);
+  background: var(--navy);
   color: var(--paper);
 }
 
 .btn-yellow {
   background: var(--yellow);
-  color: var(--ink);
+  color: var(--navy);
+  border: 2px solid var(--yellow);
 }
 
 .btn-yellow:hover {
   background: var(--brass);
+  border-color: var(--brass);
 }
 
 
-/* GUIDE IMAGE */
+/* =========================================
+   GUIDE GRAPHIC — HERO ONLY
+========================================= */
 
 .guide-stage {
   display: flex;
@@ -292,191 +439,209 @@ ul {
 }
 
 .guide-image-link {
+  width: min(320px, 88%);
   display: block;
-  width: min(315px, 82%);
-  transition: transform 0.25s ease;
+
+  border: 1px solid var(--stone);
+  transition: transform 0.2s ease;
 }
 
 .guide-image-link:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
 .guide-image {
   width: 100%;
   height: auto;
-  display: block;
-  box-shadow: 0 22px 50px rgba(19,36,71,0.18);
 }
 
 
-/* HELP SECTION */
+/* =========================================
+   HELP SECTION
+========================================= */
 
 .help-section {
-  background: var(--paper);
   padding: var(--section-gap) 0;
+  background: var(--paper);
 }
 
 .help-header {
-  max-width: 700px;
-  margin-bottom: 40px;
+  max-width: 720px;
+  margin-bottom: 38px;
 }
 
-.help-header .eyebrow {
-  margin-bottom: 14px;
+.section-kicker {
+  display: block;
+  margin-bottom: 13px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: var(--slate);
 }
 
 .help-header h2 {
   font-family: var(--f-head);
-  font-size: clamp(28px, 3.4vw, 40px);
+  font-size: clamp(28px, 3.3vw, 39px);
   font-weight: 400;
   letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 14px;
+  line-height: 1.16;
 }
 
 .help-header p {
-  font-size: 16px;
-  line-height: 1.75;
-  max-width: 640px;
+  max-width: 660px;
+  margin-top: 15px;
+  line-height: 1.78;
 }
+
+
+/* Cards represent genuine service categories */
 
 .help-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   border-top: 1px solid var(--stone);
   border-left: 1px solid var(--stone);
 }
 
 .help-card {
-  background: var(--paper-mid);
+  min-height: 230px;
   padding: 28px;
+
   border-right: 1px solid var(--stone);
   border-bottom: 1px solid var(--stone);
-  min-height: 220px;
+
+  background: var(--paper-mid);
 }
 
 .help-number {
   display: block;
-  font-size: 10px;
+  margin-bottom: 22px;
+
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.16em;
+
   color: var(--slate);
-  margin-bottom: 24px;
 }
 
 .help-card h3 {
   font-family: var(--f-head);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 600;
-  line-height: 1.25;
-  margin-bottom: 12px;
+  line-height: 1.3;
 }
 
 .help-card p {
+  margin-top: 11px;
+
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.72;
+
   color: var(--slate);
 }
 
 
-/* GUIDE SECTION */
+/* =========================================
+   GUIDE CTA
+========================================= */
 
 .guide-section {
+  padding: var(--section-gap) 0;
   background: var(--navy);
   color: var(--paper);
-  padding: var(--section-gap) 0;
 }
 
-.guide-grid {
-  display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
-  gap: clamp(42px, 8vw, 90px);
-  align-items: center;
+.guide-content {
+  max-width: 760px;
 }
 
-.guide-section-image {
-  width: min(275px, 100%);
-  margin: 0 auto;
-  box-shadow: 0 24px 54px rgba(0,0,0,0.22);
-}
-
-.guide-content .eyebrow {
+.guide-section .section-kicker {
   color: var(--yellow);
-  margin-bottom: 14px;
 }
 
 .guide-content h2 {
+  max-width: 700px;
+
   font-family: var(--f-head);
-  font-size: clamp(30px, 3.7vw, 44px);
+  font-size: clamp(30px, 3.6vw, 43px);
   font-weight: 400;
-  line-height: 1.12;
   letter-spacing: -0.03em;
-  margin-bottom: 18px;
+  line-height: 1.14;
 }
 
 .guide-content p {
-  font-size: 16px;
+  max-width: 650px;
+  margin: 18px 0 28px;
+
+  color: rgba(255, 255, 255, 0.84);
+
   line-height: 1.82;
-  color: rgba(255,255,255,0.84);
-  max-width: 610px;
-  margin-bottom: 28px;
 }
 
 
-/* CTA */
+/* =========================================
+   FINAL CTA
+========================================= */
 
 .cta-section {
-  background: #4d5c7b;
-  color: var(--paper);
-  text-align: center;
   padding: var(--section-gap) 0;
+  background: var(--paper-mid);
 }
 
-.cta-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--yellow);
-  border-radius: 50%;
-  margin: 0 auto 26px;
+.cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .cta-section h2 {
   font-family: var(--f-head);
-  font-size: clamp(29px, 3.8vw, 44px);
+  font-size: clamp(29px, 3.6vw, 42px);
   font-weight: 400;
-  line-height: 1.1;
   letter-spacing: -0.03em;
+  line-height: 1.14;
 }
 
 .cta-script {
   display: block;
+  margin: 8px 0 20px;
+
   font-family: var(--f-accent);
-  color: var(--yellow);
-  font-size: clamp(33px, 4.2vw, 52px);
+  font-size: clamp(33px, 4vw, 49px);
   letter-spacing: 0.025em;
   word-spacing: 0.08em;
   line-height: 1.2;
-  margin: 8px 0 22px;
+
+  color: var(--clay);
 }
 
 .cta-section p {
-  max-width: 550px;
-  margin: 0 auto 32px;
+  max-width: 580px;
+  margin: 0 auto 28px;
+
+  color: var(--slate);
+
   font-size: 15px;
   line-height: 1.8;
-  color: rgba(255,255,255,0.85);
 }
 
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+========================================= */
 
 .footer {
-  background: var(--paper);
   padding: 48px 0 32px;
+  background: var(--paper);
   border-top: 1px solid var(--stone);
 }
 
 .footer-inner {
+  width: 100%;
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--gutter);
@@ -491,13 +656,16 @@ ul {
   width: 96px;
   height: 96px;
   margin: 0 auto;
+  object-fit: contain;
 }
 
 .footer-tagline {
-  font-size: 13px;
-  color: var(--slate);
-  max-width: 340px;
+  max-width: 390px;
   margin: 0 auto 28px;
+
+  color: var(--slate);
+
+  font-size: 13px;
   line-height: 1.7;
 }
 
@@ -511,17 +679,22 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px 28px;
+  gap: 10px 28px;
+
   margin-bottom: 28px;
 }
 
 .footer-nav a {
-  font-size: 13px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+
   color: var(--slate);
+  font-size: 13px;
 }
 
 .footer-nav a:hover {
-  color: var(--ink);
+  color: var(--navy);
 }
 
 .footer-bottom {
@@ -533,8 +706,9 @@ ul {
 }
 
 .footer-copy {
-  font-size: 11px;
   color: var(--slate);
+
+  font-size: 11px;
   letter-spacing: 0.05em;
 }
 
@@ -553,59 +727,90 @@ ul {
 }
 
 .footer-legal-links a {
-  font-size: 11px;
   color: var(--slate);
+  font-size: 11px;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 
-/* RESPONSIVE */
+/* =========================================
+   RESPONSIVE
+========================================= */
 
-@media (max-width: 900px) {
-
-  .hero-grid,
-  .guide-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .guide-stage {
-    margin-top: 12px;
-  }
-
-  .guide-image-link {
-    width: min(280px, 70%);
-  }
-
-  .help-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
+@media (max-width: 1000px) {
 
   .nav-links {
     display: none;
-  }
-
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--navy);
-    padding: 24px clamp(24px,5vw,80px) 32px;
-    gap: 20px;
   }
 
   .nav-toggle {
     display: flex;
   }
 
-  .hero {
-    padding: 42px 0 50px;
+  .nav-links.open {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+
+    padding: 20px var(--gutter) 28px;
+
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .nav-links.open li {
+    width: 100%;
+  }
+
+  .nav-links.open a {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 0;
+  }
+
+  .nav-links.open .nav-cta {
+    width: auto;
+    margin-top: 6px;
+    padding: 10px 18px;
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-stage {
+    margin-top: 8px;
+    justify-content: flex-start;
+  }
+
+  .guide-image-link {
+    width: min(290px, 70%);
+  }
+
+  .help-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 640px) {
+
+  .eyebrow-label {
+    gap: 9px 12px;
   }
 
   .hero-buttons {
@@ -613,17 +818,57 @@ ul {
     align-items: stretch;
   }
 
+  .hero-buttons a {
+    width: 100%;
+  }
+
   .guide-image-link {
-    width: min(250px, 75%);
+    width: min(260px, 78%);
   }
 
   .help-grid {
     grid-template-columns: 1fr;
   }
 
+  .help-card {
+    min-height: 0;
+  }
+
+  .cta-section .btn-yellow {
+    width: 100%;
+    max-width: 360px;
+  }
+
   .footer-bottom {
     flex-direction: column;
+    gap: 7px;
   }
+
+  .footer-dot-sm {
+    display: none;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
 }
 
 </style>
@@ -659,17 +904,31 @@ gtag('config', 'G-NPL1XCH6H7');
 
 <body>
 
+<a class="skip-link" href="#main-content">
+  Skip to main content
+</a>
+
 
 <!-- NAV -->
 
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Primary navigation">
+
   <div class="nav-inner">
 
-    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
-      <img src="roundlogo2.png" alt="The Yellow Front Door">
+    <a
+      href="index.html"
+      class="nav-logo"
+      aria-label="The Yellow Front Door — home"
+    >
+      <img
+        src="roundlogo2.png"
+        alt=""
+      >
     </a>
 
+
     <ul class="nav-links" id="nav-links">
+
       <li><a href="what-we-do.html">What We Do</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="the-proof.html">The Proof</a></li>
@@ -677,200 +936,263 @@ gtag('config', 'G-NPL1XCH6H7');
       <li><a href="the-doorstep.html">The Doorstep</a></li>
       <li><a href="lets-talk.html">Let's Talk</a></li>
       <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+
     </ul>
+
 
     <button
       class="nav-toggle"
       id="nav-toggle"
-      aria-label="Toggle navigation"
+      type="button"
+      aria-label="Open navigation"
+      aria-controls="nav-links"
       aria-expanded="false"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
 
   </div>
+
 </nav>
 
 
-<!-- HERO -->
+<main id="main-content">
 
-<header class="hero">
-  <div class="container">
 
-    <div class="hero-grid">
+  <!-- HERO -->
 
-      <div class="hero-content">
+  <header class="page-hero">
 
-        <span class="eyebrow">For Small Business</span>
+    <div class="container">
 
-        <h1>
-          A better front door for the business you've already built.
-          <span class="hero-accent">Without making more work for you.</span>
-        </h1>
+      <div class="hero-grid">
 
-        <p class="hero-copy">
-          Most small businesses don't need more things to manage. They need the
-          pieces people see, read, click, and respond to working together a little
-          better. That's where we come in.
-        </p>
 
-        <div class="hero-buttons">
+        <div>
+
+          <div class="eyebrow-label">
+
+            <span class="eyebrow-tag">
+              Small Business
+            </span>
+
+            <span class="eyebrow-desc">
+              Websites, marketing &amp; systems
+            </span>
+
+          </div>
+
+
+          <h1>
+            A better front door for the business you've already built.
+
+            <span class="hero-accent">
+              Without making more work for you.
+            </span>
+          </h1>
+
+
+          <p class="hero-copy">
+            Most small businesses don't need more things to manage.
+            They need the pieces people see, read, click, and respond
+            to working together a little better. That's where we come in.
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="small-business-guide.pdf"
+              target="_blank"
+              rel="noopener"
+              class="btn-primary"
+            >
+              View the Small Business Guide →
+            </a>
+
+            <a
+              href="lets-talk.html"
+              class="btn-secondary"
+            >
+              Tell us what you're working on
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="guide-stage">
 
           <a
             href="small-business-guide.pdf"
             target="_blank"
             rel="noopener"
-            class="btn-primary"
+            class="guide-image-link"
+            aria-label="Open the Small Business Guide PDF"
           >
-            View the Small Business Guide →
-          </a>
 
-          <a href="lets-talk.html" class="btn-secondary">
-            Tell us what you're working on
+            <img
+              src="forsmallbizgraphic.png"
+              alt="Cover of The Yellow Front Door Small Business Guide"
+              class="guide-image"
+            >
+
           </a>
 
         </div>
 
-      </div>
-
-
-      <div class="guide-stage">
-
-        <a
-          href="small-business-guide.pdf"
-          target="_blank"
-          rel="noopener"
-          class="guide-image-link"
-          aria-label="Open the Small Business Guide"
-        >
-          <img
-            src="forsmallbizgraphic.png"
-            alt="What do they find when they look you up? Small Business Guide from The Yellow Front Door"
-            class="guide-image"
-          >
-        </a>
 
       </div>
 
     </div>
 
-  </div>
-</header>
+  </header>
 
 
-<!-- WAYS WE HELP -->
+  <!-- WAYS WE HELP -->
 
-<section class="help-section">
-  <div class="container">
+  <section class="help-section">
 
-    <div class="help-header">
+    <div class="container">
 
-      <span class="eyebrow">Where we come in</span>
 
-      <h2>
-        Not every business needs the same thing.
-      </h2>
+      <div class="help-header">
 
-      <p>
-        Start with the piece that's giving you trouble, or let us look at how
-        the whole experience fits together.
-      </p>
+        <span class="section-kicker">
+          Where we come in
+        </span>
+
+        <h2>
+          Not every business needs the same thing.
+        </h2>
+
+        <p>
+          Start with the piece that's giving you trouble, or let us
+          look at how the whole experience fits together.
+        </p>
+
+      </div>
+
+
+      <div class="help-grid">
+
+
+        <article class="help-card">
+
+          <span class="help-number">01</span>
+
+          <h3>
+            Websites
+          </h3>
+
+          <p>
+            New builds, refreshes, clearer structure, stronger copy,
+            and sites that make it easy for people to understand what you do.
+          </p>
+
+        </article>
+
+
+        <article class="help-card">
+
+          <span class="help-number">02</span>
+
+          <h3>
+            Words &amp; Messaging
+          </h3>
+
+          <p>
+            Headlines, service pages, bios, emails, and the language
+            that helps people understand why they should choose you.
+          </p>
+
+        </article>
+
+
+        <article class="help-card">
+
+          <span class="help-number">03</span>
+
+          <h3>
+            Marketing
+          </h3>
+
+          <p>
+            Social content, email campaigns, seasonal promotions,
+            launches, landing pages, and the strategy tying them together.
+          </p>
+
+        </article>
+
+
+        <article class="help-card">
+
+          <span class="help-number">04</span>
+
+          <h3>
+            Customer Experience
+          </h3>
+
+          <p>
+            The welcome, the follow-up, the information customers receive,
+            and the details that make the business easier to trust.
+          </p>
+
+        </article>
+
+
+        <article class="help-card">
+
+          <span class="help-number">05</span>
+
+          <h3>
+            Systems &amp; Automation
+          </h3>
+
+          <p>
+            Forms, confirmations, review requests, follow-ups,
+            integrations, and practical systems that take repetitive
+            work off your plate.
+          </p>
+
+        </article>
+
+
+        <article class="help-card">
+
+          <span class="help-number">06</span>
+
+          <h3>
+            The Pieces In Between
+          </h3>
+
+          <p>
+            Business cards, client guides, email signatures, print pieces,
+            and the odds and ends that still represent your business.
+          </p>
+
+        </article>
+
+
+      </div>
 
     </div>
 
-
-    <div class="help-grid">
-
-      <div class="help-card">
-        <span class="help-number">01</span>
-        <h3>Websites</h3>
-        <p>
-          New builds, refreshes, clearer structure, stronger copy, and sites
-          that make it easy for people to understand what you do.
-        </p>
-      </div>
-
-      <div class="help-card">
-        <span class="help-number">02</span>
-        <h3>Words & Messaging</h3>
-        <p>
-          Headlines, service pages, bios, emails, and the language that helps
-          people understand why they should choose you.
-        </p>
-      </div>
-
-      <div class="help-card">
-        <span class="help-number">03</span>
-        <h3>Marketing</h3>
-        <p>
-          Social content, email campaigns, seasonal promotions, launches,
-          landing pages, and the strategy tying them together.
-        </p>
-      </div>
-
-      <div class="help-card">
-        <span class="help-number">04</span>
-        <h3>Customer Experience</h3>
-        <p>
-          The welcome, the follow-up, the information customers receive, and
-          the details that make the business easier to trust.
-        </p>
-      </div>
-
-      <div class="help-card">
-        <span class="help-number">05</span>
-        <h3>Systems & Automation</h3>
-        <p>
-          Forms, confirmations, review requests, follow-ups, integrations, and
-          practical systems that take repetitive work off your plate.
-        </p>
-      </div>
-
-      <div class="help-card">
-        <span class="help-number">06</span>
-        <h3>The Pieces In Between</h3>
-        <p>
-          Business cards, client guides, email signatures, print pieces, and
-          the odds and ends that still represent your business.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
+  </section>
 
 
-<!-- GUIDE -->
+  <!-- GUIDE CTA — NO REPEATED GRAPHIC -->
 
-<section class="guide-section" id="guide">
-  <div class="container">
+  <section class="guide-section" id="guide">
 
-    <div class="guide-grid">
-
-      <div>
-
-        <a
-          href="small-business-guide.pdf"
-          target="_blank"
-          rel="noopener"
-          aria-label="Open the Small Business Guide"
-        >
-          <img
-            src="forsmallbizgraphic.png"
-            alt="Small Business Guide from The Yellow Front Door"
-            class="guide-section-image"
-          >
-        </a>
-
-      </div>
-
+    <div class="container">
 
       <div class="guide-content">
 
-        <span class="eyebrow">
+        <span class="section-kicker">
           The Small Business Guide
         </span>
 
@@ -879,9 +1201,9 @@ gtag('config', 'G-NPL1XCH6H7');
         </h2>
 
         <p>
-          We've put together a practical look at the kinds of things we work on
-          and where they fit, from websites and messaging to customer experience,
-          marketing, and the systems behind it.
+          We've put together a practical look at the kinds of things
+          we work on and where they fit, from websites and messaging
+          to customer experience, marketing, and the systems behind it.
         </p>
 
         <a
@@ -897,37 +1219,46 @@ gtag('config', 'G-NPL1XCH6H7');
 
     </div>
 
-  </div>
-</section>
+  </section>
 
 
-<!-- CTA -->
+  <!-- FINAL CTA -->
 
-<section class="cta-section">
-  <div class="container">
+  <section class="cta-section">
 
-    <div class="cta-dot"></div>
+    <div class="container">
 
-    <h2>
-      Already know what needs attention?
-    </h2>
+      <div class="cta-inner">
 
-    <span class="cta-script">
-      Tell us about it.
-    </span>
+        <h2>
+          Already know what needs attention?
+        </h2>
 
-    <p>
-      You don't need to know what package it fits into. Tell us what's not
-      working, what's been sitting on the list, or what you're trying to build.
-      We'll start there.
-    </p>
+        <span class="cta-script">
+          Tell us about it.
+        </span>
 
-    <a href="lets-talk.html" class="btn-yellow">
-      Let's Talk →
-    </a>
+        <p>
+          You don't need to know what package it fits into.
+          Tell us what's not working, what's been sitting on the list,
+          or what you're trying to build. We'll start there.
+        </p>
 
-  </div>
-</section>
+        <a
+          href="lets-talk.html"
+          class="btn-yellow"
+        >
+          Let's Talk →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+</main>
 
 
 <!-- FOOTER -->
@@ -937,16 +1268,25 @@ gtag('config', 'G-NPL1XCH6H7');
   <div class="footer-inner">
 
     <div class="footer-logo-wrap">
-      <img src="roundlogo.png" alt="The Yellow Front Door">
+
+      <img
+        src="roundlogo.png"
+        alt="The Yellow Front Door"
+      >
+
     </div>
 
+
     <p class="footer-tagline">
-      A marketing studio for small businesses in the Annapolis Valley.
+      Websites, marketing, client experience, and practical systems
+      for businesses that want the pieces to work better together.
     </p>
+
 
     <hr class="footer-divider">
 
-    <nav class="footer-nav">
+
+    <nav class="footer-nav" aria-label="Footer navigation">
 
       <a href="what-we-do.html">What We Do</a>
       <a href="pricing.html">Pricing</a>
@@ -960,19 +1300,20 @@ gtag('config', 'G-NPL1XCH6H7');
 
     </nav>
 
+
     <div class="footer-bottom">
 
       <p class="footer-copy">
         © 2026 The Yellow Front Door. All rights reserved.
       </p>
 
-      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <span class="footer-dot-sm" aria-hidden="true"></span>
 
       <p class="footer-copy">
         Annapolis Valley, NS
       </p>
 
-      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <span class="footer-dot-sm" aria-hidden="true"></span>
 
       <p class="footer-copy">
         theyellowfrontdoor.ca
@@ -980,9 +1321,17 @@ gtag('config', 'G-NPL1XCH6H7');
 
     </div>
 
+
     <div class="footer-legal-links">
-      <a href="legal.html">Privacy Policy</a>
-      <a href="legal.html#tos">Terms of Service</a>
+
+      <a href="legal.html">
+        Privacy Policy
+      </a>
+
+      <a href="legal.html#tos">
+        Terms of Service
+      </a>
+
     </div>
 
   </div>
@@ -992,28 +1341,118 @@ gtag('config', 'G-NPL1XCH6H7');
 
 <script>
 
-(function() {
+(function () {
 
   var nav = document.getElementById('nav');
-
-  window.addEventListener('scroll', function() {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-
-
   var toggle = document.getElementById('nav-toggle');
   var navLinks = document.getElementById('nav-links');
 
-  toggle.addEventListener('click', function() {
 
-    var open = navLinks.classList.toggle('open');
+  function closeMenu() {
+
+    navLinks.classList.remove('open');
 
     toggle.setAttribute(
       'aria-expanded',
-      String(open)
+      'false'
     );
 
-  });
+    toggle.setAttribute(
+      'aria-label',
+      'Open navigation'
+    );
+
+  }
+
+
+  function openMenu() {
+
+    navLinks.classList.add('open');
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'true'
+    );
+
+    toggle.setAttribute(
+      'aria-label',
+      'Close navigation'
+    );
+
+  }
+
+
+  window.addEventListener(
+    'scroll',
+    function () {
+
+      nav.classList.toggle(
+        'scrolled',
+        window.scrollY > 20
+      );
+
+    },
+    { passive: true }
+  );
+
+
+  toggle.addEventListener(
+    'click',
+    function () {
+
+      var isOpen =
+        navLinks.classList.contains('open');
+
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+
+    }
+  );
+
+
+  navLinks.querySelectorAll('a').forEach(
+    function (link) {
+
+      link.addEventListener(
+        'click',
+        closeMenu
+      );
+
+    }
+  );
+
+
+  document.addEventListener(
+    'keydown',
+    function (event) {
+
+      if (
+        event.key === 'Escape' &&
+        navLinks.classList.contains('open')
+      ) {
+
+        closeMenu();
+        toggle.focus();
+
+      }
+
+    }
+  );
+
+
+  window.addEventListener(
+    'resize',
+    function () {
+
+      if (window.innerWidth > 1000) {
+        closeMenu();
+      }
+
+    }
+  );
 
 })();
 
