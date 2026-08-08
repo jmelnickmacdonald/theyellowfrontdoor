@@ -17,7 +17,7 @@
   --copper-light: #D4956A;
   --bean: #2C1810;
 
-  /* Updated site neutrals */
+  /* Site neutrals */
   --white: #FFFFFF;
   --warm-mid: #F5EFE0;
   --stone: #D8D1C3;
@@ -54,6 +54,7 @@ img {
   height: auto;
 }
 
+
 /* =========================
    LAYOUT
 ========================= */
@@ -81,27 +82,14 @@ img {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--copper);
-  margin-bottom: 20px;
-}
-
-
-/* LOGO */
-
-.header-logo-stage {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bean);
-  padding: clamp(20px, 3vw, 28px);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .header-logo {
-  width: clamp(220px, 34vw, 290px);
+  width: clamp(260px, 42vw, 360px);
   max-width: 100%;
-  margin: 0;
+  margin-bottom: 22px;
 }
-
 
 .header-sub {
   font-family: var(--f-display);
@@ -390,32 +378,30 @@ img {
     gap: 32px;
   }
 
-  .header-logo-stage {
-    width: 100%;
-    max-width: 320px;
-  }
-
   .header-logo {
-    width: 100%;
-    max-width: 250px;
+    width: min(100%, 320px);
   }
 
   .positioning {
     padding-left: 24px;
     padding-right: 24px;
   }
+
 }
 
 </style>
 
-<link rel="canonical" href="https://www.theyellowfrontdoor.ca/copper-bean-brand.html" />
+<link
+  rel="canonical"
+  href="https://www.theyellowfrontdoor.ca/copper-bean-brand.html"
+/>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
 
 <script>
   window.dataLayer = window.dataLayer || [];
 
-  function gtag(){
+  function gtag() {
     dataLayer.push(arguments);
   }
 
@@ -437,13 +423,11 @@ img {
       Voice &amp; Messaging Guide
     </p>
 
-    <div class="header-logo-stage">
-      <img
-        src="copperfulllogo.png"
-        alt="Copper + Bean"
-        class="header-logo"
-      >
-    </div>
+    <img
+      src="copperfulllogo.png"
+      alt="Copper + Bean"
+      class="header-logo"
+    >
 
     <p class="header-sub">
       A voice guide for Steve and Alexa's coffee bar.
@@ -660,10 +644,11 @@ img {
 
     <div class="words-grid">
 
-
       <div class="words-col do">
 
-        <h3>Reach for</h3>
+        <h3>
+          Reach for
+        </h3>
 
         <div class="words-list">
           <span>simple</span>
@@ -685,7 +670,9 @@ img {
 
       <div class="words-col avoid">
 
-        <h3>Avoid</h3>
+        <h3>
+          Avoid
+        </h3>
 
         <div class="words-list">
           <span>artisan</span>
