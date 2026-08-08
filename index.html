@@ -53,10 +53,7 @@
   --slate:     #596674;
   --brass:     #e6b800;
   --clay:      #B86B4B;
-
-  /* LIGHTER NEUTRAL — replaces the old parchment */
   --paper-mid: #F7F6F1;
-
   --navy:      #132447;
 
   --f-accent: 'CasualHandwriting', cursive;
@@ -199,7 +196,7 @@ button:focus-visible {
 }
 
 .nav.scrolled {
-  box-shadow: 0 2px 24px rgba(19, 36, 71, 0.38);
+  box-shadow: 0 2px 24px rgba(19,36,71,0.38);
 }
 
 .nav-inner {
@@ -609,34 +606,36 @@ body.is-night .scene-night {
 }
 
 
-/* TESTIMONIALS */
+/* TESTIMONIALS — STRONG VISUAL BREAK */
 
 .testimonials-section {
-  background: var(--paper-mid);
+  background: var(--navy);
   padding: var(--section-gap) 0;
-  border-top: 1px solid var(--stone);
 }
 
 .testimonials-heading {
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 .testimonials-heading .eyebrow {
   margin-bottom: 12px;
+  color: var(--yellow);
 }
 
 .testimonials-heading h2 {
+  max-width: 680px;
   font-family: var(--f-head);
-  font-size: clamp(26px, 3.2vw, 38px);
+  font-size: clamp(27px, 3.2vw, 39px);
   font-weight: 400;
   letter-spacing: -0.025em;
   line-height: 1.2;
+  color: var(--paper);
 }
 
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(30px, 4vw, 56px);
+  gap: clamp(34px, 5vw, 64px);
 }
 
 .testimonial {
@@ -644,22 +643,22 @@ body.is-night .scene-night {
 }
 
 .testimonial-quote {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   font-size: 16px;
   line-height: 1.85;
-  color: var(--ink);
+  color: rgba(255,255,255,0.88);
   font-style: italic;
 }
 
 .testimonial-cite {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--paper);
   font-style: normal;
 }
 
@@ -672,19 +671,19 @@ body.is-night .scene-night {
 }
 
 
-/* LOCATION */
+/* LOCATION — SOFT NEUTRAL */
 
 .location-section {
-  background: var(--paper);
-  padding: clamp(52px, 7vw, 84px) 0;
+  background: var(--paper-mid);
+  padding: clamp(58px, 7vw, 88px) 0;
 }
 
 .location-inner {
-  max-width: 830px;
+  max-width: 850px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(36px, 6vw, 72px);
+  gap: clamp(38px, 6vw, 74px);
   align-items: start;
 }
 
@@ -702,7 +701,7 @@ body.is-night .scene-night {
 
 .location-title-script {
   display: block;
-  margin-top: 7px;
+  margin-top: 8px;
   font-family: var(--f-accent);
   font-size: clamp(27px, 3vw, 37px);
   font-weight: normal;
@@ -712,9 +711,14 @@ body.is-night .scene-night {
   line-height: 1.22;
 }
 
+.location-copy {
+  padding-left: clamp(0px, 2vw, 22px);
+  border-left: 1px solid var(--stone);
+}
+
 .location-copy p {
   font-size: 16px;
-  line-height: 1.82;
+  line-height: 1.85;
   color: var(--slate);
 }
 
@@ -992,6 +996,13 @@ body.is-night .scene-night {
     gap: 24px;
   }
 
+  .location-copy {
+    padding-left: 0;
+    padding-top: 22px;
+    border-left: none;
+    border-top: 1px solid var(--stone);
+  }
+
 }
 
 
@@ -1018,6 +1029,15 @@ body.is-night .scene-night {
     object-position: center;
   }
 
+  .hero-thesis {
+    padding-top: 38px;
+    padding-bottom: 48px;
+  }
+
+  .hero-accent-line {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
   .hero-actions,
   .cta-actions {
     flex-direction: column;
@@ -1029,12 +1049,24 @@ body.is-night .scene-night {
     width: 100%;
   }
 
+  .audience-card {
+    min-height: 0;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
   }
 
   .service-item:last-child {
     grid-column: auto;
+  }
+
+  .service-item {
+    padding: 24px 22px;
+  }
+
+  .testimonials-heading {
+    margin-bottom: 34px;
   }
 
   .footer-bottom {
@@ -1159,8 +1191,6 @@ gtag('config', 'G-NPL1XCH6H7');
 <body>
 
 
-<!-- SKIP LINK -->
-
 <a class="skip-link" href="#main-content">
   Skip to main content
 </a>
@@ -1180,32 +1210,14 @@ gtag('config', 'G-NPL1XCH6H7');
       <img src="roundlogo2.png" alt="">
     </a>
 
-
     <ul class="nav-links" id="nav-links">
 
-      <li>
-        <a href="what-we-do.html">What We Do</a>
-      </li>
-
-      <li>
-        <a href="pricing.html">Pricing</a>
-      </li>
-
-      <li>
-        <a href="the-proof.html">The Proof</a>
-      </li>
-
-      <li>
-        <a href="about.html">About</a>
-      </li>
-
-      <li>
-        <a href="the-doorstep.html">The Doorstep</a>
-      </li>
-
-      <li>
-        <a href="lets-talk.html">Let's Talk</a>
-      </li>
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
 
       <li>
         <a href="the-scorecard.html" class="nav-cta">
@@ -1215,7 +1227,6 @@ gtag('config', 'G-NPL1XCH6H7');
       </li>
 
     </ul>
-
 
     <button
       class="nav-toggle"
@@ -1266,8 +1277,6 @@ gtag('config', 'G-NPL1XCH6H7');
 </div>
 
 
-<!-- MAIN -->
-
 <main id="main-content">
 
 
@@ -1289,7 +1298,6 @@ gtag('config', 'G-NPL1XCH6H7');
 
       </h1>
 
-
       <p class="hero-bridge">
 
         From websites and brand messaging to marketing, client resources, email flows, and the systems behind them, we help small businesses create an experience that feels clear, connected, and easy to act on.
@@ -1301,7 +1309,6 @@ gtag('config', 'G-NPL1XCH6H7');
         </a>
 
       </p>
-
 
       <div class="hero-actions">
 
@@ -1328,7 +1335,6 @@ gtag('config', 'G-NPL1XCH6H7');
 
   <div class="container">
 
-
     <div class="section-heading centered">
 
       <span class="eyebrow">
@@ -1345,9 +1351,7 @@ gtag('config', 'G-NPL1XCH6H7');
 
     </div>
 
-
     <div class="audience-grid">
-
 
       <a href="for-small-business.html" class="audience-card">
 
@@ -1407,7 +1411,6 @@ gtag('config', 'G-NPL1XCH6H7');
 
   <div class="container">
 
-
     <div class="section-heading">
 
       <span class="eyebrow">
@@ -1424,19 +1427,13 @@ gtag('config', 'G-NPL1XCH6H7');
 
     </div>
 
-
     <div class="services-grid">
-
 
       <article class="service-item">
 
-        <span class="service-number" aria-hidden="true">
-          01
-        </span>
+        <span class="service-number" aria-hidden="true">01</span>
 
-        <h3>
-          Websites
-        </h3>
+        <h3>Websites</h3>
 
         <p>
           Custom builds, refreshes, clearer structure, stronger copy, and search foundations that help people understand what you do.
@@ -1447,13 +1444,9 @@ gtag('config', 'G-NPL1XCH6H7');
 
       <article class="service-item">
 
-        <span class="service-number" aria-hidden="true">
-          02
-        </span>
+        <span class="service-number" aria-hidden="true">02</span>
 
-        <h3>
-          Words + Brand
-        </h3>
+        <h3>Words + Brand</h3>
 
         <p>
           Messaging, voice, identity, service copy, bios, and the pieces that make a business recognizable and easier to choose.
@@ -1464,13 +1457,9 @@ gtag('config', 'G-NPL1XCH6H7');
 
       <article class="service-item">
 
-        <span class="service-number" aria-hidden="true">
-          03
-        </span>
+        <span class="service-number" aria-hidden="true">03</span>
 
-        <h3>
-          Marketing
-        </h3>
+        <h3>Marketing</h3>
 
         <p>
           Social content, email campaigns, launches, seasonal promotions, landing pages, and the strategy connecting them.
@@ -1481,13 +1470,9 @@ gtag('config', 'G-NPL1XCH6H7');
 
       <article class="service-item">
 
-        <span class="service-number" aria-hidden="true">
-          04
-        </span>
+        <span class="service-number" aria-hidden="true">04</span>
 
-        <h3>
-          Customer Experience
-        </h3>
+        <h3>Customer Experience</h3>
 
         <p>
           Welcomes, follow-ups, guides, client resources, templates, and the details people experience before and after they say yes.
@@ -1498,13 +1483,9 @@ gtag('config', 'G-NPL1XCH6H7');
 
       <article class="service-item">
 
-        <span class="service-number" aria-hidden="true">
-          05
-        </span>
+        <span class="service-number" aria-hidden="true">05</span>
 
-        <h3>
-          Systems + Automation
-        </h3>
+        <h3>Systems + Automation</h3>
 
         <p>
           Forms, integrations, email flows, review requests, practical automations, and systems that take repetitive work off your plate.
@@ -1513,7 +1494,6 @@ gtag('config', 'G-NPL1XCH6H7');
       </article>
 
     </div>
-
 
     <div class="services-more">
 
@@ -1534,7 +1514,6 @@ gtag('config', 'G-NPL1XCH6H7');
 
   <div class="container">
 
-
     <div class="testimonials-heading">
 
       <span class="eyebrow">
@@ -1547,9 +1526,7 @@ gtag('config', 'G-NPL1XCH6H7');
 
     </div>
 
-
     <div class="testimonials-grid">
-
 
       <blockquote class="testimonial">
 
@@ -1604,7 +1581,6 @@ gtag('config', 'G-NPL1XCH6H7');
 
     <div class="location-inner">
 
-
       <div class="location-title">
 
         <span class="eyebrow">
@@ -1648,8 +1624,6 @@ gtag('config', 'G-NPL1XCH6H7');
     <div class="dark-band-inner">
 
 
-      <!-- PROCESS -->
-
       <section aria-labelledby="process-title">
 
         <p class="process-eyebrow">
@@ -1659,7 +1633,6 @@ gtag('config', 'G-NPL1XCH6H7');
         <h2 class="process-title" id="process-title">
           Three steps, no surprises.
         </h2>
-
 
         <div class="process-grid">
 
@@ -1723,8 +1696,6 @@ gtag('config', 'G-NPL1XCH6H7');
       <hr class="band-rule">
 
 
-      <!-- FINAL CTA -->
-
       <section class="cta-block" aria-labelledby="scorecard-title">
 
         <h2 class="cta-title" id="scorecard-title">
@@ -1734,7 +1705,6 @@ gtag('config', 'G-NPL1XCH6H7');
         <p class="cta-copy">
           Ten questions, two minutes. The Scorecard gives you a clearer picture of how your website, brand, and online presence are working together and what deserves attention first.
         </p>
-
 
         <div class="cta-actions">
 
@@ -1747,7 +1717,6 @@ gtag('config', 'G-NPL1XCH6H7');
           </a>
 
         </div>
-
 
         <p class="cta-secondary-line">
 
@@ -1777,7 +1746,6 @@ gtag('config', 'G-NPL1XCH6H7');
 
   <div class="footer-inner">
 
-
     <div class="footer-logo-wrap">
 
       <img
@@ -1787,58 +1755,25 @@ gtag('config', 'G-NPL1XCH6H7');
 
     </div>
 
-
     <p class="footer-tagline">
       A marketing studio for small businesses in the Annapolis Valley.
     </p>
 
-
     <hr class="footer-divider">
 
+    <nav class="footer-nav" aria-label="Footer navigation">
 
-    <nav
-      class="footer-nav"
-      aria-label="Footer navigation"
-    >
-
-      <a href="what-we-do.html">
-        What We Do
-      </a>
-
-      <a href="pricing.html">
-        Pricing
-      </a>
-
-      <a href="the-proof.html">
-        The Proof
-      </a>
-
-      <a href="about.html">
-        About
-      </a>
-
-      <a href="the-doorstep.html">
-        The Doorstep
-      </a>
-
-      <a href="lets-talk.html">
-        Let's Talk
-      </a>
-
-      <a href="for-small-business.html">
-        For Small Business
-      </a>
-
-      <a href="for-real-estate-professionals.html">
-        For Real Estate
-      </a>
-
-      <a href="website-audit.html">
-        Website Checkup
-      </a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+      <a href="for-small-business.html">For Small Business</a>
+      <a href="for-real-estate-professionals.html">For Real Estate</a>
+      <a href="website-audit.html">Website Checkup</a>
 
     </nav>
-
 
     <div class="footer-bottom">
 
@@ -1846,26 +1781,19 @@ gtag('config', 'G-NPL1XCH6H7');
         &copy; 2026 The Yellow Front Door. All rights reserved.
       </p>
 
-      <div
-        class="footer-dot-sm"
-        aria-hidden="true"
-      ></div>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
 
       <p class="footer-copy">
         Annapolis Valley, NS
       </p>
 
-      <div
-        class="footer-dot-sm"
-        aria-hidden="true"
-      ></div>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
 
       <p class="footer-copy">
         theyellowfrontdoor.ca
       </p>
 
     </div>
-
 
     <div class="footer-legal-links">
 
@@ -1888,15 +1816,10 @@ gtag('config', 'G-NPL1XCH6H7');
 
 (function () {
 
-
-  /* DAY / NIGHT STREET SCENE */
-
   function applyTimeOfDay() {
 
     var hour = new Date().getHours();
-
-    var isNight =
-      hour >= 18 || hour < 6;
+    var isNight = hour >= 18 || hour < 6;
 
     document.body.classList.toggle(
       'is-night',
@@ -1907,9 +1830,6 @@ gtag('config', 'G-NPL1XCH6H7');
 
   applyTimeOfDay();
 
-
-
-  /* NAV SHADOW */
 
   var nav =
     document.getElementById('nav');
@@ -1927,9 +1847,6 @@ gtag('config', 'G-NPL1XCH6H7');
     { passive: true }
   );
 
-
-
-  /* MOBILE MENU */
 
   var toggle =
     document.getElementById('nav-toggle');
@@ -2013,7 +1930,6 @@ gtag('config', 'G-NPL1XCH6H7');
         if (isOpen) {
 
           closeMenu();
-
           toggle.focus();
 
         }
