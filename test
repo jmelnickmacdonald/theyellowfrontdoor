@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Yellow Front Door | Websites, Branding & Copy for Small Business</title>
+
+<meta name="description" content="Websites, copy, branding, marketing, customer experience, and practical business systems for small businesses. Based in Nova Scotia, working across Canada.">
+
+<meta property="og:title" content="The Yellow Front Door | Small Business Websites, Branding & Copy">
+<meta property="og:description" content="Websites, branding, copy, marketing, and practical systems for small businesses that want a clearer online presence, stronger first impression, and easier next step.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.theyellowfrontdoor.ca/">
+<meta property="og:image" content="https://www.theyellowfrontdoor.ca/hero_day.webp">
+
+<link rel="canonical" href="https://www.theyellowfrontdoor.ca/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+  rel="preload"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+</noscript>
+
+<style>
+
+@font-face {
+  font-family: 'CasualHandwriting';
+  src:
+    url('CasualHandwriting.woff2') format('woff2'),
+    url('CasualHandwriting.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink:       #132447;
+  --paper:     #ffffff;
+  --yellow:    #fcd346;
+  --stone:     #D8D1C3;
+  --slate:     #596674;
+  --brass:     #e6b800;
+  --clay:      #B86B4B;
+  --paper-mid: #F5EFE0;
+  --navy:      #132447;
+
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif;
+  --f-body: 'Montserrat', sans-serif;
+
+  --max: 1100px;
+  --gutter: clamp(24px, 5vw, 80px);
+  --section-gap: clamp(60px, 8vw, 96px);
+  --nav-height: 72px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 20px);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+}
+
+body {
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.eyebrow-light {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+
+/* ACCESSIBILITY */
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 12px;
+  z-index: 9999;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--navy);
+}
+
+button {
+  font: inherit;
+}
+
+
+/* NAV */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--navy);
+  transition: box-shadow 0.3s ease;
+}
+
+.nav::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--navy);
+}
+
+.nav.scrolled {
+  box-shadow: 0 2px 24px rgba(19,36,71,0.5);
+}
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.nav-logo img {
+  height: 52px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: nowrap;
+}
+
+.nav-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--paper);
+}
+
+.nav-cta {
+  min-height: 44px !important;
+  background: var(--yellow) !important;
+  color: var(--navy) !important;
+  padding: 10px 18px;
+  font-weight: 700 !important;
+}
+
+.nav-cta:hover {
+  background: var(--brass) !important;
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--paper);
+}
+
+.cta-short {
+  display: none;
+}
+
+
+/* STREET SCENE */
+
+.street-scene {
+  width: 100%;
+  margin-top: var(--nav-height);
+  line-height: 0;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.street-scene img {
+  width: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.scene-day {
+  display: block;
+}
+
+.scene-night {
+  display: none;
+}
+
+body.is-night .scene-day {
+  display: none;
+}
+
+body.is-night .scene-night {
+  display: block;
+}
+
+
+/* HERO */
+
+.hero-thesis {
+  background: var(--navy);
+  padding: clamp(42px, 6vw, 68px) 0 clamp(48px, 6vw, 72px);
+  text-align: center;
+}
+
+.hero-thesis-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-h1 {
+  font-family: var(--f-head);
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.82);
+  letter-spacing: -0.01em;
+  line-height: 1.28;
+  margin-bottom: 24px;
+}
+
+.hero-accent-line {
+  display: block;
+  font-family: var(--f-accent);
+  font-size: clamp(37px, 5.3vw, 60px);
+  font-weight: normal;
+  color: var(--paper);
+  letter-spacing: 0.025em;
+  word-spacing: 0.08em;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+
+.hero-bridge {
+  font-size: 16px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+.hero-story-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--yellow);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(252,211,70,0.5);
+}
+
+.hero-story-link:hover {
+  border-color: var(--yellow);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* BUTTONS */
+
+.btn-yellow,
+.btn-outline-light,
+.btn-primary {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 14px 28px;
+}
+
+.btn-yellow:hover {
+  background: var(--brass);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  padding: 13px 28px;
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+.btn-outline-light:hover {
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 28px;
+  border: 2px solid var(--ink);
+}
+
+.btn-primary:hover {
+  background: var(--slate);
+  border-color: var(--slate);
+}
+
+
+/* AUDIENCE PATHS */
+
+.audience-section {
+  background: var(--paper-mid);
+  padding: var(--section-gap) 0;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 38px;
+}
+
+.section-heading.centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-heading .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-family: var(--f-head);
+  font-size: clamp(27px, 3.4vw, 40px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.section-heading p {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.75;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 28px);
+}
+
+.audience-card {
+  position: relative;
+  min-height: 285px;
+  background: var(--paper);
+  border: 1px solid var(--stone);
+  padding: clamp(28px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.audience-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 5px;
+  background: var(--yellow);
+}
+
+.audience-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ink);
+}
+
+.audience-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 26px;
+}
+
+.audience-card h3 {
+  font-family: var(--f-head);
+  font-size: clamp(22px, 2.5vw, 29px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.audience-card p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--slate);
+  max-width: 470px;
+  margin-bottom: 24px;
+}
+
+.audience-link {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 2px;
+}
+
+
+/* SERVICES */
+
+.services-section {
+  background: var(--paper);
+  padding: var(--section-gap) 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--stone);
+}
+
+.service-item {
+  padding: 28px 20px 30px;
+  border-right: 1px solid var(--stone);
+}
+
+.service-item:first-child {
+  border-left: 1px solid var(--stone);
+}
+
+.service-number {
+  display: block;
+  font-family: var(--f-accent);
+  font-size: 27px;
+  color: var(--clay);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.service-item h3 {
+  font-family: var(--f-head);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--slate);
+}
+
+.services-more {
+  margin-top: 32px;
+}
+
+.text-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 2px;
+}
+
+
+/* TESTIMONIALS */
+
+.testimonials-section {
+  background: var(--paper-mid);
+  padding: var(--section-gap) 0;
+  border-top: 1px solid var(--stone);
+}
+
+.testimonials-heading {
+  margin-bottom: 36px;
+}
+
+.testimonials-heading h2 {
+  font-family: var(--f-head);
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.testimonials-heading .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(26px, 4vw, 52px);
+}
+
+.testimonial {
+  padding-top: 22px;
+  border-top: 3px solid var(--yellow);
+}
+
+.testimonial-quote {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--ink);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.testimonial-cite {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-style: normal;
+}
+
+.testimonial-cite::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  flex-shrink: 0;
+  background: var(--clay);
+}
+
+
+/* LOCATION */
+
+.location-section {
+  background: var(--paper);
+  padding: clamp(52px, 7vw, 84px) 0;
+}
+
+.location-inner {
+  max-width: 830px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(36px, 6vw, 72px);
+  align-items: start;
+}
+
+.location-title .eyebrow {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.location-title h2 {
+  font-family: var(--f-head);
+  font-size: clamp(26px, 3.1vw, 38px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.location-title-script {
+  display: block;
+  font-family: var(--f-accent);
+  font-size: clamp(27px, 3vw, 37px);
+  font-weight: normal;
+  color: var(--slate);
+  letter-spacing: 0.025em;
+  word-spacing: 0.08em;
+  line-height: 1.22;
+  margin-top: 6px;
+}
+
+.location-copy p {
+  font-size: 16px;
+  line-height: 1.82;
+  color: var(--slate);
+}
+
+
+/* DARK BAND */
+
+.dark-band {
+  background: var(--navy);
+  padding: var(--section-gap) 0;
+}
+
+.dark-band-inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(52px, 7vw, 78px);
+}
+
+.process-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 13px;
+}
+
+.process-title {
+  font-family: var(--f-head);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 400;
+  color: var(--paper);
+  margin-bottom: 34px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+}
+
+.process-number {
+  font-family: var(--f-accent);
+  font-size: 35px;
+  color: var(--yellow);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.process-step h3 {
+  font-family: var(--f-head);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--paper);
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.74);
+  line-height: 1.75;
+}
+
+.band-rule {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.16);
+}
+
+
+/* CTA */
+
+.cta-block {
+  text-align: center;
+}
+
+.cta-title {
+  font-family: var(--f-head);
+  font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 400;
+  color: var(--paper);
+  margin-bottom: 12px;
+}
+
+.cta-copy {
+  font-size: 15px;
+  color: rgba(255,255,255,0.74);
+  max-width: 550px;
+  margin: 0 auto 28px;
+  line-height: 1.75;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-secondary-line {
+  margin-top: 24px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.60);
+}
+
+.cta-secondary-line a {
+  color: rgba(255,255,255,0.9);
+  border-bottom: 1px solid rgba(255,255,255,0.55);
+}
+
+.cta-secondary-line a:hover {
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
+
+/* FOOTER */
+
+.footer {
+  background: var(--paper);
+  padding: 48px 0 32px;
+  border-top: 1px solid var(--stone);
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+
+.footer-logo-wrap {
+  margin-bottom: 16px;
+}
+
+.footer-logo-wrap img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+}
+
+.footer-tagline {
+  font-size: 13px;
+  color: var(--slate);
+  max-width: 340px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--stone);
+  margin-bottom: 24px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 26px;
+  margin-bottom: 28px;
+}
+
+.footer-nav a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  color: var(--slate);
+}
+
+.footer-nav a:hover {
+  color: var(--ink);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--slate);
+  letter-spacing: 0.03em;
+}
+
+.footer-dot-sm {
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.footer-legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.footer-legal-links a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--slate);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 980px) {
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    border-left: 1px solid var(--stone);
+  }
+
+  .service-item,
+  .service-item:first-child {
+    border-left: none;
+    border-bottom: 1px solid var(--stone);
+  }
+
+  .service-item:last-child {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: 18px var(--gutter) 28px;
+    gap: 3px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .nav-links.open a {
+    min-height: 48px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .location-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+}
+
+@media (max-width: 760px) {
+
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .street-scene img {
+    height: 150px;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-actions,
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions a,
+  .cta-actions a {
+    width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-item:last-child {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .footer-dot-sm {
+    display: none;
+  }
+
+  .cta-long {
+    display: none;
+  }
+
+  .cta-short {
+    display: inline;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+}
+
+</style>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@id": "https://www.theyellowfrontdoor.ca/#business",
+  "name": "The Yellow Front Door",
+  "url": "https://www.theyellowfrontdoor.ca/",
+  "description": "A marketing studio helping small businesses across Canada build websites, write copy, develop brand identity, and set up the systems and automations behind them.",
+  "priceRange": "$$",
+  "knowsLanguage": ["en"],
+  "areaServed": [
+    { "@type": "Country", "name": "Canada" },
+    { "@type": "AdministrativeArea", "name": "Nova Scotia" },
+    { "@type": "AdministrativeArea", "name": "Annapolis Valley" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "NS",
+    "addressCountry": "CA"
+  },
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Julianna Melnick-MacDonald",
+      "jobTitle": "Founder and Creative Lead"
+    },
+    {
+      "@type": "Person",
+      "name": "Chris Melnick-MacDonald",
+      "jobTitle": "Technical Architect"
+    }
+  ],
+  "serviceType": [
+    "Small business website design",
+    "Website copywriting",
+    "Brand identity design",
+    "Brand voice and messaging",
+    "Marketing strategy",
+    "Email marketing",
+    "Customer experience",
+    "Marketing automation",
+    "Business systems and integrations",
+    "Google Business Profile optimization",
+    "Search engine optimization",
+    "Print design and collateral"
+  ]
+}
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NPL1XCH6H7');
+</script>
+
+</head>
+
+<body>
+
+<a class="skip-link" href="#main-content">
+  Skip to main content
+</a>
+
+
+<!-- NAV -->
+
+<nav class="nav" id="nav" aria-label="Main navigation">
+
+  <div class="nav-inner">
+
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo2.png" alt="">
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html">Let's Talk</a></li>
+
+      <li>
+        <a href="the-scorecard.html" class="nav-cta">
+          <span class="cta-long">The Scorecard</span>
+          <span class="cta-short">Scorecard</span>
+        </a>
+      </li>
+
+    </ul>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+  </div>
+
+</nav>
+
+
+<!-- STREET SCENE -->
+
+<div
+  class="street-scene"
+  role="img"
+  aria-label="Illustrated streetscape with The Yellow Front Door at the centre."
+>
+
+  <img
+    class="scene-day"
+    src="hero_day.webp"
+    srcset="hero_day.webp 2080w"
+    sizes="100vw"
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+  >
+
+  <img
+    class="scene-night"
+    src="hero_night.webp"
+    srcset="hero_night.webp 2080w"
+    sizes="100vw"
+    alt=""
+    aria-hidden="true"
+    loading="eager"
+  >
+
+</div>
+
+
+<main id="main-content">
+
+
+<!-- HERO -->
+
+<section class="hero-thesis" aria-labelledby="hero-title">
+
+  <div class="container">
+
+    <div class="hero-thesis-inner">
+
+      <h1 class="hero-h1" id="hero-title">
+
+        Your website, words, systems, and first impressions all shape how people decide to trust you.
+
+        <span class="hero-accent-line">
+          We help them work together.
+        </span>
+
+      </h1>
+
+      <p class="hero-bridge">
+
+        From websites and brand messaging to marketing, client resources, email flows, and the systems behind them, we help small businesses create an experience that feels clear, connected, and easy to act on.
+
+        <br>
+
+        <a href="about.html" class="hero-story-link">
+          Read our story →
+        </a>
+
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="what-we-do.html" class="btn-yellow">
+          What We Do
+        </a>
+
+        <a href="lets-talk.html" class="btn-outline-light">
+          Request a free Drive-By →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AUDIENCE PATHS -->
+
+<section class="audience-section" aria-labelledby="audience-title">
+
+  <div class="container">
+
+    <div class="section-heading centered">
+
+      <span class="eyebrow">
+        A little more specific
+      </span>
+
+      <h2 id="audience-title">
+        See what this looks like in your world.
+      </h2>
+
+      <p>
+        The pieces are connected, but the right mix looks different from one business to the next. Start with the path that sounds most like you.
+      </p>
+
+    </div>
+
+
+    <div class="audience-grid">
+
+      <a href="for-small-business.html" class="audience-card">
+
+        <span class="audience-label">
+          For Small Business
+        </span>
+
+        <h3>
+          A better front door for the business you've already built.
+        </h3>
+
+        <p>
+          Websites, messaging, marketing, customer experience, and practical systems for small businesses that have outgrown the pieces they started with.
+        </p>
+
+        <span class="audience-link">
+          Explore Small Business →
+        </span>
+
+      </a>
+
+
+      <a href="for-real-estate-professionals.html" class="audience-card">
+
+        <span class="audience-label">
+          For Real Estate Professionals
+        </span>
+
+        <h3>
+          Marketing that feels like an extension of your service.
+        </h3>
+
+        <p>
+          Brand and listing marketing, websites, newsletters, client resources, and thoughtful touchpoints designed around the way real estate actually works.
+        </p>
+
+        <span class="audience-link">
+          Explore Real Estate →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services-section" aria-labelledby="services-title">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span class="eyebrow">
+        Where we come in
+      </span>
+
+      <h2 id="services-title">
+        The pieces people see. And the ones working behind them.
+      </h2>
+
+      <p>
+        You don't need to start with everything. We can tackle one thing that's not working, or step back and look at how the whole experience fits together.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+      <article class="service-item">
+
+        <span class="service-number" aria-hidden="true">01</span>
+
+        <h3>Websites</h3>
+
+        <p>
+          Custom builds, refreshes, clearer structure, stronger copy, and search foundations that help people understand what you do.
+        </p>
+
+      </article>
+
+
+      <article class="service-item">
+
+        <span class="service-number" aria-hidden="true">02</span>
+
+        <h3>Words + Brand</h3>
+
+        <p>
+          Messaging, voice, identity, service copy, bios, and the pieces that make a business recognizable and easier to choose.
+        </p>
+
+      </article>
+
+
+      <article class="service-item">
+
+        <span class="service-number" aria-hidden="true">03</span>
+
+        <h3>Marketing</h3>
+
+        <p>
+          Social content, email campaigns, launches, seasonal promotions, landing pages, and the strategy connecting them.
+        </p>
+
+      </article>
+
+
+      <article class="service-item">
+
+        <span class="service-number" aria-hidden="true">04</span>
+
+        <h3>Customer Experience</h3>
+
+        <p>
+          Welcomes, follow-ups, guides, client resources, templates, and the details people experience before and after they say yes.
+        </p>
+
+      </article>
+
+
+      <article class="service-item">
+
+        <span class="service-number" aria-hidden="true">05</span>
+
+        <h3>Systems + Automation</h3>
+
+        <p>
+          Forms, integrations, email flows, review requests, practical automations, and systems that take repetitive work off your plate.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="services-more">
+
+      <a href="what-we-do.html" class="text-link">
+        See how the pieces fit together →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials-section" aria-labelledby="testimonials-title">
+
+  <div class="container">
+
+    <div class="testimonials-heading">
+
+      <span class="eyebrow">
+        From the other side of the door
+      </span>
+
+      <h2 id="testimonials-title">
+        A few words from people we've worked with.
+      </h2>
+
+    </div>
+
+
+    <div class="testimonials-grid">
+
+      <blockquote class="testimonial">
+
+        <p class="testimonial-quote">
+          “Where do I begin? I'm so glad I found you and your brilliant mind. You absolutely get me, and you're stretching my thinking in the very best way.”
+        </p>
+
+        <cite class="testimonial-cite">
+          Max W.
+        </cite>
+
+      </blockquote>
+
+
+      <blockquote class="testimonial">
+
+        <p class="testimonial-quote">
+          “I never expected that someone would just ‘get it’ on so few details, but you totally did.”
+        </p>
+
+        <cite class="testimonial-cite">
+          Trina K.
+        </cite>
+
+      </blockquote>
+
+
+      <blockquote class="testimonial">
+
+        <p class="testimonial-quote">
+          “I was so deep inside my own work that I needed someone else to come in and do the heavy lifting. Julianna delivered. Insightful, and nailed exactly what I was looking for.”
+        </p>
+
+        <cite class="testimonial-cite">
+          Mariah J.
+        </cite>
+
+      </blockquote>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- LOCATION -->
+
+<section class="location-section" aria-labelledby="location-title">
+
+  <div class="container">
+
+    <div class="location-inner">
+
+      <div class="location-title">
+
+        <span class="eyebrow">
+          Where we work
+        </span>
+
+        <h2 id="location-title">
+          Based in Nova Scotia.
+          <span class="location-title-script">
+            Working across Canada.
+          </span>
+        </h2>
+
+      </div>
+
+
+      <div class="location-copy">
+
+        <p>
+          The Yellow Front Door is based on our little hobby farm in the Annapolis Valley, but most of our work happens remotely with small businesses across Nova Scotia and Canada. Some clients are just down the road; others are on the opposite coast. Wherever you are, we start by understanding your business, your customers, and what already exists before deciding what actually needs changing.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DARK BAND -->
+
+<section class="dark-band">
+
+  <div class="container">
+
+    <div class="dark-band-inner">
+
+
+      <!-- PROCESS -->
+
+      <section aria-labelledby="process-title">
+
+        <p class="process-eyebrow">
+          How it works
+        </p>
+
+        <h2 class="process-title" id="process-title">
+          Three steps, no surprises.
+        </h2>
+
+
+        <div class="process-grid">
+
+          <article class="process-step">
+
+            <p class="process-number" aria-hidden="true">
+              01
+            </p>
+
+            <h3>
+              We look.
+            </h3>
+
+            <p>
+              Send us your website and a handful of touchpoints: your Google listing, social profiles, print pieces, emails, or client materials. We look at what's working and where the gaps are.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <p class="process-number" aria-hidden="true">
+              02
+            </p>
+
+            <h3>
+              We plan.
+            </h3>
+
+            <p>
+              Together, we figure out what matters most and make a plan. You know what you're getting, what it costs, and what happens next before we touch anything.
+            </p>
+
+          </article>
+
+
+          <article class="process-step">
+
+            <p class="process-number" aria-hidden="true">
+              03
+            </p>
+
+            <h3>
+              We build.
+            </h3>
+
+            <p>
+              We do the work: website, copy, brand, marketing pieces, client materials, or systems. If you want ongoing help after that, we can stick around too.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <hr class="band-rule">
+
+
+      <!-- CTA -->
+
+      <section class="cta-block" aria-labelledby="scorecard-title">
+
+        <h2 class="cta-title" id="scorecard-title">
+          Not sure where to start?
+        </h2>
+
+        <p class="cta-copy">
+          Ten questions, two minutes. The Scorecard gives you a clearer picture of how your website, brand, and online presence are working together and what deserves attention first.
+        </p>
+
+        <div class="cta-actions">
+
+          <a href="the-scorecard.html" class="btn-yellow">
+            Take the Scorecard
+          </a>
+
+          <a href="lets-talk.html" class="btn-outline-light">
+            Already know what you need? Let's Talk →
+          </a>
+
+        </div>
+
+        <p class="cta-secondary-line">
+          Looking specifically at your website?
+          <a href="website-audit.html">
+            Take the Website Checkup →
+          </a>
+        </p>
+
+      </section>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-logo-wrap">
+
+      <img
+        src="roundlogo.png"
+        alt="The Yellow Front Door"
+      >
+
+    </div>
+
+    <p class="footer-tagline">
+      A marketing studio for small businesses in the Annapolis Valley.
+    </p>
+
+    <hr class="footer-divider">
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+
+      <a href="what-we-do.html">What We Do</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+      <a href="for-small-business.html">For Small Business</a>
+      <a href="for-real-estate-professionals.html">For Real Estate</a>
+      <a href="website-audit.html">Website Checkup</a>
+
+    </nav>
+
+    <div class="footer-bottom">
+
+      <p class="footer-copy">
+        &copy; 2026 The Yellow Front Door. All rights reserved.
+      </p>
+
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+
+      <p class="footer-copy">
+        Annapolis Valley, NS
+      </p>
+
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+
+      <p class="footer-copy">
+        theyellowfrontdoor.ca
+      </p>
+
+    </div>
+
+
+    <div class="footer-legal-links">
+
+      <a href="legal.html">
+        Privacy Policy
+      </a>
+
+      <a href="legal.html#tos">
+        Terms of Service
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+(function () {
+
+  /* DAY / NIGHT STREET SCENE */
+
+  function applyTimeOfDay() {
+
+    var hour = new Date().getHours();
+    var isNight = hour >= 18 || hour < 6;
+
+    document.body.classList.toggle('is-night', isNight);
+
+  }
+
+  applyTimeOfDay();
+
+
+  /* NAV SHADOW */
+
+  var nav = document.getElementById('nav');
+
+  window.addEventListener('scroll', function () {
+
+    nav.classList.toggle(
+      'scrolled',
+      window.scrollY > 20
+    );
+
+  }, { passive: true });
+
+
+  /* MOBILE MENU */
+
+  var toggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+
+
+  function closeMenu() {
+
+    navLinks.classList.remove('open');
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+    toggle.setAttribute(
+      'aria-label',
+      'Open navigation menu'
+    );
+
+  }
+
+
+  function openMenu() {
+
+    navLinks.classList.add('open');
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'true'
+    );
+
+    toggle.setAttribute(
+      'aria-label',
+      'Close navigation menu'
+    );
+
+  }
+
+
+  toggle.addEventListener('click', function () {
+
+    var isOpen =
+      toggle.getAttribute('aria-expanded') === 'true';
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+
+  });
+
+
+  navLinks.querySelectorAll('a').forEach(function (link) {
+
+    link.addEventListener('click', function () {
+      closeMenu();
+    });
+
+  });
+
+
+  document.addEventListener('keydown', function (event) {
+
+    if (event.key === 'Escape') {
+
+      var isOpen =
+        toggle.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+
+        closeMenu();
+        toggle.focus();
+
+      }
+
+    }
+
+  });
+
+
+  window.addEventListener('resize', function () {
+
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+
+  });
+
+})();
+
+</script>
+
+</body>
+</html>
