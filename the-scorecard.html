@@ -1,468 +1,3313 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Scorecard — The Yellow Front Door</title>
-<meta name="description" content="A free 2-minute self-assessment. Find out what your customers see before they choose you.">
+
+<title>The Scorecard | The Yellow Front Door</title>
+
+<meta
+  name="description"
+  content="A free two-minute self-assessment from The Yellow Front Door. See what customers meet when they find your business and where your in-market experience needs attention."
+>
+
+<link
+  rel="canonical"
+  href="https://www.theyellowfrontdoor.ca/the-scorecard.html"
+>
+
+<meta
+  property="og:title"
+  content="The Scorecard | The Yellow Front Door"
+>
+
+<meta
+  property="og:description"
+  content="Ten questions. Two minutes. See what customers meet when they find your business."
+>
+
+<meta
+  property="og:url"
+  content="https://www.theyellowfrontdoor.ca/the-scorecard.html"
+>
+
+<meta property="og:type" content="website">
+
+<meta name="theme-color" content="#132447">
+
+
+<!-- FAVICONS -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="manifest" href="/manifest.json">
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
+
+<!-- FONTS -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet"></noscript>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+  rel="preload"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+    rel="stylesheet"
+  >
+</noscript>
+
+
 <style>
+
 @font-face {
+
   font-family: 'CasualHandwriting';
-  src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
-  font-weight: normal; font-style: normal; font-display: block;
+
+  src:
+    url('CasualHandwriting.woff2') format('woff2'),
+    url('CasualHandwriting.woff') format('woff');
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+
 }
+
+
+/* =========================================================
+   TYFD SYSTEM
+   ========================================================= */
+
 :root {
-  --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #DEDAD1;
-  --slate: #596674; --clay: #B86B4B; --navy: #132447; --paper-mid: #F7F6F1;
+
+  --ink: #132447;
+  --navy: #132447;
+
+  --paper: #ffffff;
+  --paper-mid: #F7F6F1;
+
+  --stone: #D8D1C3;
+  --slate: #596674;
+
+  --yellow: #fcd346;
+  --brass: #e6b800;
+  --clay: #B86B4B;
+
   --f-accent: 'CasualHandwriting', cursive;
   --f-body: 'Montserrat', sans-serif;
+
+  --nav-height: 72px;
+
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--navy); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; }
 
-/* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(19,36,71,0.95); backdrop-filter: blur(12px); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
-.nav img { height: 36px; }
-.nav-back { font-size: 11px; color: rgba(255,255,255,0.5); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-.nav-back:hover { color: var(--yellow); }
 
-/* HERO INTRO */
-.intro { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
-.intro::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 80%, rgba(252,211,70,0.06) 0%, transparent 60%); pointer-events: none; }
-.intro-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--navy); background: var(--yellow); padding: 8px 20px; border-radius: 2px; margin-bottom: 32px; }
-.intro h1 { font-family: var(--f-body); font-size: clamp(36px, 6vw, 64px); font-weight: 300; color: #fff; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; }
-.intro h1 strong { font-weight: 600; }
-.intro .accent { font-family: var(--f-accent); font-size: clamp(28px, 4.5vw, 48px); color: rgba(255,255,255,0.4); display: block; margin-bottom: 32px; }
-.intro p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 480px; line-height: 1.85; margin-bottom: 40px; }
-.intro-stats { display: flex; gap: 40px; margin-bottom: 40px; }
-.intro-stat { text-align: center; }
-.intro-stat .num { font-size: 28px; font-weight: 300; color: var(--yellow); display: block; }
-.intro-stat .label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+/* =========================================================
+   RESET
+   ========================================================= */
 
-/* BUTTONS */
-.btn-start { display: inline-block; background: var(--yellow); color: var(--navy); padding: 18px 48px; font-family: var(--f-body); font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 1; }
-.btn-start:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(252,211,70,0.25); }
-.intro-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 16px; letter-spacing: 0.04em; }
+*,
+*::before,
+*::after {
 
-/* QUESTION SCREEN */
-.quiz-screen { display: none; min-height: 100vh; padding: 80px 24px 60px; }
-.quiz-inner { max-width: 640px; margin: 0 auto; }
+  box-sizing: border-box;
 
-/* PROGRESS */
-.progress { margin-bottom: 48px; }
-.progress-track { display: flex; gap: 4px; margin-bottom: 12px; }
-.progress-dot { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); transition: background 0.4s; }
-.progress-dot.done { background: var(--yellow); }
-.progress-dot.active { background: rgba(252,211,70,0.4); }
-.progress-info { display: flex; justify-content: space-between; align-items: center; }
-.progress-step { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
-.progress-category { font-family: var(--f-accent); font-size: 26px; color: var(--yellow); }
+  margin: 0;
+  padding: 0;
 
-/* QUESTION */
-.q-card { animation: fadeUp 0.4s ease; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.q-text { font-size: clamp(22px, 3.5vw, 30px); font-weight: 400; color: #fff; line-height: 1.4; margin-bottom: 36px; letter-spacing: -0.01em; }
+}
 
-.q-options { display: flex; flex-direction: column; gap: 12px; }
-.q-option { display: flex; align-items: flex-start; gap: 16px; width: 100%; text-align: left; padding: 18px 22px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-family: var(--f-body); font-size: 15px; color: rgba(255,255,255,0.7); cursor: pointer; transition: all 0.25s; line-height: 1.55; }
-.q-option:hover { background: rgba(255,255,255,0.06); border-color: rgba(252,211,70,0.3); color: #fff; }
-.q-option .q-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); flex-shrink: 0; margin-top: 2px; transition: all 0.25s; display: flex; align-items: center; justify-content: center; }
-.q-option:hover .q-radio { border-color: var(--yellow); }
-.q-option.selected { background: rgba(252,211,70,0.08); border-color: var(--yellow); color: #fff; }
-.q-option.selected .q-radio { border-color: var(--yellow); background: var(--yellow); }
-.q-option.selected .q-radio::after { content: ''; width: 8px; height: 8px; background: var(--navy); border-radius: 50%; }
+html {
 
-/* RESULTS */
-.results-screen { display: none; background: var(--paper); min-height: 100vh; }
-.results-hero { background: var(--navy); padding: 100px 24px 60px; text-align: center; position: relative; overflow: hidden; }
-.results-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(252,211,70,0.08) 0%, transparent 60%); }
+  scroll-behavior: smooth;
 
-.score-ring { width: 180px; height: 180px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 24px; position: relative; z-index: 1; }
-.score-ring .score-num { font-size: 56px; font-weight: 300; color: #fff; line-height: 1; }
-.score-ring .score-of { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 4px; }
-.results-accent { font-family: var(--f-accent); font-size: clamp(26px, 4vw, 40px); color: rgba(255,255,255,0.5); display: block; margin-bottom: 16px; position: relative; z-index: 1; }
-.results-summary { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto; line-height: 1.8; position: relative; z-index: 1; }
+  scroll-padding-top: calc(var(--nav-height) + 20px);
 
-/* RESULTS BODY */
-.results-body { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+}
 
-.stop-section { margin-bottom: 20px; }
-.stop-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-.stop-name { font-family: var(--f-accent); font-size: 22px; color: var(--ink); }
-.stop-score-label { font-size: 13px; font-weight: 600; color: var(--slate); }
-.stop-bar-outer { height: 10px; background: rgba(19,36,71,0.06); border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
-.stop-bar-inner { height: 100%; border-radius: 5px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); width: 0; }
-.stop-bar-inner.strong { background: linear-gradient(90deg, var(--navy), #2a4a8a); }
-.stop-bar-inner.mid { background: linear-gradient(90deg, var(--yellow), #e6b800); }
-.stop-bar-inner.weak { background: linear-gradient(90deg, var(--clay), #d4845c); }
-.stop-insight { font-size: 14px; color: var(--slate); line-height: 1.75; margin-bottom: 8px; padding-bottom: 12px; }
-.stop-audit-link { font-size: 13px; margin-bottom: 8px; padding-bottom: 20px; border-bottom: 1px solid rgba(19,36,71,0.06); }
-.stop-audit-link a { color: var(--clay); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--clay); }
-.stop-audit-link a:hover { color: var(--navy); border-color: var(--navy); }
-.stop-section:not(.has-audit-link) .stop-insight { border-bottom: 1px solid rgba(19,36,71,0.06); }
+body {
 
-/* NEXT STEP BLOCK — replaces plain email box */
-.next-step-block { background: var(--navy); border-radius: 10px; padding: 40px 32px; margin: 48px 0; }
-.next-step-heading { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); text-align: center; margin-bottom: 28px; }
-.next-step-options { display: flex; gap: 16px; flex-wrap: wrap; }
-.next-step-option { flex: 1; min-width: 220px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 24px 22px; text-align: center; }
-.next-step-option-title { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-.next-step-option-body { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 18px; }
-.next-step-btn-primary { display: inline-block; background: var(--yellow); color: var(--navy); padding: 12px 26px; border: none; border-radius: 4px; font-family: var(--f-body); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; cursor: pointer; }
-.next-step-email-row { display: flex; gap: 8px; }
-.next-step-email-row input { flex: 1; min-width: 0; padding: 12px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; font-family: var(--f-body); font-size: 13px; outline: none; }
-.next-step-email-row input:focus { border-color: var(--yellow); }
-.next-step-email-row button { padding: 12px 18px; background: transparent; color: var(--yellow); border: 1px solid var(--yellow); border-radius: 4px; font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
-.email-confirm { font-size: 12px; color: var(--yellow); margin-top: 10px; display: none; }
+  min-height: 100vh;
 
-.results-footer { text-align: center; padding: 32px 0; font-size: 12px; color: var(--stone); }
-.results-footer span { color: var(--clay); }
+  background: var(--navy);
+
+  color: var(--ink);
+
+  font-family: var(--f-body);
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  -webkit-font-smoothing: antialiased;
+
+  overflow-x: hidden;
+
+}
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+
+}
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+button,
+input {
+
+  font: inherit;
+
+}
+
+button {
+
+  cursor: pointer;
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.skip-link {
+
+  position: fixed;
+
+  top: 8px;
+  left: 12px;
+
+  z-index: 9999;
+
+  padding: 12px 18px;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transform: translateY(-160%);
+
+  transition: transform 0.2s ease;
+
+}
+
+.skip-link:focus {
+
+  transform: translateY(0);
+
+}
+
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+
+  outline: 3px solid var(--yellow);
+
+  outline-offset: 3px;
+
+}
+
+
+.results-screen a:focus-visible,
+.results-screen button:focus-visible,
+.results-screen input:focus-visible {
+
+  outline-color: var(--navy);
+
+}
+
+
+.next-step-block a:focus-visible,
+.next-step-block button:focus-visible,
+.next-step-block input:focus-visible {
+
+  outline-color: var(--yellow);
+
+}
+
+
+.sr-only {
+
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+
+}
+
+
+/* =========================================================
+   COMPACT SCORECARD NAV
+   ========================================================= */
+
+.nav {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 100;
+
+  height: var(--nav-height);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 clamp(24px, 5vw, 64px);
+
+  background: var(--navy);
+
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+
+}
+
+
+/* ROUND LOGO */
+
+.nav-logo {
+
+  width: 52px;
+  height: 52px;
+
+  min-width: 52px;
+  min-height: 52px;
+
+  flex: 0 0 52px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+}
+
+.nav-logo img {
+
+  width: 52px;
+  height: 52px;
+
+  max-width: none;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: contain;
+
+}
+
+
+.nav-back {
+
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.78);
+
+}
+
+.nav-back:hover {
+
+  color: var(--yellow);
+
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+
+  min-height: 100vh;
+
+  padding:
+    calc(var(--nav-height) + clamp(56px, 8vw, 92px))
+    24px
+    clamp(56px, 7vw, 80px);
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: var(--navy);
+
+}
+
+
+.intro-badge {
+
+  display: inline-block;
+
+  margin-bottom: 30px;
+
+  padding: 7px 16px;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+}
+
+
+.intro h1 {
+
+  margin-bottom: 8px;
+
+  font-size: clamp(37px, 6vw, 62px);
+  font-weight: 300;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.03em;
+
+  color: var(--paper);
+
+}
+
+.intro h1 strong {
+
+  font-weight: 600;
+
+}
+
+
+.intro .accent {
+
+  display: block;
+
+  margin-bottom: 28px;
+
+  font-family: var(--f-accent);
+
+  font-size: clamp(31px, 4.5vw, 47px);
+  font-weight: normal;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.025em;
+  word-spacing: 0.08em;
+
+  color: rgba(255,255,255,0.76);
+
+}
+
+
+.intro-copy {
+
+  max-width: 500px;
+
+  margin-bottom: 35px;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: rgba(255,255,255,0.8);
+
+}
+
+
+/* STATS */
+
+.intro-stats {
+
+  display: flex;
+
+  align-items: stretch;
+  justify-content: center;
+
+  margin-bottom: 36px;
+
+  border-top: 1px solid rgba(255,255,255,0.16);
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+
+}
+
+.intro-stat {
+
+  min-width: 112px;
+
+  padding: 16px 24px;
+
+  text-align: center;
+
+}
+
+.intro-stat + .intro-stat {
+
+  border-left: 1px solid rgba(255,255,255,0.16);
+
+}
+
+.intro-stat .num {
+
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 28px;
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  color: var(--yellow);
+
+}
+
+.intro-stat .label {
+
+  display: block;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.72);
+
+}
+
+
+/* START BUTTON */
+
+.btn-start {
+
+  min-height: 48px;
+
+  padding: 14px 32px;
+
+  border: none;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  transition: background 0.2s ease;
+
+}
+
+.btn-start:hover {
+
+  background: var(--brass);
+
+}
+
+.intro-note {
+
+  margin-top: 15px;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  color: rgba(255,255,255,0.72);
+
+}
+
+
+/* =========================================================
+   QUIZ
+   ========================================================= */
+
+.quiz-screen {
+
+  min-height: 100vh;
+
+  padding:
+    calc(var(--nav-height) + clamp(44px, 6vw, 72px))
+    24px
+    60px;
+
+  background: var(--navy);
+
+}
+
+.quiz-inner {
+
+  max-width: 680px;
+
+  margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress {
+
+  margin-bottom: clamp(40px, 6vw, 54px);
+
+}
+
+.progress-track {
+
+  display: flex;
+
+  gap: 4px;
+
+  margin-bottom: 13px;
+
+}
+
+.progress-dot {
+
+  flex: 1;
+
+  height: 4px;
+
+  background: rgba(255,255,255,0.16);
+
+  transition: background 0.25s ease;
+
+}
+
+.progress-dot.done {
+
+  background: var(--yellow);
+
+}
+
+.progress-dot.active {
+
+  background: rgba(252,211,70,0.58);
+
+}
+
+
+.progress-info {
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+}
+
+.progress-step {
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.72);
+
+}
+
+.progress-category {
+
+  font-family: var(--f-accent);
+
+  font-size: 26px;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.025em;
+  word-spacing: 0.08em;
+
+  color: var(--yellow);
+
+}
+
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+.q-card {
+
+  animation: fadeUp 0.3s ease;
+
+}
+
+@keyframes fadeUp {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+.q-text {
+
+  margin-bottom: 32px;
+
+  font-size: clamp(23px, 3.5vw, 30px);
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  letter-spacing: -0.015em;
+
+  color: var(--paper);
+
+}
+
+
+.q-options {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+}
+
+
+.q-option {
+
+  width: 100%;
+
+  min-height: 60px;
+
+  padding: 17px 20px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  background: rgba(255,255,255,0.025);
+
+  color: rgba(255,255,255,0.82);
+
+  text-align: left;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+}
+
+.q-option:hover {
+
+  border-color: rgba(252,211,70,0.65);
+
+  background: rgba(255,255,255,0.055);
+
+  color: var(--paper);
+
+}
+
+
+/* SMALL SELECTION INDICATOR */
+
+.q-radio {
+
+  width: 20px;
+  height: 20px;
+
+  flex: 0 0 20px;
+
+  margin-top: 2px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(255,255,255,0.38);
+
+  border-radius: 50%;
+
+}
+
+.q-option:hover .q-radio {
+
+  border-color: var(--yellow);
+
+}
+
+.q-option.selected {
+
+  border-color: var(--yellow);
+
+  background: rgba(252,211,70,0.08);
+
+  color: var(--paper);
+
+}
+
+.q-option.selected .q-radio {
+
+  border-color: var(--yellow);
+
+  background: var(--yellow);
+
+}
+
+.q-option.selected .q-radio::after {
+
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--navy);
+
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+.results-screen {
+
+  min-height: 100vh;
+
+  background: var(--paper);
+
+}
+
+
+/* HERO */
+
+.results-hero {
+
+  padding:
+    calc(var(--nav-height) + clamp(48px, 7vw, 72px))
+    24px
+    clamp(52px, 7vw, 68px);
+
+  text-align: center;
+
+  background: var(--navy);
+
+}
+
+
+.results-label {
+
+  display: block;
+
+  margin-bottom: 22px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--yellow);
+
+}
+
+
+.score-ring {
+
+  width: 176px;
+  height: 176px;
+
+  margin: 0 auto 24px;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(255,255,255,0.24);
+
+  border-radius: 50%;
+
+}
+
+.score-num {
+
+  font-size: 54px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  color: var(--paper);
+
+}
+
+.score-of {
+
+  margin-top: 5px;
+
+  font-size: 14px;
+
+  color: rgba(255,255,255,0.72);
+
+}
+
+
+.results-accent {
+
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-family: var(--f-accent);
+
+  font-size: clamp(29px, 4vw, 41px);
+  font-weight: normal;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.025em;
+  word-spacing: 0.08em;
+
+  color: var(--yellow);
+
+}
+
+
+.results-summary {
+
+  max-width: 530px;
+
+  margin: 0 auto;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: rgba(255,255,255,0.8);
+
+}
+
+
+/* =========================================================
+   RESULTS BODY
+   ========================================================= */
+
+.results-body {
+
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  padding:
+    clamp(48px, 6vw, 64px)
+    24px
+    72px;
+
+}
+
+
+.results-section-label {
+
+  display: block;
+
+  margin-bottom: 28px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--slate);
+
+}
+
+
+/* STOP */
+
+.stop-section {
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid var(--stone);
+
+}
+
+.stop-section:first-of-type {
+
+  border-top: 1px solid var(--stone);
+
+}
+
+.stop-header {
+
+  display: flex;
+
+  align-items: baseline;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 9px;
+
+}
+
+.stop-name {
+
+  font-family: var(--f-accent);
+
+  font-size: 25px;
+  font-weight: normal;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.025em;
+  word-spacing: 0.08em;
+
+  color: var(--ink);
+
+}
+
+.stop-score-label {
+
+  flex-shrink: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--slate);
+
+}
+
+
+/* SCORE BAR */
+
+.stop-bar-outer {
+
+  height: 8px;
+
+  margin-bottom: 12px;
+
+  overflow: hidden;
+
+  background: var(--paper-mid);
+
+}
+
+.stop-bar-inner {
+
+  width: 0;
+  height: 100%;
+
+  transition: width 0.8s ease;
+
+}
+
+.stop-bar-inner.strong {
+
+  background: var(--navy);
+
+}
+
+.stop-bar-inner.mid {
+
+  background: var(--brass);
+
+}
+
+.stop-bar-inner.weak {
+
+  background: var(--clay);
+
+}
+
+
+.stop-insight {
+
+  margin-bottom: 7px;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  color: var(--slate);
+
+}
+
+
+.stop-audit-link {
+
+  margin-top: 10px;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+}
+
+.stop-audit-link a {
+
+  padding-bottom: 2px;
+
+  border-bottom: 1px solid var(--stone);
+
+  color: var(--ink);
+
+  font-weight: 600;
+
+}
+
+.stop-audit-link a:hover {
+
+  border-color: var(--ink);
+
+}
+
+
+/* =========================================================
+   NEXT STEP
+   ========================================================= */
+
+.next-step-block {
+
+  margin: 50px 0 0;
+
+  padding: clamp(30px, 4vw, 40px);
+
+  background: var(--navy);
+
+}
+
+
+.next-step-heading {
+
+  margin-bottom: 28px;
+
+  text-align: center;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--yellow);
+
+}
+
+
+.next-step-options {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  border-top: 1px solid rgba(255,255,255,0.16);
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+
+}
+
+
+.next-step-option {
+
+  min-width: 0;
+
+  padding: 25px 22px;
+
+  text-align: center;
+
+}
+
+.next-step-option + .next-step-option {
+
+  border-left: 1px solid rgba(255,255,255,0.16);
+
+}
+
+
+.next-step-option-title {
+
+  margin-bottom: 8px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  color: var(--paper);
+
+}
+
+
+.next-step-option-body {
+
+  min-height: 86px;
+
+  margin-bottom: 18px;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+
+  color: rgba(255,255,255,0.76);
+
+}
+
+
+/* ACTION */
+
+.next-step-btn-primary {
+
+  min-height: 44px;
+
+  padding: 11px 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+
+  transition: background 0.2s ease;
+
+}
+
+.next-step-btn-primary:hover {
+
+  background: var(--brass);
+
+}
+
+
+/* EMAIL */
+
+.next-step-email-form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+}
+
+.next-step-email-row {
+
+  display: flex;
+
+  gap: 7px;
+
+}
+
+.next-step-email-row input {
+
+  width: 100%;
+  min-width: 0;
+
+  min-height: 44px;
+
+  padding: 11px 12px;
+
+  border: 1px solid rgba(255,255,255,0.24);
+
+  border-radius: 0;
+
+  outline: none;
+
+  background: rgba(255,255,255,0.05);
+
+  color: var(--paper);
+
+  font-size: 13px;
+
+}
+
+.next-step-email-row input::placeholder {
+
+  color: rgba(255,255,255,0.7);
+
+}
+
+.next-step-email-row input:focus {
+
+  border-color: var(--yellow);
+
+}
+
+
+.next-step-email-row button {
+
+  min-height: 44px;
+
+  padding: 10px 14px;
+
+  border: 1px solid var(--yellow);
+
+  background: transparent;
+
+  color: var(--yellow);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+}
+
+.next-step-email-row button:hover {
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+}
+
+.next-step-email-row button:disabled {
+
+  cursor: wait;
+
+  opacity: 0.7;
+
+}
+
+
+.email-confirm {
+
+  min-height: 20px;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+
+  color: var(--yellow);
+
+}
+
+
+/* =========================================================
+   RESULTS FOOTER
+   ========================================================= */
+
+.results-footer {
+
+  padding: 32px 0 0;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  color: var(--slate);
+
+}
+
+.results-footer span {
+
+  color: var(--ink);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .next-step-options {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .next-step-option {
+
+    min-height: 0;
+
+  }
+
+  .next-step-option + .next-step-option {
+
+    border-top: 1px solid rgba(255,255,255,0.16);
+
+    border-left: none;
+
+  }
+
+  .next-step-option-body {
+
+    min-height: 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 600px) {
-  .intro-stats { gap: 24px; }
-  .intro-stat .num { font-size: 22px; }
-  .stop-name { font-size: 18px; }
-  .score-ring { width: 140px; height: 140px; }
-  .score-ring .score-num { font-size: 42px; }
-  .next-step-options { flex-direction: column; }
-  .next-step-email-row { flex-direction: column; }
+
+  .nav {
+
+    padding-left: 18px;
+    padding-right: 18px;
+
+  }
+
+
+  .nav-back {
+
+    font-size: 10px;
+
+  }
+
+
+  .intro {
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+  }
+
+
+  .intro-stats {
+
+    width: 100%;
+
+    max-width: 390px;
+
+  }
+
+  .intro-stat {
+
+    min-width: 0;
+
+    flex: 1;
+
+    padding: 14px 8px;
+
+  }
+
+  .intro-stat .num {
+
+    font-size: 23px;
+
+  }
+
+  .intro-stat .label {
+
+    font-size: 10px;
+
+    letter-spacing: 0.08em;
+
+  }
+
+
+  .btn-start {
+
+    width: 100%;
+
+    max-width: 390px;
+
+  }
+
+
+  .progress-info {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+
+  }
+
+
+  .progress-category {
+
+    font-size: 24px;
+
+  }
+
+
+  .q-option {
+
+    padding: 16px;
+
+  }
+
+
+  .score-ring {
+
+    width: 144px;
+    height: 144px;
+
+  }
+
+  .score-num {
+
+    font-size: 44px;
+
+  }
+
+
+  .stop-name {
+
+    font-size: 22px;
+
+  }
+
+
+  .next-step-block {
+
+    padding: 28px 20px;
+
+  }
+
+
+  .next-step-email-row {
+
+    flex-direction: column;
+
+  }
+
+
+  .next-step-email-row button {
+
+    width: 100%;
+
+  }
+
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior: auto;
+
+  }
+
+  *,
+  *::before,
+  *::after {
+
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+  }
+
+}
+
 </style>
-<link rel="canonical" href="https://www.theyellowfrontdoor.ca/the-scorecard.html" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
+
+
+<!-- GOOGLE ANALYTICS -->
+
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"
+></script>
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-NPL1XCH6H7');
+
+window.dataLayer =
+  window.dataLayer || [];
+
+function gtag() {
+
+  dataLayer.push(arguments);
+
+}
+
+gtag('js', new Date());
+
+gtag(
+  'config',
+  'G-NPL1XCH6H7'
+);
+
 </script>
+
 </head>
+
+
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="index.html"><img src="roundlogo2.png" alt="The Yellow Front Door"></a>
-  <a href="index.html" class="nav-back">← Back to site</a>
+
+<a
+  class="skip-link"
+  href="#main-content"
+>
+  Skip to Scorecard
+</a>
+
+
+<!-- =======================================================
+     COMPACT NAV
+     ======================================================= -->
+
+<nav
+  class="nav"
+  aria-label="Scorecard navigation"
+>
+
+
+  <a
+    href="index.html"
+    class="nav-logo"
+    aria-label="The Yellow Front Door — home"
+  >
+
+    <img
+      src="roundlogo2.png"
+      alt=""
+    >
+
+  </a>
+
+
+  <a
+    href="index.html"
+    class="nav-back"
+  >
+    ← Back to site
+  </a>
+
+
 </nav>
 
-<!-- INTRO -->
-<div class="intro" id="intro">
-  <span class="intro-badge">Free Self-Assessment</span>
-  <h1>The <strong>Scorecard</strong></h1>
-  <span class="accent">What do your customers see?</span>
-  <p>Ten questions about the experience people have when they find your business online. Two minutes, no signup, and an honest picture of what's working and what isn't.</p>
-  <div class="intro-stats">
-    <div class="intro-stat"><span class="num">10</span><span class="label">Questions</span></div>
-    <div class="intro-stat"><span class="num">2</span><span class="label">Minutes</span></div>
-    <div class="intro-stat"><span class="num">5</span><span class="label">Stops scored</span></div>
-  </div>
-  <button class="btn-start" onclick="startQuiz()">Start the Scorecard</button>
-  <p class="intro-note">No signup required. Results show up right here.</p>
-</div>
 
-<!-- QUIZ -->
-<div class="quiz-screen" id="quizScreen">
+<main id="main-content">
+
+
+<!-- =======================================================
+     INTRO
+     ======================================================= -->
+
+<section
+  class="intro"
+  id="intro"
+  aria-labelledby="intro-title"
+>
+
+
+  <span class="intro-badge">
+    Free Self-Assessment
+  </span>
+
+
+  <h1 id="intro-title">
+    The <strong>Scorecard</strong>
+  </h1>
+
+
+  <span class="accent">
+    What do your customers see?
+  </span>
+
+
+  <p class="intro-copy">
+    Ten questions about the experience people have when they find your business online. Two minutes, no signup, and an honest picture of what's working and what isn't.
+  </p>
+
+
+  <div
+    class="intro-stats"
+    aria-label="Scorecard details"
+  >
+
+
+    <div class="intro-stat">
+
+      <span class="num">
+        10
+      </span>
+
+      <span class="label">
+        Questions
+      </span>
+
+    </div>
+
+
+    <div class="intro-stat">
+
+      <span class="num">
+        2
+      </span>
+
+      <span class="label">
+        Minutes
+      </span>
+
+    </div>
+
+
+    <div class="intro-stat">
+
+      <span class="num">
+        5
+      </span>
+
+      <span class="label">
+        Stops scored
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    type="button"
+    class="btn-start"
+    id="start-btn"
+  >
+    Start the Scorecard
+  </button>
+
+
+  <p class="intro-note">
+    No signup required. Results show up right here.
+  </p>
+
+
+</section>
+
+
+<!-- =======================================================
+     QUIZ
+     ======================================================= -->
+
+<section
+  class="quiz-screen"
+  id="quizScreen"
+  hidden
+  aria-label="Scorecard questions"
+>
+
+
   <div class="quiz-inner">
-    <div class="progress">
-      <div class="progress-track" id="progressTrack"></div>
-      <div class="progress-info">
-        <span class="progress-step" id="progressStep">Question 1 of 10</span>
-        <span class="progress-category" id="progressCat"></span>
-      </div>
-    </div>
-    <div id="questionArea"></div>
-  </div>
-</div>
 
-<!-- RESULTS -->
-<div class="results-screen" id="resultsScreen">
-  <div class="results-hero">
-    <div class="score-ring">
-      <span class="score-num" id="scoreNum">0</span>
-      <span class="score-of">out of 40</span>
+
+    <div class="progress">
+
+
+      <div
+        class="progress-track"
+        id="progressTrack"
+        aria-hidden="true"
+      ></div>
+
+
+      <div class="progress-info">
+
+
+        <span
+          class="progress-step"
+          id="progressStep"
+          role="progressbar"
+          aria-valuemin="1"
+          aria-valuemax="10"
+          aria-valuenow="1"
+          aria-label="Scorecard progress"
+        >
+          Question 1 of 10
+        </span>
+
+
+        <span
+          class="progress-category"
+          id="progressCat"
+        ></span>
+
+
+      </div>
+
+
     </div>
-    <span class="results-accent" id="resultsAccent"></span>
-    <p class="results-summary" id="resultsSummary"></p>
+
+
+    <div
+      id="questionArea"
+      aria-live="polite"
+    ></div>
+
+
   </div>
+
+
+</section>
+
+
+<!-- =======================================================
+     RESULTS
+     ======================================================= -->
+
+<section
+  class="results-screen"
+  id="resultsScreen"
+  hidden
+  aria-labelledby="resultsAccent"
+>
+
+
+  <div class="results-hero">
+
+
+    <span class="results-label">
+      Your Scorecard
+    </span>
+
+
+    <div
+      class="score-ring"
+      aria-label="Your total score"
+    >
+
+      <span
+        class="score-num"
+        id="scoreNum"
+      >
+        0
+      </span>
+
+      <span class="score-of">
+        out of 40
+      </span>
+
+    </div>
+
+
+    <h1
+      class="results-accent"
+      id="resultsAccent"
+      tabindex="-1"
+    ></h1>
+
+
+    <p
+      class="results-summary"
+      id="resultsSummary"
+    ></p>
+
+
+  </div>
+
+
   <div class="results-body">
+
+
+    <span class="results-section-label">
+      Your five stops
+    </span>
+
+
     <div id="stopSections"></div>
 
-    <div class="next-step-block">
-      <div class="next-step-heading">What's next</div>
+
+    <!-- NEXT STEP -->
+
+    <section
+      class="next-step-block"
+      aria-labelledby="next-step-heading"
+    >
+
+
+      <h2
+        class="next-step-heading"
+        id="next-step-heading"
+      >
+        What's next
+      </h2>
+
+
       <div class="next-step-options">
+
+
+        <!-- TALK -->
+
         <div class="next-step-option">
-          <div class="next-step-option-title">Ready to talk about it?</div>
-          <div class="next-step-option-body">A free, no-pitch Drive-By. Send us your site and we'll tell you what we see.</div>
-          <a href="lets-talk.html" class="next-step-btn-primary">Get in touch →</a>
+
+
+          <h3 class="next-step-option-title">
+            Ready to talk about it?
+          </h3>
+
+
+          <p class="next-step-option-body">
+            A free, no-pitch Drive-By. Send us your site and we'll tell you what we see.
+          </p>
+
+
+          <a
+            href="lets-talk.html"
+            class="next-step-btn-primary"
+          >
+            Get in touch →
+          </a>
+
+
         </div>
-       <div class="next-step-option">
-          <div class="next-step-option-title">Just want a copy?</div>
-          <div class="next-step-option-body">We'll email your results. No list, no spam.</div>
-          <div class="next-step-email-row">
-            <input type="email" placeholder="your@email.com" id="emailInput">
-            <button onclick="captureEmail()">Send it</button>
-          </div>
-          <p class="email-confirm" id="emailConfirm"></p>
-        </div>
+
+
+        <!-- EMAIL -->
+
         <div class="next-step-option">
-          <div class="next-step-option-title">Want a deeper look?</div>
-          <div class="next-step-option-body">The Presence Review covers your website, brand, and client experience end to end, with a written action plan and a prioritised fix list.</div>
-          <a href="presence-review.html" class="next-step-btn-primary">See the Presence Review →</a>
+
+
+          <h3 class="next-step-option-title">
+            Just want a copy?
+          </h3>
+
+
+          <p class="next-step-option-body">
+            We'll email your results. No list, no spam.
+          </p>
+
+
+          <form
+            class="next-step-email-form"
+            id="results-email-form"
+          >
+
+
+            <label
+              class="sr-only"
+              for="emailInput"
+            >
+              Email address
+            </label>
+
+
+            <div class="next-step-email-row">
+
+
+              <input
+                type="email"
+                id="emailInput"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                placeholder="your@email.com"
+                aria-describedby="emailConfirm"
+                required
+              >
+
+
+              <button
+                type="submit"
+                id="emailSendBtn"
+              >
+                Send it
+              </button>
+
+
+            </div>
+
+
+            <p
+              class="email-confirm"
+              id="emailConfirm"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+
+          </form>
+
+
         </div>
+
+
+        <!-- PRESENCE REVIEW -->
+
+        <div class="next-step-option">
+
+
+          <h3 class="next-step-option-title">
+            Want a deeper look?
+          </h3>
+
+
+          <p class="next-step-option-body">
+            The Presence Review covers your website, brand, and client experience end to end, with a written action plan and a prioritised fix list.
+          </p>
+
+
+          <a
+            href="presence-review.html"
+            class="next-step-btn-primary"
+          >
+            See the Presence Review →
+          </a>
+
+
+        </div>
+
+
       </div>
-    </div>
+
+
+    </section>
+
 
     <div class="results-footer">
-      <p>The Scorecard · <span>The Yellow Front Door</span></p>
+
+      <p>
+        The Scorecard ·
+        <span>The Yellow Front Door</span>
+      </p>
+
     </div>
+
+
   </div>
-</div>
+
+
+</section>
+
+
+</main>
+
 
 <script>
+
 const questions = [
-  { category: "The First Look", stop: 0, text: "If someone Googled your business right now, how would you feel about what comes up?", options: [
-    { text: "Confident. It's accurate, current, and looks the way I want it to.", score: 4 },
-    { text: "Pretty good, but there are things I've been meaning to update.", score: 3 },
-    { text: "I haven't checked in a while, so I'm not sure.", score: 2 },
-    { text: "I'd rather they didn't.", score: 1 }
-  ]},
-  { category: "The First Look", stop: 0, text: "Are your hours, contact info, and business description consistent everywhere you're listed online?", options: [
-    { text: "Yes, I keep them all in sync.", score: 4 },
-    { text: "Mostly, but a few are probably out of date.", score: 3 },
-    { text: "I'm not sure where I'm listed, honestly.", score: 2 },
-    { text: "They definitely say different things in different places.", score: 1 }
-  ]},
-  { category: "The Window", stop: 1, text: "Could a first-time visitor to your website figure out what you do and what to do next within about ten seconds?", options: [
-    { text: "Yes — it's clear and the path is obvious.", score: 4 },
-    { text: "Probably, but it takes some scrolling.", score: 3 },
-    { text: "I've had people tell me they were confused.", score: 2 },
-    { text: "My website needs work and I know it.", score: 1 }
-  ]},
-  { category: "The Window", stop: 1, text: "When was the last time the content on your website was meaningfully updated?", options: [
-    { text: "Within the last few months.", score: 4 },
-    { text: "Six months to a year ago.", score: 3 },
-    { text: "More than a year.", score: 2 },
-    { text: "When it was first built.", score: 1 }
-  ]},
-  { category: "The Open Door", stop: 2, text: "When someone reaches out for the first time, how quickly do they typically hear back?", options: [
-    { text: "Within a few hours, usually sooner.", score: 4 },
-    { text: "Within a day.", score: 3 },
-    { text: "It depends — sometimes a couple of days.", score: 2 },
-    { text: "Longer than I'd like to admit.", score: 1 }
-  ]},
-  { category: "The Open Door", stop: 2, text: "Does your first reply to a new customer sound like you, or like it could've been sent by anyone?", options: [
-    { text: "It sounds like me — warm, personal, clear.", score: 4 },
-    { text: "It's decent but it's a template I haven't revisited.", score: 3 },
-    { text: "I just reply from my phone, no set format.", score: 2 },
-    { text: "I don't have a consistent first reply.", score: 1 }
-  ]},
-  { category: "The Reception Desk", stop: 3, text: "If someone booked, purchased, or signed up today, what would happen automatically?", options: [
-    { text: "Confirmation, welcome email, clear next steps.", score: 4 },
-    { text: "A basic confirmation. I handle the rest manually.", score: 3 },
-    { text: "Not much — I follow up when I get a chance.", score: 2 },
-    { text: "I'm not sure what they'd receive.", score: 1 }
-  ]},
-  { category: "The Reception Desk", stop: 3, text: "Could you describe your follow-up process for new leads without checking anything?", options: [
-    { text: "Yes — it's documented and mostly automated.", score: 4 },
-    { text: "I have a rough system but it lives in my head.", score: 3 },
-    { text: "It's inconsistent. Some people get followed up, some don't.", score: 2 },
-    { text: "I don't really have one.", score: 1 }
-  ]},
-  { category: "The Upkeep", stop: 4, text: "How often do you review and refresh your customer-facing content?", options: [
-    { text: "Regularly — at least once a quarter.", score: 4 },
-    { text: "A couple of times a year when I remember.", score: 3 },
-    { text: "Only when something breaks or someone points it out.", score: 2 },
-    { text: "I can't remember the last time.", score: 1 }
-  ]},
-  { category: "The Upkeep", stop: 4, text: "If a friend visited your website right now, would it reflect where your business actually is today?", options: [
-    { text: "Yes — it's current and I'm proud of it.", score: 4 },
-    { text: "Mostly, but a few things are behind.", score: 3 },
-    { text: "Not really. The business has changed but the site hasn't.", score: 2 },
-    { text: "No. It's embarrassingly out of date.", score: 1 }
-  ]}
+
+  {
+    category: "The First Look",
+    stop: 0,
+    text: "If someone Googled your business right now, how would you feel about what comes up?",
+    options: [
+
+      {
+        text: "Confident. It's accurate, current, and looks the way I want it to.",
+        score: 4
+      },
+
+      {
+        text: "Pretty good, but there are things I've been meaning to update.",
+        score: 3
+      },
+
+      {
+        text: "I haven't checked in a while, so I'm not sure.",
+        score: 2
+      },
+
+      {
+        text: "I'd rather they didn't.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The First Look",
+    stop: 0,
+    text: "Are your hours, contact info, and business description consistent everywhere you're listed online?",
+    options: [
+
+      {
+        text: "Yes, I keep them all in sync.",
+        score: 4
+      },
+
+      {
+        text: "Mostly, but a few are probably out of date.",
+        score: 3
+      },
+
+      {
+        text: "I'm not sure where I'm listed, honestly.",
+        score: 2
+      },
+
+      {
+        text: "They definitely say different things in different places.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Window",
+    stop: 1,
+    text: "Could a first-time visitor to your website figure out what you do and what to do next within about ten seconds?",
+    options: [
+
+      {
+        text: "Yes — it's clear and the path is obvious.",
+        score: 4
+      },
+
+      {
+        text: "Probably, but it takes some scrolling.",
+        score: 3
+      },
+
+      {
+        text: "I've had people tell me they were confused.",
+        score: 2
+      },
+
+      {
+        text: "My website needs work and I know it.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Window",
+    stop: 1,
+    text: "When was the last time the content on your website was meaningfully updated?",
+    options: [
+
+      {
+        text: "Within the last few months.",
+        score: 4
+      },
+
+      {
+        text: "Six months to a year ago.",
+        score: 3
+      },
+
+      {
+        text: "More than a year.",
+        score: 2
+      },
+
+      {
+        text: "When it was first built.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Open Door",
+    stop: 2,
+    text: "When someone reaches out for the first time, how quickly do they typically hear back?",
+    options: [
+
+      {
+        text: "Within a few hours, usually sooner.",
+        score: 4
+      },
+
+      {
+        text: "Within a day.",
+        score: 3
+      },
+
+      {
+        text: "It depends — sometimes a couple of days.",
+        score: 2
+      },
+
+      {
+        text: "Longer than I'd like to admit.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Open Door",
+    stop: 2,
+    text: "Does your first reply to a new customer sound like you, or like it could've been sent by anyone?",
+    options: [
+
+      {
+        text: "It sounds like me — warm, personal, clear.",
+        score: 4
+      },
+
+      {
+        text: "It's decent but it's a template I haven't revisited.",
+        score: 3
+      },
+
+      {
+        text: "I just reply from my phone, no set format.",
+        score: 2
+      },
+
+      {
+        text: "I don't have a consistent first reply.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Reception Desk",
+    stop: 3,
+    text: "If someone booked, purchased, or signed up today, what would happen automatically?",
+    options: [
+
+      {
+        text: "Confirmation, welcome email, clear next steps.",
+        score: 4
+      },
+
+      {
+        text: "A basic confirmation. I handle the rest manually.",
+        score: 3
+      },
+
+      {
+        text: "Not much — I follow up when I get a chance.",
+        score: 2
+      },
+
+      {
+        text: "I'm not sure what they'd receive.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Reception Desk",
+    stop: 3,
+    text: "Could you describe your follow-up process for new leads without checking anything?",
+    options: [
+
+      {
+        text: "Yes — it's documented and mostly automated.",
+        score: 4
+      },
+
+      {
+        text: "I have a rough system but it lives in my head.",
+        score: 3
+      },
+
+      {
+        text: "It's inconsistent. Some people get followed up, some don't.",
+        score: 2
+      },
+
+      {
+        text: "I don't really have one.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Upkeep",
+    stop: 4,
+    text: "How often do you review and refresh your customer-facing content?",
+    options: [
+
+      {
+        text: "Regularly — at least once a quarter.",
+        score: 4
+      },
+
+      {
+        text: "A couple of times a year when I remember.",
+        score: 3
+      },
+
+      {
+        text: "Only when something breaks or someone points it out.",
+        score: 2
+      },
+
+      {
+        text: "I can't remember the last time.",
+        score: 1
+      }
+
+    ]
+  },
+
+
+  {
+    category: "The Upkeep",
+    stop: 4,
+    text: "If a friend visited your website right now, would it reflect where your business actually is today?",
+    options: [
+
+      {
+        text: "Yes — it's current and I'm proud of it.",
+        score: 4
+      },
+
+      {
+        text: "Mostly, but a few things are behind.",
+        score: 3
+      },
+
+      {
+        text: "Not really. The business has changed but the site hasn't.",
+        score: 2
+      },
+
+      {
+        text: "No. It's embarrassingly out of date.",
+        score: 1
+      }
+
+    ]
+  }
+
 ];
 
-const stopNames = ["The First Look", "The Window", "The Open Door", "The Reception Desk", "The Upkeep"];
+
+const stopNames = [
+
+  "The First Look",
+  "The Window",
+  "The Open Door",
+  "The Reception Desk",
+  "The Upkeep"
+
+];
+
+
 const insights = {
+
   high: [
+
     "Your online first impression is strong. Listings are current, information is consistent, and people can find you without running into surprises.",
+
     "Your website is doing its job. Visitors understand what you do, the content is fresh, and the path forward is clear.",
+
     "Your first response sets the right tone. People feel heard, welcomed, and confident they're in the right place.",
+
     "Your systems are running. Confirmations go out, follow-ups happen, and the behind-the-scenes experience matches the front.",
+
     "You're keeping things current. The outside of your business is keeping up with the inside."
+
   ],
+
+
   mid: [
+
     "Your first impression is decent but there are gaps. Outdated listings or inconsistent info can quietly erode trust before someone even reaches your site.",
+
     "Your website works but could be sharper. If people have to work to figure out what you do, some of them won't bother.",
+
     "Your first contact is fine but not memorable. A personal, timely first reply changes how someone feels about the whole experience.",
+
     "You're doing things manually that could run on their own. That works until it doesn't, and when something slips, customers notice before you do.",
+
     "Things are starting to fall behind. The gap between where your business is and what people see online gets wider the longer it sits."
+
   ],
+
+
   low: [
+
     "People are finding you online and not getting an accurate picture. This is worth fixing first.",
+
     "Your website isn't telling your story clearly, and that's where most people decide whether to go further.",
+
     "New inquiries aren't getting the response they deserve. That first reply is where trust forms, and right now it's inconsistent.",
+
     "There's no system behind the customer experience. Every interaction depends on you remembering, and eventually something slips.",
+
     "Your online presence has fallen behind the business itself. The good news: you already know, and that's where it starts."
+
   ]
+
 };
 
+
 let currentQ = 0;
+
 let answers = [];
 
+
+const prefersReducedMotion =
+  window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
 function buildProgressDots() {
-  const track = document.getElementById('progressTrack');
-  track.innerHTML = questions.map((_, i) => `<div class="progress-dot" id="dot${i}"></div>`).join('');
+
+  const track =
+    document.getElementById(
+      'progressTrack'
+    );
+
+
+  track.innerHTML =
+    questions
+      .map(
+        (_, i) =>
+          `<span class="progress-dot" id="dot${i}"></span>`
+      )
+      .join('');
+
 }
+
 
 function updateProgress(idx) {
-  for (let i = 0; i < questions.length; i++) {
-    const dot = document.getElementById('dot' + i);
-    dot.className = 'progress-dot' + (i < idx ? ' done' : i === idx ? ' active' : '');
+
+  for (
+    let i = 0;
+    i < questions.length;
+    i++
+  ) {
+
+    const dot =
+      document.getElementById(
+        'dot' + i
+      );
+
+
+    dot.className =
+      'progress-dot' +
+      (
+        i < idx
+          ? ' done'
+          : i === idx
+            ? ' active'
+            : ''
+      );
+
   }
-  document.getElementById('progressStep').textContent = `Question ${idx + 1} of ${questions.length}`;
-  document.getElementById('progressCat').textContent = questions[idx].category;
+
+
+  const progressStep =
+    document.getElementById(
+      'progressStep'
+    );
+
+
+  progressStep.textContent =
+    `Question ${idx + 1} of ${questions.length}`;
+
+
+  progressStep.setAttribute(
+    'aria-valuenow',
+    String(idx + 1)
+  );
+
+
+  document
+    .getElementById(
+      'progressCat'
+    )
+    .textContent =
+      questions[idx].category;
+
 }
+
+
+/* =========================================================
+   START
+   ========================================================= */
 
 function startQuiz() {
-  document.getElementById('intro').style.display = 'none';
-  document.getElementById('quizScreen').style.display = 'block';
+
+  document
+    .getElementById('intro')
+    .hidden = true;
+
+
+  document
+    .getElementById('quizScreen')
+    .hidden = false;
+
+
   buildProgressDots();
+
   showQuestion(0);
+
 }
+
+
+/* =========================================================
+   QUESTION
+   ========================================================= */
 
 function showQuestion(idx) {
+
   currentQ = idx;
-  const q = questions[idx];
-  const area = document.getElementById('questionArea');
-  
-  area.innerHTML = `<div class="q-card">
-    <p class="q-text">${q.text}</p>
-    <div class="q-options">${q.options.map((opt, i) => 
-      `<button class="q-option" onclick="selectAnswer(${idx},${i},${opt.score})">
-        <span class="q-radio"></span><span>${opt.text}</span>
-      </button>`
-    ).join('')}</div>
-  </div>`;
-  
+
+
+  const q =
+    questions[idx];
+
+
+  const area =
+    document.getElementById(
+      'questionArea'
+    );
+
+
+  area.innerHTML = `
+
+    <div class="q-card">
+
+      <h2
+        class="q-text"
+        id="question-title"
+        tabindex="-1"
+      >
+        ${q.text}
+      </h2>
+
+      <div
+        class="q-options"
+        aria-labelledby="question-title"
+      >
+
+        ${q.options.map(
+          (opt, i) => `
+
+            <button
+              type="button"
+              class="q-option"
+              data-question="${idx}"
+              data-option="${i}"
+              data-score="${opt.score}"
+            >
+
+              <span
+                class="q-radio"
+                aria-hidden="true"
+              ></span>
+
+              <span>
+                ${opt.text}
+              </span>
+
+            </button>
+
+          `
+        ).join('')}
+
+      </div>
+
+    </div>
+
+  `;
+
+
   updateProgress(idx);
+
+
+  const questionTitle =
+    document.getElementById(
+      'question-title'
+    );
+
+
+  requestAnimationFrame(
+    function () {
+
+      questionTitle.focus();
+
+    }
+  );
+
 }
 
-function selectAnswer(qIdx, optIdx, score) {
-  document.querySelectorAll('.q-option').forEach(o => o.classList.remove('selected'));
-  document.querySelectorAll('.q-option')[optIdx].classList.add('selected');
-  answers[qIdx] = { stop: questions[qIdx].stop, score };
-  
-  setTimeout(() => {
-    if (qIdx < questions.length - 1) showQuestion(qIdx + 1);
-    else showResults();
-  }, 500);
+
+/* =========================================================
+   ANSWER
+   ========================================================= */
+
+function selectAnswer(
+  qIdx,
+  optIdx,
+  score
+) {
+
+  const options =
+    Array.from(
+      document.querySelectorAll(
+        '.q-option'
+      )
+    );
+
+
+  options.forEach(
+    function (option) {
+
+      option.disabled = true;
+
+      option.classList.remove(
+        'selected'
+      );
+
+    }
+  );
+
+
+  options[optIdx]
+    .classList
+    .add('selected');
+
+
+  answers[qIdx] = {
+
+    stop:
+      questions[qIdx].stop,
+
+    score: score
+
+  };
+
+
+  const delay =
+    prefersReducedMotion
+      ? 20
+      : 350;
+
+
+  setTimeout(
+    function () {
+
+      if (
+        qIdx <
+        questions.length - 1
+      ) {
+
+        showQuestion(
+          qIdx + 1
+        );
+
+      } else {
+
+        showResults();
+
+      }
+
+    },
+    delay
+  );
+
 }
+
+
+/* EVENT DELEGATION */
+
+document
+  .getElementById(
+    'questionArea'
+  )
+  .addEventListener(
+    'click',
+    function (event) {
+
+      const button =
+        event.target.closest(
+          '.q-option'
+        );
+
+
+      if (!button) {
+        return;
+      }
+
+
+      selectAnswer(
+
+        Number(
+          button.dataset.question
+        ),
+
+        Number(
+          button.dataset.option
+        ),
+
+        Number(
+          button.dataset.score
+        )
+
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
 
 function showResults() {
-  document.getElementById('quizScreen').style.display = 'none';
-  document.getElementById('resultsScreen').style.display = 'block';
-  document.body.style.background = 'var(--paper)';
-  
-  let stopScores = [0,0,0,0,0], stopMax = [0,0,0,0,0], total = 0;
-  answers.forEach(a => { stopScores[a.stop] += a.score; stopMax[a.stop] += 4; total += a.score; });
-  
-  let displayed = 0;
-  const scoreEl = document.getElementById('scoreNum');
-  const interval = setInterval(() => {
-    displayed++;
-    scoreEl.textContent = displayed;
-    if (displayed >= total) clearInterval(interval);
-  }, 40);
 
-  let accent, summary;
-  if (total >= 33) { accent = "Looking strong."; summary = "Your in-market experience is in good shape. A few things to tighten, but the foundation is solid."; }
-  else if (total >= 25) { accent = "Good bones, some gaps."; summary = "The basics are there, but there are spots where the experience isn't matching the quality of what you actually do."; }
-  else if (total >= 16) { accent = "Your business is better than it looks online."; summary = "There's a real gap between the work you do and what people find when they look you up. Most of it is fixable."; }
-  else { accent = "Time for a fresh start."; summary = "The outside doesn't match the inside yet. That changes."; }
+  document
+    .getElementById(
+      'quizScreen'
+    )
+    .hidden = true;
 
-  document.getElementById('resultsAccent').textContent = accent;
-  document.getElementById('resultsSummary').textContent = summary;
 
-  let html = '';
-  stopNames.forEach((name, i) => {
-    const pct = (stopScores[i] / stopMax[i]) * 100;
-    const cls = pct >= 75 ? 'strong' : pct >= 50 ? 'mid' : 'weak';
-    const note = pct >= 75 ? insights.high[i] : pct >= 50 ? insights.mid[i] : insights.low[i];
-    const isWindow = name === "The Window";
-    html += `<div class="stop-section${isWindow ? ' has-audit-link' : ''}">
-      <div class="stop-header">
-        <span class="stop-name">${name}</span>
-        <span class="stop-score-label">${stopScores[i]} / ${stopMax[i]}</span>
-      </div>
-      <div class="stop-bar-outer"><div class="stop-bar-inner ${cls}" data-width="${pct}"></div></div>
-      <p class="stop-insight">${note}</p>
-      ${isWindow ? `<p class="stop-audit-link"><a href="website-audit.html">Want to go deeper on just the website? Take the audit →</a></p>` : ''}
-    </div>`;
-  });
-  document.getElementById('stopSections').innerHTML = html;
+  document
+    .getElementById(
+      'resultsScreen'
+    )
+    .hidden = false;
 
-  setTimeout(() => {
-    document.querySelectorAll('.stop-bar-inner').forEach(bar => {
-      bar.style.width = bar.dataset.width + '%';
-    });
-  }, 300);
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  document.body.style.background =
+    'var(--paper)';
 
-function captureEmail() {
-  const email = document.getElementById('emailInput').value;
-  const btn = document.querySelector('.next-step-email-row button');
-  const el = document.getElementById('emailConfirm');
 
-  if (!email || !email.includes('@')) {
-    el.textContent = "That doesn't look like a valid email — mind double-checking?";
-    el.style.display = 'block';
-    return;
+  let stopScores =
+    [0, 0, 0, 0, 0];
+
+  let stopMax =
+    [0, 0, 0, 0, 0];
+
+  let total = 0;
+
+
+  answers.forEach(
+    function (answer) {
+
+      stopScores[
+        answer.stop
+      ] += answer.score;
+
+
+      stopMax[
+        answer.stop
+      ] += 4;
+
+
+      total += answer.score;
+
+    }
+  );
+
+
+  const scoreEl =
+    document.getElementById(
+      'scoreNum'
+    );
+
+
+  if (prefersReducedMotion) {
+
+    scoreEl.textContent =
+      total;
+
+  } else {
+
+    let displayed = 0;
+
+
+    const interval =
+      setInterval(
+        function () {
+
+          displayed++;
+
+          scoreEl.textContent =
+            displayed;
+
+
+          if (
+            displayed >= total
+          ) {
+
+            clearInterval(
+              interval
+            );
+
+          }
+
+        },
+        35
+      );
+
   }
 
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
 
-  let stopScores = [0,0,0,0,0], stopMax = [0,0,0,0,0], total = 0;
-  answers.forEach(a => { stopScores[a.stop] += a.score; stopMax[a.stop] += 4; total += a.score; });
-  const breakdown = stopNames.map((name, i) => `${name}: ${stopScores[i]}/${stopMax[i]}`).join(', ');
+  let accent;
 
-  const formData = new FormData();
-  formData.append('email', email);
-  formData.append('total_score', `${total} / 40`);
-  formData.append('breakdown', breakdown);
-  formData.append('_subject', 'Scorecard Results Request');
+  let summary;
 
-  fetch('https://formspree.io/f/xrewablz', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(res => {
-    if (res.ok) {
-      window.location.href = 'message-sent.html';
-    } else {
-      el.textContent = "Something went wrong — mind trying again?";
-      btn.disabled = false;
-      btn.textContent = 'Send it';
+
+  if (total >= 33) {
+
+    accent =
+      "Looking strong.";
+
+    summary =
+      "Your in-market experience is in good shape. A few things to tighten, but the foundation is solid.";
+
+  } else if (total >= 25) {
+
+    accent =
+      "Good bones, some gaps.";
+
+    summary =
+      "The basics are there, but there are spots where the experience isn't matching the quality of what you actually do.";
+
+  } else if (total >= 16) {
+
+    accent =
+      "Your business is better than it looks online.";
+
+    summary =
+      "There's a real gap between the work you do and what people find when they look you up. Most of it is fixable.";
+
+  } else {
+
+    accent =
+      "Time for a fresh start.";
+
+    summary =
+      "The outside doesn't match the inside yet. That changes.";
+
+  }
+
+
+  const accentEl =
+    document.getElementById(
+      'resultsAccent'
+    );
+
+
+  accentEl.textContent =
+    accent;
+
+
+  document
+    .getElementById(
+      'resultsSummary'
+    )
+    .textContent =
+      summary;
+
+
+  let html = '';
+
+
+  stopNames.forEach(
+    function (name, i) {
+
+      const pct =
+        (
+          stopScores[i] /
+          stopMax[i]
+        ) * 100;
+
+
+      const cls =
+        pct >= 75
+          ? 'strong'
+          : pct >= 50
+            ? 'mid'
+            : 'weak';
+
+
+      const note =
+        pct >= 75
+          ? insights.high[i]
+          : pct >= 50
+            ? insights.mid[i]
+            : insights.low[i];
+
+
+      const isWindow =
+        name ===
+        "The Window";
+
+
+      html += `
+
+        <section class="stop-section">
+
+          <div class="stop-header">
+
+            <h2 class="stop-name">
+              ${name}
+            </h2>
+
+            <span class="stop-score-label">
+              ${stopScores[i]} / ${stopMax[i]}
+            </span>
+
+          </div>
+
+          <div
+            class="stop-bar-outer"
+            role="progressbar"
+            aria-label="${name} score"
+            aria-valuemin="0"
+            aria-valuemax="${stopMax[i]}"
+            aria-valuenow="${stopScores[i]}"
+          >
+
+            <div
+              class="stop-bar-inner ${cls}"
+              data-width="${pct}"
+            ></div>
+
+          </div>
+
+          <p class="stop-insight">
+            ${note}
+          </p>
+
+          ${
+            isWindow
+              ? `
+
+                <p class="stop-audit-link">
+
+                  <a href="website-audit.html">
+                    Want to go deeper on just the website? Take the audit →
+                  </a>
+
+                </p>
+
+              `
+              : ''
+          }
+
+        </section>
+
+      `;
+
     }
-    el.style.display = 'block';
-  })
-  .catch(() => {
-    el.textContent = "Something went wrong — mind trying again?";
-    btn.disabled = false;
-    btn.textContent = 'Send it';
-    el.style.display = 'block';
+  );
+
+
+  document
+    .getElementById(
+      'stopSections'
+    )
+    .innerHTML =
+      html;
+
+
+  const bars =
+    document.querySelectorAll(
+      '.stop-bar-inner'
+    );
+
+
+  if (prefersReducedMotion) {
+
+    bars.forEach(
+      function (bar) {
+
+        bar.style.width =
+          bar.dataset.width + '%';
+
+      }
+    );
+
+  } else {
+
+    setTimeout(
+      function () {
+
+        bars.forEach(
+          function (bar) {
+
+            bar.style.width =
+              bar.dataset.width + '%';
+
+          }
+        );
+
+      },
+      220
+    );
+
+  }
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior:
+      prefersReducedMotion
+        ? 'auto'
+        : 'smooth'
+
   });
+
+
+  setTimeout(
+    function () {
+
+      accentEl.focus();
+
+    },
+    prefersReducedMotion
+      ? 20
+      : 350
+  );
+
 }
+
+
+/* =========================================================
+   EMAIL RESULTS
+   ========================================================= */
+
+async function captureEmail(
+  event
+) {
+
+  event.preventDefault();
+
+
+  const form =
+    document.getElementById(
+      'results-email-form'
+    );
+
+
+  const input =
+    document.getElementById(
+      'emailInput'
+    );
+
+
+  const button =
+    document.getElementById(
+      'emailSendBtn'
+    );
+
+
+  const status =
+    document.getElementById(
+      'emailConfirm'
+    );
+
+
+  status.textContent = '';
+
+
+  if (!input.checkValidity()) {
+
+    input.reportValidity();
+
+    return;
+
+  }
+
+
+  button.textContent =
+    'Sending…';
+
+  button.disabled =
+    true;
+
+
+  let stopScores =
+    [0, 0, 0, 0, 0];
+
+  let stopMax =
+    [0, 0, 0, 0, 0];
+
+  let total = 0;
+
+
+  answers.forEach(
+    function (answer) {
+
+      stopScores[
+        answer.stop
+      ] += answer.score;
+
+
+      stopMax[
+        answer.stop
+      ] += 4;
+
+
+      total += answer.score;
+
+    }
+  );
+
+
+  const breakdown =
+    stopNames
+      .map(
+        function (name, i) {
+
+          return (
+            `${name}: ` +
+            `${stopScores[i]}/` +
+            `${stopMax[i]}`
+          );
+
+        }
+      )
+      .join(', ');
+
+
+  const formData =
+    new FormData();
+
+
+  formData.append(
+    'email',
+    input.value
+  );
+
+
+  formData.append(
+    'total_score',
+    `${total} / 40`
+  );
+
+
+  formData.append(
+    'breakdown',
+    breakdown
+  );
+
+
+  formData.append(
+    '_subject',
+    'Scorecard Results Request'
+  );
+
+
+  try {
+
+    const response =
+      await fetch(
+        'https://formspree.io/f/xrewablz',
+        {
+
+          method: 'POST',
+
+          body: formData,
+
+          headers: {
+            'Accept':
+              'application/json'
+          }
+
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        'Scorecard email submission failed.'
+      );
+
+    }
+
+
+    window.location.href =
+      'message-sent.html';
+
+
+  } catch (error) {
+
+    status.textContent =
+      "Something went wrong — mind trying again?";
+
+
+    button.disabled =
+      false;
+
+
+    button.textContent =
+      'Send it';
+
+  }
+
+}
+
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+document
+  .getElementById(
+    'start-btn'
+  )
+  .addEventListener(
+    'click',
+    startQuiz
+  );
+
+
+document
+  .getElementById(
+    'results-email-form'
+  )
+  .addEventListener(
+    'submit',
+    captureEmail
+  );
+
 </script>
 
+
 </body>
+
 </html>
