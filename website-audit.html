@@ -1,1361 +1,3817 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Website Checkup — Your Website, Honestly</title>
+
+<title>The Website Checkup | The Yellow Front Door</title>
+
+<meta
+  name="description"
+  content="A free five-minute website self-check from The Yellow Front Door. Walk through your site the way a new customer would and find the first thing worth fixing."
+>
+
+<link
+  rel="canonical"
+  href="https://www.theyellowfrontdoor.ca/website-audit.html"
+>
+
+<meta
+  property="og:title"
+  content="The Website Checkup | The Yellow Front Door"
+>
+
+<meta
+  property="og:description"
+  content="Fifteen questions. About five minutes. See your website the way a new customer does and find the first thing worth fixing."
+>
+
+<meta
+  property="og:url"
+  content="https://www.theyellowfrontdoor.ca/website-audit.html"
+>
+
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#132447">
+
+
+<!-- FAVICONS -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="manifest" href="/manifest.json">
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
+
+<!-- PRELOAD INTRO ART -->
+
+<link rel="preload" as="image" href="theyellowfrontdoor.png">
+
+
+<!-- FONTS -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet"></noscript>
- <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --navy: #132447;
-    --yellow: #fcd346;
-    --stone: #DEDAD1;
-    --slate: #596674;
-    --clay: #B86B4B;
-    --paper: #ffffff;
-    --white: #ffffff;
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+  rel="preload"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+    rel="stylesheet"
+  >
+</noscript>
+
+
+<style>
+
+@font-face {
+  font-family: 'CasualHandwriting';
+
+  src:
+    url('CasualHandwriting.woff2') format('woff2'),
+    url('CasualHandwriting.woff') format('woff');
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+}
+
+
+/* =========================================================
+   TYFD SYSTEM
+   ========================================================= */
+
+:root {
+  --navy: #132447;
+  --ink: #132447;
+
+  --yellow: #fcd346;
+  --brass: #e6b800;
+
+  --stone: #D8D1C3;
+  --slate: #596674;
+  --clay: #B86B4B;
+
+  --paper: #ffffff;
+  --paper-mid: #F7F6F1;
+
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-body: 'Montserrat', sans-serif;
+
+  --nav-height: 72px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  scroll-padding-top: calc(var(--nav-height) + 20px);
+}
+
+body {
+  min-height: 100vh;
+
+  background: var(--paper-mid);
+
+  color: var(--navy);
+
+  font-family: var(--f-body);
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  -webkit-font-smoothing: antialiased;
+
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.skip-link {
+  position: fixed;
+
+  top: 8px;
+  left: 12px;
+
+  z-index: 9999;
+
+  padding: 12px 18px;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transform: translateY(-160%);
+
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--navy);
+
+  outline-offset: 3px;
+}
+
+
+.audit-header a:focus-visible,
+.intro-screen button:focus-visible,
+.thankyou-screen a:focus-visible {
+  outline-color: var(--yellow);
+}
+
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   COMPACT TOOL NAV
+   ========================================================= */
+
+.audit-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 100;
+
+  height: var(--nav-height);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 clamp(20px, 5vw, 64px);
+
+  background: var(--navy);
+
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+
+.audit-logo {
+  position: absolute;
+
+  left: 50%;
+
+  width: 52px;
+  height: 52px;
+
+  min-width: 52px;
+  min-height: 52px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: translateX(-50%);
+}
+
+
+.audit-logo img {
+  width: 52px;
+  height: 52px;
+
+  max-width: none;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: contain;
+}
+
+
+.audit-back {
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.78);
+
+  transition: color 0.2s ease;
+}
+
+
+.audit-back:hover {
+  color: var(--yellow);
+}
+
+
+/* =========================================================
+   SCREENS
+   ========================================================= */
+
+.screen {
+  min-height: 100vh;
+
+  padding-top: var(--nav-height);
+}
+
+
+.screen.active {
+  display: flex;
+
+  flex-direction: column;
+
+  animation: fadeIn 0.3s ease;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: #f7f4ef;
-    color: var(--navy);
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
+  to {
+    opacity: 1;
   }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
-  }
 
-  /* ───────── HEADER ───────── */
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro-screen {
+  flex: 1;
+
+  min-height: calc(100vh - var(--nav-height));
+
+  padding: clamp(42px, 6vw, 64px) 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--navy);
+}
+
+
+.intro-grid {
+  width: 100%;
+
+  max-width: 630px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+.intro-door {
+  width: 132px;
+
+  margin: 0 auto 29px;
+}
+
+
+.intro-door img {
+  width: 100%;
+}
+
+
+.intro-copy {
+  width: 100%;
+}
+
+
+.intro-eyebrow {
+  margin-bottom: 17px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.19em;
+
+  text-transform: uppercase;
+
+  color: var(--yellow);
+}
+
+
+.intro-title {
+  margin-bottom: 18px;
+
+  font-size: clamp(31px, 4.5vw, 43px);
+  font-weight: 500;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.025em;
+
+  color: var(--paper);
+}
+
+
+.intro-body {
+  max-width: 535px;
+
+  margin: 0 auto 14px;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color: rgba(255,255,255,0.8);
+}
+
+
+.intro-meta {
+  margin: 27px 0;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.7);
+}
+
+
+/* BUTTON */
+
+.btn-primary {
+  min-height: 46px;
+
+  padding: 13px 28px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  transition: background 0.2s ease;
+}
+
+
+.btn-primary:hover {
+  background: var(--brass);
+}
+
+
+.btn-primary:disabled {
+  cursor: wait;
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   SECTION TRANSITION
+   ========================================================= */
+
+.transition-screen {
+  flex: 1;
+
+  min-height: calc(100vh - var(--nav-height));
+
+  padding: 48px 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--paper-mid);
+
+  text-align: center;
+}
+
+
+.transition-inner {
+  width: 100%;
+
+  max-width: 530px;
+
+  margin: 0 auto;
+}
+
+
+.transition-eyebrow {
+  margin-bottom: 15px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--slate);
+}
+
+
+.transition-title {
+  margin-bottom: 18px;
+
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 500;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.02em;
+
+  color: var(--navy);
+}
+
+
+.transition-body {
+  max-width: 480px;
+
+  margin: 0 auto 31px;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color: var(--slate);
+}
+
+
+/* =========================================================
+   QUESTION SCREEN
+   ========================================================= */
+
+.question-screen {
+  flex: 1;
+
+  min-height: calc(100vh - var(--nav-height));
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: var(--paper-mid);
+}
+
+
+.question-body {
+  flex: 1;
+
+  width: 100%;
+
+  padding: clamp(36px, 6vw, 58px) 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.question-card {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 680px;
+
+  min-height: 490px;
+
+  margin: 0 auto;
+
+  padding: clamp(34px, 5vw, 46px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: var(--paper);
+
+  border: 1px solid var(--stone);
+}
+
+
+/* FUNCTIONAL PROGRESS */
+
+.ribbon-track {
+  position: absolute;
+
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+
+  width: 4px;
+
+  background: var(--stone);
+}
+
+
+.ribbon-fill {
+  position: absolute;
+
+  top: -1px;
+  left: -1px;
+
+  width: 4px;
+
+  background: var(--yellow);
+
+  transition: height 0.4s ease;
+}
+
+
+.section-name {
+  margin-bottom: 7px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+
+  color: var(--slate);
+}
+
+
+.question-number {
+  margin-bottom: 27px;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.06em;
+
+  color: var(--slate);
+}
+
+
+.question-text {
+  flex: 1;
+
+  margin-bottom: 31px;
+
+  display: flex;
+
+  align-items: center;
+
+  font-size: clamp(18px, 2.6vw, 22px);
+  font-weight: 500;
+
+  line-height: 1.55;
+
+  letter-spacing: -0.01em;
+
+  color: var(--navy);
+}
+
+
+.answer-options {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+
+.answer-btn {
+  width: 100%;
+
+  min-height: 50px;
+
+  padding: 14px 18px;
+
+  border: 1px solid var(--stone);
+
+  background: var(--paper);
+
+  color: var(--navy);
+
+  text-align: left;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.answer-btn:hover {
+  border-color: var(--navy);
+}
+
+
+.answer-btn.selected {
+  border-color: var(--navy);
+
+  background: var(--navy);
+
+  color: var(--paper);
+}
+
+
+.answer-btn:disabled {
+  cursor: default;
+}
+
+
+/* RESPONSE */
+
+.response-line {
+  min-height: 87px;
+
+  margin-top: 22px;
+
+  padding: 16px 19px;
+
+  border-left: 3px solid var(--clay);
+
+  background: var(--paper-mid);
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.response-line.show {
+  opacity: 1;
+  visibility: visible;
+
+  animation: fadeIn 0.25s ease;
+}
+
+
+.response-eyebrow {
+  margin-bottom: 6px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color: var(--slate);
+}
+
+
+.response-text {
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  color: var(--navy);
+}
+
+
+.next-wrap {
+  min-height: 44px;
+
+  margin-top: 15px;
+
+  text-align: right;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.next-wrap.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.btn-next {
+  min-height: 44px;
+
+  padding: 8px 2px 8px 12px;
+
+  border: none;
+
+  background: none;
+
+  color: var(--navy);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+
+.btn-next:hover {
+  color: var(--clay);
+}
+
+
+.keyboard-hint {
+  margin-top: 13px;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  color: var(--slate);
+}
+
+
+.keyboard-hint kbd {
+  display: inline-block;
+
+  min-width: 22px;
+
+  padding: 1px 5px;
+
+  border: 1px solid var(--stone);
+
+  background: var(--paper-mid);
+
+  color: var(--slate);
+
+  text-align: center;
+
+  font-family: var(--f-body);
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   SCORE
+   ========================================================= */
+
+.score-screen {
+  flex: 1;
+
+  min-height: calc(100vh - var(--nav-height));
+
+  width: 100%;
+
+  padding: clamp(44px, 6vw, 64px) 24px 72px;
+
+  background: var(--paper-mid);
+}
+
+
+.score-inner {
+  width: 100%;
+
+  max-width: 680px;
+
+  margin: 0 auto;
+}
+
+
+.score-card {
+  margin-bottom: 24px;
+
+  padding: clamp(34px, 5vw, 46px);
+
+  background: var(--paper);
+
+  border: 1px solid var(--stone);
+
+  text-align: center;
+}
+
+
+.score-eyebrow {
+  margin-bottom: 17px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--slate);
+}
+
+
+.score-number {
+  font-size: clamp(52px, 8vw, 68px);
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  color: var(--navy);
+}
+
+
+.score-denom {
+  margin: 5px 0 21px;
+
+  font-size: 14px;
+
+  color: var(--slate);
+}
+
+
+.score-divider {
+  width: 44px;
+
+  margin: 0 auto 21px;
+
+  border: none;
+
+  border-top: 1px solid var(--stone);
+}
+
+
+.score-tier-title {
+  margin-bottom: 11px;
+
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 600;
+
+  line-height: 1.35;
+
+  color: var(--navy);
+}
+
+
+.score-tier-body {
+  max-width: 470px;
+
+  margin: 0 auto;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  color: var(--slate);
+}
+
+
+/* =========================================================
+   BREAKDOWN
+   ========================================================= */
+
+.breakdown {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  margin-bottom: 24px;
+
+  border-top: 1px solid var(--stone);
+  border-bottom: 1px solid var(--stone);
+}
+
+
+.breakdown-item {
+  min-width: 0;
+
+  padding: 15px 10px;
+
+  text-align: center;
+
+  background: var(--paper);
+}
+
+
+.breakdown-item + .breakdown-item {
+  border-left: 1px solid var(--stone);
+}
+
+
+.breakdown-label {
+  min-height: 34px;
+
+  margin-bottom: 5px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+
+  color: var(--slate);
+}
+
+
+.breakdown-score {
+  font-size: 18px;
+  font-weight: 600;
+
+  color: var(--navy);
+}
+
+
+.breakdown-max {
+  font-size: 11px;
+  font-weight: 400;
+
+  color: var(--slate);
+}
+
+
+/* =========================================================
+   WHERE TO START
+   ========================================================= */
+
+.start-here-card {
+  margin-bottom: 35px;
+
+  padding: 27px 30px;
+
+  background: var(--navy);
+}
+
+
+.start-here-eyebrow {
+  margin-bottom: 9px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color: var(--yellow);
+}
+
+
+.start-here-body {
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  color: rgba(255,255,255,0.8);
+}
+
+
+/* =========================================================
+   COMPANION GUIDE
+   ========================================================= */
+
+.gate-card {
+  padding-top: 34px;
+
+  border-top: 1px solid var(--stone);
+}
+
+
+.gate-intro-title {
+  margin-bottom: 10px;
+
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 600;
+
+  line-height: 1.35;
+
+  color: var(--navy);
+}
+
+
+.gate-intro-body {
+  max-width: 550px;
+
+  font-size: 14px;
+
+  line-height: 1.78;
+
+  color: var(--slate);
+}
+
+
+.gate-preview-row {
+  margin-top: 23px;
+
+  padding: 20px 0;
+
+  display: grid;
+
+  grid-template-columns: 112px minmax(0, 1fr);
+
+  gap: 24px;
+
+  align-items: center;
+
+  border-top: 1px solid var(--stone);
+  border-bottom: 1px solid var(--stone);
+}
+
+
+.gate-preview-thumb {
+  width: 112px;
+}
+
+
+.gate-preview-thumb img {
+  width: 100%;
+}
+
+
+.gate-preview-title {
+  margin-bottom: 4px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.5;
+
+  color: var(--navy);
+}
+
+
+.gate-preview-meta {
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  color: var(--slate);
+}
+
+
+/* =========================================================
+   EMAIL FORM
+   ========================================================= */
+
+.email-form {
+  padding-top: 25px;
+}
+
+
+.form-row {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 16px;
+}
+
+
+.form-row.single {
+  grid-template-columns: 1fr;
+}
+
+
+.form-field {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.form-label {
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: var(--slate);
+}
+
+
+.form-input {
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 12px 14px;
+
+  border: 1px solid var(--stone);
+  border-radius: 0;
+
+  outline: none;
+
+  background: var(--paper);
+
+  color: var(--navy);
+
+  font-size: 16px;
+
+  transition: border-color 0.2s ease;
+}
+
+
+.form-input:hover,
+.form-input:focus {
+  border-color: var(--navy);
+}
+
+
+.form-checkrow {
+  display: grid;
+
+  grid-template-columns: 18px minmax(0, 1fr);
+
+  gap: 10px;
+
+  align-items: start;
+
+  margin: 17px 0;
+}
+
+
+.form-checkbox {
+  width: 18px;
+  height: 18px;
+
+  margin-top: 2px;
+
+  accent-color: var(--navy);
+
+  cursor: pointer;
+}
+
+
+.form-check-label {
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: var(--slate);
+}
+
+
+.form-privacy {
+  margin-top: 11px;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  color: var(--slate);
+}
+
+
+.btn-submit {
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 13px 24px;
+
+  border: none;
+
+  background: var(--navy);
+
+  color: var(--paper);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.btn-submit:hover {
+  background: var(--slate);
+}
+
+
+.btn-submit:disabled {
+  cursor: wait;
+
+  opacity: 0.7;
+}
+
+
+.form-status {
+  min-height: 22px;
+
+  margin-top: 10px;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: var(--slate);
+}
+
+
+.form-status.error {
+  color: #7a2d20;
+}
+
+
+/* =========================================================
+   THANK YOU
+   ========================================================= */
+
+.thankyou-screen {
+  flex: 1;
+
+  min-height: calc(100vh - var(--nav-height));
+
+  padding: 48px 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--navy);
+
+  text-align: center;
+}
+
+
+.thankyou-inner {
+  width: 100%;
+
+  max-width: 500px;
+}
+
+
+.thankyou-mark {
+  width: 44px;
+  height: 44px;
+
+  margin: 0 auto 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--yellow);
+}
+
+
+.thankyou-mark svg {
+  width: 20px;
+  height: 20px;
+}
+
+
+.thankyou-eyebrow {
+  margin-bottom: 13px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--yellow);
+}
+
+
+.thankyou-title {
+  margin-bottom: 18px;
+
+  font-size: clamp(24px, 4vw, 31px);
+  font-weight: 500;
+
+  line-height: 1.3;
+
+  color: var(--paper);
+}
+
+
+.thankyou-body {
+  margin-bottom: 29px;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: rgba(255,255,255,0.8);
+}
+
+
+.thankyou-links {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+
+.btn-outline {
+  min-height: 46px;
+
+  padding: 12px 24px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.36);
+
+  color: var(--paper);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.btn-outline:hover {
+  border-color: var(--yellow);
+
+  color: var(--yellow);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
   .audit-header {
-    background: var(--navy);
-    border-bottom: none;
-    padding: 0 40px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
-  .audit-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .audit-logo img {
-    height: 72px;
-    width: auto;
-  }
-
-  .audit-logo span {
-    display: none;
-  }
 
   .audit-back {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    transition: color 0.2s;
-    position: relative;
-    z-index: 1;
+    font-size: 10px;
+
+    letter-spacing: 0.07em;
   }
 
-  .audit-back:hover { color: var(--yellow); }
-
-  /* ───────── SCREENS ───────── */
-  .screen {
-    display: none;
-    min-height: calc(100vh - 100px);
-  }
-
-  .screen.active {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 81px);
-    animation: fadeIn 0.5s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* ───────── INTRO SCREEN ───────── */
-  .intro-screen {
-    background: var(--navy);
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 56px 40px;
-    min-height: calc(100vh - 100px);
-  }
-
-  .intro-grid {
-    max-width: 620px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 
   .intro-door {
-    width: 100%;
-    max-width: 150px;
-    margin: 0 auto 32px;
+    width: 108px;
   }
 
-  .intro-door img {
-    width: 100%;
-    display: block;
-    filter: drop-shadow(0 10px 24px rgba(0,0,0,0.3));
-  }
-
-  .intro-copy {
-    width: 100%;
-  }
-
-  .intro-eyebrow {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--yellow);
-    margin-bottom: 18px;
-  }
 
   .intro-title {
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 18px;
+    font-size: clamp(29px, 9vw, 37px);
   }
 
-  .intro-rule {
-    width: 32px;
-    height: 2px;
-    background: var(--yellow);
-    margin: 0 auto 18px;
-  }
-
-  .intro-body {
-    font-size: 14.5px;
-    font-weight: 400;
-    color: var(--stone);
-    line-height: 1.75;
-    margin-bottom: 14px;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .intro-meta {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: rgba(216,209,195,0.55);
-    margin-bottom: 28px;
-  }
 
   .btn-primary {
-    display: inline-block;
-    background: var(--yellow);
-    color: var(--navy);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 15px 34px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-
-  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-
-  @media (max-width: 720px) {
-    .intro-door { max-width: 120px; }
-    .intro-body, .intro-meta { max-width: 100%; }
-    .audit-header { padding: 0 24px; height: 80px; }
-    .audit-logo img { height: 56px; }
-    .audit-back { font-size: 10px; }
-    .intro-screen {
-      padding: 36px 24px;
-      min-height: calc(100vh - 80px);
-    }
-    .intro-title { font-size: 26px; }
-  }
-
-  /* ───────── SECTION TRANSITION SCREEN ───────── */
-  .transition-screen {
-    background: #f7f4ef;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 56px 40px;
-    text-align: center;
     width: 100%;
   }
 
-  .transition-inner {
-    max-width: 480px;
-    width: 100%;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-
-  .transition-eyebrow {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--clay);
-    margin-bottom: 16px;
-  }
-
-  .transition-title {
-    font-size: clamp(24px, 4vw, 32px);
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 20px;
-  }
-
-  .transition-rule {
-    width: 28px;
-    height: 2px;
-    background: var(--yellow);
-    margin: 0 auto 20px;
-  }
-
-  .transition-body {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--slate);
-    line-height: 1.75;
-    margin-bottom: 36px;
-  }
-
-  /* ───────── QUESTION SCREEN ───────── */
-  .question-screen {
-    background: #f7f4ef;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
 
   .question-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 48px 40px;
-    width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
   }
+
 
   .question-card {
-    background: var(--white);
-    border: 1px solid var(--stone);
-    padding: 44px 44px 40px;
-    position: relative;
-    max-width: 640px;
-    width: 100%;
-    min-height: 480px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+    min-height: 0;
+
+    padding: 31px 23px 28px 28px;
   }
 
-  /* the ribbon: a vertical rule that fills as you progress through the 15 questions */
-  .ribbon-track {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: #ece5d6;
-  }
-
-  .ribbon-fill {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 4px;
-    background: var(--yellow);
-    transition: height 0.5s ease;
-  }
-
-  .section-name {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--clay);
-    margin-bottom: 8px;
-  }
-
-  .question-number {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--stone);
-    margin-bottom: 28px;
-  }
 
   .question-text {
-    font-size: clamp(17px, 2.6vw, 21px);
-    font-weight: 500;
-    color: var(--navy);
-    line-height: 1.5;
-    margin-bottom: 32px;
-    flex: 1;
-    display: flex;
-    align-items: center;
+    min-height: 130px;
+
+    align-items: flex-start;
   }
 
-  .answer-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .answer-btn {
-    text-align: left;
-    padding: 15px 20px;
-    background: var(--white);
-    border: 1.5px solid var(--stone);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--navy);
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .answer-btn:hover {
-    border-color: var(--navy);
-    background: var(--paper);
-  }
-
-  .answer-btn.selected {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: var(--white);
-  }
-
-  /* response line shown after answering */
-  .response-line {
-    margin-top: 24px;
-    padding: 16px 20px;
-    background: #f5f5f5;
-    border-left: 3px solid var(--yellow);
-    opacity: 0;
-    visibility: hidden;
-    min-height: 84px;
-  }
-
-  .response-line.show { opacity: 1; visibility: visible; animation: fadeIn 0.4s ease; }
-
-  .response-eyebrow {
-    font-size: 8.5px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--clay);
-    margin-bottom: 6px;
-  }
-
-  .response-text {
-    font-size: 13.5px;
-    font-weight: 400;
-    color: var(--navy);
-    line-height: 1.6;
-  }
-
-  .next-wrap {
-    margin-top: 20px;
-    text-align: right;
-    min-height: 40px;
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .next-wrap.show { opacity: 1; visibility: visible; animation: fadeIn 0.4s ease; }
-
-  .btn-next {
-    background: none;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--navy);
-    cursor: pointer;
-    padding: 8px 4px;
-  }
-
-  .btn-next:hover { color: var(--clay); }
 
   .keyboard-hint {
-    font-size: 10px;
-    color: var(--stone);
-    margin-top: 12px;
-    letter-spacing: 0.04em;
+    display: none;
   }
 
-  .keyboard-hint kbd {
-    display: inline-block;
-    background: #f0ede8;
-    border: 1px solid var(--stone);
-    border-radius: 3px;
-    padding: 1px 5px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    color: var(--slate);
+
+  .next-wrap {
+    text-align: left;
   }
 
-  @media (max-width: 600px) {
-    .keyboard-hint { display: none; }
-  }
 
-  /* ───────── SCORE SCREEN ───────── */
-  .score-screen {
-    background: #f7f4ef;
-    justify-content: center;
-    padding: 56px 40px;
-  }
-
-  .score-inner {
-    max-width: 600px;
-    margin: 0 auto;
+  .btn-next {
     width: 100%;
+
+    text-align: right;
   }
 
-  .score-card {
-    background: var(--white);
-    border: 1px solid var(--stone);
-    padding: 44px;
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  .score-eyebrow {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--clay);
-    margin-bottom: 18px;
-  }
-
-  .score-number {
-    font-size: clamp(48px, 8vw, 64px);
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1;
-  }
-
-  .score-denom {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--slate);
-    margin-bottom: 18px;
-  }
-
-  .score-rule {
-    width: 28px;
-    height: 2px;
-    background: var(--yellow);
-    margin: 0 auto 18px;
-  }
-
-  .score-tier-title {
-    font-size: clamp(18px, 3vw, 22px);
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 12px;
-  }
-
-  .score-tier-body {
-    font-size: 13.5px;
-    font-weight: 400;
-    color: var(--slate);
-    line-height: 1.7;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
-  .start-here-card {
-    background: var(--navy);
-    padding: 26px 30px;
-    margin-bottom: 24px;
-  }
-
-  .start-here-eyebrow {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--yellow);
-    margin-bottom: 10px;
-  }
-
-  .start-here-body {
-    font-size: 13.5px;
-    font-weight: 400;
-    color: var(--stone);
-    line-height: 1.7;
-  }
 
   .breakdown {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    margin-bottom: 28px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .breakdown-item {
-    background: var(--white);
-    border: 1px solid var(--stone);
-    padding: 12px 10px;
-    text-align: center;
+
+  .breakdown-item:nth-child(3) {
+    border-left: none;
+
+    border-top: 1px solid var(--stone);
   }
 
-  .breakdown-label {
-    font-size: 7.5px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--slate);
-    margin-bottom: 6px;
-    line-height: 1.3;
+
+  .breakdown-item:nth-child(4) {
+    border-top: 1px solid var(--stone);
   }
 
-  .breakdown-score {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--navy);
-  }
-
-  .breakdown-max {
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--stone);
-  }
-
-  @media (max-width: 560px) {
-    .breakdown { grid-template-columns: repeat(2, 1fr); }
-    .score-card { padding: 32px 22px; }
-  }
-
-  /* email gate */
-  .gate-card {
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin-top: 8px;
-  }
-
-  .gate-intro {
-    padding: 0 0 22px 0;
-    border-bottom: none;
-  }
-
-  .gate-intro-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-
-  .gate-intro-body {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--slate);
-    line-height: 1.75;
-    max-width: 480px;
-  }
 
   .gate-preview-row {
-    margin-top: 18px;
-    display: flex;
-    gap: 22px;
-    align-items: center;
+    grid-template-columns: 92px minmax(0, 1fr);
+
+    gap: 18px;
   }
+
 
   .gate-preview-thumb {
-    width: 110px;
-    flex-shrink: 0;
+    width: 92px;
   }
 
-  .gate-preview-thumb img {
-    width: 100%;
-    display: block;
-    border-radius: 2px;
-  }
-
-  .gate-preview-text {
-    flex: 1;
-  }
-
-  .gate-preview-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-
-  .gate-preview-meta {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--stone);
-    letter-spacing: 0.02em;
-  }
-
-  @media (max-width: 480px) {
-    .gate-preview-row { flex-direction: column; align-items: flex-start; }
-    .gate-preview-thumb { width: 110px; }
-  }
-
-  .email-form {
-    padding: 20px 0 0 0;
-    background: transparent;
-  }
 
   .form-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
   }
 
-  .form-field {
-    flex: 1;
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-label {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--slate);
-  }
-
-  .form-input {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--navy);
-    background: var(--paper);
-    border: 1.5px solid var(--stone);
-    padding: 11px 14px;
-    outline: none;
-    width: 100%;
-    transition: border-color 0.2s;
-  }
-
-  .form-input:focus { border-color: var(--navy); }
-
-  .form-checkrow {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
-  .form-checkbox {
-    width: 16px;
-    height: 16px;
-    border: 1.5px solid var(--stone);
-    flex-shrink: 0;
-    margin-top: 2px;
-    accent-color: var(--navy);
-    cursor: pointer;
-  }
-
-  .form-check-label {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--slate);
-    line-height: 1.6;
-  }
-
-  .form-privacy {
-    font-size: 10px;
-    color: var(--stone);
-    line-height: 1.5;
-    margin-top: 10px;
-  }
-
-  .btn-submit {
-    width: 100%;
-    padding: 14px 24px;
-    background: var(--yellow);
-    color: var(--navy);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    margin-top: 4px;
-  }
-
-  .btn-submit:hover { opacity: 0.9; }
-
-  /* ───────── THANK YOU SCREEN ───────── */
-  .thankyou-screen {
-    background: var(--navy);
-    justify-content: center;
-    align-items: center;
-    padding: 56px 40px;
-    text-align: center;
-  }
-
-  .thankyou-inner { max-width: 460px; }
-
-  .thankyou-mark {
-    width: 44px;
-    height: 44px;
-    background: var(--yellow);
-    margin: 0 auto 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .thankyou-mark svg { width: 20px; height: 20px; }
-
-  .thankyou-eyebrow {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--yellow);
-    margin-bottom: 14px;
-  }
-
-  .thankyou-title {
-    font-size: clamp(22px, 4vw, 28px);
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.25;
-    margin-bottom: 18px;
-  }
-
-  .thankyou-body {
-    font-size: 13.5px;
-    font-weight: 400;
-    color: var(--stone);
-    line-height: 1.75;
-    margin-bottom: 30px;
-  }
 
   .thankyou-links {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
-  .btn-outline {
-    display: inline-block;
-    padding: 12px 26px;
-    border: 1.5px solid rgba(255,255,255,0.2);
-    color: var(--stone);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
+
+  .thankyou-links a {
+    width: 100%;
   }
 
-  .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+}
+
+
+@media (max-width: 390px) {
+
+  .audit-logo {
+    left: auto;
+    right: 18px;
+
+    transform: none;
+  }
+
+
+  .gate-preview-row {
+    grid-template-columns: 1fr;
+  }
+
+
+  .gate-preview-thumb {
+    width: 108px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+  }
+
+}
+
 </style>
-<link rel="canonical" href="https://www.theyellowfrontdoor.ca/website-audit.html" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-NPL1XCH6H7');
+
+
+<!-- STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "The Website Checkup",
+  "url": "https://www.theyellowfrontdoor.ca/website-audit.html",
+  "description": "A free fifteen-question website self-check for small businesses, designed to identify the first area worth fixing.",
+  "isPartOf": {
+    "@id": "https://www.theyellowfrontdoor.ca/#business"
+  }
+}
 </script>
+
+
+<!-- GOOGLE ANALYTICS -->
+
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"
+></script>
+
+<script>
+
+window.dataLayer =
+  window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag(
+  'config',
+  'G-NPL1XCH6H7'
+);
+
+</script>
+
 </head>
+
+
 <body>
 
+
+<a
+  class="skip-link"
+  href="#main-content"
+>
+  Skip to Website Checkup
+</a>
+
+
+<!-- =======================================================
+     COMPACT HEADER
+     ======================================================= -->
+
 <header class="audit-header">
-  <a href="index.html" class="audit-logo">
-    <img src="roundlogo2.png" alt="The Yellow Front Door">
-    <span>The Yellow Front Door</span>
+
+
+  <a
+    href="index.html"
+    class="audit-back"
+  >
+    ← Back to site
   </a>
-  <a href="index.html" class="audit-back">← Back to site</a>
+
+
+  <a
+    href="index.html"
+    class="audit-logo"
+    aria-label="The Yellow Front Door — home"
+  >
+
+    <img
+      src="roundlogo2.png"
+      alt=""
+    >
+
+  </a>
+
+
 </header>
 
-<!-- ══ INTRO ══ -->
-<div class="screen active" id="screen-intro">
+
+<main id="main-content">
+
+
+<!-- =======================================================
+     INTRO
+     ======================================================= -->
+
+<section
+  class="screen active"
+  id="screen-intro"
+  aria-labelledby="intro-title"
+>
+
+
   <div class="intro-screen">
+
+
     <div class="intro-grid">
-      <div class="intro-door">
-        <img src="theyellowfrontdoor.png" alt="The yellow front door">
+
+
+      <div
+        class="intro-door"
+        aria-hidden="true"
+      >
+
+        <img
+          src="theyellowfrontdoor.png"
+          alt=""
+        >
+
       </div>
+
+
       <div class="intro-copy">
-<div class="intro-eyebrow">The Website Checkup</div>
-       <h1 class="intro-title">Your Website, Honestly.</h1>
-        <div class="intro-rule"></div>
-        <p class="intro-body">Most websites were built during a quiet week and haven't been looked at since. This walks you through yours the way a new customer would. Five minutes, fifteen questions.</p>
-        <p class="intro-body">Answer honestly. The point isn't a perfect score. It's finding the one thing worth fixing first.</p>
-        <p class="intro-meta">15 questions · about 5 minutes</p>
-        <button class="btn-primary" onclick="startAudit()">Begin</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ══ SECTION TRANSITIONS ══ -->
-<div class="screen" id="screen-transition">
+
+        <p class="intro-eyebrow">
+          The Website Checkup
+        </p>
+
+
+        <h1
+          class="intro-title"
+          id="intro-title"
+        >
+          Your Website, Honestly.
+        </h1>
+
+
+        <p class="intro-body">
+          Most websites were built during a quiet week and haven't been looked at since. This walks you through yours the way a new customer would. Five minutes, fifteen questions.
+        </p>
+
+
+        <p class="intro-body">
+          Answer honestly. The point isn't a perfect score. It's finding the one thing worth fixing first.
+        </p>
+
+
+        <p class="intro-meta">
+          15 questions · about 5 minutes
+        </p>
+
+
+        <button
+          type="button"
+          class="btn-primary"
+          id="begin-button"
+        >
+          Begin
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+<!-- =======================================================
+     SECTION TRANSITION
+     ======================================================= -->
+
+<section
+  class="screen"
+  id="screen-transition"
+  hidden
+  aria-labelledby="t-title"
+>
+
+
   <div class="transition-screen">
+
+
     <div class="transition-inner">
-      <div class="transition-eyebrow" id="t-eyebrow"></div>
-      <h2 class="transition-title" id="t-title"></h2>
-      <div class="transition-rule"></div>
-      <p class="transition-body" id="t-body"></p>
-      <button class="btn-primary" onclick="continueFromTransition()" id="t-button">Continue</button>
-    </div>
-  </div>
-</div>
 
-<!-- ══ QUESTIONS ══ -->
-<div class="screen" id="screen-questions">
+
+      <p
+        class="transition-eyebrow"
+        id="t-eyebrow"
+      ></p>
+
+
+      <h2
+        class="transition-title"
+        id="t-title"
+        tabindex="-1"
+      ></h2>
+
+
+      <p
+        class="transition-body"
+        id="t-body"
+      ></p>
+
+
+      <button
+        type="button"
+        class="btn-primary"
+        id="transition-button"
+      >
+        Continue
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+<!-- =======================================================
+     QUESTIONS
+     ======================================================= -->
+
+<section
+  class="screen"
+  id="screen-questions"
+  hidden
+  aria-label="Website Checkup questions"
+>
+
+
   <div class="question-screen">
-    <div class="question-body">
-      <div class="question-card">
-        <div class="ribbon-track"></div>
-        <div class="ribbon-fill" id="ribbonFill" style="height: 0%;"></div>
-        <div class="section-name" id="q-section"></div>
-        <div class="question-number" id="q-number"></div>
-        <div class="question-text" id="q-text"></div>
-        <div class="answer-options" id="answer-options"></div>
-        <p class="keyboard-hint">Press <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> to answer · <kbd>Enter</kbd> to continue</p>
-        <div class="response-line" id="response-line">
-          <div class="response-eyebrow" id="response-eyebrow"></div>
-          <div class="response-text" id="response-text"></div>
-        </div>
-        <div class="next-wrap" id="next-wrap">
-          <button class="btn-next" onclick="nextQuestion()" id="next-button">Next question →</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ══ SCORE ══ -->
-<div class="screen" id="screen-score">
+
+    <div class="question-body">
+
+
+      <div class="question-card">
+
+
+        <div
+          class="ribbon-track"
+          aria-hidden="true"
+        ></div>
+
+
+        <div
+          class="ribbon-fill"
+          id="ribbonFill"
+          aria-hidden="true"
+          style="height:0%;"
+        ></div>
+
+
+        <p
+          class="section-name"
+          id="q-section"
+        ></p>
+
+
+        <p
+          class="question-number"
+          id="q-number"
+          role="progressbar"
+          aria-label="Website Checkup progress"
+          aria-valuemin="1"
+          aria-valuemax="15"
+          aria-valuenow="1"
+        ></p>
+
+
+        <h2
+          class="question-text"
+          id="q-text"
+          tabindex="-1"
+        ></h2>
+
+
+        <div
+          class="answer-options"
+          id="answer-options"
+          aria-labelledby="q-text"
+        ></div>
+
+
+        <p class="keyboard-hint">
+          Keyboard:
+          <kbd>1</kbd> Yes
+          <kbd>2</kbd> Mostly
+          <kbd>3</kbd> Not yet
+        </p>
+
+
+        <div
+          class="response-line"
+          id="response-line"
+          aria-live="polite"
+        >
+
+          <p
+            class="response-eyebrow"
+            id="response-eyebrow"
+          ></p>
+
+          <p
+            class="response-text"
+            id="response-text"
+          ></p>
+
+        </div>
+
+
+        <div
+          class="next-wrap"
+          id="next-wrap"
+        >
+
+          <button
+            type="button"
+            class="btn-next"
+            id="next-button"
+          >
+            Next question →
+          </button>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+<!-- =======================================================
+     SCORE
+     ======================================================= -->
+
+<section
+  class="screen"
+  id="screen-score"
+  hidden
+  aria-labelledby="tier-title"
+>
+
+
   <div class="score-screen">
+
+
     <div class="score-inner">
 
+
       <div class="score-card">
-        <div class="score-eyebrow">Your results</div>
-        <div class="score-number" id="score-display">0</div>
-        <div class="score-denom">out of 30</div>
-        <div class="score-rule"></div>
-        <div class="score-tier-title" id="tier-title"></div>
-        <div class="score-tier-body" id="tier-body"></div>
+
+
+        <p class="score-eyebrow">
+          Your results
+        </p>
+
+
+        <p
+          class="score-number"
+          id="score-display"
+          aria-label="Your score"
+        >
+          0
+        </p>
+
+
+        <p class="score-denom">
+          out of 30
+        </p>
+
+
+        <hr class="score-divider">
+
+
+        <h1
+          class="score-tier-title"
+          id="tier-title"
+          tabindex="-1"
+        ></h1>
+
+
+        <p
+          class="score-tier-body"
+          id="tier-body"
+        ></p>
+
+
       </div>
 
-      <div class="breakdown" id="breakdown"></div>
 
-      <div class="start-here-card">
-        <div class="start-here-eyebrow">Where to start</div>
-        <div class="start-here-body" id="start-here-body"></div>
-      </div>
+      <!-- BREAKDOWN -->
 
-      <div class="gate-card">
+      <div
+        class="breakdown"
+        id="breakdown"
+        aria-label="Score breakdown by section"
+      ></div>
+
+
+      <!-- WHERE TO START -->
+
+      <section
+        class="start-here-card"
+        aria-labelledby="start-here-title"
+      >
+
+
+        <h2
+          class="start-here-eyebrow"
+          id="start-here-title"
+        >
+          Where to start
+        </h2>
+
+
+        <p
+          class="start-here-body"
+          id="start-here-body"
+        ></p>
+
+
+      </section>
+
+
+      <!-- COMPANION GUIDE -->
+
+      <section
+        class="gate-card"
+        aria-labelledby="guide-title"
+      >
+
+
         <div class="gate-intro">
-          <div class="gate-intro-title">Before you go</div>
-          <div class="gate-intro-body">We put this together because we've watched a lot of small business owners stare at their own site and not know where to start. It walks through what each section of this audit actually means and what to do first. Pop your email below and we'll send it over.</div>
+
+
+          <h2
+            class="gate-intro-title"
+            id="guide-title"
+          >
+            Before you go
+          </h2>
+
+
+          <p class="gate-intro-body">
+            We put this together because we've watched a lot of small business owners stare at their own site and not know where to start. It walks through what each section of this checkup actually means and what to do first. Pop your email below and we'll send it over.
+          </p>
+
+
           <div class="gate-preview-row">
+
+
             <div class="gate-preview-thumb">
-              <img src="guide-mockup.png" alt="Your Website, Honestly — companion guide">
+
+              <img
+                src="guide-mockup.png"
+                alt="Your Website, Honestly companion guide"
+                loading="lazy"
+              >
+
             </div>
+
+
             <div class="gate-preview-text">
-              <div class="gate-preview-title">Your Website, Honestly.</div>
-              <div class="gate-preview-meta">8 pages · about a 10 minute read</div>
+
+              <p class="gate-preview-title">
+                Your Website, Honestly.
+              </p>
+
+              <p class="gate-preview-meta">
+                8 pages · about a 10-minute read
+              </p>
+
             </div>
+
+
           </div>
+
+
         </div>
+
+
+        <!-- EMAIL FORM -->
 
         <div class="email-form">
-          <form id="auditForm" onsubmit="submitForm(event)">
-            <input type="hidden" name="score" id="hidden-score">
-            <input type="hidden" name="breakdown" id="hidden-breakdown">
 
-          <div class="form-row">
-  <div class="form-field">
-    <label class="form-label" for="fname">Your name</label>
-    <input class="form-input" type="text" id="fname" name="first_name" placeholder="Sarah" required>
-  </div>
-  <div class="form-field">
-    <label class="form-label" for="bizname">Business name</label>
-    <input class="form-input" type="text" id="bizname" name="business_name" placeholder="Valley Home Services" required>
-  </div>
-</div>
-<div class="form-row">
-  <div class="form-field">
-    <label class="form-label" for="email">Email address</label>
-    <input class="form-input" type="email" id="email" name="email" placeholder="sarah@yourbusiness.ca" required>  
-  </div>
 
-           <button class="btn-submit" type="submit">Send me the guide</button>
-            <div class="form-checkrow">
-              <input class="form-checkbox" type="checkbox" id="followup" name="wants_followup" value="yes">
-              <label class="form-check-label" for="followup">Send my results to The Yellow Front Door — I'd love their thoughts.</label>
+          <form id="auditForm">
+
+
+            <input
+              type="hidden"
+              name="score"
+              id="hidden-score"
+            >
+
+
+            <input
+              type="hidden"
+              name="breakdown"
+              id="hidden-breakdown"
+            >
+
+
+            <div class="form-row">
+
+
+              <div class="form-field">
+
+                <label
+                  class="form-label"
+                  for="fname"
+                >
+                  Your name
+                </label>
+
+                <input
+                  class="form-input"
+                  type="text"
+                  id="fname"
+                  name="first_name"
+                  autocomplete="given-name"
+                  placeholder="Sarah"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-field">
+
+                <label
+                  class="form-label"
+                  for="bizname"
+                >
+                  Business name
+                </label>
+
+                <input
+                  class="form-input"
+                  type="text"
+                  id="bizname"
+                  name="business_name"
+                  autocomplete="organization"
+                  placeholder="Valley Home Services"
+                  required
+                >
+
+              </div>
+
+
             </div>
-            <p class="form-privacy">We don't share your email.</p>
+
+
+            <div class="form-row single">
+
+
+              <div class="form-field">
+
+                <label
+                  class="form-label"
+                  for="email"
+                >
+                  Email address
+                </label>
+
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  placeholder="sarah@yourbusiness.ca"
+                  required
+                >
+
+              </div>
+
+
+            </div>
+
+
+            <button
+              class="btn-submit"
+              type="submit"
+              id="guide-submit"
+            >
+              Send me the guide
+            </button>
+
+
+            <div class="form-checkrow">
+
+              <input
+                class="form-checkbox"
+                type="checkbox"
+                id="followup"
+                name="wants_followup"
+                value="yes"
+              >
+
+              <label
+                class="form-check-label"
+                for="followup"
+              >
+                Send my results to The Yellow Front Door — I'd love their thoughts.
+              </label>
+
+            </div>
+
+
+            <p class="form-privacy">
+              We don't share your email.
+            </p>
+
+
+            <p
+              class="form-status"
+              id="form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+
           </form>
+
+
         </div>
-      </div>
+
+
+      </section>
+
 
     </div>
-  </div>
-</div>
 
-<!-- ══ THANK YOU ══ -->
-<div class="screen" id="screen-thankyou">
+
+  </div>
+
+
+</section>
+
+
+<!-- =======================================================
+     THANK YOU
+     ======================================================= -->
+
+<section
+  class="screen"
+  id="screen-thankyou"
+  hidden
+  aria-labelledby="thankyou-title"
+>
+
+
   <div class="thankyou-screen">
+
+
     <div class="thankyou-inner">
-      <div class="thankyou-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#132447" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+
+      <div
+        class="thankyou-mark"
+        aria-hidden="true"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#132447"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
+
       </div>
-      <div class="thankyou-eyebrow">It's on its way</div>
-      <h2 class="thankyou-title">Check your inbox, shortly.</h2>
-      <p class="thankyou-body">The companion guide is heading to you now. If anything in the audit made you want a second set of eyes on your site, a Drive-By is free and takes about twenty minutes.</p>
+
+
+      <p class="thankyou-eyebrow">
+        It's on its way
+      </p>
+
+
+      <h1
+        class="thankyou-title"
+        id="thankyou-title"
+        tabindex="-1"
+      >
+        Check your inbox shortly.
+      </h1>
+
+
+      <p class="thankyou-body">
+        The companion guide is heading to you now. If anything in the checkup made you want a second set of eyes on your site, a Drive-By is free and takes about twenty minutes.
+      </p>
+
+
       <div class="thankyou-links">
-        <a href="lets-talk.html" class="btn-primary">Book a Drive-By</a>
-        <a href="index.html" class="btn-outline">Back to the site</a>
+
+
+        <a
+          href="lets-talk.html"
+          class="btn-primary"
+        >
+          Request a Drive-By
+        </a>
+
+
+        <a
+          href="index.html"
+          class="btn-outline"
+        >
+          Back to the site
+        </a>
+
+
       </div>
+
+
     </div>
+
+
   </div>
-</div>
+
+
+</section>
+
+
+</main>
+
 
 <script>
-  const sections = ["First Impression", "Clarity", "Trust", "Action"];
-  const sectionMax = [8, 8, 8, 6]; // 4Q/4Q/4Q/3Q x max 2pts each
 
-  const transitions = [
-    {
-      eyebrow: "Section 01 of 04",
-      title: "First Impression",
-      body: "The first three seconds. We tend to overthink the rest of the site and forget this part matters most."
-    },
-    {
-      eyebrow: "Section 02 of 04",
-      title: "Clarity",
-      body: "Clarity is the difference between someone leaving and someone reaching out. It's also the hardest thing to see in your own work."
-    },
-    {
-      eyebrow: "Section 03 of 04",
-      title: "Trust",
-      body: "This is where most small business sites quietly lose people, not because the owner doesn't care, but because trust signals are easy to overlook when you built the thing yourself."
-    },
-    {
-      eyebrow: "Section 04 of 04",
-      title: "Action",
-      body: "The last step is the one people forget. If someone's ready to act, make it obvious what happens next."
+/* =========================================================
+   DATA
+   ========================================================= */
+
+const sections = [
+  "First Impression",
+  "Clarity",
+  "Trust",
+  "Action"
+];
+
+
+const sectionMax = [
+  8,
+  8,
+  8,
+  6
+];
+
+
+const transitions = [
+
+  {
+    eyebrow: "Section 01 of 04",
+    title: "First Impression",
+    body: "The first three seconds. We tend to overthink the rest of the site and forget this part matters most."
+  },
+
+  {
+    eyebrow: "Section 02 of 04",
+    title: "Clarity",
+    body: "Clarity is the difference between someone leaving and someone reaching out. It's also the hardest thing to see in your own work."
+  },
+
+  {
+    eyebrow: "Section 03 of 04",
+    title: "Trust",
+    body: "This is where most small business sites quietly lose people, not because the owner doesn't care, but because trust signals are easy to overlook when you built the thing yourself."
+  },
+
+  {
+    eyebrow: "Section 04 of 04",
+    title: "Action",
+    body: "The last step is the one people forget. If someone's ready to act, make it obvious what happens next."
+  }
+
+];
+
+
+const questions = [
+
+  /* =======================================================
+     SECTION 1 — FIRST IMPRESSION
+     ======================================================= */
+
+  {
+    section: 0,
+
+    text: "My site loads in a reasonable amount of time on a phone. I'm not watching a blank screen for five or more seconds waiting for something to appear.",
+
+    responses: {
+
+      2: "That's the cost of admission. Most don't have it.",
+
+      1: "Mostly close is where bounce rates live. Worth a real test on your phone, on cellular, on a Tuesday morning.",
+
+      0: "Slow sites lose people before they've seen anything. Usually an image file size problem, worth checking."
+
     }
-  ];
+  },
 
-  const questions = [
-    // SECTION 1 — First Impression
-    {
-      section: 0,
-      text: "My site loads in a reasonable amount of time on a phone. I'm not watching a blank screen for five or more seconds waiting for something to appear.",
-      responses: {
-        2: "That's the cost of admission. Most don't have it.",
-        1: "Mostly close is where bounce rates live. Worth a real test on your phone, on cellular, on a Tuesday morning.",
-        0: "Slow sites lose people before they've seen anything. Usually an image file size problem, worth checking."
-      }
-    },
-    {
-      section: 0,
-      text: "On my phone, I can actually use the site. Read the text without zooming, tap the buttons without missing them, and find what I'm looking for without frustration.",
-      responses: {
-        2: "Good. More than half of people land on your site through their phone. They notice.",
-        1: "If it's almost there, the gap is usually one of three things: button size, tap target spacing, or text too small to read.",
-        0: "If using your site on a phone is work, people just leave. That's the whole sentence."
-      }
-    },
-    {
-      section: 0,
-      text: "Within ten seconds of landing on my homepage, it's clear what I do, who I do it for, and where I'm based.",
-      responses: {
-        2: "That's the hardest one to get right. Most sites don't.",
-        1: "Mostly clear isn't clear. People skim for the answer, and if it isn't obvious, they move on.",
-        0: "This is the single biggest fix on most sites. Often just a headline change."
-      }
-    },
-    {
-      section: 0,
-      text: "The site looks current. No old promotions, outdated hours, or anything that makes someone wonder if we're still open.",
-      responses: {
-        2: "Quiet but important. People notice old dates more than you'd think.",
-        1: "Even one outdated detail, like a stale promo or last year's hours, makes everything else seem unsure.",
-        0: "Old dates make the whole site feel uncertain. An easy weekend fix that buys real trust."
-      }
-    },
-    // SECTION 2 — Clarity
-    {
-      section: 1,
-      text: "A stranger could read my homepage and describe my business back to me accurately. Not just the industry, but what we actually do and who we do it for.",
-      responses: {
-        2: "If a stranger can repeat it back, your homepage is doing real work.",
-        1: "Mostly means they're guessing. Worth testing on someone who doesn't already know what you do.",
-        0: "If people can't tell strangers who you are, you have to tell them yourself every time. That doesn't scale."
-      }
-    },
-    {
-      section: 1,
-      text: "My services are described in plain language. Not buzzwords, not industry jargon. Language a real customer would use when searching for what I offer.",
-      responses: {
-        2: "Plain language reads as confident. Buzzwords read as hiding.",
-        1: "There's almost always one paragraph hiding the jargon, words like solutions or comprehensive or tailored. Find it. Rewrite it.",
-        0: "Search like a customer would. The words on your site should be the words they'd type."
-      }
-    },
-    {
-      section: 1,
-      text: "Someone could tell from my site whether I'm the right fit for them before they have to contact me. We're not making them guess.",
-      responses: {
-        2: "You're saving yourself wasted enquiries. That's the whole point.",
-        1: "Mostly means you're still fielding calls that aren't a fit. Be specific about who you're for, and quietly, who you aren't.",
-        0: "Vague sites attract everyone, which means they attract no one in particular. Pick your person."
-      }
-    },
-    {
-      section: 1,
-      text: "There's at least a general sense of what things cost somewhere on the site. Even a starting price or a range, something that lets people decide if they're in the right place.",
-      responses: {
-        2: "Brave. You filter out the wrong leads and keep the warm ones.",
-        1: "A starting from or a range is enough. People aren't asking for a quote, they're asking if they can afford to ask.",
-        0: "No pricing is the most common reason people don't reach out. They assume it's not for them, and they're often wrong."
-      }
-    },
-    // SECTION 3 — Trust
-    {
-      section: 2,
-      text: "There's at least one real photo on the site. Me, my work, my space, or my team. Not stock images. Something that shows a real person is behind this.",
-      responses: {
-        2: "A real photo is worth a page of copy.",
-        1: "One real photo of you, even imperfect, beats ten polished stock shots. Every time.",
-        0: "People hire people. Stock photos signal absence, they tell visitors there's no one home."
-      }
-    },
-    {
-      section: 2,
-      text: "There are reviews or testimonials on the site. Specific ones, not just 'great service.' Something a new customer could actually learn from.",
-      responses: {
-        2: "Specific testimonials are the closest thing to free new clients.",
-        1: "Vague praise reads as fake. One detailed quote does more than ten generic ones.",
-        0: "Just one. Even a short, specific quote from one real client moves the needle more than anything else on the page."
-      }
-    },
-    {
-      section: 2,
-      text: "The site feels consistent throughout. Same fonts, same colours, same general feeling. It doesn't look like different pages were built in different years.",
-      responses: {
-        2: "Consistency is design's quiet job, and trust's.",
-        1: "If pages feel like they were built in different years, people sense it before they can name it.",
-        0: "Inconsistency tells visitors there isn't one person looking after things. Usually fixable with shared colours, fonts, and a once-over."
-      }
-    },
-    {
-      section: 2,
-      text: "My contact information is easy to find. Not buried in a footer in tiny text.",
-      responses: {
-        2: "Good. Hidden contact info is the friction people don't tell you about.",
-        1: "Mostly findable still means some people give up. Easiest fix in the whole audit.",
-        0: "If finding you takes work, people who were nearly ready stop being ready. Put it where the eye lands first."
-      }
-    },
-    // SECTION 4 — Action
-    {
-      section: 3,
-      text: "Every page has a clear next step, not just the contact page. Someone who decides they like us halfway through the About page can act on that right there.",
-      responses: {
-        2: "You're meeting people where they decide. Most sites only ask once.",
-        1: "Mostly means a few pages are dead ends. Find them. They're the leaks.",
-        0: "Every page is a chance. A page without a next step is a conversation that just stopped."
-      }
-    },
-    {
-      section: 3,
-      text: "The call to action tells people exactly what happens when they click. Not just 'get in touch,' something specific enough that they know what they're signing up for.",
-      responses: {
-        2: "'Book a free 20-minute call' beats 'get in touch' every time.",
-        1: "If your button says get in touch or contact us, you're asking people to imagine the rest. Tell them.",
-        0: "Specific CTAs convert. Book a Drive-By, twenty minutes, no pitch, beats contact us a hundred ways."
-      }
-    },
-    {
-      section: 3,
-      text: "That next step is easy to find without scrolling all the way to the bottom.",
-      responses: {
-        2: "Good. Hidden next steps are a slow leak.",
-        1: "Mostly findable still means some people quietly give up before they get there.",
-        0: "If finding the next step takes effort, the page is asking too much of someone who was already ready."
-      }
+
+  {
+    section: 0,
+
+    text: "On my phone, I can actually use the site. Read the text without zooming, tap the buttons without missing them, and find what I'm looking for without frustration.",
+
+    responses: {
+
+      2: "Good. More than half of people land on your site through their phone. They notice.",
+
+      1: "If it's almost there, the gap is usually one of three things: button size, tap target spacing, or text too small to read.",
+
+      0: "If using your site on a phone is work, people just leave. That's the whole sentence."
+
     }
-  ];
+  },
 
-  let currentSection = -1;
-  let currentQ = 0;
-  let answers = [];
-  let pendingAnswer = null;
 
-  function showScreen(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0, 0);
-  }
+  {
+    section: 0,
 
-  function startAudit() {
-    currentSection = -1;
-    advanceSection();
-  }
+    text: "Within ten seconds of landing on my homepage, it's clear what I do, who I do it for, and where I'm based.",
 
-  function advanceSection() {
-    currentSection++;
-    if (currentSection >= sections.length) {
-      showScore();
-      return;
+    responses: {
+
+      2: "That's the hardest one to get right. Most sites don't.",
+
+      1: "Mostly clear isn't clear. People skim for the answer, and if it isn't obvious, they move on.",
+
+      0: "This is the single biggest fix on most sites. Often just a headline change."
+
     }
-    const t = transitions[currentSection];
-    document.getElementById('t-eyebrow').textContent = t.eyebrow;
-    document.getElementById('t-title').textContent = t.title;
-    document.getElementById('t-body').textContent = t.body;
-    showScreen('screen-transition');
-  }
+  },
 
-  function continueFromTransition() {
-    showScreen('screen-questions');
-    renderQuestion();
-  }
 
-  function renderQuestion() {
-    const q = questions[currentQ];
-    document.getElementById('q-section').textContent = sections[q.section];
-    document.getElementById('q-number').textContent = `Question ${currentQ + 1} of ${questions.length}`;
-    document.getElementById('q-text').textContent = q.text;
+  {
+    section: 0,
 
-    const fillPct = (currentQ / questions.length) * 100;
-    document.getElementById('ribbonFill').style.height = fillPct + '%';
+    text: "The site looks current. No old promotions, outdated hours, or anything that makes someone wonder if we're still open.",
 
-    const optWrap = document.getElementById('answer-options');
-    optWrap.innerHTML = `
-      <button class="answer-btn" data-val="2" onclick="selectAnswer(this, 2)">Yes</button>
-      <button class="answer-btn" data-val="1" onclick="selectAnswer(this, 1)">Mostly</button>
-      <button class="answer-btn" data-val="0" onclick="selectAnswer(this, 0)">Not yet</button>
-    `;
+    responses: {
 
-    document.getElementById('response-line').classList.remove('show');
-    document.getElementById('next-wrap').classList.remove('show');
+      2: "Quiet but important. People notice old dates more than you'd think.",
 
-    const isLast = currentQ === questions.length - 1;
-    document.getElementById('next-button').textContent = isLast ? 'See your results →' : 'Next question →';
-  }
+      1: "Even one outdated detail, like a stale promo or last year's hours, makes everything else seem unsure.",
 
-  function selectAnswer(btn, val) {
-    document.querySelectorAll('.answer-btn').forEach(b => {
-      b.classList.remove('selected');
-      b.disabled = true;
-    });
-    btn.classList.add('selected');
+      0: "Old dates make the whole site feel uncertain. An easy weekend fix that buys real trust."
 
-    pendingAnswer = val;
-    const q = questions[currentQ];
-    const eyebrowMap = { 2: "Nailed it", 1: "Mostly there", 0: "Worth a look" };
-
-    document.getElementById('response-eyebrow').textContent = eyebrowMap[val];
-    document.getElementById('response-text').textContent = q.responses[val];
-    document.getElementById('response-line').classList.add('show');
-    document.getElementById('next-wrap').classList.add('show');
-  }
-
-  function nextQuestion() {
-    answers.push(pendingAnswer);
-    pendingAnswer = null;
-    currentQ++;
-
-    const finishedSection = currentQ < questions.length && questions[currentQ].section !== questions[currentQ - 1].section;
-
-    if (currentQ >= questions.length) {
-      showScore();
-    } else if (finishedSection) {
-      advanceSection();
-    } else {
-      renderQuestion();
     }
-  }
+  },
 
-  function showScore() {
-    const total = answers.reduce((a, b) => a + b, 0);
 
-    const sectionScores = [0, 0, 0, 0];
-    questions.forEach((q, i) => { sectionScores[q.section] += answers[i]; });
+  /* =======================================================
+     SECTION 2 — CLARITY
+     ======================================================= */
 
-    document.getElementById('score-display').textContent = total;
+  {
+    section: 1,
 
-    let tierTitle, tierBody;
-    if (total >= 26) {
-      tierTitle = "Your site is doing its job.";
-      tierBody = "You've got the fundamentals, and then some. From here, it's refinement: tightening copy, sharpening calls to action, and making sure your site is actively bringing people in, not just holding space online.";
-    } else if (total >= 17) {
-      tierTitle = "Some solid pieces, some gaps.";
-      tierBody = "You don't need to rebuild. A few focused changes, most of them in the lowest-scoring section below, could change how your site performs more than you'd expect.";
-    } else {
-      tierTitle = "An honest starting point.";
-      tierBody = "That's not a criticism. A lot of business owners are exactly here. The site exists, but it isn't pulling its weight yet. That's fixable, and most of the work is in one or two areas, not everywhere.";
+    text: "A stranger could read my homepage and describe my business back to me accurately. Not just the industry, but what we actually do and who we do it for.",
+
+    responses: {
+
+      2: "If a stranger can repeat it back, your homepage is doing real work.",
+
+      1: "Mostly means they're guessing. Worth testing on someone who doesn't already know what you do.",
+
+      0: "If people can't tell strangers who you are, you have to tell them yourself every time. That doesn't scale."
+
     }
+  },
 
-    document.getElementById('tier-title').textContent = tierTitle;
-    document.getElementById('tier-body').textContent = tierBody;
 
-    const bd = document.getElementById('breakdown');
-    bd.innerHTML = sections.map((s, i) => `
-      <div class="breakdown-item">
-        <div class="breakdown-label">${s}</div>
-        <div class="breakdown-score">${sectionScores[i]}<span class="breakdown-max"> / ${sectionMax[i]}</span></div>
-      </div>
-    `).join('');
+  {
+    section: 1,
 
-    // Determine lowest scoring section (by percentage)
-    let lowestIdx = 0;
-    let lowestPct = 1;
-    sections.forEach((s, i) => {
-      const pct = sectionScores[i] / sectionMax[i];
-      if (pct < lowestPct) { lowestPct = pct; lowestIdx = i; }
-    });
+    text: "My services are described in plain language. Not buzzwords, not industry jargon. Language a real customer would use when searching for what I offer.",
 
-    const startHere = {
-      0: "This is the cheapest section to fix and the highest-leverage one. Page speed, mobile feel, a clear headline in the first ten seconds. None of it takes long. All of it matters.",
-      1: "Most clarity problems aren't design problems, they're language ones. Try writing your homepage as if you were explaining your business to a friend over coffee. Then put that on the page.",
-      2: "You're missing some of the small signals that tell a stranger you're real: real photos, real testimonials, consistent details across the web. None are hard to add, and any one of them moves the needle.",
-      3: "A great site that doesn't ask for the next step is just a brochure. Every page should give someone the chance to move. Even a quiet one."
-    };
+    responses: {
 
-    document.getElementById('start-here-body').textContent = startHere[lowestIdx];
+      2: "Plain language reads as confident. Buzzwords read as hiding.",
 
-    document.getElementById('hidden-score').value = `${total} / 30`;
-    document.getElementById('hidden-breakdown').value = sections.map((s, i) => `${s}: ${sectionScores[i]}/${sectionMax[i]}`).join(', ');
+      1: "There's almost always one paragraph hiding the jargon, words like solutions or comprehensive or tailored. Find it. Rewrite it.",
 
-    showScreen('screen-score');
-  }
+      0: "Search like a customer would. The words on your site should be the words they'd type."
 
-  async function submitForm(e) {
-    e.preventDefault();
-    const form = document.getElementById('auditForm');
-    const btn = form.querySelector('.btn-submit');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
+    }
+  },
 
-    const data = new FormData(form);
 
-    try {
-      const res = await fetch('https://formspree.io/f/mojojrgg', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+  {
+    section: 1,
 
-      if (res.ok) {
-        showScreen('screen-thankyou');
-      } else {
-        btn.textContent = 'Something went wrong, try again';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = 'Something went wrong, try again';
-      btn.disabled = false;
+    text: "Someone could tell from my site whether I'm the right fit for them before they have to contact me. We're not making them guess.",
+
+    responses: {
+
+      2: "You're saving yourself wasted enquiries. That's the whole point.",
+
+      1: "Mostly means you're still fielding calls that aren't a fit. Be specific about who you're for, and quietly, who you aren't.",
+
+      0: "Vague sites attract everyone, which means they attract no one in particular. Pick your person."
+
+    }
+  },
+
+
+  {
+    section: 1,
+
+    text: "There's at least a general sense of what things cost somewhere on the site. Even a starting price or a range, something that lets people decide if they're in the right place.",
+
+    responses: {
+
+      2: "Brave. You filter out the wrong leads and keep the warm ones.",
+
+      1: "A starting from or a range is enough. People aren't asking for a quote, they're asking if they can afford to ask.",
+
+      0: "No pricing is the most common reason people don't reach out. They assume it's not for them, and they're often wrong."
+
+    }
+  },
+
+
+  /* =======================================================
+     SECTION 3 — TRUST
+     ======================================================= */
+
+  {
+    section: 2,
+
+    text: "There's at least one real photo on the site. Me, my work, my space, or my team. Not stock images. Something that shows a real person is behind this.",
+
+    responses: {
+
+      2: "A real photo is worth a page of copy.",
+
+      1: "One real photo of you, even imperfect, beats ten polished stock shots. Every time.",
+
+      0: "People hire people. Stock photos signal absence, they tell visitors there's no one home."
+
+    }
+  },
+
+
+  {
+    section: 2,
+
+    text: "There are reviews or testimonials on the site. Specific ones, not just 'great service.' Something a new customer could actually learn from.",
+
+    responses: {
+
+      2: "Specific testimonials are the closest thing to free new clients.",
+
+      1: "Vague praise reads as fake. One detailed quote does more than ten generic ones.",
+
+      0: "Just one. Even a short, specific quote from one real client moves the needle more than anything else on the page."
+
+    }
+  },
+
+
+  {
+    section: 2,
+
+    text: "The site feels consistent throughout. Same fonts, same colours, same general feeling. It doesn't look like different pages were built in different years.",
+
+    responses: {
+
+      2: "Consistency is design's quiet job, and trust's.",
+
+      1: "If pages feel like they were built in different years, people sense it before they can name it.",
+
+      0: "Inconsistency tells visitors there isn't one person looking after things. Usually fixable with shared colours, fonts, and a once-over."
+
+    }
+  },
+
+
+  {
+    section: 2,
+
+    text: "My contact information is easy to find. Not buried in a footer in tiny text.",
+
+    responses: {
+
+      2: "Good. Hidden contact info is the friction people don't tell you about.",
+
+      1: "Mostly findable still means some people give up. Easiest fix in the whole audit.",
+
+      0: "If finding you takes work, people who were nearly ready stop being ready. Put it where the eye lands first."
+
+    }
+  },
+
+
+  /* =======================================================
+     SECTION 4 — ACTION
+     ======================================================= */
+
+  {
+    section: 3,
+
+    text: "Every page has a clear next step, not just the contact page. Someone who decides they like us halfway through the About page can act on that right there.",
+
+    responses: {
+
+      2: "You're meeting people where they decide. Most sites only ask once.",
+
+      1: "Mostly means a few pages are dead ends. Find them. They're the leaks.",
+
+      0: "Every page is a chance. A page without a next step is a conversation that just stopped."
+
+    }
+  },
+
+
+  {
+    section: 3,
+
+    text: "The call to action tells people exactly what happens when they click. Not just 'get in touch,' something specific enough that they know what they're signing up for.",
+
+    responses: {
+
+      2: "'Book a free 20-minute call' beats 'get in touch' every time.",
+
+      1: "If your button says get in touch or contact us, you're asking people to imagine the rest. Tell them.",
+
+      0: "Specific CTAs convert. Book a Drive-By, twenty minutes, no pitch, beats contact us a hundred ways."
+
+    }
+  },
+
+
+  {
+    section: 3,
+
+    text: "That next step is easy to find without scrolling all the way to the bottom.",
+
+    responses: {
+
+      2: "Good. Hidden next steps are a slow leak.",
+
+      1: "Mostly findable still means some people quietly give up before they get there.",
+
+      0: "If finding the next step takes effort, the page is asking too much of someone who was already ready."
+
     }
   }
 
-  // Keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
-    const activeScreen = document.querySelector('.screen.active');
-    if (!activeScreen) return;
+];
 
-    // On transition screen: Enter or Space continues
-    if (activeScreen.id === 'screen-transition') {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        continueFromTransition();
-      }
-      return;
-    }
 
-    // On question screen
-    if (activeScreen.id === 'screen-questions') {
-      // 1, 2, 3 select answers (Yes, Mostly, Not yet)
-      const keyMap = { '1': 2, '2': 1, '3': 0 };
-      if (keyMap[e.key] !== undefined) {
-        const btns = document.querySelectorAll('.answer-btn');
-        if (btns.length && !btns[0].disabled) {
-          const vals = [2, 1, 0];
-          const idx = vals.indexOf(keyMap[e.key]);
-          if (idx !== -1) selectAnswer(btns[idx], keyMap[e.key]);
-        }
-        return;
-      }
+/* =========================================================
+   STATE
+   ========================================================= */
 
-      // Enter or Space advances to next question if answered
-      if (e.key === 'Enter' || e.key === ' ') {
-        const nextWrap = document.getElementById('next-wrap');
-        if (nextWrap.classList.contains('show')) {
-          e.preventDefault();
-          nextQuestion();
-        }
+let currentSection = -1;
+
+let currentQ = 0;
+
+let answers = [];
+
+let pendingAnswer = null;
+
+
+const prefersReducedMotion =
+  window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+
+/* =========================================================
+   SCREEN HANDLING
+   ========================================================= */
+
+function showScreen(id) {
+
+  document
+    .querySelectorAll('.screen')
+    .forEach(
+      function (screen) {
+
+        const active =
+          screen.id === id;
+
+
+        screen.hidden =
+          !active;
+
+
+        screen.classList.toggle(
+          'active',
+          active
+        );
+
       }
-    }
+    );
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior:
+      prefersReducedMotion
+        ? 'auto'
+        : 'smooth'
+
   });
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+function startAudit() {
+
+  currentSection = -1;
+
+  currentQ = 0;
+
+  answers = [];
+
+  pendingAnswer = null;
+
+
+  advanceSection();
+
+}
+
+
+/* =========================================================
+   TRANSITIONS
+   ========================================================= */
+
+function advanceSection() {
+
+  currentSection++;
+
+
+  if (
+    currentSection >=
+    sections.length
+  ) {
+
+    showScore();
+
+    return;
+
+  }
+
+
+  const transition =
+    transitions[currentSection];
+
+
+  document
+    .getElementById(
+      't-eyebrow'
+    )
+    .textContent =
+      transition.eyebrow;
+
+
+  const title =
+    document.getElementById(
+      't-title'
+    );
+
+
+  title.textContent =
+    transition.title;
+
+
+  document
+    .getElementById(
+      't-body'
+    )
+    .textContent =
+      transition.body;
+
+
+  showScreen(
+    'screen-transition'
+  );
+
+
+  requestAnimationFrame(
+    function () {
+
+      title.focus();
+
+    }
+  );
+
+}
+
+
+function continueFromTransition() {
+
+  showScreen(
+    'screen-questions'
+  );
+
+
+  renderQuestion();
+
+}
+
+
+/* =========================================================
+   QUESTION
+   ========================================================= */
+
+function renderQuestion() {
+
+  const question =
+    questions[currentQ];
+
+
+  document
+    .getElementById(
+      'q-section'
+    )
+    .textContent =
+      sections[
+        question.section
+      ];
+
+
+  const number =
+    document.getElementById(
+      'q-number'
+    );
+
+
+  number.textContent =
+    `Question ${currentQ + 1} of ${questions.length}`;
+
+
+  number.setAttribute(
+    'aria-valuenow',
+    String(currentQ + 1)
+  );
+
+
+  const text =
+    document.getElementById(
+      'q-text'
+    );
+
+
+  text.textContent =
+    question.text;
+
+
+  const fillPct =
+    (
+      (currentQ + 1) /
+      questions.length
+    ) * 100;
+
+
+  document
+    .getElementById(
+      'ribbonFill'
+    )
+    .style.height =
+      fillPct + '%';
+
+
+  const options =
+    document.getElementById(
+      'answer-options'
+    );
+
+
+  options.innerHTML = `
+
+    <button
+      type="button"
+      class="answer-btn"
+      data-value="2"
+    >
+      Yes
+    </button>
+
+    <button
+      type="button"
+      class="answer-btn"
+      data-value="1"
+    >
+      Mostly
+    </button>
+
+    <button
+      type="button"
+      class="answer-btn"
+      data-value="0"
+    >
+      Not yet
+    </button>
+
+  `;
+
+
+  document
+    .getElementById(
+      'response-line'
+    )
+    .classList
+    .remove('show');
+
+
+  document
+    .getElementById(
+      'next-wrap'
+    )
+    .classList
+    .remove('show');
+
+
+  const isLast =
+    currentQ ===
+    questions.length - 1;
+
+
+  document
+    .getElementById(
+      'next-button'
+    )
+    .textContent =
+      isLast
+        ? 'See your results →'
+        : 'Next question →';
+
+
+  requestAnimationFrame(
+    function () {
+
+      text.focus();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ANSWER
+   ========================================================= */
+
+function selectAnswer(
+  button,
+  value
+) {
+
+  const buttons =
+    document.querySelectorAll(
+      '.answer-btn'
+    );
+
+
+  buttons.forEach(
+    function (item) {
+
+      item.classList.remove(
+        'selected'
+      );
+
+
+      item.disabled =
+        true;
+
+    }
+  );
+
+
+  button
+    .classList
+    .add('selected');
+
+
+  pendingAnswer =
+    value;
+
+
+  const question =
+    questions[currentQ];
+
+
+  const eyebrowMap = {
+
+    2: "Nailed it",
+
+    1: "Mostly there",
+
+    0: "Worth a look"
+
+  };
+
+
+  document
+    .getElementById(
+      'response-eyebrow'
+    )
+    .textContent =
+      eyebrowMap[value];
+
+
+  document
+    .getElementById(
+      'response-text'
+    )
+    .textContent =
+      question.responses[value];
+
+
+  document
+    .getElementById(
+      'response-line'
+    )
+    .classList
+    .add('show');
+
+
+  document
+    .getElementById(
+      'next-wrap'
+    )
+    .classList
+    .add('show');
+
+
+  requestAnimationFrame(
+    function () {
+
+      document
+        .getElementById(
+          'next-button'
+        )
+        .focus();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+   ========================================================= */
+
+function nextQuestion() {
+
+  if (
+    pendingAnswer === null
+  ) {
+
+    return;
+
+  }
+
+
+  answers.push(
+    pendingAnswer
+  );
+
+
+  pendingAnswer =
+    null;
+
+
+  currentQ++;
+
+
+  if (
+    currentQ >=
+    questions.length
+  ) {
+
+    showScore();
+
+    return;
+
+  }
+
+
+  const sectionChanged =
+    questions[currentQ].section !==
+    questions[currentQ - 1].section;
+
+
+  if (sectionChanged) {
+
+    advanceSection();
+
+  } else {
+
+    renderQuestion();
+
+  }
+
+}
+
+
+/* =========================================================
+   SCORE
+   ========================================================= */
+
+function showScore() {
+
+  const total =
+    answers.reduce(
+      function (sum, value) {
+
+        return sum + value;
+
+      },
+      0
+    );
+
+
+  const sectionScores =
+    [0, 0, 0, 0];
+
+
+  questions.forEach(
+    function (question, index) {
+
+      sectionScores[
+        question.section
+      ] += answers[index];
+
+    }
+  );
+
+
+  document
+    .getElementById(
+      'score-display'
+    )
+    .textContent =
+      total;
+
+
+  let tierTitle;
+
+  let tierBody;
+
+
+  if (total >= 26) {
+
+    tierTitle =
+      "Your site is doing its job.";
+
+
+    tierBody =
+      "You've got the fundamentals, and then some. From here, it's refinement: tightening copy, sharpening calls to action, and making sure your site is actively bringing people in, not just holding space online.";
+
+  } else if (total >= 17) {
+
+    tierTitle =
+      "Some solid pieces, some gaps.";
+
+
+    tierBody =
+      "You don't need to rebuild. A few focused changes, most of them in the lowest-scoring section below, could change how your site performs more than you'd expect.";
+
+  } else {
+
+    tierTitle =
+      "An honest starting point.";
+
+
+    tierBody =
+      "That's not a criticism. A lot of business owners are exactly here. The site exists, but it isn't pulling its weight yet. That's fixable, and most of the work is in one or two areas, not everywhere.";
+
+  }
+
+
+  const title =
+    document.getElementById(
+      'tier-title'
+    );
+
+
+  title.textContent =
+    tierTitle;
+
+
+  document
+    .getElementById(
+      'tier-body'
+    )
+    .textContent =
+      tierBody;
+
+
+  const breakdown =
+    document.getElementById(
+      'breakdown'
+    );
+
+
+  breakdown.innerHTML =
+    sections
+      .map(
+        function (section, index) {
+
+          return `
+
+            <div class="breakdown-item">
+
+              <div class="breakdown-label">
+                ${section}
+              </div>
+
+              <div class="breakdown-score">
+
+                ${sectionScores[index]}
+
+                <span class="breakdown-max">
+                  / ${sectionMax[index]}
+                </span>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join('');
+
+
+  /* LOWEST SCORING SECTION */
+
+  let lowestIdx = 0;
+
+  let lowestPct = 1;
+
+
+  sections.forEach(
+    function (_, index) {
+
+      const pct =
+        sectionScores[index] /
+        sectionMax[index];
+
+
+      if (pct < lowestPct) {
+
+        lowestPct =
+          pct;
+
+
+        lowestIdx =
+          index;
+
+      }
+
+    }
+  );
+
+
+  const startHere = {
+
+    0:
+      "This is the cheapest section to fix and the highest-leverage one. Page speed, mobile feel, a clear headline in the first ten seconds. None of it takes long. All of it matters.",
+
+    1:
+      "Most clarity problems aren't design problems, they're language ones. Try writing your homepage as if you were explaining your business to a friend over coffee. Then put that on the page.",
+
+    2:
+      "You're missing some of the small signals that tell a stranger you're real: real photos, real testimonials, consistent details across the web. None are hard to add, and any one of them moves the needle.",
+
+    3:
+      "A great site that doesn't ask for the next step is just a brochure. Every page should give someone the chance to move. Even a quiet one."
+
+  };
+
+
+  document
+    .getElementById(
+      'start-here-body'
+    )
+    .textContent =
+      startHere[lowestIdx];
+
+
+  document
+    .getElementById(
+      'hidden-score'
+    )
+    .value =
+      `${total} / 30`;
+
+
+  document
+    .getElementById(
+      'hidden-breakdown'
+    )
+    .value =
+      sections
+        .map(
+          function (
+            section,
+            index
+          ) {
+
+            return (
+              `${section}: ` +
+              `${sectionScores[index]}/` +
+              `${sectionMax[index]}`
+            );
+
+          }
+        )
+        .join(', ');
+
+
+  showScreen(
+    'screen-score'
+  );
+
+
+  requestAnimationFrame(
+    function () {
+
+      title.focus();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   GUIDE FORM
+   ========================================================= */
+
+async function submitForm(
+  event
+) {
+
+  event.preventDefault();
+
+
+  const form =
+    document.getElementById(
+      'auditForm'
+    );
+
+
+  const button =
+    document.getElementById(
+      'guide-submit'
+    );
+
+
+  const status =
+    document.getElementById(
+      'form-status'
+    );
+
+
+  status.textContent =
+    '';
+
+
+  status.classList.remove(
+    'error'
+  );
+
+
+  if (
+    !form.checkValidity()
+  ) {
+
+    form.reportValidity();
+
+    return;
+
+  }
+
+
+  button.textContent =
+    'Sending…';
+
+
+  button.disabled =
+    true;
+
+
+  const data =
+    new FormData(form);
+
+
+  try {
+
+
+    const response =
+      await fetch(
+        'https://formspree.io/f/mojojrgg',
+        {
+
+          method: 'POST',
+
+          body: data,
+
+          headers: {
+            'Accept':
+              'application/json'
+          }
+
+        }
+      );
+
+
+    if (
+      !response.ok
+    ) {
+
+      throw new Error(
+        'Submission failed.'
+      );
+
+    }
+
+
+    showScreen(
+      'screen-thankyou'
+    );
+
+
+    requestAnimationFrame(
+      function () {
+
+        document
+          .getElementById(
+            'thankyou-title'
+          )
+          .focus();
+
+      }
+    );
+
+
+  } catch (error) {
+
+
+    button.textContent =
+      'Send me the guide';
+
+
+    button.disabled =
+      false;
+
+
+    status.textContent =
+      'Something went wrong while sending. Please try again.';
+
+
+    status.classList.add(
+      'error'
+    );
+
+
+  }
+
+}
+
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+document
+  .getElementById(
+    'begin-button'
+  )
+  .addEventListener(
+    'click',
+    startAudit
+  );
+
+
+document
+  .getElementById(
+    'transition-button'
+  )
+  .addEventListener(
+    'click',
+    continueFromTransition
+  );
+
+
+document
+  .getElementById(
+    'next-button'
+  )
+  .addEventListener(
+    'click',
+    nextQuestion
+  );
+
+
+document
+  .getElementById(
+    'answer-options'
+  )
+  .addEventListener(
+    'click',
+    function (event) {
+
+      const button =
+        event.target.closest(
+          '.answer-btn'
+        );
+
+
+      if (!button) {
+
+        return;
+
+      }
+
+
+      selectAnswer(
+        button,
+        Number(
+          button.dataset.value
+        )
+      );
+
+    }
+  );
+
+
+document
+  .getElementById(
+    'auditForm'
+  )
+  .addEventListener(
+    'submit',
+    submitForm
+  );
+
+
+/* =========================================================
+   OPTIONAL KEYBOARD SHORTCUTS
+   ========================================================= */
+
+document.addEventListener(
+  'keydown',
+  function (event) {
+
+
+    const activeScreen =
+      document.querySelector(
+        '.screen.active'
+      );
+
+
+    if (!activeScreen) {
+
+      return;
+
+    }
+
+
+    const target =
+      event.target;
+
+
+    const interactive =
+      target.matches(
+        'button, input, textarea, select, a'
+      );
+
+
+    /*
+      Do not override normal keyboard behaviour
+      while a user is already focused on a
+      control.
+    */
+
+    if (interactive) {
+
+      return;
+
+    }
+
+
+    /* TRANSITION */
+
+    if (
+      activeScreen.id ===
+      'screen-transition'
+    ) {
+
+      if (
+        event.key === 'Enter' ||
+        event.key === ' '
+      ) {
+
+        event.preventDefault();
+
+        continueFromTransition();
+
+      }
+
+
+      return;
+
+    }
+
+
+    /* QUESTIONS */
+
+    if (
+      activeScreen.id ===
+      'screen-questions'
+    ) {
+
+
+      const keyMap = {
+
+        '1': 2,
+
+        '2': 1,
+
+        '3': 0
+
+      };
+
+
+      if (
+        keyMap[event.key] !==
+        undefined
+      ) {
+
+
+        const buttons =
+          Array.from(
+            document.querySelectorAll(
+              '.answer-btn'
+            )
+          );
+
+
+        if (
+          buttons.length &&
+          !buttons[0].disabled
+        ) {
+
+
+          const values =
+            [2, 1, 0];
+
+
+          const index =
+            values.indexOf(
+              keyMap[event.key]
+            );
+
+
+          if (
+            index !== -1
+          ) {
+
+            selectAnswer(
+              buttons[index],
+              keyMap[event.key]
+            );
+
+          }
+
+        }
+
+
+        return;
+
+      }
+
+
+      if (
+        (
+          event.key === 'Enter' ||
+          event.key === ' '
+        ) &&
+        pendingAnswer !== null
+      ) {
+
+        event.preventDefault();
+
+        nextQuestion();
+
+      }
+
+    }
+
+  }
+);
+
 </script>
 
+
 </body>
+
 </html>
