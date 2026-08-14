@@ -1,394 +1,3410 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal — The Yellow Front Door</title>
-  <meta name="description" content="Privacy Policy and Terms of Service for The Yellow Front Door, a marketing studio for small businesses based in the Annapolis Valley, Nova Scotia.">
-  <link rel="canonical" href="https://www.theyellowfrontdoor.ca/legal">
-  <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NPL1XCH6H7');
-  </script>
-  <style>
-    @font-face {
-      font-family: 'CasualHandwriting';
-      src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
-      font-weight: normal; font-style: normal; font-display: block;
-    }
-    :root {
-      --ink: #132447; --paper: #ffffff; --yellow: #fcd346; --stone: #D8D1C3;
-      --slate: #596674; --brass: #e6b800; --clay: #B86B4B; --paper-mid: #F5EFE0;
-      --navy: #132447; --road: #ede8dc;
-      --f-accent: 'CasualHandwriting', cursive;
-      --f-head: 'Montserrat', sans-serif; --f-body: 'Montserrat', sans-serif;
-      --max: 1120px; --gutter: clamp(24px, 5vw, 80px); --section-gap: clamp(36px, 5vw, 56px);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    img { display: block; max-width: 100%; height: auto; }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-    .divider { border: none; border-top: 1px solid var(--stone); margin: 0; }
 
-    /* NAV */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); transition: box-shadow 0.3s; }
-    .nav::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 4px; background: var(--navy); }
-    .nav.scrolled { box-shadow: 0 2px 24px rgba(19,36,71,0.5); }
-    .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .nav-logo img { height: 52px; width: auto; display: block; }
-    .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: nowrap; }
-    .nav-links a { font-size: 12px; font-weight: 500; color: rgba(255,252,244,0.75); letter-spacing: 0.03em; transition: color 0.2s; white-space: nowrap; }
-    .nav-links a:hover, .nav-links a.active { color: var(--paper); }
-    .nav-links a.active { font-weight: 600; }
-    .nav-cta { background: var(--yellow) !important; color: var(--navy) !important; padding: 10px 20px; font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.03em !important; }
-    .nav-cta:hover { background: var(--brass) !important; }
-    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--paper); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .eyebrow-label { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
-    .eyebrow-tag { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); background: var(--navy); padding: 6px 14px; flex-shrink: 0; }
-    .eyebrow-desc { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--slate); }
+<title>Privacy Policy &amp; Terms of Service | The Yellow Front Door</title>
 
-    /* HERO */
-    .legal-hero { background: var(--paper); padding: clamp(48px, 7vw, 80px) 0 clamp(28px, 4vw, 48px); margin-top: 72px; }
-    .legal-hero h1 { font-family: var(--f-head); font-size: clamp(28px, 4vw, 46px); font-weight: 400; color: var(--ink); letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 16px; }
-    .legal-hero p { font-size: 16px; line-height: 1.8; color: var(--slate); max-width: 580px; }
+<meta
+  name="description"
+  content="Privacy Policy and Terms of Service for The Yellow Front Door, a marketing studio based in the Annapolis Valley, Nova Scotia."
+>
 
-    /* TABS */
-    .tab-bar { border-bottom: 1px solid var(--stone); margin-bottom: clamp(36px, 5vw, 56px); }
-    .tab-bar-inner { display: flex; gap: 0; }
-    .tab-btn { background: none; border: none; border-bottom: 3px solid transparent; padding: 14px 28px; font-family: var(--f-body); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); cursor: pointer; transition: color 0.2s, border-color 0.2s; margin-bottom: -1px; }
-    .tab-btn:hover { color: var(--ink); }
-    .tab-btn.active { color: var(--navy); border-bottom-color: var(--yellow); }
+<link
+  rel="canonical"
+  href="https://www.theyellowfrontdoor.ca/legal.html"
+>
 
-    /* LEGAL CONTENT */
-    .legal-content { padding-bottom: clamp(56px, 8vw, 96px); }
-    .legal-panel { display: none; max-width: 740px; }
-    .legal-panel.active { display: block; }
+<meta
+  name="robots"
+  content="noindex,follow"
+>
 
-    .legal-section { margin-bottom: 40px; }
-    .legal-section:last-child { margin-bottom: 0; }
+<meta
+  property="og:title"
+  content="Privacy Policy & Terms of Service | The Yellow Front Door"
+>
 
-    .legal-section h2 {
-      font-family: var(--f-head);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--stone);
-    }
+<meta
+  property="og:description"
+  content="Privacy Policy and Terms of Service for The Yellow Front Door."
+>
 
-    .legal-section p {
-      font-size: 16px;
-      line-height: 1.85;
-      color: var(--ink);
-      margin-bottom: 14px;
-    }
+<meta
+  property="og:url"
+  content="https://www.theyellowfrontdoor.ca/legal.html"
+>
 
-    .legal-section p:last-child { margin-bottom: 0; }
+<meta property="og:type" content="website">
 
-    .legal-section a {
-      color: var(--navy);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+<meta
+  name="theme-color"
+  content="#132447"
+>
 
-    .legal-section a:hover { color: var(--clay); }
 
-    .legal-updated {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--slate);
-      background: var(--paper-mid);
-      padding: 6px 14px;
-      margin-bottom: 40px;
-    }
+<!-- FAVICONS -->
 
-    /* FOOTER */
-    .footer { background: var(--paper); padding: 48px 0 32px; border-top: 1px solid var(--stone); }
-    .footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); text-align: center; }
-    .footer-logo-wrap { margin-bottom: 16px; }
-    .footer-logo-wrap img { width: 96px; height: 96px; margin: 0 auto; }
-    .footer-tagline { font-size: 13px; color: var(--slate); max-width: 320px; margin: 0 auto 28px; line-height: 1.7; }
-    .footer-divider { border: none; border-top: 1px solid var(--stone); margin: 0 0 24px; }
-    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-bottom: 28px; }
-    .footer-nav a { font-size: 13px; color: var(--slate); transition: color 0.2s; }
-    .footer-nav a:hover { color: var(--ink); }
-    .footer-bottom { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
-    .footer-copy { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; }
-    .footer-dot-sm { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
-    .footer-legal-links { display: flex; justify-content: center; gap: 20px; margin-top: 16px; }
-    .footer-legal-links a { font-size: 11px; color: var(--slate); letter-spacing: 0.05em; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
-    .footer-legal-links a:hover { color: var(--ink); }
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
 
-    /* RESPONSIVE */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--navy); padding: 24px clamp(24px,5vw,80px) 32px; gap: 20px; z-index: 99; }
-      .nav-toggle { display: flex; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .tab-btn { padding: 12px 16px; font-size: 11px; }
-      .eyebrow-label { flex-direction: column; align-items: flex-start; gap: 8px; }
-    }
-  </style>
-</head>
-<body>
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
-      <img src="roundlogo2.png" alt="The Yellow Front Door">
-    </a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="what-we-do.html">What We Do</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="the-proof.html">The Proof</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html">Let's Talk</a></li>
-      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
-    </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+<link rel="manifest" href="/manifest.json">
 
-<!-- HERO -->
-<section class="legal-hero">
-  <div class="container">
-    <div class="eyebrow-label">
-      <span class="eyebrow-tag">Legal</span>
-      <span class="eyebrow-desc">The fine print</span>
-    </div>
-    <h1>Privacy Policy &amp; Terms of Service</h1>
-    <p>We've written these to be readable. No walls of legalese. If you have a question about anything here, you're welcome to reach out at <a href="mailto:hello@theyellowfrontdoor.ca" style="color:var(--navy); text-decoration:underline; text-underline-offset:3px;">hello@theyellowfrontdoor.ca</a>.</p>
-  </div>
-</section>
 
-<!-- TABS -->
-<div class="legal-content">
-  <div class="container">
-    <div class="tab-bar">
-      <div class="tab-bar-inner">
-        <button class="tab-btn active" data-tab="privacy">Privacy Policy</button>
-        <button class="tab-btn" data-tab="tos">Terms of Service</button>
-      </div>
-    </div>
+<!-- FONTS -->
 
-    <!-- PRIVACY POLICY -->
-    <div class="legal-panel active" id="tab-privacy">
-      <p class="legal-updated">Last updated: July 2026</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-      <div class="legal-section">
-        <h2>Who we are</h2>
-        <p>The Yellow Front Door is a marketing studio for small businesses, based in the Annapolis Valley, Nova Scotia, Canada. We operate at <a href="https://www.theyellowfrontdoor.ca">theyellowfrontdoor.ca</a>. You can reach us at <a href="mailto:hello@theyellowfrontdoor.ca">hello@theyellowfrontdoor.ca</a>.</p>
-      </div>
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
 
-      <div class="legal-section">
-        <h2>What information we collect</h2>
-        <p>We collect personal information only when you provide it to us directly. This happens when you fill out a contact form, request a guide or resource, or complete The Scorecard. In those cases, we collect your name and email address, and any details you include in your message.</p>
-        <p>We do not collect payment information through this website. Any payments are handled through separate invoicing and payment systems.</p>
-      </div>
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+  rel="preload"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
 
-      <div class="legal-section">
-        <h2>How we use your information</h2>
-        <p>We use the information you provide to respond to your inquiry, send you the resource you requested, or follow up about working together. If you opt in to our email list, we may send you occasional updates, resources, or studio news through MailerLite. You can unsubscribe at any time using the link in any email we send.</p>
-        <p>We do not sell, rent, or share your personal information with third parties for their own marketing purposes.</p>
-      </div>
+<noscript>
 
-      <div class="legal-section">
-        <h2>Third-party services</h2>
-        <p>This website uses a small number of third-party tools to operate. Each has its own privacy policy.</p>
-        <p><strong>Formspree</strong> processes the submissions from our contact forms, Scorecard, and guide requests. Your name and email pass through their servers. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree's Privacy Policy</a>.</p>
-        <p><strong>MailerLite</strong> manages our email list and sends any emails we send to subscribers. If you opt in to our list, your name and email are stored in MailerLite. See <a href="https://www.mailerlite.com/legal/privacy-policy" target="_blank" rel="noopener">MailerLite's Privacy Policy</a>.</p>
-        <p><strong>Google Analytics</strong> collects anonymous data about how visitors use this site, including which pages are viewed and how visitors arrived. This data does not identify you personally. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
-        <p><strong>Vercel</strong> hosts this website and processes standard server logs, including IP addresses and browser information, as part of normal hosting operations. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel's Privacy Policy</a>.</p>
-      </div>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+    rel="stylesheet"
+  >
 
-      <div class="legal-section">
-        <h2>Cookies</h2>
-        <p>This site uses cookies placed by Google Analytics to track anonymous usage data. We do not use any other tracking cookies or third-party advertising cookies. You can disable cookies in your browser settings at any time.</p>
-      </div>
+</noscript>
 
-      <div class="legal-section">
-        <h2>Your rights under PIPEDA</h2>
-        <p>As a Canadian business, we operate under the Personal Information Protection and Electronic Documents Act (PIPEDA). You have the right to request access to any personal information we hold about you, ask us to correct inaccurate information, or request that we delete your information. To make any of these requests, contact us at <a href="mailto:hello@theyellowfrontdoor.ca">hello@theyellowfrontdoor.ca</a>.</p>
-      </div>
 
-      <div class="legal-section">
-        <h2>Data retention</h2>
-        <p>We retain your information for as long as it's needed to provide our services or maintain our business records. If you'd like your information removed from our systems, contact us and we'll take care of it.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Changes to this policy</h2>
-        <p>If we make meaningful changes to this policy, we'll update the date at the top of this page. We encourage you to review it periodically.</p>
-      </div>
-    </div>
-
-    <!-- TERMS OF SERVICE -->
-    <div class="legal-panel" id="tab-tos">
-      <p class="legal-updated">Last updated: July 2026</p>
-
-      <div class="legal-section">
-        <h2>Overview</h2>
-        <p>These Terms of Service govern your use of theyellowfrontdoor.ca and any services provided by The Yellow Front Door ("we," "us," "our"). By using this website or engaging us for services, you agree to these terms. If you have questions about anything here, reach out before you proceed: <a href="mailto:hello@theyellowfrontdoor.ca">hello@theyellowfrontdoor.ca</a>.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Website use</h2>
-        <p>The content on this website — including text, design, images, and resources — is the property of The Yellow Front Door and is protected by Canadian copyright law. You're welcome to share links to our content or reference our work with attribution. You may not reproduce, copy, or redistribute our content without written permission.</p>
-        <p>The free resources available on this site, including The Scorecard and our website guide, are for your personal or business use. They are not to be resold or repackaged.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Services</h2>
-        <p>All client engagements are governed by a separate project agreement signed before work begins. That agreement outlines the scope, timeline, deliverables, and payment terms specific to your project. These Terms of Service apply alongside that agreement, not in place of it.</p>
-        <p>We reserve the right to decline any project inquiry at our discretion.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Payment</h2>
-        <p>Payment terms are outlined in your project agreement. In general, projects are structured with milestone-based payments. Work completed to date is billable in the event a project is cancelled or paused. Invoices are due on the date specified in your agreement.</p>
-        <p>We do not process payments through this website. Invoices are sent separately.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Cancellation and refunds</h2>
-        <p>If you need to cancel a project after work has begun, you are responsible for payment of all work completed to that point. We will provide an accounting of hours or milestones completed and invoice accordingly.</p>
-        <p>Free resources and lead magnets are provided at no cost and are not subject to refund terms.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Client responsibilities</h2>
-        <p>Successful projects depend on your participation. You agree to provide the materials, approvals, and feedback needed to move the project forward within the timelines we've agreed on. Delays caused by late feedback or missing materials may affect your project timeline and are not grounds for a refund.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Intellectual property</h2>
-        <p>Upon receipt of final payment, ownership of the final deliverables transfers to you. We retain the right to display completed work in our portfolio and to use it in marketing materials, unless you request otherwise in writing before the project begins.</p>
-        <p>We retain ownership of any tools, templates, frameworks, or processes we use to build your project that are not specific to your business.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Limitation of liability</h2>
-        <p>We do our best work on every project, but we cannot guarantee specific business outcomes such as sales, traffic, or revenue. Our liability is limited to the fees paid for the specific service in question. We are not responsible for indirect or consequential losses arising from our work or the use of our website.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Governing law</h2>
-        <p>These terms are governed by the laws of Nova Scotia and Canada. Any disputes will be resolved in the courts of Nova Scotia.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Changes to these terms</h2>
-        <p>We may update these terms from time to time. The date at the top of this page reflects the most recent revision. Continued use of the website after changes are posted constitutes your acceptance of the updated terms.</p>
-      </div>
-
-      <div class="legal-section">
-        <h2>Contact</h2>
-        <p>Questions about these terms? Reach us at <a href="mailto:hello@theyellowfrontdoor.ca">hello@theyellowfrontdoor.ca</a>.</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo-wrap">
-      <img src="roundlogo.png" alt="The Yellow Front Door">
-    </div>
-    <p class="footer-tagline">A marketing studio for small businesses in the Annapolis Valley.</p>
-    <hr class="footer-divider">
-    <nav class="footer-nav">
-      <a href="what-we-do.html">What We Do</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="the-proof.html">The Proof</a>
-      <a href="about.html">About</a>
-      <a href="the-doorstep.html">The Doorstep</a>
-      <a href="lets-talk.html">Let's Talk</a>
-      <a href="website-audit.html">Website Checkup</a>
-    </nav>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Yellow Front Door. All rights reserved.</p>
-      <div class="footer-dot-sm" aria-hidden="true"></div>
-      <p class="footer-copy">Annapolis Valley, NS</p>
-      <div class="footer-dot-sm" aria-hidden="true"></div>
-      <p class="footer-copy">theyellowfrontdoor.ca</p>
-    </div>
-    <div class="footer-legal-links">
-      <a href="legal.html">Privacy Policy</a>
-      <a href="legal.html#tos">Terms of Service</a>
-    </div>
-  </div>
-</footer>
+<!-- ENABLE ENHANCED TABS ONLY WHEN JS EXISTS -->
 
 <script>
-(function(){
-  // Nav scroll
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-  var toggle = document.getElementById('nav-toggle'), navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', function(){ var open = navLinks.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
 
-  // Tabs
-  var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = document.querySelectorAll('.legal-panel');
+document.documentElement.classList.add(
+  'js'
+);
 
-  tabBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var target = btn.getAttribute('data-tab');
-      tabBtns.forEach(function(b){ b.classList.remove('active'); });
-      tabPanels.forEach(function(p){ p.classList.remove('active'); });
-      btn.classList.add('active');
-      document.getElementById('tab-' + target).classList.add('active');
-    });
-  });
-
-  // Deep link to TOS tab if hash present
-  if (window.location.hash === '#tos') {
-    tabBtns.forEach(function(b){ b.classList.remove('active'); });
-    tabPanels.forEach(function(p){ p.classList.remove('active'); });
-    document.querySelector('[data-tab="tos"]').classList.add('active');
-    document.getElementById('tab-tos').classList.add('active');
-  }
-})();
 </script>
+
+
+<style>
+
+@font-face {
+
+  font-family: 'CasualHandwriting';
+
+  src:
+    url('CasualHandwriting.woff2') format('woff2'),
+    url('CasualHandwriting.woff') format('woff');
+
+  font-weight: normal;
+  font-style: normal;
+
+  font-display: swap;
+
+}
+
+
+/* =========================================================
+   TYFD SYSTEM
+   ========================================================= */
+
+:root {
+
+  --ink: #132447;
+  --navy: #132447;
+
+  --paper: #ffffff;
+  --paper-mid: #F7F6F1;
+
+  --stone: #D8D1C3;
+  --slate: #596674;
+
+  --yellow: #fcd346;
+  --brass: #e6b800;
+  --clay: #B86B4B;
+
+  --f-accent: 'CasualHandwriting', cursive;
+  --f-head: 'Montserrat', sans-serif;
+  --f-body: 'Montserrat', sans-serif;
+
+  --max: 1120px;
+
+  --gutter: clamp(24px, 5vw, 80px);
+
+  --section-gap: clamp(52px, 7vw, 84px);
+
+  --nav-height: 72px;
+
+  --page-top: clamp(44px, 5vw, 64px);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
+}
+
+
+html {
+
+  scroll-behavior: smooth;
+
+  scroll-padding-top:
+    calc(var(--nav-height) + 20px);
+
+}
+
+
+body {
+
+  background:
+    var(--paper);
+
+  color:
+    var(--ink);
+
+  font-family:
+    var(--f-body);
+
+  font-size:
+    16px;
+
+  line-height:
+    1.7;
+
+  -webkit-font-smoothing:
+    antialiased;
+
+  overflow-x:
+    hidden;
+
+}
+
+
+img {
+
+  display:
+    block;
+
+  max-width:
+    100%;
+
+  height:
+    auto;
+
+}
+
+
+a {
+
+  color:
+    inherit;
+
+  text-decoration:
+    none;
+
+}
+
+
+ul {
+
+  list-style:
+    none;
+
+}
+
+
+button {
+
+  font:
+    inherit;
+
+}
+
+
+.container {
+
+  width:
+    100%;
+
+  max-width:
+    var(--max);
+
+  margin:
+    0 auto;
+
+  padding:
+    0
+    var(--gutter);
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.skip-link {
+
+  position:
+    fixed;
+
+  top:
+    8px;
+
+  left:
+    12px;
+
+  z-index:
+    9999;
+
+  padding:
+    12px 18px;
+
+  background:
+    var(--yellow);
+
+  color:
+    var(--navy);
+
+  font-size:
+    14px;
+
+  font-weight:
+    700;
+
+  transform:
+    translateY(-160%);
+
+  transition:
+    transform 0.2s ease;
+
+}
+
+
+.skip-link:focus {
+
+  transform:
+    translateY(0);
+
+}
+
+
+a:focus-visible,
+button:focus-visible {
+
+  outline:
+    3px solid
+    var(--navy);
+
+  outline-offset:
+    3px;
+
+}
+
+
+.nav a:focus-visible,
+.nav-toggle:focus-visible {
+
+  outline-color:
+    var(--yellow);
+
+}
+
+
+.nav-cta:focus-visible {
+
+  outline-color:
+    var(--paper);
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav {
+
+  position:
+    fixed;
+
+  top:
+    0;
+
+  left:
+    0;
+
+  right:
+    0;
+
+  z-index:
+    100;
+
+  height:
+    var(--nav-height);
+
+  background:
+    var(--navy);
+
+  transition:
+    box-shadow 0.25s ease;
+
+}
+
+
+.nav.scrolled {
+
+  box-shadow:
+    0 2px 18px
+    rgba(19,36,71,0.26);
+
+}
+
+
+.nav-inner {
+
+  width:
+    100%;
+
+  max-width:
+    var(--max);
+
+  height:
+    var(--nav-height);
+
+  margin:
+    0 auto;
+
+  padding:
+    0
+    var(--gutter);
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    18px;
+
+}
+
+
+/* LOCK ROUND LOGO */
+
+.nav-logo {
+
+  width:
+    52px;
+
+  height:
+    52px;
+
+  min-width:
+    52px;
+
+  min-height:
+    52px;
+
+  flex:
+    0 0 52px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+}
+
+
+.nav-logo img {
+
+  width:
+    52px;
+
+  height:
+    52px;
+
+  max-width:
+    none;
+
+  aspect-ratio:
+    1 / 1;
+
+  object-fit:
+    contain;
+
+  flex-shrink:
+    0;
+
+}
+
+
+.nav-links {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    22px;
+
+  flex-wrap:
+    nowrap;
+
+}
+
+
+.nav-links a {
+
+  min-height:
+    44px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  font-size:
+    12px;
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    0.03em;
+
+  white-space:
+    nowrap;
+
+  color:
+    rgba(255,255,255,0.78);
+
+  transition:
+    color 0.2s ease;
+
+}
+
+
+.nav-links a:hover {
+
+  color:
+    var(--paper);
+
+}
+
+
+.nav-cta {
+
+  min-height:
+    44px;
+
+  padding:
+    10px 18px;
+
+  background:
+    var(--yellow);
+
+  color:
+    var(--navy) !important;
+
+  font-weight:
+    700 !important;
+
+}
+
+
+.nav-cta:hover {
+
+  background:
+    var(--brass);
+
+}
+
+
+.nav-toggle {
+
+  width:
+    44px;
+
+  height:
+    44px;
+
+  min-width:
+    44px;
+
+  display:
+    none;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  cursor:
+    pointer;
+
+}
+
+
+.nav-toggle span {
+
+  width:
+    24px;
+
+  height:
+    2px;
+
+  display:
+    block;
+
+  background:
+    var(--paper);
+
+}
+
+
+.cta-short {
+
+  display:
+    none;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.legal-hero {
+
+  margin-top:
+    var(--nav-height);
+
+  padding:
+    var(--page-top)
+    0
+    clamp(40px, 5vw, 58px);
+
+  background:
+    var(--paper-mid);
+
+  border-bottom:
+    1px solid
+    var(--stone);
+
+}
+
+
+.legal-hero-inner {
+
+  max-width:
+    760px;
+
+}
+
+
+.eyebrow-label {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    14px;
+
+  margin-bottom:
+    26px;
+
+}
+
+
+.eyebrow-tag {
+
+  flex-shrink:
+    0;
+
+  padding:
+    6px 13px;
+
+  background:
+    var(--navy);
+
+  color:
+    var(--yellow);
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.4;
+
+  letter-spacing:
+    0.22em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.eyebrow-desc {
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.4;
+
+  letter-spacing:
+    0.18em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--slate);
+
+}
+
+
+.legal-hero h1 {
+
+  max-width:
+    720px;
+
+  font-family:
+    var(--f-head);
+
+  font-size:
+    clamp(32px, 4.5vw, 48px);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.12;
+
+  letter-spacing:
+    -0.025em;
+
+  color:
+    var(--ink);
+
+}
+
+
+.legal-hero p {
+
+  max-width:
+    650px;
+
+  margin-top:
+    20px;
+
+  font-size:
+    16px;
+
+  line-height:
+    1.82;
+
+  color:
+    var(--slate);
+
+}
+
+
+.legal-hero a {
+
+  color:
+    var(--ink);
+
+  font-weight:
+    500;
+
+  text-decoration:
+    underline;
+
+  text-underline-offset:
+    3px;
+
+}
+
+
+/* =========================================================
+   LEGAL CONTENT
+   ========================================================= */
+
+.legal-content {
+
+  padding:
+    clamp(44px, 6vw, 66px)
+    0
+    var(--section-gap);
+
+  background:
+    var(--paper);
+
+}
+
+
+.legal-layout {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(190px, 0.28fr)
+    minmax(0, 0.72fr);
+
+  gap:
+    clamp(42px, 7vw, 86px);
+
+  align-items:
+    start;
+
+}
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.tab-bar {
+
+  position:
+    sticky;
+
+  top:
+    calc(var(--nav-height) + 26px);
+
+}
+
+
+.tab-bar-label {
+
+  display:
+    block;
+
+  margin-bottom:
+    13px;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.4;
+
+  letter-spacing:
+    0.17em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--slate);
+
+}
+
+
+.tab-list {
+
+  border-top:
+    1px solid
+    var(--stone);
+
+}
+
+
+.tab-btn {
+
+  width:
+    100%;
+
+  min-height:
+    52px;
+
+  padding:
+    14px 4px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+
+  border:
+    0;
+
+  border-bottom:
+    1px solid
+    var(--stone);
+
+  background:
+    transparent;
+
+  color:
+    var(--slate);
+
+  cursor:
+    pointer;
+
+  text-align:
+    left;
+
+  font-size:
+    13px;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.5;
+
+  transition:
+    color 0.2s ease;
+
+}
+
+
+.tab-btn:hover {
+
+  color:
+    var(--ink);
+
+}
+
+
+.tab-btn[aria-selected="true"] {
+
+  color:
+    var(--ink);
+
+  font-weight:
+    700;
+
+}
+
+
+.tab-marker {
+
+  width:
+    6px;
+
+  height:
+    6px;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    50%;
+
+  background:
+    transparent;
+
+}
+
+
+.tab-btn[aria-selected="true"]
+.tab-marker {
+
+  background:
+    var(--clay);
+
+}
+
+
+/* NO-JS FALLBACK */
+
+html:not(.js) .tab-bar {
+
+  display:
+    none;
+
+}
+
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.legal-panels {
+
+  min-width:
+    0;
+
+}
+
+
+.js .legal-panel[hidden] {
+
+  display:
+    none;
+
+}
+
+
+.legal-panel + .legal-panel {
+
+  margin-top:
+    72px;
+
+}
+
+
+.js .legal-panel + .legal-panel {
+
+  margin-top:
+    0;
+
+}
+
+
+.panel-heading {
+
+  margin-bottom:
+    8px;
+
+  font-family:
+    var(--f-head);
+
+  font-size:
+    clamp(25px, 3vw, 33px);
+
+  font-weight:
+    500;
+
+  line-height:
+    1.25;
+
+  letter-spacing:
+    -0.02em;
+
+  color:
+    var(--ink);
+
+}
+
+
+.legal-updated {
+
+  display:
+    block;
+
+  margin-bottom:
+    36px;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.4;
+
+  letter-spacing:
+    0.14em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--slate);
+
+}
+
+
+/* =========================================================
+   LEGAL SECTIONS
+   ========================================================= */
+
+.legal-section {
+
+  padding:
+    28px 0;
+
+  border-top:
+    1px solid
+    var(--stone);
+
+}
+
+
+.legal-section:first-of-type {
+
+  padding-top:
+    0;
+
+  border-top:
+    0;
+
+}
+
+
+.legal-section h3 {
+
+  margin-bottom:
+    13px;
+
+  font-family:
+    var(--f-head);
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.45;
+
+  letter-spacing:
+    0.14em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    var(--slate);
+
+}
+
+
+.legal-section p {
+
+  margin-bottom:
+    14px;
+
+  font-size:
+    15px;
+
+  line-height:
+    1.88;
+
+  color:
+    var(--ink);
+
+}
+
+
+.legal-section p:last-child {
+
+  margin-bottom:
+    0;
+
+}
+
+
+.legal-section strong {
+
+  font-weight:
+    700;
+
+}
+
+
+.legal-section a {
+
+  color:
+    var(--ink);
+
+  font-weight:
+    500;
+
+  text-decoration:
+    underline;
+
+  text-underline-offset:
+    3px;
+
+}
+
+
+.legal-section a:hover {
+
+  color:
+    var(--clay);
+
+}
+
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
+.legal-note {
+
+  margin-top:
+    34px;
+
+  padding:
+    22px 24px;
+
+  border-left:
+    3px solid
+    var(--clay);
+
+  background:
+    var(--paper-mid);
+
+}
+
+
+.legal-note p {
+
+  font-size:
+    13px;
+
+  line-height:
+    1.75;
+
+  color:
+    var(--slate);
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+  padding:
+    48px 0 32px;
+
+  background:
+    var(--paper);
+
+  border-top:
+    1px solid
+    var(--stone);
+
+}
+
+
+.footer-inner {
+
+  width:
+    100%;
+
+  max-width:
+    var(--max);
+
+  margin:
+    0 auto;
+
+  padding:
+    0
+    var(--gutter);
+
+  text-align:
+    center;
+
+}
+
+
+.footer-logo {
+
+  width:
+    96px;
+
+  height:
+    96px;
+
+  margin:
+    0 auto 16px;
+
+  object-fit:
+    contain;
+
+}
+
+
+.footer-tagline {
+
+  max-width:
+    390px;
+
+  margin:
+    0 auto 28px;
+
+  font-size:
+    13px;
+
+  line-height:
+    1.7;
+
+  color:
+    var(--slate);
+
+}
+
+
+.footer-rule {
+
+  margin-bottom:
+    24px;
+
+  border:
+    0;
+
+  border-top:
+    1px solid
+    var(--stone);
+
+}
+
+
+.footer-nav {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  justify-content:
+    center;
+
+  gap:
+    8px 26px;
+
+  margin-bottom:
+    28px;
+
+}
+
+
+.footer-nav a {
+
+  min-height:
+    40px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  font-size:
+    13px;
+
+  color:
+    var(--slate);
+
+}
+
+
+.footer-nav a:hover {
+
+  color:
+    var(--ink);
+
+}
+
+
+.footer-bottom {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    10px;
+
+  flex-wrap:
+    wrap;
+
+}
+
+
+.footer-copy {
+
+  font-size:
+    12px;
+
+  letter-spacing:
+    0.03em;
+
+  color:
+    var(--slate);
+
+}
+
+
+.footer-dot {
+
+  width:
+    6px;
+
+  height:
+    6px;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--yellow);
+
+}
+
+
+.footer-legal-links {
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  gap:
+    20px;
+
+  margin-top:
+    16px;
+
+}
+
+
+.footer-legal-links a {
+
+  min-height:
+    40px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  font-size:
+    12px;
+
+  color:
+    var(--slate);
+
+  text-decoration:
+    underline;
+
+  text-underline-offset:
+    3px;
+
+}
+
+
+/* =========================================================
+   MOBILE NAV
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+
+    display:
+      none;
+
+  }
+
+
+  .nav-toggle {
+
+    display:
+      flex;
+
+  }
+
+
+  .nav-links.open {
+
+    position:
+      fixed;
+
+    top:
+      var(--nav-height);
+
+    left:
+      0;
+
+    right:
+      0;
+
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    max-height:
+      calc(100vh - var(--nav-height));
+
+    overflow-y:
+      auto;
+
+    gap:
+      3px;
+
+    padding:
+      18px
+      var(--gutter)
+      28px;
+
+    background:
+      var(--navy);
+
+    border-top:
+      1px solid
+      rgba(255,255,255,0.08);
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,0.12);
+
+  }
+
+
+  .nav-links.open li {
+
+    width:
+      100%;
+
+  }
+
+
+  .nav-links.open a {
+
+    width:
+      100%;
+
+    min-height:
+      48px;
+
+    padding:
+      10px 0;
+
+  }
+
+
+  .nav-links.open .nav-cta {
+
+    width:
+      auto;
+
+    margin-top:
+      7px;
+
+    padding:
+      10px 18px;
+
+    justify-content:
+      center;
+
+  }
+
+}
+
+
+/* =========================================================
+   LEGAL TABLET
+   ========================================================= */
+
+@media (max-width: 780px) {
+
+  .legal-layout {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      32px;
+
+  }
+
+
+  .tab-bar {
+
+    position:
+      static;
+
+  }
+
+
+  .tab-bar-label {
+
+    margin-bottom:
+      10px;
+
+  }
+
+
+  .tab-list {
+
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+  }
+
+
+  .tab-btn {
+
+    padding:
+      13px 16px;
+
+    border:
+      1px solid
+      var(--stone);
+
+  }
+
+
+  .tab-btn + .tab-btn {
+
+    border-left:
+      0;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .eyebrow-label {
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap:
+      8px;
+
+    margin-bottom:
+      22px;
+
+  }
+
+
+  .legal-hero h1 {
+
+    font-size:
+      clamp(30px, 9vw, 40px);
+
+  }
+
+
+  .tab-btn {
+
+    min-height:
+      56px;
+
+    font-size:
+      12px;
+
+  }
+
+
+  .legal-section {
+
+    padding:
+      25px 0;
+
+  }
+
+
+  .legal-section p {
+
+    font-size:
+      15px;
+
+  }
+
+
+  .footer-bottom {
+
+    flex-direction:
+      column;
+
+    text-align:
+      center;
+
+  }
+
+
+  .footer-dot {
+
+    display:
+      none;
+
+  }
+
+
+  .cta-long {
+
+    display:
+      none;
+
+  }
+
+
+  .cta-short {
+
+    display:
+      inline;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior:
+      auto;
+
+  }
+
+
+  *,
+  *::before,
+  *::after {
+
+    transition-duration:
+      0.01ms !important;
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+  }
+
+}
+
+</style>
+
+
+<noscript>
+
+<style>
+
+.tab-bar {
+  display: none;
+}
+
+</style>
+
+</noscript>
+
+
+<!-- STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy and Terms of Service",
+  "url": "https://www.theyellowfrontdoor.ca/legal.html",
+  "description": "Privacy Policy and Terms of Service for The Yellow Front Door."
+}
+</script>
+
+
+<!-- GOOGLE ANALYTICS -->
+
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"
+></script>
+
+<script>
+
+window.dataLayer =
+  window.dataLayer || [];
+
+
+function gtag() {
+
+  dataLayer.push(arguments);
+
+}
+
+
+gtag('js', new Date());
+
+
+gtag(
+  'config',
+  'G-NPL1XCH6H7'
+);
+
+</script>
+
+</head>
+
+
+<body>
+
+
+<a
+  class="skip-link"
+  href="#main-content"
+>
+  Skip to main content
+</a>
+
+
+<!-- =======================================================
+     NAV
+     ======================================================= -->
+
+<nav
+  class="nav"
+  id="nav"
+  aria-label="Primary navigation"
+>
+
+
+  <div class="nav-inner">
+
+
+    <a
+      href="index.html"
+      class="nav-logo"
+      aria-label="The Yellow Front Door — home"
+    >
+
+      <img
+        src="roundlogo2.png"
+        alt=""
+      >
+
+    </a>
+
+
+    <ul
+      class="nav-links"
+      id="nav-links"
+    >
+
+
+      <li>
+        <a href="what-we-do.html">
+          What We Do
+        </a>
+      </li>
+
+
+      <li>
+        <a href="pricing.html">
+          Pricing
+        </a>
+      </li>
+
+
+      <li>
+        <a href="the-proof.html">
+          The Proof
+        </a>
+      </li>
+
+
+      <li>
+        <a href="about.html">
+          About
+        </a>
+      </li>
+
+
+      <li>
+        <a href="the-doorstep.html">
+          The Doorstep
+        </a>
+      </li>
+
+
+      <li>
+        <a href="lets-talk.html">
+          Let's Talk
+        </a>
+      </li>
+
+
+      <li>
+
+        <a
+          href="the-scorecard.html"
+          class="nav-cta"
+        >
+
+          <span class="cta-long">
+            The Scorecard
+          </span>
+
+          <span class="cta-short">
+            Scorecard
+          </span>
+
+        </a>
+
+      </li>
+
+
+    </ul>
+
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="nav-links"
+      aria-expanded="false"
+    >
+
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+
+    </button>
+
+
+  </div>
+
+
+</nav>
+
+
+<main id="main-content">
+
+
+<!-- =======================================================
+     HERO
+     ======================================================= -->
+
+<header
+  class="legal-hero"
+  aria-labelledby="page-title"
+>
+
+
+  <div class="container">
+
+
+    <div class="legal-hero-inner">
+
+
+      <div class="eyebrow-label">
+
+
+        <span class="eyebrow-tag">
+          Legal
+        </span>
+
+
+        <span class="eyebrow-desc">
+          The fine print
+        </span>
+
+
+      </div>
+
+
+      <h1 id="page-title">
+        Privacy Policy &amp; Terms of Service
+      </h1>
+
+
+      <p>
+        We've written these to be readable. If you have a question about anything here, you're welcome to reach us at
+        <a href="mailto:hello@theyellowfrontdoor.ca">
+          hello@theyellowfrontdoor.ca
+        </a>.
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+</header>
+
+
+<!-- =======================================================
+     LEGAL CONTENT
+     ======================================================= -->
+
+<section class="legal-content">
+
+
+  <div class="container">
+
+
+    <div class="legal-layout">
+
+
+      <!-- =================================================
+           TAB NAVIGATION
+           ================================================= -->
+
+      <aside class="tab-bar">
+
+
+        <span class="tab-bar-label">
+          On this page
+        </span>
+
+
+        <div
+          class="tab-list"
+          role="tablist"
+          aria-label="Legal documents"
+        >
+
+
+          <button
+            class="tab-btn"
+            id="tab-button-privacy"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="privacy"
+            data-tab="privacy"
+            tabindex="0"
+          >
+
+            <span>
+              Privacy Policy
+            </span>
+
+            <span
+              class="tab-marker"
+              aria-hidden="true"
+            ></span>
+
+          </button>
+
+
+          <button
+            class="tab-btn"
+            id="tab-button-tos"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tos"
+            data-tab="tos"
+            tabindex="-1"
+          >
+
+            <span>
+              Terms of Service
+            </span>
+
+            <span
+              class="tab-marker"
+              aria-hidden="true"
+            ></span>
+
+          </button>
+
+
+        </div>
+
+
+      </aside>
+
+
+      <!-- =================================================
+           PANELS
+           ================================================= -->
+
+      <div class="legal-panels">
+
+
+        <!-- ===============================================
+             PRIVACY POLICY
+             =============================================== -->
+
+        <article
+          class="legal-panel active"
+          id="privacy"
+          role="tabpanel"
+          aria-labelledby="tab-button-privacy"
+        >
+
+
+          <h2 class="panel-heading">
+            Privacy Policy
+          </h2>
+
+
+          <p class="legal-updated">
+            Last updated: August 2026
+          </p>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Who we are
+            </h3>
+
+
+            <p>
+              The Yellow Front Door is a marketing studio based in the Annapolis Valley, Nova Scotia, Canada. Our website is
+              <a href="https://www.theyellowfrontdoor.ca">
+                theyellowfrontdoor.ca
+              </a>.
+              For privacy questions or requests, contact us at
+              <a href="mailto:hello@theyellowfrontdoor.ca">
+                hello@theyellowfrontdoor.ca
+              </a>.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              What information we collect
+            </h3>
+
+
+            <p>
+              We collect personal information when you choose to provide it to us. Depending on how you use the site, this may include your name, business name, email address, website address, the subject of your inquiry, and anything you include in a message or form.
+            </p>
+
+
+            <p>
+              Our interactive tools may also calculate scores or results based on the answers you provide. The Scorecard does not require you to submit contact information to see your results. If you choose to have results sent by email, your email address and the relevant score information are submitted for that purpose.
+            </p>
+
+
+            <p>
+              The Website Checkup also displays your results on the site. If you request its companion guide, the information requested in that form, along with your Checkup results, is submitted so we can provide the resource and respond if you specifically ask us to follow up.
+            </p>
+
+
+            <p>
+              We do not collect payment-card information through this website. Payments for client work are handled separately through the payment or invoicing arrangements described in the applicable project agreement.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              How we use your information
+            </h3>
+
+
+            <p>
+              We use information you provide to respond to inquiries, provide resources you request, deliver requested Scorecard or Website Checkup results, discuss potential work, administer client relationships, and operate the studio.
+            </p>
+
+
+            <p>
+              Requesting a guide, completing a form, or asking us a question does not by itself mean that you have agreed to receive ongoing marketing emails. If you separately consent to receive studio updates, resources, or other marketing email, we may send those messages through MailerLite. You can unsubscribe using the link provided in those emails.
+            </p>
+
+
+            <p>
+              We do not sell or rent your personal information to third parties for their own marketing.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Service providers
+            </h3>
+
+
+            <p>
+              We use third-party service providers to operate parts of this website and our communications. Information is shared with them only as needed for the services they provide to us.
+            </p>
+
+
+            <p>
+              <strong>Formspree</strong> receives and processes submissions from forms on this website, including contact forms and certain requests connected to our interactive tools.
+              See
+              <a
+                href="https://formspree.io/legal/privacy-policy/"
+                target="_blank"
+                rel="noopener"
+              >
+                Formspree's Privacy Policy
+              </a>.
+            </p>
+
+
+            <p>
+              <strong>MailerLite</strong> is used for email-list and subscriber communications. If you choose to subscribe to marketing emails, information associated with that subscription is processed through MailerLite.
+              See
+              <a
+                href="https://www.mailerlite.com/legal/privacy-policy"
+                target="_blank"
+                rel="noopener"
+              >
+                MailerLite's Privacy Policy
+              </a>.
+            </p>
+
+
+            <p>
+              <strong>Google Analytics</strong> helps us understand how the website is being used. Analytics information can include page visits, session information, device and browser information, approximate geographic information, and identifiers used to distinguish browsers or sessions. We do not intentionally send your name, email address, or form-message contents to Google Analytics.
+              See
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener"
+              >
+                Google's Privacy Policy
+              </a>.
+            </p>
+
+
+            <p>
+              <strong>Vercel</strong> hosts this website. As part of normal hosting and security operations, hosting infrastructure may process technical information such as request logs, IP addresses, browser information, and related service data.
+              See
+              <a
+                href="https://vercel.com/legal/privacy-notice"
+                target="_blank"
+                rel="noopener"
+              >
+                Vercel's Privacy Notice
+              </a>.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Cookies and analytics
+            </h3>
+
+
+            <p>
+              Google Analytics uses first-party identifiers, including the <strong>_ga</strong> cookie, to distinguish browsers and sessions and provide website-usage reporting.
+            </p>
+
+
+            <p>
+              You can block or delete cookies through your browser settings. Google also provides a
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener"
+              >
+                Google Analytics opt-out browser add-on
+              </a>.
+            </p>
+
+
+            <p>
+              We do not use this website to sell personal information or intentionally run third-party behavioural advertising.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Consent and your privacy choices
+            </h3>
+
+
+            <p>
+              Where consent is required, we collect, use, and disclose personal information for the purposes explained when the information is collected or for other purposes permitted by law.
+            </p>
+
+
+            <p>
+              You can contact us to ask what personal information we hold about you, request access to it, ask us to correct information that is inaccurate, withdraw consent where withdrawal is available, or ask us to delete information we no longer need.
+            </p>
+
+
+            <p>
+              In some circumstances, we may need or be permitted to retain information despite a deletion request, including for legal, accounting, security, contractual, or record-keeping purposes.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Safeguards
+            </h3>
+
+
+            <p>
+              We take reasonable administrative and technical steps to protect personal information in our custody or control and limit access to information to people and service providers who need it for the purposes described here.
+            </p>
+
+
+            <p>
+              No internet transmission, hosting service, or electronic storage system can be guaranteed to be completely secure.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Data retention
+            </h3>
+
+
+            <p>
+              We retain personal information only as long as reasonably needed for the purpose for which it was collected, for an ongoing client relationship, or for legal, accounting, security, or legitimate business-record requirements.
+            </p>
+
+
+            <p>
+              When information is no longer reasonably required, we may delete, anonymize, or otherwise dispose of it.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Canadian privacy law
+            </h3>
+
+
+            <p>
+              Our handling of personal information is intended to follow applicable Canadian privacy requirements, including the Personal Information Protection and Electronic Documents Act (PIPEDA) where it applies.
+            </p>
+
+
+            <p>
+              If you have a concern about how we have handled your information, please contact us first at
+              <a href="mailto:hello@theyellowfrontdoor.ca">
+                hello@theyellowfrontdoor.ca
+              </a>
+              so we can look into it.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Changes to this policy
+            </h3>
+
+
+            <p>
+              We may update this Privacy Policy as our website, services, or legal obligations change. When we make a meaningful update, we will change the revision date shown at the top of this policy.
+            </p>
+
+
+          </section>
+
+
+        </article>
+
+
+        <!-- ===============================================
+             TERMS OF SERVICE
+             =============================================== -->
+
+        <article
+          class="legal-panel"
+          id="tos"
+          role="tabpanel"
+          aria-labelledby="tab-button-tos"
+        >
+
+
+          <h2 class="panel-heading">
+            Terms of Service
+          </h2>
+
+
+          <p class="legal-updated">
+            Last updated: August 2026
+          </p>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Overview
+            </h3>
+
+
+            <p>
+              These Terms of Service govern your use of theyellowfrontdoor.ca and the free resources made available through this website.
+            </p>
+
+
+            <p>
+              Paid client work is also governed by the project agreement, proposal, statement of work, or other written agreement accepted for that engagement. If a signed or accepted project agreement conflicts with these general website terms in relation to client services, the project agreement controls.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Website use
+            </h3>
+
+
+            <p>
+              Unless otherwise stated, the original text, design, graphics, resources, and other content created by The Yellow Front Door for this website are owned by The Yellow Front Door and are protected by applicable intellectual-property laws.
+            </p>
+
+
+            <p>
+              You're welcome to share links to our public pages or refer to our work with appropriate attribution. You may not reproduce, republish, resell, scrape for commercial republication, or redistribute substantial portions of our content or resources without written permission.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Free resources and tools
+            </h3>
+
+
+            <p>
+              Resources such as The Scorecard, Website Checkup, downloadable guides, and similar materials are provided for your own personal or business use. They may not be resold, repackaged, rebranded, or represented as your own work.
+            </p>
+
+
+            <p>
+              These tools are intended to help you think through your website, marketing, customer experience, or systems. Their scores, observations, and recommendations are general information, not a guarantee of any particular business result.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Client services
+            </h3>
+
+
+            <p>
+              The scope, deliverables, timeline, responsibilities, fees, revision terms, and other details of paid client work are established in the agreement for that project.
+            </p>
+
+
+            <p>
+              We may decline a project inquiry when we do not believe the project is the right fit, when capacity is unavailable, or for another legitimate business reason.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Payment
+            </h3>
+
+
+            <p>
+              Payment schedules and due dates for client work are set out in the applicable project agreement or invoice. Depending on the project, work may be structured around deposits, milestones, recurring payments, or another agreed schedule.
+            </p>
+
+
+            <p>
+              We do not process client project payments directly through this website.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Cancellation, pauses, and refunds
+            </h3>
+
+
+            <p>
+              Cancellation and refund terms for paid work are governed by the applicable project agreement.
+            </p>
+
+
+            <p>
+              Unless that agreement says otherwise, if a project is cancelled or paused after work has begun, amounts relating to work already completed, committed project time, approved milestones, or non-refundable expenses may remain payable.
+            </p>
+
+
+            <p>
+              Free resources provided at no charge are not subject to refund terms.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Client responsibilities
+            </h3>
+
+
+            <p>
+              Client projects depend on timely participation. You are responsible for providing requested materials, accurate business information, approvals, access credentials where required, and feedback reasonably needed to complete the work.
+            </p>
+
+
+            <p>
+              Delays in receiving those items may affect delivery dates or project schedules.
+            </p>
+
+
+            <p>
+              You are also responsible for ensuring that you have the right to provide and use any photographs, logos, written materials, trademarks, data, or other content you give us for use in your project.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Intellectual property
+            </h3>
+
+
+            <p>
+              Ownership and licensing of paid project deliverables are governed first by the applicable project agreement.
+            </p>
+
+
+            <p>
+              Unless that agreement says otherwise, once all amounts owing for a project have been paid, the client receives ownership of the final client-specific deliverables created for that project.
+            </p>
+
+
+            <p>
+              Pre-existing tools, templates, frameworks, systems, methods, reusable code, processes, know-how, and other materials that were not created exclusively for the client remain the property of The Yellow Front Door or their respective owners.
+            </p>
+
+
+            <p>
+              Third-party fonts, software, photographs, plugins, platforms, stock assets, or other licensed materials remain subject to the terms and licences of their respective owners.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Portfolio use
+            </h3>
+
+
+            <p>
+              Unless a project agreement says otherwise or we agree in writing to confidentiality, we may display completed public-facing work in our portfolio, case studies, social channels, proposals, or other studio marketing.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Results and warranties
+            </h3>
+
+
+            <p>
+              We work carefully and in good faith, but marketing, websites, branding, content, and business systems are affected by many factors outside our control.
+            </p>
+
+
+            <p>
+              We do not guarantee specific levels of revenue, sales, leads, rankings, website traffic, engagement, conversions, or other business outcomes unless a written project agreement expressly says otherwise.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Limitation of liability
+            </h3>
+
+
+            <p>
+              To the extent permitted by applicable law, The Yellow Front Door is not responsible for indirect, incidental, special, or consequential losses resulting solely from use of this website or its free resources.
+            </p>
+
+
+            <p>
+              Any limitations of liability that apply to paid client services are governed by the applicable project agreement.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Third-party services
+            </h3>
+
+
+            <p>
+              Our website and client projects may link to or use third-party services, platforms, software, hosting providers, or other tools. Those services are operated by their respective providers and are subject to their own terms, policies, availability, and technical requirements.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Governing law
+            </h3>
+
+
+            <p>
+              These website terms are governed by the laws of Nova Scotia and the federal laws of Canada applicable in Nova Scotia.
+            </p>
+
+
+            <p>
+              Any dispute relating specifically to a paid client project is also subject to the dispute and governing-law provisions, if any, in the applicable project agreement.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Changes to these terms
+            </h3>
+
+
+            <p>
+              We may update these Terms of Service as the website or studio changes. The revision date at the top of this section shows the most recent update.
+            </p>
+
+
+          </section>
+
+
+          <section class="legal-section">
+
+
+            <h3>
+              Contact
+            </h3>
+
+
+            <p>
+              Questions about these terms can be sent to
+              <a href="mailto:hello@theyellowfrontdoor.ca">
+                hello@theyellowfrontdoor.ca
+              </a>.
+            </p>
+
+
+          </section>
+
+
+          <aside class="legal-note">
+
+
+            <p>
+              These website terms are intended to work alongside individual client agreements. Project-specific terms in an accepted agreement take priority for that project.
+            </p>
+
+
+          </aside>
+
+
+        </article>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+
+<footer class="footer">
+
+
+  <div class="footer-inner">
+
+
+    <img
+      src="roundlogo.png"
+      alt="The Yellow Front Door"
+      class="footer-logo"
+    >
+
+
+    <p class="footer-tagline">
+      Websites, marketing, client experience, and practical systems for businesses that want the pieces to work better together.
+    </p>
+
+
+    <hr class="footer-rule">
+
+
+    <nav
+      class="footer-nav"
+      aria-label="Footer navigation"
+    >
+
+
+      <a href="what-we-do.html">
+        What We Do
+      </a>
+
+
+      <a href="pricing.html">
+        Pricing
+      </a>
+
+
+      <a href="the-proof.html">
+        The Proof
+      </a>
+
+
+      <a href="about.html">
+        About
+      </a>
+
+
+      <a href="the-doorstep.html">
+        The Doorstep
+      </a>
+
+
+      <a href="lets-talk.html">
+        Let's Talk
+      </a>
+
+
+      <a href="for-small-business.html">
+        For Small Business
+      </a>
+
+
+      <a href="for-real-estate-professionals.html">
+        For Real Estate
+      </a>
+
+
+      <a href="website-audit.html">
+        Website Checkup
+      </a>
+
+
+    </nav>
+
+
+    <div class="footer-bottom">
+
+
+      <p class="footer-copy">
+        &copy; 2026 The Yellow Front Door. All rights reserved.
+      </p>
+
+
+      <span
+        class="footer-dot"
+        aria-hidden="true"
+      ></span>
+
+
+      <p class="footer-copy">
+        Annapolis Valley, NS
+      </p>
+
+
+      <span
+        class="footer-dot"
+        aria-hidden="true"
+      ></span>
+
+
+      <p class="footer-copy">
+        theyellowfrontdoor.ca
+      </p>
+
+
+    </div>
+
+
+    <div class="footer-legal-links">
+
+
+      <a href="legal.html">
+        Privacy Policy
+      </a>
+
+
+      <a href="legal.html#tos">
+        Terms of Service
+      </a>
+
+
+    </div>
+
+
+  </div>
+
+
+</footer>
+
+
+<script>
+
+(function () {
+
+
+  /* =======================================================
+     NAVIGATION
+     ======================================================= */
+
+  var nav =
+    document.getElementById(
+      'nav'
+    );
+
+
+  var toggle =
+    document.getElementById(
+      'nav-toggle'
+    );
+
+
+  var navLinks =
+    document.getElementById(
+      'nav-links'
+    );
+
+
+  function closeMenu() {
+
+
+    navLinks
+      .classList
+      .remove('open');
+
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+
+    toggle.setAttribute(
+      'aria-label',
+      'Open navigation menu'
+    );
+
+
+  }
+
+
+  function openMenu() {
+
+
+    navLinks
+      .classList
+      .add('open');
+
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'true'
+    );
+
+
+    toggle.setAttribute(
+      'aria-label',
+      'Close navigation menu'
+    );
+
+
+  }
+
+
+  window.addEventListener(
+    'scroll',
+    function () {
+
+
+      nav.classList.toggle(
+        'scrolled',
+        window.scrollY > 20
+      );
+
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  toggle.addEventListener(
+    'click',
+    function () {
+
+
+      var open =
+        toggle.getAttribute(
+          'aria-expanded'
+        ) === 'true';
+
+
+      if (open) {
+
+        closeMenu();
+
+      } else {
+
+        openMenu();
+
+      }
+
+
+    }
+  );
+
+
+  navLinks
+    .querySelectorAll('a')
+    .forEach(
+      function (link) {
+
+
+        link.addEventListener(
+          'click',
+          closeMenu
+        );
+
+
+      }
+    );
+
+
+  window.addEventListener(
+    'resize',
+    function () {
+
+
+      if (
+        window.innerWidth > 900
+      ) {
+
+        closeMenu();
+
+      }
+
+
+    }
+  );
+
+
+  /* =======================================================
+     TABS
+     ======================================================= */
+
+  var tabButtons =
+    Array.from(
+      document.querySelectorAll(
+        '[role="tab"]'
+      )
+    );
+
+
+  var panels =
+    Array.from(
+      document.querySelectorAll(
+        '[role="tabpanel"]'
+      )
+    );
+
+
+  function selectTab(
+    id,
+    options
+  ) {
+
+
+    var settings =
+      options || {};
+
+
+    var requested =
+      id === 'tos'
+        ? 'tos'
+        : 'privacy';
+
+
+    tabButtons.forEach(
+      function (button) {
+
+
+        var selected =
+          button.dataset.tab ===
+          requested;
+
+
+        button.setAttribute(
+          'aria-selected',
+          selected
+            ? 'true'
+            : 'false'
+        );
+
+
+        button.tabIndex =
+          selected
+            ? 0
+            : -1;
+
+
+      }
+    );
+
+
+    panels.forEach(
+      function (panel) {
+
+
+        var selected =
+          panel.id ===
+          requested;
+
+
+        panel.hidden =
+          !selected;
+
+
+        panel.classList.toggle(
+          'active',
+          selected
+        );
+
+
+      }
+    );
+
+
+    if (
+      settings.focus
+    ) {
+
+
+      var selectedButton =
+        document.querySelector(
+          '[data-tab="' +
+          requested +
+          '"]'
+        );
+
+
+      if (selectedButton) {
+
+        selectedButton.focus();
+
+      }
+
+
+    }
+
+
+    if (
+      settings.updateHash
+    ) {
+
+
+      history.pushState(
+        null,
+        '',
+        requested === 'tos'
+          ? '#tos'
+          : '#privacy'
+      );
+
+
+    }
+
+
+  }
+
+
+  tabButtons.forEach(
+    function (button) {
+
+
+      button.addEventListener(
+        'click',
+        function () {
+
+
+          selectTab(
+            button.dataset.tab,
+            {
+              focus: false,
+              updateHash: true
+            }
+          );
+
+
+        }
+      );
+
+
+      button.addEventListener(
+        'keydown',
+        function (event) {
+
+
+          var currentIndex =
+            tabButtons.indexOf(
+              button
+            );
+
+
+          var targetIndex =
+            currentIndex;
+
+
+          if (
+            event.key ===
+            'ArrowRight'
+          ) {
+
+
+            targetIndex =
+              (
+                currentIndex + 1
+              ) %
+              tabButtons.length;
+
+
+          } else if (
+            event.key ===
+            'ArrowLeft'
+          ) {
+
+
+            targetIndex =
+              (
+                currentIndex -
+                1 +
+                tabButtons.length
+              ) %
+              tabButtons.length;
+
+
+          } else if (
+            event.key ===
+            'Home'
+          ) {
+
+
+            targetIndex =
+              0;
+
+
+          } else if (
+            event.key ===
+            'End'
+          ) {
+
+
+            targetIndex =
+              tabButtons.length - 1;
+
+
+          } else {
+
+
+            return;
+
+
+          }
+
+
+          event.preventDefault();
+
+
+          selectTab(
+            tabButtons[
+              targetIndex
+            ].dataset.tab,
+            {
+              focus: true,
+              updateHash: true
+            }
+          );
+
+
+        }
+      );
+
+
+    }
+  );
+
+
+  /* =======================================================
+     INITIAL HASH
+     ======================================================= */
+
+  function syncFromHash() {
+
+
+    var id =
+      window.location.hash ===
+      '#tos'
+        ? 'tos'
+        : 'privacy';
+
+
+    selectTab(
+      id,
+      {
+        focus: false,
+        updateHash: false
+      }
+    );
+
+
+  }
+
+
+  syncFromHash();
+
+
+  window.addEventListener(
+    'hashchange',
+    syncFromHash
+  );
+
+
+  /* =======================================================
+     ESCAPE NAV
+     ======================================================= */
+
+  document.addEventListener(
+    'keydown',
+    function (event) {
+
+
+      if (
+        event.key === 'Escape' &&
+        toggle.getAttribute(
+          'aria-expanded'
+        ) === 'true'
+      ) {
+
+
+        closeMenu();
+
+        toggle.focus();
+
+
+      }
+
+
+    }
+  );
+
+
+})();
+
+</script>
+
+
 </body>
+
 </html>
