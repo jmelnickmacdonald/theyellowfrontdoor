@@ -2,10 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>The Hard Launch | The Yellow Front Door</title>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    The Hard Launch | The Yellow Front Door
+  </title>
 
   <meta
     name="description"
@@ -17,11 +24,14 @@
     href="https://www.theyellowfrontdoor.ca/hard-launch"
   >
 
-  <meta property="og:title" content="The Hard Launch | The Yellow Front Door">
+  <meta
+    property="og:title"
+    content="The Hard Launch | The Yellow Front Door"
+  >
 
   <meta
     property="og:description"
-    content="You invest. We'll match it. Up to $2,000 in additional Yellow Front Door work."
+    content="You invest. We'll match it. For a limited number of new projects, we'll add the same amount again in additional Yellow Front Door work, up to $2,000."
   >
 
   <meta
@@ -29,1080 +39,2347 @@
     content="https://www.theyellowfrontdoor.ca/hard-launch"
   >
 
-  <meta property="og:type" content="website">
+  <meta
+    property="og:type"
+    content="website"
+  >
 
   <meta
     property="og:image"
     content="https://www.theyellowfrontdoor.ca/hard-launch-social.png"
   >
 
-  <meta name="theme-color" content="#132447">
+  <meta
+    name="theme-color"
+    content="#132447"
+  >
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/apple-icon-180x180.png"
+  >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/favicon-32x32.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/favicon-16x16.png"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
     rel="stylesheet"
   >
 
+
   <style>
 
+    /* =========================================================
+       FONT
+    ========================================================= */
+
     @font-face {
+
       font-family: 'CasualHandwriting';
+
       src:
         url('CasualHandwriting.woff2') format('woff2'),
         url('CasualHandwriting.woff') format('woff');
+
       font-weight: normal;
       font-style: normal;
       font-display: swap;
+
     }
 
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
     :root {
+
       --navy: #132447;
       --yellow: #fcd346;
       --brass: #e6b800;
+
       --paper: #F7F6F1;
       --white: #ffffff;
+
       --stone: #DEDAD1;
       --slate: #596674;
-      --ink-soft: #35425b;
+      --soft-navy: #35425b;
 
       --font: 'Montserrat', sans-serif;
       --hand: 'CasualHandwriting', cursive;
 
       --max: 1120px;
       --gutter: clamp(24px, 5vw, 80px);
+
       --nav-height: 72px;
-      --section: clamp(72px, 8vw, 106px);
+
+      --section:
+        clamp(68px, 7.5vw, 100px);
+
     }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
 
     *,
     *::before,
     *::after {
+
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+
     }
+
 
     html {
+
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 92px;
+
     }
 
+
     body {
+
       background: var(--paper);
       color: var(--navy);
+
       font-family: var(--font);
       font-size: 16px;
       line-height: 1.75;
+
       -webkit-font-smoothing: antialiased;
+
       overflow-x: hidden;
+
     }
 
+
     img {
+
       display: block;
       max-width: 100%;
       height: auto;
+
     }
 
+
     a {
+
       color: inherit;
       text-decoration: none;
+
     }
+
 
     button,
     input,
     textarea {
+
       font: inherit;
+
     }
+
+
+    button {
+
+      cursor: pointer;
+
+    }
+
 
     .container {
+
       width: 100%;
       max-width: var(--max);
+
       margin: 0 auto;
       padding: 0 var(--gutter);
+
     }
+
 
     .section {
+
       padding: var(--section) 0;
+
     }
+
 
     .section-label {
+
       display: block;
-      margin-bottom: 15px;
+
+      margin-bottom: 14px;
+
       color: var(--slate);
+
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
 
-    .eyebrow-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 30px;
-    }
+      line-height: 1.4;
 
-    .eyebrow-tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 6px 16px;
-      background: var(--navy);
-      color: var(--yellow);
-      font-size: 11px;
-      font-weight: 700;
       letter-spacing: .21em;
+
       text-transform: uppercase;
+
     }
 
-    .eyebrow-note {
-      color: var(--slate);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
 
     h1,
     h2,
     h3 {
+
       color: var(--navy);
+
     }
+
 
     h2 {
-      font-size: clamp(32px, 4.2vw, 50px);
+
+      max-width: 800px;
+
+      font-size:
+        clamp(31px, 4vw, 48px);
+
       font-weight: 400;
-      line-height: 1.14;
-      letter-spacing: -.04em;
+
+      line-height: 1.15;
+
+      letter-spacing: -.038em;
+
     }
+
 
     p {
+
       max-width: 760px;
+
     }
+
+
+    /* =========================================================
+       ACCESSIBILITY
+    ========================================================= */
 
     .skip-link {
+
       position: fixed;
+
       top: 8px;
       left: 12px;
-      z-index: 999;
+
+      z-index: 9999;
+
       padding: 10px 16px;
+
       background: var(--yellow);
       color: var(--navy);
+
       transform: translateY(-160%);
+
     }
+
 
     .skip-link:focus {
+
       transform: translateY(0);
+
     }
 
 
-    /* NAV */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+
+      outline: 3px solid var(--yellow);
+      outline-offset: 3px;
+
+    }
+
+
+    /* =========================================================
+       NAV
+    ========================================================= */
 
     .nav {
+
       position: fixed;
-      inset: 0 0 auto 0;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
       z-index: 100;
+
       height: var(--nav-height);
+
       background: var(--navy);
+
+      transition:
+        box-shadow .25s ease;
+
     }
+
+
+    .nav.scrolled {
+
+      box-shadow:
+        0 3px 22px rgba(19,36,71,.25);
+
+    }
+
 
     .nav-inner {
+
       max-width: var(--max);
+
       height: 100%;
+
       margin: 0 auto;
-      padding: 0 var(--gutter);
+
+      padding:
+        0 var(--gutter);
+
       display: flex;
+
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+
+      gap: 22px;
+
     }
+
 
     .nav-logo {
+
       width: 52px;
       height: 52px;
-      flex: 0 0 52px;
+
+      flex:
+        0 0 52px;
+
     }
+
 
     .nav-logo img {
+
       width: 52px;
       height: 52px;
+
       object-fit: contain;
+
     }
+
 
     .nav-links {
+
       list-style: none;
+
       display: flex;
+
       align-items: center;
+
       gap: 22px;
+
     }
+
 
     .nav-links a {
+
       min-height: 44px;
+
       display: inline-flex;
+
       align-items: center;
-      color: rgba(255,255,255,.8);
+
+      color:
+        rgba(255,255,255,.8);
+
       font-size: 12px;
       font-weight: 500;
+
     }
+
 
     .nav-links a:hover {
+
       color: var(--white);
+
     }
+
 
     .nav-cta {
-      padding: 9px 18px !important;
-      background: var(--yellow);
-      color: var(--navy) !important;
-      font-weight: 700 !important;
+
+      padding:
+        9px 18px !important;
+
+      background:
+        var(--yellow);
+
+      color:
+        var(--navy) !important;
+
+      font-weight:
+        700 !important;
+
     }
+
+
+    .nav-cta:hover {
+
+      background:
+        var(--brass);
+
+    }
+
 
     .nav-toggle {
-      display: none;
+
       width: 44px;
       height: 44px;
-      border: 0;
+
+      display: none;
+
+      border: none;
+
       background: transparent;
-      cursor: pointer;
+
     }
+
 
     .nav-toggle span {
+
       display: block;
+
       width: 24px;
       height: 2px;
+
       margin: 5px auto;
-      background: var(--white);
+
+      background:
+        var(--white);
+
     }
 
 
-    /* HERO */
+    /* =========================================================
+       HERO
+    ========================================================= */
 
     .hero {
-      margin-top: var(--nav-height);
-      padding: clamp(70px, 8vw, 110px) 0 clamp(76px, 9vw, 118px);
-      background: var(--paper);
-      border-bottom: 1px solid var(--stone);
+
+      margin-top:
+        var(--nav-height);
+
+      padding:
+        clamp(70px, 8vw, 104px)
+        0
+        clamp(76px, 8vw, 106px);
+
+      background:
+        var(--paper);
+
+      border-bottom:
+        1px solid var(--stone);
+
     }
+
+
+    .eyebrow-row {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 16px;
+
+      margin-bottom:
+        34px;
+
+    }
+
+
+    .eyebrow-tag {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      min-height: 34px;
+
+      padding:
+        6px 16px;
+
+      background:
+        var(--navy);
+
+      color:
+        var(--yellow);
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing:
+        .21em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .eyebrow-note {
+
+      color:
+        var(--slate);
+
+      font-size: 11px;
+      font-weight: 600;
+
+      letter-spacing:
+        .17em;
+
+      text-transform:
+        uppercase;
+
+    }
+
 
     .hero-grid {
+
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(250px, .65fr);
-      gap: clamp(50px, 8vw, 100px);
-      align-items: end;
+
+      grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(320px, .9fr);
+
+      gap:
+        clamp(50px, 7vw, 84px);
+
+      align-items: center;
+
     }
+
 
     .hero h1 {
-      max-width: 880px;
-      font-size: clamp(55px, 6.5vw, 82px);
+
+      max-width: 720px;
+
+      font-size:
+        clamp(48px, 5.25vw, 68px);
+
       font-weight: 300;
-      line-height: 1.02;
-      letter-spacing: -.055em;
+
+      line-height: 1.035;
+
+      letter-spacing:
+        -.052em;
+
     }
+
 
     .hero h1 .match {
+
       position: relative;
+
       display: inline-block;
+
       font-weight: 500;
+
     }
+
 
     .hero h1 .match::after {
+
       content: "";
+
       position: absolute;
-      left: 1%;
-      right: -2%;
-      bottom: -6px;
-      height: 13px;
+
+      left: 0;
+      right: -3%;
+      bottom: -7px;
+
+      height: 11px;
+
       background:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 500 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 18 C105 7 207 25 496 10' fill='none' stroke='%23fcd346' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E")
-        center / 100% 100% no-repeat;
+        center / 100% 100%
+        no-repeat;
+
       pointer-events: none;
+
     }
 
-    .hero-intro {
-      max-width: 690px;
-      margin-top: 38px;
-      padding-left: 30px;
-      border-left: 1px solid var(--stone);
+
+    .hero-lead {
+
+      max-width: 665px;
+
+      margin-top: 32px;
+
+      color:
+        var(--soft-navy);
+
+      font-size:
+        clamp(16px, 1.55vw, 18px);
+
+      line-height: 1.8;
+
     }
 
-    .hero-intro strong {
+
+    .hero-lead strong {
+
+      color:
+        var(--navy);
+
       font-weight: 600;
+
     }
 
-    .hero-intro p {
-      margin-bottom: 17px;
-      color: var(--ink-soft);
-      font-size: 16px;
-      line-height: 1.82;
+
+    .hero-explain {
+
+      max-width: 620px;
+
+      margin-top: 17px;
+
+      color:
+        var(--slate);
+
+      font-size: 14px;
+
+      line-height: 1.78;
+
     }
 
-    .hero-intro p:last-child {
-      margin-bottom: 0;
-    }
 
     .hero-actions {
+
       display: flex;
+
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-      padding-left: 30px;
+
+      align-items: center;
+
+      gap: 17px;
+
+      margin-top: 30px;
+
     }
+
 
     .button {
+
       min-height: 48px;
-      padding: 13px 22px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+
+      padding:
+        13px 22px;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
       border: none;
-      cursor: pointer;
+
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .09em;
-      text-transform: uppercase;
+
+      letter-spacing:
+        .09em;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .button-yellow {
-      background: var(--yellow);
-      color: var(--navy);
+
+      background:
+        var(--yellow);
+
+      color:
+        var(--navy);
+
     }
+
 
     .button-yellow:hover {
-      background: var(--brass);
+
+      background:
+        var(--brass);
+
     }
+
 
     .text-link {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 4px;
-      color: var(--slate);
-      border-bottom: 1px solid var(--stone);
+
+      min-height: 46px;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      padding:
+        0 2px;
+
+      color:
+        var(--slate);
+
+      border-bottom:
+        1px solid var(--stone);
+
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+
+      letter-spacing:
+        .08em;
+
+      text-transform:
+        uppercase;
+
     }
 
 
-    /* HERO MATCH MARK */
+    /* =========================================================
+       OFFER PANEL
+    ========================================================= */
 
-    .launch-mark {
-      position: relative;
-      min-height: 330px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 34px 30px;
-      background: var(--yellow);
+    .offer-panel {
+
+      padding:
+        28px 30px 23px;
+
+      background:
+        var(--white);
+
+      border-top:
+        4px solid var(--yellow);
+
+      box-shadow:
+        0 18px 44px rgba(19,36,71,.055);
+
     }
 
-    .launch-mark::before {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border: 1px solid rgba(19,36,71,.22);
-    }
 
-    .launch-mark > * {
-      position: relative;
-      z-index: 1;
-    }
+    .offer-panel-label {
 
-    .launch-mark-small {
-      margin-bottom: auto;
+      display: block;
+
+      margin-bottom: 8px;
+
+      color:
+        var(--slate);
+
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
+
+      letter-spacing:
+        .19em;
+
+      text-transform:
+        uppercase;
+
     }
 
-    .launch-mark-up {
-      display: block;
+
+    .offer-panel-title {
+
+      margin-bottom:
+        9px;
+
+      color:
+        var(--navy);
+
+      font-size: 21px;
+      font-weight: 500;
+
+      line-height: 1.3;
+
+      letter-spacing:
+        -.025em;
+
+    }
+
+
+    .offer-panel-intro {
+
+      margin-bottom:
+        10px;
+
+      color:
+        var(--slate);
+
       font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+
+      line-height: 1.65;
+
     }
 
-    .launch-mark-number {
+
+    .offer-example {
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(80px, 1fr)
+        auto
+        minmax(105px, 1fr);
+
+      gap: 13px;
+
+      align-items: center;
+
+      padding:
+        18px 0;
+
+      border-bottom:
+        1px solid var(--stone);
+
+    }
+
+
+    .offer-example:last-of-type {
+
+      border-bottom:
+        0;
+
+    }
+
+
+    .offer-small {
+
       display: block;
-      margin: 2px 0 6px;
-      font-size: clamp(52px, 5vw, 72px);
-      font-weight: 400;
-      line-height: 1;
-      letter-spacing: -.055em;
+
+      margin-bottom: 2px;
+
+      color:
+        var(--slate);
+
+      font-size: 9px;
+      font-weight: 700;
+
+      letter-spacing:
+        .08em;
+
+      text-transform:
+        uppercase;
+
     }
 
-    .launch-mark-copy {
-      max-width: 210px;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.55;
-    }
 
-    .launch-hand {
+    .offer-example strong {
+
       display: block;
-      margin-top: 18px;
-      font-family: var(--hand);
-      font-size: 27px;
-      line-height: 1.05;
-      transform: rotate(-2deg);
+
+      color:
+        var(--navy);
+
+      font-size:
+        clamp(19px, 2vw, 25px);
+
+      font-weight: 500;
+
+      line-height: 1.16;
+
+      letter-spacing:
+        -.035em;
+
     }
 
 
-    /* STORY */
+    .offer-arrow {
+
+      color:
+        var(--yellow);
+
+      font-family:
+        var(--hand);
+
+      font-size: 25px;
+
+    }
+
+
+    .offer-total {
+
+      grid-column:
+        1 / -1;
+
+      margin-top:
+        -5px;
+
+      color:
+        var(--navy);
+
+      font-size: 11px;
+      font-weight: 600;
+
+    }
+
+
+    .offer-cap {
+
+      margin-top:
+        13px;
+
+      padding-top:
+        16px;
+
+      border-top:
+        1px solid var(--stone);
+
+      color:
+        var(--slate);
+
+      font-size: 12px;
+
+      line-height: 1.65;
+
+    }
+
+
+    .offer-cap strong {
+
+      color:
+        var(--navy);
+
+      font-weight: 600;
+
+    }
+
+
+    /* =========================================================
+       WHY
+    ========================================================= */
 
     .story {
-      background: var(--white);
+
+      background:
+        var(--white);
+
     }
+
 
     .story-grid {
+
       display: grid;
-      grid-template-columns: minmax(0,.83fr) minmax(0,1.17fr);
-      gap: clamp(50px, 8vw, 95px);
-      align-items: start;
+
+      grid-template-columns:
+        minmax(0, .83fr)
+        minmax(0, 1.17fr);
+
+      gap:
+        clamp(48px, 7vw, 90px);
+
+      align-items:
+        start;
+
     }
+
 
     .story-title {
-      max-width: 450px;
+
+      max-width: 455px;
+
     }
+
 
     .story-hand {
+
       display: block;
-      margin-top: 14px;
-      font-family: var(--hand);
-      color: var(--navy);
-      font-size: clamp(35px, 4vw, 48px);
-      line-height: 1.06;
-      transform: rotate(-1deg);
+
+      margin-top:
+        15px;
+
+      color:
+        var(--navy);
+
+      font-family:
+        var(--hand);
+
+      font-size:
+        clamp(33px, 4vw, 46px);
+
+      line-height: 1.08;
+
+      transform:
+        rotate(-1deg);
+
     }
+
 
     .story-copy {
-      padding-left: 31px;
-      border-left: 3px solid var(--yellow);
+
+      padding-left:
+        30px;
+
+      border-left:
+        3px solid var(--yellow);
+
     }
+
 
     .story-copy p {
-      margin-bottom: 18px;
-      color: var(--ink-soft);
-      line-height: 1.85;
+
+      margin-bottom:
+        18px;
+
+      color:
+        var(--soft-navy);
+
+      font-size: 15px;
+
+      line-height: 1.87;
+
     }
+
 
     .story-copy p:last-child {
-      margin-bottom: 0;
+
+      margin-bottom:
+        0;
+
     }
 
 
-    /* MATH BAND */
-
-    .math-band {
-      padding: clamp(58px, 7vw, 82px) 0;
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .math-band .section-label {
-      color: var(--yellow);
-    }
-
-    .math-title {
-      max-width: 760px;
-      color: var(--white);
-    }
-
-    .equation {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1.15fr;
-      align-items: center;
-      margin-top: 46px;
-      border-top: 1px solid rgba(255,255,255,.18);
-      border-bottom: 1px solid rgba(255,255,255,.18);
-    }
-
-    .equation-block {
-      padding: 30px clamp(10px, 3vw, 34px);
-    }
-
-    .equation-block:first-child {
-      padding-left: 0;
-    }
-
-    .equation-block:last-child {
-      padding-right: 0;
-    }
-
-    .equation-label {
-      display: block;
-      margin-bottom: 5px;
-      color: rgba(255,255,255,.54);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-    }
-
-    .equation-number {
-      display: block;
-      color: var(--white);
-      font-size: clamp(36px, 5vw, 62px);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -.05em;
-    }
-
-    .equation-result .equation-number {
-      color: var(--yellow);
-      font-weight: 500;
-    }
-
-    .equation-symbol {
-      padding: 0 4px;
-      color: var(--yellow);
-      font-family: var(--hand);
-      font-size: 36px;
-    }
-
-    .math-note {
-      margin-top: 23px;
-      color: rgba(255,255,255,.68);
-      font-size: 13px;
-    }
-
-
-    /* WORK */
+    /* =========================================================
+       WHAT WE DO
+    ========================================================= */
 
     .work {
-      background: var(--paper);
+
+      background:
+        var(--paper);
+
     }
+
 
     .work-heading {
+
       display: grid;
-      grid-template-columns: minmax(0,.75fr) minmax(0,1.25fr);
-      gap: clamp(45px, 7vw, 90px);
-      align-items: end;
+
+      grid-template-columns:
+        minmax(0, .82fr)
+        minmax(0, 1.18fr);
+
+      gap:
+        clamp(44px, 7vw, 88px);
+
+      align-items:
+        end;
+
     }
+
 
     .work-intro {
-      color: var(--slate);
-      line-height: 1.8;
+
+      color:
+        var(--slate);
+
+      font-size: 15px;
+
+      line-height:
+        1.82;
+
     }
+
 
     .work-list {
-      margin-top: 48px;
-      border-top: 1px solid var(--stone);
+
+      margin-top:
+        48px;
+
+      border-top:
+        1px solid var(--stone);
+
     }
+
 
     .work-row {
+
       display: grid;
-      grid-template-columns: minmax(220px,.65fr) minmax(0,1.35fr);
-      gap: 45px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--stone);
+
+      grid-template-columns:
+        minmax(220px, .65fr)
+        minmax(0, 1.35fr);
+
+      gap:
+        45px;
+
+      padding:
+        23px 0;
+
+      border-bottom:
+        1px solid var(--stone);
+
     }
+
 
     .work-row h3 {
+
       font-size: 16px;
       font-weight: 600;
+
+      line-height:
+        1.45;
+
     }
+
 
     .work-row p {
-      color: var(--slate);
+
+      color:
+        var(--slate);
+
       font-size: 14px;
-      line-height: 1.75;
+
+      line-height:
+        1.75;
+
     }
+
 
     .work-location {
-      max-width: 800px;
-      margin-top: 31px;
-      color: var(--ink-soft);
-      font-size: 14px;
+
+      max-width:
+        800px;
+
+      margin-top:
+        31px;
+
+      color:
+        var(--soft-navy);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.78;
+
     }
 
 
-    /* EXAMPLE */
+    /* =========================================================
+       EXAMPLE
+    ========================================================= */
 
     .example-section {
-      background: var(--white);
+
+      background:
+        var(--navy);
+
+      color:
+        var(--white);
+
     }
 
-    .example-wrap {
+
+    .example-section .section-label {
+
+      color:
+        var(--yellow);
+
+    }
+
+
+    .example-grid {
+
       display: grid;
-      grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
-      gap: clamp(50px, 8vw, 100px);
-      align-items: start;
+
+      grid-template-columns:
+        minmax(0, .9fr)
+        minmax(0, 1.1fr);
+
+      gap:
+        clamp(48px, 7vw, 90px);
+
+      align-items:
+        start;
+
     }
 
-    .example-big {
-      font-size: clamp(44px, 5vw, 64px);
-      font-weight: 300;
-      line-height: 1.04;
-      letter-spacing: -.05em;
+
+    .example-title {
+
+      max-width:
+        490px;
+
+      color:
+        var(--white);
+
     }
 
-    .example-big strong {
-      font-weight: 500;
+
+    .example-title strong {
+
+      color:
+        var(--yellow);
+
+      font-weight:
+        500;
+
     }
+
+
+    .example-intro {
+
+      margin-top:
+        20px;
+
+      color:
+        rgba(255,255,255,.68);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.8;
+
+    }
+
 
     .example-details {
-      border-top: 1px solid var(--stone);
+
+      border-top:
+        1px solid rgba(255,255,255,.18);
+
     }
+
 
     .example-detail {
+
       display: grid;
-      grid-template-columns: 125px 1fr;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--stone);
+
+      grid-template-columns:
+        120px 1fr;
+
+      gap:
+        24px;
+
+      padding:
+        20px 0;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.18);
+
     }
+
 
     .example-detail strong {
-      font-size: 10px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
+
+      color:
+        var(--yellow);
+
+      font-size:
+        10px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        .15em;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .example-detail p {
-      color: var(--slate);
-      font-size: 14px;
-      line-height: 1.75;
+
+      color:
+        rgba(255,255,255,.76);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.74;
+
     }
+
 
     .example-callout {
-      margin-top: 25px;
-      padding: 18px 22px;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: 600;
+
+      margin-top:
+        25px;
+
+      padding:
+        18px 21px;
+
+      background:
+        var(--yellow);
+
+      color:
+        var(--navy);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.6;
+
+      font-weight:
+        600;
+
     }
 
 
-    /* PROCESS */
+    /* =========================================================
+       PROCESS
+    ========================================================= */
 
     .process {
-      background: var(--yellow);
+
+      background:
+        var(--yellow);
+
     }
+
 
     .process .section-label {
-      color: rgba(19,36,71,.64);
+
+      color:
+        rgba(19,36,71,.64);
+
     }
+
 
     .process-intro {
-      max-width: 760px;
-      margin-top: 16px;
-      color: var(--ink-soft);
+
+      max-width:
+        730px;
+
+      margin-top:
+        16px;
+
+      color:
+        var(--soft-navy);
+
+      font-size:
+        15px;
+
+      line-height:
+        1.8;
+
     }
+
 
     .process-grid {
+
       display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 45px;
-      margin-top: 48px;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        44px;
+
+      margin-top:
+        47px;
+
     }
+
 
     .process-step {
-      padding-top: 20px;
-      border-top: 1px solid rgba(19,36,71,.28);
+
+      padding-top:
+        19px;
+
+      border-top:
+        1px solid rgba(19,36,71,.28);
+
     }
+
 
     .process-number {
+
       display: block;
-      margin-bottom: 15px;
+
+      margin-bottom:
+        14px;
+
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: .18em;
+
+      letter-spacing:
+        .18em;
+
     }
+
 
     .process-step h3 {
-      margin-bottom: 10px;
+
+      margin-bottom:
+        10px;
+
       font-size: 19px;
       font-weight: 600;
+
+      line-height:
+        1.38;
+
     }
+
 
     .process-step p {
-      color: var(--ink-soft);
-      font-size: 14px;
-      line-height: 1.75;
+
+      color:
+        var(--soft-navy);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.75;
+
     }
 
 
-    /* TERMS */
+    /* =========================================================
+       TERMS
+    ========================================================= */
 
     .terms-section {
-      background: var(--paper);
+
+      background:
+        var(--paper);
+
     }
+
 
     .terms-grid {
+
       display: grid;
-      grid-template-columns: minmax(0,.75fr) minmax(0,1.25fr);
-      gap: clamp(45px, 7vw, 90px);
+
+      grid-template-columns:
+        minmax(0, .78fr)
+        minmax(0, 1.22fr);
+
+      gap:
+        clamp(45px, 7vw, 90px);
+
+      align-items:
+        start;
+
     }
+
 
     .terms {
+
       list-style: none;
-      border-top: 1px solid var(--stone);
+
+      border-top:
+        1px solid var(--stone);
+
     }
+
 
     .terms li {
+
       position: relative;
-      padding: 15px 0 15px 24px;
-      border-bottom: 1px solid var(--stone);
-      color: var(--slate);
-      font-size: 13px;
-      line-height: 1.7;
+
+      padding:
+        15px 0 15px 23px;
+
+      border-bottom:
+        1px solid var(--stone);
+
+      color:
+        var(--slate);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.72;
+
     }
+
 
     .terms li::before {
+
       content: "";
+
       position: absolute;
-      left: 0;
+
       top: 25px;
+      left: 0;
+
       width: 6px;
       height: 6px;
-      border-radius: 50%;
-      background: var(--yellow);
+
+      border-radius:
+        50%;
+
+      background:
+        var(--yellow);
+
     }
 
 
-    /* CONTACT */
+    /* =========================================================
+       CONTACT
+    ========================================================= */
 
     .contact {
-      background: var(--navy);
-      color: var(--white);
+
+      background:
+        var(--navy);
+
+      color:
+        var(--white);
+
     }
+
 
     .contact-grid {
+
       display: grid;
-      grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
-      gap: clamp(50px, 8vw, 95px);
-      align-items: start;
+
+      grid-template-columns:
+        minmax(0, .82fr)
+        minmax(0, 1.18fr);
+
+      gap:
+        clamp(48px, 7vw, 90px);
+
+      align-items:
+        start;
+
     }
+
 
     .contact .section-label {
-      color: var(--yellow);
+
+      color:
+        var(--yellow);
+
     }
+
 
     .contact h2 {
-      color: var(--white);
+
+      color:
+        var(--white);
+
     }
+
 
     .contact-copy {
-      margin-top: 19px;
-      color: rgba(255,255,255,.72);
-      font-size: 15px;
-      line-height: 1.82;
+
+      margin-top:
+        19px;
+
+      color:
+        rgba(255,255,255,.72);
+
+      font-size:
+        15px;
+
+      line-height:
+        1.82;
+
     }
+
 
     .coffee {
-      display: inline-block;
-      position: relative;
-      margin-top: 24px;
-      color: var(--yellow);
-      font-family: var(--hand);
-      font-size: 34px;
-      line-height: 1.1;
-      transform: rotate(-1deg);
+
+      display:
+        inline-block;
+
+      margin-top:
+        24px;
+
+      color:
+        var(--yellow);
+
+      font-family:
+        var(--hand);
+
+      font-size:
+        clamp(28px, 3.2vw, 36px);
+
+      line-height:
+        1.1;
+
+      transform:
+        rotate(-1deg);
+
     }
+
 
     .form {
-      display: grid;
-      gap: 17px;
+
+      display:
+        grid;
+
+      gap:
+        17px;
+
     }
+
 
     .form-row {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 17px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        17px;
+
     }
+
 
     .field label {
-      display: block;
-      margin-bottom: 7px;
-      color: rgba(255,255,255,.78);
-      font-size: 11px;
-      font-weight: 600;
+
+      display:
+        block;
+
+      margin-bottom:
+        7px;
+
+      color:
+        rgba(255,255,255,.79);
+
+      font-size:
+        11px;
+
+      font-weight:
+        600;
+
     }
 
+
     .optional {
-      color: rgba(255,255,255,.42);
-      font-weight: 400;
+
+      color:
+        rgba(255,255,255,.43);
+
+      font-weight:
+        400;
+
     }
+
 
     .field input,
     .field textarea {
-      width: 100%;
-      min-height: 49px;
-      padding: 13px 14px;
-      border: 1px solid rgba(255,255,255,.23);
-      border-radius: 0;
-      outline: none;
-      background: rgba(255,255,255,.055);
-      color: var(--white);
+
+      width:
+        100%;
+
+      min-height:
+        49px;
+
+      padding:
+        13px 14px;
+
+      border:
+        1px solid rgba(255,255,255,.23);
+
+      border-radius:
+        0;
+
+      outline:
+        none;
+
+      background:
+        rgba(255,255,255,.055);
+
+      color:
+        var(--white);
+
     }
 
+
     .field textarea {
-      min-height: 145px;
-      resize: vertical;
+
+      min-height:
+        145px;
+
+      resize:
+        vertical;
+
     }
+
 
     .field input:focus,
     .field textarea:focus {
-      border-color: var(--yellow);
+
+      border-color:
+        var(--yellow);
+
     }
+
 
     .field input::placeholder,
     .field textarea::placeholder {
-      color: rgba(255,255,255,.35);
+
+      color:
+        rgba(255,255,255,.34);
+
     }
+
 
     .form-status {
-      min-height: 20px;
-      color: rgba(255,255,255,.7);
-      font-size: 12px;
+
+      min-height:
+        20px;
+
+      color:
+        rgba(255,255,255,.7);
+
+      font-size:
+        12px;
+
     }
+
 
     .form-status.error {
-      color: #ffd4c8;
+
+      color:
+        #ffd4c8;
+
     }
 
 
-    /* STREET */
-
-    .street-scene {
-      background: var(--white);
-      overflow: hidden;
-    }
-
-    .street-scene img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-
-    /* FOOTER */
+    /* =========================================================
+       FOOTER
+    ========================================================= */
 
     .footer {
-      padding: 48px 0 32px;
-      background: var(--white);
-      border-top: 1px solid var(--stone);
-      text-align: center;
+
+      padding:
+        48px 0 32px;
+
+      background:
+        var(--white);
+
+      border-top:
+        1px solid var(--stone);
+
+      text-align:
+        center;
+
     }
+
 
     .footer-logo img {
-      width: 96px;
-      height: 96px;
-      margin: 0 auto 15px;
-      object-fit: contain;
+
+      width:
+        96px;
+
+      height:
+        96px;
+
+      margin:
+        0 auto 15px;
+
+      object-fit:
+        contain;
+
     }
+
 
     .footer-tagline {
-      max-width: 500px;
-      margin: 0 auto 27px;
-      color: var(--slate);
-      font-size: 13px;
+
+      max-width:
+        510px;
+
+      margin:
+        0 auto 27px;
+
+      color:
+        var(--slate);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.7;
+
     }
+
 
     .footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px 25px;
-      padding-top: 24px;
-      border-top: 1px solid var(--stone);
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      justify-content:
+        center;
+
+      gap:
+        8px 25px;
+
+      padding-top:
+        24px;
+
+      border-top:
+        1px solid var(--stone);
+
     }
+
 
     .footer-nav a {
-      color: var(--slate);
-      font-size: 13px;
+
+      color:
+        var(--slate);
+
+      font-size:
+        13px;
+
     }
+
+
+    .footer-nav a:hover {
+
+      color:
+        var(--navy);
+
+    }
+
 
     .footer-bottom {
-      margin-top: 26px;
-      color: var(--slate);
-      font-size: 12px;
+
+      margin-top:
+        26px;
+
+      color:
+        var(--slate);
+
+      font-size:
+        12px;
+
     }
+
 
     .footer-legal {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 12px;
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      gap:
+        20px;
+
+      margin-top:
+        12px;
+
     }
+
 
     .footer-legal a {
-      color: var(--slate);
-      font-size: 12px;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+
+      color:
+        var(--slate);
+
+      font-size:
+        12px;
+
+      text-decoration:
+        underline;
+
+      text-underline-offset:
+        3px;
+
     }
 
 
-    /* RESPONSIVE */
+    /* =========================================================
+       TABLET
+    ========================================================= */
 
     @media (max-width: 960px) {
 
       .hero-grid,
       .story-grid,
       .work-heading,
-      .example-wrap,
+      .example-grid,
       .terms-grid,
       .contact-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
 
-      .launch-mark {
-        max-width: 500px;
-        min-height: 260px;
+
+      .offer-panel {
+
+        max-width:
+          620px;
+
       }
 
-      .equation {
-        grid-template-columns: 1fr;
-      }
 
-      .equation-block,
-      .equation-block:first-child,
-      .equation-block:last-child {
-        padding: 23px 0;
-        border-bottom: 1px solid rgba(255,255,255,.14);
-      }
+      .process-grid {
 
-      .equation-symbol {
-        padding: 4px 0;
-      }
+        gap:
+          28px;
 
-      .equation-block:last-child {
-        border-bottom: 0;
       }
 
     }
+
+
+    /* =========================================================
+       MOBILE NAV
+    ========================================================= */
 
     @media (max-width: 900px) {
 
       .nav-links {
-        display: none;
+
+        display:
+          none;
+
       }
+
 
       .nav-links.open {
-        position: fixed;
-        top: var(--nav-height);
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 18px var(--gutter) 28px;
-        background: var(--navy);
-        border-top: 1px solid rgba(255,255,255,.08);
+
+        position:
+          fixed;
+
+        top:
+          var(--nav-height);
+
+        left:
+          0;
+
+        right:
+          0;
+
+        display:
+          flex;
+
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+
+        gap:
+          3px;
+
+        padding:
+          18px var(--gutter) 28px;
+
+        background:
+          var(--navy);
+
+        border-top:
+          1px solid rgba(255,255,255,.08);
+
+        border-bottom:
+          1px solid rgba(255,255,255,.12);
+
       }
 
+
+      .nav-links.open a {
+
+        min-height:
+          48px;
+
+      }
+
+
       .nav-toggle {
-        display: block;
+
+        display:
+          block;
+
       }
 
     }
+
+
+    /* =========================================================
+       SMALL TABLET
+    ========================================================= */
 
     @media (max-width: 700px) {
 
       .process-grid,
       .form-row {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
+
 
       .work-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          7px;
+
       }
 
+
       .example-detail {
-        grid-template-columns: 1fr;
-        gap: 7px;
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          7px;
+
       }
 
     }
 
+
+    /* =========================================================
+       PHONE
+    ========================================================= */
+
     @media (max-width: 640px) {
 
-      .eyebrow-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 9px;
+      .hero {
+
+        padding-top:
+          54px;
+
       }
+
+
+      .eyebrow-row {
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
+        gap:
+          8px;
+
+        margin-bottom:
+          27px;
+
+      }
+
 
       .hero h1 {
-        font-size: clamp(47px, 13vw, 65px);
+
+        font-size:
+          clamp(44px, 12.5vw, 58px);
+
       }
 
-      .hero-intro,
+
+      .hero-lead {
+
+        margin-top:
+          27px;
+
+      }
+
+
       .hero-actions {
-        padding-left: 20px;
+
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+
       }
 
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+
+      .hero-actions .button,
+      .hero-actions .text-link {
+
+        width:
+          100%;
+
+        justify-content:
+          center;
+
       }
 
-      .hero-actions .button {
-        width: 100%;
+
+      .offer-panel {
+
+        padding:
+          24px 22px 20px;
+
       }
 
-      .text-link {
-        justify-content: center;
+
+      .offer-example {
+
+        grid-template-columns:
+          minmax(70px,1fr)
+          auto
+          minmax(85px,1fr);
+
+        gap:
+          9px;
+
+      }
+
+
+      .offer-example strong {
+
+        font-size:
+          20px;
+
+      }
+
+
+      .story-copy {
+
+        padding-left:
+          20px;
+
+      }
+
+
+      .process-grid {
+
+        margin-top:
+          37px;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+
+        scroll-behavior:
+          auto;
+
+      }
+
+      *,
+      *::before,
+      *::after {
+
+        transition-duration:
+          .01ms !important;
+
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
       }
 
     }
 
   </style>
 
+
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "The Yellow Front Door Hard Launch",
+    "description": "For a limited number of new projects, The Yellow Front Door will match client investment dollar for dollar in additional scoped work, up to $2,000.",
+    "seller": {
+      "@id": "https://www.theyellowfrontdoor.ca/#business"
+    },
+    "url": "https://www.theyellowfrontdoor.ca/hard-launch",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Canada"
+    }
+  }
+
+  </script>
+
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"
+  ></script>
+
+
+  <script>
+
+    window.dataLayer =
+      window.dataLayer || [];
+
+
+    function gtag() {
+
+      dataLayer.push(arguments);
+
+    }
+
+
+    gtag(
+      'js',
+      new Date()
+    );
+
+
+    gtag(
+      'config',
+      'G-NPL1XCH6H7'
+    );
+
+  </script>
+
 </head>
+
 
 
 <body>
 
-<a class="skip-link" href="#main-content">
+
+<a
+  class="skip-link"
+  href="#main-content"
+>
   Skip to main content
 </a>
 
 
-<!-- NAV -->
 
-<nav class="nav" aria-label="Main navigation">
+<!-- =========================================================
+     NAV
+========================================================= -->
+
+<nav
+  class="nav"
+  id="nav"
+  aria-label="Main navigation"
+>
 
   <div class="nav-inner">
+
 
     <a
       href="index.html"
       class="nav-logo"
       aria-label="The Yellow Front Door — home"
     >
-      <img src="roundlogo2.png" alt="">
+
+      <img
+        src="roundlogo2.png"
+        alt=""
+      >
+
     </a>
 
-    <ul class="nav-links" id="nav-links">
 
-      <li><a href="what-we-do.html">What We Do</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="the-proof.html">The Proof</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="the-doorstep.html">The Doorstep</a></li>
-      <li><a href="lets-talk.html">Let's Talk</a></li>
+    <ul
+      class="nav-links"
+      id="nav-links"
+    >
 
       <li>
-        <a href="the-scorecard.html" class="nav-cta">
-          The Scorecard
+        <a href="what-we-do.html">
+          What We Do
         </a>
       </li>
 
+      <li>
+        <a href="pricing.html">
+          Pricing
+        </a>
+      </li>
+
+      <li>
+        <a href="the-proof.html">
+          The Proof
+        </a>
+      </li>
+
+      <li>
+        <a href="about.html">
+          About
+        </a>
+      </li>
+
+      <li>
+        <a href="the-doorstep.html">
+          The Doorstep
+        </a>
+      </li>
+
+      <li>
+        <a href="lets-talk.html">
+          Let's Talk
+        </a>
+      </li>
+
+      <li>
+
+        <a
+          href="the-scorecard.html"
+          class="nav-cta"
+        >
+          The Scorecard
+        </a>
+
+      </li>
+
     </ul>
+
 
     <button
       class="nav-toggle"
@@ -1110,252 +2387,422 @@
       type="button"
       aria-label="Open navigation menu"
       aria-expanded="false"
+      aria-controls="nav-links"
     >
+
       <span></span>
       <span></span>
       <span></span>
+
     </button>
+
 
   </div>
 
 </nav>
 
 
+
 <main id="main-content">
 
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero">
 
   <div class="container">
 
+
+    <div class="eyebrow-row">
+
+      <span class="eyebrow-tag">
+        The Hard Launch
+      </span>
+
+      <span class="eyebrow-note">
+        A limited number of new projects
+      </span>
+
+    </div>
+
+
+
     <div class="hero-grid">
 
-      <div>
 
-        <div class="eyebrow-row">
+      <div class="hero-main">
 
-          <span class="eyebrow-tag">
-            The Hard Launch
-          </span>
-
-          <span class="eyebrow-note">
-            A limited number of new projects
-          </span>
-
-        </div>
 
         <h1>
+
           You invest.<br>
-          We'll <span class="match">match it.</span>
+
+          We'll
+          <span class="match">
+            match it.
+          </span>
+
         </h1>
 
 
-        <div class="hero-intro">
+        <p class="hero-lead">
 
-          <p>
-            For a limited number of new projects,
-            <strong>
-              we'll match your investment dollar for dollar in additional
-              Yellow Front Door work, up to $2,000.
-            </strong>
-          </p>
+          For a limited number of new projects,
+          whatever you invest with The Yellow Front Door,
+          <strong>
+            we'll add the same amount again in additional
+            Yellow Front Door work, up to $2,000.
+          </strong>
 
-          <p>
-            The Yellow Front Door is new. We aren't. We help small businesses
-            with the things that make them easier to find, easier to work with,
-            and easier to run, from websites and marketing to client
-            experience, resources, referrals, and the systems behind the
-            scenes.
-          </p>
+        </p>
 
-        </div>
+
+        <p class="hero-explain">
+
+          We scope your work and our matched work together
+          from the beginning, so the extra value goes toward
+          something your business actually needs.
+
+        </p>
 
 
         <div class="hero-actions">
 
-          <a href="#start" class="button button-yellow">
+          <a
+            href="#start"
+            class="button button-yellow"
+          >
             Tell us what's on the list →
           </a>
 
-          <a href="#why" class="text-link">
+
+          <a
+            href="#why"
+            class="text-link"
+          >
             Why we're doing this
           </a>
 
         </div>
 
+
       </div>
 
 
-      <aside class="launch-mark">
 
-        <span class="launch-mark-small">
-          From our side of the door
+      <aside class="offer-panel">
+
+
+        <span class="offer-panel-label">
+          What that actually means
         </span>
 
-        <span class="launch-mark-up">
-          We'll add up to
-        </span>
 
-        <strong class="launch-mark-number">
-          $2,000
-        </strong>
+        <h2 class="offer-panel-title">
+          Dollar for dollar.
+        </h2>
 
-        <span class="launch-mark-copy">
-          in additional Yellow Front Door work.
-        </span>
 
-        <span class="launch-hand">
-          More room to do it properly.
-        </span>
+        <p class="offer-panel-intro">
+
+          Whatever your project investment is,
+          we'll add the same amount in our work,
+          until the match reaches $2,000.
+
+        </p>
+
+
+
+        <div class="offer-example">
+
+          <div>
+
+            <span class="offer-small">
+              You invest
+            </span>
+
+            <strong>
+              $900
+            </strong>
+
+          </div>
+
+
+          <span class="offer-arrow">
+            →
+          </span>
+
+
+          <div>
+
+            <span class="offer-small">
+              We add
+            </span>
+
+            <strong>
+              $900
+            </strong>
+
+          </div>
+
+
+          <span class="offer-total">
+            $1,800 of scoped Yellow Front Door work
+          </span>
+
+        </div>
+
+
+
+        <div class="offer-example">
+
+          <div>
+
+            <span class="offer-small">
+              You invest
+            </span>
+
+            <strong>
+              $1,500
+            </strong>
+
+          </div>
+
+
+          <span class="offer-arrow">
+            →
+          </span>
+
+
+          <div>
+
+            <span class="offer-small">
+              We add
+            </span>
+
+            <strong>
+              $1,500
+            </strong>
+
+          </div>
+
+
+          <span class="offer-total">
+            $3,000 of scoped Yellow Front Door work
+          </span>
+
+        </div>
+
+
+
+        <div class="offer-example">
+
+          <div>
+
+            <span class="offer-small">
+              You invest
+            </span>
+
+            <strong>
+              $2,000+
+            </strong>
+
+          </div>
+
+
+          <span class="offer-arrow">
+            →
+          </span>
+
+
+          <div>
+
+            <span class="offer-small">
+              We add
+            </span>
+
+            <strong>
+              up to $2,000
+            </strong>
+
+          </div>
+
+
+          <span class="offer-total">
+            The match tops out at $2,000
+          </span>
+
+        </div>
+
+
+
+        <p class="offer-cap">
+
+          <strong>
+            This isn't a discount or cash back.
+          </strong>
+
+          It's additional Yellow Front Door work,
+          agreed as part of the project before we start.
+
+        </p>
+
 
       </aside>
 
+
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- WHY -->
 
-<section class="section story" id="why">
+<!-- =========================================================
+     WHY
+========================================================= -->
+
+<section
+  class="section story"
+  id="why"
+>
 
   <div class="container">
 
+
     <div class="story-grid">
 
+
       <div class="story-title">
+
 
         <span class="section-label">
           Why the hard launch?
         </span>
 
+
         <h2>
           We opened in the middle of summer.
         </h2>
+
 
         <span class="story-hand">
           Excellent planning, really.
         </span>
 
+
       </div>
+
 
 
       <div class="story-copy">
 
-        <p>
-          The Yellow Front Door has been quietly getting its feet under it for
-          the last month or so, but we also opened when half the Valley seemed
-          to be at the cottage, at the beach, in the garden, visiting family
-          across the country, or saying “we should really get together before
-          school starts” to approximately 14 people.
-        </p>
 
         <p>
-          Now life is starting to settle back into something resembling a
-          routine, and we're ready to properly launch.
+
+          The Yellow Front Door has been quietly getting its
+          feet under it for the last month or so, but we also
+          opened when half the Valley seemed to be at the
+          cottage, at the beach, in the garden, visiting
+          family across the country, or saying
+          “we should really get together before school starts”
+          to approximately 14 people.
+
         </p>
 
+
         <p>
-          We could spend our launch budget trying to tell more people what we
-          can do. We'd rather put pretty much all of it into doing the work and
-          showing them. That means working with more businesses, building more
-          useful things, and giving a handful of projects a little more room
-          than they might otherwise have had.
+
+          Now life is starting to settle back into something
+          resembling a routine, and we're ready to properly
+          launch.
+
         </p>
+
+
+        <p>
+
+          The Yellow Front Door is new. We aren't. We could
+          spend our launch budget trying to tell more people
+          what we can do, but we'd rather put pretty much all
+          of it into doing the work and showing them.
+
+        </p>
+
+
+        <p>
+
+          It gives us the chance to work with more businesses,
+          build more useful things, earn some local word of
+          mouth, and give a handful of projects a little more
+          room than they might otherwise have had.
+
+        </p>
+
 
       </div>
 
+
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- MATH -->
 
-<section class="math-band">
-
-  <div class="container">
-
-    <span class="section-label">
-      The simple math
-    </span>
-
-    <h2 class="math-title">
-      Your project gets a little more room.
-    </h2>
-
-
-    <div class="equation">
-
-      <div class="equation-block">
-        <span class="equation-label">You invest</span>
-        <strong class="equation-number">$1,500</strong>
-      </div>
-
-      <div class="equation-symbol">+</div>
-
-      <div class="equation-block">
-        <span class="equation-label">We add</span>
-        <strong class="equation-number">$1,500</strong>
-      </div>
-
-      <div class="equation-symbol">=</div>
-
-      <div class="equation-block equation-result">
-        <span class="equation-label">Room to work with</span>
-        <strong class="equation-number">$3,000</strong>
-      </div>
-
-    </div>
-
-
-    <p class="math-note">
-      The match is dollar for dollar, up to a maximum of $2,000 in additional
-      Yellow Front Door work.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- WHAT WE DO -->
+<!-- =========================================================
+     WHAT WE DO
+========================================================= -->
 
 <section class="section work">
 
   <div class="container">
 
+
     <div class="work-heading">
 
+
       <div>
+
 
         <span class="section-label">
           What could we work on?
         </span>
 
+
         <h2>
           Bring us the thing that's been sitting on the list.
         </h2>
 
+
       </div>
 
+
+
       <p class="work-intro">
-        You don't need to arrive knowing what package you need. Tell us what's
-        bothering you, what keeps getting pushed to later, or what you'd like
-        the business to do better. We'll figure out where the extra work would
-        actually make a difference.
+
+        Maybe you already know exactly what you need.
+        Maybe you just know something isn't working the way
+        it should. You don't need to arrive with a package
+        picked out or a perfectly formed brief. We'll look at
+        the business with you and figure out where the work
+        would actually make a difference.
+
       </p>
+
 
     </div>
 
 
+
     <div class="work-list">
+
 
       <div class="work-row">
 
@@ -1364,12 +2811,16 @@
         </h3>
 
         <p>
-          A new site, a long-overdue refresh, stronger service pages, landing
-          pages, better copy, or a clearer path from “I found you” to “I'd like
-          to work with you.”
+
+          A new website, a long-overdue refresh, better
+          service pages, landing pages, stronger copy, or a
+          clearer path from “I found you” to “I'd like to
+          work with you.”
+
         </p>
 
       </div>
+
 
 
       <div class="work-row">
@@ -1379,12 +2830,16 @@
         </h3>
 
         <p>
-          A practical marketing plan, campaign strategy, messaging, email,
-          launch materials, lead magnets, or the pieces that finally give your
-          marketing some direction.
+
+          A practical marketing plan, campaign strategy,
+          messaging, email, lead magnets, launch materials,
+          or the pieces that finally give your marketing some
+          direction.
+
         </p>
 
       </div>
+
 
 
       <div class="work-row">
@@ -1394,12 +2849,16 @@
         </h3>
 
         <p>
-          Welcome guides, service guides, onboarding, client resources,
-          follow-up, review requests, referrals, and the little touchpoints
-          that make a business feel thoughtful and easy to work with.
+
+          Welcome guides, service guides, onboarding,
+          follow-up, client resources, review requests,
+          referral materials, and the touchpoints that make
+          your business feel thoughtful and easy to work with.
+
         </p>
 
       </div>
+
 
 
       <div class="work-row">
@@ -1409,12 +2868,16 @@
         </h3>
 
         <p>
-          Online courses, workshops, client education, resource hubs, FAQs,
-          downloadable materials, or the useful idea that's currently living
-          in six different notes on your phone.
+
+          Online courses, workshops, client education,
+          resource hubs, FAQs, downloadable resources, or the
+          useful idea that's currently living in six
+          different notes on your phone.
+
         </p>
 
       </div>
+
 
 
       <div class="work-row">
@@ -1424,53 +2887,86 @@
         </h3>
 
         <p>
-          Forms, booking, email follow-up, templates, automations, workflows,
-          and repetitive tasks that shouldn't require you to remember them
-          manually every single time.
+
+          Forms, booking, email follow-up, templates,
+          automations, workflows, and repetitive tasks that
+          shouldn't require you to remember them manually
+          every single time.
+
         </p>
 
       </div>
 
+
     </div>
 
 
+
     <p class="work-location">
-      We're based in the Annapolis Valley and would love to see some of these
-      projects stay close to home, but you don't need to be local. We work
-      with small businesses across Canada.
+
+      We're based in the Annapolis Valley and would love to
+      see some of these projects stay close to home, but you
+      don't need to be local. We work with small businesses
+      across Canada.
+
     </p>
+
 
   </div>
 
 </section>
 
 
-<!-- EXAMPLE -->
+
+<!-- =========================================================
+     EXAMPLE PROJECT
+========================================================= -->
 
 <section class="section example-section">
 
   <div class="container">
 
-    <div class="example-wrap">
+
+    <div class="example-grid">
+
 
       <div>
 
+
         <span class="section-label">
-          One example
+          What that could look like
         </span>
 
-        <p class="example-big">
-          Say the website needs
-          <strong>$1,500</strong>
-          worth of attention.
+
+        <h2 class="example-title">
+
+          Say your business needs
+          <strong>
+            $1,500
+          </strong>
+          of website work.
+
+        </h2>
+
+
+        <p class="example-intro">
+
+          The match doesn't mean making the website twice as
+          complicated. It gives us room to look at what should
+          happen around the website too.
+
         </p>
+
 
       </div>
 
 
+
       <div>
 
+
         <div class="example-details">
+
 
           <div class="example-detail">
 
@@ -1479,74 +2975,105 @@
             </strong>
 
             <p>
-              $1,500 toward the website work you already need.
+
+              $1,500 toward the website work your business
+              already needs.
+
             </p>
 
           </div>
 
 
+
           <div class="example-detail">
 
             <strong>
-              We match
+              We add
             </strong>
 
             <p>
+
               Another $1,500 in agreed Yellow Front Door work.
+
             </p>
 
           </div>
+
 
 
           <div class="example-detail">
 
             <strong>
-              That could mean
+              Together
             </strong>
 
             <p>
-              The website gets done, and we also have room for the client
-              guide, inquiry follow-up, referral process, launch materials, or
-              marketing plan that should have existed alongside it in the
-              first place.
+
+              We might refresh the website and also build the
+              client guide, inquiry follow-up, referral
+              process, marketing plan, campaign materials, or
+              another piece that makes the whole thing work
+              harder for the business.
+
             </p>
 
           </div>
+
 
         </div>
+
 
 
         <div class="example-callout">
-          One project. One agreed scope. $3,000 worth of room to make it better.
+
+          Your $1,500 investment gives us $3,000 worth of
+          room to build a more complete project.
+
         </div>
+
 
       </div>
 
+
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- PROCESS -->
 
-<section class="section process" id="how-it-works">
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<section
+  class="section process"
+  id="how-it-works"
+>
 
   <div class="container">
+
 
     <span class="section-label">
       How it works
     </span>
 
+
     <h2>
       You can bring us the messy version.
     </h2>
 
+
     <p class="process-intro">
-      You don't need a brief, a package name, or a perfectly formed plan.
-      That's part of what we're here for.
+
+      You don't need a brief, a package name, or a perfectly
+      formed plan. Tell us what's going on and we'll sort
+      through it with you.
+
     </p>
+
 
 
     <div class="process-grid">
@@ -1554,155 +3081,239 @@
 
       <article class="process-step">
 
+
         <span class="process-number">
           01
         </span>
 
+
         <h3>
-          Tell us what's going on.
+          Tell us what's on the list.
         </h3>
 
+
         <p>
-          Send us the list, the idea, the problem, or the thing you've been
-          meaning to get around to.
+
+          Tell us what's bothering you, what you've been
+          meaning to build, what's getting pushed to later,
+          or what you'd simply like the business to do better.
+
         </p>
+
 
       </article>
 
 
+
       <article class="process-step">
+
 
         <span class="process-number">
           02
         </span>
 
+
         <h3>
-          We'll work out the scope.
+          We'll work out the useful scope.
         </h3>
 
+
         <p>
-          We'll look at the business with you and decide what your investment
-          covers and where the matched work would be most useful.
+
+          We'll look at what you already have, talk through
+          what matters most, and decide together what your
+          investment covers and where the matched work would
+          actually help.
+
         </p>
+
 
       </article>
 
 
+
       <article class="process-step">
+
 
         <span class="process-number">
           03
         </span>
 
+
         <h3>
           Then we get to work.
         </h3>
 
+
         <p>
-          You'll know the full paid and matched scope before anything begins.
-          No mystery credit sitting around for later.
+
+          You'll know the complete paid and matched scope
+          before anything begins. It's one project, planned
+          together from the start.
+
         </p>
+
 
       </article>
 
 
     </div>
 
+
   </div>
 
 </section>
 
 
-<!-- TERMS -->
+
+<!-- =========================================================
+     TERMS
+========================================================= -->
 
 <section class="section terms-section">
 
   <div class="container">
 
+
     <div class="terms-grid">
+
 
       <div>
 
+
         <span class="section-label">
-          The small print
+          A few practical details
         </span>
+
 
         <h2>
           Nothing weird hiding down here.
         </h2>
 
+
       </div>
+
 
 
       <ul class="terms">
 
-        <li>
-          Hard Launch project spots are limited and apply to new project work.
-        </li>
 
         <li>
-          We'll match your project investment dollar for dollar in additional
-          Yellow Front Door work, up to a maximum match of $2,000.
+
+          Hard Launch project spots are limited and apply to
+          new project work.
+
         </li>
 
-        <li>
-          The matched portion is additional scoped work, not cash back, a
-          rebate, or a credit to use later.
-        </li>
 
         <li>
-          We agree on the complete paid and matched scope before work begins.
-          We're not going to invent extra work simply to use up the match.
+
+          We'll match your project investment dollar for
+          dollar in additional Yellow Front Door work, up to
+          a maximum match of $2,000.
+
         </li>
 
-        <li>
-          A spot is secured once the project scope is approved and the required
-          project deposit is received.
-        </li>
 
         <li>
-          Project fit, timing, and availability apply. If we're not the right
-          fit for something, we'll tell you.
+
+          The matched portion is additional scoped Yellow
+          Front Door work. It isn't cash back, a rebate, or a
+          credit to spend later.
+
         </li>
+
+
+        <li>
+
+          We agree on the complete paid and matched scope
+          before the project begins. We're not going to invent
+          extra work simply to use up the match.
+
+        </li>
+
+
+        <li>
+
+          A project spot is secured once the scope is approved
+          and the required project deposit is received.
+
+        </li>
+
+
+        <li>
+
+          Project fit, timing, and availability still matter.
+          If we're not the right fit for something, we'll tell
+          you.
+
+        </li>
+
 
       </ul>
 
+
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- CONTACT -->
 
-<section class="section contact" id="start">
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+  class="section contact"
+  id="start"
+>
 
   <div class="container">
 
+
     <div class="contact-grid">
 
+
       <div>
+
 
         <span class="section-label">
           Start here
         </span>
 
+
         <h2>
           What's been sitting on your list?
         </h2>
 
+
         <p class="contact-copy">
-          Give us the rough version. Tell us what isn't working, what you've
-          been meaning to build, or what you're tired of doing the hard way.
-          We'll sort out the rest together.
+
+          Give us the rough version. Tell us what isn't
+          working, what you've been meaning to build, or what
+          you're tired of doing the hard way. A few sentences
+          is plenty.
+
         </p>
+
+
+        <p class="contact-copy">
+
+          We'll take a look and figure out where to start.
+
+        </p>
+
 
         <span class="coffee">
           If you're local, we'll buy the coffee.
         </span>
 
+
       </div>
+
 
 
       <form
@@ -1712,11 +3323,13 @@
         novalidate
       >
 
+
         <input
           type="hidden"
           name="_subject"
           value="New HARD LAUNCH inquiry from theyellowfrontdoor.ca"
         >
+
 
         <input
           type="hidden"
@@ -1725,13 +3338,17 @@
         >
 
 
+
         <div class="form-row">
 
+
           <div class="field">
+
 
             <label for="name">
               Your name
             </label>
+
 
             <input
               id="name"
@@ -1742,15 +3359,24 @@
               required
             >
 
+
           </div>
+
 
 
           <div class="field">
 
+
             <label for="business">
+
               Business name
-              <span class="optional">(optional)</span>
+
+              <span class="optional">
+                (optional)
+              </span>
+
             </label>
+
 
             <input
               id="business"
@@ -1760,18 +3386,24 @@
               placeholder="Smith & Co."
             >
 
+
           </div>
+
 
         </div>
 
 
+
         <div class="form-row">
 
+
           <div class="field">
+
 
             <label for="email">
               Email
             </label>
+
 
             <input
               id="email"
@@ -1782,15 +3414,24 @@
               required
             >
 
+
           </div>
+
 
 
           <div class="field">
 
+
             <label for="website">
+
               Website
-              <span class="optional">(if you have one)</span>
+
+              <span class="optional">
+                (if you have one)
+              </span>
+
             </label>
+
 
             <input
               id="website"
@@ -1800,25 +3441,32 @@
               placeholder="https://yourbusiness.ca"
             >
 
+
           </div>
+
 
         </div>
 
 
+
         <div class="field">
+
 
           <label for="message">
             What are you hoping to tackle?
           </label>
 
+
           <textarea
             id="message"
             name="message"
-            placeholder="The website needs help, our follow-up is patchy, we've been meaning to build a client guide..."
+            placeholder="The website needs help, our follow-up is patchy, referrals happen by accident, we've been meaning to build a client guide..."
             required
           ></textarea>
 
+
         </div>
+
 
 
         <button
@@ -1830,6 +3478,7 @@
         </button>
 
 
+
         <p
           class="form-status"
           id="form-status"
@@ -1837,36 +3486,31 @@
           aria-live="polite"
         ></p>
 
+
       </form>
 
+
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- STREET -->
-
-<div class="street-scene">
-
-  <img
-    src="hero_day.webp"
-    alt="Illustrated storefronts with a yellow front door at the centre"
-    loading="lazy"
-  >
-
-</div>
-
 
 </main>
 
 
-<!-- FOOTER -->
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer class="footer">
 
   <div class="container">
+
 
     <div class="footer-logo">
 
@@ -1877,67 +3521,187 @@
 
     </div>
 
+
+
     <p class="footer-tagline">
-      A small-business studio based in the Annapolis Valley, working with
-      businesses across Canada.
+
+      A small-business studio based in the Annapolis Valley,
+      working with businesses across Canada.
+
     </p>
 
 
-    <nav class="footer-nav" aria-label="Footer navigation">
 
-      <a href="what-we-do.html">What We Do</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="the-proof.html">The Proof</a>
-      <a href="about.html">About</a>
-      <a href="the-doorstep.html">The Doorstep</a>
-      <a href="lets-talk.html">Let's Talk</a>
-      <a href="for-small-business.html">For Small Business</a>
-      <a href="for-real-estate-professionals.html">For Real Estate</a>
+    <nav
+      class="footer-nav"
+      aria-label="Footer navigation"
+    >
+
+      <a href="what-we-do.html">
+        What We Do
+      </a>
+
+      <a href="pricing.html">
+        Pricing
+      </a>
+
+      <a href="the-proof.html">
+        The Proof
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="the-doorstep.html">
+        The Doorstep
+      </a>
+
+      <a href="lets-talk.html">
+        Let's Talk
+      </a>
+
+      <a href="for-small-business.html">
+        For Small Business
+      </a>
+
+      <a href="for-real-estate-professionals.html">
+        For Real Estate
+      </a>
 
     </nav>
 
 
+
     <p class="footer-bottom">
-      © 2026 The Yellow Front Door · Annapolis Valley, NS · theyellowfrontdoor.ca
+
+      © 2026 The Yellow Front Door ·
+      Annapolis Valley, NS ·
+      theyellowfrontdoor.ca
+
     </p>
+
 
 
     <div class="footer-legal">
 
-      <a href="legal.html">Privacy Policy</a>
-      <a href="legal.html#tos">Terms of Service</a>
+      <a href="legal.html">
+        Privacy Policy
+      </a>
+
+      <a href="legal.html#tos">
+        Terms of Service
+      </a>
 
     </div>
+
 
   </div>
 
 </footer>
 
 
+
 <script>
 
-  /* MOBILE NAV */
+  /* =========================================================
+     NAV SHADOW
+  ========================================================= */
+
+  const nav =
+    document.getElementById('nav');
+
+
+  window.addEventListener(
+    'scroll',
+    function () {
+
+      nav.classList.toggle(
+        'scrolled',
+        window.scrollY > 20
+      );
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+
+  /* =========================================================
+     MOBILE NAV
+  ========================================================= */
 
   const toggle =
     document.getElementById('nav-toggle');
 
+
   const navLinks =
     document.getElementById('nav-links');
+
+
+  function closeMenu() {
+
+    navLinks.classList.remove(
+      'open'
+    );
+
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+
+    toggle.setAttribute(
+      'aria-label',
+      'Open navigation menu'
+    );
+
+  }
+
+
+  function openMenu() {
+
+    navLinks.classList.add(
+      'open'
+    );
+
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'true'
+    );
+
+
+    toggle.setAttribute(
+      'aria-label',
+      'Close navigation menu'
+    );
+
+  }
 
 
   toggle.addEventListener(
     'click',
     function () {
 
-      const open =
-        toggle.getAttribute('aria-expanded') === 'true';
+      const isOpen =
+        toggle.getAttribute(
+          'aria-expanded'
+        ) === 'true';
 
-      toggle.setAttribute(
-        'aria-expanded',
-        String(!open)
-      );
 
-      navLinks.classList.toggle('open');
+      if (isOpen) {
+
+        closeMenu();
+
+      } else {
+
+        openMenu();
+
+      }
 
     }
   );
@@ -1945,35 +3709,76 @@
 
   navLinks
     .querySelectorAll('a')
-    .forEach(function (link) {
+    .forEach(
+      function (link) {
 
-      link.addEventListener(
-        'click',
-        function () {
+        link.addEventListener(
+          'click',
+          closeMenu
+        );
 
-          navLinks.classList.remove('open');
-
-          toggle.setAttribute(
-            'aria-expanded',
-            'false'
-          );
-
-        }
-      );
-
-    });
+      }
+    );
 
 
-  /* CONTACT FORM */
+  document.addEventListener(
+    'keydown',
+    function (event) {
+
+      if (
+        event.key === 'Escape' &&
+        toggle.getAttribute(
+          'aria-expanded'
+        ) === 'true'
+      ) {
+
+        closeMenu();
+
+        toggle.focus();
+
+      }
+
+    }
+  );
+
+
+  window.addEventListener(
+    'resize',
+    function () {
+
+      if (
+        window.innerWidth > 900
+      ) {
+
+        closeMenu();
+
+      }
+
+    }
+  );
+
+
+
+  /* =========================================================
+     CONTACT FORM
+  ========================================================= */
 
   const form =
-    document.getElementById('contact-form');
+    document.getElementById(
+      'contact-form'
+    );
+
 
   const submitButton =
-    document.getElementById('submit-btn');
+    document.getElementById(
+      'submit-btn'
+    );
+
 
   const formStatus =
-    document.getElementById('form-status');
+    document.getElementById(
+      'form-status'
+    );
 
 
   form.addEventListener(
@@ -1982,38 +3787,62 @@
 
       event.preventDefault();
 
-      formStatus.textContent = '';
-      formStatus.classList.remove('error');
+
+      formStatus.textContent =
+        '';
 
 
-      if (!form.checkValidity()) {
+      formStatus.classList.remove(
+        'error'
+      );
+
+
+      if (
+        !form.checkValidity()
+      ) {
 
         form.reportValidity();
+
         return;
 
       }
 
 
-      submitButton.disabled = true;
-      submitButton.textContent = 'Sending…';
+      submitButton.disabled =
+        true;
+
+
+      submitButton.textContent =
+        'Sending…';
 
 
       try {
+
 
         const response =
           await fetch(
             'https://formspree.io/f/xeeyqbzk',
             {
-              method: 'POST',
-              body: new FormData(form),
-              headers: {
-                'Accept': 'application/json'
-              }
+
+              method:
+                'POST',
+
+              body:
+                new FormData(form),
+
+              headers:
+                {
+                  'Accept':
+                    'application/json'
+                }
+
             }
           );
 
 
-        if (!response.ok) {
+        if (
+          !response.ok
+        ) {
 
           throw new Error(
             'Form submission failed.'
@@ -2032,15 +3861,23 @@
 
       } catch (error) {
 
-        submitButton.disabled = false;
+
+        submitButton.disabled =
+          false;
+
 
         submitButton.textContent =
           "Tell us what's on the list →";
 
+
         formStatus.textContent =
           'Something went wrong while sending your message. Please try again, or email hello@theyellowfrontdoor.ca.';
 
-        formStatus.classList.add('error');
+
+        formStatus.classList.add(
+          'error'
+        );
+
 
       }
 
@@ -2048,6 +3885,7 @@
   );
 
 </script>
+
 
 </body>
 </html>
