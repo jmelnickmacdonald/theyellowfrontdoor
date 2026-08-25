@@ -4,25 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start a Project — The Yellow Front Door</title>
-<meta name="description" content="Tell The Yellow Front Door a little about your business and what you need. We will review the details and help you work out the right next step.">
+<meta name="description" content="Tell The Yellow Front Door a little about your business, your website, and what you are hoping to build. We will review the details and recommend the right place to start.">
 <link rel="canonical" href="https://www.theyellowfrontdoor.ca/start-a-project.html">
 <meta property="og:title" content="Start a Project — The Yellow Front Door">
-<meta property="og:description" content="Tell us what’s on your mind. We’ll help with the next step.">
+<meta property="og:description" content="Tell us a little about your business and what you are hoping to build. We will review it before a short discovery call.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.theyellowfrontdoor.ca/start-a-project.html">
 <meta property="og:site_name" content="The Yellow Front Door">
 <meta property="og:locale" content="en_CA">
-<meta property="og:image" content="https://www.theyellowfrontdoor.ca/start-a-project-share.png">
-<meta property="og:image:secure_url" content="https://www.theyellowfrontdoor.ca/start-a-project-share.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Start a Project with The Yellow Front Door">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Start a Project — The Yellow Front Door">
-<meta name="twitter:description" content="Tell us what’s on your mind. We’ll help with the next step.">
-<meta name="twitter:image" content="https://www.theyellowfrontdoor.ca/start-a-project-share.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -33,7 +22,7 @@
   src: url('CasualHandwriting.woff2') format('woff2'), url('CasualHandwriting.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 :root {
   --ink:#132447;
@@ -50,9 +39,12 @@
   --f-body:'Montserrat', sans-serif;
   --max:1120px;
   --gutter:clamp(24px,5vw,80px);
+  --section-gap:clamp(52px,7vw,84px);
+  --nav-height:72px;
+  --page-top:clamp(44px,5vw,64px);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-height) + 20px);}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img{display:block;max-width:100%;height:auto;}
 a{color:inherit;text-decoration:none;}
@@ -60,24 +52,29 @@ ul{list-style:none;}
 button,input,textarea,select{font:inherit;}
 button{color:inherit;}
 .container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+.skip-link{position:fixed;left:16px;top:10px;z-index:1000;background:var(--yellow);color:var(--navy);padding:10px 14px;font-size:13px;font-weight:700;transform:translateY(-160%);transition:transform .2s ease;}
+.skip-link:focus{transform:translateY(0);}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;}
+main:focus{outline:none;}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);transition:box-shadow .3s;}
 .nav::after{content:"";position:absolute;top:100%;left:0;right:0;height:4px;background:var(--navy);}
 .nav.scrolled{box-shadow:0 2px 24px rgba(19,36,71,.5);}
-.nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.nav-logo img{height:52px;width:auto;display:block;}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-logo{width:52px;height:52px;min-width:52px;min-height:52px;flex:0 0 52px;display:inline-flex;align-items:center;justify-content:center;}
+.nav-logo img{width:52px;height:52px;max-width:none;aspect-ratio:1/1;object-fit:contain;flex-shrink:0;display:block;}
 .nav-links{display:flex;align-items:center;gap:24px;flex-wrap:nowrap;}
-.nav-links a{font-size:12px;font-weight:500;color:rgba(255,252,244,.75);letter-spacing:.03em;transition:color .2s;white-space:nowrap;}
+.nav-links a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;font-weight:500;color:rgba(255,252,244,.75);letter-spacing:.03em;transition:color .2s;white-space:nowrap;}
 .nav-links a:hover,.nav-links a.active{color:var(--paper);}
 .nav-links a.active{font-weight:600;}
 .nav-cta{background:var(--yellow)!important;color:var(--navy)!important;padding:10px 20px;font-size:12px!important;font-weight:700!important;letter-spacing:.03em!important;}
 .nav-cta:hover{background:var(--brass)!important;}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:0;}
+.nav-toggle{display:none;min-width:44px;min-height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:0;}
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
 
 /* HERO */
-.page-header{padding:clamp(66px,9vw,108px) 0 clamp(44px,6vw,72px);margin-top:72px;border-bottom:1px solid var(--stone);background:linear-gradient(180deg,#fff 0%,#fbfaf7 100%);}
+.page-header{padding:var(--page-top) 0 clamp(36px,5vw,56px);margin-top:var(--nav-height);border-bottom:1px solid var(--stone);background:var(--paper);}
 .page-header-inner{max-width:780px;}
 .eyebrow-label{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
 .eyebrow-tag{font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow);background:var(--navy);padding:6px 14px;flex-shrink:0;}
@@ -103,7 +100,7 @@ button{color:inherit;}
 .next-copy{font-size:12px;line-height:1.65;color:var(--slate);}
 .price-link{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--yellow);padding-bottom:2px;}
 
-.form-shell{border:1px solid var(--stone);background:var(--paper);box-shadow:0 18px 50px rgba(19,36,71,.06);}
+.form-shell{border:1px solid var(--stone);background:var(--paper);box-shadow:0 10px 28px rgba(19,36,71,.06);}
 .form-progress{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--stone);background:#fbfaf7;}
 .progress-step{position:relative;padding:17px 12px 15px;text-align:center;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#96999f;border-right:1px solid var(--stone);}
 .progress-step:last-child{border-right:0;}
@@ -125,7 +122,7 @@ button{color:inherit;}
 .field.full{grid-column:1/-1;}
 label,.field-label{display:block;font-size:12px;font-weight:700;letter-spacing:.025em;color:var(--ink);margin-bottom:8px;}
 .optional,.required-note{display:inline-block;margin-left:5px;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);}
-.required-note{color:var(--clay);}
+.required-note{color:var(--ink);}
 .help-text{display:block;font-size:11px;line-height:1.6;color:var(--slate);margin-top:7px;}
 .text-input,.text-area,.select-input{width:100%;border:1px solid var(--stone);background:#fff;color:var(--ink);padding:14px 15px;border-radius:0;outline:none;transition:border-color .2s,box-shadow .2s;}
 .text-input,.select-input{min-height:50px;}
@@ -154,7 +151,7 @@ legend{width:100%;}
 .choice-card input:checked + .choice-content{border-color:var(--navy);background:#fbfaf6;box-shadow:inset 4px 0 0 var(--yellow);}
 .choice-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:6px;}
 .choice-name{font-size:12px;font-weight:700;color:var(--ink);line-height:1.45;}
-.choice-price{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--clay);white-space:nowrap;}
+.choice-price{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);white-space:nowrap;}
 .choice-desc{display:block;font-size:11px;line-height:1.65;color:var(--slate);}
 
 /* CHECK OPTIONS */
@@ -189,6 +186,7 @@ legend{width:100%;}
 .step-count{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--slate);text-transform:uppercase;}
 .privacy-note{font-size:10px;line-height:1.65;color:var(--slate);margin-top:16px;}
 .privacy-note a{text-decoration:underline;text-underline-offset:3px;}
+.form-status{min-height:1.4em;margin-top:12px;font-size:11px;font-weight:600;line-height:1.6;color:#9f3d25;}
 
 /* SUCCESS */
 .success-panel{display:none;padding:clamp(40px,5vw,64px);text-align:center;}
@@ -218,6 +216,8 @@ legend{width:100%;}
 .website-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;}
 
 @media(max-width:900px){
+  .nav-links.open{display:flex;flex-direction:column;align-items:stretch;position:fixed;top:var(--nav-height);left:0;right:0;background:var(--navy);padding:20px var(--gutter) 28px;gap:8px;z-index:99;max-height:calc(100vh - var(--nav-height));overflow:auto;}
+  .nav-links.open a{width:100%;padding:4px 0;}
   .form-layout{grid-template-columns:1fr;}
   .form-aside{position:static;display:grid;grid-template-columns:1fr 1fr;gap:26px;}
   .aside-copy{margin-bottom:0;}
@@ -227,9 +227,6 @@ legend{width:100%;}
   .call-grid{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
-  .nav-links{display:none;}
-  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--navy);padding:24px clamp(24px,5vw,80px) 32px;gap:20px;z-index:99;}
-  .nav-toggle{display:flex;}
   .eyebrow-label{flex-direction:column;align-items:flex-start;gap:8px;}
   .form-aside{grid-template-columns:1fr;}
   .form-progress{grid-template-columns:repeat(4,1fr);}
@@ -270,7 +267,7 @@ legend{width:100%;}
   background:var(--navy);
   color:var(--paper);
   border-left:6px solid var(--yellow);
-  box-shadow:0 20px 54px rgba(19,36,71,.14);
+  box-shadow:0 10px 28px rgba(19,36,71,.09);
 }
 .form-aside::after{
   content:"";
@@ -326,7 +323,7 @@ legend{width:100%;}
   overflow:hidden;
   border:1px solid #cfc6b7;
   background:var(--paper);
-  box-shadow:0 24px 70px rgba(19,36,71,.11);
+  box-shadow:0 10px 30px rgba(19,36,71,.08);
 }
 .form-progress{
   background:var(--navy);
@@ -341,4 +338,669 @@ legend{width:100%;}
 .progress-step.complete{color:rgba(255,255,255,.7);}
 .progress-step::after{bottom:0;height:4px;}
 .form-body{padding:clamp(32px,5.5vw,62px);}
-.step-kicker{color:var(
+.step-kicker{color:var(--slate);}
+.step-title{font-size:clamp(25px,3.2vw,36px);font-weight:400;line-height:1.22;}
+.step-intro{font-size:15px;max-width:680px;margin-bottom:34px;}
+.text-input,.text-area,.select-input{
+  background:#fffdf9;
+  border-color:#cfc6b7;
+}
+.choice-content,.check-box{background:#fffdf9;border-color:#cfc6b7;}
+.choice-card input:checked + .choice-content,
+.check-option input:checked + .check-box{background:#fffaf0;}
+.price-note{background:var(--paper-mid);}
+
+@media(max-width:800px){
+  .form-layout{max-width:760px;}
+  .next-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .next-item{padding:18px 18px;border-right:1px solid rgba(255,255,255,.13);border-bottom:1px solid rgba(255,255,255,.13);}
+  .next-item:first-child{padding-left:0;}
+  .next-item:nth-child(2){padding-right:0;border-right:0;}
+  .next-item:nth-child(3){padding-left:0;border-bottom:0;}
+  .next-item:nth-child(4){padding-right:0;border-right:0;border-bottom:0;}
+}
+
+@media(max-width:560px){
+  .form-section{padding-top:28px;}
+  .form-aside{padding:28px 22px;border-left-width:4px;margin-bottom:16px;}
+  .aside-heading{font-size:27px;}
+  .aside-copy{font-size:14px;line-height:1.75;}
+  .next-list{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:26px;}
+  .next-item,
+  .next-item:first-child,
+  .next-item:nth-child(2),
+  .next-item:nth-child(3),
+  .next-item:nth-child(4){
+    padding:15px 12px;
+    border-right:1px solid rgba(255,255,255,.13);
+    border-bottom:1px solid rgba(255,255,255,.13);
+  }
+  .next-item:first-child,.next-item:nth-child(3){padding-left:0;}
+  .next-item:nth-child(2),.next-item:nth-child(4){padding-right:0;border-right:0;}
+  .next-item:nth-child(3),.next-item:nth-child(4){border-bottom:0;padding-bottom:0;}
+  .next-copy{display:none;}
+  .next-title{font-size:10px;}
+  .form-progress{grid-template-columns:repeat(4,1fr);}
+  .progress-step{padding:15px 5px 13px;}
+  .form-body{padding:28px 20px 30px;}
+  .step-title{font-size:27px;}
+  .step-intro{font-size:14px;line-height:1.7;margin-bottom:27px;}
+  .text-area{min-height:118px;}
+}
+
+@media(max-width:380px){
+  .next-list{grid-template-columns:1fr;}
+  .next-item,
+  .next-item:first-child,
+  .next-item:nth-child(2),
+  .next-item:nth-child(3),
+  .next-item:nth-child(4){
+    padding:14px 0;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.13);
+  }
+  .next-item:nth-child(4){border-bottom:0;padding-bottom:0;}
+}
+
+@media(max-width:420px){
+  .form-actions{display:grid;grid-template-columns:1fr;}
+  .step-count{width:auto;order:0;}
+  .btn{width:100%;min-width:0;}
+  .btn-back{order:2;}
+  .btn-primary,.btn-yellow{order:1;}
+}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ContactPage",
+  "name":"Start a Project",
+  "url":"https://www.theyellowfrontdoor.ca/start-a-project.html",
+  "description":"Website project inquiry form for The Yellow Front Door."
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPL1XCH6H7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NPL1XCH6H7');
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="The Yellow Front Door — home">
+      <img src="roundlogo2.png" alt="">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="what-we-do.html">What We Do</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="the-proof.html">The Proof</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="the-doorstep.html">The Doorstep</a></li>
+      <li><a href="lets-talk.html" class="active">Let's Talk</a></li>
+      <li><a href="the-scorecard.html" class="nav-cta">The Scorecard</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <div class="page-header-inner">
+      <div class="eyebrow-label">
+        <span class="eyebrow-tag">Start a project</span>
+        <span class="eyebrow-desc">Website inquiry</span>
+      </div>
+      <h1>Tell us what you're building.
+        <span class="accent-line">We'll start with the business behind it.</span>
+      </h1>
+      <p class="page-intro">This short form gives us some context before we meet. Once we've read it, we'll send you a link to book a 20–30 minute phone or Google Meet call. We'll talk through the details together, then put together a clear scope, timeline, and quote.</p>
+      <p class="hero-note"><span class="hero-note-dot" aria-hidden="true"></span>This should take about five minutes. Most questions are optional, so fill in what you can. The more context we have, the more useful that first conversation will be.</p>
+    </div>
+  </div>
+</header>
+
+<main class="form-section" id="main-content" tabindex="-1">
+  <div class="container">
+    <div class="form-layout">
+
+      <aside class="form-aside" aria-label="How the process works">
+        <div>
+          <p class="aside-kicker">How it works</p>
+          <h2 class="aside-heading">We take getting to know your business seriously.</h2>
+          <p class="aside-copy">A website should make sense for the business behind it, not just look good on its own. This is only the beginning. We'll read what you share before the call so we can spend that time asking better questions.</p>
+          <a href="pricing.html" class="price-link">Review website pricing &rarr;</a>
+        </div>
+        <div class="next-list">
+          <div class="next-item">
+            <span class="next-num">01</span>
+            <div><p class="next-title">Tell us what you know</p><p class="next-copy">Fill in what you can. Most of the questions are optional.</p></div>
+          </div>
+          <div class="next-item">
+            <span class="next-num">02</span>
+            <div><p class="next-title">We come prepared</p><p class="next-copy">Before we talk, we'll spend a little time getting to know your business and looking through whatever you've shared, whether that's a current website, a few social pages, or an idea that's still taking shape. That way, we can skip the generic questions and get into the useful stuff.</p></div>
+          </div>
+          <div class="next-item">
+            <span class="next-num">03</span>
+            <div><p class="next-title">We talk it through</p><p class="next-copy">You'll book a short phone or Google Meet call, and we'll fill in the gaps together.</p></div>
+          </div>
+          <div class="next-item">
+            <span class="next-num">04</span>
+            <div><p class="next-title">You receive a proposal</p><p class="next-copy">We'll send a clear scope, timeline, price, and next steps.</p></div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="form-shell" aria-labelledby="form-title">
+        <ol class="form-progress" aria-label="Form progress">
+          <li class="progress-step active" data-short="01" aria-current="step">Your business</li>
+          <li class="progress-step" data-short="02">Starting point</li>
+          <li class="progress-step" data-short="03">The website</li>
+          <li class="progress-step" data-short="04">Final details</li>
+        </ol>
+
+        <form id="project-form" action="https://formspree.io/f/xeeyqbzk" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New website project inquiry — The Yellow Front Door">
+          <input type="hidden" name="form_name" value="Website project inquiry">
+          <div class="website-field" aria-hidden="true">
+            <label for="company-website-field">Leave this field blank</label>
+            <input id="company-website-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-body" id="form-body">
+
+            <!-- STEP 1 -->
+            <section class="form-step active" data-step="1" aria-labelledby="form-title">
+              <p class="step-kicker">01 — Your business</p>
+              <h2 class="step-title" id="form-title" tabindex="-1">Start with the business behind the website.</h2>
+              <p class="step-intro">Only your name, email address, and a short business description are required. Those fields are clearly marked. Everything else can be answered now or filled in together on the call.</p>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label for="name">Your name <span class="required-note">Required</span></label>
+                  <input class="text-input" id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error">
+                  <p class="error-message" id="name-error" role="alert">Your name is required.</p>
+                </div>
+                <div class="field">
+                  <label for="business-name">Business name</label>
+                  <input class="text-input" id="business-name" name="business_name" type="text" autocomplete="organization">
+                </div>
+                <div class="field">
+                  <label for="email">Email address <span class="required-note">Required</span></label>
+                  <input class="text-input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                  <p class="error-message" id="email-error" role="alert">A valid email address is required.</p>
+                </div>
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input class="text-input" id="phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="field full">
+                  <label for="online-links">Where can we see your business online?</label>
+                  <textarea class="text-area" id="online-links" name="current_online_links" placeholder="Add as many as you like: your website, Google Business Profile, Facebook, Instagram, online shop, or anywhere else people find you. You can enter theyellowfrontdoor.ca — no https:// needed."></textarea>
+                </div>
+                <div class="field full">
+                  <label for="business-description">Tell us a little about the business and what you offer. <span class="required-note">Required</span></label>
+                  <textarea class="text-area" id="business-description" name="business_description" required aria-describedby="business-description-error" placeholder="A short paragraph is plenty."></textarea>
+                  <p class="error-message" id="business-description-error" role="alert">A brief business description is required.</p>
+                </div>
+                <div class="field full">
+                  <label for="audience">Who do you most want the website to reach?</label>
+                  <textarea class="text-area" id="audience" name="audience" placeholder="Tell us about the people who usually hire you, buy from you, or need what you offer."></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <span class="step-count">Step 1 of 4</span>
+                <button type="button" class="btn btn-primary next-btn">Continue &rarr;</button>
+              </div>
+            </section>
+
+            <!-- STEP 2 -->
+            <section class="form-step" data-step="2" aria-labelledby="step-2-title">
+              <p class="step-kicker">02 — A place to start</p>
+              <h2 class="step-title" id="step-2-title" tabindex="-1">What kind of project are you picturing?</h2>
+              <p class="step-intro">Nothing on this step is required. These are starting points, not boxes you need to fit into. Choose what sounds closest, tell us you are not sure, or leave it blank and we will sort it out together.</p>
+
+              <fieldset class="question-block">
+                <legend class="question-title">Choose a starting point, if one stands out.</legend>
+                <p class="question-help">Starting prices are included so there are no surprises. This is not a package selection or a commitment.</p>
+                <div class="choice-grid package-grid">
+                  <label class="choice-card">
+                    <input type="radio" name="project_type" value="The Starter — one-to-three-page website">
+                    <span class="choice-content">
+                      <span class="choice-head"><span class="choice-name">The Starter</span><span class="choice-price">From $750</span></span>
+                      <span class="choice-desc">A focused one-to-three-page website for a business that needs a polished, reliable place to send people.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="project_type" value="The Open Door — full custom website">
+                    <span class="choice-content">
+                      <span class="choice-head"><span class="choice-name">The Open Door</span><span class="choice-price">From $2,200</span></span>
+                      <span class="choice-desc">A full custom website, typically five to eight pages, with the structure and copy shaped around your business.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="project_type" value="The Grand Opening — brand and website">
+                    <span class="choice-content">
+                      <span class="choice-head"><span class="choice-name">The Grand Opening</span><span class="choice-price">From $3,200</span></span>
+                      <span class="choice-desc">A brand, website, copy, and key collateral created together so the pieces feel like they belong to the same business.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="project_type" value="The Refresh — improvements to an existing website">
+                    <span class="choice-content">
+                      <span class="choice-head"><span class="choice-name">The Refresh</span><span class="choice-price">From $900</span></span>
+                      <span class="choice-desc">Copy, layout, structure, and trust improvements for a website that already has a useful foundation.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="project_type" value="Not sure yet — would like a recommendation">
+                    <span class="choice-content">
+                      <span class="choice-head"><span class="choice-name">I’d like your recommendation</span><span class="choice-price">Not sure yet</span></span>
+                      <span class="choice-desc">I know the website needs attention, but I’m not sure which route makes the most sense.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="project_type" value="Something a little different">
+                    <span class="choice-content">
+                      <span class="choice-head"><span class="choice-name">Something a little different</span><span class="choice-price">Custom scope</span></span>
+                      <span class="choice-desc">The project combines services, needs a custom feature, or simply does not line up neatly with one package.</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="price-note">
+                <p><strong>Copy is included in every website package.</strong> The prices above are starting points, and larger projects can usually be divided into two or three payments. We also know every business is at a different stage, so if the right project needs to be phased, simplified, or built in pieces, we are happy to talk through what makes sense. Once we understand what you need, we will recommend the scope and give you a clear quote.</p>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-back back-btn">&larr; Back</button>
+                <span class="step-count">Step 2 of 4</span>
+                <button type="button" class="btn btn-primary next-btn">Continue &rarr;</button>
+              </div>
+            </section>
+
+            <!-- STEP 3 -->
+            <section class="form-step" data-step="3" aria-labelledby="step-3-title">
+              <p class="step-kicker">03 — What it needs to do</p>
+              <h2 class="step-title" id="step-3-title" tabindex="-1">Help us understand what the website needs to make easier.</h2>
+              <p class="step-intro">Nothing on this step is required. Choose whatever applies, leave anything you are unsure about blank, and add your own notes wherever the list does not quite cover it.</p>
+
+              <fieldset class="question-block">
+                <legend class="question-title">What would you most like the website to help you do?</legend>
+                <p class="question-help">Choose as many as apply.</p>
+                <div class="check-grid">
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Explain the business more clearly"><span class="check-box"><span class="check-mark"></span>Explain what the business offers more clearly</span></label>
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Look more established or current"><span class="check-box"><span class="check-mark"></span>Look more professional, established, or current</span></label>
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Generate inquiries"><span class="check-box"><span class="check-mark"></span>Generate more inquiries</span></label>
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Make booking or contact easier"><span class="check-box"><span class="check-mark"></span>Make it easier for people to book or get in touch</span></label>
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Showcase work"><span class="check-box"><span class="check-mark"></span>Showcase work, projects, properties, products, or results</span></label>
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Sell online"><span class="check-box"><span class="check-mark"></span>Sell products or services online</span></label>
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Share information or resources"><span class="check-box"><span class="check-mark"></span>Share information, resources, or updates</span></label>
+                  <label class="check-option"><input type="checkbox" name="website_goals[]" value="Not sure"><span class="check-box"><span class="check-mark"></span>I’m not completely sure yet</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question-block">
+                <legend class="question-title">Is there anything you already know the website should include or connect to?</legend>
+                <p class="question-help">These examples are here to help you think it through. Skip anything you are unsure about.</p>
+                <div class="check-grid">
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Service or product pages"><span class="check-box"><span class="check-mark"></span>Service or product information</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="About page"><span class="check-box"><span class="check-mark"></span>About page or team information</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Portfolio or gallery"><span class="check-box"><span class="check-mark"></span>Portfolio, gallery, listings, or project examples</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Contact or inquiry form"><span class="check-box"><span class="check-mark"></span>Contact or general inquiry form</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Quote, intake, or custom order form"><span class="check-box"><span class="check-mark"></span>Quote, estimate, intake, application, or custom order form</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Online booking"><span class="check-box"><span class="check-mark"></span>Online booking or scheduling</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Online store or payments"><span class="check-box"><span class="check-mark"></span>Online store, checkout, deposits, or payment collection</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Blog or resources"><span class="check-box"><span class="check-mark"></span>Blog, news, resources, or downloads</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Email signup"><span class="check-box"><span class="check-mark"></span>Email sign-up or newsletter connection</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Client portal or gated content"><span class="check-box"><span class="check-mark"></span>Client area, course, portal, or gated content</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Integrations or automations"><span class="check-box"><span class="check-mark"></span>Connect a booking, email, payment, or other tool</span></label>
+                  <label class="check-option"><input type="checkbox" name="features[]" value="Would like recommendations"><span class="check-box"><span class="check-mark"></span>I would like recommendations based on the business</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="other-features">Anything else the website should include or make easier?</label>
+                <textarea class="text-area" id="other-features" name="other_website_features" placeholder="Add anything that is specific to your business or does not appear above."></textarea>
+              </div>
+
+              <fieldset class="question-block">
+                <legend class="question-title">What do you already have in place?</legend>
+                <p class="question-help">This helps us understand what can be used, refined, or built from scratch.</p>
+                <div class="check-grid">
+                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Logo or visual brand"><span class="check-box"><span class="check-mark"></span>A logo or visual brand I want to keep</span></label>
+                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Professional photos"><span class="check-box"><span class="check-mark"></span>Photos or other strong visual material</span></label>
+                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Domain"><span class="check-box"><span class="check-mark"></span>A domain name</span></label>
+                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Existing website content"><span class="check-box"><span class="check-mark"></span>Existing website copy or content we can draw from</span></label>
+                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Booking, store, CRM, or other tools"><span class="check-box"><span class="check-mark"></span>Booking, store, email, or other tools already in use</span></label>
+                  <label class="check-option"><input type="checkbox" name="existing_materials[]" value="Not sure or starting from scratch"><span class="check-box"><span class="check-mark"></span>Not much yet, or I am not sure what will be useful</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question-block">
+                <legend class="question-title">Is there anything else you may want help with?</legend>
+                <p class="question-help">Completely optional. Choose anything you would like us to keep in mind.</p>
+                <div class="check-grid">
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Brand or logo refinement"><span class="check-box"><span class="check-mark"></span>Brand or logo refinement</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Photography planning or sourcing"><span class="check-box"><span class="check-mark"></span>Help planning or sourcing photography</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Print materials"><span class="check-box"><span class="check-mark"></span>Business cards, signs, or other print pieces</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Social templates or launch graphics"><span class="check-box"><span class="check-mark"></span>Social templates or launch graphics</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Email or newsletter setup"><span class="check-box"><span class="check-mark"></span>Email or newsletter setup</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Booking, forms, payments, or other tool setup"><span class="check-box"><span class="check-mark"></span>Booking, forms, payments, or other tool setup</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Google Business Profile"><span class="check-box"><span class="check-mark"></span>Google Business Profile setup or cleanup</span></label>
+                  <label class="check-option"><input type="checkbox" name="support_beyond_website[]" value="Open to recommendations"><span class="check-box"><span class="check-mark"></span>I’m not sure, but I’m open to recommendations</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="beyond-website">Anything else we should keep in mind?</label>
+                <textarea class="text-area" id="beyond-website" name="beyond_website" placeholder="Add anything that does not fit above."></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-back back-btn">&larr; Back</button>
+                <span class="step-count">Step 3 of 4</span>
+                <button type="button" class="btn btn-primary next-btn">Continue &rarr;</button>
+              </div>
+            </section>
+
+            <!-- STEP 4 -->
+            <section class="form-step" data-step="4" aria-labelledby="step-4-title">
+              <p class="step-kicker">04 — Timing and final details</p>
+              <h2 class="step-title" id="step-4-title" tabindex="-1">A few final details before we talk.</h2>
+              <p class="step-intro">Nothing on this step is required. Share what you know now, and we’ll confirm the rest together before anything is quoted.</p>
+
+              <fieldset class="question-block">
+                <legend class="question-title">When would you ideally like the website ready?</legend>
+                <div class="choice-grid">
+                  <label class="choice-card"><input type="radio" name="timeline" value="As soon as reasonably possible"><span class="choice-content"><span class="choice-name">As soon as reasonably possible</span></span></label>
+                  <label class="choice-card"><input type="radio" name="timeline" value="Within one to two months"><span class="choice-content"><span class="choice-name">Within the next one to two months</span></span></label>
+                  <label class="choice-card"><input type="radio" name="timeline" value="Within three to six months"><span class="choice-content"><span class="choice-name">Within the next three to six months</span></span></label>
+                  <label class="choice-card"><input type="radio" name="timeline" value="Flexible"><span class="choice-content"><span class="choice-name">I’m flexible</span></span></label>
+                  <label class="choice-card"><input type="radio" name="timeline" value="No timeline yet"><span class="choice-content"><span class="choice-name">I don’t have a timeline yet</span></span></label>
+                </div>
+              </fieldset>
+
+              <div class="field-grid">
+                <div class="field full">
+                  <label for="launch-date">Is there a firm date, opening, event, or deadline we should know about?</label>
+                  <input class="text-input" id="launch-date" name="firm_date_or_event" type="text" placeholder="For example: opening in October, an event in November, or no firm date.">
+                </div>
+                <div class="field full">
+                  <label for="inspiration">Are there any websites, businesses, or styles you are drawn to?</label>
+                  <textarea class="text-area" id="inspiration" name="inspiration" placeholder="Add as many links as you like, or describe what you like about them."></textarea>
+                </div>
+              </div>
+
+              <fieldset class="question-block">
+                <legend class="question-title">How would you prefer to have the first conversation?</legend>
+                <p class="question-help">We’ll send the booking link after we review your form.</p>
+                <div class="choice-grid call-grid">
+                  <label class="choice-card"><input type="radio" name="call_preference" value="Phone call"><span class="choice-content"><span class="choice-name">Phone call</span></span></label>
+                  <label class="choice-card"><input type="radio" name="call_preference" value="Google Meet"><span class="choice-content"><span class="choice-name">Google Meet</span></span></label>
+                  <label class="choice-card"><input type="radio" name="call_preference" value="No preference"><span class="choice-content"><span class="choice-name">No preference</span></span></label>
+                </div>
+              </fieldset>
+
+              <div class="field-grid">
+                <div class="field full">
+                  <label for="anything-else">Anything else you would like us to know?</label>
+                  <textarea class="text-area" id="anything-else" name="anything_else"></textarea>
+                </div>
+                <div class="field full">
+                  <label for="referral-source">How did you hear about The Yellow Front Door?</label>
+                  <select class="select-input" id="referral-source" name="referral_source">
+                    <option value="">Choose one</option>
+                    <option>Referral or word of mouth</option>
+                    <option>Google</option>
+                    <option>Facebook</option>
+                    <option>Instagram</option>
+                    <option>LinkedIn</option>
+                    <option>Local business group or event</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-back back-btn">&larr; Back</button>
+                <span class="step-count">Step 4 of 4</span>
+                <button type="submit" class="btn btn-yellow" id="submit-btn">Send my project details</button>
+              </div>
+              <p class="privacy-note">By submitting this form, you are asking us to contact you about this project. We will not add you to a marketing list. See our <a href="legal.html">Privacy Policy</a>.</p>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </section>
+
+          </div>
+        </form>
+
+        <div class="success-panel" id="success-panel" role="status" aria-live="polite">
+          <div class="success-mark" aria-hidden="true">&#10003;</div>
+          <h2 class="success-title">It made it through the door.</h2>
+          <p class="success-copy">Thanks for telling us about the project. We’ll read through what you shared and email you within one business day with a link to book a 20–30 minute phone or Google Meet call. After we talk, we’ll put together a clear proposal if the project feels like a good fit on both sides.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo-wrap"><img src="roundlogo.png" alt="The Yellow Front Door"></div>
+    <p class="footer-tagline">A marketing studio based in the Annapolis Valley, working with small businesses across Canada and beyond.</p>
+    <hr class="footer-divider">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="the-proof.html">The Proof</a>
+      <a href="about.html">About</a>
+      <a href="the-doorstep.html">The Doorstep</a>
+      <a href="lets-talk.html">Let's Talk</a>
+      <a href="for-small-business.html">For Small Business</a>
+      <a href="for-real-estate-professionals.html">For Real Estate</a>
+      <a href="website-audit.html">Website Checkup</a>
+    </nav>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 The Yellow Front Door. All rights reserved.</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">Annapolis Valley, NS</p>
+      <div class="footer-dot-sm" aria-hidden="true"></div>
+      <p class="footer-copy">theyellowfrontdoor.ca</p>
+    </div>
+    <div class="footer-legal-links">
+      <a href="legal.html">Privacy Policy</a>
+      <a href="legal.html#tos">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  var toggle=document.getElementById('nav-toggle');
+  var navLinks=document.getElementById('nav-links');
+  function setMenu(open){
+    navLinks.classList.toggle('open',open);
+    toggle.setAttribute('aria-expanded',String(open));
+    toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  }
+
+  toggle.addEventListener('click',function(){
+    setMenu(!navLinks.classList.contains('open'));
+  });
+
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click',function(){setMenu(false);});
+  });
+
+  document.addEventListener('keydown',function(event){
+    if(event.key==='Escape' && navLinks.classList.contains('open')){
+      setMenu(false);
+      toggle.focus();
+    }
+  });
+
+  window.addEventListener('resize',function(){
+    if(window.innerWidth>900){setMenu(false);}
+  });
+
+  var form=document.getElementById('project-form');
+  var steps=Array.prototype.slice.call(document.querySelectorAll('.form-step'));
+  var indicators=Array.prototype.slice.call(document.querySelectorAll('.progress-step'));
+  var current=0;
+
+  function showStep(index){
+    current=index;
+    steps.forEach(function(step,i){step.classList.toggle('active',i===index);});
+    indicators.forEach(function(indicator,i){
+      indicator.classList.toggle('active',i===index);
+      indicator.classList.toggle('complete',i<index);
+      if(i===index){indicator.setAttribute('aria-current','step');}
+      else{indicator.removeAttribute('aria-current');}
+    });
+    var shell=document.querySelector('.form-shell');
+    var top=shell.getBoundingClientRect().top+window.scrollY-94;
+    if(window.scrollY>top+140){window.scrollTo({top:top,behavior:'smooth'});}
+    var heading=steps[index].querySelector('.step-title');
+    if(heading){setTimeout(function(){heading.focus({preventScroll:true});},120);}
+  }
+
+  function clearErrors(step){
+    step.querySelectorAll('.invalid').forEach(function(el){el.classList.remove('invalid');});
+    step.querySelectorAll('.error-message.show').forEach(function(el){el.classList.remove('show');});
+    step.querySelectorAll('[aria-invalid="true"]').forEach(function(el){el.removeAttribute('aria-invalid');});
+  }
+
+  function markInvalid(container){
+    container.classList.add('invalid');
+    var field=container.querySelector('input, textarea, select');
+    if(field){field.setAttribute('aria-invalid','true');}
+    var message=container.querySelector('.error-message');
+    if(message){message.classList.add('show');}
+  }
+
+  function validateStep(step){
+    clearErrors(step);
+    var valid=true;
+    var firstInvalid=null;
+
+    step.querySelectorAll('input[required], textarea[required], select[required]').forEach(function(field){
+      if(!field.checkValidity()){
+        valid=false;
+        var container=field.closest('.field')||field.parentElement;
+        markInvalid(container);
+        if(!firstInvalid){firstInvalid=field;}
+      }
+    });
+
+    step.querySelectorAll('[data-required-group]').forEach(function(group){
+      var name=group.getAttribute('data-required-group');
+      var checked=group.querySelector('input[name="'+name+'"]:checked, input[name="'+name+'[]"]:checked');
+      if(!checked){
+        valid=false;
+        markInvalid(group);
+        if(!firstInvalid){firstInvalid=group.querySelector('input');}
+      }
+    });
+
+    if(firstInvalid){firstInvalid.focus();}
+    return valid;
+  }
+
+  document.querySelectorAll('.next-btn').forEach(function(button){
+    button.addEventListener('click',function(){
+      if(validateStep(steps[current])){showStep(Math.min(current+1,steps.length-1));}
+    });
+  });
+
+  document.querySelectorAll('.back-btn').forEach(function(button){
+    button.addEventListener('click',function(){showStep(Math.max(current-1,0));});
+  });
+
+  form.addEventListener('input',function(event){
+    var container=event.target.closest('.field,.required-group');
+    if(container){
+      container.classList.remove('invalid');
+      event.target.removeAttribute('aria-invalid');
+      var message=container.querySelector('.error-message');
+      if(message){message.classList.remove('show');}
+    }
+  });
+
+  function normalizeOnlineLinks(value){
+    return value.split(/\n/).map(function(line){
+      var trimmed=line.trim();
+      if(!trimmed){return '';}
+
+      if(/^(https?:\/\/|mailto:)/i.test(trimmed)){return trimmed;}
+
+      if(
+        /^www\./i.test(trimmed) ||
+        /^[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[\/?#].*)?$/i.test(trimmed)
+      ){
+        return 'https://' + trimmed;
+      }
+
+      return line.replace(
+        /(^|[\s,(])((?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[\/?#][^\s,)]*)?)/gi,
+        function(match,prefix,url){
+          if(url.indexOf('@')!==-1){return match;}
+          return prefix+'https://'+url;
+        }
+      );
+    }).join('\n');
+  }
+
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(!validateStep(steps[current])){return;}
+
+    var onlineLinks=document.getElementById('online-links');
+    if(onlineLinks && onlineLinks.value.trim()){
+      onlineLinks.value=normalizeOnlineLinks(onlineLinks.value);
+    }
+
+    var endpoint=form.getAttribute('action');
+    var submit=document.getElementById('submit-btn');
+    var status=document.getElementById('form-status');
+    var originalText=submit.textContent;
+    submit.disabled=true;
+    submit.textContent='Sending...';
+    form.setAttribute('aria-busy','true');
+    if(status){status.textContent='Sending your project details…';}
+
+    fetch(endpoint,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
+    }).then(function(response){
+      if(!response.ok){throw new Error('Submission failed');}
+      form.removeAttribute('aria-busy');
+      form.style.display='none';
+      document.querySelector('.form-progress').style.display='none';
+      document.getElementById('success-panel').classList.add('show');
+      window.scrollTo({top:document.querySelector('.form-shell').getBoundingClientRect().top+window.scrollY-100,behavior:'smooth'});
+    }).catch(function(){
+      form.removeAttribute('aria-busy');
+      submit.disabled=false;
+      submit.textContent=originalText;
+      if(status){
+        status.textContent='Something went wrong while sending the form. Please try again or email hello@theyellowfrontdoor.ca.';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
