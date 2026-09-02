@@ -7,25 +7,25 @@
 <title>The Yoga Garden | Concept Preview</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --plum:#793979;
-  --plum-dark:#4b224d;
-  --lilac:#eadcf4;
-  --lilac-soft:#f6f0f8;
+  --plum:#82477f;
+  --plum-dark:#512b50;
+  --lilac:#e8d7f0;
+  --lilac-soft:#f7f0f7;
   --mint:#61d1b3;
   --green:#3f7b59;
   --green-dark:#2f6045;
   --green-soft:#e1eee4;
-  --cream:#fbf7ef;
-  --paper:#fffdf9;
-  --clay:#b97862;
+  --cream:#fbf3e9;
+  --paper:#fffaf4;
+  --clay:#c1846b;
   --ink:#302a2f;
   --muted:#736970;
   --line:rgba(75,34,77,.13);
-  --shadow:0 24px 60px rgba(51,28,53,.12);
-  --soft:0 10px 28px rgba(51,28,53,.07);
+  --shadow:0 28px 70px rgba(66,36,62,.16);
+  --soft:0 14px 34px rgba(66,36,62,.10);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -36,9 +36,9 @@ a{text-decoration:none;color:inherit}
 button,input,select{font:inherit}
 button{cursor:pointer}
 h1,h2,h3,p{margin-top:0}
-h1,h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;color:var(--plum-dark);letter-spacing:-.03em}
-h1{font-size:clamp(3.75rem,6.2vw,6.3rem);line-height:.98;margin-bottom:1.25rem}
-h2{font-size:clamp(2.65rem,4.2vw,4.15rem);line-height:1.02;margin-bottom:.9rem}
+h1,h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;color:var(--plum-dark);letter-spacing:-.022em}
+h1{font-size:clamp(3.4rem,5.6vw,5.65rem);line-height:1.01;margin-bottom:1.25rem}
+h2{font-size:clamp(2.35rem,3.8vw,3.7rem);line-height:1.06;margin-bottom:.9rem}
 h3{font-size:1.08rem;margin-bottom:.3rem}
 .container{width:min(1180px,calc(100% - 44px));margin:auto}
 .section{padding:88px 0}
@@ -55,7 +55,7 @@ h3{font-size:1.08rem;margin-bottom:.3rem}
 .preview-actions select option{color:var(--ink)}
 .preview-link{border:0;background:transparent;color:#fff;padding:0;border-bottom:1px solid rgba(255,255,255,.3);font-weight:600}
 
-header{position:sticky;top:0;z-index:60;background:var(--lilac);border-bottom:1px solid rgba(75,34,77,.08)}
+header{position:sticky;top:0;z-index:60;background:rgba(251,243,233,.97);border-bottom:1px solid rgba(75,34,77,.09);box-shadow:0 4px 18px rgba(75,34,77,.04);backdrop-filter:blur(14px)}
 .nav{min-height:104px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .brand img{width:205px;max-height:94px;object-fit:contain;mix-blend-mode:multiply}
 nav{display:flex;align-items:center;gap:25px;color:#554c53;font-size:.91rem}
@@ -71,50 +71,105 @@ nav a:hover{color:var(--plum)}
 .text-button{border:0;background:transparent;color:var(--plum);font-weight:700;padding:0}
 .text-button.danger{color:#9b4558}
 
-.hero{position:relative;min-height:650px;overflow:hidden;background:var(--cream)}
-.hero-photo{position:absolute;inset:0}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 44%}
-.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(39,25,40,.20),rgba(39,25,40,.03) 58%,transparent)}
-.hero-inner{position:relative;z-index:2;min-height:650px;display:flex;align-items:center}
-.hero-panel{width:min(590px,92%);padding:40px 42px 42px;border-radius:28px;background:rgba(246,240,248,.94);box-shadow:var(--shadow);backdrop-filter:blur(7px)}
-.hero-panel .eyebrow{color:var(--green)}
-.hero-panel h1{color:var(--plum);max-width:520px}
-.hero-panel p{max-width:510px;color:#5d535c}
-.hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}
-.hero-tag{margin-top:24px;padding-top:18px;border-top:1px solid rgba(75,34,77,.13);font-family:"Bodoni Moda",serif;font-size:1.35rem;color:var(--plum)}
 
-.schedule{background:var(--paper)}
+.hero{
+  position:relative;
+  min-height:700px;
+  overflow:hidden;
+  background:var(--cream)
+}
+.hero-photo{position:absolute;inset:0}
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 43%;
+  filter:saturate(.92) brightness(.98) contrast(.98)
+}
+.hero-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(248,236,247,.97) 0%,
+      rgba(248,236,247,.90) 28%,
+      rgba(251,243,233,.62) 48%,
+      rgba(251,243,233,.08) 70%,
+      rgba(251,243,233,0) 100%),
+    linear-gradient(0deg,rgba(79,42,76,.07),transparent 42%)
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  min-height:700px;
+  display:flex;
+  align-items:center
+}
+.hero-panel{
+  width:min(585px,92%);
+  padding:44px 0 48px;
+  background:transparent;
+  box-shadow:none;
+  backdrop-filter:none
+}
+.hero-panel .eyebrow{color:var(--green)}
+.hero-panel h1{
+  color:var(--plum);
+  max-width:560px;
+  text-shadow:0 1px 0 rgba(255,255,255,.35)
+}
+.hero-panel p{
+  max-width:500px;
+  color:#5b4f58;
+  font-size:1.08rem
+}
+.hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}
+.hero-tag{
+  display:inline-block;
+  margin-top:27px;
+  padding:10px 14px;
+  border:1px solid rgba(75,34,77,.12);
+  border-radius:999px;
+  background:rgba(255,250,244,.62);
+  font-family:"Playfair Display",serif;
+  font-size:1.08rem;
+  font-weight:600;
+  color:var(--plum)
+}
+
+.schedule{background:linear-gradient(180deg,var(--paper) 0%,#fff8f1 100%)}
 .section-head{display:grid;grid-template-columns:1fr .72fr;gap:48px;align-items:end;margin-bottom:33px}
 .section-head h2{margin-bottom:0}
 .section-head p{margin-bottom:.3rem;color:var(--muted)}
 .schedule-list{border-top:1px solid var(--line)}
-.class-row{display:grid;grid-template-columns:110px 1fr 160px 170px;gap:22px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line)}
-.class-row:hover{background:rgba(234,220,244,.2)}
+.class-row{display:grid;grid-template-columns:110px 1fr 160px 170px;gap:22px;align-items:center;padding:23px 14px;border-bottom:1px solid var(--line);border-radius:14px;transition:background .16s ease,transform .16s ease}
+.class-row:hover{background:rgba(232,215,240,.25);transform:translateX(3px)}
 .day{font-size:.69rem;text-transform:uppercase;letter-spacing:.14em;color:var(--green);font-weight:700}
-.class-name strong{display:block;color:var(--plum-dark);font-size:1.1rem}
+.class-name strong{display:block;color:var(--plum-dark);font-size:1.18rem;font-weight:700}
 .class-name span{display:block;margin-top:2px;color:var(--muted);font-size:.84rem}
 .availability{display:inline-flex;width:max-content;padding:6px 10px;border-radius:999px;background:var(--green-soft);color:var(--green-dark);font-size:.71rem;font-weight:700}
 .availability.full{background:var(--lilac);color:var(--plum)}
 .status{display:inline-flex;width:max-content;padding:7px 10px;border-radius:999px;background:var(--green-soft);color:var(--green-dark);font-size:.72rem;font-weight:700}
 .status.wait{background:var(--lilac);color:var(--plum)}
 
-.garden{background:var(--lilac-soft)}
+.garden{background:linear-gradient(135deg,var(--lilac-soft) 0%,#f2e7f3 48%,#eee5dc 100%)}
 .garden-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}
-.garden-image{height:590px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.garden-image{height:590px;border-radius:34px 90px 34px 34px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(-.7deg)}
 .garden-image img{width:100%;height:100%;object-fit:cover}
 .garden-copy h2{max-width:520px}
-.garden-quote{margin:28px 0;font-family:"Bodoni Moda",serif;font-size:clamp(2.6rem,4.1vw,4.25rem);line-height:1;color:var(--plum)}
+.garden-quote{margin:28px 0;font-family:"Playfair Display",serif;font-size:clamp(2.6rem,4.1vw,4.25rem);line-height:1;color:var(--plum)}
 .garden-copy p{color:#625961;max-width:530px}
 .brand-line{height:4px;width:72px;margin:24px 0;background:linear-gradient(90deg,var(--mint),var(--plum))}
 
-.booking{background:var(--cream)}
+.booking{background:linear-gradient(180deg,var(--cream) 0%,#f7ede3 100%)}
 .booking-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
-.booking-photo{height:500px;border-radius:28px;overflow:hidden}
+.booking-photo{height:500px;border-radius:32px;overflow:hidden;box-shadow:var(--soft);transform:translateY(-8px)}
 .booking-photo img{width:100%;height:100%;object-fit:cover}
 .booking-copy p{max-width:520px;color:var(--muted)}
-.portal-card{margin-top:26px;padding:22px;border:1px solid var(--line);border-radius:22px;background:var(--paper);box-shadow:var(--soft)}
+.portal-card{margin-top:28px;padding:24px;border:1px solid rgba(75,34,77,.10);border-radius:24px;background:rgba(255,250,244,.96);box-shadow:0 18px 40px rgba(75,34,77,.10)}
 .portal-top{display:flex;align-items:center;justify-content:space-between;gap:15px;padding-bottom:16px;border-bottom:1px solid var(--line)}
-.portal-top strong{font-family:"Bodoni Moda",serif;font-size:1.6rem;font-weight:400;color:var(--plum)}
+.portal-top strong{font-family:"Playfair Display",serif;font-size:1.6rem;font-weight:400;color:var(--plum)}
 .portal-booking{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
 .portal-booking strong,.portal-booking span{display:block}
 .portal-booking span{font-size:.84rem;color:var(--muted)}
@@ -124,13 +179,13 @@ nav a:hover{color:var(--plum)}
 .portal-info span{display:block;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
 .portal-info strong{display:block;margin-top:2px;color:var(--plum)}
 
-.contact{background:var(--plum-dark);color:#fff}
+.contact{background:linear-gradient(135deg,var(--plum-dark),#6c3a69);color:#fff}
 .contact h2{color:#fff}
 .contact .eyebrow{color:#a1dfcc}
 .contact-grid{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:end}
 .contact p{color:rgba(255,255,255,.72);max-width:620px}
 .contact-meta{text-align:right;color:rgba(255,255,255,.8)}
-.contact-meta strong{display:block;font-family:"Bodoni Moda",serif;font-size:1.7rem;font-weight:400;color:#fff}
+.contact-meta strong{display:block;font-family:"Playfair Display",serif;font-size:1.7rem;font-weight:400;color:#fff}
 
 footer{padding:28px 0;background:#2d1630;color:rgba(255,255,255,.66)}
 .footer-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
@@ -150,7 +205,7 @@ footer img{width:140px;filter:brightness(1.8);mix-blend-mode:screen}
 .app-title h1{font-size:clamp(3rem,5vw,5rem);margin-bottom:.4rem}
 .app-title p{margin-bottom:0;color:var(--muted)}
 .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.panel{min-width:0;padding:23px;border-radius:22px;background:var(--paper);border:1px solid var(--line)}
+.panel{min-width:0;padding:24px;border-radius:23px;background:var(--paper);border:1px solid rgba(75,34,77,.10);box-shadow:0 9px 24px rgba(75,34,77,.05)}
 .panel:nth-child(3n+2){background:#eef4ed}.panel:nth-child(3n+3){background:#f1e9f5}
 .span2{grid-column:span 2}
 .panel h2{font-size:1.85rem}
@@ -160,7 +215,7 @@ footer img{width:140px;filter:brightness(1.8);mix-blend-mode:screen}
 .details dt{font-size:.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.details dd{margin:2px 0 0;font-weight:600}
 .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
 .stat{padding:20px;border-radius:18px}.stat:nth-child(1){background:#e9dff0}.stat:nth-child(2){background:#e0ece1}.stat:nth-child(3){background:#f0dfd8}.stat:nth-child(4){background:#deece7}
-.stat span{display:block;color:var(--muted);font-size:.78rem}.stat strong{display:block;margin-top:6px;font-family:"Bodoni Moda",serif;font-size:2.5rem;font-weight:400;color:var(--plum);line-height:1}
+.stat span{display:block;color:var(--muted);font-size:.78rem}.stat strong{display:block;margin-top:6px;font-family:"Playfair Display",serif;font-size:2.5rem;font-weight:400;color:var(--plum);line-height:1}
 .roster{overflow:auto}.roster-head,.roster-row{min-width:640px;display:grid;grid-template-columns:1.45fr .8fr .8fr .8fr;gap:10px;align-items:center}
 .roster-head{padding:9px 0;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}.roster-row{padding:13px 0;border-top:1px solid var(--line);font-size:.86rem}
 .good{color:var(--green-dark);font-weight:700}.warn{color:#97641e;font-weight:700}
@@ -196,7 +251,7 @@ footer img{width:140px;filter:brightness(1.8);mix-blend-mode:screen}
 .pricing{margin-top:22px;padding:32px;border-radius:27px;background:var(--plum-dark);color:#fff;display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:center}
 .pricing h2{color:#fff}.pricing p{color:rgba(255,255,255,.7)}
 .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.price-card{padding:20px;border-radius:18px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07)}.price-card.recommended{background:var(--cream);color:var(--ink)}
-.price-card span,.price-card strong,.price-card small{display:block}.price-card strong{font-family:"Bodoni Moda",serif;font-weight:400;font-size:2.2rem;margin:7px 0}.price-card small{opacity:.72}
+.price-card span,.price-card strong,.price-card small{display:block}.price-card strong{font-family:"Playfair Display",serif;font-weight:600;font-size:2.2rem;margin:7px 0}.price-card small{opacity:.72}
 .ongoing{margin-top:15px;padding:21px;border-radius:19px;background:#e3ebe0;border:1px solid #cad7c7}.ongoing p{margin:4px 0 0;color:var(--muted)}
 
 @media(max-width:980px){
@@ -212,7 +267,7 @@ footer img{width:140px;filter:brightness(1.8);mix-blend-mode:screen}
   .container{width:min(100% - 28px,1180px)}
   .preview-inner>span{display:none}.preview-actions{width:100%;justify-content:space-between}
   .nav{min-height:82px}.brand img{width:140px}nav{gap:6px}
-  .hero{min-height:680px}.hero-inner{min-height:680px;align-items:flex-end;padding-bottom:22px}.hero-panel{padding:26px 23px;border-radius:23px}.hero-photo img{object-position:62% 45%}
+  .hero{min-height:650px}.hero-inner{min-height:650px;align-items:flex-end;padding-bottom:30px}.hero-panel{padding:28px 8px}.hero-photo img{object-position:62% 45%}.hero-photo:after{background:linear-gradient(180deg,rgba(251,243,233,.10) 10%,rgba(248,236,247,.58) 48%,rgba(248,236,247,.97) 82%)}
   .section{padding:64px 0}.section-head,.app-title{display:flex;flex-direction:column;align-items:flex-start}
   .class-row{grid-template-columns:1fr;gap:7px;padding:20px 2px}.class-row>*{grid-column:1!important}
   .garden-image,.booking-photo{height:390px}
@@ -260,7 +315,7 @@ footer img{width:140px;filter:brightness(1.8);mix-blend-mode:screen}
     <div class="hero-panel">
       <span class="eyebrow">Greenwood, Nova Scotia</span>
       <h1>Nurture your practice.<br>Grow your roots.</h1>
-      <p>Yoga, Pilates, movement, and community in a bright, welcoming studio.</p>
+      <p>Yoga, Pilates, movement, and community in a bright, welcoming space that feels easy to come back to.</p>
       <div class="hero-actions">
         <a class="button green" href="#classes">View classes</a>
         <button class="button ghost" id="heroPortal">My Garden</button>
