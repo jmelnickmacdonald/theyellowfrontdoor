@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/yoga-garden-suite.css"><title>Studio Dashboard | The Yoga Garden</title></head><body class="dashboard-body">
+<div class="demo-bar"><div class="container">
+      <span><strong>The Yoga Garden concept</strong> · static demo data</span>
+      <div class="demo-actions">
+        <a href="yoga-garden-classes.html">Booking</a>
+        <a href="yoga-garden-my-garden.html">Client</a>
+        <a href="yoga-garden-owner.html">Owner</a>
+        <a href="yoga-garden-instructor.html">Instructor</a>
+        <button data-reset>Reset demo</button>
+      </div>
+    </div></div>
+<div class="dash-shell">
+  <aside class="dash-side">
+      <a class="dash-brand" href="demo-yoga-garden.html"><img src="assets/yogagardenlogo.png" alt="The Yoga Garden"></a>
+      <div class="dash-role">Genevieve · owner</div>
+      <nav class="dash-nav">
+        <a class="active" href="yoga-garden-owner.html">Owner overview</a>
+        <a href="yoga-garden-classes.html">Public booking page</a>
+        <a class="" href="yoga-garden-instructor.html">Instructor view</a>
+        <button data-demo-action="Client directory">Clients</button>
+        <button data-demo-action="Waivers and forms">Waivers</button>
+        <button data-demo-action="Reports">Reports</button>
+      </nav>
+      <div class="dash-side-bottom">Demo only · production roles would use separate secure logins and permissions.</div>
+    </aside>
+  <main class="dash-main">
+    <div class="dash-top"><div><span class="eyebrow">Studio dashboard</span><h1>Good afternoon, Genevieve.</h1><p>This week’s bookings, classes, waivers, and cancellation activity.</p></div><span class="role-badge">Owner access</span></div>
+    <div class="stat-grid">
+      <div class="stat-card"><span>Bookings this week</span><strong id="statBookings">—</strong><em>across 6 classes</em></div>
+      <div class="stat-card"><span>Seats filled</span><strong id="statFill">—</strong><em>weekly capacity</em></div>
+      <div class="stat-card"><span>Cancellation list</span><strong id="statWait">—</strong><em>people waiting</em></div>
+      <div class="stat-card"><span>Waivers needed</span><strong id="statWaivers">—</strong><em>follow up before class</em></div>
+    </div>
+    <div class="dash-grid">
+      <div>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">This week</span><h2>Classes</h2></div><button class="button small" data-demo-action="Add a class">+ Add class</button></div>
+          <table class="dash-table"><thead><tr><th>When</th><th>Class</th><th>Booked</th><th>List</th><th></th></tr></thead><tbody id="ownerSchedule"></tbody></table>
+        </section>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">Cancellation automation</span><h2>Open spot offers</h2><p>The system can handle the queue instead of Genevieve messaging people one by one.</p></div></div>
+          <div id="ownerOffer"></div>
+          <p class="small muted">Demo: cancel Sarah’s Pilates Fusion booking from My Garden, then come back here.</p>
+          <a class="button outline small" href="yoga-garden-my-garden.html">Open Sarah’s My Garden</a>
+        </section>
+      </div>
+      <aside>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">Quick actions</span><h2>Studio</h2></div></div>
+          <div class="quick-grid"><button data-demo-action="Create a class">Create class</button><button data-demo-action="Create a special event">Special event</button><button data-demo-action="Message a class">Message class</button><button data-demo-action="Block a date">Block a date</button></div>
+        </section>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">Recent</span><h2>Activity</h2></div></div>
+          <div class="activity-feed" id="activityFeed"></div>
+        </section>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">Instructors</span><h2>Your team</h2></div><a class="text-button" href="yoga-garden-instructor.html">See instructor view</a></div>
+          <div class="instructor-list">
+            <div class="instructor-row"><div class="avatar">G</div><div><strong>Genevieve</strong><span>Warm Power Flow</span></div><span class="status good">Owner</span></div>
+            <div class="instructor-row"><div class="avatar">K</div><div><strong>Karen</strong><span>Pilates Fusion · Sculpt & Sweat</span></div><span class="status neutral">Instructor</span></div>
+            <div class="instructor-row"><div class="avatar">K</div><div><strong>Kristine</strong><span>Hot Yin</span></div><span class="status neutral">Instructor</span></div>
+            <div class="instructor-row"><div class="avatar">K</div><div><strong>Kimberly</strong><span>STOTT Pilates</span></div><span class="status neutral">Instructor</span></div>
+            <div class="instructor-row"><div class="avatar">D</div><div><strong>Danika</strong><span>Pilates Fx</span></div><span class="status neutral">Instructor</span></div>
+          </div>
+        </section>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">Booking settings</span><h2>Defaults</h2></div></div>
+          <div class="settings-list"><div class="setting-row"><span>Spot-offer window</span><strong>4 hours</strong></div><div class="setting-row"><span>Payment options</span><strong>Cash + e-transfer</strong></div><div class="setting-row"><span>Waiver</span><strong>Once per client</strong></div><div class="setting-row"><span>Stripe</span><strong>Off</strong></div></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</div>
+<div class="modal-bg" id="simpleModal"><div class="modal">
+  <div class="modal-head"><div><span class="eyebrow">The Yoga Garden</span><h2 id="simpleModalTitle">Demo</h2></div><button class="modal-x" id="simpleModalClose">×</button></div>
+  <div id="simpleModalBody" style="margin-top:16px"></div>
+</div></div><script src="assets/yoga-garden-suite.js"></script></body></html>
