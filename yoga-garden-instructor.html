@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/yoga-garden-suite.css"><title>Instructor View | The Yoga Garden</title></head><body class="dashboard-body">
+<div class="demo-bar"><div class="container">
+      <span><strong>The Yoga Garden concept</strong> · static demo data</span>
+      <div class="demo-actions">
+        <a href="yoga-garden-classes.html">Booking</a>
+        <a href="yoga-garden-my-garden.html">Client</a>
+        <a href="yoga-garden-owner.html">Owner</a>
+        <a href="yoga-garden-instructor.html">Instructor</a>
+        <button data-reset>Reset demo</button>
+      </div>
+    </div></div>
+<div class="dash-shell">
+  <aside class="dash-side">
+      <a class="dash-brand" href="demo-yoga-garden.html"><img src="assets/yogagardenlogo.png" alt="The Yoga Garden"></a>
+      <div class="dash-role">Instructor portal</div>
+      <nav class="dash-nav">
+        <a class="" href="yoga-garden-owner.html">Owner overview</a>
+        <a href="yoga-garden-classes.html">Public booking page</a>
+        <a class="active" href="yoga-garden-instructor.html">Instructor view</a>
+        <button data-demo-action="Client directory">Clients</button>
+        <button data-demo-action="Waivers and forms">Waivers</button>
+        <button data-demo-action="Reports">Reports</button>
+      </nav>
+      <div class="dash-side-bottom">Demo only · production roles would use separate secure logins and permissions.</div>
+    </aside>
+  <main class="dash-main">
+    <div class="dash-top"><div><span class="eyebrow">Instructor view</span><h1>Hi, <span id="instructorName">Karen</span>.</h1><p>Your classes and the information you need to run them.</p></div><span class="role-badge">Instructor access</span></div>
+
+    <div class="dash-card" style="margin-bottom:20px">
+      <div class="dash-card-head"><div><span class="eyebrow">Demo instructor</span><h2>Switch view</h2></div></div>
+      <div class="segment"><button data-instructor="Karen">Karen</button><button data-instructor="Genevieve">Genevieve</button><button data-instructor="Kristine">Kristine</button><button data-instructor="Kimberly">Kimberly</button><button data-instructor="Danika">Danika</button></div>
+    </div>
+
+    <section class="instructor-highlight">
+      <div class="next-grid"><div><span class="eyebrow">Next class</span><h2 id="nextClassTitle">Pilates Fusion</h2><p id="nextClassMeta"></p></div><button class="button green small" data-demo-action="Message this class">Message class</button></div>
+    </section>
+
+    <div class="dash-grid">
+      <div>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">Roster</span><h2>Check in your class</h2><p>Waiver status is visible. Payment details and broader client records are not.</p></div></div>
+          <div class="attendance-list" id="instructorRoster"></div>
+          <div class="privacy-note"><strong>Instructor permissions:</strong> instructors see only their assigned classes and the client information needed to run those classes. Owner-only administration, payments, reports, and full records stay out of this view.</div>
+        </section>
+      </div>
+      <aside>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">This week</span><h2>Your classes</h2></div></div>
+          <table class="dash-table" style="min-width:0"><thead><tr><th>When</th><th>Class</th><th>Booked</th><th>List</th></tr></thead><tbody id="myClasses"></tbody></table>
+        </section>
+        <section class="dash-card">
+          <div class="dash-card-head"><div><span class="eyebrow">Instructor tools</span><h2>For class</h2></div></div>
+          <div class="quick-grid"><button data-demo-action="Add a class note">Class note</button><button data-demo-action="Report an issue">Report issue</button><button data-demo-action="Message Genevieve">Message Genevieve</button><button data-demo-action="See emergency contacts">Emergency info</button></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</div>
+<div class="modal-bg" id="simpleModal"><div class="modal">
+  <div class="modal-head"><div><span class="eyebrow">The Yoga Garden</span><h2 id="simpleModalTitle">Demo</h2></div><button class="modal-x" id="simpleModalClose">×</button></div>
+  <div id="simpleModalBody" style="margin-top:16px"></div>
+</div></div><script src="assets/yoga-garden-suite.js"></script></body></html>
