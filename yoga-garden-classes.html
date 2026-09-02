@@ -1,1 +1,85 @@
- <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/yoga-garden.css"><title>Classes | The Yoga Garden</title></head><body><div class="demo-bar"><div class="container"><span><strong>The Yoga Garden concept</strong> · sample bookings</span><div class="demo-actions"><a href="yoga-garden-my-garden.html">Client view</a><a href="yoga-garden-owner-demo.html">Owner demo</a><button data-reset>Reset demo</button></div></div></div><header class="site-header"><div class="container center-nav"><nav class="nav-side nav-left"><a href="demo-yoga-garden.html#about">About</a><a href="yoga-garden-classes.html">Classes</a><a href="demo-yoga-garden.html#garden">The Garden</a></nav><a class="center-logo" href="demo-yoga-garden.html"><img src="assets/yogagardenlogo.png" alt="The Yoga Garden"></a><nav class="nav-side nav-right"><a href="demo-yoga-garden.html#facebook">Facebook</a><a href="demo-yoga-garden.html#contact">Contact</a><a class="client-login" href="yoga-garden-my-garden.html">My Garden<span>Client login</span></a></nav><button class="mobile-menu" id="mobileMenu" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div><div class="mobile-panel" id="mobilePanel"><a href="demo-yoga-garden.html#about">About</a><a href="yoga-garden-classes.html">Classes</a><a href="demo-yoga-garden.html#garden">The Garden</a><a href="demo-yoga-garden.html#facebook">Facebook</a><a href="demo-yoga-garden.html#contact">Contact</a><a href="yoga-garden-my-garden.html">My Garden · Client Login</a></div></header><main><section class="page-hero"><div class="container page-hero-grid"><div><span class="eyebrow">The Yoga Garden</span><h1>Class Schedule</h1></div><p>Choose a class below. You’ll see how many spaces are left before you book. If a class is full, join the cancellation list and the next open spot can be offered automatically.</p></div></section><section class="classes-section"><div class="container"><div class="schedule-list" id="classSchedule"></div><p class="schedule-note">Demo note: bookings use sample client information and are saved only in your browser.</p><div class="classes-bottom"><div class="classes-bottom-photo"><img src="assets/garden-main.png" alt="Plants in warm light"></div><div class="classes-bottom-copy"><span class="eyebrow">First class?</span><h2>You don’t need to bring a whole studio with you.</h2><p>Mats, blocks, straps, and bolsters are available. There’s also a washroom and cold water at the studio.</p><a class="button" href="demo-yoga-garden.html#contact">Questions before you book?</a></div></div></div></section></main><footer class="site-footer"><div class="container footer-grid"><img src="assets/yogagardenlogo.png" alt="The Yoga Garden"><div class="footer-links"><a href="yoga-garden-classes.html">Classes</a><a href="demo-yoga-garden.html#garden">The Garden</a><a href="yoga-garden-my-garden.html">My Garden</a></div><div class="footer-note">Concept preview by The Yellow Front Door · sample information only.</div></div></footer><div class="modal-bg" id="bookingModal"><div class="modal"><div class="modal-head"><div><span class="eyebrow">The Yoga Garden</span><h2 id="modalTitle">Book a class</h2><p class="muted" id="modalMeta"></p></div><button class="modal-x" id="modalClose">×</button></div><div id="modalBody"></div></div></div><script src="assets/yoga-garden.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/yoga-garden-suite.css"><title>Classes + Booking | The Yoga Garden</title></head><body>
+<div class="demo-bar"><div class="container">
+      <span><strong>The Yoga Garden concept</strong> · static demo data</span>
+      <div class="demo-actions">
+        <a href="yoga-garden-classes.html">Booking</a>
+        <a href="yoga-garden-my-garden.html">Client</a>
+        <a href="yoga-garden-owner.html">Owner</a>
+        <a href="yoga-garden-instructor.html">Instructor</a>
+        <button data-reset>Reset demo</button>
+      </div>
+    </div></div><header class="site-header">
+      <div class="container center-nav">
+        <nav class="nav-side nav-left">
+          <a href="demo-yoga-garden.html#about">About</a>
+          <a class="active" href="yoga-garden-classes.html">Classes + Booking</a>
+        </nav>
+        <a class="center-logo" href="demo-yoga-garden.html"><img src="assets/yogagardenlogo.png" alt="The Yoga Garden"></a>
+        <nav class="nav-side nav-right">
+          <a href="demo-yoga-garden.html#contact">Contact</a>
+          <a class="client-login" href="yoga-garden-my-garden.html">My Garden<span>Client account</span></a>
+        </nav>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <div class="mobile-panel" id="mobilePanel">
+        <a href="demo-yoga-garden.html#about">About</a>
+        <a href="yoga-garden-classes.html">Classes + Booking</a>
+        <a href="demo-yoga-garden.html#contact">Contact</a>
+        <a href="yoga-garden-my-garden.html">My Garden · Client account</a>
+      </div>
+    </header>
+<main>
+<section class="page-intro">
+  <div class="container page-intro-grid">
+    <div><span class="eyebrow">Weekly schedule</span><h1>Classes + Booking</h1></div>
+    <div><p>See what’s running, how many spaces are left, and book right here. If a class is full, you can join the cancellation list.</p></div>
+  </div>
+</section>
+<section class="booking-shell">
+  <div class="container">
+    <div class="booking-tools">
+      <div class="week-nav"><button class="icon-button" aria-label="Previous week">‹</button><div class="week-title"><strong>September 6–12</strong><span>Weekly studio schedule</span></div><button class="icon-button" aria-label="Next week">›</button></div>
+      <div class="demo-mode"><span>Demo as</span><div class="segment"><button data-mode="returning">Sarah · returning</button><button data-mode="new">First-time client</button></div></div>
+    </div>
+    <div class="week-strip">
+      <div class="day-chip"><span class="dow">Sun</span><span class="date">6</span></div>
+      <div class="day-chip"><span class="dow">Mon</span><span class="date">7</span></div>
+      <div class="day-chip"><span class="dow">Tue</span><span class="date">8</span></div>
+      <div class="day-chip"><span class="dow">Wed</span><span class="date">9</span></div>
+      <div class="day-chip"><span class="dow">Thu</span><span class="date">10</span></div>
+      <div class="day-chip off"><span class="dow">Fri</span><span class="date">11</span></div>
+      <div class="day-chip"><span class="dow">Sat</span><span class="date">12</span></div>
+    </div>
+    <div class="schedule-list" id="classSchedule"></div>
+    <div class="schedule-foot"><span>$15 per class · e-transfer or cash</span><span>Demo schedule · recurring weekly classes</span></div>
+
+    <div class="booking-explain">
+      <div><span class="eyebrow">01</span><strong>Choose a class.</strong><p>Available spaces show right on the schedule.</p></div>
+      <div><span class="eyebrow">02</span><strong>Waiver once.</strong><p>First-time clients sign it during booking. Returning clients already have it on file.</p></div>
+      <div><span class="eyebrow">03</span><strong>Manage it in My Garden.</strong><p>Clients can see or cancel bookings without messaging the studio.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer"><div class="container footer-grid">
+      <img src="assets/yogagardenlogo.png" alt="The Yoga Garden">
+      <div class="footer-links"><a href="yoga-garden-classes.html">Classes + Booking</a><a href="yoga-garden-my-garden.html">My Garden</a></div>
+      <div class="footer-note">Concept preview by The Yellow Front Door · sample booking data.</div>
+    </div></footer><div class="booking-overlay" id="bookingOverlay">
+  <aside class="booking-drawer" aria-label="Book a class">
+    <div class="drawer-head">
+      <div class="drawer-head-row"><div><span class="eyebrow">Book a class</span><h2 id="drawerTitle">Class</h2><p class="small muted" id="drawerMeta"></p></div><button class="drawer-close" id="drawerClose">×</button></div>
+      <div class="steps" id="drawerSteps"></div>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+</div><div class="modal-bg" id="simpleModal"><div class="modal">
+  <div class="modal-head"><div><span class="eyebrow">The Yoga Garden</span><h2 id="simpleModalTitle">Demo</h2></div><button class="modal-x" id="simpleModalClose">×</button></div>
+  <div id="simpleModalBody" style="margin-top:16px"></div>
+</div></div><script src="assets/yoga-garden-suite.js"></script></body></html>
