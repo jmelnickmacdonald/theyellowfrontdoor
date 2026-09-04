@@ -167,6 +167,23 @@ legend{width:100%;}
 .price-note{background:var(--paper-mid);border-left:4px solid var(--yellow);padding:16px 18px;margin:24px 0 4px;}
 .price-note p{font-size:12px;line-height:1.7;color:var(--slate);}
 .price-note strong{color:var(--ink);}
+
+/* FILE UPLOAD */
+.upload-block{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:30px;align-items:center;margin:0 0 36px;padding:26px 28px;border:1px solid var(--stone);background:var(--paper-mid);}
+.upload-kicker{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:7px;}
+.upload-title{font-family:var(--f-head);font-size:clamp(18px,2vw,23px);font-weight:500;line-height:1.35;letter-spacing:-.01em;color:var(--ink);margin-bottom:9px;}
+.upload-help{font-size:12px;line-height:1.72;color:var(--slate);max-width:520px;}
+.upload-control{min-width:0;}
+.file-input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;}
+.upload-zone{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:126px;margin:0;padding:20px;text-align:center;border:1px dashed var(--navy);background:#fff;cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s;}
+.upload-zone:hover,.upload-zone.dragging{background:#fffaf0;border-color:var(--clay);}
+.file-input:focus-visible + .file-selection{}
+.upload-control:focus-within .upload-zone{outline:3px solid var(--yellow);outline-offset:3px;}
+.upload-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
+.upload-subtext{display:block;margin-top:9px;font-size:11px;color:var(--slate);}
+.file-selection{margin-top:10px;font-size:11px;font-weight:600;line-height:1.55;color:var(--ink);overflow-wrap:anywhere;}
+.upload-limit{margin-top:3px;font-size:10px;line-height:1.5;color:var(--slate);}
+@media(max-width:720px){.upload-block{grid-template-columns:1fr;gap:20px;padding:22px 20px;}.upload-zone{min-height:112px;}}
 .error-message{display:none;color:#9f3d25;font-size:11px;font-weight:600;margin-top:9px;}
 .error-message.show{display:block;}
 .invalid .text-input,.invalid .text-area,.invalid .select-input{border-color:#b85d43;}
@@ -395,7 +412,7 @@ legend{width:100%;}
           <div class="progress-step" data-short="04">Content &amp; assets</div>
         </div>
 
-        <form id="project-form" action="https://formspree.io/f/mwlkqpke" method="POST" novalidate>
+        <form id="project-form" action="https://formspree.io/f/mwlkqpke" method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="Behind the Website — project details — The Yellow Front Door">
           <input type="hidden" name="form_name" value="Behind the Website">
           <div class="website-field" aria-hidden="true">
@@ -409,6 +426,7 @@ legend{width:100%;}
             <section class="form-step active" data-step="1" aria-labelledby="form-title">
               <p class="step-kicker">01 — Project details</p>
               <h2 class="step-title" id="form-title">A quick reference point before we get into the details.</h2>
+              <p class="step-intro">Use whatever is easiest as you go: type a note, paste a link, or send screenshots, photos, PDFs, logos, and other files. You will find a file upload in the final section.</p>
               <div class="field-grid">
                 <div class="field">
                   <label for="name">Your name <span class="required-note">Required</span></label>
@@ -497,7 +515,7 @@ legend{width:100%;}
                 </div>
                 <div class="field full">
                   <label for="policies-links">Are there existing policies, forms, FAQs, or documents we should work from?</label>
-                  <textarea class="text-area" id="policies-links" name="existing_policies_forms_and_documents" placeholder="Paste links, list document names, or tell us where they live. You can also send files separately if that is easier."></textarea>
+                  <textarea class="text-area" id="policies-links" name="existing_policies_forms_and_documents" placeholder="Paste links, list document names, or tell us where they live. If it is easier, upload the files in Content & Assets rather than describing them here."></textarea>
                 </div>
                 <div class="field full">
                   <label for="friction">Where does the current process get confusing, repetitive, or frustrating?</label>
@@ -520,11 +538,28 @@ legend{width:100%;}
             <section class="form-step" data-step="4" aria-labelledby="step-4-title">
               <p class="step-kicker">04 — Content &amp; assets</p>
               <h2 class="step-title" id="step-4-title">Last, show us what we already have to work with.</h2>
-              <p class="step-intro">Do not worry about organizing any of this perfectly. Links and rough notes are enough. We will sort the pieces and let you know if anything else is needed.</p>
+              <p class="step-intro">Do not worry about organizing any of this perfectly. Upload the actual files, send screenshots or phone photos, paste links, or add rough notes. Whatever is easiest for you is useful to us.</p>
+
+              <div class="upload-block">
+                <div class="upload-copy">
+                  <p class="upload-kicker">Send us the actual pieces</p>
+                  <h3 class="upload-title">Screenshots, photos, PDFs, logos, documents. Send them here.</h3>
+                  <p class="upload-help">If a screenshot explains it faster than typing it out, use the screenshot. You can add up to 10 files here, including images, PDFs, Word documents, and common brand or reference files.</p>
+                </div>
+                <div class="upload-control">
+                  <label class="upload-zone" id="upload-zone" for="project-files">
+                    <span class="upload-action">Choose files</span>
+                    <span class="upload-subtext">or drag files onto this area</span>
+                  </label>
+                  <input class="file-input" id="project-files" name="project_files" type="file" multiple accept="image/*,.pdf,.doc,.docx,.txt,.rtf,.svg,.webp,.heic,.heif,.ppt,.pptx,.xls,.xlsx">
+                  <p class="file-selection" id="file-selection" aria-live="polite">No files selected yet.</p>
+                  <p class="upload-limit">Up to 10 files, 25 MB each.</p>
+                </div>
+              </div>
 
               <fieldset class="question-block">
                 <legend class="question-title">What do you already have available?</legend>
-                <p class="question-help">Choose as many as apply. You do not need to upload anything here.</p>
+                <p class="question-help">Choose as many as apply. If you have the files handy, you can upload them above.</p>
                 <div class="check-grid">
                   <label class="check-option"><input type="checkbox" name="existing_assets[]" value="Logo"><span class="check-box"><span class="check-mark"></span>Logo</span></label>
                   <label class="check-option"><input type="checkbox" name="existing_assets[]" value="Brand colours or fonts"><span class="check-box"><span class="check-mark"></span>Brand colours or fonts</span></label>
@@ -561,8 +596,8 @@ legend{width:100%;}
                   <textarea class="text-area" id="visual-direction" name="visual_direction" placeholder="Warm, polished, playful, minimal, bold, calm, high-end, practical, not too corporate, not too cutesy, etc. If we already covered this, skip it."></textarea>
                 </div>
                 <div class="field full">
-                  <label for="inspiration">Any websites, brands, or visual references you are drawn to?</label>
-                  <textarea class="text-area" id="inspiration" name="inspiration" placeholder="Links are great. If possible, tell us what you like about them rather than worrying about whether the whole site is a perfect reference."></textarea>
+                  <label for="inspiration">Any websites, brands, screenshots, or visual references you are drawn to?</label>
+                  <textarea class="text-area" id="inspiration" name="inspiration" placeholder="Paste links here, or upload screenshots and images above. If possible, tell us what you like about them rather than worrying about whether the whole site is a perfect reference."></textarea>
                 </div>
                 <div class="field full">
                   <label for="must-include">Is there anything that absolutely must be included, or anything we should intentionally leave out?</label>
@@ -737,6 +772,64 @@ legend{width:100%;}
       if(message){message.classList.remove('show');}
     }
   });
+  var fileInput=document.getElementById('project-files');
+  var fileSelection=document.getElementById('file-selection');
+  var uploadZone=document.getElementById('upload-zone');
+
+  function updateFileSelection(){
+    if(!fileInput || !fileSelection){return true;}
+    var files=Array.prototype.slice.call(fileInput.files||[]);
+    if(!files.length){
+      fileSelection.textContent='No files selected yet.';
+      return true;
+    }
+    if(files.length>10){
+      fileSelection.textContent='Please choose no more than 10 files.';
+      fileInput.value='';
+      return false;
+    }
+    var tooLarge=files.filter(function(file){return file.size>25*1024*1024;});
+    if(tooLarge.length){
+      fileSelection.textContent='One or more files are over 25 MB. Please choose smaller files.';
+      fileInput.value='';
+      return false;
+    }
+    var names=files.map(function(file){return file.name;});
+    fileSelection.textContent=files.length===1 ? names[0] : files.length+' files selected: '+names.join(', ');
+    return true;
+  }
+
+  if(fileInput && fileSelection){
+    fileInput.addEventListener('change',updateFileSelection);
+  }
+
+  if(uploadZone && fileInput){
+    ['dragenter','dragover'].forEach(function(type){
+      uploadZone.addEventListener(type,function(event){
+        event.preventDefault();
+        uploadZone.classList.add('dragging');
+      });
+    });
+    ['dragleave','drop'].forEach(function(type){
+      uploadZone.addEventListener(type,function(event){
+        event.preventDefault();
+        uploadZone.classList.remove('dragging');
+      });
+    });
+    uploadZone.addEventListener('drop',function(event){
+      var dropped=event.dataTransfer && event.dataTransfer.files;
+      if(!dropped || !dropped.length){return;}
+      try{
+        var transfer=new DataTransfer();
+        Array.prototype.slice.call(dropped,0,10).forEach(function(file){transfer.items.add(file);});
+        fileInput.files=transfer.files;
+        updateFileSelection();
+      }catch(error){
+        fileSelection.textContent='Please use Choose files to add these files.';
+      }
+    });
+  }
+
   form.addEventListener('submit',function(event){
     event.preventDefault();
     if(!validateStep(steps[current])){return;}
