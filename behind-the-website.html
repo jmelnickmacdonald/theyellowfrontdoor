@@ -183,6 +183,12 @@ legend{width:100%;}
 .upload-subtext{display:block;margin-top:9px;font-size:11px;color:var(--slate);}
 .file-selection{margin-top:10px;font-size:11px;font-weight:600;line-height:1.55;color:var(--ink);overflow-wrap:anywhere;}
 .upload-limit{margin-top:3px;font-size:10px;line-height:1.5;color:var(--slate);}
+.inline-upload{margin:18px 0 28px;background:#fffaf0;}
+.inline-upload .upload-zone{min-height:112px;}
+.tally-upload-control{display:flex;flex-direction:column;align-items:stretch;justify-content:center;}
+.tally-upload-link{width:100%;text-decoration:none;background:var(--navy);color:#fff;}
+.tally-upload-link:hover{background:#1b315e;color:#fff;}
+.tally-upload-link:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;}
 @media(max-width:720px){.upload-block{grid-template-columns:1fr;gap:20px;padding:22px 20px;}.upload-zone{min-height:112px;}}
 .error-message{display:none;color:#9f3d25;font-size:11px;font-weight:600;margin-top:9px;}
 .error-message.show{display:block;}
@@ -204,6 +210,15 @@ legend{width:100%;}
 .privacy-note a{text-decoration:underline;text-underline-offset:3px;}
 .form-status{min-height:20px;margin-top:12px;font-size:11px;font-weight:600;line-height:1.6;color:var(--slate);}
 .form-status.error{color:#9f3d25;}
+
+.save-records{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:10px;font-size:10px;line-height:1.6;color:var(--slate);}
+.save-records button{appearance:none;border:0;background:none;padding:0;color:var(--ink);font:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
+.save-records button:hover{color:var(--clay);}
+.save-records button:focus-visible{outline:3px solid rgba(252,211,70,.55);outline-offset:3px;}
+.success-save{margin-top:22px;}
+.success-save .btn{min-width:190px;}
+.success-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px;}
+.success-actions .btn{min-width:180px;text-decoration:none;}
 
 /* SUCCESS */
 .success-panel{display:none;padding:clamp(40px,5vw,64px);text-align:center;}
@@ -412,7 +427,7 @@ legend{width:100%;}
           <div class="progress-step" data-short="04">Content &amp; assets</div>
         </div>
 
-        <form id="project-form" action="https://formspree.io/f/mwlkqpke" method="POST" enctype="multipart/form-data" novalidate>
+        <form id="project-form" action="https://formspree.io/f/mwlkqpke" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Behind the Website — project details — The Yellow Front Door">
           <input type="hidden" name="form_name" value="Behind the Website">
           <div class="website-field" aria-hidden="true">
@@ -426,7 +441,7 @@ legend{width:100%;}
             <section class="form-step active" data-step="1" aria-labelledby="form-title">
               <p class="step-kicker">01 — Project details</p>
               <h2 class="step-title" id="form-title">A quick reference point before we get into the details.</h2>
-              <p class="step-intro">Use whatever is easiest as you go: type a note, paste a link, or send screenshots, photos, PDFs, logos, and other files. You will find a file upload in the final section.</p>
+              <p class="step-intro">Use whatever is easiest as you go: type a note or paste a link. If details already live in screenshots, photos, price lists, menus, booking screens, or documents, you can attach them at the bottom instead of retyping them.</p>
               <div class="field-grid">
                 <div class="field">
                   <label for="name">Your name <span class="required-note">Required</span></label>
@@ -458,17 +473,20 @@ legend{width:100%;}
             <section class="form-step" data-step="2" aria-labelledby="step-2-title">
               <p class="step-kicker">02 — Business content</p>
               <h2 class="step-title" id="step-2-title">Give us the details we will turn into clear, useful website copy.</h2>
-              <p class="step-intro">Bullet points, rough notes, and copied information are all welcome. We will shape the writing. You do not need to make it sound website-ready.</p>
+              <p class="step-intro">Bullet points, rough notes, and copied information are all useful. We will shape the writing. You do not need to make anything website-ready.</p>
 
               <div class="field-grid">
                 <div class="field full">
-                  <label for="offers">What services, products, programs, or packages should be included at launch?</label>
-                  <textarea class="text-area" id="offers" name="launch_offers" placeholder="List what you offer and any useful distinctions between the options. If there are services we discussed that should wait until later, you can note that too."></textarea>
+                  <label for="offers-pricing">Tell us what you offer and what customers need to know about pricing.</label>
+                  <textarea class="text-area" id="offers-pricing" name="offers_and_pricing" placeholder="Services, packages, memberships, add-ons, deposits, payment details, or anything else customers should understand. Rough notes are fine."></textarea>
                 </div>
-                <div class="field full">
-                  <label for="pricing-details">What pricing, package, membership, deposit, or payment information should customers be able to find?</label>
-                  <textarea class="text-area" id="pricing-details" name="pricing_details" placeholder="Exact prices are helpful if they are public. If pricing varies, tell us how you normally explain it to customers."></textarea>
-                </div>
+              </div>
+
+              <div class="price-note">
+                <p><strong>Already have this somewhere?</strong> If some of this lives in a screenshot, photo, price list, menu, booking screen, brochure, or document, don’t retype it. You can attach it at the bottom of the form instead.</p>
+              </div>
+
+              <div class="field-grid">
                 <div class="field full">
                   <label for="different">What do you most want people to understand about the experience of working with, buying from, or visiting you?</label>
                   <textarea class="text-area" id="different" name="experience_and_differentiators" placeholder="The practical differences, the way you do things, your philosophy, what customers tend to appreciate, or anything that is easy to miss from a basic service list."></textarea>
@@ -511,7 +529,7 @@ legend{width:100%;}
                 </div>
                 <div class="field full">
                   <label for="policies-links">Are there existing policies, forms, FAQs, or documents we should work from?</label>
-                  <textarea class="text-area" id="policies-links" name="existing_policies_forms_and_documents" placeholder="Paste links, list document names, or tell us where they live. If it is easier, upload the files in Content & Assets rather than describing them here."></textarea>
+                  <textarea class="text-area" id="policies-links" name="existing_policies_forms_and_documents" placeholder="Paste links, list document names, or tell us where they live. If it is easier, attach the files at the bottom rather than describing them here."></textarea>
                 </div>
                 <div class="field full">
                   <label for="friction">Where does the current process get confusing, repetitive, or frustrating?</label>
@@ -530,22 +548,17 @@ legend{width:100%;}
             <section class="form-step" data-step="4" aria-labelledby="step-4-title">
               <p class="step-kicker">04 — Content &amp; assets</p>
               <h2 class="step-title" id="step-4-title">Last, send us the pieces we can build from.</h2>
-              <p class="step-intro">No need to inventory everything again. Just send anything we do not already have, whether that is a screenshot, photo, document, shared folder, review, or rough note.</p>
+              <p class="step-intro">No need to inventory everything again. If you have screenshots, photos, price sheets, menus, PDFs, or other files we should see, use the quick upload link below.</p>
 
-              <div class="upload-block">
+              <div class="upload-block tally-upload-block">
                 <div class="upload-copy">
-                  <p class="upload-kicker">Send us the actual pieces</p>
-                  <h3 class="upload-title">Screenshots, photos, PDFs, logos, documents. Send them here.</h3>
-                  <p class="upload-help">If a screenshot explains it faster than typing it out, use the screenshot. You can add up to 10 files here, including images, PDFs, Word documents, and common brand or reference files.</p>
+                  <p class="upload-kicker">Screenshots &amp; files</p>
+                  <h3 class="upload-title">Have photos, screenshots, pricing, menus, PDFs, or other files to send?</h3>
+                  <p class="upload-help">Use our quick file upload. It opens in a new tab, so you won’t lose anything you have typed here. Phone screenshots and photos are completely fine.</p>
                 </div>
-                <div class="upload-control">
-                  <label class="upload-zone" id="upload-zone" for="project-files">
-                    <span class="upload-action">Choose files</span>
-                    <span class="upload-subtext">or drag files onto this area</span>
-                  </label>
-                  <input class="file-input" id="project-files" name="project_files" type="file" multiple accept="image/*,.pdf,.doc,.docx,.txt,.rtf,.svg,.webp,.heic,.heif,.ppt,.pptx,.xls,.xlsx">
-                  <p class="file-selection" id="file-selection" aria-live="polite">No files selected yet.</p>
-                  <p class="upload-limit">Up to 10 files, 25 MB each.</p>
+                <div class="upload-control tally-upload-control">
+                  <a class="upload-action tally-upload-link" href="https://tally.so/r/Mexk70" target="_blank" rel="noopener noreferrer">Upload screenshots &amp; files ↗</a>
+                  <p class="upload-limit">You’ll just enter your business name and choose your files.</p>
                 </div>
               </div>
 
@@ -569,7 +582,7 @@ legend{width:100%;}
                 </div>
                 <div class="field full">
                   <label for="visual-notes">Anything new to add to the visual direction we discussed?</label>
-                  <textarea class="text-area" id="visual-notes" name="visual_direction_additions" placeholder="A website, brand, screenshot, colour direction, or a definite no. Paste a link here or upload an image above. If nothing has changed since our conversation, skip this."></textarea>
+                  <textarea class="text-area" id="visual-notes" name="visual_direction_additions" placeholder="A website, brand, screenshot, colour direction, or a definite no. Paste a link here or use the file upload above. If nothing has changed since our conversation, skip this."></textarea>
                 </div>
                 <div class="field full">
                   <label for="must-include">Is there anything that absolutely must be included, or anything we should intentionally leave out?</label>
@@ -587,6 +600,7 @@ legend{width:100%;}
                 <button type="submit" class="btn btn-yellow" id="submit-btn">Send project details</button>
               </div>
               <p class="privacy-note">Your answers are used only to help us plan and build your project. See our <a href="legal.html">Privacy Policy</a>.</p>
+              <div class="save-records">Want a copy for your records? <button type="button" class="save-copy-btn">Save your answers</button></div>
               <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </section>
 
@@ -597,6 +611,10 @@ legend{width:100%;}
           <div class="success-mark" aria-hidden="true">&#10003;</div>
           <h2 class="success-title">Thank you. We have it.</h2>
           <p class="success-copy">We will add these details to our meeting notes and use them as we shape the structure, copy, and content for your website. If we need anything else, we will reach out directly.</p>
+          <div class="success-actions">
+            <a class="btn btn-primary" href="https://tally.so/r/Mexk70" target="_blank" rel="noopener noreferrer">Upload files</a>
+            <button type="button" class="btn btn-back save-copy-btn">Save a copy</button>
+          </div>
         </div>
       </section>
 
@@ -744,63 +762,84 @@ legend{width:100%;}
       if(message){message.classList.remove('show');}
     }
   });
-  var fileInput=document.getElementById('project-files');
-  var fileSelection=document.getElementById('file-selection');
-  var uploadZone=document.getElementById('upload-zone');
-
-  function updateFileSelection(){
-    if(!fileInput || !fileSelection){return true;}
-    var files=Array.prototype.slice.call(fileInput.files||[]);
-    if(!files.length){
-      fileSelection.textContent='No files selected yet.';
-      return true;
-    }
-    if(files.length>10){
-      fileSelection.textContent='Please choose no more than 10 files.';
-      fileInput.value='';
-      return false;
-    }
-    var tooLarge=files.filter(function(file){return file.size>25*1024*1024;});
-    if(tooLarge.length){
-      fileSelection.textContent='One or more files are over 25 MB. Please choose smaller files.';
-      fileInput.value='';
-      return false;
-    }
-    var names=files.map(function(file){return file.name;});
-    fileSelection.textContent=files.length===1 ? names[0] : files.length+' files selected: '+names.join(', ');
-    return true;
+  function cleanLabelText(text){
+    return (text||'').replace(/\s*Required\s*$/i,'').replace(/\s+/g,' ').trim();
   }
 
-  if(fileInput && fileSelection){
-    fileInput.addEventListener('change',updateFileSelection);
+  function fieldLabel(field){
+    if(field.id){
+      var direct=document.querySelector('label[for="'+field.id+'"]');
+      if(direct){return cleanLabelText(direct.textContent);}
+    }
+    var wrapping=field.closest('label');
+    if(wrapping){return cleanLabelText(wrapping.textContent);}
+    var fieldset=field.closest('fieldset');
+    if(fieldset){
+      var legend=fieldset.querySelector('legend');
+      if(legend){return cleanLabelText(legend.textContent);}
+    }
+    return field.name||'Response';
   }
 
-  if(uploadZone && fileInput){
-    ['dragenter','dragover'].forEach(function(type){
-      uploadZone.addEventListener(type,function(event){
-        event.preventDefault();
-        uploadZone.classList.add('dragging');
-      });
-    });
-    ['dragleave','drop'].forEach(function(type){
-      uploadZone.addEventListener(type,function(event){
-        event.preventDefault();
-        uploadZone.classList.remove('dragging');
-      });
-    });
-    uploadZone.addEventListener('drop',function(event){
-      var dropped=event.dataTransfer && event.dataTransfer.files;
-      if(!dropped || !dropped.length){return;}
-      try{
-        var transfer=new DataTransfer();
-        Array.prototype.slice.call(dropped,0,10).forEach(function(file){transfer.items.add(file);});
-        fileInput.files=transfer.files;
-        updateFileSelection();
-      }catch(error){
-        fileSelection.textContent='Please use Choose files to add these files.';
+  function buildSavedCopy(){
+    var lines=[];
+    var now=new Date();
+    lines.push('BEHIND THE WEBSITE');
+    lines.push('The Yellow Front Door');
+    lines.push('Saved '+now.toLocaleString());
+    lines.push('');
+    var handledGroups={};
+
+    Array.prototype.slice.call(form.elements).forEach(function(field){
+      if(!field.name || field.disabled){return;}
+      if(field.type==='hidden' || field.type==='submit' || field.type==='button'){return;}
+      if(field.name==='_gotcha'){return;}
+
+      if(field.type==='checkbox' || field.type==='radio'){
+        if(handledGroups[field.name]){return;}
+        handledGroups[field.name]=true;
+        var fields=Array.prototype.slice.call(form.elements).filter(function(item){
+          return item.name===field.name && item.checked;
+        });
+        if(!fields.length){return;}
+        lines.push(fieldLabel(fields[0])+':');
+        fields.forEach(function(item){lines.push('  - '+(item.value||'Selected'));});
+        lines.push('');
+        return;
       }
+
+      var value=(field.value||'').trim();
+      if(!value){return;}
+      lines.push(fieldLabel(field)+':');
+      lines.push(value);
+      lines.push('');
     });
+
+    lines.push('---');
+    lines.push('This is a personal copy of the responses entered in the Behind the Website form.');
+    lines.push('Any screenshots or files are uploaded separately through the project upload link.');
+    return lines.join('\n');
   }
+
+  function saveCopy(){
+    var content=buildSavedCopy();
+    var business=document.getElementById('business-name');
+    var base=business && business.value.trim() ? business.value.trim() : 'project';
+    base=base.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') || 'project';
+    var blob=new Blob([content],{type:'text/plain;charset=utf-8'});
+    var url=URL.createObjectURL(blob);
+    var link=document.createElement('a');
+    link.href=url;
+    link.download='behind-the-website-'+base+'.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(function(){URL.revokeObjectURL(url);},1000);
+  }
+
+  document.querySelectorAll('.save-copy-btn').forEach(function(button){
+    button.addEventListener('click',saveCopy);
+  });
 
   form.addEventListener('submit',function(event){
     event.preventDefault();
