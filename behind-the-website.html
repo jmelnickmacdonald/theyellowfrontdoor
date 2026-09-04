@@ -73,16 +73,16 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-off
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--paper);}
 
 /* HERO */
-.page-header{margin-top:var(--nav-height);padding:var(--page-top) 0 clamp(36px,5vw,56px);border-bottom:1px solid var(--stone);background:var(--paper-mid);}
-.page-header-inner{max-width:780px;}
-.eyebrow-label{display:flex;align-items:center;gap:14px;margin-bottom:26px;flex-wrap:wrap;}
+.page-header{margin-top:var(--nav-height);padding:clamp(40px,5vw,60px) 0 clamp(38px,4.5vw,54px);border-bottom:1px solid var(--stone);background:var(--paper);}
+.page-header-inner{max-width:980px;}
+.eyebrow-label{display:flex;align-items:center;gap:14px;margin-bottom:30px;flex-wrap:wrap;}
 .eyebrow-tag{font-size:11px;font-weight:700;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);background:var(--navy);padding:6px 13px;flex-shrink:0;}
 .eyebrow-desc{font-size:11px;font-weight:600;line-height:1.4;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);}
-.page-header h1{max-width:650px;font-family:var(--f-head);font-size:clamp(34px,4vw,50px);font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1.1;}
-.accent-line{display:block;font-family:var(--f-accent);font-size:clamp(29px,3.3vw,41px);font-weight:normal;color:var(--slate);line-height:1.2;margin-top:10px;letter-spacing:.025em;word-spacing:.08em;}
-.page-intro{font-size:16px;line-height:1.78;color:var(--ink);max-width:600px;margin-top:22px;}
-.hero-note{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--slate);}
-.hero-note-dot{width:7px;height:7px;background:var(--yellow);border-radius:50%;flex-shrink:0;}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:clamp(42px,6vw,84px);align-items:end;}
+.hero-title-block{min-width:0;}
+.page-header h1{max-width:620px;font-family:var(--f-head);font-size:clamp(36px,4.15vw,52px);font-weight:400;color:var(--ink);letter-spacing:-.03em;line-height:1.08;}
+.hero-copy-block{max-width:470px;padding:3px 0 3px 22px;border-left:3px solid var(--yellow);}
+.page-intro{font-size:15px;line-height:1.8;color:var(--ink);max-width:none;margin:0;}
 
 /* FORM LAYOUT */
 .form-section{padding:clamp(48px,7vw,92px) 0;background:var(--paper);}
@@ -251,75 +251,13 @@ legend{width:100%;}
 /* REFINED SINGLE-SCROLL PROJECT FORM */
 .form-section{
   background:var(--paper);
-  padding:clamp(42px,6vw,78px) 0 clamp(64px,8vw,104px);
+  padding:clamp(26px,3vw,38px) 0 clamp(64px,8vw,104px);
 }
 .form-layout{
   display:block;
   max-width:980px;
   margin:0 auto;
 }
-.form-aside{
-  position:relative;
-  top:auto;
-  display:block;
-  overflow:hidden;
-  margin:0 0 24px;
-  padding:clamp(30px,4.5vw,50px);
-  background:var(--navy);
-  color:var(--paper);
-  border-left:6px solid var(--yellow);
-  box-shadow:0 20px 54px rgba(19,36,71,.14);
-}
-.form-aside::after{
-  content:"";
-  position:absolute;
-  width:240px;
-  height:240px;
-  right:-115px;
-  top:-150px;
-  border:1px solid rgba(252,211,70,.2);
-  border-radius:50%;
-  box-shadow:0 0 0 34px rgba(252,211,70,.035),0 0 0 68px rgba(252,211,70,.025);
-  pointer-events:none;
-}
-.form-aside > *{position:relative;z-index:1;}
-.aside-kicker{color:rgba(255,255,255,.68);margin-bottom:14px;}
-.aside-kicker::before{background:var(--yellow);}
-.aside-heading{
-  color:var(--paper);
-  max-width:720px;
-  font-size:clamp(25px,3.4vw,38px);
-  font-weight:400;
-  line-height:1.18;
-  margin-bottom:16px;
-}
-.aside-copy{
-  max-width:760px;
-  color:rgba(255,255,255,.72);
-  font-size:15px;
-  line-height:1.85;
-  margin-bottom:20px;
-}
-.price-link{color:var(--paper);border-color:var(--yellow);margin-top:0;}
-.price-link:hover{color:var(--yellow);}
-.next-list{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  margin-top:34px;
-  border-top:1px solid rgba(255,255,255,.16);
-}
-.next-item{
-  display:block;
-  padding:20px 18px 0;
-  border:0;
-  border-right:1px solid rgba(255,255,255,.13);
-}
-.next-item:first-child{padding-left:0;}
-.next-item:last-child{padding-right:0;border-right:0;}
-.next-num{display:block;color:var(--yellow);padding:0;margin-bottom:8px;}
-.next-title{color:var(--paper);font-size:11px;line-height:1.45;margin-bottom:6px;}
-.next-copy{color:rgba(255,255,255,.62);font-size:11px;line-height:1.65;}
-
 .form-shell{
   overflow:hidden;
   border:1px solid #cfc6b7;
@@ -338,10 +276,11 @@ legend{width:100%;}
 .progress-step.active{color:var(--paper);}
 .progress-step.complete{color:rgba(255,255,255,.7);}
 .progress-step::after{bottom:0;height:4px;}
-.form-body{padding:clamp(32px,5.5vw,62px);}
+.form-body{padding:clamp(32px,4.5vw,52px);}
 .step-kicker{color:var(--clay);}
 .step-title{font-size:clamp(25px,3.2vw,36px);font-weight:400;line-height:1.22;}
 .step-intro{font-size:15px;max-width:680px;margin-bottom:34px;}
+.form-step[data-step="1"] .step-title{margin-bottom:30px;}
 .text-input,.text-area,.select-input{
   background:#fffdf9;
   border-color:#cfc6b7;
@@ -352,35 +291,19 @@ legend{width:100%;}
 .price-note{background:#fff7d8;}
 
 @media(max-width:800px){
+  .hero-grid{grid-template-columns:1fr;gap:26px;}
+  .hero-copy-block{max-width:650px;padding:0 0 0 18px;}
   .form-layout{max-width:760px;}
-  .next-list{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .next-item{padding:18px 18px;border-right:1px solid rgba(255,255,255,.13);border-bottom:1px solid rgba(255,255,255,.13);}
-  .next-item:first-child{padding-left:0;}
-  .next-item:nth-child(2){padding-right:0;border-right:0;}
-  .next-item:nth-child(3){padding-left:0;border-bottom:0;}
-  .next-item:nth-child(4){padding-right:0;border-right:0;border-bottom:0;}
 }
 
 @media(max-width:560px){
-  .form-section{padding-top:28px;}
-  .form-aside{padding:28px 22px;border-left-width:4px;margin-bottom:16px;}
-  .aside-heading{font-size:27px;}
-  .aside-copy{font-size:14px;line-height:1.75;}
-  .next-list{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:26px;}
-  .next-item,
-  .next-item:first-child,
-  .next-item:nth-child(2),
-  .next-item:nth-child(3),
-  .next-item:nth-child(4){
-    padding:15px 12px;
-    border-right:1px solid rgba(255,255,255,.13);
-    border-bottom:1px solid rgba(255,255,255,.13);
-  }
-  .next-item:first-child,.next-item:nth-child(3){padding-left:0;}
-  .next-item:nth-child(2),.next-item:nth-child(4){padding-right:0;border-right:0;}
-  .next-item:nth-child(3),.next-item:nth-child(4){border-bottom:0;padding-bottom:0;}
-  .next-copy{display:none;}
-  .next-title{font-size:10px;}
+  .page-header{padding:34px 0 38px;}
+  .eyebrow-label{margin-bottom:24px;}
+  .hero-grid{gap:22px;}
+  .page-header h1{font-size:34px;}
+  .hero-copy-block{padding-left:15px;}
+  .page-intro{font-size:14px;line-height:1.75;}
+  .form-section{padding-top:20px;}
   .form-progress{grid-template-columns:repeat(4,1fr);}
   .progress-step{padding:15px 5px 13px;}
   .form-body{padding:28px 20px 30px;}
@@ -445,10 +368,14 @@ legend{width:100%;}
         <span class="eyebrow-tag">Project details</span>
         <span class="eyebrow-desc">After our conversation</span>
       </div>
-      <h1>Behind the Website
-        <span class="accent-line">Help us with the details that will make your website everything you'd hoped for.</span>
-      </h1>
-      <p class="page-intro">We covered a lot during our conversation, and you definitely do not need to repeat yourself. This gives us one place to collect any additional details, content, links, policies, and information that will be helpful as your website comes together. If we have already covered something, feel free to skip it.</p>
+      <div class="hero-grid">
+        <div class="hero-title-block">
+          <h1>Behind the Website</h1>
+        </div>
+        <div class="hero-copy-block">
+          <p class="page-intro">We covered a lot during our conversation, and you definitely do not need to repeat yourself. This gives us one place to collect any additional details, content, links, policies, and information that will be helpful as your website comes together. If we have already covered something, feel free to skip it.</p>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -457,31 +384,7 @@ legend{width:100%;}
   <div class="container">
     <div class="form-layout">
 
-      <aside class="form-aside" aria-label="About this project details form">
-        <div>
-          <p class="aside-kicker">What we need from you</p>
-          <h2 class="aside-heading">You know the business. We will turn it into the website.</h2>
-          <p class="aside-copy">You do not need to plan pages, write polished copy, or make design decisions here. We are looking for the information only you know: the details of what you offer, how customers get started, the questions you answer all the time, and the pieces we should have on hand. We will handle the structure, writing, and design.</p>
-        </div>
-        <div class="next-list">
-          <div class="next-item">
-            <span class="next-num">01</span>
-            <div><p class="next-title">Project details</p><p class="next-copy">A quick reference point for the project and anything from our conversation we should keep top of mind.</p></div>
-          </div>
-          <div class="next-item">
-            <span class="next-num">02</span>
-            <div><p class="next-title">Business content</p><p class="next-copy">The services, pricing, practical details, and customer questions we will write from.</p></div>
-          </div>
-          <div class="next-item">
-            <span class="next-num">03</span>
-            <div><p class="next-title">Customer experience</p><p class="next-copy">How someone gets started, what systems are involved, and what they need to know.</p></div>
-          </div>
-          <div class="next-item">
-            <span class="next-num">04</span>
-            <div><p class="next-title">Content &amp; assets</p><p class="next-copy">The photos, reviews, team details, brand materials, and final pieces we can work with.</p></div>
-          </div>
-        </div>
-      </aside>
+
 
       <section class="form-shell" aria-labelledby="form-title">
         <div class="form-progress" aria-label="Form progress">
@@ -505,8 +408,6 @@ legend{width:100%;}
             <section class="form-step active" data-step="1" aria-labelledby="form-title">
               <p class="step-kicker">01 — Project details</p>
               <h2 class="step-title" id="form-title">A quick reference point before we get into the details.</h2>
-              <p class="step-intro">Your name and email are the only required fields. Everything else is here to give us useful material to work from, so skip anything we already covered together.</p>
-
               <div class="field-grid">
                 <div class="field">
                   <label for="name">Your name <span class="required-note">Required</span></label>
