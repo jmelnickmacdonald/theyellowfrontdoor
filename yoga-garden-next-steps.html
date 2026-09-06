@@ -42,32 +42,25 @@
 :root{
 
   --bg:#faf8f5;
-
   --paper:#fffdf9;
 
   --ink:#302b2f;
-
   --muted:#746d71;
 
   --plum:#87507f;
-
   --plum-dark:#55334f;
 
   --lilac:#eee4f2;
-
   --lilac-soft:#f7f2f8;
 
   --green:#4b825f;
-
   --green-dark:#315d42;
-
   --green-soft:#e9f1eb;
 
-  --line:
-    rgba(62,48,59,.12);
+  --line:rgba(62,48,59,.12);
 
   --shadow:
-    0 18px 45px
+    0 16px 40px
     rgba(55,40,52,.05);
 
 }
@@ -129,7 +122,7 @@ p{
 .wrap{
 
   width:min(
-    900px,
+    860px,
     calc(100% - 36px)
   );
 
@@ -197,7 +190,7 @@ p{
 
 .logo{
 
-  width:110px;
+  width:108px;
 
   max-height:58px;
 
@@ -213,13 +206,13 @@ p{
 .intro{
 
   padding:
-    58px 0 44px;
+    56px 0 42px;
 
 }
 
 
 .intro-inner{
-  max-width:780px;
+  max-width:760px;
 }
 
 
@@ -227,19 +220,19 @@ p{
 
   font-size:
     clamp(
-      40px,
+      38px,
       6vw,
-      58px
+      55px
     );
 
-  line-height:1.04;
+  line-height:1.05;
 
 }
 
 
 .intro p{
 
-  max-width:720px;
+  max-width:700px;
 
   margin:
     15px 0 0;
@@ -258,7 +251,7 @@ p{
 .section{
 
   padding:
-    38px 0;
+    36px 0;
 
   border-top:
     1px solid var(--line);
@@ -272,7 +265,7 @@ p{
     clamp(
       28px,
       4vw,
-      37px
+      36px
     );
 
 }
@@ -293,7 +286,7 @@ p{
 
 
 /* ==========================================
-   INCLUDED LIST
+   INCLUDED
 ========================================== */
 
 .included{
@@ -349,14 +342,14 @@ p{
 
 
 /* ==========================================
-   NOT INCLUDED
+   SMALL NOTE
 ========================================== */
 
-.not-now{
+.note{
 
   margin-top:20px;
 
-  padding:17px;
+  padding:16px 17px;
 
   border-radius:11px;
 
@@ -365,7 +358,7 @@ p{
 }
 
 
-.not-now p{
+.note p{
 
   margin:0;
 
@@ -376,7 +369,7 @@ p{
 }
 
 
-.not-now strong{
+.note strong{
   color:var(--plum-dark);
 }
 
@@ -389,12 +382,12 @@ p{
 
   margin-top:21px;
 
-  padding:25px;
+  padding:24px;
 
   border:
     1px solid var(--line);
 
-  border-radius:15px;
+  border-radius:14px;
 
   background:var(--paper);
 
@@ -403,7 +396,7 @@ p{
 }
 
 
-.price-main{
+.price-top{
 
   display:flex;
 
@@ -416,16 +409,16 @@ p{
 }
 
 
-.price-main h3{
+.price-top h3{
 
-  font-size:27px;
+  font-size:26px;
 
 }
 
 
 .price-copy{
 
-  max-width:610px;
+  max-width:600px;
 
   margin:
     7px 0 0;
@@ -447,7 +440,7 @@ p{
     "Playfair Display",
     serif;
 
-  font-size:41px;
+  font-size:40px;
 
   font-weight:500;
 
@@ -508,10 +501,10 @@ p{
 
 
 /* ==========================================
-   FIRST YEAR / PLATFORM
+   PLATFORM
 ========================================== */
 
-.platform-note{
+.platform{
 
   margin-top:20px;
 
@@ -525,7 +518,7 @@ p{
 }
 
 
-.platform-note strong{
+.platform strong{
 
   display:block;
 
@@ -536,7 +529,7 @@ p{
 }
 
 
-.platform-note p{
+.platform p{
 
   margin:
     5px 0 0;
@@ -548,13 +541,9 @@ p{
 }
 
 
-/* ==========================================
-   ONGOING
-========================================== */
-
 .ongoing-price{
 
-  margin-top:16px;
+  margin-top:14px;
 
   color:var(--plum-dark);
 
@@ -576,32 +565,13 @@ p{
 }
 
 
-.small-copy{
-
-  max-width:710px;
-
-  margin:
-    13px 0 0;
-
-  color:var(--muted);
-
-  font-size:11px;
-
-}
-
-
-.small-copy strong{
-  color:var(--plum-dark);
-}
-
-
 /* ==========================================
    WEBSITE OPTION
 ========================================== */
 
-.website-wrap{
+.website-box{
 
-  margin-top:21px;
+  margin-top:20px;
 
   padding:22px;
 
@@ -623,13 +593,13 @@ p{
 
   align-items:flex-start;
 
-  gap:25px;
+  gap:24px;
 
 }
 
 
 .website-copy{
-  max-width:620px;
+  max-width:610px;
 }
 
 
@@ -686,7 +656,7 @@ p{
 }
 
 
-.website-includes{
+.website-list{
 
   display:grid;
 
@@ -694,7 +664,7 @@ p{
     1fr 1fr;
 
   gap:
-    7px 20px;
+    7px 22px;
 
   margin-top:18px;
 
@@ -706,7 +676,7 @@ p{
 }
 
 
-.website-includes div{
+.website-list div{
 
   color:var(--muted);
 
@@ -717,7 +687,7 @@ p{
 }
 
 
-.website-includes div::before{
+.website-list div::before{
 
   content:"✓";
 
@@ -730,7 +700,7 @@ p{
 }
 
 
-.full-split{
+.website-split{
 
   display:grid;
 
@@ -744,7 +714,7 @@ p{
 }
 
 
-.full-split div{
+.website-split div{
 
   padding:13px;
 
@@ -755,7 +725,7 @@ p{
 }
 
 
-.full-split span{
+.website-split span{
 
   display:block;
 
@@ -770,7 +740,7 @@ p{
 }
 
 
-.full-split strong{
+.website-split strong{
 
   display:block;
 
@@ -784,13 +754,13 @@ p{
 
 
 /* ==========================================
-   FINAL
+   END
 ========================================== */
 
 .end{
 
   padding:
-    44px 0 72px;
+    42px 0 70px;
 
   border-top:
     1px solid var(--line);
@@ -807,9 +777,9 @@ p{
 
   font-size:
     clamp(
-      30px,
+      29px,
       4vw,
-      40px
+      39px
     );
 
 }
@@ -827,7 +797,7 @@ p{
 }
 
 
-.extra-note{
+.extra{
 
   margin-top:20px !important;
 
@@ -858,12 +828,12 @@ p{
 @media(max-width:680px){
 
   .included,
-  .website-includes{
+  .website-list{
     grid-template-columns:1fr;
   }
 
 
-  .price-main,
+  .price-top,
   .website-top{
 
     flex-direction:column;
@@ -872,7 +842,7 @@ p{
 
 
   .split,
-  .full-split{
+  .website-split{
     grid-template-columns:1fr;
   }
 
@@ -935,19 +905,27 @@ p{
 
 
     <h1>
-      Build the part that actually makes the studio easier to run.
+      Here’s what I think would actually be worth building.
     </h1>
 
 
     <p>
 
-      I wouldn’t try to turn The Yoga Garden into a giant
-      studio-management system.
+      I don’t think you need a giant studio-management system
+      with a hundred things you’ll never use.
 
-      I’d build the pieces that take some of the repetitive
-      work off your plate, make things easier for your clients,
-      and give your instructors the information they actually
-      need when they’re teaching.
+      I’d start with the pieces that would actually take work
+      off your plate, make things easier for clients, and give
+      instructors what they need when they’re teaching.
+
+    </p>
+
+
+    <p>
+
+      We can always add more later if the studio grows into it.
+      I just don’t think there’s any reason to build a pile of
+      extras now simply because we can.
 
     </p>
 
@@ -958,7 +936,7 @@ p{
 
 
 <!-- ==========================================
-     THE BUILD
+     SYSTEM
 ========================================== -->
 
 <section class="section">
@@ -972,14 +950,15 @@ p{
 
 
     <h2>
-      What I’d build.
+      The working version of what you’ve just been clicking through.
     </h2>
 
 
     <p class="section-intro">
 
-      This would be the real, working version of the system
-      you’ve just been clicking through.
+      The idea is to bring the booking, client information,
+      waivers, schedule, instructors, waiting lists, and the
+      little bits of follow-up around all of that into one place.
 
     </p>
 
@@ -994,7 +973,7 @@ p{
         </strong>
 
         <span>
-          Clients can see what’s coming up, check availability,
+          Clients can see upcoming classes, check availability,
           and book themselves.
         </span>
 
@@ -1009,7 +988,7 @@ p{
 
         <span>
           A simple client account with upcoming bookings,
-          cancellations, and saved information.
+          cancellations, and their saved information.
         </span>
 
       </div>
@@ -1022,8 +1001,8 @@ p{
         </strong>
 
         <span>
-          Built into the first booking and stored with the
-          client record.
+          Built into the first booking and stored with the client
+          rather than living in a completely separate place.
         </span>
 
       </div>
@@ -1036,8 +1015,8 @@ p{
         </strong>
 
         <span>
-          Classes, clients, instructors, waivers, waiting lists,
-          notifications, and studio settings.
+          Classes, clients, waivers, instructors, waiting lists,
+          notifications, and basic studio settings.
         </span>
 
       </div>
@@ -1046,12 +1025,12 @@ p{
       <div class="item">
 
         <strong>
-          Instructor access
+          Instructor view
         </strong>
 
         <span>
-          Their classes, rosters, check-in, relevant client
-          information, waiver status, and payment status.
+          Their classes, rosters, check-in, waiver status,
+          useful client information, and payment status.
         </span>
 
       </div>
@@ -1064,8 +1043,8 @@ p{
         </strong>
 
         <span>
-          Instructors can record cash they receive.
-          E-transfers can be confirmed on the owner side.
+          Instructors can mark cash they receive.
+          E-transfers can be confirmed from your side.
         </span>
 
       </div>
@@ -1074,12 +1053,12 @@ p{
       <div class="item">
 
         <strong>
-          Schedule control
+          Schedule changes
         </strong>
 
         <span>
           Change an instructor or time, cancel one class,
-          add something new, or change future classes.
+          add something new, or make changes going forward.
         </span>
 
       </div>
@@ -1092,8 +1071,9 @@ p{
         </strong>
 
         <span>
-          When a spot opens, the system can work through
-          the waiting list instead of you messaging everyone.
+          When a spot opens up, the system can work through
+          the waiting list rather than you having to message
+          everyone yourself.
         </span>
 
       </div>
@@ -1106,8 +1086,8 @@ p{
         </strong>
 
         <span>
-          Booking confirmations, reminders, cancellations,
-          and open-spot notifications.
+          Booking confirmations, reminders, cancellation notices,
+          open-spot messages, etc.
         </span>
 
       </div>
@@ -1121,7 +1101,7 @@ p{
 
         <span>
           Your classes, instructors, settings, testing,
-          and connection into your existing Wix site.
+          and connection into the Wix site you already have.
         </span>
 
       </div>
@@ -1130,19 +1110,20 @@ p{
     </div>
 
 
-    <div class="not-now">
+    <div class="note">
 
       <p>
 
         <strong>
-          What I’d leave out for now:
+          And what I wouldn’t bother with right now:
         </strong>
 
-        online card processing, memberships, class packages,
-        payroll, commissions, point-of-sale, and the other
-        larger pieces you haven’t actually said you need.
+        online card processing, memberships, packages, payroll,
+        commissions, a point-of-sale system, or all the other
+        bells and whistles you haven’t actually asked for.
 
-        We can always add something later if it becomes useful.
+        If one of those things becomes useful later, we can
+        deal with it then.
 
       </p>
 
@@ -1164,19 +1145,19 @@ p{
 
 
     <span class="eyebrow">
-      Project cost
+      Cost
     </span>
 
 
     <h2>
-      The complete Studio System: $950.
+      The Studio System would be $950.
     </h2>
 
 
     <div class="price-box">
 
 
-      <div class="price-main">
+      <div class="price-top">
 
 
         <div>
@@ -1188,9 +1169,10 @@ p{
 
           <p class="price-copy">
 
-            Build, setup, testing, launch, integration into your
-            existing website, 90 days of launch support, and your
-            first 12 months of the live platform.
+            That includes the actual build, setup, testing,
+            launch, connection into your existing website,
+            90 days of launch support, and the first 12 months
+            of running the system.
 
           </p>
 
@@ -1237,20 +1219,21 @@ p{
       </div>
 
 
-      <div class="platform-note">
+      <div class="platform">
 
         <strong>
-          Your first 12 months are included.
+          Your first year is included.
         </strong>
 
 
         <p>
 
-          You won’t finish the build and immediately get
-          another bill from me.
+          I don’t want you to get the system launched
+          and then immediately have another bill sitting
+          in front of you.
 
-          The first year of actually running the system
-          is included in the project cost.
+          Your first 12 months of actually using it are
+          already covered in the project price.
 
         </p>
 
@@ -1275,41 +1258,33 @@ p{
 
 
     <span class="eyebrow">
-      After the first year
+      After that
     </span>
 
 
     <h2>
-      There are real costs to keeping something like this live.
+      A quick note about keeping the lights on.
     </h2>
 
 
     <p class="section-intro">
 
-      Even when nobody is actively changing the system,
-      there are still services running behind it.
+      A live system like this isn’t completely free to run
+      in the background, even when nobody is actively
+      changing anything.
 
-      The ongoing platform fee covers those pieces and
-      keeps the system maintained.
+      There’s hosting, the database, secure logins,
+      emails going out, backups, updates, and all the
+      boring invisible stuff that keeps everything working.
 
     </p>
 
 
-    <div class="platform-note">
+    <div class="platform">
 
       <strong>
-        What that fee covers
+        After the first 12 months
       </strong>
-
-
-      <p>
-
-        Hosting, database storage, secure client and instructor
-        logins, transactional emails, backups, routine maintenance,
-        security updates, and fixes if something already built
-        stops working the way it was designed to.
-
-      </p>
 
 
       <div class="ongoing-price">
@@ -1323,30 +1298,40 @@ p{
       </div>
 
 
+      <p>
+
+        That covers the services needed to keep the system
+        live, routine maintenance and security updates,
+        and fixing something if an existing part of the
+        system stops working the way it should.
+
+      </p>
+
     </div>
 
 
-    <p class="small-copy">
-
-      <strong>
-        Everyday changes stay in your hands.
-      </strong>
+    <p class="section-intro">
 
       Classes, instructors, times, prices, capacity,
-      descriptions, and basic studio information would all
-      be things you can update yourself.
+      descriptions, studio details, etc. would all be things
+      you can update yourself.
+
+      You should not need me every time a Tuesday class
+      moves by half an hour.
 
     </p>
 
 
-    <p class="small-copy">
+    <p class="section-intro">
 
-      If you ever need a change that isn’t available through
-      the dashboard, just ask.
+      And if something comes up that you can’t change yourself,
+      just ask.
 
-      If it’s something that involves new development,
-      a new feature, or an integration, I’ll always let you
-      know before there would be any additional cost.
+      If it’s a tiny tweak, it’s a tiny tweak.
+
+      If it turns into a new feature, integration, or something
+      that needs actual development, I’ll let you know before
+      I touch it and we can decide from there.
 
     </p>
 
@@ -1357,7 +1342,7 @@ p{
 
 
 <!-- ==========================================
-     WEBSITE OPTION
+     WEBSITE
 ========================================== -->
 
 <section class="section">
@@ -1366,27 +1351,37 @@ p{
 
 
     <span class="eyebrow">
-      And if you want the whole thing
+      And then there’s the website
     </span>
 
 
     <h2>
-      The website can be the cherry on top.
+      You don’t need it. But it’s there if you want it.
     </h2>
 
 
     <p class="section-intro">
 
-      You don’t need a new website for the Studio System to work.
+      The Studio System can be built right into the Wix site
+      you already have.
 
-      But since you’ve already seen the website concept,
-      I wanted to leave this option here in case you decide
-      you’d like to carry the whole thing through.
+      But since I’ve already gone and built most of a website
+      while figuring all of this out, I wanted to leave the
+      option open.
 
     </p>
 
 
-    <div class="website-wrap">
+    <p class="section-intro">
+
+      If you decide you really like that direction,
+      I can finish it properly and launch the whole thing
+      together.
+
+    </p>
+
+
+    <div class="website-box">
 
 
       <div class="website-top">
@@ -1401,10 +1396,10 @@ p{
 
           <p>
 
-            I’d finish and launch the multi-page website concept
-            you’ve already seen and build the Studio System
-            directly into it so the whole client experience
-            feels like one thing.
+            The multi-page website you’ve already seen,
+            finished for launch with the Studio System
+            built directly into it so the whole client
+            experience feels like one thing.
 
           </p>
 
@@ -1425,22 +1420,22 @@ p{
       </div>
 
 
-      <div class="website-includes">
+      <div class="website-list">
 
         <div>
           Multi-page custom website
         </div>
 
         <div>
-          Booking built directly into the site
+          Booking built right into the site
         </div>
 
         <div>
-          Mobile-responsive design
+          Mobile polish
         </div>
 
         <div>
-          Yoga Garden branding and visual polish
+          Yoga Garden branding and visual direction
         </div>
 
         <div>
@@ -1452,7 +1447,7 @@ p{
         </div>
 
         <div>
-          Branded waiver experience
+          Branded waiver and form experience
         </div>
 
         <div>
@@ -1478,7 +1473,7 @@ p{
       </div>
 
 
-      <div class="full-split">
+      <div class="website-split">
 
 
         <div>
@@ -1519,7 +1514,7 @@ p{
 
 
 <!-- ==========================================
-     FINAL
+     END
 ========================================== -->
 
 <section class="end">
@@ -1528,34 +1523,40 @@ p{
 
 
     <span class="eyebrow">
-      That’s the idea
+      That’s where my head is at
     </span>
 
 
     <h2>
-      We can talk through any of it.
+      Have a look through everything and we can talk it through.
     </h2>
 
 
     <p>
 
-      I mostly wanted you to be able to see what I had
-      in mind rather than trying to explain all of this
-      in an email.
-
-      We can go through what feels useful, what doesn’t,
-      and anything you’d want changed before moving ahead.
+      You may love some pieces and not care about others,
+      or there may be something obvious I’ve missed because
+      I am, in fact, not the person actually running
+      The Yoga Garden every day.
 
     </p>
 
 
-    <p class="extra-note">
+    <p>
 
-      Beyond this project, The Yellow Front Door is
-      always happy to help with the other pieces around
-      the business too, whether that’s website work,
-      marketing pieces, print, or something else that
-      comes up.
+      I mostly wanted you to be able to see the idea properly
+      before we talked numbers rather than trying to explain
+      a system like this in an email.
+
+    </p>
+
+
+    <p class="extra">
+
+      And outside of this project, if you ever need a hand
+      with website changes, marketing pieces, print,
+      or some other random business thing that comes up,
+      that’s very much in The Yellow Front Door wheelhouse too.
 
     </p>
 
