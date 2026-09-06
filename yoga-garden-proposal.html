@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Yoga Garden | Private Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f5;--paper:#fffdf9;--ink:#302b2f;--muted:#746d71;--plum:#87507f;--plum-dark:#55334f;--green:#4b825f;--line:rgba(62,48,59,.12)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}.wrap{width:min(760px,calc(100% - 36px));margin:auto}.top{border-bottom:1px solid var(--line);background:var(--paper)}.top-inner{min-height:48px;display:flex;align-items:center;justify-content:flex-end}.skip{color:var(--muted);font-size:10px;text-decoration:none}.preface{padding:68px 0 76px}.preface h1{margin:0 0 28px;color:var(--plum-dark);font-family:"Playfair Display",serif;font-size:clamp(34px,5vw,48px);font-weight:500;line-height:1.08}.letter{max-width:700px;color:var(--muted);font-size:14px;line-height:1.78}.letter p{margin:0 0 18px}.letter .hello{color:var(--ink)}.button{display:inline-flex;align-items:center;justify-content:center;margin-top:8px;padding:11px 18px;border-radius:999px;background:var(--green);color:#fff;font-size:11px;font-weight:700;text-decoration:none}@media(max-width:600px){.preface{padding:48px 0 60px}.letter{font-size:13px}}
+</style>
+
+<style id="yg-password-style">
+body.yg-locked{min-height:100vh;margin:0;background:#faf8f5;}
+body.yg-locked > *:not(#ygPasswordGate){display:none!important;}
+#ygPasswordGate{min-height:100vh;display:grid;place-items:center;padding:24px;background:#faf8f5;color:#302b2f;font-family:"DM Sans",Arial,sans-serif;}
+#ygPasswordGate .yg-gate-card{width:min(430px,100%);padding:28px;border:1px solid rgba(62,48,59,.12);border-radius:16px;background:#fffdf9;}
+#ygPasswordGate h1{margin:0 0 8px;color:#55334f;font-family:"Playfair Display",Georgia,serif;font-size:30px;font-weight:500;}
+#ygPasswordGate p{margin:0 0 18px;color:#746d71;font-size:13px;line-height:1.65;}
+#ygPasswordGate label{display:block;margin-bottom:6px;color:#55334f;font-size:11px;font-weight:700;}
+#ygPasswordGate input{width:100%;padding:11px 12px;border:1px solid rgba(62,48,59,.18);border-radius:9px;background:#fff;color:#302b2f;font:inherit;font-size:16px;outline:none;}
+#ygPasswordGate input:focus{border-color:#87507f;box-shadow:0 0 0 3px rgba(135,80,127,.10);}
+#ygPasswordGate button{margin-top:10px;padding:10px 16px;border:0;border-radius:999px;background:#4b825f;color:#fff;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}
+#ygPasswordGate .yg-error{min-height:18px;margin-top:8px;color:#8a4747;font-size:10px;}
+</style>
+
+</head>
+<body class="yg-locked">
+
+<div id="ygPasswordGate" aria-live="polite">
+  <form class="yg-gate-card" id="ygPasswordForm">
+    <h1>Private preview</h1>
+    <p>This page is password protected.</p>
+    <label for="ygPassword">Password</label>
+    <input id="ygPassword" type="password" autocomplete="current-password" required>
+    <button type="submit">Enter →</button>
+    <div class="yg-error" id="ygPasswordError"></div>
+  </form>
+</div>
+<script id="yg-password-script">
+(function(){
+  const KEY='ygProposalUnlocked';
+  const EXPECTED='507f0cd743f7993cbe9191186f8bbea78f128ef444104f3725240dbed9569d82';
+  const body=document.body;
+  const gate=document.getElementById('ygPasswordGate');
+  function unlock(){
+    try{sessionStorage.setItem(KEY,'1');}catch(e){}
+    body.classList.remove('yg-locked');
+    if(gate) gate.remove();
+  }
+  try{if(sessionStorage.getItem(KEY)==='1'){unlock();return;}}catch(e){}
+  const form=document.getElementById('ygPasswordForm');
+  const input=document.getElementById('ygPassword');
+  const error=document.getElementById('ygPasswordError');
+  async function sha256(text){
+    const data=new TextEncoder().encode(text);
+    const digest=await crypto.subtle.digest('SHA-256',data);
+    return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    error.textContent='';
+    try{
+      const entered=await sha256(input.value);
+      if(entered===EXPECTED){unlock();}
+      else{error.textContent='That password did not work. Please try again.';input.select();}
+    }catch(err){
+      error.textContent='This password screen needs to be opened from the live site.';
+    }
+  });
+  setTimeout(()=>input && input.focus(),0);
+})();
+</script>
+
+<div class="top"><div class="wrap top-inner"><a class="skip" href="yoga-garden-next-steps.html">Skip to what I’m proposing →</a></div></div>
+<main class="preface">
+  <div class="wrap">
+    <h1>A quick note</h1>
+    <div class="letter">
+      <p class="hello">Hi,</p>
+      <p>Before you click around, I wanted to give you a little context. I ended up taking this a little further than I normally would before sending you a quote.</p>
+      <p>Once I started thinking about the booking and behind-the-scenes side of things, I realized I wanted to work through the whole sequence properly first. What does someone see when they book? Where does the waiver fit? What happens when a class fills up or someone cancels? What do you need to be able to change yourself? What would actually be useful for an instructor when they’re running a class?</p>
+      <p>So much of my work is visual that it was easier for me to mock the pieces up and click through them than try to quote a fairly vague idea and figure all of that out later.</p>
+      <p>One quick note before you start clicking around: this is still just a prototype. There isn’t a live booking system, database, or real client information behind it yet. I built enough of the front end to work through the sequence properly and show you what I’m picturing.</p>
+      <p>I also mocked up some of the website side because I don’t have access to your Wix account and I wanted to see everything in the context of The Yoga Garden rather than as a generic booking tool. You absolutely don’t need to replace your website. The booking, client, and behind-the-scenes pieces can all be built into the Wix site you already have.</p>
+      <p>I’ve put everything together so you can click around and see the client side, the owner side, the instructor view, and the website concept. You definitely don’t need to look at every single thing. I mostly wanted you to be able to see how the pieces could fit together before we talked about what’s actually worth building.</p>
+      <a class="button" href="yoga-garden-demo-intro.html">Start exploring →</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>
