@@ -14,13 +14,92 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f3f4f7;color:var(--navy);font-family:"Montserrat",Arial,sans-serif;font-size:15px;line-height:1.48;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{cursor:pointer}a{color:inherit}.hidden{display:none!important}
 @keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes valueIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}@keyframes checkDraw{to{stroke-dashoffset:0}}@keyframes checkPop{0%{opacity:0;transform:scale(.72)}70%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
 .gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 18%,rgba(252,211,70,.12),transparent 28%),#fff}.gate-card{width:min(510px,100%);text-align:center;padding:42px 28px 32px}.gate-logo{width:66px;height:66px;object-fit:contain;margin:0 auto 26px}.eyebrow{margin:0 0 12px;color:var(--clay);font-size:.7rem;line-height:1;letter-spacing:.18em;font-weight:700;text-transform:uppercase}.gate h1{margin:0 0 12px;font-size:clamp(2rem,6vw,3.3rem);line-height:1;letter-spacing:-.04em}.gate p{color:var(--slate);max-width:420px;margin:0 auto 27px}.gate-form{display:grid;grid-template-columns:1fr auto;gap:10px;max-width:420px;margin:auto}.gate-form input{min-height:52px;border:1px solid #cfd3db;border-radius:7px;padding:0 15px;color:var(--navy);background:#fff}.gate-error{min-height:22px;margin-top:10px!important;color:#9f2f29!important;font-size:.86rem}
-.page-wrap{padding:32px}.page-wrap.reveal{animation:pageIn .42s ease both}.proposal{width:min(var(--max),100%);margin:0 auto;background:#fff;border:3px solid var(--purple);min-height:calc(100vh - 64px);padding:clamp(54px,7vw,86px) clamp(34px,7vw,82px) 42px;box-shadow:0 18px 65px rgba(19,36,71,.08)}.intro{max-width:800px;color:var(--slate);margin:0;font-size:.93rem}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 0;color:#8a919d;font-size:.66rem;letter-spacing:.04em}
+.page-wrap{padding:32px}.page-wrap.reveal{animation:pageIn .42s ease both}.proposal{width:min(var(--max),100%);margin:0 auto;background:#fff;border:3px solid var(--purple);min-height:calc(100vh - 64px);padding:clamp(54px,7vw,86px) clamp(34px,7vw,82px) 42px;box-shadow:0 18px 65px rgba(19,36,71,.08)}.proposal-title{margin:0 0 16px;font-size:clamp(2rem,5vw,3.15rem);line-height:1.02;letter-spacing:-.045em;font-weight:700;color:var(--navy);max-width:760px}.intro{max-width:800px;color:var(--slate);margin:0;font-size:.93rem}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 0;color:#8a919d;font-size:.66rem;letter-spacing:.04em}
 .value-row{margin:30px auto 29px;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;align-items:center;max-width:760px}.value-divider{height:68px;background:#f1c20b}.value{text-align:center;padding:0 20px}.page-wrap.reveal .value{animation:valueIn .46s ease both}.page-wrap.reveal .value:nth-of-type(3){animation-delay:.06s}.page-wrap.reveal .value:nth-of-type(5){animation-delay:.12s}.value-label{font-family:"TYFD Hand","Comic Sans MS",cursive;font-size:1.55rem;line-height:1;color:var(--navy);margin-bottom:8px}.value-number{font-size:2.05rem;line-height:1;font-weight:700;letter-spacing:-.03em}.included{margin-top:5px;font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
 .scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px}.scope{background:var(--blue);padding:15px 17px 17px;min-width:0}.scope:nth-child(2){background:var(--blue2)}.scope h2{margin:0 0 13px;font-size:.78rem;letter-spacing:.025em;line-height:1.2;text-transform:uppercase}.scope p{margin:0 0 8px;font-size:.77rem;line-height:1.42}.scope ul{padding-left:17px;margin:5px 0 10px}.scope li{font-size:.75rem;line-height:1.38;margin:1px 0}
 .details{margin-top:29px}.detail-line{margin:3px 0;color:var(--slate);font-size:.78rem;line-height:1.42}.detail-line strong{color:var(--navy)}
 .terms{margin-top:28px;padding-top:24px;border-top:1px solid var(--stone);display:grid;grid-template-columns:1fr 1fr;gap:18px 34px}.term{font-size:.75rem;color:var(--slate);line-height:1.45}.term strong{display:block;color:var(--navy);margin-bottom:2px}
+
+.process{
+  margin-top:34px;
+  padding-top:29px;
+  border-top:1px solid var(--stone);
+}
+.process-intro{
+  max-width:720px;
+  margin:0 0 20px;
+  color:var(--slate);
+  font-size:.79rem;
+  line-height:1.48;
+}
+.process-list{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border-top:1px solid #d9d7d1;
+}
+.process-step{
+  padding:17px 16px 2px 0;
+  margin-right:16px;
+  border-right:1px solid #e2dfd8;
+}
+.process-step:last-child{
+  margin-right:0;
+  padding-right:0;
+  border-right:0;
+}
+.process-number{
+  display:block;
+  margin-bottom:7px;
+  color:var(--clay);
+  font-family:"TYFD Hand","Comic Sans MS",cursive;
+  font-size:1.35rem;
+  line-height:1;
+}
+.process-step h3{
+  margin:0 0 6px;
+  font-size:.78rem;
+  line-height:1.2;
+}
+.process-step p{
+  margin:0;
+  color:var(--slate);
+  font-size:.69rem;
+  line-height:1.42;
+}
+.process-note{
+  margin:17px 0 0;
+  color:var(--navy);
+  font-family:"TYFD Hand","Comic Sans MS",cursive;
+  font-size:1.08rem;
+  line-height:1.28;
+}
+
+
+.email-copy-choice{
+  grid-column:1/-1;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:-3px;
+  color:var(--slate);
+  font-size:.75rem;
+  line-height:1.4;
+}
+.email-copy-choice input{
+  width:18px;
+  height:18px;
+  margin:1px 0 0;
+  flex:0 0 auto;
+  accent-color:var(--navy);
+}
+.email-copy-choice span{
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:400;
+}
+
 .accept{margin-top:34px;border-top:1px solid var(--stone);padding-top:30px}.accept-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:22px}.accept h2{margin:0;font-family:"TYFD Hand","Comic Sans MS",cursive;font-size:2rem;font-weight:400;line-height:1}.accept-copy{margin:6px 0 0;color:var(--slate);font-size:.8rem}.print-btn{appearance:none;border:0;background:transparent;color:var(--slate);text-decoration:underline;font-size:.75rem;padding:7px 0}
-.accept-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}label,.label{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}input[type="text"],input[type="email"]{width:100%;min-height:46px;border:1px solid #cfd3db;border-radius:4px;padding:10px 12px;color:var(--navy);background:#fff}.signature-input{font-family:"TYFD Hand","Comic Sans MS",cursive;font-size:1.58rem!important;letter-spacing:.01em}.signature-note{color:#8a919d;font-size:.68rem;margin-top:1px}.agree{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;padding:14px 0 2px;color:var(--slate);font-size:.78rem;line-height:1.4;text-transform:none;letter-spacing:0;font-weight:400}.agree input{width:19px;height:19px;margin:1px 0 0;flex:0 0 auto;accent-color:var(--navy)}.accept-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:4px}
+.accept-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}label,.label{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}input[type="text"],input[type="email"]{width:100%;min-height:46px;border:1px solid #cfd3db;border-radius:4px;padding:10px 12px;color:var(--navy);background:#fff}.signature-input{font-family:"TYFD Hand","Comic Sans MS",cursive;font-size:1.58rem!important;letter-spacing:.01em;min-height:66px!important;line-height:1.25;padding:12px 14px 8px!important}.signature-note{color:#8a919d;font-size:.68rem;margin-top:1px}.agree{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;padding:14px 0 2px;color:var(--slate);font-size:.78rem;line-height:1.4;text-transform:none;letter-spacing:0;font-weight:400}.agree input{width:19px;height:19px;margin:1px 0 0;flex:0 0 auto;accent-color:var(--navy)}.accept-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:4px}
 .button{min-height:48px;border:0;border-radius:5px;padding:0 20px;background:var(--navy);color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}.button:hover{background:#1b3262;transform:translateY(-1px);box-shadow:0 8px 20px rgba(19,36,71,.12)}.button:disabled{opacity:.55;cursor:wait;transform:none;box-shadow:none}.button.yellow{background:var(--yellow);color:var(--navy)}.button.yellow:hover{background:#f4ca31}.button.ghost{background:#fff;color:var(--navy);border:1px solid #cfd3db}.button.ghost:hover{background:var(--soft)}.form-status{color:var(--slate);font-size:.76rem}
 .success{margin-top:26px;background:var(--soft);border-left:4px solid var(--yellow);padding:24px 26px 25px}.success-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}.checkmark{width:44px;height:44px;flex:0 0 auto;animation:checkPop .36s ease both}.checkmark circle{fill:none;stroke:var(--navy);stroke-width:2.2}.checkmark path{fill:none;stroke:var(--navy);stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:42;stroke-dashoffset:42;animation:checkDraw .5s .16s ease forwards}.success h3{margin:0;font-family:"TYFD Hand","Comic Sans MS",cursive;font-size:1.9rem;font-weight:400;line-height:1}.success p{color:var(--slate);font-size:.82rem;margin:0 0 16px}.accepted-record{display:flex;flex-wrap:wrap;gap:7px 18px;margin:0 0 18px!important;color:#7a818c!important;font-size:.7rem!important}.success-actions{display:flex;flex-wrap:wrap;gap:10px}.email-note{min-height:20px;margin:10px 0 0!important;font-size:.72rem!important}
 .footer{margin-top:38px;padding-top:18px;border-top:1px solid #ebe9e4;display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--slate);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase}.footer-brand{display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:700}.footer-brand img{width:24px;height:24px;object-fit:contain}
@@ -48,7 +127,8 @@
 
 <div class="page-wrap hidden" id="proposalPage">
 <main class="proposal">
-  <p class="eyebrow">Project proposal</p>
+  <p class="eyebrow">The Yellow Front Door</p>
+  <h1 class="proposal-title">Farmhouse &amp; Fields Project Proposal</h1>
   <p class="intro">Farmhouse &amp; Fields is already a busy, established daycare. The goal here is not to build a website that chases more leads. It is to create a warm, clear home base for the business you already have, connect clients cleanly to Time To Pet, and use the matched project value to make the wait-list and new-client handoff easier to manage.</p>
   <div class="proposal-meta">
     <span>Prepared for Farmhouse &amp; Fields Dog Daycare</span>
@@ -106,6 +186,46 @@
     <div class="term"><strong>Proposal validity</strong>This proposal is valid for 14 days. The initial payment reserves the project and becomes non-refundable once work has begun.</div>
   </section>
 
+
+  <section class="process" aria-labelledby="processHeading">
+    <p class="eyebrow" id="processHeading">How the project comes together</p>
+    <p class="process-intro">There’s a clear process behind the build, but I’ll keep it easy on your end.</p>
+
+    <div class="process-list">
+      <article class="process-step">
+        <span class="process-number">1</span>
+        <h3>Gather</h3>
+        <p>We’ll start with the initial payment and Behind the Website details so I have the photos, pricing, policies, and access I need.</p>
+      </article>
+
+      <article class="process-step">
+        <span class="process-number">2</span>
+        <h3>Plan</h3>
+        <p>I’ll map the site structure, page flow, content priorities, and overall visual direction before the full build begins.</p>
+      </article>
+
+      <article class="process-step">
+        <span class="process-number">3</span>
+        <h3>Design + Build</h3>
+        <p>I’ll design and build the site, including mobile layouts, the Time To Pet pathways, and the matched project pieces.</p>
+      </article>
+
+      <article class="process-step">
+        <span class="process-number">4</span>
+        <h3>Review + Refine</h3>
+        <p>You’ll get a private review link once the first full version is ready. We’ll gather your feedback in one place for the included revision round.</p>
+      </article>
+
+      <article class="process-step">
+        <span class="process-number">5</span>
+        <h3>Test + Launch</h3>
+        <p>I’ll do the final checks across devices, links, forms, accessibility, domain, and hosting. Final payment is due before launch, then we’re live.</p>
+      </article>
+    </div>
+
+    <p class="process-note">You’ll always know where things stand, but you won’t be asked to approve every tiny design decision along the way.</p>
+  </section>
+
   <section class="accept" id="accept">
     <div class="accept-head">
       <div>
@@ -128,6 +248,10 @@
 
       <div class="field"><label for="fullName">Full name</label><input id="fullName" name="full_name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <label class="email-copy-choice">
+        <input id="emailCopyChoice" name="email_copy_requested" type="checkbox" value="yes" checked>
+        <span>Email me a copy of the signed proposal.</span>
+      </label>
       <div class="field full">
         <label for="signature">Electronic signature</label>
         <input class="signature-input" id="signature" name="electronic_signature" type="text" autocomplete="name" placeholder="Type your full name" required>
@@ -136,7 +260,7 @@
 
       <label class="agree">
         <input name="agreement" type="checkbox" value="I agree" required>
-        <span>I have reviewed and approve the project scope, $900 client investment, matched project work, and terms outlined on this page. I intend the name typed above to serve as my electronic signature.</span>
+        <span>I’ve reviewed the proposal and agree to the project scope, $900 investment, matched project work, and terms above. I understand that typing my name above signs this proposal electronically.</span>
       </label>
 
       <div class="accept-actions">
@@ -150,10 +274,10 @@
         <svg class="checkmark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"></circle><path d="M14.5 24.5 21 31l13-14"></path></svg>
         <div><p class="eyebrow">Proposal accepted</p><h3>We’re officially underway.</h3></div>
       </div>
-      <p>Your acceptance has been submitted. I’ll also send a copy to the email above for your records. When you’re ready, the next step is Behind the Website.</p>
+      <p>Your acceptance has been submitted. If you asked for a copy, it’ll be sent to the email above. When you’re ready, the next step is Behind the Website.</p>
       <p class="accepted-record"><span id="acceptedName"></span><span id="acceptedDate"></span><span>Proposal FF-2026-0906-01</span></p>
       <div class="success-actions">
-        <button class="button ghost" id="emailCopyButton" type="button">Email me a copy</button>
+        <button class="button ghost" id="emailCopyButton" type="button">Email me another copy</button>
         <button class="button ghost" type="button" onclick="window.print()">Print / save a copy</button>
         <a class="button yellow" id="questionnaireLink" href="/behind-the-website.html">Continue to Behind the Website →</a>
       </div>
@@ -181,7 +305,7 @@ if(sessionStorage.getItem("ffProposalAccess")==="yes")unlockProposal();
 gateForm.addEventListener("submit",e=>{e.preventDefault();if(accessCode.value===ACCESS_CODE){gateError.textContent="";unlockProposal()}else{gateError.textContent="That access code doesn’t match. Please try again.";accessCode.select()}});
 document.getElementById("questionnaireLink").href=QUESTIONNAIRE_URL;
 
-const acceptForm=document.getElementById("acceptForm"),acceptButton=document.getElementById("acceptButton"),acceptButtonText=document.getElementById("acceptButtonText"),formStatus=document.getElementById("formStatus"),success=document.getElementById("success"),acceptedAt=document.getElementById("acceptedAt"),emailCopyButton=document.getElementById("emailCopyButton"),emailCopyStatus=document.getElementById("emailCopyStatus");
+const acceptForm=document.getElementById("acceptForm"),acceptButton=document.getElementById("acceptButton"),acceptButtonText=document.getElementById("acceptButtonText"),formStatus=document.getElementById("formStatus"),success=document.getElementById("success"),acceptedAt=document.getElementById("acceptedAt"),emailCopyButton=document.getElementById("emailCopyButton"),emailCopyStatus=document.getElementById("emailCopyStatus"),emailCopyChoice=document.getElementById("emailCopyChoice");
 let acceptedRecord=null;
 
 function formatAcceptedDate(iso){return new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"long",day:"numeric",hour:"numeric",minute:"2-digit"}).format(new Date(iso))}
@@ -199,7 +323,7 @@ acceptForm.addEventListener("submit",async e=>{
     if(!response.ok)throw new Error("Submission failed");
     const record={proposalId:PROPOSAL_ID,fullName:document.getElementById("fullName").value.trim(),email:document.getElementById("email").value.trim(),signature:document.getElementById("signature").value.trim(),acceptedAt:acceptedAt.value};
     localStorage.setItem("ffProposalAcceptedRecord",JSON.stringify(record));formStatus.textContent="";showAccepted(record);
-        sendProposalCopy({quiet:true});
+        if(emailCopyChoice?.checked) sendProposalCopy({quiet:true});
   }catch(err){acceptButton.disabled=false;acceptButtonText.textContent="Accept proposal";formStatus.textContent="Something went wrong. Please try again, or email The Yellow Front Door directly."}
 });
 
