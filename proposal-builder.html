@@ -40,8 +40,8 @@ button{cursor:pointer}
 .field{display:grid;gap:6px}
 .field.full{grid-column:1/-1}
 label,.label{font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-input[type=text],input[type=url],input[type=number],textarea{width:100%;border:1px solid #cfd3db;border-radius:5px;background:#fff;color:var(--navy);padding:10px 11px}
-input[type=text],input[type=url],input[type=number]{min-height:43px}
+input[type=text],input[type=url],input[type=number],textarea,select{width:100%;border:1px solid #cfd3db;border-radius:5px;background:#fff;color:var(--navy);padding:10px 11px}
+input[type=text],input[type=url],input[type=number],select{min-height:43px}
 textarea{min-height:90px;resize:vertical;line-height:1.45}
 .help{font-size:.67rem;color:#8a919d;margin:0}
 .toggle{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;color:var(--slate);text-transform:none;letter-spacing:0;font-weight:500;cursor:pointer}
@@ -54,7 +54,18 @@ textarea{min-height:90px;resize:vertical;line-height:1.45}
 .preview-head h2{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin:0}
 .preview-box{background:#e9ebef;border-radius:10px;padding:18px;box-shadow:inset 0 0 0 1px #dfe1e5}
 .preview-box iframe{width:100%;height:calc(100vh - 110px);min-height:720px;border:0;background:#fff;border-radius:3px}
-.footer-note{padding:18px 26px;background:var(--soft);color:var(--slate);font-size:.72rem}
+.footer-note{padding:20px 26px 24px;background:var(--soft);color:var(--slate);font-size:.72rem;line-height:1.65}
+.builder-bottom-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.builder-bottom-actions .btn{min-width:190px}
+.publish-result{margin-top:18px;padding:17px 18px;background:#fff;border:1px solid #d8dadd;display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center}
+.publish-check{width:34px;height:34px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-weight:800;color:var(--navy);font-size:17px}
+.publish-result-copy{display:grid;gap:3px;min-width:0}
+.publish-result-copy strong{font-size:.78rem}
+.publish-result-copy a{font-size:.73rem;color:var(--navy);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.publish-result-copy span{font-size:.66rem;color:var(--slate)}
+.publish-result-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.publish-result-actions .btn{min-width:0;min-height:38px;padding:0 11px;font-size:.68rem}
+@media(max-width:650px){.publish-result{grid-template-columns:auto 1fr}.publish-result-actions{grid-column:1/-1;justify-content:stretch}.publish-result-actions .btn{flex:1}}
 :focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
 @media(max-width:1050px){.layout{grid-template-columns:1fr}.preview-panel{position:static}.preview-box iframe{height:850px}}
 @media(max-width:650px){.shell{padding:16px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.topbar{align-items:flex-start;flex-direction:column}.top-actions{width:100%}.top-actions .btn{flex:1}.section,.builder-head{padding-left:18px;padding-right:18px}}
@@ -70,7 +81,8 @@ textarea{min-height:90px;resize:vertical;line-height:1.45}
     <div class="top-actions">
       <button class="btn secondary" id="resetBtn" type="button">Reset</button>
       <button class="btn secondary" id="previewTabBtn" type="button">Open preview</button>
-      <button class="btn yellow" id="downloadBtn" type="button">Download proposal HTML</button>
+      <button class="btn secondary" id="downloadBtn" type="button">Download backup</button>
+      <button class="btn yellow" id="publishBtn" type="button">Publish proposal</button>
     </div>
   </header>
 
@@ -97,7 +109,13 @@ textarea{min-height:90px;resize:vertical;line-height:1.45}
         <div class="section-title"><h3>Investment</h3></div>
         <div class="grid">
           <div class="field"><label for="investment">Client investment</label><input id="investment" type="number" min="0" step="1" value="900"></div>
-          <div class="field"><label for="currency">Currency symbol</label><input id="currency" type="text" value="$"></div>
+          <div class="field">
+            <label for="currency">Currency</label>
+            <select id="currency">
+              <option value="CAD" selected>CAD · Canadian dollars</option>
+              <option value="USD">USD · U.S. dollars</option>
+            </select>
+          </div>
         </div>
 
         <div class="match-fields">
@@ -177,22 +195,39 @@ Useful templates or communication pieces</textarea><p class="help">One item per 
 
       <section class="section">
         <div class="section-title"><h3>Signing + next step</h3></div>
-        <div class="grid">
-          <div class="field full"><label for="formspree">Proposal Formspree endpoint</label><input id="formspree" type="url" value="https://formspree.io/f/mbgjavrr"></div>
-          <div class="field full"><label for="questionnaire">Next-step questionnaire URL</label><input id="questionnaire" type="text" value="/behind-the-website.html"></div>
-          <div class="field full"><label for="emailEndpoint">Email-copy API endpoint</label><input id="emailEndpoint" type="text" value="/api/email-proposal"></div>
-          <div class="field full"><label for="agreementCopy">Agreement checkbox wording</label><textarea id="agreementCopy">I’ve reviewed this proposal and agree to the project scope, investment, and terms above. I understand that typing my name above signs this proposal electronically.</textarea></div>
-        </div>
+        <p class="help" style="font-size:.76rem;line-height:1.7">
+          These pieces are already built in. Signed proposals go to your dedicated proposal inbox, clients can request an emailed copy, and the next-step button goes to <strong>Behind the Website</strong>.
+        </p>
       </section>
 
       <div class="footer-note">
-        Your draft saves automatically in this browser. The downloaded client file contains only the finished proposal, not this builder.
+        <strong style="display:block;color:var(--navy);font-size:.78rem;margin-bottom:5px">When this looks right</strong>
+        When the proposal looks right, click <strong>Publish proposal</strong>. The builder will create or update the client page in GitHub for you, Vercel will deploy it, and you’ll get the live link to send to the client. Download is still available as a backup.
         <div class="status" id="status"></div>
+
+        <div class="builder-bottom-actions">
+          <button class="btn secondary" id="previewBottomBtn" type="button">Open full preview</button>
+          <button class="btn secondary" id="downloadBottomBtn" type="button">Download backup</button>
+          <button class="btn yellow" id="publishBottomBtn" type="button">Publish proposal</button>
+        </div>
+
+        <div class="publish-result hidden" id="publishResult">
+          <span class="publish-check" aria-hidden="true">✓</span>
+          <div class="publish-result-copy">
+            <strong id="publishResultTitle">Proposal published</strong>
+            <a id="publishedLink" href="#" target="_blank" rel="noopener"></a>
+            <span id="publishDeployNote">Vercel may need a few seconds to make the new page live.</span>
+          </div>
+          <div class="publish-result-actions">
+            <button class="btn secondary" id="copyLinkBtn" type="button">Copy link</button>
+            <a class="btn secondary" id="openPublishedBtn" href="#" target="_blank" rel="noopener">Open proposal</a>
+          </div>
+        </div>
       </div>
     </form>
 
     <aside class="preview-panel">
-      <div class="preview-head"><h2>Live preview</h2><span id="slugText"></span></div>
+      <div class="preview-head"><h2>Live preview</h2><span id="slugText" style="font-size:.7rem;color:var(--slate)"></span></div>
       <div class="preview-box"><iframe id="preview" title="Proposal preview"></iframe></div>
     </aside>
   </div>
@@ -204,7 +239,7 @@ const ids = [
   "includeMatch","matchAmount","matchLabel","mainTitle","mainSummary","mainBullets","mainNoteTitle","mainNote",
   "matchTitle","matchSummary","matchBullets","matchNote","timelinePayment","domainHosting","revisionsSupport","clientNeeds",
   "includeProcess","p1title","p1body","p2title","p2body","p3title","p3body","p4title","p4body","p5title","p5body",
-  "scopeChanges","projectTiming","thirdParty","validity","formspree","questionnaire","emailEndpoint","agreementCopy"
+  "scopeChanges","projectTiming","thirdParty","validity"
 ];
 
 const $ = id => document.getElementById(id);
@@ -216,6 +251,13 @@ const includeProcess = $("includeProcess");
 const matchOptions = $("matchOptions");
 const matchSection = $("matchSection");
 const processFields = $("processFields");
+
+const STANDARD_PROPOSAL_FORM_ENDPOINT = "https://formspree.io/f/mbgjavrr";
+const STANDARD_QUESTIONNAIRE_URL = "/behind-the-website.html";
+const STANDARD_EMAIL_COPY_ENDPOINT = "/api/email-proposal";
+const STANDARD_PUBLISH_ENDPOINT = "/api/publish-proposal";
+const PUBLIC_SITE_URL = "https://www.theyellowfrontdoor.ca";
+const STANDARD_AGREEMENT_COPY = "I’ve reviewed this proposal and agree to the project scope, investment, and terms above. I understand that typing my name above signs this proposal electronically.";
 
 const esc = s => String(s ?? "")
   .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
@@ -280,7 +322,7 @@ function ensureAutoFields(){
   if(!$("proposalTitle").dataset.manual){
     $("proposalTitle").value=`${client || "Client"} Project Proposal`;
   }
-  $("slugText").textContent=`${slugify(client)}-proposal`;
+  $("slugText").textContent=`File: ${slugify(client)}-proposal.html`;
 }
 
 $("proposalId").addEventListener("input",()=>{$("proposalId").dataset.manual="1"});
@@ -299,7 +341,8 @@ function buildClientProposal(c){
   const invest=Number(c.investment||0);
   const match=Number(c.matchAmount||0);
   const total=invest+(c.includeMatch?match:0);
-  const symbol=esc(c.currency||"$");
+  const currencyCode=c.currency||"CAD";
+  const formatPrice=amount=>`$${money(amount)} ${currencyCode}`;
   const mainBullets=bulletHTML(c.mainBullets);
   const matchBullets=bulletHTML(c.matchBullets);
   const process = c.includeProcess ? `
@@ -317,17 +360,17 @@ function buildClientProposal(c){
 
   const price = c.includeMatch ? `
     <section class="value-row">
-      <div class="value"><div class="value-label">Your Investment</div><div class="value-number">${symbol}${money(invest)}</div></div>
+      <div class="value"><div class="value-label">Your Investment</div><div class="value-number">${formatPrice(invest)}</div></div>
       <div class="value-divider"></div>
-      <div class="value"><div class="value-label">${esc(c.matchLabel || "Matched Project Work")}</div><div class="value-number">+${symbol}${money(match)}</div><div class="included">Included</div></div>
+      <div class="value"><div class="value-label">${esc(c.matchLabel || "Matched Project Work")}</div><div class="value-number">+${formatPrice(match)}</div><div class="included">Included</div></div>
       <div class="value-divider"></div>
-      <div class="value"><div class="value-label">Total Project Value</div><div class="value-number">${symbol}${money(total)}</div></div>
+      <div class="value"><div class="value-label">Total Project Value</div><div class="value-number">${formatPrice(total)}</div></div>
     </section>` :
-    `<section class="value-row single"><div class="value"><div class="value-label">Your Investment</div><div class="value-number">${symbol}${money(invest)}</div></div></section>`;
+    `<section class="value-row single"><div class="value"><div class="value-label">Your Investment</div><div class="value-number">${formatPrice(invest)}</div></div></section>`;
 
   const matchCard = c.includeMatch ? `
     <article class="scope">
-      <h2>02 &nbsp; ${esc(c.matchLabel || "The Match")} · +${symbol}${money(match)} Included</h2>
+      <h2>02 &nbsp; ${esc(c.matchLabel || "The Match")} · +${formatPrice(match)} Included</h2>
       ${c.matchTitle ? `<p><strong>${esc(c.matchTitle)}</strong></p>` : ""}
       <p>${esc(c.matchSummary)}</p>
       ${matchBullets}
@@ -338,9 +381,9 @@ function buildClientProposal(c){
 
   const snapshot = [
     `Proposal: ${c.proposalTitle}`,
-    `Client investment: ${c.currency}${money(invest)}`,
-    c.includeMatch ? `Matched work: ${c.currency}${money(match)} included` : "",
-    c.includeMatch ? `Total project value: ${c.currency}${money(total)}` : "",
+    `Client investment: ${formatPrice(invest)}`,
+    c.includeMatch ? `Matched work: ${formatPrice(match)} included` : "",
+    c.includeMatch ? `Total project value: ${formatPrice(total)}` : "",
     `Main scope: ${c.mainTitle}`,
     ...lines(c.mainBullets),
     c.includeMatch ? `Matched scope: ${c.matchTitle}` : "",
@@ -355,8 +398,8 @@ function buildClientProposal(c){
   ].filter(Boolean).join("\n");
 
   const emailSummary = c.includeMatch
-    ? `${c.currency}${money(invest)} client investment · ${c.currency}${money(match)} matched work included · ${c.currency}${money(total)} total project value`
-    : `${c.currency}${money(invest)} client investment`;
+    ? `${formatPrice(invest)} client investment · ${formatPrice(match)} matched work included · ${formatPrice(total)} total project value`
+    : `${formatPrice(invest)} client investment`;
 
   return `<!doctype html>
 <html lang="en">
@@ -460,11 +503,11 @@ function buildClientProposal(c){
       ${hiddenField("proposal_id", c.proposalId)}
       ${hiddenField("project", c.clientName)}
       ${hiddenField("proposal_title", c.proposalTitle)}
-      ${hiddenField("client_investment", `${c.currency}${money(invest)}`)}
-      ${hiddenField("matched_work", c.includeMatch ? `${c.currency}${money(match)} included` : "Not included")}
-      ${hiddenField("total_project_value", `${c.currency}${money(total)}`)}
+      ${hiddenField("client_investment", formatPrice(invest))}
+      ${hiddenField("matched_work", c.includeMatch ? `${formatPrice(match)} included` : "Not included")}
+      ${hiddenField("total_project_value", formatPrice(total))}
       ${hiddenField("proposal_snapshot", snapshot)}
-      ${hiddenField("agreement_wording", c.agreementCopy)}
+      ${hiddenField("agreement_wording", STANDARD_AGREEMENT_COPY)}
       <input type="hidden" name="accepted_at" id="acceptedAt">
       <input type="hidden" name="proposal_url" id="proposalUrl">
 
@@ -482,7 +525,7 @@ function buildClientProposal(c){
         <span class="signature-note">Typing your full name here serves as your electronic signature.</span>
       </div>
 
-      <label class="agree"><input name="agreement" type="checkbox" value="I agree" required><span>${esc(c.agreementCopy)}</span></label>
+      <label class="agree"><input name="agreement" type="checkbox" value="I agree" required><span>${esc(STANDARD_AGREEMENT_COPY)}</span></label>
 
       <div class="accept-actions">
         <button class="button" id="acceptButton" type="submit"><span id="acceptButtonText">Accept proposal</span></button>
@@ -500,7 +543,7 @@ function buildClientProposal(c){
       <div class="success-actions">
         <button class="button ghost" id="emailCopyButton" type="button">Email me another copy</button>
         <button class="button ghost" type="button" onclick="window.print()">Print / save a copy</button>
-        <a class="button yellow" id="questionnaireLink" href="${escAttr(c.questionnaire)}">Continue to Behind the Website →</a>
+        <a class="button yellow" id="questionnaireLink" href="${escAttr(STANDARD_QUESTIONNAIRE_URL)}">Continue to Behind the Website →</a>
       </div>
       <p class="email-note" id="emailCopyStatus" role="status"></p>
     </div>
@@ -512,8 +555,8 @@ function buildClientProposal(c){
 
 <script>
 const ACCESS_CODE=${JSON.stringify(c.accessCode)};
-const PROPOSAL_FORM_ENDPOINT=${JSON.stringify(c.formspree)};
-const EMAIL_COPY_ENDPOINT=${JSON.stringify(c.emailEndpoint)};
+const PROPOSAL_FORM_ENDPOINT=${JSON.stringify(STANDARD_PROPOSAL_FORM_ENDPOINT)};
+const EMAIL_COPY_ENDPOINT=${JSON.stringify(STANDARD_EMAIL_COPY_ENDPOINT)};
 const PROPOSAL_ID=${JSON.stringify(c.proposalId)};
 const CLIENT_NAME=${JSON.stringify(c.clientName)};
 const PROPOSAL_TITLE=${JSON.stringify(c.proposalTitle)};
@@ -606,22 +649,116 @@ $("resetBtn").addEventListener("click",()=>{
   location.reload();
 });
 
-$("previewTabBtn").addEventListener("click",()=>{
+function openFullPreview(){
   const blob=new Blob([buildClientProposal(data())],{type:"text/html"});
   window.open(URL.createObjectURL(blob),"_blank");
-});
+}
 
-$("downloadBtn").addEventListener("click",()=>{
+function downloadFinishedProposal(){
   const c=data();
-  const html=buildClientProposal(c);
-  const blob=new Blob([html],{type:"text/html"});
+  const finishedHtml=buildClientProposal(c);
+  const blob=new Blob([finishedHtml],{type:"text/html"});
   const a=document.createElement("a");
   a.href=URL.createObjectURL(blob);
   a.download=`${slugify(c.clientName)}-proposal.html`;
-  document.body.appendChild(a);a.click();a.remove();
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
   setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-  status.textContent=`Downloaded ${slugify(c.clientName)}-proposal.html`;
+  status.textContent=`Downloaded ${slugify(c.clientName)}-proposal.html — add it to GitHub, let Vercel deploy it, then email the client the live link.`;
+}
+
+
+function publisherKey(){
+  let key=sessionStorage.getItem("tyfdPublisherKey")||"";
+  if(!key){
+    key=window.prompt("Enter your TYFD publisher key:")||"";
+    if(key)sessionStorage.setItem("tyfdPublisherKey",key);
+  }
+  return key;
+}
+
+async function publishFinishedProposal({overwrite=false}={}){
+  const c=data();
+  const slug=slugify(c.clientName)+"-proposal";
+  const key=publisherKey();
+  if(!key){
+    status.textContent="Publishing cancelled.";
+    return;
+  }
+
+  const buttons=[$("publishBtn"),$("publishBottomBtn")].filter(Boolean);
+  buttons.forEach(b=>{b.disabled=true;b.textContent=overwrite?"Updating…":"Publishing…";});
+  status.textContent=overwrite?"Updating the published proposal…":"Publishing the proposal…";
+
+  try{
+    const response=await fetch(STANDARD_PUBLISH_ENDPOINT,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        publishKey:key,
+        slug,
+        html:buildClientProposal(c),
+        proposalTitle:c.proposalTitle,
+        overwrite
+      })
+    });
+
+    const payload=await response.json().catch(()=>({}));
+
+    if(response.status===401){
+      sessionStorage.removeItem("tyfdPublisherKey");
+      throw new Error("Publisher key didn’t match. Try Publish again and re-enter it.");
+    }
+
+    if(response.status===409 && payload.exists){
+      const replaceIt=window.confirm("A proposal with this client name is already published. Update the existing proposal?");
+      if(replaceIt){
+        return publishFinishedProposal({overwrite:true});
+      }
+      status.textContent="Nothing was changed.";
+      return;
+    }
+
+    if(!response.ok){
+      throw new Error(payload.error||"Publishing failed.");
+    }
+
+    const liveUrl=payload.publicUrl||`${PUBLIC_SITE_URL}/${slug}`;
+    $("publishedLink").textContent=liveUrl;
+    $("publishedLink").href=liveUrl;
+    $("openPublishedBtn").href=liveUrl;
+    $("publishResultTitle").textContent=payload.updated?"Proposal updated":"Proposal published";
+    $("publishResult").classList.remove("hidden");
+    status.textContent=payload.updated
+      ?"Updated in GitHub. Vercel will deploy the new version automatically."
+      :"Added to GitHub. Vercel will deploy it automatically.";
+    $("publishResult").scrollIntoView({behavior:"smooth",block:"nearest"});
+  }catch(error){
+    status.textContent=error.message||"Something went wrong while publishing.";
+  }finally{
+    buttons.forEach(b=>{b.disabled=false;b.textContent="Publish proposal";});
+  }
+}
+
+$("copyLinkBtn").addEventListener("click",async()=>{
+  const link=$("publishedLink").href;
+  if(!link||link==="#")return;
+  try{
+    await navigator.clipboard.writeText(link);
+    $("copyLinkBtn").textContent="Copied!";
+    setTimeout(()=>$("copyLinkBtn").textContent="Copy link",1200);
+  }catch{
+    window.prompt("Copy this link:",link);
+  }
 });
+
+$("previewTabBtn").addEventListener("click",openFullPreview);
+$("downloadBtn").addEventListener("click",downloadFinishedProposal);
+$("previewBottomBtn").addEventListener("click",openFullPreview);
+$("downloadBottomBtn").addEventListener("click",downloadFinishedProposal);
+$("publishBtn").addEventListener("click",()=>publishFinishedProposal());
+$("publishBottomBtn").addEventListener("click",()=>publishFinishedProposal());
 </script>
 </body>
 </html>
