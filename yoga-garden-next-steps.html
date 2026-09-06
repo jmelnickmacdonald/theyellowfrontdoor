@@ -1,0 +1,1575 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
+
+<meta
+  name="robots"
+  content="noindex,nofollow"
+>
+
+<title>
+  What I’m Proposing | The Yoga Garden
+</title>
+
+
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+  rel="stylesheet"
+>
+
+
+<style>
+
+:root{
+
+  --bg:#faf8f5;
+
+  --paper:#fffdf9;
+
+  --ink:#302b2f;
+
+  --muted:#746d71;
+
+  --plum:#87507f;
+
+  --plum-dark:#55334f;
+
+  --lilac:#eee4f2;
+
+  --lilac-soft:#f7f2f8;
+
+  --green:#4b825f;
+
+  --green-dark:#315d42;
+
+  --green-soft:#e9f1eb;
+
+  --line:
+    rgba(62,48,59,.12);
+
+  --shadow:
+    0 18px 45px
+    rgba(55,40,52,.05);
+
+}
+
+
+*{
+  box-sizing:border-box;
+}
+
+
+html{
+  scroll-behavior:smooth;
+}
+
+
+body{
+
+  margin:0;
+
+  background:var(--bg);
+
+  color:var(--ink);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+}
+
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+h1,
+h2,
+h3{
+
+  margin:0;
+
+  color:var(--plum-dark);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-weight:500;
+
+}
+
+
+p{
+  line-height:1.7;
+}
+
+
+.wrap{
+
+  width:min(
+    900px,
+    calc(100% - 36px)
+  );
+
+  margin:auto;
+
+}
+
+
+.eyebrow{
+
+  display:block;
+
+  margin-bottom:8px;
+
+  color:var(--green);
+
+  font-size:10px;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:.1em;
+
+}
+
+
+/* ==========================================
+   TOP
+========================================== */
+
+.top{
+
+  border-bottom:
+    1px solid var(--line);
+
+  background:var(--paper);
+
+}
+
+
+.top-inner{
+
+  min-height:48px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+}
+
+
+.back{
+
+  color:var(--muted);
+
+  font-size:10px;
+
+}
+
+
+.logo{
+
+  width:110px;
+
+  max-height:58px;
+
+  object-fit:contain;
+
+}
+
+
+/* ==========================================
+   INTRO
+========================================== */
+
+.intro{
+
+  padding:
+    58px 0 44px;
+
+}
+
+
+.intro-inner{
+  max-width:780px;
+}
+
+
+.intro h1{
+
+  font-size:
+    clamp(
+      40px,
+      6vw,
+      58px
+    );
+
+  line-height:1.04;
+
+}
+
+
+.intro p{
+
+  max-width:720px;
+
+  margin:
+    15px 0 0;
+
+  color:var(--muted);
+
+  font-size:14px;
+
+}
+
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+.section{
+
+  padding:
+    38px 0;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+
+.section h2{
+
+  font-size:
+    clamp(
+      28px,
+      4vw,
+      37px
+    );
+
+}
+
+
+.section-intro{
+
+  max-width:700px;
+
+  margin:
+    9px 0 0;
+
+  color:var(--muted);
+
+  font-size:13px;
+
+}
+
+
+/* ==========================================
+   INCLUDED LIST
+========================================== */
+
+.included{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    0 28px;
+
+  margin-top:20px;
+
+}
+
+
+.item{
+
+  padding:
+    13px 0;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+
+.item strong{
+
+  display:block;
+
+  color:var(--plum-dark);
+
+  font-size:12px;
+
+}
+
+
+.item span{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  line-height:1.5;
+
+}
+
+
+/* ==========================================
+   NOT INCLUDED
+========================================== */
+
+.not-now{
+
+  margin-top:20px;
+
+  padding:17px;
+
+  border-radius:11px;
+
+  background:var(--lilac-soft);
+
+}
+
+
+.not-now p{
+
+  margin:0;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+}
+
+
+.not-now strong{
+  color:var(--plum-dark);
+}
+
+
+/* ==========================================
+   PRICE
+========================================== */
+
+.price-box{
+
+  margin-top:21px;
+
+  padding:25px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:15px;
+
+  background:var(--paper);
+
+  box-shadow:var(--shadow);
+
+}
+
+
+.price-main{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:24px;
+
+}
+
+
+.price-main h3{
+
+  font-size:27px;
+
+}
+
+
+.price-copy{
+
+  max-width:610px;
+
+  margin:
+    7px 0 0;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+}
+
+
+.price{
+
+  flex:none;
+
+  color:var(--green-dark);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:41px;
+
+  font-weight:500;
+
+}
+
+
+.split{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:9px;
+
+  margin-top:19px;
+
+}
+
+
+.split-item{
+
+  padding:14px;
+
+  border-radius:10px;
+
+  background:var(--green-soft);
+
+}
+
+
+.split-item span{
+
+  display:block;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.06em;
+
+}
+
+
+.split-item strong{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--green-dark);
+
+  font-size:18px;
+
+}
+
+
+/* ==========================================
+   FIRST YEAR / PLATFORM
+========================================== */
+
+.platform-note{
+
+  margin-top:20px;
+
+  padding:17px;
+
+  border-left:
+    3px solid var(--green);
+
+  background:var(--green-soft);
+
+}
+
+
+.platform-note strong{
+
+  display:block;
+
+  color:var(--green-dark);
+
+  font-size:12px;
+
+}
+
+
+.platform-note p{
+
+  margin:
+    5px 0 0;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+}
+
+
+/* ==========================================
+   ONGOING
+========================================== */
+
+.ongoing-price{
+
+  margin-top:16px;
+
+  color:var(--plum-dark);
+
+  font-size:17px;
+
+  font-weight:700;
+
+}
+
+
+.ongoing-price span{
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  font-weight:400;
+
+}
+
+
+.small-copy{
+
+  max-width:710px;
+
+  margin:
+    13px 0 0;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+}
+
+
+.small-copy strong{
+  color:var(--plum-dark);
+}
+
+
+/* ==========================================
+   WEBSITE OPTION
+========================================== */
+
+.website-wrap{
+
+  margin-top:21px;
+
+  padding:22px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:14px;
+
+  background:var(--paper);
+
+}
+
+
+.website-top{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:25px;
+
+}
+
+
+.website-copy{
+  max-width:620px;
+}
+
+
+.website-copy h3{
+
+  font-size:25px;
+
+}
+
+
+.website-copy p{
+
+  margin:
+    7px 0 0;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+}
+
+
+.website-price{
+
+  flex:none;
+
+  color:var(--green-dark);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:31px;
+
+}
+
+
+.website-price small{
+
+  display:block;
+
+  margin-top:2px;
+
+  color:var(--muted);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size:9px;
+
+  text-align:right;
+
+}
+
+
+.website-includes{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    7px 20px;
+
+  margin-top:18px;
+
+  padding-top:17px;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+
+.website-includes div{
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  line-height:1.5;
+
+}
+
+
+.website-includes div::before{
+
+  content:"✓";
+
+  margin-right:7px;
+
+  color:var(--green);
+
+  font-weight:700;
+
+}
+
+
+.full-split{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:9px;
+
+  margin-top:18px;
+
+}
+
+
+.full-split div{
+
+  padding:13px;
+
+  border-radius:10px;
+
+  background:var(--lilac-soft);
+
+}
+
+
+.full-split span{
+
+  display:block;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.06em;
+
+}
+
+
+.full-split strong{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--plum-dark);
+
+  font-size:17px;
+
+}
+
+
+/* ==========================================
+   FINAL
+========================================== */
+
+.end{
+
+  padding:
+    44px 0 72px;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+
+.end-inner{
+  max-width:720px;
+}
+
+
+.end h2{
+
+  font-size:
+    clamp(
+      30px,
+      4vw,
+      40px
+    );
+
+}
+
+
+.end p{
+
+  margin:
+    11px 0 0;
+
+  color:var(--muted);
+
+  font-size:13px;
+
+}
+
+
+.extra-note{
+
+  margin-top:20px !important;
+
+  font-size:11px !important;
+
+}
+
+
+.signature{
+
+  margin-top:24px;
+
+  color:var(--plum-dark);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:20px;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:680px){
+
+  .included,
+  .website-includes{
+    grid-template-columns:1fr;
+  }
+
+
+  .price-main,
+  .website-top{
+
+    flex-direction:column;
+
+  }
+
+
+  .split,
+  .full-split{
+    grid-template-columns:1fr;
+  }
+
+
+  .website-price small{
+    text-align:left;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     TOP
+========================================== -->
+
+<div class="top">
+
+  <div class="wrap top-inner">
+
+
+    <a
+      class="back"
+      href="yoga-garden-demo-intro.html"
+    >
+      ← Back to the walkthrough
+    </a>
+
+
+    <img
+      class="logo"
+      src="yogagardenlogo.png"
+      alt="The Yoga Garden"
+    >
+
+
+  </div>
+
+</div>
+
+
+<!-- ==========================================
+     INTRO
+========================================== -->
+
+<section class="intro">
+
+  <div class="wrap intro-inner">
+
+
+    <span class="eyebrow">
+      What I’d suggest
+    </span>
+
+
+    <h1>
+      Build the part that actually makes the studio easier to run.
+    </h1>
+
+
+    <p>
+
+      I wouldn’t try to turn The Yoga Garden into a giant
+      studio-management system.
+
+      I’d build the pieces that take some of the repetitive
+      work off your plate, make things easier for your clients,
+      and give your instructors the information they actually
+      need when they’re teaching.
+
+    </p>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     THE BUILD
+========================================== -->
+
+<section class="section">
+
+  <div class="wrap">
+
+
+    <span class="eyebrow">
+      The Studio System
+    </span>
+
+
+    <h2>
+      What I’d build.
+    </h2>
+
+
+    <p class="section-intro">
+
+      This would be the real, working version of the system
+      you’ve just been clicking through.
+
+    </p>
+
+
+    <div class="included">
+
+
+      <div class="item">
+
+        <strong>
+          Class schedule + booking
+        </strong>
+
+        <span>
+          Clients can see what’s coming up, check availability,
+          and book themselves.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          My Garden
+        </strong>
+
+        <span>
+          A simple client account with upcoming bookings,
+          cancellations, and saved information.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Digital waivers
+        </strong>
+
+        <span>
+          Built into the first booking and stored with the
+          client record.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Owner dashboard
+        </strong>
+
+        <span>
+          Classes, clients, instructors, waivers, waiting lists,
+          notifications, and studio settings.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Instructor access
+        </strong>
+
+        <span>
+          Their classes, rosters, check-in, relevant client
+          information, waiver status, and payment status.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Cash + e-transfer tracking
+        </strong>
+
+        <span>
+          Instructors can record cash they receive.
+          E-transfers can be confirmed on the owner side.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Schedule control
+        </strong>
+
+        <span>
+          Change an instructor or time, cancel one class,
+          add something new, or change future classes.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Cancellation lists
+        </strong>
+
+        <span>
+          When a spot opens, the system can work through
+          the waiting list instead of you messaging everyone.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Client emails
+        </strong>
+
+        <span>
+          Booking confirmations, reminders, cancellations,
+          and open-spot notifications.
+        </span>
+
+      </div>
+
+
+      <div class="item">
+
+        <strong>
+          Setup + launch
+        </strong>
+
+        <span>
+          Your classes, instructors, settings, testing,
+          and connection into your existing Wix site.
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="not-now">
+
+      <p>
+
+        <strong>
+          What I’d leave out for now:
+        </strong>
+
+        online card processing, memberships, class packages,
+        payroll, commissions, point-of-sale, and the other
+        larger pieces you haven’t actually said you need.
+
+        We can always add something later if it becomes useful.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     PRICE
+========================================== -->
+
+<section class="section">
+
+  <div class="wrap">
+
+
+    <span class="eyebrow">
+      Project cost
+    </span>
+
+
+    <h2>
+      The complete Studio System: $950.
+    </h2>
+
+
+    <div class="price-box">
+
+
+      <div class="price-main">
+
+
+        <div>
+
+          <h3>
+            The Yoga Garden Studio System
+          </h3>
+
+
+          <p class="price-copy">
+
+            Build, setup, testing, launch, integration into your
+            existing website, 90 days of launch support, and your
+            first 12 months of the live platform.
+
+          </p>
+
+        </div>
+
+
+        <div class="price">
+          $950
+        </div>
+
+
+      </div>
+
+
+      <div class="split">
+
+
+        <div class="split-item">
+
+          <span>
+            Cash
+          </span>
+
+          <strong>
+            $450
+          </strong>
+
+        </div>
+
+
+        <div class="split-item">
+
+          <span>
+            Yoga Garden credit
+          </span>
+
+          <strong>
+            $500
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="platform-note">
+
+        <strong>
+          Your first 12 months are included.
+        </strong>
+
+
+        <p>
+
+          You won’t finish the build and immediately get
+          another bill from me.
+
+          The first year of actually running the system
+          is included in the project cost.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     AFTER YEAR ONE
+========================================== -->
+
+<section class="section">
+
+  <div class="wrap">
+
+
+    <span class="eyebrow">
+      After the first year
+    </span>
+
+
+    <h2>
+      There are real costs to keeping something like this live.
+    </h2>
+
+
+    <p class="section-intro">
+
+      Even when nobody is actively changing the system,
+      there are still services running behind it.
+
+      The ongoing platform fee covers those pieces and
+      keeps the system maintained.
+
+    </p>
+
+
+    <div class="platform-note">
+
+      <strong>
+        What that fee covers
+      </strong>
+
+
+      <p>
+
+        Hosting, database storage, secure client and instructor
+        logins, transactional emails, backups, routine maintenance,
+        security updates, and fixes if something already built
+        stops working the way it was designed to.
+
+      </p>
+
+
+      <div class="ongoing-price">
+
+        $199.99/year
+
+        <span>
+          or $20.99/month
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+    <p class="small-copy">
+
+      <strong>
+        Everyday changes stay in your hands.
+      </strong>
+
+      Classes, instructors, times, prices, capacity,
+      descriptions, and basic studio information would all
+      be things you can update yourself.
+
+    </p>
+
+
+    <p class="small-copy">
+
+      If you ever need a change that isn’t available through
+      the dashboard, just ask.
+
+      If it’s something that involves new development,
+      a new feature, or an integration, I’ll always let you
+      know before there would be any additional cost.
+
+    </p>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     WEBSITE OPTION
+========================================== -->
+
+<section class="section">
+
+  <div class="wrap">
+
+
+    <span class="eyebrow">
+      And if you want the whole thing
+    </span>
+
+
+    <h2>
+      The website can be the cherry on top.
+    </h2>
+
+
+    <p class="section-intro">
+
+      You don’t need a new website for the Studio System to work.
+
+      But since you’ve already seen the website concept,
+      I wanted to leave this option here in case you decide
+      you’d like to carry the whole thing through.
+
+    </p>
+
+
+    <div class="website-wrap">
+
+
+      <div class="website-top">
+
+
+        <div class="website-copy">
+
+          <h3>
+            Studio System + full Yoga Garden website
+          </h3>
+
+
+          <p>
+
+            I’d finish and launch the multi-page website concept
+            you’ve already seen and build the Studio System
+            directly into it so the whole client experience
+            feels like one thing.
+
+          </p>
+
+        </div>
+
+
+        <div class="website-price">
+
+          $1,500
+
+          <small>
+            total project
+          </small>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="website-includes">
+
+        <div>
+          Multi-page custom website
+        </div>
+
+        <div>
+          Booking built directly into the site
+        </div>
+
+        <div>
+          Mobile-responsive design
+        </div>
+
+        <div>
+          Yoga Garden branding and visual polish
+        </div>
+
+        <div>
+          Class and studio information
+        </div>
+
+        <div>
+          New-client guide
+        </div>
+
+        <div>
+          Branded waiver experience
+        </div>
+
+        <div>
+          My Garden access
+        </div>
+
+        <div>
+          Clear first-visit journey
+        </div>
+
+        <div>
+          Contact, location, and practical information
+        </div>
+
+        <div>
+          Basic SEO and accessibility setup
+        </div>
+
+        <div>
+          Final testing and launch
+        </div>
+
+      </div>
+
+
+      <div class="full-split">
+
+
+        <div>
+
+          <span>
+            Cash
+          </span>
+
+          <strong>
+            $700
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Yoga Garden credit
+          </span>
+
+          <strong>
+            $800
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     FINAL
+========================================== -->
+
+<section class="end">
+
+  <div class="wrap end-inner">
+
+
+    <span class="eyebrow">
+      That’s the idea
+    </span>
+
+
+    <h2>
+      We can talk through any of it.
+    </h2>
+
+
+    <p>
+
+      I mostly wanted you to be able to see what I had
+      in mind rather than trying to explain all of this
+      in an email.
+
+      We can go through what feels useful, what doesn’t,
+      and anything you’d want changed before moving ahead.
+
+    </p>
+
+
+    <p class="extra-note">
+
+      Beyond this project, The Yellow Front Door is
+      always happy to help with the other pieces around
+      the business too, whether that’s website work,
+      marketing pieces, print, or something else that
+      comes up.
+
+    </p>
+
+
+    <div class="signature">
+      Julianna
+    </div>
+
+
+  </div>
+
+</section>
+
+
+</body>
+
+</html>
