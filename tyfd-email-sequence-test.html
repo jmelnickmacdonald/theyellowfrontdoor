@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TYFD Email Sequence Test</title>
+<style>
+:root{--navy:#132447;--yellow:#fcd346;--paper:#f7f6f1;--stone:#dedad1;--slate:#596674}
+*{box-sizing:border-box}
+body{margin:0;padding:28px;background:var(--paper);font-family:Montserrat,Arial,sans-serif;color:var(--navy)}
+.wrap{max-width:840px;margin:auto;background:#fff;border:1px solid var(--stone);padding:28px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--slate)}
+h1{margin:8px 0 8px;font-size:30px}
+p{line-height:1.6}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.wide{grid-column:1/-1}
+label{display:grid;gap:6px;font-size:12px;font-weight:800}
+input,textarea{width:100%;border:1px solid #cbd0d5;padding:12px;font:inherit;color:var(--navy)}
+textarea{min-height:100px;resize:vertical}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button{border:1px solid var(--navy);padding:12px 16px;font-weight:800;cursor:pointer;background:#fff;color:var(--navy)}
+.primary{background:var(--yellow)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.box{margin-top:20px;padding:16px;background:#faf9f5;border:1px solid var(--stone)}
+.hidden{display:none}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;color:#3b4651}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}body{padding:14px}.wrap{padding:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">The Yellow Front Door</div>
+  <h1>Proposal email test</h1>
+  <p>Use your own email address. This sends the first email immediately and schedules two reminders. After you confirm the first email looks right, use the cancel button below so the reminders do not actually send later.</p>
+
+  <div class="grid">
+    <label>Your first name
+      <input id="clientName" value="Julianna">
+    </label>
+    <label>Your email address
+      <input id="clientEmail" type="email" placeholder="your@email.com">
+    </label>
+    <label>Business name
+      <input id="businessName" value="Test Business">
+    </label>
+    <label>What do they do?
+      <input id="whatTheyDo" value="a small local business">
+    </label>
+    <label class="wide">Proposal URL
+      <input id="proposalUrl" placeholder="https://www.theyellowfrontdoor.ca/your-test-proposal.html">
+    </label>
+    <label class="wide">Quick project note
+      <textarea id="projectNote">This is a test of the TYFD proposal email workflow. We want the email to feel warm, clear, personal, and easy to act on.</textarea>
+    </label>
+  </div>
+
+  <div class="actions">
+    <button id="generateBtn">1. Generate opening</button>
+    <button class="primary" id="sendBtn" disabled>2. Send test email</button>
+    <button id="cancelBtn" disabled>3. Cancel reminders</button>
+  </div>
+
+  <div class="box hidden" id="introBox">
+    <div class="eyebrow">Generated opening</div>
+    <p id="introText"></p>
+  </div>
+
+  <div class="box" id="statusBox">
+    <div class="eyebrow">Status</div>
+    <p id="status">Ready.</p>
+    <pre id="details"></pre>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let currentIntro="";
+let scheduledEmailIds=[];
+
+function basePayload(){
+  return {
+    clientName:$("clientName").value.trim(),
+    clientEmail:$("clientEmail").value.trim(),
+    businessName:$("businessName").value.trim(),
+    whatTheyDo:$("whatTheyDo").value.trim(),
+    proposalUrl:$("proposalUrl").value.trim(),
+    projectNote:$("projectNote").value.trim()
+  };
+}
+function setStatus(msg,data){
+  $("status").textContent=msg;
+  $("details").textContent=data?JSON.stringify(data,null,2):"";
+}
+
+$("generateBtn").onclick=async()=>{
+  setStatus("Generating the opening…");
+  $("generateBtn").disabled=true;
+  try{
+    const r=await fetch("/api/generate-proposal-email",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(basePayload())
+    });
+    const data=await r.json();
+    if(!r.ok) throw new Error(data.error||"Could not generate opening.");
+    currentIntro=data.intro;
+    $("introText").textContent=currentIntro;
+    $("introBox").classList.remove("hidden");
+    $("sendBtn").disabled=false;
+    setStatus("Opening generated. Review it, then send the test email.",data);
+  }catch(e){
+    setStatus(e.message);
+  }finally{
+    $("generateBtn").disabled=false;
+  }
+};
+
+$("sendBtn").onclick=async()=>{
+  const p=basePayload();
+  if(!p.clientEmail){setStatus("Enter your own email address first.");return;}
+  if(!currentIntro){setStatus("Generate the opening first.");return;}
+  if(!confirm(`Send the test proposal email to ${p.clientEmail}?`)) return;
+
+  $("sendBtn").disabled=true;
+  setStatus("Sending the first email and scheduling reminders…");
+  try{
+    const proposalId=`tyfd-test-${Date.now()}`;
+    const r=await fetch("/api/start-proposal-sequence",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({...p,intro:currentIntro,proposalId})
+    });
+    const data=await r.json();
+    if(!r.ok && r.status!==207) throw new Error(data.error||"Could not start sequence.");
+    scheduledEmailIds=data.scheduledEmailIds||[];
+    $("cancelBtn").disabled=scheduledEmailIds.length===0;
+    setStatus(
+      data.warning || "Test email sent. Check your inbox, then cancel the scheduled reminders.",
+      data
+    );
+  }catch(e){
+    setStatus(e.message);
+    $("sendBtn").disabled=false;
+  }
+};
+
+$("cancelBtn").onclick=async()=>{
+  if(!scheduledEmailIds.length){setStatus("No scheduled reminder IDs were returned.");return;}
+  $("cancelBtn").disabled=true;
+  setStatus("Canceling scheduled reminders…");
+  try{
+    const r=await fetch("/api/cancel-proposal-sequence",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({scheduledEmailIds})
+    });
+    const data=await r.json();
+    if(!r.ok) throw new Error(data.error||"Could not cancel reminders.");
+    setStatus("Scheduled reminders canceled. Test complete.",data);
+    scheduledEmailIds=[];
+  }catch(e){
+    setStatus(e.message);
+    $("cancelBtn").disabled=false;
+  }
+};
+</script>
+</body>
+</html>
