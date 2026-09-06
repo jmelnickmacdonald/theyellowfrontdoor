@@ -239,12 +239,6 @@ async function sendProposalCopy({quiet = false} = {}){
     }
 
     emailCopyButton.addEventListener("click", () => sendProposalCopy());
-    const data=await response.json().catch(()=>({}));
-    if(!response.ok)throw new Error(data.error||"Email failed");
-    emailCopyStatus.textContent=`Sent to ${acceptedRecord.email}.`;
-  }catch(err){emailCopyStatus.textContent="I couldn’t send the email copy just now. You can still use Print / save a copy, or contact The Yellow Front Door."}
-  finally{emailCopyButton.disabled=false}
-});
 </script>
 </body>
 </html>
