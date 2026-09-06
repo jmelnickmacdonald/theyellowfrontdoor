@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Farmhouse & Fields Dog Daycare in Woodside, Nova Scotia. Small-pack country daycare with all-day supervision." />
+  <title>Farmhouse & Fields Dog Daycare | Woodside, Nova Scotia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #181817;
+      --muted: #67645f;
+      --red: #9b302b;
+      --red-dark: #74231f;
+      --red-soft: #f4e7e4;
+      --paper: #fbfaf7;
+      --sand: #eee9df;
+      --white: #ffffff;
+      --line: #dedbd5;
+      --max: 1180px;
+      --gutter: clamp(22px, 5vw, 72px);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: -80px;
+      z-index: 1000;
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 10px;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .shell {
+      width: min(var(--max), calc(100% - (var(--gutter) * 2)));
+      margin-inline: auto;
+    }
+
+    .topline {
+      background: var(--ink);
+      color: #fff;
+      font-size: .79rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .topline .shell {
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .topline span:last-child { opacity: .72; }
+
+    header {
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid rgba(24,24,23,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .nav {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex: 0 0 auto;
+    }
+    .brand img {
+      width: clamp(190px, 22vw, 285px);
+      height: 70px;
+      object-fit: contain;
+      object-position: left center;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.5vw, 34px);
+      margin-left: auto;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .94rem;
+    }
+    .nav-links a:not(.button):hover { color: var(--red); }
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--red);
+      background: var(--red);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .button:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-1px); }
+    .button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .button.secondary:hover { background: var(--paper); border-color: #c9c5bd; }
+    .button.light { background: #fff; color: var(--red-dark); border-color: #fff; }
+    .button.light:hover { background: var(--paper); border-color: var(--paper); }
+
+    .menu-btn {
+      display: none;
+      margin-left: auto;
+      border: 0;
+      background: transparent;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: clamp(58px, 8vw, 110px) 0 72px;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .93fr) minmax(380px, 1.07fr);
+      align-items: center;
+      gap: clamp(42px, 7vw, 96px);
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .12em;
+      font-size: .78rem;
+    }
+    h1, h2, h3 {
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      margin-top: 0;
+    }
+    h1 {
+      font-size: clamp(3rem, 6.2vw, 6.1rem);
+      max-width: 760px;
+      margin-bottom: 24px;
+      text-wrap: balance;
+    }
+    h2 { font-size: clamp(2.35rem, 4vw, 4.25rem); margin-bottom: 20px; }
+    h3 { font-size: clamp(1.45rem, 2vw, 2rem); margin-bottom: 12px; }
+    .hero-copy > p:not(.eyebrow) {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+      max-width: 650px;
+      margin: 0 0 30px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 610px;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 38px 42px;
+      border-radius: 180px 24px 24px 24px;
+      overflow: hidden;
+      background: #ddd;
+      box-shadow: 0 24px 70px rgba(35,27,22,.13);
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 48%;
+    }
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 56%, rgba(20,12,8,.22));
+      pointer-events: none;
+    }
+    .red-frame {
+      position: absolute;
+      left: 0;
+      top: 42px;
+      width: 36%;
+      height: 72%;
+      border: 2px solid var(--red);
+      border-radius: 160px 0 0 0;
+      z-index: -1;
+    }
+    .hero-note {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: min(360px, 72%);
+      padding: 19px 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 45px rgba(20,20,20,.10);
+      border-radius: 18px;
+    }
+    .hero-note strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; margin-bottom: 2px; }
+    .hero-note span { color: var(--muted); font-size: .92rem; }
+
+    .proof-strip {
+      border-block: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .proof-item {
+      padding: 24px clamp(14px, 2.4vw, 30px);
+      border-right: 1px solid var(--line);
+    }
+    .proof-item:last-child { border-right: 0; }
+    .proof-item strong { display: block; margin-bottom: 2px; font-size: .96rem; }
+    .proof-item span { color: var(--muted); font-size: .88rem; }
+
+    section { padding: clamp(76px, 9vw, 126px) 0; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(48px, 8vw, 110px);
+      align-items: center;
+    }
+    .story-copy p { color: var(--muted); font-size: 1.06rem; }
+    .story-copy .lead { color: var(--ink); font-size: 1.2rem; }
+    .red-rule { width: 64px; height: 3px; background: var(--red); margin: 26px 0; }
+    .story-images {
+      display: grid;
+      grid-template-columns: 1fr .74fr;
+      grid-template-rows: 250px 250px;
+      gap: 14px;
+    }
+    .story-images figure { margin: 0; overflow: hidden; border-radius: 22px; background: var(--sand); }
+    .story-images figure:first-child { grid-row: 1 / 3; }
+    .story-images img { width: 100%; height: 100%; object-fit: cover; }
+
+    .difference { background: var(--paper); }
+    .section-head { max-width: 760px; margin-bottom: 54px; }
+    .section-head p { color: var(--muted); font-size: 1.08rem; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+    }
+    .feature {
+      padding: 34px 36px 12px 0;
+      border-right: 1px solid var(--line);
+      margin-right: 36px;
+    }
+    .feature:last-child { border-right: 0; margin-right: 0; }
+    .feature .number { color: var(--red); font-weight: 700; font-size: .82rem; letter-spacing: .12em; margin-bottom: 24px; }
+    .feature p { color: var(--muted); margin-bottom: 0; }
+
+    .rates-grid {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: clamp(48px, 8vw, 104px);
+      align-items: start;
+    }
+    .rates-copy p { color: var(--muted); }
+    .price-list { border-top: 1px solid var(--ink); }
+    .price-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: end;
+    }
+    .price-row h3 { margin: 0 0 5px; font-size: 1.7rem; }
+    .price-row p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .price {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2.55rem;
+      line-height: 1;
+      color: var(--red-dark);
+      white-space: nowrap;
+    }
+    .price small { font-family: "DM Sans", Arial, sans-serif; color: var(--muted); font-size: .8rem; font-weight: 600; }
+    .price-note { color: var(--muted); font-size: .9rem; margin-top: 16px; }
+
+    .day {
+      background: var(--ink);
+      color: white;
+    }
+    .day .eyebrow { color: #e8b0a9; }
+    .day .section-head p { color: rgba(255,255,255,.68); }
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,.2);
+    }
+    .day-step {
+      padding: 32px 30px 0 0;
+      margin-right: 30px;
+      border-right: 1px solid rgba(255,255,255,.16);
+    }
+    .day-step:last-child { border-right: 0; margin-right: 0; }
+    .day-step span { color: #e8b0a9; font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
+    .day-step h3 { margin-top: 12px; font-size: 1.55rem; }
+    .day-step p { color: rgba(255,255,255,.67); font-size: .94rem; }
+
+    .waitlist-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      background: var(--red);
+      color: #fff;
+      padding: clamp(38px, 5vw, 68px);
+      border-radius: 30px;
+    }
+    .waitlist-wrap h2 { margin-bottom: 10px; font-size: clamp(2.1rem, 3.4vw, 3.55rem); }
+    .waitlist-wrap p { color: rgba(255,255,255,.8); max-width: 720px; margin-bottom: 0; }
+
+    .contact {
+      padding-top: 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 50px;
+      border-top: 1px solid var(--line);
+      padding-top: 58px;
+    }
+    .contact-copy p { color: var(--muted); max-width: 620px; }
+    .contact-list { display: grid; gap: 12px; align-content: start; }
+    .contact-list a, .contact-list span {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .contact-list a:hover { color: var(--red); }
+
+    footer {
+      padding: 36px 0 48px;
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 30px;
+    }
+    .footer-brand img { width: 235px; height: 76px; object-fit: contain; object-position: left center; margin-bottom: 12px; }
+    .footer-brand p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: .88rem; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--red); }
+
+    :focus-visible {
+      outline: 3px solid #d64b42;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 920px) {
+      .topline span:last-child { display: none; }
+      .nav { min-height: 80px; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        padding: 22px var(--gutter) 28px;
+        background: white;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; }
+      .nav-links .button { margin-top: 8px; }
+      .menu-btn { display: inline-grid; place-items: center; }
+      .hero-grid, .story-grid, .rates-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 52px; }
+      .hero-visual { min-height: 560px; }
+      .hero-photo { inset: 0 0 35px 28px; }
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-item:nth-child(2) { border-right: 0; }
+      .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { border-right: 0; border-bottom: 1px solid var(--line); margin-right: 0; padding-right: 0; padding-bottom: 30px; }
+      .feature:last-child { border-bottom: 0; }
+      .day-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
+      .day-step:nth-child(2) { border-right: 0; margin-right: 0; }
+      .day-step:nth-child(-n+2) { padding-bottom: 26px; border-bottom: 1px solid rgba(255,255,255,.16); }
+      .waitlist-wrap { grid-template-columns: 1fr; gap: 24px; }
+      .waitlist-wrap .button { justify-self: start; }
+    }
+
+    @media (max-width: 620px) {
+      body { font-size: 16px; }
+      .topline .shell { justify-content: center; }
+      .brand img { width: 190px; height: 62px; }
+      h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
+      .hero-visual { min-height: 430px; }
+      .hero-photo { inset: 0 0 25px 16px; border-radius: 100px 18px 18px 18px; }
+      .red-frame { top: 26px; height: 70%; }
+      .hero-note { padding: 14px 16px; width: 76%; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-item { border-right: 0 !important; border-bottom: 1px solid var(--line); }
+      .proof-item:last-child { border-bottom: 0; }
+      .story-images { grid-template-rows: 190px 190px; }
+      .story-images { grid-template-columns: 1fr 1fr; }
+      .story-images figure:first-child { grid-column: 1 / 3; grid-row: auto; }
+      .day-grid { grid-template-columns: 1fr; }
+      .day-step { border-right: 0 !important; margin-right: 0 !important; padding-bottom: 22px !important; border-bottom: 1px solid rgba(255,255,255,.16); }
+      .day-step:last-child { border-bottom: 0; }
+      .price-row { grid-template-columns: 1fr; gap: 12px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { gap: 12px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="topline" aria-label="Business summary">
+    <div class="shell">
+      <span>Small-pack dog daycare · Woodside, Nova Scotia</span>
+      <span>Country setting · Closed pack · All-day supervision</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Farmhouse & Fields home">
+        <img src="farmhouseandfields.jpg" alt="Farmhouse & Fields Dog Daycare" />
+      </a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+
+      <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+        <a href="#daycare">Daycare</a>
+        <a href="#our-place">Our place</a>
+        <a href="#rates">Rates</a>
+        <a href="#contact">FAQ & contact</a>
+        <a href="#" data-demo-link="portal">Client portal</a>
+        <a class="button" href="#waitlist">Join the wait-list</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Dog daycare, on a smaller scale</p>
+          <h1>Room to run. People who know their name.</h1>
+          <p>Farmhouse & Fields is a small, familiar daycare in the country — a converted farmhouse, secure outdoor space, a carefully managed pack, and someone with the dogs throughout the day.</p>
+          <div class="actions">
+            <a class="button" href="#daycare">See how daycare works</a>
+            <a class="button secondary" href="#" data-demo-link="portal">Current clients →</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Happy dogs outside">
+          <div class="red-frame" aria-hidden="true"></div>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1600&q=86" alt="Two happy dogs running together outdoors" />
+          </div>
+          <div class="hero-note">
+            <strong>Small by design.</strong>
+            <span>Up to 15 dogs · closed pack · supervised all day</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="proof-strip" aria-label="What makes Farmhouse and Fields different">
+      <div class="shell proof-grid">
+        <div class="proof-item"><strong>Small numbers</strong><span>A maximum of about 15 dogs a day.</span></div>
+        <div class="proof-item"><strong>Closed pack</strong><span>No revolving door of random drop-ins.</span></div>
+        <div class="proof-item"><strong>Country setting</strong><span>A real farmhouse and secure outdoor space.</span></div>
+        <div class="proof-item"><strong>Always supervised</strong><span>The dogs are never left on their own.</span></div>
+      </div>
+    </div>
+
+    <section id="our-place">
+      <div class="shell story-grid">
+        <div class="story-images" aria-label="Dog daycare photo gallery">
+          <figure><img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=1100&q=84" alt="Dog enjoying time outdoors" loading="lazy" /></figure>
+          <figure><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=84" alt="Golden retriever sitting in a grassy field" loading="lazy" /></figure>
+          <figure><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=700&q=84" alt="Happy dog looking toward the camera" loading="lazy" /></figure>
+        </div>
+
+        <div class="story-copy">
+          <p class="eyebrow">A different kind of daycare</p>
+          <h2>More country house than commercial facility.</h2>
+          <div class="red-rule" aria-hidden="true"></div>
+          <p class="lead">Daycare here is intentionally small. The goal is not to fit as many dogs as possible into a room. It is to create a familiar place where dogs can play, settle, explore, and be known.</p>
+          <p>Farmhouse & Fields operates as a closed pack, with a small number of regular dogs and thoughtful introductions when a new space becomes available. There is no boarding, no grooming, and no constant shuffle of unfamiliar drop-ins.</p>
+          <p>The result is simple: more room, more consistency, and a day that feels a lot less like a facility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="difference" id="daycare">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Why families choose us</p>
+          <h2>Daycare that feels familiar.</h2>
+          <p>Everything is built around keeping the experience personal, calm enough to settle, and fun enough to go home happily tired.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="number">01</div>
+            <h3>A pack we actually know</h3>
+            <p>Small numbers mean we get to know personalities, play styles, routines, and what each dog needs from the day.</p>
+          </article>
+          <article class="feature">
+            <div class="number">02</div>
+            <h3>Space to be a dog</h3>
+            <p>Country surroundings and secure outdoor space make room for running, sniffing, play, fresh air, and quieter moments too.</p>
+          </article>
+          <article class="feature">
+            <div class="number">03</div>
+            <h3>Present all day</h3>
+            <p>The dogs are supervised throughout the day. They are not simply checked on between other jobs or left alone in the space.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rates">
+      <div class="shell rates-grid">
+        <div class="rates-copy">
+          <p class="eyebrow">Simple pricing</p>
+          <h2>Easy to understand before you book.</h2>
+          <p>No hunting through a booking portal just to find the basics. Daycare rates live right here, with booking and payment handled through the existing Time To Pet client portal.</p>
+          <p class="price-note">Frequent daycare? Multi-day pricing is available for eligible weekly schedules.</p>
+        </div>
+
+        <div class="price-list" aria-label="Daycare pricing">
+          <div class="price-row">
+            <div>
+              <h3>Full Day Daycare</h3>
+              <p>A full day with the Farmhouse & Fields pack.</p>
+            </div>
+            <div class="price">$27 <small>/ day</small></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <h3>Half Day Daycare</h3>
+              <p>Morning or afternoon, subject to availability.</p>
+            </div>
+            <div class="price">$15 <small>/ half day</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="day">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">A day at the farmhouse</p>
+          <h2>Play, pause, repeat.</h2>
+          <p>Not every dog wants to sprint for eight hours straight. A good daycare day has room for excitement, connection, and settling back down.</p>
+        </div>
+        <div class="day-grid">
+          <article class="day-step"><span>01</span><h3>Arrive & settle</h3><p>Dogs come into a familiar environment and get comfortable with the pack.</p></article>
+          <article class="day-step"><span>02</span><h3>Run & explore</h3><p>Outdoor time, play, movement, sniffing, and the kind of fun that needs a little country space.</p></article>
+          <article class="day-step"><span>03</span><h3>Reset</h3><p>Quieter moments matter too, especially in a small pack where individual needs are easier to notice.</p></article>
+          <article class="day-step"><span>04</span><h3>Head home happy</h3><p>A good day ends with a dog who has had attention, activity, and plenty to tell you about.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist">
+      <div class="shell">
+        <div class="waitlist-wrap">
+          <div>
+            <h2>Small by design means spaces can be limited.</h2>
+            <p>If there is not a spot that fits right now, join the wait-list. Tell us a little about your dog and the days you need, and we will be in touch when the right opening comes up.</p>
+          </div>
+          <a class="button light" href="#" data-demo-link="waitlist">Join the wait-list →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Questions before you start?</p>
+          <h2>Everything you need, without digging for it.</h2>
+          <p>The finished site can hold the practical pieces people ask about most: vaccinations and requirements, what to bring, how new dogs are introduced, cancellation information, payment, and what to expect on the first day.</p>
+          <a class="button secondary" href="#" data-demo-link="faq">Read the FAQs →</a>
+        </div>
+
+        <div class="contact-list">
+          <span><strong>Farmhouse & Fields Dog Daycare</strong><br>571 Woodside Rd, Woodside, NS B0P 1H0</span>
+          <a href="tel:+19028241979"><strong>902-824-1979</strong><br>Call or text</a>
+          <a href="mailto:farmhousefieldsdaycare@gmail.com"><strong>farmhousefieldsdaycare@gmail.com</strong><br>Email us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <img src="farmhouseandfields.jpg" alt="Farmhouse & Fields Dog Daycare" />
+        <p>Small-pack dog daycare in Woodside, Nova Scotia.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#daycare">Daycare</a>
+        <a href="#rates">Rates</a>
+        <a href="#waitlist">Wait-list</a>
+        <a href="#" data-demo-link="portal">Client portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-btn');
+    const nav = document.querySelector('#primary-nav');
+
+    menuButton.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? 'Close' : 'Menu';
+    });
+
+    nav.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'Menu';
+      });
+    });
+
+    // Demo-only placeholder links. Replace these with the real Time To Pet,
+    // wait-list and FAQ URLs/pages before launch.
+    document.querySelectorAll('[data-demo-link]').forEach(link => {
+      link.addEventListener('click', (event) => {
+        if (link.getAttribute('href') === '#') {
+          event.preventDefault();
+          const label = link.dataset.demoLink.replace('-', ' ');
+          alert(`Mockup link: connect this to the real ${label} destination.`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
