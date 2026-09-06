@@ -5,9 +5,82 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#fbf6ef;--paper:#fffaf6;--lilac:#eadff1;--plum:#87507f;--plum-dark:#55334f;--green:#4b825f;--green-dark:#315d42;--green-soft:#e8f1ea;--muted:#756d72;--line:rgba(85,51,79,.13)}*{box-sizing:border-box}body{margin:0;background:var(--cream);font-family:"DM Sans",sans-serif;color:#302b2f}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,calc(100% - 42px));margin:auto}.demo{background:#382738;color:white;font-size:12px}.demo .wrap{min-height:34px;display:flex;justify-content:space-between;align-items:center}.demo nav{display:flex;gap:15px;flex-wrap:wrap}.demo button{color:white;border:0;background:transparent;padding:0;cursor:pointer}.demo a{border-bottom:1px solid rgba(255,255,255,.25)}.header{background:linear-gradient(90deg,rgba(234,223,241,.82),#fffaf6 43%,rgba(232,242,235,.84));border-bottom:1px solid var(--line)}.nav{height:112px;display:grid;grid-template-columns:1fr 190px 1fr;gap:22px;align-items:center}.navside{display:flex;gap:25px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--plum-dark)}.left{justify-content:flex-end}.right{justify-content:flex-start}.logo img{width:170px;max-height:102px;object-fit:contain}.logo{display:flex;justify-content:center}.client{border:1px solid rgba(135,80,127,.28);border-radius:999px;padding:9px 14px;text-transform:none}.client small{display:block;font-size:9px;opacity:.7;text-transform:uppercase}.hero{padding:58px 0 34px;background:radial-gradient(circle at 84% 18%,rgba(234,223,241,.58),transparent 31%),var(--paper)}.herogrid{display:grid;grid-template-columns:1fr .8fr;gap:80px;align-items:end}.eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--green)}h1,h2,h3{font-family:"Playfair Display",serif;color:var(--plum-dark);margin:0;letter-spacing:-.035em}h1{font-size:clamp(52px,6vw,90px);line-height:.95;margin-top:8px}.hero p{color:var(--muted);line-height:1.55;margin:0}.announcement{background:var(--lilac);color:var(--plum-dark);font-size:13px}.announcement .wrap{padding:10px 0;text-align:center}.booking{padding:32px 0 80px}.tools{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px}.week strong{display:block;color:var(--plum-dark)}.week span{font-size:12px;color:var(--muted)}.mode{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.segment{display:flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}.segment button{border:0;background:transparent;border-radius:999px;padding:7px 11px;font-size:12px;color:var(--muted)}.segment .active{background:var(--plum);color:white}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-bottom:22px}.day{text-align:center;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,250,246,.76)}.day small{display:block;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-size:10px;font-weight:700}.day b{font-family:"Playfair Display",serif;font-size:24px;color:var(--plum-dark)}.schedule{border-top:1px solid rgba(85,51,79,.23)}.row{display:grid;grid-template-columns:100px 1.2fr 125px 150px 180px;gap:18px;align-items:center;padding:22px 6px;border-bottom:1px solid var(--line)}.row:hover{background:rgba(234,223,241,.14)}.dow{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-weight:700}.name strong{display:block;color:var(--plum-dark);font-size:18px}.name span,.time{font-size:13px;color:var(--muted)}.status{display:inline-flex;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:700}.good{background:var(--green-soft);color:var(--green-dark)}.full{background:var(--lilac);color:var(--plum)}.action{justify-self:end}.btn{border:1px solid transparent;border-radius:999px;padding:9px 16px;background:var(--plum);color:white;font-weight:700;font-size:12px}.btn.green{background:var(--green)}.btn.outline{background:transparent;color:var(--plum);border-color:rgba(135,80,127,.3)}.foot{display:flex;justify-content:space-between;gap:20px;padding-top:20px;font-size:12px;color:var(--muted)}.overlay{position:fixed;inset:0;background:rgba(45,32,43,.54);backdrop-filter:blur(5px);display:none;justify-content:flex-end;z-index:100}.overlay.open{display:flex}.drawer{width:min(610px,100%);height:100%;overflow:auto;background:var(--paper)}.drawerhead{padding:25px 28px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,250,246,.97);z-index:2}.headrow{display:flex;justify-content:space-between;gap:20px}.drawer h2{font-size:38px;margin-top:5px}.close{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:white;color:var(--plum);font-size:20px}.steps{display:flex;gap:12px;margin-top:15px}.step{font-size:11px;color:var(--muted);font-weight:700}.step.active{color:var(--plum)}.step.done{color:var(--green-dark)}.body{padding:25px 28px 40px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:5px;margin-bottom:13px}.field label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}.field input{border:1px solid var(--line);border-radius:10px;padding:11px;background:white}.note{padding:15px;background:var(--green-soft);border-left:3px solid var(--green);margin:16px 0}.note strong{color:var(--green-dark)}.note p{font-size:12px;color:var(--muted);margin:4px 0 0;line-height:1.5}.waiver{border:1px solid var(--line);background:white;border-radius:14px;padding:18px;margin-top:14px}.waiver h3{font-size:24px;margin-bottom:8px}.waiver p{font-size:13px;color:var(--muted);line-height:1.55}.checks{display:grid;gap:11px;margin:15px 0}.check{display:grid;grid-template-columns:20px 1fr;gap:9px;font-size:13px;line-height:1.45}.actions{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:20px;margin-top:22px}.pay{display:grid;gap:8px;margin-top:12px}.pay label{display:flex;gap:9px;border:1px solid var(--line);padding:12px;border-radius:10px;background:white}.success{text-align:center;padding:32px 8px}.successmark{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft);color:var(--green-dark);font-size:28px;margin:0 auto 16px}
-@media(max-width:800px){.nav{grid-template-columns:1fr;height:90px}.navside{display:none}.herogrid{grid-template-columns:1fr;gap:20px}.days{grid-template-columns:repeat(4,1fr)}.days .day:nth-child(n+5){display:none}.row{grid-template-columns:1fr;gap:6px}.action{justify-self:start}.tools{flex-direction:column;align-items:flex-start}.grid2{grid-template-columns:1fr}}
-</style></head><body>
+:root{--cream:#fbf6ef;--paper:#fffaf6;--lilac:#eadff1;--plum:#87507f;--plum-dark:#55334f;--green:#4b825f;--green-dark:#315d42;--green-soft:#e8f1ea;--muted:#756d72;--line:rgba(85,51,79,.13)}*{box-sizing:border-box}body{margin:0;background:var(--cream);font-family:"DM Sans",sans-serif;color:#302b2f}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,calc(100% - 42px));margin:auto}.demo{background:#382738;color:white;font-size:12px}.demo .wrap{min-height:34px;display:flex;justify-content:space-between;align-items:center}.demo nav{display:flex;gap:15px;flex-wrap:wrap}.demo button{color:white;border:0;background:transparent;padding:0;cursor:pointer}.demo a{border-bottom:1px solid rgba(255,255,255,.25)}.header{background:linear-gradient(90deg,rgba(234,223,241,.82),#fffaf6 43%,rgba(232,242,235,.84));border-bottom:1px solid var(--line)}.nav{height:112px;display:grid;grid-template-columns:1fr 190px 1fr;gap:22px;align-items:center}.navside{display:flex;gap:25px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--plum-dark)}.left{justify-content:flex-end}.right{justify-content:flex-start}.logo img{width:170px;max-height:102px;object-fit:contain}.logo{display:flex;justify-content:center}.client{border:1px solid rgba(135,80,127,.28);border-radius:999px;padding:9px 14px;text-transform:none}.client small{display:block;font-size:9px;opacity:.7;text-transform:uppercase}.hero{padding:58px 0 34px;background:radial-gradient(circle at 84% 18%,rgba(234,223,241,.58),transparent 31%),var(--paper)}.herogrid{display:grid;grid-template-columns:1fr .8fr;gap:80px;align-items:end}.eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--green)}h1,h2,h3{font-family:"Playfair Display",serif;color:var(--plum-dark);margin:0;letter-spacing:-.035em}h1{font-size:clamp(52px,6vw,90px);line-height:.95;margin-top:8px}.hero p{color:var(--muted);line-height:1.55;margin:0}.announcement{background:var(--lilac);color:var(--plum-dark);font-size:13px}.announcement .wrap{padding:10px 0;text-align:center}.booking{padding:32px 0 80px}.tools{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px}.week strong{display:block;color:var(--plum-dark)}.week span{font-size:12px;color:var(--muted)}.mode{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.segment{display:flex;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}.segment button{border:0;background:transparent;border-radius:999px;padding:7px 11px;font-size:12px;color:var(--muted)}.segment .active{background:var(--plum);color:white}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-bottom:22px}.day{text-align:center;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,250,246,.76)}.day small{display:block;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-size:10px;font-weight:700}.day b{font-family:"Playfair Display",serif;font-size:24px;color:var(--plum-dark)}.schedule{border-top:1px solid rgba(85,51,79,.23)}.row{display:grid;grid-template-columns:100px 1.2fr 125px 150px 180px;gap:18px;align-items:center;padding:22px 6px;border-bottom:1px solid var(--line)}.row:hover{background:rgba(234,223,241,.14)}.dow{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-weight:700}.name strong{display:block;color:var(--plum-dark);font-size:18px}.name span,.time{font-size:13px;color:var(--muted)}
+.class-trigger{display:block;width:100%;padding:0;border:0;background:transparent;text-align:left;color:inherit;cursor:pointer}
+.class-trigger strong{display:block;color:var(--plum-dark);font-size:18px;font-weight:700}
+.class-trigger:hover strong{color:var(--plum)}
+.class-meta-link{display:inline-flex;align-items:center;gap:5px;margin-top:4px;color:var(--plum);font-size:10px;font-weight:700}
+.class-meta-link .chev{display:inline-block;transition:transform .18s ease}
+.class-wrap.open .class-meta-link .chev{transform:rotate(180deg)}
+.class-detail{display:none;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:start;padding:0 186px 20px 124px;border-bottom:1px solid var(--line)}
+.class-wrap.open .class-detail{display:grid}
+.class-description p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.class-facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.fact-pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:6px 9px;background:rgba(255,255,255,.55);color:var(--muted);font-size:10px;white-space:nowrap}
+.booking-class-intro{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--lilac-soft);color:var(--muted);font-size:11px;line-height:1.55}.status{display:inline-flex;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:700}.good{background:var(--green-soft);color:var(--green-dark)}.full{background:var(--lilac);color:var(--plum)}.action{justify-self:end}.btn{border:1px solid transparent;border-radius:999px;padding:9px 16px;background:var(--plum);color:white;font-weight:700;font-size:12px}.btn.green{background:var(--green)}.btn.outline{background:transparent;color:var(--plum);border-color:rgba(135,80,127,.3)}.foot{display:flex;justify-content:space-between;gap:20px;padding-top:20px;font-size:12px;color:var(--muted)}.overlay{position:fixed;inset:0;background:rgba(45,32,43,.54);backdrop-filter:blur(5px);display:none;justify-content:flex-end;z-index:100}.overlay.open{display:flex}.drawer{width:min(610px,100%);height:100%;overflow:auto;background:var(--paper)}.drawerhead{padding:25px 28px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,250,246,.97);z-index:2}.headrow{display:flex;justify-content:space-between;gap:20px}.drawer h2{font-size:38px;margin-top:5px}.close{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:white;color:var(--plum);font-size:20px}.steps{display:flex;gap:12px;margin-top:15px}.step{font-size:11px;color:var(--muted);font-weight:700}.step.active{color:var(--plum)}.step.done{color:var(--green-dark)}.body{padding:25px 28px 40px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:5px;margin-bottom:13px}.field label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}.field input{border:1px solid var(--line);border-radius:10px;padding:11px;background:white}.note{padding:15px;background:var(--green-soft);border-left:3px solid var(--green);margin:16px 0}.note strong{color:var(--green-dark)}.note p{font-size:12px;color:var(--muted);margin:4px 0 0;line-height:1.5}.waiver{border:1px solid var(--line);background:white;border-radius:14px;padding:18px;margin-top:14px}.waiver h3{font-size:24px;margin-bottom:8px}.waiver p{font-size:13px;color:var(--muted);line-height:1.55}.checks{display:grid;gap:11px;margin:15px 0}.check{display:grid;grid-template-columns:20px 1fr;gap:9px;font-size:13px;line-height:1.45}.actions{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:20px;margin-top:22px}.pay{display:grid;gap:8px;margin-top:12px}.pay label{display:flex;gap:9px;border:1px solid var(--line);padding:12px;border-radius:10px;background:white}.success{text-align:center;padding:32px 8px}.successmark{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft);color:var(--green-dark);font-size:28px;margin:0 auto 16px}
+@media(max-width:800px){.nav{grid-template-columns:1fr;height:90px}.navside{display:none}.herogrid{grid-template-columns:1fr;gap:20px}.days{grid-template-columns:repeat(4,1fr)}.days .day:nth-child(n+5){display:none}.row{grid-template-columns:1fr;gap:6px}.action{justify-self:start}.class-detail{grid-template-columns:1fr;padding:0 0 18px}.class-facts{justify-content:flex-start}.tools{flex-direction:column;align-items:flex-start}.grid2{grid-template-columns:1fr}}
+</style>
+<style id="yg-password-style">
+body.yg-locked{min-height:100vh;margin:0;background:#faf8f5;}
+body.yg-locked > *:not(#ygPasswordGate){display:none!important;}
+#ygPasswordGate{min-height:100vh;display:grid;place-items:center;padding:24px;background:#faf8f5;color:#302b2f;font-family:"DM Sans",Arial,sans-serif;}
+#ygPasswordGate .yg-gate-card{width:min(430px,100%);padding:28px;border:1px solid rgba(62,48,59,.12);border-radius:16px;background:#fffdf9;}
+#ygPasswordGate h1{margin:0 0 8px;color:#55334f;font-family:"Playfair Display",Georgia,serif;font-size:30px;font-weight:500;}
+#ygPasswordGate p{margin:0 0 18px;color:#746d71;font-size:13px;line-height:1.65;}
+#ygPasswordGate label{display:block;margin-bottom:6px;color:#55334f;font-size:11px;font-weight:700;}
+#ygPasswordGate input{width:100%;padding:11px 12px;border:1px solid rgba(62,48,59,.18);border-radius:9px;background:#fff;color:#302b2f;font:inherit;font-size:16px;outline:none;}
+#ygPasswordGate input:focus{border-color:#87507f;box-shadow:0 0 0 3px rgba(135,80,127,.10);}
+#ygPasswordGate button{margin-top:10px;padding:10px 16px;border:0;border-radius:999px;background:#4b825f;color:#fff;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}
+#ygPasswordGate .yg-error{min-height:18px;margin-top:8px;color:#8a4747;font-size:10px;}
+</style>
+
+</head><body class="yg-locked">
+
+<div id="ygPasswordGate" aria-live="polite">
+  <form class="yg-gate-card" id="ygPasswordForm">
+    <h1>Private preview</h1>
+    <p>This page is password protected.</p>
+    <label for="ygPassword">Password</label>
+    <input id="ygPassword" type="password" autocomplete="current-password" required>
+    <button type="submit">Enter →</button>
+    <div class="yg-error" id="ygPasswordError"></div>
+  </form>
+</div>
+<script id="yg-password-script">
+(function(){
+  const KEY='ygProposalUnlocked';
+  const EXPECTED='507f0cd743f7993cbe9191186f8bbea78f128ef444104f3725240dbed9569d82';
+  const body=document.body;
+  const gate=document.getElementById('ygPasswordGate');
+  function unlock(){
+    try{sessionStorage.setItem(KEY,'1');}catch(e){}
+    body.classList.remove('yg-locked');
+    if(gate) gate.remove();
+  }
+  try{if(sessionStorage.getItem(KEY)==='1'){unlock();return;}}catch(e){}
+  const form=document.getElementById('ygPasswordForm');
+  const input=document.getElementById('ygPassword');
+  const error=document.getElementById('ygPasswordError');
+  async function sha256(text){
+    const data=new TextEncoder().encode(text);
+    const digest=await crypto.subtle.digest('SHA-256',data);
+    return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    error.textContent='';
+    try{
+      const entered=await sha256(input.value);
+      if(entered===EXPECTED){unlock();}
+      else{error.textContent='That password did not work. Please try again.';input.select();}
+    }catch(err){
+      error.textContent='This password screen needs to be opened from the live site.';
+    }
+  });
+  setTimeout(()=>input && input.focus(),0);
+})();
+</script>
+
 <div class="demo"><div class="wrap"><strong>The Yoga Garden · booking demo</strong><nav><a href="yoga-garden-demo-intro.html">← Walkthrough</a><a href="yoga-garden-my-garden.html">My Garden</a><a href="yoga-garden-owner.html">Owner</a><a href="yoga-garden-instructor.html">Instructor</a><a href="yoga-garden-next-steps.html">Proposal →</a><button onclick="ygReset()">Reset</button></nav></div></div>
 <header class="header"><div class="wrap nav"><nav class="navside left"><a href="yoga-garden-demo.html">Home</a><a href="yoga-garden-classes.html">Classes + Booking</a></nav><a class="logo" href="yoga-garden-demo.html"><img src="yogagardenlogo.png" alt="The Yoga Garden"></a><nav class="navside right"><a href="yoga-garden-demo.html#contact">Contact</a><a class="client" href="yoga-garden-my-garden.html">My Garden<small>Client account</small></a></nav></div></header>
 <div class="announcement" id="announcement"><div class="wrap" id="announcementText"></div></div>
@@ -102,6 +175,18 @@ function paymentText(c){
   return c.payment||'Not set';
 }
 
+const CLASS_DETAILS={
+  warm:{duration:'60 min',description:'A dynamic heated flow that builds strength, flexibility, and endurance while keeping breath at the centre. Expect a thoughtful warm-up, core work, flowing sequences, a cool-down and stretch, followed by shavasana and a sound bath. Modifications are always welcome.'},
+  yin:{duration:'60 min',description:'A slower, restorative practice built around longer-held, mostly floor-based poses in a gently heated room. The focus is mobility, connective tissue, stillness, and giving your body time to settle. Props and modifications can be used throughout.'},
+  fusion:{duration:'60 min',description:'A blend of Pilates-based core work and the fluid movement and stretching of yoga. This class focuses on strength, stability, mobility, and flexibility, with options that make it approachable for a range of experience levels.'},
+  stott:{duration:'45 min',description:'A contemporary Pilates class influenced by STOTT PILATES® principles, with an emphasis on breath, mobility, deep core strength, posture, balance, and controlled mat work. Exercises can be modified or progressed as needed.'},
+  fx:{duration:'50 min',description:'A dynamic, low-impact Pilates class using bodyweight movement to build core strength, control, alignment, and stability. Expect bridges, core work, planks, posterior-chain work, standing balance, and mobility.'},
+  sculpt:{duration:'60 min',description:'A full-body class that blends Pilates, light strength and sculpt work, cardio, and core training. It is designed to build strength and endurance while keeping the movement approachable and adaptable.'}
+};
+function classDetail(c){return CLASS_DETAILS[c.id]||{duration:'',description:'Class details can be added and updated from the studio side.'};}
+let openClassId=null;
+function toggleClassInfo(id){openClassId=openClassId===id?null:id;render();}
+
 let mode='returning',selected=null,currentStage='details',draft=null;
 const currentClient=()=>ygState.clients.find(c=>c.id==='sarah')||ygState.clients[0];
 function render(){
@@ -112,7 +197,26 @@ function render(){
  document.getElementById('paymentLine').textContent='$15 demo pricing · '+payments.join(' or ');
  document.getElementById('schedule').innerHTML=ygState.classes.filter(c=>c.visible).map(c=>{
   const full=c.booked>=c.capacity,spots=Math.max(0,c.capacity-c.booked);
-  return `<div class="row"><div class="dow">${ygEsc(c.day)}</div><div class="name"><strong>${ygEsc(c.title)}</strong><span>${ygEsc(c.instructor)} · $${c.price}</span></div><div class="time">${ygEsc(c.time)}</div><div>${full?'<span class="status full">Class full</span>':`<span class="status good">${spots} ${spots===1?'spot':'spots'} left</span>`}</div><div class="action">${full?`<button class="btn outline" onclick="joinWait('${c.id}')">Join cancellation list</button>`:`<button class="btn" onclick="startBook('${c.id}')">Book</button>`}</div></div>`;
+  const detail=classDetail(c),open=openClassId===c.id;
+  return `<div class="class-wrap ${open?'open':''}">
+    <div class="row">
+      <div class="dow">${ygEsc(c.day)}</div>
+      <div class="name">
+        <button class="class-trigger" type="button" onclick="toggleClassInfo('${c.id}')" aria-expanded="${open}">
+          <strong>${ygEsc(c.title)}</strong>
+          <span>${ygEsc(c.instructor)} · $${c.price}</span>
+          <span class="class-meta-link">${open?'Hide details':'Class details'} <span class="chev">⌄</span></span>
+        </button>
+      </div>
+      <div class="time">${ygEsc(c.time)}</div>
+      <div>${full?'<span class="status full">Class full</span>':`<span class="status good">${spots} ${spots===1?'spot':'spots'} left</span>`}</div>
+      <div class="action">${full?`<button class="btn outline" onclick="joinWait('${c.id}')">Join cancellation list</button>`:`<button class="btn" onclick="startBook('${c.id}')">Book</button>`}</div>
+    </div>
+    <div class="class-detail">
+      <div class="class-description"><p>${ygEsc(detail.description)}</p></div>
+      <div class="class-facts"><span class="fact-pill">${ygEsc(detail.duration)}</span><span class="fact-pill">${ygEsc(c.instructor)}</span></div>
+    </div>
+  </div>`;
  }).join('');
 }
 function setMode(m){mode=m;document.getElementById('returningBtn').classList.toggle('active',m==='returning');document.getElementById('newBtn').classList.toggle('active',m==='new')}
@@ -137,8 +241,9 @@ function renderSteps(){
 }
 function renderStep(){
  drawerTitle.textContent=selected.title;drawerMeta.textContent=`${selected.day} · ${selected.time} · ${selected.instructor} · $${selected.price}`;renderSteps();
+ const detail=classDetail(selected);
  const c=mode==='returning'?currentClient():(draft||{name:'',email:'',phone:'',emergency:'',waiver:false,payment:'E-transfer'});
- if(currentStage==='details') drawerBody.innerHTML=`<span class="eyebrow">${mode==='new'?'First visit':'Your details'}</span><h3 style="margin:6px 0 16px">${mode==='new'?'A few details first.':'Quick check before you book.'}</h3><div class="grid2"><div class="field"><label>Full name</label><input id="nm" value="${ygEsc(c.name)}"></div><div class="field"><label>Email</label><input id="em" value="${ygEsc(c.email)}"></div><div class="field"><label>Mobile</label><input id="ph" value="${ygEsc(c.phone)}"></div><div class="field"><label>Emergency contact</label><input id="ec" value="${ygEsc(c.emergency)}"></div></div><div class="note"><strong>${c.waiver?'Studio waiver on file ✓':'One-time waiver next'}</strong><p>${c.waiver?'No need to sign again for every class.':'First-time clients complete it before the booking is confirmed.'}</p></div><div class="actions"><button class="btn outline" onclick="closeDrawer()">Cancel</button><button class="btn green" onclick="nextDetails()">Continue</button></div>`;
+ if(currentStage==='details') drawerBody.innerHTML=`<span class="eyebrow">${mode==='new'?'First visit':'Your details'}</span><h3 style="margin:6px 0 10px">${mode==='new'?'A few details first.':'Quick check before you book.'}</h3><div class="booking-class-intro">${ygEsc(detail.description)}</div><div class="grid2" style="margin-top:16px"><div class="field"><label>Full name</label><input id="nm" value="${ygEsc(c.name)}"></div><div class="field"><label>Email</label><input id="em" value="${ygEsc(c.email)}"></div><div class="field"><label>Mobile</label><input id="ph" value="${ygEsc(c.phone)}"></div><div class="field"><label>Emergency contact</label><input id="ec" value="${ygEsc(c.emergency)}"></div></div><div class="note"><strong>${c.waiver?'Studio waiver on file ✓':'One-time waiver next'}</strong><p>${c.waiver?'No need to sign again for every class.':'First-time clients complete it before the booking is confirmed.'}</p></div><div class="actions"><button class="btn outline" onclick="closeDrawer()">Cancel</button><button class="btn green" onclick="nextDetails()">Continue</button></div>`;
  if(currentStage==='waiver') drawerBody.innerHTML=`<span class="eyebrow">One time only</span><h3 style="margin:6px 0">Studio waiver + consent</h3><p class="time">Sample demo wording only. Final legal language would be approved before launch.</p><div class="waiver"><h3>Participation + studio consent</h3><p>I understand that yoga, Pilates, heated classes, and strength-based movement involve physical activity. I will participate within my own comfort and ability and may stop at any time.</p><div class="checks"><label class="check"><input class="wc" type="checkbox"><span>I understand participation involves physical movement and exertion.</span></label><label class="check"><input class="wc" type="checkbox"><span>I will let the instructor know if I need support or a modification.</span></label><label class="check"><input class="wc" type="checkbox"><span>For heated classes, I understand the room may be warm and I am responsible for hydration and breaks.</span></label><label class="check"><input class="wc" type="checkbox"><span>I consent to The Yoga Garden keeping this signed waiver with my client account.</span></label></div><div class="field"><label>Type your full name to sign</label><input id="sig" value="${ygEsc(c.name)}"></div></div><div class="actions"><button class="btn outline" onclick="currentStage='details';renderStep()">Back</button><button class="btn green" onclick="signIt()">Sign + continue</button></div>`;
  if(currentStage==='payment'){
   const et=ygState.settings.paymentEtransfer?`<label><input type="radio" name="paychoice" value="E-transfer" ${(c.payment||'E-transfer')==='E-transfer'?'checked':''}> E-transfer</label>`:'';
