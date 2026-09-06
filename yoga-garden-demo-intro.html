@@ -2,854 +2,1526 @@
 <html lang="en">
 
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
 
-<title>The Yoga Garden · A Little Idea</title>
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta
+  name="robots"
+  content="noindex,nofollow"
+>
+
+<title>A Quick Walkthrough</title>
+
+
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
 
 <link
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
   rel="stylesheet"
 >
 
+
 <style>
 
 :root{
-  --cream:#fbf6ef;
-  --paper:#fffaf6;
-  --white:#fffdf9;
+
+  --cream:#fbf8f4;
+
+  --paper:#fffdf9;
+
+  --white:#ffffff;
 
   --plum:#87507f;
+
   --plum-dark:#55334f;
 
   --lilac:#eadff1;
-  --lilac-soft:#f4edf7;
+
+  --lilac-soft:#f5eef7;
 
   --green:#4b825f;
+
   --green-dark:#315d42;
+
   --green-soft:#e8f1ea;
 
   --ink:#302b2f;
+
   --muted:#756d72;
 
-  --line:rgba(85,51,79,.13);
+  --line:
+    rgba(85,51,79,.13);
 
-  --warn:#a46c3f;
-  --warn-soft:#f5e8dc;
+  --warn:#875a31;
+
+  --warn-soft:#f4e7dc;
 
   --shadow:
-    0 24px 70px rgba(68,43,65,.09);
+    0 24px 70px
+    rgba(68,43,65,.08);
+
 }
+
 
 *{
   box-sizing:border-box;
 }
 
+
 html{
   scroll-behavior:smooth;
 }
 
+
 body{
+
   margin:0;
+
   background:var(--cream);
+
   color:var(--ink);
-  font-family:"DM Sans",sans-serif;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
 }
+
 
 a{
   color:inherit;
   text-decoration:none;
 }
 
+
 button,
 input{
   font:inherit;
 }
 
+
 button{
   cursor:pointer;
 }
 
+
 h1,
 h2,
-h3{
+h3,
+h4{
+
   margin:0;
+
   color:var(--plum-dark);
-  font-family:"Playfair Display",serif;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
   font-weight:500;
+
   letter-spacing:-.035em;
+
 }
+
 
 p{
   line-height:1.7;
 }
 
+
 .wrap{
-  width:min(1080px,calc(100% - 36px));
+
+  width:min(
+    1080px,
+    calc(100% - 36px)
+  );
+
   margin:auto;
+
 }
+
 
 .eyebrow{
+
   display:block;
+
   margin-bottom:9px;
+
   color:var(--green);
+
   font-size:10px;
+
   font-weight:700;
+
   text-transform:uppercase;
-  letter-spacing:.13em;
+
+  letter-spacing:.12em;
+
 }
 
 
-/* =========================================================
-   TOP
-========================================================= */
+/* ==========================================
+   QUIET TOP
+========================================== */
 
-.topbar{
-  background:#382738;
-  color:white;
-}
+.top{
 
-.topbar-inner{
-  min-height:36px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:7px 0;
-  text-align:center;
-  font-size:11px;
-}
-
-header{
-  background:rgba(255,250,246,.97);
-  border-bottom:1px solid var(--line);
-}
-
-.header-inner{
-  min-height:108px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.logo img{
-  width:182px;
-  max-height:92px;
-  object-fit:contain;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-  position:relative;
-  overflow:hidden;
-  padding:75px 0 68px;
+  border-bottom:
+    1px solid rgba(48,43,47,.08);
 
   background:
+    rgba(255,253,249,.9);
+
+}
+
+
+.top-inner{
+
+  min-height:52px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:20px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+}
+
+
+.skip{
+
+  color:var(--plum-dark);
+
+  border-bottom:
+    1px solid rgba(85,51,79,.25);
+
+}
+
+
+/* ==========================================
+   OPENING
+========================================== */
+
+.opening{
+
+  padding:86px 0 78px;
+
+  background:
+
     radial-gradient(
       circle at 15% 20%,
-      rgba(234,223,241,.96),
-      transparent 31%
-    ),
-    radial-gradient(
-      circle at 87% 78%,
-      rgba(232,241,234,.95),
+      rgba(234,223,241,.6),
       transparent 34%
     ),
+
+    radial-gradient(
+      circle at 88% 78%,
+      rgba(232,241,234,.7),
+      transparent 34%
+    ),
+
     linear-gradient(
       135deg,
-      #fffaf6,
-      #f8f2f7 62%,
-      #f2f7f3
+      #fffdf9,
+      #faf7f4
     );
+
 }
 
-.hero:after{
-  content:"";
-  position:absolute;
-  width:380px;
-  height:380px;
-  right:-200px;
-  top:-205px;
-  border:1px solid rgba(135,80,127,.11);
-  border-radius:50%;
+
+.opening-copy{
+  max-width:850px;
 }
 
-.hero-copy{
-  max-width:840px;
+
+.opening h1{
+
+  max-width:800px;
+
+  font-size:
+    clamp(
+      48px,
+      7vw,
+      82px
+    );
+
+  line-height:1;
+
 }
 
-h1{
-  max-width:820px;
-  font-size:clamp(50px,7vw,86px);
-  line-height:.99;
-}
 
-.lead{
+.opening .lead{
+
   max-width:760px;
-  margin:22px 0 0;
+
+  margin:24px 0 0;
+
   color:var(--muted);
+
   font-size:17px;
+
 }
 
-.personal-note{
+
+.human-note{
+
   max-width:760px;
+
   margin-top:27px;
-  padding:20px 22px;
-  border-left:3px solid var(--green);
-  background:rgba(255,255,255,.7);
+
+  padding:21px 23px;
+
+  border-left:
+    3px solid var(--green);
+
+  background:
+    rgba(255,255,255,.72);
+
   color:var(--plum-dark);
+
   font-size:14px;
-  line-height:1.68;
+
+  line-height:1.72;
+
 }
 
 
-/* =========================================================
-   PROTOTYPE DISCLAIMER
-========================================================= */
+.prototype-note{
 
-.prototype{
-  background:var(--plum-dark);
-  color:white;
-}
+  max-width:760px;
 
-.prototype-inner{
-  min-height:96px;
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:17px;
-  align-items:center;
-  padding:20px 0;
-}
+  margin-top:24px;
 
-.prototype-icon{
-  width:44px;
-  height:44px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  background:rgba(255,255,255,.1);
-  font-family:"Playfair Display",serif;
-  font-size:20px;
-}
+  color:var(--muted);
 
-.prototype strong{
-  display:block;
-  margin-bottom:3px;
-  font-size:13px;
-}
-
-.prototype p{
-  margin:0;
-  color:rgba(255,255,255,.72);
   font-size:12px;
-  line-height:1.55;
+
+  line-height:1.6;
+
 }
 
 
-/* =========================================================
-   SECTION
-========================================================= */
+/* ==========================================
+   TRANSITION
+========================================== */
 
-.section{
+.transition{
+
+  padding:60px 0;
+
+  background:var(--paper);
+
+}
+
+
+.transition-copy{
+  max-width:850px;
+}
+
+
+.transition h2{
+
+  font-size:
+    clamp(
+      34px,
+      4vw,
+      50px
+    );
+
+  line-height:1.12;
+
+}
+
+
+.transition p{
+
+  max-width:760px;
+
+  margin:14px 0 0;
+
+  color:var(--muted);
+
+}
+
+
+/* ==========================================
+   DEMO SECTION
+========================================== */
+
+.demo-section{
   padding:72px 0;
 }
 
-.section.white{
-  background:var(--paper);
+
+.demo-heading{
+
+  max-width:790px;
+
+  margin-bottom:30px;
+
 }
 
-.section-title{
-  max-width:750px;
-  margin-bottom:32px;
+
+.demo-brand{
+
+  display:flex;
+
+  justify-content:center;
+
+  margin-bottom:26px;
+
 }
 
-.section-title h2{
-  font-size:clamp(39px,5vw,58px);
+
+.demo-brand img{
+
+  width:190px;
+
+  max-height:92px;
+
+  object-fit:contain;
+
+}
+
+
+.demo-heading h2{
+
+  font-size:
+    clamp(
+      40px,
+      5vw,
+      58px
+    );
+
   line-height:1.04;
+
 }
 
-.section-title p{
+
+.demo-heading p{
+
   margin:13px 0 0;
+
   color:var(--muted);
+
 }
 
 
-/* =========================================================
-   CHOOSE VIEW
-========================================================= */
+/* ==========================================
+   TABS
+========================================== */
 
 .view-tabs{
+
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:10px;
+
   margin-bottom:20px;
+
 }
+
 
 .view-tab{
+
   padding:18px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:15px;
+
   background:white;
+
   color:var(--plum-dark);
+
   text-align:left;
+
   transition:.18s ease;
+
 }
+
 
 .view-tab:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(68,43,65,.05);
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 30px
+    rgba(68,43,65,.05);
+
 }
+
 
 .view-tab.active{
+
   background:var(--lilac);
+
   border-color:transparent;
+
 }
+
 
 .view-tab span{
+
   display:block;
+
   margin-bottom:4px;
+
   color:var(--green);
+
   font-size:9px;
+
   font-weight:700;
+
   text-transform:uppercase;
+
   letter-spacing:.08em;
+
 }
+
 
 .view-tab strong{
+
   display:block;
+
   font-size:14px;
+
 }
+
 
 .view-tab small{
+
   display:block;
+
   margin-top:5px;
+
   color:var(--muted);
+
+  font-size:11px;
+
   line-height:1.45;
+
 }
 
 
-/* =========================================================
+/* ==========================================
    DEMO SHELL
-========================================================= */
+========================================== */
 
 .demo-shell{
+
   overflow:hidden;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:22px;
+
   background:white;
+
   box-shadow:var(--shadow);
+
 }
+
 
 .demo-top{
-  min-height:48px;
+
+  min-height:47px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:20px;
+
   padding:10px 16px;
+
   background:#f0e8ed;
-  border-bottom:1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+
 }
+
 
 .window-dots{
+
   display:flex;
+
   gap:6px;
+
 }
+
 
 .window-dots span{
+
   width:7px;
+
   height:7px;
+
   border-radius:50%;
+
   background:#c6b8c3;
+
 }
+
 
 .demo-label{
+
   color:var(--muted);
+
   font-size:10px;
+
 }
 
+
 .demo-screen{
-  min-height:520px;
+
+  min-height:535px;
+
   padding:31px;
 
   background:
+
     radial-gradient(
       circle at 90% 10%,
       rgba(234,223,241,.7),
       transparent 28%
     ),
+
     linear-gradient(
       135deg,
       var(--paper),
       #fff 65%,
       #f3f7f3
     );
+
 }
+
 
 .demo-view{
   display:none;
 }
+
 
 .demo-view.active{
   display:block;
 }
 
 
-/* =========================================================
-   SHARED DEMO UI
-========================================================= */
+/* ==========================================
+   SHARED DEMO ELEMENTS
+========================================== */
 
 .mock-header{
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:flex-start;
+
   gap:25px;
+
   margin-bottom:25px;
+
 }
+
 
 .mock-header h3{
+
   margin-top:4px;
+
   font-size:35px;
+
 }
+
 
 .mock-header p{
-  max-width:590px;
+
+  max-width:620px;
+
   margin:8px 0 0;
+
   color:var(--muted);
+
   font-size:12px;
+
 }
+
 
 .badge{
+
   display:inline-flex;
+
   padding:7px 10px;
+
   border-radius:999px;
+
   background:var(--green-soft);
+
   color:var(--green-dark);
+
   font-size:9px;
+
   font-weight:700;
+
   white-space:nowrap;
+
 }
 
+
 .demo-card{
+
   padding:19px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:15px;
+
   background:white;
+
 }
+
 
 .demo-card + .demo-card{
   margin-top:12px;
 }
 
+
 .demo-card h4{
-  margin:0;
-  color:var(--plum-dark);
-  font-family:"Playfair Display",serif;
   font-size:23px;
-  font-weight:500;
 }
+
 
 .demo-card p{
+
   margin:6px 0 0;
+
   color:var(--muted);
+
   font-size:11px;
+
 }
 
+
 .demo-btn{
+
   display:inline-flex;
+
   align-items:center;
+
   justify-content:center;
+
   gap:7px;
+
   padding:9px 13px;
+
   border:0;
+
   border-radius:999px;
+
   background:var(--plum);
+
   color:white;
+
   font-size:10px;
+
   font-weight:700;
+
 }
+
 
 .demo-btn.green{
   background:var(--green);
 }
 
+
 .demo-btn.light{
+
   background:var(--lilac);
+
   color:var(--plum-dark);
+
 }
+
 
 .demo-btn.outline{
-  border:1px solid rgba(135,80,127,.27);
+
+  border:
+    1px solid
+    rgba(135,80,127,.27);
+
   background:white;
+
   color:var(--plum);
+
 }
+
 
 .demo-btn:disabled{
+
   opacity:.45;
+
   cursor:default;
+
 }
+
 
 .actions{
+
   display:flex;
+
   flex-wrap:wrap;
+
   gap:8px;
+
   margin-top:15px;
+
 }
+
 
 .status{
+
   display:inline-flex;
+
   padding:6px 9px;
+
   border-radius:999px;
+
   font-size:9px;
+
   font-weight:700;
+
 }
+
 
 .status.good{
+
   background:var(--green-soft);
+
   color:var(--green-dark);
+
 }
+
 
 .status.lilac{
+
   background:var(--lilac);
+
   color:var(--plum);
+
 }
 
-.status.warn{
+
+.status.due{
+
   background:var(--warn-soft);
+
   color:var(--warn);
+
 }
+
 
 .flow-note{
+
   margin-top:17px;
+
   padding:14px 16px;
-  border-left:3px solid var(--green);
+
+  border-left:
+    3px solid var(--green);
+
   background:var(--green-soft);
+
   color:var(--muted);
+
   font-size:11px;
+
   line-height:1.55;
+
 }
+
 
 .flow-note strong{
   color:var(--green-dark);
 }
 
 
-/* =========================================================
-   CLIENT DEMO
-========================================================= */
+/* ==========================================
+   CLIENT
+========================================== */
 
 .class-row{
+
   display:grid;
-  grid-template-columns:84px 1fr auto;
+
+  grid-template-columns:
+    84px 1fr auto;
+
   gap:14px;
+
   align-items:center;
+
 }
+
 
 .date-block{
   text-align:center;
 }
 
+
 .date-block span{
+
   display:block;
+
   color:var(--green);
+
   font-size:9px;
+
   font-weight:700;
+
   text-transform:uppercase;
+
 }
+
 
 .date-block strong{
+
   display:block;
+
   color:var(--plum-dark);
-  font-family:"Playfair Display",serif;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
   font-size:29px;
+
   font-weight:500;
+
 }
+
 
 .class-info strong{
+
   display:block;
+
   color:var(--plum-dark);
+
   font-size:13px;
+
 }
 
+
 .class-info small{
+
   color:var(--muted);
+
   font-size:10px;
+
 }
+
 
 .client-stage{
   margin-top:17px;
 }
 
+
 .stage-box{
+
   padding:21px;
+
   border-radius:15px;
+
   background:var(--lilac-soft);
-  border:1px solid rgba(135,80,127,.12);
+
+  border:
+    1px solid
+    rgba(135,80,127,.12);
+
 }
+
 
 .stage-box h4{
-  margin:0 0 5px;
-  color:var(--plum-dark);
-  font-family:"Playfair Display",serif;
+
+  margin-bottom:5px;
+
   font-size:26px;
-  font-weight:500;
+
 }
+
 
 .stage-box p{
+
   margin:0;
+
   color:var(--muted);
+
   font-size:11px;
+
 }
+
 
 .fake-fields{
+
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:9px;
+
   margin-top:14px;
+
 }
+
 
 .fake-field{
+
   padding:10px 11px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:9px;
+
   background:white;
+
   color:var(--muted);
+
   font-size:10px;
+
 }
 
 
-/* =========================================================
-   OWNER DEMO
-========================================================= */
+/* ==========================================
+   OWNER
+========================================== */
 
 .owner-stats{
+
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:9px;
+
   margin-bottom:15px;
+
 }
+
 
 .owner-stat{
+
   padding:15px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
   border-radius:12px;
+
   background:white;
+
 }
+
 
 .owner-stat span{
+
   display:block;
+
   color:var(--muted);
+
   font-size:9px;
+
   text-transform:uppercase;
+
   letter-spacing:.06em;
+
 }
+
 
 .owner-stat strong{
+
   display:block;
+
   margin-top:3px;
+
   color:var(--plum-dark);
-  font-family:"Playfair Display",serif;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
   font-size:29px;
+
   font-weight:500;
+
 }
+
 
 .timeline{
+
   display:grid;
+
   gap:7px;
+
   margin-top:15px;
+
 }
+
 
 .timeline-item{
+
   display:grid;
-  grid-template-columns:25px 1fr;
+
+  grid-template-columns:
+    25px 1fr;
+
   gap:10px;
+
   align-items:start;
+
   padding:10px 11px;
+
   border-radius:10px;
+
   background:white;
-  border:1px solid var(--line);
+
+  border:
+    1px solid var(--line);
+
 }
+
 
 .timeline-number{
+
   width:24px;
+
   height:24px;
+
   display:grid;
+
   place-items:center;
+
   border-radius:50%;
+
   background:var(--lilac);
+
   color:var(--plum);
+
   font-size:9px;
+
   font-weight:700;
+
 }
+
 
 .timeline-item strong{
+
   display:block;
+
   color:var(--plum-dark);
+
   font-size:11px;
+
 }
+
 
 .timeline-item span{
+
   display:block;
+
   margin-top:2px;
+
   color:var(--muted);
+
   font-size:9px;
+
 }
 
 
-/* =========================================================
-   INSTRUCTOR DEMO
-========================================================= */
+/* ==========================================
+   INSTRUCTOR
+========================================== */
 
 .instructor-grid{
+
   display:grid;
-  grid-template-columns:1fr .75fr;
+
+  grid-template-columns:
+    1.15fr .85fr;
+
   gap:13px;
+
 }
+
 
 .roster{
+
   display:grid;
+
   margin-top:10px;
+
 }
 
+
+.roster-head,
 .roster-row{
+
   display:grid;
-  grid-template-columns:24px 1fr auto;
-  gap:9px;
+
+  grid-template-columns:
+    1.25fr .75fr 1fr auto;
+
+  gap:10px;
+
   align-items:center;
-  padding:10px 0;
-  border-bottom:1px solid var(--line);
+
 }
+
+
+.roster-head{
+
+  padding:0 0 7px;
+
+  color:var(--muted);
+
+  font-size:8px;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:.07em;
+
+}
+
+
+.roster-row{
+
+  padding:11px 0;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
 
 .roster-row:last-child{
   border-bottom:0;
 }
 
-.check{
-  width:17px;
-  height:17px;
-  display:grid;
-  place-items:center;
-  border-radius:4px;
-  background:var(--green-soft);
-  color:var(--green-dark);
-  font-size:10px;
-}
 
 .roster-row strong{
+
   display:block;
+
   color:var(--plum-dark);
+
   font-size:11px;
+
 }
 
+
 .roster-row small{
+
   display:block;
+
   margin-top:2px;
+
   color:var(--muted);
+
   font-size:9px;
+
 }
+
+
+.payment-cell{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:flex-start;
+
+  gap:6px;
+
+}
+
+
+.payment-button{
+
+  padding:6px 8px;
+
+  border:
+    1px solid
+    rgba(135,80,127,.22);
+
+  border-radius:999px;
+
+  background:white;
+
+  color:var(--plum);
+
+  font-size:8px;
+
+  font-weight:700;
+
+}
+
 
 .permission-list{
   display:grid;
 }
 
+
 .permission{
+
   display:flex;
+
   justify-content:space-between;
+
   gap:12px;
+
   padding:9px 0;
-  border-bottom:1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+
   color:var(--muted);
+
   font-size:10px;
+
 }
+
 
 .permission:last-child{
   border-bottom:0;
 }
+
 
 .permission b{
   color:var(--green-dark);
 }
 
 
-/* =========================================================
-   FULL DEMO LINKS
-========================================================= */
+/* ==========================================
+   FULL PAGE PROMPTS
+========================================== */
 
-.more{
-  margin-top:28px;
-  padding-top:21px;
-  border-top:1px solid var(--line);
+.full-prompt{
+
+  margin-top:25px;
+
+  padding:20px;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--green-soft),
+      var(--paper)
+    );
+
+  border:
+    1px solid
+    rgba(75,130,95,.15);
+
 }
 
-.more strong{
+
+.full-prompt strong{
+
   display:block;
-  margin-bottom:10px;
-  color:var(--plum-dark);
-  font-size:11px;
+
+  margin-bottom:4px;
+
+  color:var(--green-dark);
+
+  font-size:12px;
+
 }
+
+
+.full-prompt p{
+
+  margin:0 0 12px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+}
+
 
 .more-links{
+
   display:flex;
+
   flex-wrap:wrap;
+
   gap:8px;
+
 }
+
 
 .more-links a{
+
   display:inline-flex;
+
   padding:8px 11px;
-  border:1px solid var(--line);
+
+  border:
+    1px solid
+    rgba(75,130,95,.2);
+
   border-radius:999px;
+
   background:white;
-  color:var(--plum);
+
+  color:var(--green-dark);
+
   font-size:10px;
+
   font-weight:700;
+
 }
 
 
-/* =========================================================
-   PRESSURE
-========================================================= */
+/* ==========================================
+   WIX
+========================================== */
 
-.pressure{
-  padding:70px 0;
-  background:var(--green-dark);
-  color:white;
+.wix{
+
+  padding:68px 0;
+
+  background:var(--paper);
+
 }
 
-.pressure-inner{
-  max-width:820px;
+
+.wix-inner{
+  max-width:830px;
 }
 
-.pressure .eyebrow{
-  color:#d3e4d7;
+
+.wix h2{
+
+  font-size:
+    clamp(
+      38px,
+      5vw,
+      55px
+    );
+
 }
 
-.pressure h2{
-  color:white;
-  font-size:clamp(39px,5vw,58px);
-}
 
-.pressure p{
+.wix p{
+
   max-width:760px;
-  margin:15px 0 0;
-  color:rgba(255,255,255,.76);
-  font-size:14px;
+
+  margin:14px 0 0;
+
+  color:var(--muted);
+
 }
 
 
-/* =========================================================
-   NEXT
-========================================================= */
+/* ==========================================
+   HUMAN NOTE
+========================================== */
 
-.next{
+.no-pressure{
+
+  padding:70px 0;
+
+  background:var(--green-dark);
+
+  color:white;
+
+}
+
+
+.no-pressure-inner{
+  max-width:830px;
+}
+
+
+.no-pressure .eyebrow{
+  color:#d4e5d8;
+}
+
+
+.no-pressure h2{
+
+  color:white;
+
+  font-size:
+    clamp(
+      38px,
+      5vw,
+      55px
+    );
+
+}
+
+
+.no-pressure p{
+
+  max-width:760px;
+
+  margin:15px 0 0;
+
+  color:
+    rgba(255,255,255,.78);
+
+  font-size:14px;
+
+}
+
+
+/* ==========================================
+   END
+========================================== */
+
+.end{
+
   padding:80px 0 88px;
+
   text-align:center;
 
   background:
@@ -859,59 +1531,98 @@ h1{
       var(--paper) 55%,
       var(--green-soft)
     );
+
 }
 
-.next-inner{
+
+.end-inner{
+
   max-width:720px;
+
   margin:auto;
+
 }
 
-.next h2{
-  font-size:clamp(41px,5vw,61px);
+
+.end h2{
+
+  font-size:
+    clamp(
+      40px,
+      5vw,
+      59px
+    );
+
 }
 
-.next p{
+
+.end p{
+
   margin:14px auto 25px;
+
   color:var(--muted);
+
 }
+
 
 .main-cta{
+
   display:inline-flex;
-  align-items:center;
-  justify-content:center;
+
   padding:13px 19px;
+
   border-radius:999px;
+
   background:var(--green);
+
   color:white;
+
   font-size:12px;
+
   font-weight:700;
+
 }
+
+
+.secondary-cta{
+
+  display:block;
+
+  width:max-content;
+
+  margin:16px auto 0;
+
+  color:var(--plum-dark);
+
+  font-size:11px;
+
+  border-bottom:
+    1px solid
+    rgba(85,51,79,.25);
+
+}
+
 
 .signature{
+
   margin-top:28px;
+
   color:var(--plum-dark);
-  font-family:"Playfair Display",serif;
-  font-size:22px;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:21px;
+
   font-style:italic;
+
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-  padding:23px 0;
-  background:#382738;
-  color:rgba(255,255,255,.65);
-  text-align:center;
-  font-size:10px;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
 @media(max-width:760px){
 
@@ -919,17 +1630,21 @@ footer{
     grid-template-columns:1fr;
   }
 
+
   .demo-screen{
     padding:21px;
   }
+
 
   .owner-stats{
     grid-template-columns:1fr 1fr;
   }
 
+
   .instructor-grid{
     grid-template-columns:1fr;
   }
+
 
   .mock-header{
     flex-direction:column;
@@ -937,27 +1652,57 @@ footer{
 
 }
 
+
+@media(max-width:680px){
+
+  .roster-head{
+    display:none;
+  }
+
+
+  .roster-row{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+
 @media(max-width:560px){
 
-  .hero{
-    padding:54px 0;
+  .top-inner{
+
+    min-height:60px;
+
+    align-items:flex-start;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:3px;
+
   }
 
-  .prototype-inner{
-    grid-template-columns:1fr;
+
+  .opening{
+    padding:58px 0;
   }
+
 
   .class-row{
     grid-template-columns:65px 1fr;
   }
 
+
   .class-row .actions{
     grid-column:2;
   }
 
+
   .fake-fields{
     grid-template-columns:1fr;
   }
+
 
   .owner-stats{
     grid-template-columns:1fr;
@@ -966,33 +1711,152 @@ footer{
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     TOP
-===================================================== -->
+<!-- ==========================================
+     QUIET TOP
+========================================== -->
 
-<div class="topbar">
+<div class="top">
 
-  <div class="wrap topbar-inner">
+  <div class="wrap top-inner">
 
-    A private Yoga Garden idea
-    from The Yellow Front Door
+    <span>
+      A quick walkthrough before we chat
+    </span>
+
+
+    <a
+      class="skip"
+      href="yoga-garden-next-steps.html"
+    >
+      Skip ahead to what I’m proposing
+    </a>
 
   </div>
 
 </div>
 
 
-<header>
+<!-- ==========================================
+     OPENING
+========================================== -->
 
-  <div class="wrap header-inner">
+<section class="opening">
 
-    <div class="logo">
+  <div class="wrap opening-copy">
+
+
+    <span class="eyebrow">
+      Hi Genevieve
+    </span>
+
+
+    <h1>
+      I ended up taking this a little further
+      than I normally would before giving you a quote.
+    </h1>
+
+
+    <p class="lead">
+
+      So much of my work is visual, and once I started
+      thinking through what this could look like for you,
+      I wanted to make sure I understood the whole sequence
+      properly before I put a number on it.
+
+    </p>
+
+
+    <div class="human-note">
+
+      I wanted to think through what happens when someone
+      finds a class, books, fills out a waiver, comes back
+      another week, cancels, or ends up on a waiting list.
+
+      I also wanted to make sure I understood what you
+      would actually need on your side, and what would
+      genuinely be useful for an instructor.
+
+      <br><br>
+
+      It was much easier for me to map the whole thing
+      visually than to try to work it all out in a list.
+
+    </div>
+
+
+    <p class="prototype-note">
+
+      What you’re about to see is just that:
+      a flat prototype.
+
+      There’s no real backend, no database, no live
+      client information, and no actual booking system
+      running behind it yet.
+
+      I built enough visually to work through the
+      sequence and show you what I mean.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     TRANSITION
+========================================== -->
+
+<section class="transition">
+
+  <div class="wrap transition-copy">
+
+    <span class="eyebrow">
+      Where this went
+    </span>
+
+
+    <h2>
+      I actually started with the website.
+    </h2>
+
+
+    <p>
+
+      That gave me somewhere to see the whole thing
+      in context.
+
+      The more I worked through it, though, the more
+      I realized the part that could actually make your
+      life easier was everything happening behind the
+      website.
+
+      That’s really what I wanted to show you.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     INTERACTIVE DEMO
+========================================== -->
+
+<section class="demo-section">
+
+  <div class="wrap">
+
+
+    <div class="demo-brand">
 
       <img
         src="yogagardenlogo.png"
@@ -1001,136 +1865,38 @@ footer{
 
     </div>
 
-  </div>
 
-</header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
-
-  <div class="wrap">
-
-    <div class="hero-copy">
+    <div class="demo-heading">
 
       <span class="eyebrow">
-        Hi Genevieve
+        Okay, now play with it
       </span>
 
-      <h1>
-        I ended up thinking this through
-        a little further than I normally would.
-      </h1>
-
-      <p class="lead">
-
-        Once I started thinking about The Yoga Garden
-        specifically, I wanted to work through the whole
-        sequence properly — what a client sees, where the
-        waiver fits, what happens when a class fills or
-        someone cancels, what you need to control, and what
-        an instructor actually needs access to.
-
-      </p>
-
-      <div class="personal-note">
-
-        So I built it out visually.
-
-        Mostly because it was much easier for me to work
-        through all of those pieces this way than to come
-        to you with a long email full of
-        “and then maybe this could happen…”
-
-        <br><br>
-
-        I wanted to make sure the idea actually made sense
-        from beginning to end before I brought it to you.
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     DISCLAIMER
-===================================================== -->
-
-<section class="prototype">
-
-  <div class="wrap prototype-inner">
-
-    <div class="prototype-icon">
-      i
-    </div>
-
-    <div>
-
-      <strong>
-        One important thing before you start clicking:
-        this is a flat visual prototype.
-      </strong>
-
-      <p>
-
-        There’s no live booking system, database,
-        real client information, or working backend behind
-        this yet.
-
-        The interactions below are here to show the sequence
-        and how I imagine the finished system working.
-
-        Everything is fake demo data.
-
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     INTERACTIVE DEMO
-===================================================== -->
-
-<section class="section">
-
-  <div class="wrap">
-
-    <div class="section-title">
-
-      <span class="eyebrow">
-        So here’s the idea
-      </span>
 
       <h2>
-        Pick a side and play with it.
+        See it from a few different sides.
       </h2>
+
 
       <p>
 
-        You don’t need to inspect every button.
-        I just wanted you to be able to see what the different
-        pieces could feel like in practice rather than having
-        me try to describe the whole thing.
+        These little examples are just meant to show
+        the sequence.
+
+        After each one, I’ve linked the fuller page
+        I built because I actually think it’s worth
+        clicking through the complete website, client
+        area, and dashboards too.
 
       </p>
 
     </div>
 
 
-    <!-- VIEW TABS -->
+    <!-- TABS -->
 
     <div class="view-tabs">
+
 
       <button
         class="view-tab active"
@@ -1138,7 +1904,7 @@ footer{
       >
 
         <span>
-          If I’m a client
+          Client
         </span>
 
         <strong>
@@ -1146,7 +1912,7 @@ footer{
         </strong>
 
         <small>
-          What happens before and after someone books.
+          What could happen before and after someone books.
         </small>
 
       </button>
@@ -1158,7 +1924,7 @@ footer{
       >
 
         <span>
-          If I’m you
+          Owner
         </span>
 
         <strong>
@@ -1166,7 +1932,7 @@ footer{
         </strong>
 
         <small>
-          Schedule, cancellations, clients, and the pieces around them.
+          Schedule changes, cancellations, clients, and waiting lists.
         </small>
 
       </button>
@@ -1178,38 +1944,41 @@ footer{
       >
 
         <span>
-          If I’m an instructor
+          Instructor
         </span>
 
         <strong>
-          Just what I need
+          A lightweight class view
         </strong>
 
         <small>
-          Classes, rosters, attendance, and approved client information.
+          The roster, useful client details, attendance, and payments for that class.
         </small>
 
       </button>
 
+
     </div>
 
 
-    <!-- DEMO WINDOW -->
-
     <div class="demo-shell">
+
 
       <div class="demo-top">
 
         <div class="window-dots">
 
           <span></span>
+
           <span></span>
+
           <span></span>
 
         </div>
 
+
         <span class="demo-label">
-          Flat prototype · nothing here is live
+          Visual prototype · demo information only
         </span>
 
       </div>
@@ -1218,14 +1987,15 @@ footer{
       <div class="demo-screen">
 
 
-        <!-- =================================================
-             CLIENT
-        ================================================= -->
+        <!-- ======================================
+             CLIENT VIEW
+        ======================================= -->
 
         <div
           class="demo-view active"
           id="clientView"
         >
+
 
           <div class="mock-header">
 
@@ -1235,22 +2005,26 @@ footer{
                 Client side
               </span>
 
+
               <h3>
-                Let the easy stuff happen without you.
+                A booking without a back-and-forth.
               </h3>
+
 
               <p>
 
-                Here’s a tiny example of how a new client
-                could move from choosing a class to having
-                everything saved in My Garden.
+                The basic idea is that a client can
+                handle the straightforward pieces themselves,
+                while you still control what classes are
+                offered and how everything works.
 
               </p>
 
             </div>
 
+
             <span class="badge">
-              Demo booking
+              Demo client
             </span>
 
           </div>
@@ -1259,6 +2033,7 @@ footer{
           <div class="demo-card">
 
             <div class="class-row">
+
 
               <div class="date-block">
 
@@ -1307,6 +2082,7 @@ footer{
 
               </div>
 
+
             </div>
 
           </div>
@@ -1320,14 +2096,15 @@ footer{
             <div class="stage-box">
 
               <h4>
-                Start here.
+                Give it a try.
               </h4>
 
               <p>
 
-                Click “Book this class” above and I’ll walk
-                you through what I’m imagining for a
-                first-time client.
+                Click Book this class.
+
+                This walks through the basic first-time
+                client sequence I had in mind.
 
               </p>
 
@@ -1336,37 +2113,47 @@ footer{
           </div>
 
 
-          <div class="more">
+          <div class="full-prompt">
 
             <strong>
-              Want to see the fuller mockup?
+              I’d definitely have a look at the full client side too.
             </strong>
+
+            <p>
+
+              The full pages show the class information,
+              booking experience, and what a returning
+              client could have in My Garden.
+
+            </p>
 
             <div class="more-links">
 
               <a href="yoga-garden-classes.html">
-                Full Classes + Booking demo
+                Explore Classes + Booking →
               </a>
 
               <a href="yoga-garden-my-garden.html">
-                Full My Garden demo
+                Explore My Garden →
               </a>
 
             </div>
 
           </div>
 
+
         </div>
 
 
-        <!-- =================================================
-             OWNER
-        ================================================= -->
+        <!-- ======================================
+             OWNER VIEW
+        ======================================= -->
 
         <div
           class="demo-view"
           id="ownerView"
         >
+
 
           <div class="mock-header">
 
@@ -1376,28 +2163,35 @@ footer{
                 Your side
               </span>
 
+
               <h3>
-                This is the part I kept thinking about.
+                You make the change. The little steps around it happen automatically.
               </h3>
+
 
               <p>
 
-                You still make the decisions.
-                The system handles the repetitive steps around
-                them.
+                You’d still have full control over your
+                schedule, instructors, capacity, cancellations,
+                clients, and waiting lists.
+
+                The point is just to cut down the amount
+                of follow-up that has to happen manually.
 
               </p>
 
             </div>
 
+
             <span class="badge">
-              Owner access
+              Owner view
             </span>
 
           </div>
 
 
           <div class="owner-stats">
+
 
             <div class="owner-stat">
 
@@ -1428,7 +2222,7 @@ footer{
             <div class="owner-stat">
 
               <span>
-                Active spot offer
+                Active offer
               </span>
 
               <strong id="ownerOffer">
@@ -1436,6 +2230,7 @@ footer{
               </strong>
 
             </div>
+
 
           </div>
 
@@ -1458,7 +2253,7 @@ footer{
                 id="cancelDemoBtn"
                 onclick="simulateOwnerCancellation()"
               >
-                Demo: someone cancels
+                Demo a cancellation
               </button>
 
 
@@ -1487,10 +2282,9 @@ footer{
 
               <p>
 
-                Imagine Sarah cancels from My Garden.
-                Click the button above to see what could
-                happen without you needing to chase the
-                cancellation list yourself.
+                This is the bit I was thinking about
+                when you described how you’re currently
+                handling people waiting for spaces.
 
               </p>
 
@@ -1499,33 +2293,45 @@ footer{
           </div>
 
 
-          <div class="more">
+          <div class="full-prompt">
 
             <strong>
-              Want to see the fuller mockup?
+              The full owner dashboard is the page I’d spend the most time on.
             </strong>
+
+            <p>
+
+              That’s where you can see how schedule control,
+              classes, client records, waivers, instructors,
+              waiting lists, and notifications could all
+              live together.
+
+            </p>
+
 
             <div class="more-links">
 
               <a href="yoga-garden-owner.html">
-                Full Owner Dashboard demo
+                Explore the full Owner Dashboard →
               </a>
 
             </div>
 
           </div>
 
+
         </div>
 
 
-        <!-- =================================================
-             INSTRUCTOR
-        ================================================= -->
+        <!-- ======================================
+             INSTRUCTOR VIEW
+        ======================================= -->
 
         <div
           class="demo-view"
           id="instructorView"
         >
+
 
           <div class="mock-header">
 
@@ -1535,20 +2341,24 @@ footer{
                 Instructor side
               </span>
 
+
               <h3>
-                Enough access to teach. Not enough to run your business.
+                Simple enough to use quickly, useful enough to matter.
               </h3>
+
 
               <p>
 
-                I don’t think instructors need your whole
-                client database or business settings.
-                They need their classes and the information
-                required to teach them safely.
+                An instructor could open their class,
+                see who is coming, check people in,
+                confirm waiver status, pull up the client
+                information they may need, and record a cash
+                payment if someone hands it to them at the studio.
 
               </p>
 
             </div>
+
 
             <span class="badge">
               Karen
@@ -1574,11 +2384,28 @@ footer{
               <div class="roster">
 
 
-                <div class="roster-row">
+                <div class="roster-head">
 
-                  <div class="check">
-                    ✓
-                  </div>
+                  <span>
+                    Client
+                  </span>
+
+                  <span>
+                    Waiver
+                  </span>
+
+                  <span>
+                    Payment
+                  </span>
+
+                  <span></span>
+
+                </div>
+
+
+                <!-- SARAH -->
+
+                <div class="roster-row">
 
                   <div>
 
@@ -1587,26 +2414,105 @@ footer{
                     </strong>
 
                     <small>
-                      Waiver on file
+                      902-555-0188
                     </small>
 
                   </div>
 
+
+                  <span class="status good">
+                    Signed
+                  </span>
+
+
+                  <div class="payment-cell">
+
+                    <span class="status good">
+                      E-transfer received
+                    </span>
+
+                  </div>
+
+
                   <button
                     class="demo-btn light"
-                    onclick="showEmergencyDemo('Sarah MacNeil')"
+                    onclick="
+                      showIntroClientInfo(
+                        'Sarah MacNeil',
+                        'Jamie MacNeil · 902-555-0123',
+                        'No special class notes',
+                        'E-transfer received'
+                      )
+                    "
                   >
-                    Emergency
+                    Client info
                   </button>
 
                 </div>
 
 
+                <!-- AMY -->
+
                 <div class="roster-row">
 
-                  <div class="check">
-                    ✓
+                  <div>
+
+                    <strong>
+                      Amy Clarke
+                    </strong>
+
+                    <small>
+                      902-555-0118
+                    </small>
+
                   </div>
+
+
+                  <span class="status due">
+                    Waiver needed
+                  </span>
+
+
+                  <div
+                    class="payment-cell"
+                    id="introAmyPayment"
+                  >
+
+                    <span class="status due">
+                      Cash due
+                    </span>
+
+
+                    <button
+                      class="payment-button"
+                      onclick="introMarkCash()"
+                    >
+                      Mark cash received
+                    </button>
+
+                  </div>
+
+
+                  <button
+                    class="demo-btn light"
+                    onclick="
+                      showIntroClientInfo(
+                        'Amy Clarke',
+                        'Mark Clarke · 902-555-0183',
+                        'First visit · waiver still needed',
+                        'Cash due'
+                      )
+                    "
+                  >
+                    Client info
+                  </button>
+
+                </div>
+
+
+                <!-- JESSICA -->
+
+                <div class="roster-row">
 
                   <div>
 
@@ -1615,44 +2521,38 @@ footer{
                     </strong>
 
                     <small>
-                      Waiver on file
+                      902-555-0124
                     </small>
 
                   </div>
 
-                  <button
-                    class="demo-btn light"
-                    onclick="showEmergencyDemo('Jessica Reid')"
-                  >
-                    Emergency
-                  </button>
 
-                </div>
+                  <span class="status good">
+                    Signed
+                  </span>
 
 
-                <div class="roster-row">
+                  <div class="payment-cell">
 
-                  <div class="check">
-                    ✓
-                  </div>
-
-                  <div>
-
-                    <strong>
-                      Megan Foster
-                    </strong>
-
-                    <small>
-                      Waiver on file
-                    </small>
+                    <span class="status good">
+                      E-transfer received
+                    </span>
 
                   </div>
 
+
                   <button
                     class="demo-btn light"
-                    onclick="showEmergencyDemo('Megan Foster')"
+                    onclick="
+                      showIntroClientInfo(
+                        'Jessica Reid',
+                        'Chris Reid · 902-555-0191',
+                        'No special class notes',
+                        'E-transfer received'
+                      )
+                    "
                   >
-                    Emergency
+                    Client info
                   </button>
 
                 </div>
@@ -1666,19 +2566,19 @@ footer{
             <div class="demo-card">
 
               <h4>
-                Karen can see
+                For this class
               </h4>
 
 
               <div class="permission-list">
 
                 <div class="permission">
-                  Assigned classes
+                  Client name + contact
                   <b>Yes</b>
                 </div>
 
                 <div class="permission">
-                  Class roster
+                  Emergency contact
                   <b>Yes</b>
                 </div>
 
@@ -1688,28 +2588,34 @@ footer{
                 </div>
 
                 <div class="permission">
-                  Approved emergency info
+                  Relevant class notes
                   <b>Yes</b>
                 </div>
 
                 <div class="permission">
-                  Full client database
+                  Payment status
+                  <b>Yes</b>
+                </div>
+
+                <div class="permission">
+                  Record cash received
+                  <b>Yes</b>
+                </div>
+
+                <div class="permission">
+                  Banking / payment admin
                   <span>No</span>
                 </div>
 
                 <div class="permission">
-                  Website settings
-                  <span>No</span>
-                </div>
-
-                <div class="permission">
-                  Owner reporting
+                  Website + owner settings
                   <span>No</span>
                 </div>
 
               </div>
 
             </div>
+
 
           </div>
 
@@ -1720,30 +2626,45 @@ footer{
           >
 
             <strong>
-              That’s intentional.
+              The payment piece stays practical.
             </strong>
 
-            The instructor side stays small instead of giving
-            every instructor access to the whole business.
+            If someone hands the instructor cash,
+            they can mark it received right from the roster.
+
+            E-transfers would normally be confirmed on your
+            side, so the instructor can see the status without
+            needing access to any banking or payment administration.
 
           </div>
 
 
-          <div class="more">
+          <div class="full-prompt">
 
             <strong>
-              Want to see the fuller mockup?
+              I’d click into the full instructor view too.
             </strong>
+
+            <p>
+
+              It shows how the roster, check-in,
+              client information, waiver status, and
+              payments could work without turning the
+              instructor side into another big admin system.
+
+            </p>
+
 
             <div class="more-links">
 
               <a href="yoga-garden-instructor.html">
-                Full Instructor demo
+                Explore the Instructor View →
               </a>
 
             </div>
 
           </div>
+
 
         </div>
 
@@ -1757,74 +2678,144 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     NO PRESSURE
-===================================================== -->
+<!-- ==========================================
+     WIX
+========================================== -->
 
-<section class="pressure">
+<section class="wix">
 
-  <div class="wrap pressure-inner">
+  <div class="wrap wix-inner">
+
 
     <span class="eyebrow">
-      Also, genuinely
+      One other thing
     </span>
 
+
     <h2>
-      There’s no expectation attached to any of this.
+      None of this means you have to replace your Wix site.
     </h2>
 
-    <p>
-
-      I don’t want the fact that I took the time to map it
-      out to make you feel like you now have to do something
-      with it.
-
-      You may look at it and decide what you’re doing now
-      works perfectly well for you.
-
-      That is completely fine.
-
-    </p>
 
     <p>
 
-      I just kept seeing little places where I thought,
-      “this really shouldn’t need Genevieve every single time,”
-      and this was the clearest way for me to show you
-      what I meant.
+      If you want to keep the website you already have,
+      the booking side can connect right into it.
+
+      I built out the separate website partly because
+      it helped me see the whole client experience together
+      and partly because, well, this is the kind of thing
+      I like playing with.
 
     </p>
+
+
+    <p>
+
+      If you happen to prefer the new site once you’ve
+      looked through it, that’s an option too.
+
+      But the backend idea doesn’t depend on changing
+      your website.
+
+    </p>
+
+
+    <div
+      class="more-links"
+      style="margin-top:17px"
+    >
+
+      <a href="yoga-garden-demo.html">
+        Have a proper look at the website demo →
+      </a>
+
+    </div>
+
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     NEXT STEPS
-===================================================== -->
+<!-- ==========================================
+     HUMAN NOTE
+========================================== -->
 
-<section class="next">
+<section class="no-pressure">
 
-  <div class="wrap next-inner">
+  <div class="wrap no-pressure-inner">
+
 
     <span class="eyebrow">
-      If the idea feels useful
+      And before you get to the number
     </span>
 
+
     <h2>
-      Here’s what I think would actually make sense to build.
+      I wanted to understand it properly before I priced it.
     </h2>
+
 
     <p>
 
-      The next page lays out what I’d include,
-      what I would leave out for now,
-      how the website fits into it,
-      and what I was thinking for a founding-studio
-      pilot arrangement.
+      So much of this comes down to sequence:
+      what happens first, what needs to carry forward,
+      who needs to see what, and what should happen
+      without you having to step in.
+
+      I wanted to work that out before I gave you a quote
+      rather than price a vague idea and figure it out later.
 
     </p>
+
+
+    <p>
+
+      None of that means I’m assuming you want to build it.
+
+      I thought there was something here that could genuinely
+      make the studio easier to run, so I wanted to show you
+      the idea properly and let you decide whether it would
+      actually be useful to you.
+
+    </p>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==========================================
+     END
+========================================== -->
+
+<section class="end">
+
+  <div class="wrap end-inner">
+
+
+    <span class="eyebrow">
+      If you’ve poked around enough
+    </span>
+
+
+    <h2>
+      Here’s what I’d actually suggest building.
+    </h2>
+
+
+    <p>
+
+      I’ve kept the proposal pretty simple:
+      what I think is worth building now,
+      what I’d leave alone,
+      how the website could fit in,
+      and what I was thinking for the cash/barter side.
+
+    </p>
+
 
     <a
       class="main-cta"
@@ -1834,38 +2825,35 @@ footer{
     </a>
 
 
+    <a
+      class="secondary-cta"
+      href="yoga-garden-demo.html"
+    >
+      Or go explore the full website first
+    </a>
+
+
     <div class="signature">
-      Julianna · The Yellow Front Door
+      Julianna
     </div>
+
 
   </div>
 
 </section>
 
 
-<footer>
-
-  <div class="wrap">
-
-    The Yoga Garden × Front Door Studio ·
-    A project by The Yellow Front Door
-
-  </div>
-
-</footer>
-
-
-
 <script>
 
-/* =========================================================
-   SWITCH VIEWS
-========================================================= */
+/* ==========================================
+   TABS
+========================================== */
 
 const tabs =
   document.querySelectorAll(
     ".view-tab"
   );
+
 
 const views = {
 
@@ -1894,6 +2882,7 @@ tabs.forEach(
       "click",
       () => {
 
+
         tabs.forEach(
           item =>
             item.classList.remove(
@@ -1907,15 +2896,16 @@ tabs.forEach(
         );
 
 
-        Object.values(
-          views
-        )
-        .forEach(
-          view =>
-            view.classList.remove(
-              "active"
-            )
-        );
+        Object
+          .values(
+            views
+          )
+          .forEach(
+            view =>
+              view.classList.remove(
+                "active"
+              )
+          );
 
 
         views[
@@ -1925,6 +2915,7 @@ tabs.forEach(
           "active"
         );
 
+
       }
     );
 
@@ -1932,9 +2923,9 @@ tabs.forEach(
 );
 
 
-/* =========================================================
+/* ==========================================
    CLIENT DEMO
-========================================================= */
+========================================== */
 
 let clientStep = 0;
 
@@ -1948,7 +2939,26 @@ function clientBook(){
 }
 
 
+function clientNextWaiver(){
+
+  clientStep = 2;
+
+  renderClientStage();
+
+}
+
+
+function clientConfirm(){
+
+  clientStep = 3;
+
+  renderClientStage();
+
+}
+
+
 function renderClientStage(){
+
 
   const stage =
     document.getElementById(
@@ -1956,27 +2966,25 @@ function renderClientStage(){
     );
 
 
-  if(clientStep === 1){
+  if(
+    clientStep === 1
+  ){
 
     stage.innerHTML = `
 
       <div class="stage-box">
 
         <span class="eyebrow">
-          First visit · Step 1
+          First booking
         </span>
 
         <h4>
-          Just the basics.
+          A few details first.
         </h4>
 
         <p>
-
-          A returning client could already have this
-          information saved.
-
-          A new client would add it once.
-
+          A returning client would already
+          have this information saved.
         </p>
 
 
@@ -2019,53 +3027,50 @@ function renderClientStage(){
   }
 
 
-  if(clientStep === 2){
+  if(
+    clientStep === 2
+  ){
 
     stage.innerHTML = `
 
       <div class="stage-box">
 
         <span class="eyebrow">
-          First visit · Step 2
+          First booking
         </span>
 
         <h4>
-          The waiver sits inside the booking.
+          Then the waiver.
         </h4>
 
         <p>
 
-          Instead of sending someone elsewhere to find
-          a form, a first-time client could complete the
-          studio waiver here.
+          The client completes it during their
+          first booking rather than having to find
+          a separate form.
 
-          Once the current version is on their account,
-          they skip this step on future bookings.
+          Once the current waiver is on file,
+          they don’t need to keep doing it.
 
         </p>
 
 
-        <div class="demo-card" style="margin-top:14px">
+        <div
+          class="demo-card"
+          style="margin-top:14px"
+        >
 
           <p style="margin:0">
-
-            ☑ I understand that I am participating
-            in physical activity within my own ability.
-
+            ☑ Participation acknowledgement
           </p>
 
           <p>
-
-            ☑ I will tell the instructor if I need
-            support or modification.
-
+            ☑ Modification/support acknowledgement
           </p>
 
           <p>
-
-            ☑ I understand that this waiver will
-            be stored with my client account.
-
+            ☑ Permission to store the signed waiver
+            with the client account
           </p>
 
         </div>
@@ -2089,20 +3094,24 @@ function renderClientStage(){
   }
 
 
-  if(clientStep === 3){
+  if(
+    clientStep === 3
+  ){
 
-    document.getElementById(
-      "clientAvailability"
-    )
-    .textContent =
-      "Class full";
+    document
+      .getElementById(
+        "clientAvailability"
+      )
+      .textContent =
+        "Class full";
 
 
-    document.getElementById(
-      "clientBookBtn"
-    )
-    .disabled =
-      true;
+    document
+      .getElementById(
+        "clientBookBtn"
+      )
+      .disabled =
+        true;
 
 
     stage.innerHTML = `
@@ -2110,21 +3119,20 @@ function renderClientStage(){
       <div class="stage-box">
 
         <span class="eyebrow">
-          Done
+          Finished
         </span>
 
         <h4>
-          You’re booked.
+          She’s booked.
         </h4>
 
         <p>
 
           Pilates Fusion now appears in My Garden.
 
-          The client receives a confirmation automatically,
-          their information is saved,
-          and their signed waiver stays attached
-          to their account.
+          Her information is saved,
+          her waiver is attached to her account,
+          and the confirmation could go out automatically.
 
         </p>
 
@@ -2132,11 +3140,11 @@ function renderClientStage(){
         <div class="flow-note">
 
           <strong>
-            The bit I like:
+            The useful bit:
           </strong>
 
-          nothing about that booking needed you to
-          re-enter a name, check whether a waiver exists,
+          you didn’t need to re-enter her information,
+          check whether she had a waiver,
           or manually send a confirmation.
 
         </div>
@@ -2156,7 +3164,7 @@ function renderClientStage(){
             class="demo-btn outline"
             onclick="resetClientDemo()"
           >
-            Reset this demo
+            Reset
           </button>
 
         </div>
@@ -2167,619 +3175,640 @@ function renderClientStage(){
 
   }
 
-}
-
-
-function clientNextWaiver(){
-
-  clientStep = 2;
-
-  renderClientStage();
-
-}
-
-
-function clientConfirm(){
-
-  clientStep = 3;
-
-  renderClientStage();
 
 }
 
 
 function resetClientDemo(){
 
+
   clientStep = 0;
 
 
-  document.getElementById(
-    "clientAvailability"
-  )
-  .textContent =
-    "1 spot left";
+  document
+    .getElementById(
+      "clientAvailability"
+    )
+    .textContent =
+      "1 spot left";
 
 
-  document.getElementById(
-    "clientBookBtn"
-  )
-  .disabled =
-    false;
+  document
+    .getElementById(
+      "clientBookBtn"
+    )
+    .disabled =
+      false;
 
 
-  document.getElementById(
-    "clientStage"
-  )
-  .innerHTML = `
+  document
+    .getElementById(
+      "clientStage"
+    )
+    .innerHTML = `
 
-    <div class="stage-box">
+      <div class="stage-box">
 
-      <h4>
-        Start here.
-      </h4>
+        <h4>
+          Give it a try.
+        </h4>
 
-      <p>
+        <p>
 
-        Click “Book this class” above and I’ll walk
-        you through what I’m imagining for a
-        first-time client.
+          Click Book this class.
 
-      </p>
+          This walks through the basic
+          first-time client sequence.
 
-    </div>
+        </p>
 
-  `;
+      </div>
+
+    `;
+
 
 }
 
 
-/* =========================================================
+/* ==========================================
    OWNER DEMO
-========================================================= */
-
-let ownerStage = 0;
-
+========================================== */
 
 function simulateOwnerCancellation(){
 
-  ownerStage = 1;
+
+  document
+    .getElementById(
+      "ownerBooked"
+    )
+    .textContent =
+      "9/10";
 
 
-  document.getElementById(
-    "ownerBooked"
-  )
-  .textContent =
-    "9/10";
+  document
+    .getElementById(
+      "ownerOffer"
+    )
+    .textContent =
+      "1";
 
 
-  document.getElementById(
-    "ownerOffer"
-  )
-  .textContent =
-    "1";
+  document
+    .getElementById(
+      "cancelDemoBtn"
+    )
+    .disabled =
+      true;
 
 
-  document.getElementById(
-    "cancelDemoBtn"
-  )
-  .disabled =
-    true;
+  document
+    .getElementById(
+      "ownerFlow"
+    )
+    .innerHTML = `
+
+      <div class="stage-box">
+
+        <span class="eyebrow">
+          Sarah cancelled
+        </span>
+
+        <h4>
+          The open spot can take care of itself.
+        </h4>
 
 
-  document.getElementById(
-    "ownerFlow"
-  )
-  .innerHTML = `
-
-    <div class="stage-box">
-
-      <span class="eyebrow">
-        Sarah cancelled
-      </span>
-
-      <h4>
-        The system takes it from here.
-      </h4>
+        <div class="timeline">
 
 
-      <div class="timeline">
+          <div class="timeline-item">
 
-        <div class="timeline-item">
+            <div class="timeline-number">
+              1
+            </div>
 
-          <div class="timeline-number">
-            1
+            <div>
+
+              <strong>
+                Sarah’s booking is removed
+              </strong>
+
+              <span>
+                Pilates Fusion is now 9/10.
+              </span>
+
+            </div>
+
           </div>
 
-          <div>
 
-            <strong>
-              Sarah’s booking is removed
-            </strong>
+          <div class="timeline-item">
 
-            <span>
-              Pilates Fusion is now 9/10.
-            </span>
+            <div class="timeline-number">
+              2
+            </div>
+
+            <div>
+
+              <strong>
+                Melissa is first on the waiting list
+              </strong>
+
+              <span>
+                She receives the open spot first.
+              </span>
+
+            </div>
 
           </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-number">
+              3
+            </div>
+
+            <div>
+
+              <strong>
+                She has four hours to claim it
+              </strong>
+
+              <span>
+
+                You can see what is happening,
+                but you don’t need to message
+                her yourself.
+
+              </span>
+
+            </div>
+
+          </div>
+
 
         </div>
 
 
-        <div class="timeline-item">
+        <div class="actions">
 
-          <div class="timeline-number">
-            2
-          </div>
-
-          <div>
-
-            <strong>
-              Melissa is first on the cancellation list
-            </strong>
-
-            <span>
-              She receives an open-spot email automatically.
-            </span>
-
-          </div>
-
-        </div>
+          <button
+            class="demo-btn green"
+            onclick="ownerClaim()"
+          >
+            Melissa claims it
+          </button>
 
 
-        <div class="timeline-item">
-
-          <div class="timeline-number">
-            3
-          </div>
-
-          <div>
-
-            <strong>
-              Four-hour claim window starts
-            </strong>
-
-            <span>
-              You can see the active offer,
-              but you don’t need to chase her.
-            </span>
-
-          </div>
+          <button
+            class="demo-btn outline"
+            onclick="ownerExpire()"
+          >
+            She doesn’t claim it
+          </button>
 
         </div>
+
 
       </div>
 
+    `;
 
-      <div class="actions">
-
-        <button
-          class="demo-btn green"
-          onclick="ownerClaim()"
-        >
-          Melissa claims it
-        </button>
-
-
-        <button
-          class="demo-btn outline"
-          onclick="ownerExpire()"
-        >
-          Melissa doesn’t claim it
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
 
 }
 
 
 function ownerClaim(){
 
-  document.getElementById(
-    "ownerBooked"
-  )
-  .textContent =
-    "10/10";
+
+  document
+    .getElementById(
+      "ownerBooked"
+    )
+    .textContent =
+      "10/10";
 
 
-  document.getElementById(
-    "ownerWaiting"
-  )
-  .textContent =
-    "1";
+  document
+    .getElementById(
+      "ownerWaiting"
+    )
+    .textContent =
+      "1";
 
 
-  document.getElementById(
-    "ownerOffer"
-  )
-  .textContent =
-    "0";
+  document
+    .getElementById(
+      "ownerOffer"
+    )
+    .textContent =
+      "0";
 
 
-  document.getElementById(
-    "ownerFlow"
-  )
-  .innerHTML = `
+  document
+    .getElementById(
+      "ownerFlow"
+    )
+    .innerHTML = `
 
-    <div class="stage-box">
+      <div class="stage-box">
 
-      <span class="eyebrow">
-        Spot claimed
-      </span>
+        <span class="eyebrow">
+          Claimed
+        </span>
 
-      <h4>
-        Full again.
-      </h4>
+        <h4>
+          Back to 10/10.
+        </h4>
 
-      <p>
+        <p>
 
-        Melissa claims the open spot,
-        Pilates Fusion returns to 10/10,
-        and she receives the normal booking confirmation.
+          Melissa gets the spot
+          and receives her confirmation.
 
-      </p>
+        </p>
 
 
-      <div class="flow-note">
+        <div class="flow-note">
 
-        <strong>
-          You didn’t need to message anyone.
-        </strong>
+          <strong>
+            You can still see the whole trail.
+          </strong>
 
-        You can still see exactly what happened
-        from your dashboard.
+          You just didn’t have to manually create it.
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="demo-btn outline"
+            onclick="resetOwnerDemo()"
+          >
+            Reset
+          </button>
+
+        </div>
 
       </div>
 
+    `;
 
-      <div class="actions">
-
-        <button
-          class="demo-btn outline"
-          onclick="resetOwnerDemo()"
-        >
-          Reset this demo
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
 
 }
 
 
 function ownerExpire(){
 
-  document.getElementById(
-    "ownerOffer"
-  )
-  .textContent =
-    "1";
+
+  document
+    .getElementById(
+      "ownerWaiting"
+    )
+    .textContent =
+      "1";
 
 
-  document.getElementById(
-    "ownerWaiting"
-  )
-  .textContent =
-    "1";
+  document
+    .getElementById(
+      "ownerOffer"
+    )
+    .textContent =
+      "1";
 
 
-  document.getElementById(
-    "ownerFlow"
-  )
-  .innerHTML = `
+  document
+    .getElementById(
+      "ownerFlow"
+    )
+    .innerHTML = `
 
-    <div class="stage-box">
+      <div class="stage-box">
 
-      <span class="eyebrow">
-        Offer expired
-      </span>
+        <span class="eyebrow">
+          Offer expired
+        </span>
 
-      <h4>
-        It moves to Rebecca.
-      </h4>
+        <h4>
+          Now Rebecca gets it.
+        </h4>
 
-      <p>
+        <p>
 
-        Melissa didn’t claim the spot in time.
+          Melissa didn’t take the spot,
+          so the offer moves automatically
+          to the next person waiting.
 
-        Her offer expires and Rebecca,
-        the next person waiting,
-        automatically gets her own four-hour offer.
-
-      </p>
-
-
-      <div class="flow-note">
-
-        <strong>
-          Still no chasing.
-        </strong>
-
-        If Rebecca claims it,
-        the class fills again.
-
-        If nobody does,
-        the open space can simply return
-        to public booking.
-
-      </div>
+        </p>
 
 
-      <div class="actions">
+        <div class="flow-note">
 
-        <button
-          class="demo-btn green"
-          onclick="ownerRebeccaClaims()"
-        >
-          Rebecca claims it
-        </button>
+          If Rebecca takes it, the class fills.
+
+          If nobody does, the space simply
+          becomes available to book again.
+
+        </div>
 
 
-        <button
-          class="demo-btn outline"
-          onclick="resetOwnerDemo()"
-        >
-          Reset
-        </button>
+        <div class="actions">
+
+          <button
+            class="demo-btn green"
+            onclick="ownerRebeccaClaims()"
+          >
+            Rebecca claims it
+          </button>
+
+
+          <button
+            class="demo-btn outline"
+            onclick="resetOwnerDemo()"
+          >
+            Reset
+          </button>
+
+        </div>
 
       </div>
 
-    </div>
+    `;
 
-  `;
 
 }
 
 
 function ownerRebeccaClaims(){
 
-  document.getElementById(
-    "ownerBooked"
-  )
-  .textContent =
-    "10/10";
+
+  document
+    .getElementById(
+      "ownerBooked"
+    )
+    .textContent =
+      "10/10";
 
 
-  document.getElementById(
-    "ownerWaiting"
-  )
-  .textContent =
-    "0";
+  document
+    .getElementById(
+      "ownerWaiting"
+    )
+    .textContent =
+      "0";
 
 
-  document.getElementById(
-    "ownerOffer"
-  )
-  .textContent =
-    "0";
+  document
+    .getElementById(
+      "ownerOffer"
+    )
+    .textContent =
+      "0";
 
 
-  document.getElementById(
-    "ownerFlow"
-  )
-  .innerHTML = `
+  document
+    .getElementById(
+      "ownerFlow"
+    )
+    .innerHTML = `
 
-    <div class="stage-box">
+      <div class="stage-box">
 
-      <span class="eyebrow">
-        Spot filled
-      </span>
+        <span class="eyebrow">
+          Filled
+        </span>
 
-      <h4>
-        Rebecca is booked.
-      </h4>
+        <h4>
+          Rebecca is booked.
+        </h4>
 
-      <p>
+        <p>
 
-        The class is back to 10/10
-        and Rebecca receives her confirmation automatically.
+          The class is full again
+          and she receives her confirmation.
 
-      </p>
+        </p>
 
 
-      <div class="actions">
+        <div class="actions">
 
-        <button
-          class="demo-btn outline"
-          onclick="resetOwnerDemo()"
-        >
-          Reset this demo
-        </button>
+          <button
+            class="demo-btn outline"
+            onclick="resetOwnerDemo()"
+          >
+            Reset
+          </button>
+
+        </div>
 
       </div>
 
-    </div>
+    `;
 
-  `;
 
 }
 
 
 function resetOwnerDemo(){
 
-  ownerStage = 0;
+
+  document
+    .getElementById(
+      "ownerBooked"
+    )
+    .textContent =
+      "10/10";
 
 
-  document.getElementById(
-    "ownerBooked"
-  )
-  .textContent =
-    "10/10";
+  document
+    .getElementById(
+      "ownerWaiting"
+    )
+    .textContent =
+      "2";
 
 
-  document.getElementById(
-    "ownerWaiting"
-  )
-  .textContent =
-    "2";
+  document
+    .getElementById(
+      "ownerOffer"
+    )
+    .textContent =
+      "0";
 
 
-  document.getElementById(
-    "ownerOffer"
-  )
-  .textContent =
-    "0";
+  document
+    .getElementById(
+      "cancelDemoBtn"
+    )
+    .disabled =
+      false;
 
 
-  document.getElementById(
-    "cancelDemoBtn"
-  )
-  .disabled =
-    false;
+  document
+    .getElementById(
+      "ownerFlow"
+    )
+    .innerHTML = `
 
+      <div class="stage-box">
 
-  document.getElementById(
-    "ownerFlow"
-  )
-  .innerHTML = `
+        <h4>
+          Try the cancellation.
+        </h4>
 
-    <div class="stage-box">
+        <p>
 
-      <h4>
-        Try the cancellation.
-      </h4>
+          This is the bit I was thinking about
+          when you described how you’re currently
+          handling people waiting for spaces.
 
-      <p>
-
-        Imagine Sarah cancels from My Garden.
-        Click the button above to see what could
-        happen without you needing to chase the
-        cancellation list yourself.
-
-      </p>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   SCHEDULE CHANGE DEMO
-========================================================= */
-
-function showScheduleChange(){
-
-  document.getElementById(
-    "ownerFlow"
-  )
-  .innerHTML = `
-
-    <div class="stage-box">
-
-      <span class="eyebrow">
-        Schedule control
-      </span>
-
-      <h4>
-        Tuesday’s class changed.
-      </h4>
-
-      <p>
-
-        This is where you could change just this occurrence
-        without touching every future Pilates Fusion class.
-
-      </p>
-
-
-      <div class="actions">
-
-        <button
-          class="demo-btn light"
-          onclick="scheduleResult('instructor')"
-        >
-          Karen → Genevieve
-        </button>
-
-
-        <button
-          class="demo-btn light"
-          onclick="scheduleResult('time')"
-        >
-          Change time
-        </button>
-
-
-        <button
-          class="demo-btn outline"
-          onclick="scheduleResult('cancel')"
-        >
-          Cancel this class
-        </button>
+        </p>
 
       </div>
 
-    </div>
+    `;
 
-  `;
 
 }
 
 
-function scheduleResult(type){
+/* ==========================================
+   SCHEDULE CHANGE
+========================================== */
 
-  const messages = {
+function showScheduleChange(){
+
+
+  document
+    .getElementById(
+      "ownerFlow"
+    )
+    .innerHTML = `
+
+      <div class="stage-box">
+
+        <span class="eyebrow">
+          Schedule control
+        </span>
+
+        <h4>
+          Something changed this Tuesday.
+        </h4>
+
+        <p>
+
+          You could change just this class
+          without changing every future Tuesday.
+
+        </p>
+
+
+        <div class="actions">
+
+          <button
+            class="demo-btn light"
+            onclick="
+              scheduleResult(
+                'instructor'
+              )
+            "
+          >
+            Change instructor
+          </button>
+
+
+          <button
+            class="demo-btn light"
+            onclick="
+              scheduleResult(
+                'time'
+              )
+            "
+          >
+            Change time
+          </button>
+
+
+          <button
+            class="demo-btn outline"
+            onclick="
+              scheduleResult(
+                'cancel'
+              )
+            "
+          >
+            Cancel this class
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+}
+
+
+function scheduleResult(
+  type
+){
+
+
+  const content = {
+
 
     instructor:`
 
       <span class="eyebrow">
-        Instructor updated
+        Updated
       </span>
 
       <h4>
-        Genevieve is covering Tuesday.
+        Genevieve is teaching this Tuesday.
       </h4>
 
       <p>
-
-        Only this Tuesday changes.
-        Karen remains assigned to future
-        Pilates Fusion classes.
-
+        Future Pilates Fusion classes stay assigned to Karen.
       </p>
 
       <div class="flow-note">
 
-        Clients could receive a short instructor-update
-        email automatically if you want them to.
+        Anyone already booked could receive
+        a quick instructor update automatically.
 
       </div>
 
     `,
 
+
     time:`
 
       <span class="eyebrow">
-        Time updated
+        Updated
       </span>
 
       <h4>
-        Tuesday now starts at 7:30 PM.
+        This Tuesday now starts at 7:30.
       </h4>
 
       <p>
 
-        The public schedule and client bookings
-        would reflect the change.
-
-        Clients already booked could be notified automatically.
+        The schedule and client bookings update,
+        and the people already registered could
+        be notified.
 
       </p>
 
     `,
 
+
     cancel:`
 
       <span class="eyebrow">
-        Class cancelled
+        Cancelled
       </span>
 
       <h4>
@@ -2788,73 +3817,145 @@ function scheduleResult(type){
 
       <p>
 
-        Future Tuesdays remain untouched.
+        Future Tuesdays remain as they were.
 
-        The class disappears from available booking,
-        existing clients are notified,
-        and their My Garden accounts update.
+        Anyone booked into this one could
+        be notified automatically.
 
       </p>
 
     `
 
+
   };
 
 
-  document.getElementById(
-    "ownerFlow"
-  )
-  .innerHTML = `
+  document
+    .getElementById(
+      "ownerFlow"
+    )
+    .innerHTML = `
 
-    <div class="stage-box">
+      <div class="stage-box">
 
-      ${messages[type]}
+        ${content[type]}
 
-      <div class="actions">
+        <div class="actions">
 
-        <button
-          class="demo-btn outline"
-          onclick="resetOwnerDemo()"
-        >
-          Back to the demo
-        </button>
+          <button
+            class="demo-btn outline"
+            onclick="resetOwnerDemo()"
+          >
+            Back
+          </button>
+
+        </div>
 
       </div>
 
-    </div>
+    `;
 
-  `;
 
 }
 
 
-/* =========================================================
-   INSTRUCTOR DEMO
-========================================================= */
+/* ==========================================
+   INSTRUCTOR PAYMENT DEMO
+========================================== */
 
-function showEmergencyDemo(name){
+function introMarkCash(){
 
-  document.getElementById(
-    "instructorMessage"
-  )
-  .innerHTML = `
 
-    <strong>
-      ${name} · approved emergency information
-    </strong>
+  document
+    .getElementById(
+      "introAmyPayment"
+    )
+    .innerHTML = `
 
-    Emergency contact information would appear here
-    for the instructor while they are responsible
-    for this class.
+      <span class="status good">
+        Cash received
+      </span>
 
-    They still do not get access to the owner’s
-    full client record.
+      <small>
+        Marked by Karen · just now
+      </small>
 
-  `;
+    `;
+
+
+  document
+    .getElementById(
+      "instructorMessage"
+    )
+    .innerHTML = `
+
+      <strong>
+        That’s the kind of small practical thing I mean.
+      </strong>
+
+      Amy hands Karen $15 before class,
+      Karen marks it received here,
+      and you would see the same updated
+      payment status on your side.
+
+      She doesn’t need access to your banking
+      or the rest of the studio’s payment administration.
+
+    `;
+
+
+}
+
+
+/* ==========================================
+   INSTRUCTOR CLIENT INFO
+========================================== */
+
+function showIntroClientInfo(
+  name,
+  emergency,
+  note,
+  payment
+){
+
+
+  document
+    .getElementById(
+      "instructorMessage"
+    )
+    .innerHTML = `
+
+      <strong>
+        ${name}
+      </strong>
+
+      Emergency contact:
+      ${emergency}
+
+      <br><br>
+
+      Relevant class information:
+      ${note}
+
+      <br><br>
+
+      Payment:
+      ${payment}
+
+      <br><br>
+
+      The idea is simply that the instructor can
+      get to the information they may actually need
+      while this person is in their class.
+
+    `;
+
 
 }
 
 </script>
 
+
 </body>
+
 </html>
