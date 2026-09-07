@@ -59,76 +59,53 @@ p{margin:0}
 
 .home-hero{
   position:relative;
-  height:calc(100svh - 152px);
-  min-height:610px;
-  max-height:760px;
+  height:clamp(520px,62vw,650px);
+  min-height:520px;
+  max-height:650px;
   overflow:hidden;
   isolation:isolate;
 }
 .hero-photo{position:absolute;inset:0}
 .hero-photo img{
-  width:100%;height:100%;object-fit:cover;object-position:50% 49%;
+  width:100%;height:100%;object-fit:cover;object-position:50% 48%;
   filter:saturate(.9) brightness(1.06) contrast(.94);
-  transform:scale(1.08);
+  transform:scale(1.06);
   animation:heroMove 18s ease-in-out infinite alternate;
 }
 .hero-wash{
   position:absolute;inset:0;z-index:1;
   background:
-    linear-gradient(90deg,rgba(243,229,246,.95) 0%,rgba(243,229,246,.82) 27%,rgba(251,246,239,.42) 48%,rgba(251,246,239,.08) 69%,transparent 100%),
-    linear-gradient(180deg,rgba(255,255,255,.08),rgba(85,51,79,.05));
+    linear-gradient(90deg,rgba(243,229,246,.95) 0%,rgba(243,229,246,.82) 28%,rgba(251,246,239,.40) 50%,rgba(251,246,239,.07) 72%,transparent 100%),
+    linear-gradient(180deg,rgba(255,255,255,.06),rgba(85,51,79,.04));
 }
 .hero-inner{height:100%;position:relative;z-index:2;display:flex;align-items:center}
-.hero-copy{width:min(650px,56%);padding-bottom:118px}
+.hero-copy{width:min(610px,54%)}
 .hero-copy h1{
-  margin:13px 0 22px;
-  font-size:clamp(4.2rem,6.6vw,7rem);
-  line-height:.88;
+  margin:12px 0 20px;
+  font-size:clamp(3.6rem,5.7vw,5.7rem);
+  line-height:.91;
   color:var(--plum-dark);
 }
-.hero-line-one{
-  display:block;
-  color:var(--plum-dark);
-}
-.hero-line-two{
-  display:block;
-  margin-top:.42em;
-  color:var(--green);
-}
-.hero-copy p{font-size:1.03rem;color:#655d63}
-.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:26px}
+.hero-line-one{display:block;color:var(--plum-dark)}
+.hero-line-two{display:block;margin-top:.32em;color:var(--green)}
+.hero-copy p{font-size:1rem;color:#655d63}
+.hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
 
-/* Hero brand signature */
-.hero-tagline{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:26px;
-  width:100%;
+.booking-callout{padding:64px 0;background:linear-gradient(135deg,var(--lilac),#eef3ec)}
+.booking-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.booking-tagline{
+  display:block;
+  margin-bottom:8px;
+  color:var(--plum);
   font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(1.7rem,2.7vw,2.6rem);
   font-style:italic;
   font-weight:500;
-  font-size:clamp(4.5rem,7.1vw,8rem);
-  line-height:.84;
-  letter-spacing:-.065em;
-  color:var(--plum);
-  text-shadow:0 3px 24px rgba(255,255,255,.34);
-  white-space:nowrap;
+  letter-spacing:-.035em;
 }
-.hero-tagline:after{
-  content:none;
-}
-
-.simple-intro{padding:78px 0;background:var(--paper)}
-.intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:85px;align-items:end}
-.intro-copy{max-width:560px}
-.intro-copy p{font-size:1.05rem;color:var(--muted);margin-bottom:20px}
-
-.booking-callout{padding:78px 0;background:linear-gradient(135deg,var(--lilac),#eef3ec)}
-.booking-grid{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:end}
-.booking-callout h2{margin:7px 0 13px}
-.booking-callout p{color:var(--muted)}
-.booking-actions{display:flex;gap:10px;flex-wrap:wrap}
+.booking-callout h2{margin:0 0 12px;font-size:clamp(2.55rem,4.3vw,4.25rem)}
+.booking-callout p{max-width:690px;color:var(--muted);font-size:1rem}
+.booking-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 
 .contact-strip{padding:68px 0;background:var(--cream)}
 .contact-grid{display:grid;grid-template-columns:1fr .8fr;gap:70px;align-items:start}
@@ -157,25 +134,19 @@ p{margin:0}
   .mobile-panel{display:none;padding:12px 22px 22px;background:rgba(255,250,246,.98);border-top:1px solid var(--line)}
   .mobile-panel.open{display:grid}
   .mobile-panel a{padding:11px 0;border-bottom:1px solid var(--line);font-weight:600}
-  .intro-grid,.booking-grid,.contact-grid{grid-template-columns:1fr;gap:30px}
+  .booking-grid,.contact-grid{grid-template-columns:1fr;gap:30px}
+  .booking-actions{justify-content:flex-start}
 }
 @media(max-width:680px){
   .container{width:min(100% - 28px,1180px)}
   .demo-bar .container>span{display:none}
-  .home-hero{height:calc(100svh - 124px);min-height:660px}
+  .home-hero{height:590px;min-height:590px;max-height:none}
   .hero-photo img{object-position:65% 50%}
-  .hero-wash{background:linear-gradient(180deg,rgba(251,246,239,.08),rgba(243,229,246,.40) 38%,rgba(243,229,246,.97) 72%,rgba(243,229,246,.99) 100%)}
-  .hero-inner{align-items:flex-end;padding-bottom:210px}
-  .hero-copy{width:100%;padding-bottom:0}
-  .hero-copy h1{font-size:3.7rem}
-  .hero-tagline{
-    bottom:28px;
-    width:100%;
-    font-size:clamp(3.2rem,12vw,4.4rem);
-    white-space:normal;
-    max-width:92%;
-  }
-  .simple-intro,.booking-callout,.contact-strip{padding:58px 0}
+  .hero-wash{background:linear-gradient(180deg,rgba(251,246,239,.08),rgba(243,229,246,.38) 34%,rgba(243,229,246,.96) 70%,rgba(243,229,246,.99) 100%)}
+  .hero-inner{align-items:flex-end;padding-bottom:58px}
+  .hero-copy{width:100%}
+  .hero-copy h1{font-size:clamp(3.15rem,14vw,4.1rem)}
+  .booking-callout,.contact-strip{padding:54px 0}
   .footer-grid{grid-template-columns:1fr}
   .footer-note{text-align:left}
 }
@@ -356,29 +327,15 @@ body.yg-locked > *:not(#ygPasswordGate){display:none!important;}
         </div>
       </div>
 
-      <div class="hero-tagline">where we grow together</div>
     </div>
   </section>
 
-  <section class="simple-intro" id="about">
-    <div class="container intro-grid">
-      <div>
-        <span class="eyebrow">The Yoga Garden</span>
-        <h2>Come move with us.</h2>
-      </div>
-      <div class="intro-copy">
-        <p>Yoga, Pilates, heated classes, and strength-based movement in a bright Greenwood studio.</p>
-        <a class="text-link" href="yoga-garden-classes.html">See the weekly schedule →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="booking-callout">
+  <section class="booking-callout" id="about">
     <div class="container booking-grid">
       <div>
-        <span class="eyebrow">Classes + Booking</span>
+        <span class="booking-tagline">where we grow together</span>
         <h2>See what’s on this week.</h2>
-        <p>Check class times, available spots, book, or join a cancellation list.</p>
+        <p>Yoga, Pilates, heated classes, and strength-based movement in a bright Greenwood studio. Check class times, see available spots, book, or join a cancellation list.</p>
       </div>
       <div class="booking-actions">
         <a class="button green" href="yoga-garden-classes.html">Open the schedule</a>
