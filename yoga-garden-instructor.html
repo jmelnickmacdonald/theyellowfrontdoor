@@ -2,9 +2,123 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet>
 <style>
 :root{--paper:#fffaf6;--bg:#f6f2ed;--lilac:#eadff1;--plum:#87507f;--plumdark:#55334f;--green:#4b825f;--green2:#315d42;--greensoft:#e8f1ea;--muted:#756d72;--line:rgba(85,51,79,.13);--warnbg:#f4e7dc;--warn:#875a31}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:"DM Sans",sans-serif;color:#302b2f}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}h1,h2{font-family:"Playfair Display",serif;color:var(--plumdark);margin:0;letter-spacing:-.035em}.demo{min-height:34px;background:#382738;color:white;font-size:12px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;padding:6px 12px}.demo a{border-bottom:1px solid rgba(255,255,255,.25)}.shell{display:grid;grid-template-columns:235px 1fr;min-height:calc(100vh - 34px)}.side{background:#312332;color:#fff;padding:22px 18px}.side img{width:150px;max-height:95px;object-fit:contain;margin:0 auto 22px}.side a,.side button{display:block;width:100%;border:0;background:transparent;color:#eee2ee;text-align:left;padding:10px;border-radius:10px;font-size:13px}.side a:hover,.side button:hover,.side .active{background:rgba(255,255,255,.09)}.main{padding:34px 38px 60px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--green);font-weight:700}h1{font-size:clamp(45px,5vw,70px);line-height:.97;margin:5px 0}.muted{color:var(--muted)}.small{font-size:12px}.top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.badge{background:var(--lilac);color:var(--plum);padding:9px 12px;border-radius:999px;font-size:11px;font-weight:700}.switch{display:flex;gap:5px;flex-wrap:wrap;margin:18px 0 25px}.switch button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 11px;font-size:11px;color:var(--plum)}.switch .active{background:var(--plum);color:#fff}.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:20px}.card h2{font-size:28px;margin:5px 0 12px}.next{background:linear-gradient(135deg,#f1e8f4,#fffaf6);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:20px}.next h2{font-size:34px;margin:5px 0}.attendee{display:grid;grid-template-columns:1fr auto auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.attendee strong{display:block;color:var(--plumdark);font-size:12px}.attendee span{font-size:10px;color:var(--muted)}.status{display:inline-flex;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:700}.good{background:var(--greensoft);color:var(--green2)}.warn{background:var(--warnbg);color:var(--warn)}.paybox{text-align:right}.paybtn{display:block;margin-top:5px;margin-left:auto;border:1px solid var(--line);background:white;border-radius:999px;padding:6px 8px;font-size:9px;color:var(--plum);font-weight:700}.check{border:1px solid var(--line);background:white;border-radius:999px;padding:7px 10px;font-size:10px;color:var(--plum);font-weight:700}.check.on{background:var(--greensoft);color:var(--green2);border-color:transparent}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px 7px;text-align:left;border-bottom:1px solid var(--line)}th{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.privacy{padding:14px;background:#eee9e5;border-radius:10px;font-size:11px;color:var(--muted);line-height:1.5;margin-top:14px}.quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}.quick button{border:1px solid var(--line);background:#fff;border-radius:11px;padding:11px;text-align:left;font-size:11px;color:var(--plum);font-weight:700}@media(max-width:850px){.shell{grid-template-columns:1fr}.side{display:flex;gap:8px;overflow:auto;padding:12px}.side img{display:none}.side a,.side button{width:auto;white-space:nowrap}.main{padding:26px 16px 50px}.grid{grid-template-columns:1fr}}@media(max-width:560px){.attendee{grid-template-columns:1fr auto}.top{align-items:flex-start;flex-direction:column}.quick{grid-template-columns:1fr}}
-</style></head><body>
-<div class="demo"><strong>The Yoga Garden instructor demo</strong><a href="yoga-garden-demo-intro.html">← Walkthrough</a><a href="yoga-garden-owner.html">Owner</a><a href="yoga-garden-classes.html">Public booking</a><a href="yoga-garden-next-steps.html">Proposal →</a></div>
-<div class="shell"><aside class="side"><img src="yogagardenlogo.png" alt="The Yoga Garden"><a class="active">My classes</a><button onclick="alert('Demo: class messages would live here.')">Messages</button><button onclick="alert('Demo: notes to Genevieve would live here.')">Notes</button><a href="yoga-garden-owner.html">Owner demo ↗</a><a href="yoga-garden-demo-intro.html">Walkthrough ↗</a><a href="yoga-garden-next-steps.html">What I’m proposing ↗</a></aside>
+</style>
+<style id="yg-password-style">
+body.yg-locked{min-height:100vh;margin:0;background:#faf8f5;}
+body.yg-locked > *:not(#ygPasswordGate){display:none!important;}
+#ygPasswordGate{min-height:100vh;display:grid;place-items:center;padding:24px;background:#faf8f5;color:#302b2f;font-family:"DM Sans",Arial,sans-serif;}
+#ygPasswordGate .yg-gate-card{width:min(430px,100%);padding:28px;border:1px solid rgba(62,48,59,.12);border-radius:16px;background:#fffdf9;}
+#ygPasswordGate h1{margin:0 0 8px;color:#55334f;font-family:"Playfair Display",Georgia,serif;font-size:30px;font-weight:500;}
+#ygPasswordGate p{margin:0 0 18px;color:#746d71;font-size:13px;line-height:1.65;}
+#ygPasswordGate label{display:block;margin-bottom:6px;color:#55334f;font-size:11px;font-weight:700;}
+#ygPasswordGate input{width:100%;padding:11px 12px;border:1px solid rgba(62,48,59,.18);border-radius:9px;background:#fff;color:#302b2f;font:inherit;font-size:16px;outline:none;}
+#ygPasswordGate input:focus{border-color:#87507f;box-shadow:0 0 0 3px rgba(135,80,127,.10);}
+#ygPasswordGate button{margin-top:10px;padding:10px 16px;border:0;border-radius:999px;background:#4b825f;color:#fff;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}
+#ygPasswordGate .yg-error{min-height:18px;margin-top:8px;color:#8a4747;font-size:10px;}
+</style>
+
+<style id="yg-explore-style">
+.yg-viewbar{background:#342535;color:#fff;font-family:"DM Sans",Arial,sans-serif;font-size:11px;position:relative;z-index:50;}
+.yg-viewbar-inner{width:min(1180px,calc(100% - 36px));min-height:46px;margin:auto;display:flex;align-items:center;gap:16px;justify-content:space-between;}
+.yg-view-left{display:flex;align-items:center;gap:10px;min-width:0;}
+.yg-view-label{color:rgba(255,255,255,.68);white-space:nowrap;}
+.yg-view-switch{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.yg-view-switch a{color:rgba(255,255,255,.72);text-decoration:none;font-weight:700;padding:5px 8px;border-radius:999px;}
+.yg-view-switch a.active{background:rgba(255,255,255,.14);color:#fff;}
+.yg-view-arrow{color:rgba(255,255,255,.38);}
+.yg-view-actions{display:flex;align-items:center;gap:13px;white-space:nowrap;}
+.yg-view-actions button,.yg-view-actions a{border:0;background:transparent;color:#fff;font:inherit;font-weight:600;text-decoration:none;padding:0;cursor:pointer;}
+.yg-view-actions button{color:rgba(255,255,255,.75);}
+.yg-view-actions a{border-bottom:1px solid rgba(255,255,255,.28);}
+.yg-explore-modal[hidden]{display:none!important;}
+.yg-explore-modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:22px;background:rgba(31,23,31,.58);font-family:"DM Sans",Arial,sans-serif;}
+.yg-explore-card{width:min(610px,100%);max-height:calc(100vh - 44px);overflow:auto;background:#fffdf9;border-radius:17px;padding:27px;box-shadow:0 24px 80px rgba(33,24,33,.25);color:#302b2f;}
+.yg-explore-card h2{margin:0 0 12px;color:#55334f;font-family:"Playfair Display",Georgia,serif;font-size:31px;line-height:1.08;font-weight:500;letter-spacing:-.02em;}
+.yg-explore-card p{margin:0 0 14px;color:#746d71;font-size:13px;line-height:1.65;}
+.yg-explore-views{margin:18px 0;border-top:1px solid rgba(62,48,59,.12);border-bottom:1px solid rgba(62,48,59,.12);}
+.yg-explore-row{padding:12px 0;border-bottom:1px solid rgba(62,48,59,.09);}
+.yg-explore-row:last-child{border-bottom:0;}
+.yg-explore-row strong{display:block;margin-bottom:3px;color:#55334f;font-size:12px;}
+.yg-explore-row span{display:block;color:#746d71;font-size:11px;line-height:1.55;}
+.yg-explore-actions{display:flex;justify-content:flex-end;margin-top:19px;}
+.yg-explore-actions button{border:0;border-radius:999px;padding:10px 16px;background:#4b825f;color:#fff;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}
+@media(max-width:720px){
+  .yg-viewbar-inner{padding:9px 0;align-items:flex-start;flex-direction:column;gap:7px;}
+  .yg-view-left{width:100%;align-items:flex-start;flex-direction:column;gap:4px;}
+  .yg-view-actions{width:100%;justify-content:space-between;}
+  .yg-view-switch{gap:3px;}
+  .yg-view-switch a{padding-left:5px;padding-right:5px;}
+  .yg-explore-card{padding:22px;}
+}
+</style>
+</head><body class="yg-locked">
+<div id="ygPasswordGate" aria-live="polite">
+  <form class="yg-gate-card" id="ygPasswordForm">
+    <h1>Private preview</h1>
+    <p>This page is password protected.</p>
+    <label for="ygPassword">Password</label>
+    <input id="ygPassword" type="password" autocomplete="current-password" required>
+    <button type="submit">Enter →</button>
+    <div class="yg-error" id="ygPasswordError"></div>
+  </form>
+</div>
+<script id="yg-password-script">
+(function(){
+  const KEY='ygProposalUnlocked';
+  const EXPECTED='507f0cd743f7993cbe9191186f8bbea78f128ef444104f3725240dbed9569d82';
+  const body=document.body;
+  const gate=document.getElementById('ygPasswordGate');
+  function unlock(){
+    try{sessionStorage.setItem(KEY,'1');}catch(e){}
+    body.classList.remove('yg-locked');
+    if(gate) gate.remove();
+  }
+  try{if(sessionStorage.getItem(KEY)==='1'){unlock();return;}}catch(e){}
+  const form=document.getElementById('ygPasswordForm');
+  const input=document.getElementById('ygPassword');
+  const error=document.getElementById('ygPasswordError');
+  async function sha256(text){
+    const data=new TextEncoder().encode(text);
+    const digest=await crypto.subtle.digest('SHA-256',data);
+    return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    error.textContent='';
+    try{
+      const entered=await sha256(input.value);
+      if(entered===EXPECTED){unlock();}
+      else{error.textContent='That password did not work. Please try again.';input.select();}
+    }catch(err){
+      error.textContent='This password screen needs to be opened from the live site.';
+    }
+  });
+  setTimeout(()=>input && input.focus(),0);
+})();
+</script>
+
+
+<div class="yg-viewbar">
+  <div class="yg-viewbar-inner">
+    <div class="yg-view-left">
+      <span class="yg-view-label">Viewing as</span>
+      <nav class="yg-view-switch" aria-label="Switch demo view">
+        <a href="yoga-garden-demo.html">Client</a>
+        <span class="yg-view-arrow">→</span>
+        <a href="yoga-garden-owner.html">Owner</a>
+        <span class="yg-view-arrow">→</span>
+        <a class="active" href="yoga-garden-instructor.html">Instructor</a>
+      </nav>
+    </div>
+    <div class="yg-view-actions">
+      <button type="button" data-yg-explore-open>How to explore</button>
+      
+      <a href="yoga-garden-next-steps.html">What I’m proposing →</a>
+    </div>
+  </div>
+</div>
+
+<div class="shell"><aside class="side"><img src="yogagardenlogo.png" alt="The Yoga Garden"><a class="active">My classes</a><button onclick="alert('Demo: class messages would live here.')">Messages</button><button onclick="alert('Demo: notes to Genevieve would live here.')">Notes</button><a href="yoga-garden-owner.html">Owner demo ↗</a><a href="yoga-garden-demo.html">Client view ↗</a><a href="yoga-garden-next-steps.html">What I’m proposing ↗</a></aside>
 <main class="main"><div class="top"><div><span class="eyebrow">Instructor portal</span><h1>Hi, <span id="instName">Karen</span>.</h1><p class="muted">Your classes and the information you need to run them.</p></div><span class="badge">Instructor access</span></div>
 <div class="switch" id="switcher"></div><section class="next"><span class="eyebrow">Next class</span><h2 id="nextTitle"></h2><p class="muted small" id="nextMeta"></p></section>
 <div class="grid"><div><section class="card"><span class="eyebrow">Roster</span><h2>Check in your class</h2><div id="roster"></div><div class="privacy"><strong>Instructor permissions:</strong> this stays intentionally small. Instructors see their assigned classes, attendance, waiver status, approved need-to-know client information, and class-level payment status. If Genevieve allows it, they can record cash handed to them at class. Banking, e-transfer confirmation, reporting, website settings, and owner administration stay with Genevieve.</div></section></div>
@@ -117,4 +231,39 @@ function renderAll(){
  }).join(''):'<p class="muted small">No roster loaded.</p>';
 }
 renderAll();
-</script></body></html>
+</script>
+<div class="yg-explore-modal" id="ygExploreModal" hidden>
+  <div class="yg-explore-card" role="dialog" aria-modal="true" aria-labelledby="ygExploreTitle">
+    <h2 id="ygExploreTitle">A quick note before you explore</h2>
+    <p>You can look at this from three different sides of the studio.</p>
+    <div class="yg-explore-views">
+      <div class="yg-explore-row"><strong>Client</strong><span>See the website, classes, booking flow, and My Garden.</span></div>
+      <div class="yg-explore-row"><strong>Owner</strong><span>See the behind-the-scenes side: classes, clients, waivers, payments, cancellations, waiting lists, instructors, and the things you’d be able to manage yourself.</span></div>
+      <div class="yg-explore-row"><strong>Instructor</strong><span>See the simpler class-day view, with rosters, check-in, useful client information, waiver status, and payment status.</span></div>
+    </div>
+    <p>Use the switcher at the top to move between the three views. I’d start on the client side and click through it as though you were actually booking a class, then have a look at the owner and instructor sides.</p>
+    <p>Everything here is still a static prototype with pretend data. It’s just meant to show how the pieces could work together and what the experience could look like.</p>
+    <div class="yg-explore-actions"><button type="button" id="ygExploreClose">Start exploring →</button></div>
+  </div>
+</div>
+
+<script id="yg-explore-script">
+(function(){
+  const modal=document.getElementById('ygExploreModal');
+  const openers=document.querySelectorAll('[data-yg-explore-open]');
+  const close=document.getElementById('ygExploreClose');
+  const AUTO=document.body.dataset.ygExploreAuto==='true';
+  const SEEN='ygExploreSeen';
+  function openModal(){if(modal){modal.hidden=false;document.body.style.overflow='hidden';}}
+  function closeModal(){if(modal){modal.hidden=true;document.body.style.overflow='';try{sessionStorage.setItem(SEEN,'1');}catch(e){}}}
+  openers.forEach(btn=>btn.addEventListener('click',openModal));
+  if(close) close.addEventListener('click',closeModal);
+  if(modal) modal.addEventListener('click',e=>{if(e.target===modal) closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal&&!modal.hidden) closeModal();});
+  if(AUTO){
+    let seen=false;try{seen=sessionStorage.getItem(SEEN)==='1';}catch(e){}
+    if(!seen) openModal();
+  }
+})();
+</script>
+</body></html>
