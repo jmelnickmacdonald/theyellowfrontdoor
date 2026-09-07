@@ -2103,6 +2103,7 @@ gtag(
 
 </footer>
 
+<script src="studio-sync.js"></script>
 
 <script>
 
@@ -2300,12 +2301,18 @@ gtag(
 
         if (response.ok) {
 
-          status.textContent =
-            'Message sent. Taking you to the next page…';
+  status.textContent =
+    'Message sent. Taking you to the next page…';
 
 
-          window.location.href =
-            'thank-you.html';
+  await TYFDStudio.sync(
+    'xeeyqbzk',
+    new FormData(form)
+  );
+
+
+  window.location.href =
+    'thank-you.html';
 
 
         } else {

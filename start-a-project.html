@@ -813,6 +813,8 @@ legend{width:100%;}
   </div>
 </footer>
 
+<script src="studio-sync.js"></script>
+
 <script>
 (function(){
   var nav=document.getElementById('nav');
@@ -973,8 +975,14 @@ legend{width:100%;}
       method:'POST',
       body:new FormData(form),
       headers:{'Accept':'application/json'}
-    }).then(function(response){
+    }).then(async function(response){
       if(!response.ok){throw new Error('Submission failed');}
+
+      await TYFDStudio.sync(
+        'xzdnblvr',
+        new FormData(form)
+      );
+
       form.removeAttribute('aria-busy');
       form.style.display='none';
       document.querySelector('.form-progress').style.display='none';

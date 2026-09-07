@@ -2103,6 +2103,7 @@ gtag(
 
 </main>
 
+<script src="studio-sync.js"></script>
 
 <script>
 
@@ -3258,6 +3259,12 @@ async function captureEmail(
       );
 
     }
+
+
+    await TYFDStudio.sync(
+      'xrewablz',
+      formData
+    );
 
 
     window.location.href =

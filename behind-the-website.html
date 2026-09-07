@@ -579,6 +579,7 @@ legend{width:100%;}
         <form id="project-form" action="https://formspree.io/f/mwlkqpke" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Behind the Website — project details — The Yellow Front Door">
           <input type="hidden" name="form_name" value="Behind the Website">
+          <input type="hidden" name="project_token" id="project-token" value="">
           <div class="website-field" aria-hidden="true">
             <label for="company-website-field">Leave this field blank</label>
             <input id="company-website-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
@@ -801,9 +802,27 @@ legend{width:100%;}
   </div>
 </footer>
 
+<script src="studio-sync.js"></script>
+
 <script>
 (function(){
   var nav=document.getElementById('nav');
+
+  var params=new URLSearchParams(window.location.search);
+  var projectToken=params.get('project')||params.get('project_token')||'';
+  var projectTokenInput=document.getElementById('project-token');
+
+  if(projectTokenInput && projectToken){
+    projectTokenInput.value=projectToken;
+  }
+
+  document.querySelectorAll('a[href^="https://tally.so/r/Mexk70"]').forEach(function(link){
+    if(!projectToken){return;}
+    var tallyUrl=new URL(link.href);
+    tallyUrl.searchParams.set('project',projectToken);
+    link.href=tallyUrl.toString();
+  });
+
   window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
   var toggle=document.getElementById('nav-toggle');
   var navLinks=document.getElementById('nav-links');
@@ -1007,8 +1026,14 @@ legend{width:100%;}
       method:'POST',
       body:new FormData(form),
       headers:{'Accept':'application/json'}
-    }).then(function(response){
+    }).then(async function(response){
       if(!response.ok){throw new Error('Submission failed');}
+
+      await TYFDStudio.sync(
+        'mwlkqpke',
+        new FormData(form)
+      );
+
       form.style.display='none';
       document.querySelector('.form-progress').style.display='none';
       document.getElementById('success-panel').classList.add('show');

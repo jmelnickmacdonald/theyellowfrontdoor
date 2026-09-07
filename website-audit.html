@@ -2425,6 +2425,7 @@ gtag(
 
 </main>
 
+<script src="studio-sync.js"></script>
 
 <script>
 
@@ -3532,6 +3533,12 @@ async function submitForm(
       );
 
     }
+
+
+    await TYFDStudio.sync(
+      'mojojrgg',
+      data
+    );
 
 
     showScreen(
