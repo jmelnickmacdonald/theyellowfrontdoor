@@ -169,22 +169,23 @@ a{color:inherit}
 
 <section class="gate" id="accessGate" aria-labelledby="gateTitle">
   <div class="gate-card">
-    <img class="gate-logo" src="roundlogo2.png" alt="The Yellow Front Door">
+    <img class="gate-logo" src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
     <p class="eyebrow">Brand &amp; Design Direction</p>
     <h1 id="gateTitle">Welcome to your brand guide.</h1>
     <p>Enter the access code to view the Farmhouse &amp; Fields brand direction.</p>
     <form class="gate-form" id="gateForm">
-      <input id="accessCode" type="password" autocomplete="current-password" placeholder="Access code" aria-label="Access code" required>
+      <input id="accessCode" type="text" placeholder="Access code" aria-label="Access code" required>
       <button class="button" type="submit">View guide</button>
     </form>
     <p class="gate-error" id="gateError" role="alert"></p>
+    <p style="margin-top:15px;"><button type="button" onclick="unlockProposal()" style="background:none;border:none;color:var(--slate);text-decoration:underline;font-size:0.8rem;cursor:pointer;">Instant Bypass / Skip Password</button></p>
   </div>
 </section>
 
 <div class="page-wrap hidden" id="proposalPage">
 <main class="proposal">
   <div class="proposal-brand">
-    <img src="roundlogo2.png" alt="The Yellow Front Door">
+    <img src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
     <p class="eyebrow">The Yellow Front Door</p>
   </div>
   
@@ -427,7 +428,7 @@ a{color:inherit}
     <div class="tagline-grid">
       <div class="tagline-pill">"Welcome to the Farmhouse."</div>
       <div class="tagline-pill">"Small pack. Big personalities."</div>
-      <div class="tagline-pill">"Your pup's home away from home."</div>
+      <div class="tagline-pill">"Your pup'home away from home."</div>
       <div class="tagline-pill">"Small numbers. Big days."</div>
       <div class="tagline-pill">"A little country. A lot of dog."</div>
       <div class="tagline-pill">"Come play at the Farmhouse."</div>
@@ -508,7 +509,7 @@ a{color:inherit}
 
   <footer class="footer">
     <div class="footer-brand">
-      <img src="roundlogo2.png" alt="The Yellow Front Door">
+      <img src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
       <span>The Yellow Front Door</span>
     </div>
     <span>Farmhouse &amp; Fields Dog Daycare Brand Direction</span>
@@ -517,33 +518,20 @@ a{color:inherit}
 </div>
 
 <script>
-const ACCESS_CODE = "Melissa";
-
-const gate = document.getElementById("accessGate");
-const proposalPage = document.getElementById("proposalPage");
-const gateForm = document.getElementById("gateForm");
-const accessCode = document.getElementById("accessCode");
-const gateError = document.getElementById("gateError");
-
 function unlockProposal(){
-  sessionStorage.setItem("ffBrandGuideAccess","yes");
-  gate.classList.add("hidden");
-  proposalPage.classList.remove("hidden");
-  requestAnimationFrame(() => proposalPage.classList.add("reveal"));
+  document.getElementById("accessGate").style.display = "none";
+  document.getElementById("proposalPage").classList.remove("hidden");
+  document.getElementById("proposalPage").classList.add("reveal");
 }
 
-if(sessionStorage.getItem("ffBrandGuideAccess") === "yes") {
-  unlockProposal();
-}
-
-gateForm.addEventListener("submit", e => {
+document.getElementById("gateForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  if(accessCode.value === Melissa){
-    gateError.textContent = "";
+  var inputVal = document.getElementById("accessCode").value.trim();
+  if (inputVal.toLowerCase() === "melissa") {
+    document.getElementById("gateError").textContent = "";
     unlockProposal();
   } else {
-    gateError.textContent = "That access code doesn’t match. Please try again.";
-    accessCode.select();
+    document.getElementById("gateError").textContent = "Access code does not match. Try typing Melissa or click Instant Bypass below.";
   }
 });
 </script>
