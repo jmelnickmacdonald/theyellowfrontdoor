@@ -1,993 +1,983 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Farmhouse & Fields Brand Direction | The Yellow Front Door</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<style>
-/* Custom Uploaded Font: Aubrey */
-@font-face {
-  font-family: 'Aubrey';
-  src: url('AUBREY1__.woff2') format('woff2'),
-       url('aubrey.woff2') format('woff2'),
-       url('AUBREY1__.TTF') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Farmhouse & Fields Dog Daycare brand direction." />
+  <title>Farmhouse & Fields | Brand Direction</title>
 
-@font-face{font-family:"TYFD Hand";src:url("CasualHandwriting.woff2") format("woff2"),url("CasualHandwriting.woff") format("woff");font-display:swap}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aubrey&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-:root {
-  /* Dynamic Color & Font Variables */
-  --red: #8A1211;            
-  --red-hover: #6B0C0A;
-  --dusty-blue: #4A7B82;     
-  --dusty-blue-light: #E8F2F3;
-  --dusty-blue-dark: #2C5157; 
-  
-  --font-heading: "Aubrey", Georgia, serif;
-  --font-body: "DM Sans", Arial, sans-serif;
-  --heading-transform: none;
-  --heading-spacing: 0.015em;
-  --heading-weight: 400;
+  <style>
+    :root {
+      --wine: #6E1413;
+      --river: #385D6B;
+      --oat: #E7DDCD;
+      --warm-white: #FCFBF8;
+      --ink: #2A2926;
+      --muted: #6D6963;
+      --line: #DED9D1;
+      --white: #FFFFFF;
+      --max: 1180px;
+      --gutter: clamp(22px, 5vw, 70px);
+      --radius: 24px;
+      --shadow: 0 14px 44px rgba(42, 41, 38, .08);
+    }
 
-  --oat: #E7DDCD;            
-  --warm-white: #FCFBF8;     
-  --ink: #2A2926;            
-  
-  /* System Base Colors */
-  --navy: #132447;
-  --slate: #596674;
-  --yellow: #fcd346;
-  --purple: #8c52ff;
-  --max: 980px;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--warm-white);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:#f3f4f7;
-  color:var(--ink);
-  font-family:var(--font-body);
-  font-size:15px;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased
-}
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
 
-h1, h2, h3, .brand-heading {
-  font-family: var(--font-heading);
-  text-transform: var(--heading-transform);
-  letter-spacing: var(--heading-spacing);
-  font-weight: var(--heading-weight);
-  color: var(--ink);
-}
+    .shell {
+      width: min(var(--max), calc(100% - (var(--gutter) * 2)));
+      margin-inline: auto;
+    }
 
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-.hidden{display:none!important}
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--wine);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
 
-@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    h1, h2, h3, p { margin-top: 0; }
 
-/* Access Gate */
-.gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 18%,rgba(252,211,70,.12),transparent 28%),#fff}.gate-card{width:min(510px,100%);text-align:center;padding:42px 28px 32px}.gate-logo{width:66px;height:66px;object-fit:contain;margin:0 auto 26px}.eyebrow{margin:0 0 12px;color:var(--red);font-size:.7rem;line-height:1;letter-spacing:.18em;font-weight:700;text-transform:uppercase}.gate h1{margin:0 0 12px;font-size:clamp(2rem,6vw,3.3rem);line-height:1;letter-spacing:-.04em}.gate p{color:var(--slate);max-width:420px;margin:0 auto 27px}.gate-form{display:grid;grid-template-columns:1fr auto;gap:10px;max-width:420px;margin:auto}.gate-form input{min-height:52px;border:1px solid #cfd3db;border-radius:7px;padding:0 15px;color:var(--navy);background:#fff}.gate-error{min-height:22px;margin-top:10px!important;color:var(--red)!important;font-size:.86rem}
+    h1, h2, .display {
+      font-family: "Aubrey", Georgia, serif;
+      font-weight: 400;
+      line-height: .98;
+    }
 
-/* Main Container */
-.page-wrap{padding:32px 32px 100px}.page-wrap.reveal{animation:pageIn .42s ease both}.proposal{width:min(var(--max),100%);margin:0 auto;background:var(--warm-white);border:3px solid var(--dusty-blue);min-height:calc(100vh - 64px);padding:clamp(54px,7vw,86px) clamp(34px,7vw,82px) 42px;box-shadow:0 18px 65px rgba(19,36,71,.08)}.proposal-brand{display:flex;align-items:center;gap:11px;margin:0 0 15px}.proposal-brand img{width:46px;height:46px;object-fit:contain;flex:0 0 auto}.proposal-brand .eyebrow{margin:0}
+    h1 {
+      max-width: 760px;
+      margin-bottom: 26px;
+      font-size: clamp(4.2rem, 10vw, 8.4rem);
+      letter-spacing: -.02em;
+    }
 
-/* Client Header Logo */
-.client-logo-wrap{margin:24px 0 20px;text-align:left}
-.client-logo-wrap img{max-width:280px;height:auto;display:block}
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      letter-spacing: -.015em;
+    }
 
-.proposal-title{margin:0 0 8px;font-size:clamp(2rem,4vw,2.8rem);line-height:1.15;letter-spacing:var(--heading-spacing);font-family:var(--font-heading);font-weight:var(--heading-weight);color:var(--ink)}.subtitle{font-family:var(--font-body);font-size:1.1rem;color:var(--dusty-blue);margin:0 0 24px;font-weight:500}.intro{max-width:800px;color:var(--ink);margin:0;font-size:.95rem;line-height:1.6}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:20px 0 0;color:var(--dusty-blue-dark);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
 
-/* Light Payment Reference Note */
-.deposit-note {
-  margin-top: 12px;
-  font-size: 0.76rem;
-  color: var(--dusty-blue-dark);
-  background: var(--dusty-blue-light);
-  border: 1px solid rgba(114, 128, 138, 0.25);
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 4px;
-}
+    .lede {
+      max-width: 850px;
+      margin-bottom: 0;
+      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+      color: #4E4A45;
+    }
 
-/* Section Blocks */
-.section-block {
-  margin: 36px 0;
-  padding: 32px 28px;
-  border-radius: 12px;
-  transition: background-color 0.2s ease;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(252,251,248,.94);
+      border-bottom: 1px solid rgba(42,41,38,.08);
+      backdrop-filter: blur(12px);
+    }
 
-.section-block.bg-warm-white {
-  background-color: #fff;
-  border: 1px solid rgba(114, 128, 138, 0.25);
-}
+    .topbar-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-.section-block.bg-blue-tint {
-  background-color: var(--dusty-blue-light);
-  border: 1px solid rgba(114, 128, 138, 0.3);
-}
+    .topbar strong { font-size: .92rem; }
 
-.section-block.bg-blue-accent {
-  background-color: var(--dusty-blue);
-  color: #fff;
-  border: 1px solid var(--dusty-blue-dark);
-}
+    .jump-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px;
+      font-size: .79rem;
+      font-weight: 600;
+    }
 
-.section-block.bg-blue-accent .section-title,
-.section-block.bg-blue-accent h2,
-.section-block.bg-blue-accent h3,
-.section-block.bg-blue-accent p,
-.section-block.bg-blue-accent li {
-  color: #fff !important;
-}
+    .jump-nav a {
+      color: #5B5752;
+      text-decoration: none;
+    }
 
-.section-block.bg-blue-accent .section-intro {
-  color: #E2E8EC !important;
-}
+    .jump-nav a:hover,
+    .jump-nav a:focus { color: var(--wine); }
 
-.section-block.bg-red-tint {
-  background-color: rgba(138, 18, 17, 0.04);
-  border: 1px solid rgba(138, 18, 17, 0.2);
-}
+    .hero {
+      padding: clamp(70px, 10vw, 140px) 0 90px;
+      overflow: hidden;
+    }
 
-.section-title {
-  font-size: 1.6rem;
-  margin: 0 0 8px;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-heading);
-  letter-spacing: var(--heading-spacing);
-  text-transform: var(--heading-transform);
-  font-weight: var(--heading-weight);
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      gap: clamp(42px, 8vw, 100px);
+      align-items: center;
+    }
 
-.section-number {
-  display: inline-block;
-  background: var(--red);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 2px 11px;
-  border-radius: 20px;
-  transition: background 0.2s ease;
-}
+    .hero-mark {
+      position: relative;
+      padding: 34px;
+      min-height: 440px;
+      display: grid;
+      place-items: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 50% 50% 22px 22px;
+      box-shadow: var(--shadow);
+    }
 
-.section-number.blue-num {
-  background: var(--dusty-blue);
-}
+    .hero-mark::before {
+      content: "";
+      position: absolute;
+      inset: 18px auto 18px -16px;
+      width: 12px;
+      border-radius: 999px;
+      background: var(--wine);
+    }
 
-.section-block.bg-blue-accent .section-number {
-  background: #fff;
-  color: var(--dusty-blue-dark);
-}
+    .hero-mark img {
+      width: min(330px, 82%);
+      mix-blend-mode: multiply;
+    }
 
-.section-intro {
-  color: var(--slate);
-  font-size: .9rem;
-  margin: 0 0 24px;
-  max-width: 760px;
-}
+    .hero-note {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-size: .9rem;
+      color: var(--muted);
+    }
 
-/* Palette Tester Blocks */
-.color-tester-card {
-  background: #fff;
-  border: 1px solid rgba(114, 128, 138, 0.25);
-  padding: 20px;
-  border-radius: 8px;
-  margin: 20px 0;
-}
+    section {
+      padding: clamp(72px, 9vw, 120px) 0;
+      border-top: 1px solid var(--line);
+    }
 
-.tester-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
-}
+    .section-head {
+      margin-bottom: 46px;
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: clamp(28px, 6vw, 80px);
+      align-items: end;
+    }
 
-.tester-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 10px 8px;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  background: var(--warm-white);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+    .section-head .lede { max-width: 720px; }
 
-.tester-btn.active {
-  border-color: var(--ink);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-  background: #fff;
-}
+    .brand-grid,
+    .rule-grid,
+    .page-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
 
-.tester-swatch {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.1);
-}
+    .card {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
 
-.tester-label {
-  font-weight: 700;
-  font-size: 0.75rem;
-  color: var(--ink);
-}
+    .card-number {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--oat);
+      font-size: .82rem;
+      font-weight: 700;
+    }
 
-.tester-hex {
-  font-size: 0.68rem;
-  color: var(--dusty-blue-dark);
-  font-family: monospace;
-}
+    .card p:last-child { margin-bottom: 0; }
 
-/* Thick Visual Preview Bars */
-.thick-preview-bar {
-  padding: 28px;
-  border-radius: 8px;
-  margin-top: 16px;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+    .centre-line {
+      margin-top: 20px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      background: var(--river);
+      color: var(--white);
+      border-radius: 18px;
+    }
 
-.thick-preview-bar.red-bar {
-  background: var(--red);
-  color: #fff;
-}
+    .centre-line strong {
+      flex: 0 0 auto;
+      font-size: .76rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
 
-.thick-preview-bar.red-text-mode {
-  background: #fff;
-  border: 2px solid var(--red);
-  color: var(--ink);
-}
+    .centre-line span { font-size: 1.05rem; }
 
-.thick-preview-bar.red-text-mode .preview-heading {
-  color: var(--red) !important;
-}
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
 
-.thick-preview-bar.blue-bar {
-  background: var(--dusty-blue);
-  color: #fff;
-}
+    .swatch {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
 
-.logo-preview-row {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 6px;
-}
+    .swatch-color { min-height: 150px; }
+    .swatch-copy { padding: 18px; }
+    .swatch-copy strong { display: block; margin-bottom: 4px; }
+    .swatch-copy code { font: inherit; font-size: .8rem; color: var(--muted); }
+    .swatch-copy p { margin: 12px 0 0; font-size: .87rem; line-height: 1.5; color: #5B5752; }
 
-.logo-card-wrap {
-  background: #fff;
-  padding: 12px 18px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
+    .practice {
+      margin-top: 24px;
+      padding: 28px;
+      background: var(--white);
+      border-left: 6px solid var(--wine);
+      border-radius: 0 18px 18px 0;
+    }
 
-.logo-card-wrap img, .logo-transparent-wrap img {
-  max-width: 210px;
-  height: auto;
-  display: block;
-}
+    .practice strong { color: var(--wine); }
+    .practice p { margin: 5px 0 0; }
 
-/* Palette Row */
-.palette-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));gap:16px;margin:20px 0 30px}
-.color-card{background:#fff;border-radius:8px;padding:16px;border:1px solid rgba(114,128,138,0.25);box-shadow:0 2px 8px rgba(0,0,0,0.03)}
-.swatch{height:50px;border-radius:6px;margin-bottom:12px;border:1px solid rgba(0,0,0,0.06);transition: background 0.2s ease;}
-.color-name{font-weight:700;font-size:.85rem;margin:0 0 2px;color:var(--ink)}
-.color-hex{font-size:.75rem;color:var(--dusty-blue-dark);margin:0 0 8px;font-family:monospace}
-.color-desc{font-size:.75rem;color:var(--slate);line-height:1.35;margin:0}
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
 
-/* Two Column Feature Grids */
-.grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
-.feature-card{background:#fff;border:1px solid rgba(114, 128, 138, 0.25);padding:24px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.02)}
-.feature-card.blue-card{background:var(--dusty-blue-light);border-color:rgba(114,128,138,0.4)}
-.feature-card.blue-card h3{color:var(--dusty-blue-dark)}
-.feature-card h3{margin:0 0 10px;font-size:1.15rem;color:var(--ink);font-family:var(--font-heading);letter-spacing:var(--heading-spacing);font-weight:var(--heading-weight)}
-.feature-card p{margin:0 0 10px;font-size:.85rem;color:var(--slate);line-height:1.55}
-.feature-card ul{margin:8px 0 0;padding-left:18px}
-.feature-card li{font-size:.82rem;color:var(--slate);margin:4px 0}
+    .type-card {
+      padding: clamp(28px, 4vw, 48px);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
 
-/* Font Specimen Cards */
-.font-specimen-card{background:#fff;border:1px solid rgba(114, 128, 138, 0.25);padding:24px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
-.font-name-title{font-size:1.8rem;margin:0 0 4px;color:var(--red);transition: color 0.2s ease;}
-.font-name-title.blue-title{color:var(--dusty-blue-dark)}
-.font-role-tag{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--dusty-blue-dark);font-weight:700;margin-bottom:16px}
-.font-sample-headline{font-size:1.35rem;line-height:1.3;margin:0 0 12px;padding-bottom:12px;border-bottom:1px solid rgba(114,128,138,0.15)}
-.font-alphabet-block{font-size:.88rem;letter-spacing:.03em;line-height:1.5;color:var(--ink);margin-bottom:16px;background:var(--warm-white);padding:12px;border-radius:4px;border:1px solid rgba(0,0,0,0.03);word-break:break-word;}
+    .type-label {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
 
-/* Tagline Pills */
-.tagline-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:20px 0}
-.tagline-pill{background:#fff;border:1px solid rgba(114, 128, 138, 0.3);padding:14px 18px;border-radius:30px;font-family:var(--font-heading);text-transform:var(--heading-transform);letter-spacing:var(--heading-spacing);font-weight:var(--heading-weight);font-size:.95rem;color:var(--red);text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.02);transition: color 0.2s ease;}
-.tagline-pill.blue-pill{color:var(--dusty-blue-dark);border-color:var(--dusty-blue)}
+    .aubrey-sample {
+      margin-bottom: 22px;
+      font-family: "Aubrey", Georgia, serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      line-height: .98;
+    }
 
-/* Web Architecture Table */
-.nav-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border:1px solid rgba(114,128,138,0.25);border-radius:8px;overflow:hidden}
-.nav-table th{background:var(--dusty-blue);color:#fff;text-align:left;padding:12px 16px;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;font-family:var(--font-body)}
-.nav-table td{padding:14px 16px;border-top:1px solid rgba(114,128,138,0.15);font-size:.85rem;color:var(--slate)}
-.nav-table td strong{color:var(--ink)}
+    .dm-sample {
+      margin-bottom: 22px;
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: clamp(1.55rem, 3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+    }
 
-/* Feedback & Notes Section */
-.notes-card {
-  background: #fff;
-  border: 2px solid var(--dusty-blue);
-  border-radius: 12px;
-  padding: 28px;
-  margin: 36px 0;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.03);
-}
+    .type-card p:last-child { margin-bottom: 0; color: #5B5752; }
 
-.notes-card textarea {
-  width: 100%;
-  min-height: 90px;
-  border: 1px solid rgba(114, 128, 138, 0.3);
-  border-radius: 8px;
-  padding: 12px;
-  color: var(--ink);
-  margin-top: 8px;
-  resize: vertical;
-}
+    .photo-principles {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
 
-/* Floating Action Lock Bar */
-.floating-lock-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-top: 2px solid var(--dusty-blue);
-  padding: 14px 24px;
-  box-shadow: 0 -6px 25px rgba(0,0,0,0.1);
-  z-index: 9900;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
+    .photo-note {
+      padding: clamp(34px, 5vw, 60px);
+      background: var(--wine);
+      color: var(--white);
+      border-radius: 22px;
+    }
 
-.lock-bar-info {
-  font-size: 0.85rem;
-  color: var(--ink);
-}
+    .photo-note .display {
+      margin-bottom: 24px;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+    }
 
-.lock-bar-info strong {
-  color: var(--red);
-}
+    .photo-note p:last-child { margin-bottom: 0; }
 
-/* Modal Popup */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 10000;
-  display: grid;
-  place-items: center;
-  padding: 20px;
-}
+    .photo-list {
+      display: grid;
+      gap: 14px;
+    }
 
-.modal-card {
-  background: #fff;
-  border-radius: 12px;
-  max-width: 580px;
-  width: 100%;
-  padding: 32px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
-}
+    .photo-list .card { background: rgba(255,255,255,.72); }
 
-.modal-summary-box {
-  background: var(--warm-white);
-  border: 1px solid rgba(114, 128, 138, 0.25);
-  padding: 16px;
-  border-radius: 8px;
-  font-family: monospace;
-  font-size: 0.85rem;
-  margin: 16px 0;
-  white-space: pre-wrap;
-  max-height: 240px;
-  overflow-y: auto;
-}
+    .facebook-link {
+      display: inline-flex;
+      margin-top: 8px;
+      color: var(--river);
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
 
-/* Action Buttons & Footer */
-.button{min-height:48px;border:0;border-radius:5px;padding:0 24px;background:var(--red);color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .18s ease;font-family:var(--font-body)}.button:hover{background:var(--red-hover);transform:translateY(-1px)}
-.footer{margin-top:48px;padding-top:20px;border-top:1px solid rgba(114,128,138,0.25);display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--dusty-blue-dark);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase}.footer-brand{display:flex;align-items:center;gap:8px;color:var(--ink);font-weight:700}.footer-brand img{width:24px;height:24px;object-fit:contain}
+    .voice-callout {
+      margin-bottom: 26px;
+      padding: clamp(34px, 5vw, 58px);
+      background: var(--river);
+      color: var(--white);
+      border-radius: 22px;
+    }
 
-:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
-@media(max-width:760px){body{background:#fff}.page-wrap{padding:0}.proposal{border:0;min-height:100vh;padding:44px 24px 34px;box-shadow:none}.grid-2col,.palette-grid,.tagline-grid,.tester-grid{grid-template-columns:1fr}.section-block{padding:20px 16px}.floating-lock-bar{flex-direction:column;align-items:stretch;text-align:center}.footer{align-items:flex-start;flex-direction:column}}
-@media print{body{background:#fff}.page-wrap{padding:0}.proposal{width:100%;border:1.5pt solid var(--purple);box-shadow:none}.gate{display:none!important}}
-</style>
+    .voice-callout .display {
+      max-width: 760px;
+      margin-bottom: 20px;
+      font-size: clamp(3rem, 6vw, 5.7rem);
+    }
+
+    .voice-callout p { max-width: 850px; margin-bottom: 0; }
+
+    .phrases {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .phrase {
+      min-height: 190px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 20px;
+    }
+
+    .phrase .display {
+      max-width: 480px;
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+    }
+
+    .phrase small {
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .phrase.wine { background: var(--wine); color: var(--white); }
+    .phrase.river { background: var(--river); color: var(--white); }
+    .phrase.oat { background: var(--oat); color: var(--ink); }
+    .phrase.white { background: var(--white); color: var(--ink); border: 1px solid var(--line); }
+
+    .website-overview {
+      margin-bottom: 28px;
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .website-overview p:last-child { margin-bottom: 0; }
+
+    .page-grid .card { min-height: 170px; }
+
+    .nav-preview {
+      margin-top: 24px;
+      padding: 24px 28px;
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 18px;
+    }
+
+    .nav-preview strong {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--oat);
+      font-size: .74rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .nav-preview p { margin: 0; font-weight: 600; }
+
+    .snapshot-wrap {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 5vw, 64px);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .snapshot-top {
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .snapshot-logo {
+      padding: 28px;
+      min-height: 240px;
+      display: grid;
+      place-items: center;
+      background: var(--warm-white);
+      border-radius: 18px;
+    }
+
+    .snapshot-logo img {
+      width: min(340px, 90%);
+      mix-blend-mode: multiply;
+    }
+
+    .snapshot-copy .display {
+      margin-bottom: 14px;
+      font-size: clamp(3rem, 5.5vw, 5.6rem);
+    }
+
+    .snapshot-copy p { max-width: 600px; margin-bottom: 0; color: #5B5752; }
+
+    .palette-strip {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr .8fr .8fr .8fr;
+      overflow: hidden;
+      margin-bottom: 20px;
+      min-height: 110px;
+      border-radius: 18px;
+    }
+
+    .palette-block {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .palette-block span { opacity: .85; }
+
+    .snapshot-phrases {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 16px;
+    }
+
+    .snapshot-tile {
+      min-height: 210px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 18px;
+    }
+
+    .snapshot-tile .display {
+      max-width: 500px;
+      font-size: clamp(2.7rem, 5vw, 4.8rem);
+    }
+
+    .snapshot-tile .support {
+      margin-top: 18px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .snapshot-tile.wine { background: var(--wine); color: var(--white); }
+    .snapshot-tile.river { background: var(--river); color: var(--white); }
+    .snapshot-tile.oat { background: var(--oat); color: var(--ink); }
+    .snapshot-tile.light { background: var(--warm-white); color: var(--ink); border: 1px solid var(--line); }
+
+    .snapshot-footer {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 16px;
+    }
+
+    .font-chip,
+    .brand-chip {
+      min-height: 120px;
+      padding: 24px 26px;
+      border-radius: 18px;
+    }
+
+    .font-chip {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .font-chip strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Aubrey", Georgia, serif;
+      font-size: 2.3rem;
+      font-weight: 400;
+    }
+
+    .font-chip span { font-size: .88rem; opacity: .8; }
+
+    .brand-chip {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+    }
+
+    .brand-chip strong { color: var(--wine); }
+    .brand-chip p { margin: 7px 0 0; }
+
+    footer {
+      padding: 36px 0 52px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .jump-nav { display: none; }
+      .hero-grid,
+      .section-head,
+      .photo-principles,
+      .snapshot-top,
+      .snapshot-footer { grid-template-columns: 1fr; }
+      .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .type-grid,
+      .brand-grid,
+      .rule-grid,
+      .page-grid,
+      .phrases,
+      .snapshot-phrases { grid-template-columns: 1fr; }
+      .hero-mark { min-height: 320px; }
+    }
+
+    @media (max-width: 620px) {
+      .swatches { grid-template-columns: 1fr; }
+      .palette-strip { grid-template-columns: 1fr; }
+      .palette-block { min-height: 86px; }
+      .centre-line { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .footer-row { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
+
 <body>
-
-<section class="gate" id="accessGate" aria-labelledby="gateTitle">
-  <div class="gate-card">
-    <img class="gate-logo" src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
-    <p class="eyebrow">Brand &amp; Design Direction</p>
-    <h1 id="gateTitle">Welcome to your brand guide.</h1>
-    <p>Enter the access code to view the Farmhouse &amp; Fields brand direction.</p>
-    <form class="gate-form" id="gateForm">
-      <input id="accessCode" type="password" autocomplete="current-password" placeholder="Access code" aria-label="Access code" required>
-      <button class="button" type="submit">View guide</button>
-    </form>
-    <p class="gate-error" id="gateError" role="alert"></p>
-  </div>
-</section>
-
-<div class="page-wrap hidden" id="proposalPage">
-<main class="proposal">
-  <div class="proposal-brand">
-    <img src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
-    <p class="eyebrow">The Yellow Front Door</p>
-  </div>
-  
-  <div class="client-logo-wrap">
-    <img src="farmhouseandfields.png" alt="Farmhouse &amp; Fields Dog Daycare">
-  </div>
-
-  <h1 class="proposal-title">Brand Direction</h1>
-  <div class="subtitle">A first look at Farmhouse &amp; Fields</div>
-  
-  <p class="intro">The colours, type, photography, voice, and a few lines we can start building from. The goal is simple: when someone lands on the site, they should understand what the Farmhouse is, how it works, and why people trust you with their dogs.</p>
-  
-  <div class="proposal-meta">
-    <span>Prepared for Farmhouse &amp; Fields</span>
-    <span>•</span>
-    <span>September 2026</span>
-    <span>•</span>
-    <span>The Yellow Front Door</span>
-  </div>
-
-  <div class="deposit-note">
-    ✓ Note: Initial deposit of $450 received via e-Transfer on Sunday, September 6, 2026.
-  </div>
-
-  <section class="section-block bg-warm-white">
-    <h2 class="section-title"><span class="section-number">1</span> What Makes Farmhouse &amp; Fields Special</h2>
-    <p class="section-intro">Your Farmhouse already has a very clear feel to it. The website does not need to invent one. It needs to show what you've built: a small, consistent group of dogs, a place that feels comfortable and familiar, lots of room to play, and someone who knows and loves the dogs like her own.</p>
-    
-    <div class="grid-2col">
-      <div class="feature-card blue-card">
-        <h3>At the Centre</h3>
-        <p>Low, consistent numbers. Familiar dogs. Lots of room.</p>
-        <p>Farmhouse &amp; Fields keeps the group small and familiar. You get to know each dog incredibly well: who they play with, how they settle in, what they love, and when they need a little space.</p>
-      </div>
-      <div class="feature-card">
-        <h3>You Know These Dogs</h3>
-        <p>That comes through all over your Facebook page. You know their friendships, routines, quirks and personalities, and you clearly love having them there.</p>
-        <p>That personal connection is one of the strongest parts of your business and it should be visible.</p>
-      </div>
-      <div class="feature-card">
-        <h3>The Farmhouse Itself</h3>
-        <p>Your house, yard, barn and fields are part of the experience. It is the "home away from home" for these pups and is a big part of what makes the experience unique.</p>
-      </div>
-      <div class="feature-card blue-card">
-        <h3>Warm and Easy</h3>
-        <p>People should feel welcome here, but they should also be able to find what they need without digging: how daycare works, what the day looks like, pricing, the wait-list, policies, and what happens next.</p>
-      </div>
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <strong>Farmhouse &amp; Fields · Brand Direction</strong>
+      <nav class="jump-nav" aria-label="Brand guide sections">
+        <a href="#brand">Brand</a>
+        <a href="#colour">Colour</a>
+        <a href="#type">Type</a>
+        <a href="#photos">Photography</a>
+        <a href="#voice">Voice</a>
+        <a href="#words">Words</a>
+        <a href="#website">Website</a>
+        <a href="#snapshot">Snapshot</a>
+      </nav>
     </div>
-  </section>
+  </div>
 
-  <section class="section-block bg-blue-tint">
-    <h2 class="section-title"><span class="section-number blue-num">2</span> Colour</h2>
-    <p class="section-intro">Mostly white, with a little warmth and colour. The sites you liked were all light and simple. Keeping white as the main background gives us that clarity, while the red, dusty blue, logo, and real photography keep it from feeling plain.</p>
-
-    <div class="color-tester-card">
-      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Red Option (6 Variations):</h3>
-      <div class="tester-grid">
-        <button type="button" class="tester-btn active" onclick="setRed('#8A1211', '#6B0C0A', '1. Cool Crimson', this)">
-          <span class="tester-swatch" style="background:#8A1211;"></span>
-          <span class="tester-label">1. Cool Crimson</span>
-          <span class="tester-hex">#8A1211</span>
-        </button>
-        <button type="button" class="tester-btn" onclick="setRed('#B21E1A', '#8F1512', '2. Primary Red', this)">
-          <span class="tester-swatch" style="background:#B21E1A;"></span>
-          <span class="tester-label">2. Primary Red</span>
-          <span class="tester-hex">#B21E1A</span>
-        </button>
-        <button type="button" class="tester-btn" onclick="setRed('#6E1413', '#4E0C0B', '3. Heritage Wine', this)">
-          <span class="tester-swatch" style="background:#6E1413;"></span>
-          <span class="tester-label">3. Heritage Wine</span>
-          <span class="tester-hex">#6E1413</span>
-        </button>
-        <button type="button" class="tester-btn" onclick="setRed('#992E21', '#752118', '4. Rustic Brick', this)">
-          <span class="tester-swatch" style="background:#992E21;"></span>
-          <span class="tester-label">4. Rustic Brick</span>
-          <span class="tester-hex">#992E21</span>
-        </button>
-        <button type="button" class="tester-btn" onclick="setRed('#C42B28', '#A11E1C', '5. Poppy Red', this)">
-          <span class="tester-swatch" style="background:#C42B28;"></span>
-          <span class="tester-label">5. Poppy Red</span>
-          <span class="tester-hex">#C42B28</span>
-        </button>
-        <button type="button" class="tester-btn" onclick="setRed('#7A1C1D', '#591213', '6. Deep Oxblood', this)">
-          <span class="tester-swatch" style="background:#7A1C1D;"></span>
-          <span class="tester-label">6. Oxblood</span>
-          <span class="tester-hex">#7A1C1D</span>
-        </button>
-      </div>
-
-      <div style="margin-top:15px; text-align:right;">
-        <button type="button" class="button" style="min-height:36px; padding:0 14px; font-size:0.78rem;" onclick="toggleRedTextMode(this)">
-          Toggle: Test Red Text on White Card
-        </button>
-      </div>
-
-      <div class="thick-preview-bar red-bar" id="thickRedBar">
-        <div class="preview-heading" style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Warmth in Action</div>
-        <p style="margin:0; font-size:0.85rem;">Bold accents, buttons, and badges that draw the eye cleanly without overwhelming your photos.</p>
+  <main>
+    <section class="hero" style="border-top:0;">
+      <div class="shell hero-grid">
         <div>
-          <span class="tagline-pill" style="background:var(--red); color:#fff; display:inline-block; transition:background 0.2s ease;">Red Accent Specimen</span>
+          <p class="eyebrow">Brand direction</p>
+          <h1>A first look at Farmhouse &amp; Fields.</h1>
+          <p class="lede">The colours, type, photography, voice, and website direction we are building from.</p>
+          <p class="hero-note">September 2026 · The Yellow Front Door</p>
+        </div>
+        <div class="hero-mark">
+          <img src="farmhouseandfields.jpg" alt="Farmhouse & Fields Dog Daycare logo">
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="color-tester-card" style="margin-top:20px;">
-      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Secondary Accent Option (6 Refined Variations):</h3>
-      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
-        <button type="button" class="tester-btn active" onclick="setBlue('#4A7B82', '#E8F2F3', '#2C5157', '1. Foggy Teal', this)">
-          <span class="tester-swatch" style="background:#4A7B82;"></span>
-          <span class="tester-label">1. Foggy Teal</span>
-          <span class="tester-hex">#4A7B82</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setBlue('#1D3557', '#EAEFF5', '#0E1E38', '2. Heritage Navy', this)">
-          <span class="tester-swatch" style="background:#1D3557;"></span>
-          <span class="tester-label">2. Heritage Navy</span>
-          <span class="tester-hex">#1D3557</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setBlue('#385D6B', '#E7EEF1', '#1F3C47', '3. Deep River', this)">
-          <span class="tester-swatch" style="background:#385D6B;"></span>
-          <span class="tester-label">3. Deep River</span>
-          <span class="tester-hex">#385D6B</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setBlue('#5F7992', '#EEF2F6', '#3E5368', '4. Misty Slate', this)">
-          <span class="tester-swatch" style="background:#5F7992;"></span>
-          <span class="tester-label">4. Misty Slate</span>
-          <span class="tester-hex">#5F7992</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setBlue('#405755', '#E8EFEF', '#243A3A', '5. Vintage Spruce', this)">
-          <span class="tester-swatch" style="background:#405755;"></span>
-          <span class="tester-label">5. Vintage Spruce</span>
-          <span class="tester-hex">#405755</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setBlue('#81B0B2', '#EFF6F6', '#527B7D', '6. Soft Seafoam', this)">
-          <span class="tester-swatch" style="background:#81B0B2;"></span>
-          <span class="tester-label">6. Soft Seafoam</span>
-          <span class="tester-hex">#81B0B2</span>
-        </button>
-      </div>
-
-      <div class="thick-preview-bar blue-bar" id="thickBlueBar">
-        <div style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Secondary Accent Background Preview</div>
-        <p style="margin:0; font-size:0.85rem; opacity:0.95;">How your farmhouseandfields.png logo sits over your selected accent tone (with a white card vs transparent PNG):</p>
-        
-        <div class="logo-preview-row">
-          <div class="logo-card-wrap">
-            <img src="farmhouseandfields.png" alt="Farmhouse &amp; Fields Logo on White Card">
+    <section id="brand">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The brand</p>
+            <h2>What makes Farmhouse &amp; Fields special</h2>
           </div>
-          <div class="logo-transparent-wrap">
-            <img src="farmhouseandfields.png" alt="Farmhouse &amp; Fields Transparent Logo">
+          <p class="lede">The Farmhouse already has a very clear feel to it. The website does not need to invent one. It needs to show what Melissa has built: a small, consistent group of dogs, a place that feels comfortable and familiar, lots of room to play, and someone who knows and loves the dogs like her own.</p>
+        </div>
+
+        <div class="brand-grid">
+          <article class="card">
+            <div class="card-number">1</div>
+            <h3>Low, consistent numbers</h3>
+            <p>Farmhouse &amp; Fields keeps the group small and familiar. Melissa gets to know each dog incredibly well: who they play with, how they settle in, what they love, and when they need a little space.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">2</div>
+            <h3>The Farmhouse itself</h3>
+            <p>The house, yard, barn, and fields are part of the experience. It is a home away from home for these pups and a big part of what makes the daycare feel like its own place.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">3</div>
+            <h3>Melissa knows these dogs</h3>
+            <p>That comes through all over her Facebook page. She knows their friendships, routines, quirks, and personalities, and she clearly loves having them there. That connection should be easy to feel on the website too.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">4</div>
+            <h3>Warm and easy</h3>
+            <p>People should feel welcome here, but they should also be able to find what they need without digging: how daycare works, pricing, the wait-list, policies, and what happens next.</p>
+          </article>
+        </div>
+
+        <div class="centre-line">
+          <strong>At the centre</strong>
+          <span>Low numbers. Familiar dogs. Lots of room. And Melissa, who knows the dogs well enough to notice the little things.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="colour">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Colour</p>
+            <h2>Mostly white, with a little warmth and colour.</h2>
+          </div>
+          <p class="lede">The sites Melissa liked were light and simple. White gives us that clarity. Heritage Wine and Deep River give the brand its own presence, while the neutrals and real photography keep everything feeling easy and lived-in.</p>
+        </div>
+
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#6E1413"></div>
+            <div class="swatch-copy">
+              <strong>Heritage Wine</strong>
+              <code>#6E1413</code>
+              <p>Our main accent. Rich and warm, used for buttons, important links, and the details we want people to notice first.</p>
+            </div>
+          </div>
+
+          <div class="swatch">
+            <div class="swatch-color" style="background:#385D6B"></div>
+            <div class="swatch-copy">
+              <strong>Deep River</strong>
+              <code>#385D6B</code>
+              <p>Our secondary accent. A deep, softened blue that gives us contrast without competing with the red.</p>
+            </div>
+          </div>
+
+          <div class="swatch">
+            <div class="swatch-color" style="background:#E7DDCD"></div>
+            <div class="swatch-copy">
+              <strong>Oat</strong>
+              <code>#E7DDCD</code>
+              <p>A warm neutral for the occasional section, card, or background when white needs a little break.</p>
+            </div>
+          </div>
+
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FCFBF8"></div>
+            <div class="swatch-copy">
+              <strong>Warm White</strong>
+              <code>#FCFBF8</code>
+              <p>The main backdrop. Clean and light, but a little softer beside the photos than a bright blue-white.</p>
+            </div>
+          </div>
+
+          <div class="swatch">
+            <div class="swatch-color" style="background:#2A2926"></div>
+            <div class="swatch-copy">
+              <strong>Ink</strong>
+              <code>#2A2926</code>
+              <p>Our main text colour. Softer than true black, but still strong and easy to read.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="practice">
+          <strong>In practice</strong>
+          <p>White does most of the work. Heritage Wine is where we want the eye to go. Deep River and oat give us a little flexibility when a page needs contrast or warmth. The photos will bring plenty of colour on their own.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="type">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Typography</p>
+            <h2>Personality in the headings. Clarity everywhere else.</h2>
+          </div>
+          <p class="lede">The logo already has its own script, so the rest of the typography should support it rather than compete with it. Aubrey brings a little character to the larger moments; DM Sans keeps the practical pieces clear.</p>
+        </div>
+
+        <div class="type-grid">
+          <div class="type-card">
+            <div class="type-label">Aubrey · headings + feature lines</div>
+            <div class="aubrey-sample">Welcome to the Farmhouse.</div>
+            <p>Use Aubrey for page titles, section headings, and shorter lines where we want a little more personality. It does not need to carry long paragraphs.</p>
+          </div>
+
+          <div class="type-card">
+            <div class="type-label">DM Sans · everything people need to read</div>
+            <div class="dm-sample">Small numbers. Big days.</div>
+            <p>DM Sans handles body copy, navigation, buttons, forms, pricing, FAQs, captions, and anything people need to scan quickly.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="palette-grid">
-      <div class="color-card">
-        <div class="swatch" id="mainRedSwatch" style="background: #8A1211;"></div>
-        <div class="color-name">Farmhouse red</div>
-        <div class="color-hex" id="mainRedHex">#8A1211</div>
-        <p class="color-desc">Main accent. Warm and strong enough to draw the eye without taking over.</p>
-      </div>
-      <div class="color-card">
-        <div class="swatch" id="mainBlueSwatch" style="background: #4A7B82;"></div>
-        <div class="color-name">Foggy Teal / Navy</div>
-        <div class="color-hex" id="mainBlueHex">#4A7B82</div>
-        <p class="color-desc">A muted coastal accent. Quieter second accent balancing warmer tones.</p>
-      </div>
-      <div class="color-card">
-        <div class="swatch" style="background: #E7DDCD;"></div>
-        <div class="color-name">Oat</div>
-        <div class="color-hex">#E7DDCD</div>
-        <p class="color-desc">A warm neutral for the occasional section, card, or background when white needs a little break.</p>
-      </div>
-      <div class="color-card">
-        <div class="swatch" style="background: #FCFBF8; border: 1px solid #e2dfd8;"></div>
-        <div class="color-name">Warm white</div>
-        <div class="color-hex">#FCFBF8</div>
-        <p class="color-desc">The main backdrop. Clean and light with enough warmth beside photography.</p>
-      </div>
-      <div class="color-card">
-        <div class="swatch" style="background: #2A2926;"></div>
-        <div class="color-name">Ink</div>
-        <div class="color-hex">#2A2926</div>
-        <p class="color-desc">Our main text colour. Softer than true black, but still strong and easy to read.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-block bg-warm-white">
-    <h2 class="section-title"><span class="section-number">3</span> Typography</h2>
-    <p class="section-intro">Warm headings. Clear everything else. Your logo already has its own personality and script, so the website type should complement it rather than compete with it. Test 4 font pairing options below:</p>
-
-    <div class="color-tester-card">
-      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Font Pairing Option:</h3>
-      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-        <button type="button" class="tester-btn active" onclick="setFonts('Aubrey, serif', 'DM Sans, sans-serif', 'none', '0.015em', '400', '1. Aubrey + DM Sans', 'Uploaded Custom Font', 'Clean &amp; Friendly Sans', this)">
-          <span class="tester-label" style="font-family:'Aubrey', serif; font-size:1.05rem;">1. Aubrey + DM Sans</span>
-          <span class="tester-hex">Uploaded Custom Font</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setFonts('Fraunces, Georgia, serif', 'DM Sans, sans-serif', 'none', 'normal', '600', '2. Fraunces + DM Sans', 'Warm Storyteller Serif', 'Clean &amp; Friendly Sans', this)">
-          <span class="tester-label" style="font-family:'Fraunces', serif; font-size:1rem;">2. Fraunces + DM Sans</span>
-          <span class="tester-hex">Warm Storyteller Serif</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setFonts('Arvo, Georgia, serif', 'Work Sans, sans-serif', 'none', 'normal', '700', '3. Arvo + Work Sans', 'Woodblock Slab-Serif', 'Functional Screen Sans', this)">
-          <span class="tester-label" style="font-family:'Arvo', serif; font-size:1rem;">3. Arvo + Work Sans</span>
-          <span class="tester-hex">Woodblock Country Press</span>
-        </button>
-
-        <button type="button" class="tester-btn" onclick="setFonts('Arial Black, Impact, sans-serif', 'Lora, serif', 'uppercase', '0.06em', '900', '4. Arial Black + Lora', 'Bold Signage All-Caps', 'Fine Editorial Serif', this)">
-          <span class="tester-label" style="font-family:'Arial Black', sans-serif; font-size:0.85rem; text-transform:uppercase;">4. Arial Black + Lora</span>
-          <span class="tester-hex">Bold Signage + Fine Serif</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="grid-2col">
-      <div class="font-specimen-card">
-        <div class="font-name-title" id="fontTitle1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing); font-weight:var(--heading-weight);">Aubrey</div>
-        <div class="font-role-tag" id="fontTag1">Headings, page titles, and short feature lines</div>
-        
-        <div class="font-sample-headline" id="fontSample1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing); font-weight:var(--heading-weight);">
-          Welcome to the Farmhouse.<br>
-          Small numbers. Big days.
+    <section id="photos">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Photography</p>
+            <h2>Her photos are one of the best parts of the brand.</h2>
+          </div>
+          <p class="lede">Melissa is genuinely good at capturing the dogs as they are. The photos already show the friendships, seasons, funny moments, the property, and each dog’s personality. We should use that rather than trying to manufacture a different look.</p>
         </div>
 
-        <div class="font-alphabet-block" id="fontAlpha1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing); font-weight:var(--heading-weight);">
-          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-          abcdefghijklmnopqrstuvwxyz<br>
-          0123456789 (!@#$%&amp;*.,?)
+        <div class="photo-principles">
+          <div class="photo-note">
+            <div class="display">Real dogs. Real days. The actual Farmhouse.</div>
+            <p>Use the photography throughout the site, give it a gallery of its own, and keep Facebook connected for the day-to-day stories Melissa already tells so well.</p>
+            <a class="facebook-link" style="color:white" href="https://www.facebook.com/profile.php?id=61568074120165" target="_blank" rel="noopener noreferrer">View Farmhouse &amp; Fields on Facebook →</a>
+          </div>
+
+          <div class="photo-list">
+            <article class="card">
+              <h3>Use real photos throughout</h3>
+              <p>Not just in a gallery. Work them into the Home page, The Farmhouse, Daycare, and anywhere they help show what the place is actually like.</p>
+            </article>
+            <article class="card">
+              <h3>Let the photos tell stories</h3>
+              <p>Use the muddy ones, goofy ones, beautiful ones, group shots, quiet moments, and dogs with their favourite friends. They do not all need to look polished.</p>
+            </article>
+            <article class="card">
+              <h3>Keep editing light</h3>
+              <p>Crop when the layout needs it and make small corrections only when necessary. Otherwise, leave the photos alone.</p>
+            </article>
+            <article class="card">
+              <h3>No stock photos</h3>
+              <p>There is already more than enough real material here. The site should look like Farmhouse &amp; Fields, not a generic dog daycare.</p>
+            </article>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="font-specimen-card">
-        <div class="font-name-title blue-title" id="fontTitle2" style="font-family:var(--font-body); font-weight:700;">DM Sans</div>
-        <div class="font-role-tag" id="fontTag2">Body copy, navigation, buttons, forms, pricing, and captions</div>
-        
-        <div class="font-sample-headline" id="fontSample2" style="font-family:var(--font-body); font-weight: 500;">
-          Clean and friendly. Practical and doesn't call attention to itself. Clear information stays easy to read.
+    <section id="voice">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Voice</p>
+            <h2>The website should sound like Melissa.</h2>
+          </div>
+          <p class="lede">Her Facebook page already gets this right. It tells little stories, names the dogs, notices their personalities, and makes the connection she has with them obvious without having to announce it.</p>
         </div>
 
-        <div class="font-alphabet-block" id="fontAlpha2" style="font-family:var(--font-body);">
-          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-          abcdefghijklmnopqrstuvwxyz<br>
-          0123456789 (!@#$%&amp;*.,?)
+        <div class="voice-callout">
+          <div class="display">Warm, specific, and full of real life.</div>
+          <p>The writing should carry the same feeling as her Facebook: down to earth, engaging, occasionally funny, and rooted in the dogs, the people, and the place. We are not trying to turn Melissa into a polished pet-care brand. We are giving the voice she already has a clear home on the website.</p>
+        </div>
+
+        <div class="rule-grid">
+          <article class="card">
+            <h3>Tell the actual story</h3>
+            <p>Who found a friend, who lives for the pool, who came in ready to wrestle, who wanted nothing to do with the costume. Those details are what make the writing feel like this place.</p>
+          </article>
+          <article class="card">
+            <h3>Let the connection show</h3>
+            <p>Melissa knows and loves these dogs like her own. We do not need to say that over and over. The stories, names, and details will make it obvious.</p>
+          </article>
+          <article class="card">
+            <h3>Keep the language normal</h3>
+            <p>Warm and confident, but never lofty. Skip words like “premium,” “curated,” and “exceptional” when plain language says it better.</p>
+          </article>
+          <article class="card">
+            <h3>Be clear when it matters</h3>
+            <p>Pricing, hours, policies, wait-list information, and next steps should simply tell people what they need to know.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-block bg-red-tint">
-    <h2 class="section-title"><span class="section-number">4</span> Photography</h2>
-    <p class="section-intro">Your photos are one of the best parts of the brand. You are fabulous at capturing the dogs as they actually are. Your Facebook page already tells the story of the Farmhouse through play, friendships, seasons, funny moments, the property, and the dogs' individual personalities. We should use that. So rich and fun and brings in an amazing storytelling element.</p>
+    <section id="words">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Words to keep in our pocket</p>
+            <h2>A few lines we can build with.</h2>
+          </div>
+          <p class="lede">Melissa liked all of these, so we do not need to force one into the job of “official tagline.” They can show up in different places as we build the site and give the brand a few recognizable phrases to come back to.</p>
+        </div>
 
-    <div class="grid-2col">
-      <div class="feature-card">
-        <h3>1. Use real photos throughout</h3>
-        <p>Not just in a gallery at the end, but work them into the home page, About page, daycare information, and anywhere they help show what a day actually looks like.</p>
-        
-        <h3>2. Let the photos tell stories</h3>
-        <p>Use the muddy ones, the goofy ones, the beautiful ones, group shots, quiet moments, and dogs with their favourite friends. They do not all need to look polished.</p>
+        <div class="phrases">
+          <div class="phrase white">
+            <div class="display">Welcome to the Farmhouse.</div>
+            <small>A good day to be a dog.</small>
+          </div>
+          <div class="phrase wine">
+            <div class="display">Your pup’s home away from home.</div>
+            <small>Small numbers. Big days.</small>
+          </div>
+          <div class="phrase river">
+            <div class="display">A little country. A lot of dog.</div>
+            <small>Small pack. Big personalities.</small>
+          </div>
+          <div class="phrase oat">
+            <div class="display">Come play at the Farmhouse.</div>
+            <small>A good day to be a dog.</small>
+          </div>
+        </div>
       </div>
-      <div class="feature-card blue-card">
-        <h3>3. Keep editing light (but primarily zero)</h3>
-        <p>Crop for layout and make small corrections when needed, but everything else stays the same.</p>
+    </section>
 
-        <h3>4. No stock photos, ever</h3>
-        <p>Tons of amazing photos makes the job so much easier. Use your photos throughout the site, build a standalone gallery, and pull in a box from Facebook for the day-to-day stories.</p>
+    <section id="website">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Website direction</p>
+            <h2>A simple, multi-page home for Farmhouse &amp; Fields.</h2>
+          </div>
+          <p class="lede">The site should feel light, warm, and easy to move through. Each page has a clear job, while the photography and writing give us plenty of room for personality.</p>
+        </div>
+
+        <div class="website-overview">
+          <p>We do not need to reinvent what already works. The dogs, the Farmhouse, the property, the friendships, the humour, and Melissa’s connection with the dogs are already the personality of the business. The website just gives all of that a clear, welcoming place to live.</p>
+        </div>
+
+        <div class="page-grid">
+          <article class="card"><h3>Home</h3><p>A first look at the Farmhouse, the daycare, and what makes it special, with great photos and clear ways to explore the rest of the site.</p></article>
+          <article class="card"><h3>The Farmhouse</h3><p>Melissa’s story, the house, yard, barn, and fields, and a little more about how Farmhouse &amp; Fields came to be.</p></article>
+          <article class="card"><h3>Daycare</h3><p>How daycare works, hours, pricing, group size, routines, requirements, and what families should know before their dog starts.</p></article>
+          <article class="card"><h3>Gallery</h3><p>A home for Melissa’s photography: everyday play, friendships, quiet moments, muddy days, changing seasons, and life around the Farmhouse.</p></article>
+          <article class="card"><h3>FAQs</h3><p>Straightforward answers to the things families are most likely to wonder about before getting in touch.</p></article>
+          <article class="card"><h3>Join the Wait-list</h3><p>A clear explanation of the process, what happens next, and a simple way for families to tell Melissa about their dog.</p></article>
+          <article class="card"><h3>Current Clients</h3><p>An easy route to Time To Pet and any other information existing families need regularly.</p></article>
+          <article class="card"><h3>Contact</h3><p>A simple way to reach Melissa. This can stay as its own page or be worked into the footer and FAQ page as we build.</p></article>
+        </div>
+
+        <div class="nav-preview">
+          <strong>Potential navigation</strong>
+          <p>Home · The Farmhouse · Daycare · Gallery · FAQs · Join the Wait-list &nbsp;&nbsp; | &nbsp;&nbsp; Current Clients</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section-block bg-blue-accent">
-    <h2 class="section-title"><span class="section-number">5</span> Voice</h2>
-    <p class="section-intro">The website should sound like you. Your Facebook page already has the right voice. It is warm, direct, and full of little stories because you actually know these dogs—their friends, their habits, their quirks, what they love, and what makes them themselves. You clearly love what you do, and that should come through without dressing it up.</p>
+    <section id="consistent">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Keeping it consistent</p>
+            <h2>A few things worth keeping consistent.</h2>
+          </div>
+          <p class="lede">Nothing here needs to be complicated. These are the choices that give us a solid starting point for the website and anything Melissa makes later.</p>
+        </div>
 
-    <div class="grid-2col">
-      <div class="feature-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
-        <h3>What We Carry Into The Website</h3>
-        <p>Specific dogs, real moments and down to earth language. A little humour when the moment calls for it. There is so much material to weave a beautiful little story.</p>
-        <p>You know and love these dogs like your own. We want that to come through in the stories and details, not in a pile of marketing words.</p>
+        <div class="rule-grid">
+          <article class="card"><h3>Keep the site light</h3><p>Warm white first, with Heritage Wine as the strongest accent. Let the photos carry a lot of the colour.</p></article>
+          <article class="card"><h3>Use the real place</h3><p>Farmhouse, yard, barn, fields, seasons, and dogs. We do not need extra “farmhouse” decoration.</p></article>
+          <article class="card"><h3>Keep type simple</h3><p>Aubrey for headings and feature lines. DM Sans for the things people need to read quickly.</p></article>
+          <article class="card"><h3>Use real photos only</h3><p>Build from Melissa’s gallery and the stories she is already telling.</p></article>
+          <article class="card"><h3>Keep the words warm and real</h3><p>Specific stories, normal language, and no lofty pet-care copy.</p></article>
+          <article class="card"><h3>Make the practical stuff easy</h3><p>Pricing, hours, daycare details, wait-list information, policies, and next steps should always be easy to find.</p></article>
+        </div>
       </div>
-      <div class="feature-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
-        <h3>What We Avoid</h3>
-        <p>No lofty pet-care language, no trying to sound luxe, and no endless dog puns.</p>
-        <p>Skip words like "premium," "curated," and "exceptional" when plain language says it better.</p>
+    </section>
+
+    <section id="snapshot">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Brand snapshot</p>
+            <h2>Farmhouse &amp; Fields, at a glance.</h2>
+          </div>
+          <p class="lede">A quick little preview of how the logo, colours, type, and working phrases can start to sit together.</p>
+        </div>
+
+        <div class="snapshot-wrap">
+          <div class="snapshot-top">
+            <div class="snapshot-logo">
+              <img src="farmhouseandfields.jpg" alt="Farmhouse & Fields Dog Daycare logo">
+            </div>
+            <div class="snapshot-copy">
+              <div class="display">Warm. Familiar. Full of personality.</div>
+              <p>White space keeps things clear. Heritage Wine gives us the strongest brand moment, Deep River brings in a quieter contrast, and Melissa’s photos do the rest.</p>
+            </div>
+          </div>
+
+          <div class="palette-strip" aria-label="Farmhouse & Fields brand palette">
+            <div class="palette-block" style="background:#6E1413;color:#fff">Heritage Wine<span>#6E1413</span></div>
+            <div class="palette-block" style="background:#385D6B;color:#fff">Deep River<span>#385D6B</span></div>
+            <div class="palette-block" style="background:#E7DDCD;color:#2A2926">Oat<span>#E7DDCD</span></div>
+            <div class="palette-block" style="background:#FCFBF8;color:#2A2926;border:1px solid #DED9D1">Warm White<span>#FCFBF8</span></div>
+            <div class="palette-block" style="background:#2A2926;color:#fff">Ink<span>#2A2926</span></div>
+          </div>
+
+          <div class="snapshot-phrases">
+            <div class="snapshot-tile wine">
+              <div class="display">Small numbers. Big days.</div>
+              <div class="support">Farmhouse &amp; Fields Dog Daycare</div>
+            </div>
+            <div class="snapshot-tile light">
+              <div class="display">Welcome to the Farmhouse.</div>
+              <div class="support">Your pup’s home away from home.</div>
+            </div>
+            <div class="snapshot-tile oat">
+              <div class="display">A little country. A lot of dog.</div>
+              <div class="support">A good day to be a dog.</div>
+            </div>
+            <div class="snapshot-tile river">
+              <div class="display">Small pack. Big personalities.</div>
+              <div class="support">Come play at the Farmhouse.</div>
+            </div>
+          </div>
+
+          <div class="snapshot-footer">
+            <div class="font-chip">
+              <strong>Aubrey + DM Sans</strong>
+              <span>Personality in the headings. Clear everywhere else.</span>
+            </div>
+            <div class="brand-chip">
+              <strong>The direction</strong>
+              <p>Light, warm, easy to navigate, full of real photos, and grounded in the dogs, the place, and the connection Melissa already brings to it.</p>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>Farmhouse &amp; Fields Dog Daycare · Brand Direction</span>
+      <span>The Yellow Front Door · September 2026</span>
     </div>
-  </section>
-
-  <section class="section-block bg-warm-white">
-    <h2 class="section-title"><span class="section-number">6</span> Words to Try</h2>
-    <p class="section-intro">A few tagline ideas to consider. These are just a few examples that help as we work through the website details. Take them, leave them, mix them up, or come back with something completely different. Even as working lines, they help us keep the website and visual pieces moving in the same direction.</p>
-    
-    <div class="tagline-grid">
-      <div class="tagline-pill">"Welcome to the Farmhouse."</div>
-      <div class="tagline-pill blue-pill">"Small pack. Big personalities."</div>
-      <div class="tagline-pill">"Your pup's home away from home."</div>
-      <div class="tagline-pill blue-pill">"Small numbers. Big days."</div>
-      <div class="tagline-pill">"A little country. A lot of dog."</div>
-      <div class="tagline-pill blue-pill">"Come play at the Farmhouse."</div>
-      <div class="tagline-pill">"A good day to be a dog."</div>
-    </div>
-  </section>
-
-  <section class="section-block bg-blue-tint">
-    <h2 class="section-title"><span class="section-number blue-num">7</span> Keeping It Consistent</h2>
-    <p class="section-intro">A few things worth keeping consistent. Nothing here needs to be complicated. These are just the choices that give us a solid starting point for the website and anything you make later.</p>
-
-    <div class="grid-2col">
-      <div class="feature-card">
-        <p><strong>1. Keep the site light:</strong> White first, with red as the strongest accent. Let the photos carry a lot of the colour.</p>
-        <p><strong>2. Use the real place:</strong> Farmhouse, yard, barn, fields, seasons, and dogs. We don't need extra "farmhouse" decoration.</p>
-        <p><strong>3. Keep type simple:</strong> Let the logo keep its own script.</p>
-      </div>
-      <div class="feature-card">
-        <p><strong>4. Use real photos only:</strong> Build from your gallery.</p>
-        <p><strong>5. Keep the words warm and real:</strong> Specific stories, normal language, and no lofty pet-care copy.</p>
-        <p><strong>6. Make the practical stuff easy:</strong> Pricing, hours, services, wait-list, policies, and next steps should always be easy to find.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-block bg-warm-white">
-    <h2 class="section-title"><span class="section-number">8</span> Website Direction &amp; Potential Pages</h2>
-    <p class="section-intro">How the website could come together so Farmhouse &amp; Fields feels like itself: you, the dogs, the Farmhouse, and the photos.</p>
-
-    <table class="nav-table">
-      <thead>
-        <tr>
-          <th style="width: 28%;">Page Title</th>
-          <th>Content &amp; Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>1. Home</strong></td>
-          <td>A first look at the Farmhouse, the daycare, and what makes it special, with great photos and clear ways to explore the rest of the site.</td>
-        </tr>
-        <tr>
-          <td><strong>2. The Farmhouse</strong></td>
-          <td>Your story, the house, yard, barn, and fields, and a little more about how Farmhouse &amp; Fields came to be.</td>
-        </tr>
-        <tr>
-          <td><strong>3. Daycare</strong></td>
-          <td>How daycare works, hours, pricing, group size, routines, requirements, and what families should know before their dog starts.</td>
-        </tr>
-        <tr>
-          <td><strong>4. Gallery</strong></td>
-          <td>A home for your photography: everyday play, friendships, quiet moments, muddy days, changing seasons, and life around the Farmhouse.</td>
-        </tr>
-        <tr>
-          <td><strong>5. FAQs</strong></td>
-          <td>Straightforward answers to the things families are most likely to wonder about before getting in touch.</td>
-        </tr>
-        <tr>
-          <td><strong>6. Join the Wait-list</strong></td>
-          <td>A clear explanation of the process, what happens next, and a simple way for families to tell you about their dog.</td>
-        </tr>
-        <tr>
-          <td><strong>7. Current Clients</strong></td>
-          <td>An easy route to Time To Pet and any other information existing families need regularly. Can sit separately in navigation as a quick link.</td>
-        </tr>
-        <tr>
-          <td><strong>8. Contact</strong></td>
-          <td>A simple way to reach you.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="feature-card blue-card" style="margin-top:24px;">
-      <h3>First Pass</h3>
-      <p>This is our starting point. You can tell us what feels right, what does not, and what you want to push further before we build the full site.</p>
-    </div>
-  </section>
-
-  <section class="notes-card">
-    <h2 class="section-title" style="margin-bottom:12px;"><span class="section-number">9</span> Your Feedback &amp; Notes</h2>
-    <p class="section-intro" style="margin-bottom:16px;">Leave any thoughts, tagline preferences, or questions here as you review:</p>
-    
-    <label style="font-weight:700; font-size:0.85rem; display:block; margin-top:12px;">General Thoughts &amp; Direction Feedback:</label>
-    <textarea id="generalNotes" placeholder="Type any thoughts or changes you'd like to see..."></textarea>
-    
-    <label style="font-weight:700; font-size:0.85rem; display:block; margin-top:16px;">Favorite Tagline Picks (from Section 6):</label>
-    <textarea id="taglineNotes" placeholder="Which taglines do you like best? E.g., 'Small numbers. Big days.'"></textarea>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-brand">
-      <img src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
-      <span>The Yellow Front Door</span>
-    </div>
-    <span>Farmhouse &amp; Fields Dog Daycare Brand Direction</span>
   </footer>
-</main>
-</div>
-
-<div class="floating-lock-bar hidden" id="lockBar">
-  <div class="lock-bar-info">
-    Active Selections: <strong id="selectedRedText">1. Cool Crimson (#8A1211)</strong> • <strong id="selectedBlueText">1. Foggy Teal (#4A7B82)</strong> • <strong id="selectedFontText">1. Aubrey + DM Sans</strong>
-  </div>
-  <button type="button" class="button" onclick="openLockModal()">Lock In My Choices</button>
-</div>
-
-<div class="modal-overlay hidden" id="lockModal">
-  <div class="modal-card">
-    <h2 style="margin:0 0 8px; font-size:1.5rem; color:var(--ink);">Your Locked Selections</h2>
-    <p style="margin:0 0 16px; font-size:0.85rem; color:var(--slate);">Here is the summary of your selected brand direction and feedback. You can copy this text to email back or save for reference:</p>
-
-    <div class="modal-summary-box" id="modalSummaryContent">Generating summary...</div>
-
-    <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:16px;">
-      <button type="button" class="button" style="background:var(--slate);" onclick="closeLockModal()">Back to Guide</button>
-      <button type="button" class="button" onclick="copySummaryText()">Copy Summary Text</button>
-    </div>
-  </div>
-</div>
-
-<script>
-const ACCESS_CODE = "Melissa";
-
-let currentRedName = "1. Cool Crimson (#8A1211)";
-let currentBlueName = "1. Foggy Teal (#4A7B82)";
-let currentFontName = "1. Aubrey + DM Sans";
-
-const gate = document.getElementById("accessGate");
-const proposalPage = document.getElementById("proposalPage");
-const gateForm = document.getElementById("gateForm");
-const accessCode = document.getElementById("accessCode");
-const gateError = document.getElementById("gateError");
-
-function updateLockBar() {
-  document.getElementById('selectedRedText').textContent = currentRedName;
-  document.getElementById('selectedBlueText').textContent = currentBlueName;
-  document.getElementById('selectedFontText').textContent = currentFontName;
-  document.getElementById('lockBar').classList.remove('hidden');
-}
-
-function setRed(hex, hoverHex, name, btn) {
-  document.documentElement.style.setProperty('--red', hex);
-  document.documentElement.style.setProperty('--red-hover', hoverHex);
-  document.getElementById('mainRedSwatch').style.background = hex;
-  document.getElementById('mainRedHex').textContent = hex;
-  
-  currentRedName = name + " (" + hex + ")";
-  
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  updateLockBar();
-}
-
-function toggleRedTextMode(btn) {
-  const bar = document.getElementById('thickRedBar');
-  bar.classList.toggle('red-text-mode');
-  if(bar.classList.contains('red-text-mode')){
-    btn.textContent = "Toggle: Solid Red Fill Mode";
-  } else {
-    btn.textContent = "Toggle: Test Red Text on White Card";
-  }
-}
-
-function setBlue(hex, lightHex, darkHex, name, btn) {
-  document.documentElement.style.setProperty('--dusty-blue', hex);
-  document.documentElement.style.setProperty('--dusty-blue-light', lightHex);
-  document.documentElement.style.setProperty('--dusty-blue-dark', darkHex);
-  document.getElementById('mainBlueSwatch').style.background = hex;
-  document.getElementById('mainBlueHex').textContent = hex;
-  
-  currentBlueName = name + " (" + hex + ")";
-  
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  updateLockBar();
-}
-
-function setFonts(headingFont, bodyFont, transform, spacing, weight, name, headingTag, bodyTag, btn) {
-  document.documentElement.style.setProperty('--font-heading', headingFont);
-  document.documentElement.style.setProperty('--font-body', bodyFont);
-  document.documentElement.style.setProperty('--heading-transform', transform);
-  document.documentElement.style.setProperty('--heading-spacing', spacing);
-  document.documentElement.style.setProperty('--heading-weight', weight);
-  
-  document.getElementById('fontTitle1').textContent = headingFont.split(',')[0].replace(/'/g, '');
-  document.getElementById('fontTag1').textContent = headingTag;
-  
-  document.getElementById('fontTitle2').textContent = bodyFont.split(',')[0].replace(/'/g, '');
-  document.getElementById('fontTag2').textContent = bodyTag;
-
-  currentFontName = name;
-
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  updateLockBar();
-}
-
-function openLockModal() {
-  const generalNotes = document.getElementById('generalNotes').value.trim();
-  const taglineNotes = document.getElementById('taglineNotes').value.trim();
-
-  let summary = `FARMHOUSE & FIELDS BRAND SELECTIONS SUMMARY\n`;
-  summary += `-----------------------------------------\n`;
-  summary += `• Red Accent: ${currentRedName}\n`;
-  summary += `• Secondary Accent: ${currentBlueName}\n`;
-  summary += `• Font Pairing: ${currentFontName}\n\n`;
-  summary += `GENERAL FEEDBACK & NOTES:\n`;
-  summary += `${generalNotes ? generalNotes : '(No notes entered)'}\n\n`;
-  summary += `PREFERRED TAGLINES:\n`;
-  summary += `${taglineNotes ? taglineNotes : '(No taglines specified)'}\n`;
-
-  document.getElementById('modalSummaryContent').textContent = summary;
-  document.getElementById('lockModal').classList.remove('hidden');
-}
-
-function closeLockModal() {
-  document.getElementById('lockModal').classList.add('hidden');
-}
-
-function copySummaryText() {
-  const text = document.getElementById('modalSummaryContent').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("Summary copied to clipboard! You can paste it into an email or text message.");
-  });
-}
-
-function unlockProposal(){
-  sessionStorage.setItem("ffBrandGuideAccess","yes");
-  gate.classList.add("hidden");
-  proposalPage.classList.remove("hidden");
-  requestAnimationFrame(() => proposalPage.classList.add("reveal"));
-  updateLockBar();
-}
-
-if(sessionStorage.getItem("ffBrandGuideAccess") === "yes") {
-  unlockProposal();
-}
-
-gateForm.addEventListener("submit", e => {
-  e.preventDefault();
-  if(accessCode.value.trim().toLowerCase() === ACCESS_CODE.toLowerCase()){
-    gateError.textContent = "";
-    unlockProposal();
-  } else {
-    gateError.textContent = "That access code doesn’t match. Please try again.";
-    accessCode.select();
-  }
-});
-</script>
 </body>
 </html>
