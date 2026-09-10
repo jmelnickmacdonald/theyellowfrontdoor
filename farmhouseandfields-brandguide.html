@@ -87,6 +87,18 @@ a{color:inherit}
 
 .proposal-title{margin:0 0 8px;font-size:clamp(2rem,4vw,2.8rem);line-height:1.15;letter-spacing:var(--heading-spacing);font-family:var(--font-heading);font-weight:var(--heading-weight);color:var(--ink)}.subtitle{font-family:var(--font-body);font-size:1.1rem;color:var(--dusty-blue);margin:0 0 24px;font-weight:500}.intro{max-width:800px;color:var(--ink);margin:0;font-size:.95rem;line-height:1.6}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:20px 0 0;color:var(--dusty-blue-dark);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
 
+/* Light Payment Reference Note */
+.deposit-note {
+  margin-top: 12px;
+  font-size: 0.76rem;
+  color: var(--dusty-blue-dark);
+  background: var(--dusty-blue-light);
+  border: 1px solid rgba(114, 128, 138, 0.25);
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+
 /* Section Blocks */
 .section-block {
   margin: 36px 0;
@@ -441,6 +453,10 @@ a{color:inherit}
     <span>The Yellow Front Door</span>
   </div>
 
+  <div class="deposit-note">
+    ✓ Note: Initial deposit of $450 received via e-Transfer on Sunday, September 6, 2026.
+  </div>
+
   <section class="section-block bg-warm-white">
     <h2 class="section-title"><span class="section-number">1</span> What Makes Farmhouse &amp; Fields Special</h2>
     <p class="section-intro">Your Farmhouse already has a very clear feel to it. The website does not need to invent one. It needs to show what you've built: a small, consistent group of dogs, a place that feels comfortable and familiar, lots of room to play, and someone who knows and loves the dogs like her own.</p>
@@ -516,7 +532,7 @@ a{color:inherit}
         <div class="preview-heading" style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Warmth in Action</div>
         <p style="margin:0; font-size:0.85rem;">Bold accents, buttons, and badges that draw the eye cleanly without overwhelming your photos.</p>
         <div>
-          <span class="tagline-pill" style="background:var(--red); color:#fff; display:inline-block; transition:background 0.2s ease;">Red Accent Sample</span>
+          <span class="tagline-pill" style="background:var(--red); color:#fff; display:inline-block; transition:background 0.2s ease;">Red Accent Specimen</span>
         </div>
       </div>
     </div>
@@ -806,7 +822,7 @@ a{color:inherit}
     <label style="font-weight:700; font-size:0.85rem; display:block; margin-top:12px;">General Thoughts &amp; Direction Feedback:</label>
     <textarea id="generalNotes" placeholder="Type any thoughts or changes you'd like to see..."></textarea>
     
-    <label style="font-weight:700; font-size:0.85rem; display:block; margin-top:16px;">favourite Tagline Picks (from Section 6):</label>
+    <label style="font-weight:700; font-size:0.85rem; display:block; margin-top:16px;">Favorite Tagline Picks (from Section 6):</label>
     <textarea id="taglineNotes" placeholder="Which taglines do you like best? E.g., 'Small numbers. Big days.'"></textarea>
   </section>
 
