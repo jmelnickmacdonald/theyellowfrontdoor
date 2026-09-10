@@ -1,3 +1,8 @@
+Got it! Updated the `@font-face` declaration to use `AUBREY1__.woff2` directly as the primary font source.
+
+Here is the complete, updated HTML code:
+
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +17,8 @@
 /* Custom Uploaded Font: Aubrey */
 @font-face {
   font-family: 'Aubrey';
-  src: url('aubrey.woff2') format('woff2'),
+  src: url('AUBREY1__.woff2') format('woff2'),
+       url('aubrey.woff2') format('woff2'),
        url('AUBREY1__.TTF') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -32,8 +38,8 @@
   --font-heading: "Aubrey", Georgia, serif;
   --font-body: "DM Sans", Arial, sans-serif;
   --heading-transform: none;
-  --heading-spacing: 0.04em; /* Expanded spacing fix for Aubrey */
-  --heading-weight: 400;    /* Prevents heavy faux-bolding on Aubrey */
+  --heading-spacing: 0.015em;
+  --heading-weight: 400;
 
   --oat: #E7DDCD;            
   --warm-white: #FCFBF8;     
@@ -432,7 +438,7 @@ a{color:inherit}
       </div>
 
       <div class="thick-preview-bar red-bar" id="thickRedBar">
-        <div class="preview-heading" style="font-family:var(--font-heading); font-size:1.3rem; font-weight:600;">Farmhouse Red Text &amp; Component Preview</div>
+        <div class="preview-heading" style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Farmhouse Red Text &amp; Component Preview</div>
         <p style="margin:0; font-size:0.85rem;">This block shows how headings, buttons, and badges render in your selected red shade against white or colored backgrounds.</p>
         <div>
           <span class="tagline-pill" style="background:var(--red); color:#fff; display:inline-block; transition:background 0.2s ease;">Red Badge Specimen</span>
@@ -466,7 +472,7 @@ a{color:inherit}
       </div>
 
       <div class="thick-preview-bar blue-bar" id="thickBlueBar">
-        <div style="font-family:var(--font-heading); font-size:1.3rem; font-weight:600;">Dusty Blue Solid Background Preview</div>
+        <div style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Dusty Blue Solid Background Preview</div>
         <p style="margin:0; font-size:0.85rem; opacity:0.95;">How your farmhouseandfields.png logo sits over your selected dusty blue tone (with a white card vs transparent PNG):</p>
         
         <div class="logo-preview-row">
@@ -521,7 +527,7 @@ a{color:inherit}
     <div class="color-tester-card">
       <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Font Pairing Option:</h3>
       <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-        <button type="button" class="tester-btn active" onclick="setFonts('Aubrey, serif', 'DM Sans, sans-serif', 'none', '0.04em', '400', '1. Aubrey + DM Sans', 'Uploaded Custom Font', 'Clean & Friendly Sans', this)">
+        <button type="button" class="tester-btn active" onclick="setFonts('Aubrey, serif', 'DM Sans, sans-serif', 'none', '0.015em', '400', '1. Aubrey + DM Sans', 'Uploaded Custom Font', 'Clean &amp; Friendly Sans', this)">
           <span class="tester-label" style="font-family:'Aubrey', serif; font-size:1.05rem;">1. Aubrey + DM Sans</span>
           <span class="tester-hex">Uploaded Custom Font</span>
         </button>
@@ -540,7 +546,7 @@ a{color:inherit}
 
     <div class="grid-2col">
       <div class="font-specimen-card">
-        <div class="font-name-title" id="fontTitle1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing); font-weight:var(--heading-weight);">Heading Font Preview</div>
+        <div class="font-name-title" id="fontTitle1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing); font-weight:var(--heading-weight);">Aubrey</div>
         <div class="font-role-tag" id="fontTag1">Headings, page titles, and short feature lines</div>
         
         <div class="font-sample-headline" id="fontSample1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing); font-weight:var(--heading-weight);">
@@ -548,7 +554,7 @@ a{color:inherit}
           Small numbers. Big days.
         </div>
 
-        <div class="font-alphabet-block" id="fontAlpha1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing);">
+        <div class="font-alphabet-block" id="fontAlpha1" style="font-family:var(--font-heading); text-transform:var(--heading-transform); letter-spacing:var(--heading-spacing); font-weight:var(--heading-weight);">
           ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
           abcdefghijklmnopqrstuvwxyz<br>
           0123456789 (!@#$%&amp;*.,?)
@@ -556,7 +562,7 @@ a{color:inherit}
       </div>
 
       <div class="font-specimen-card">
-        <div class="font-name-title blue-title" id="fontTitle2" style="font-family:var(--font-body); font-weight:700;">Body Font Preview</div>
+        <div class="font-name-title blue-title" id="fontTitle2" style="font-family:var(--font-body); font-weight:700;">DM Sans</div>
         <div class="font-role-tag" id="fontTag2">Body copy, navigation, buttons, forms, pricing, and captions</div>
         
         <div class="font-sample-headline" id="fontSample2" style="font-family:var(--font-body); font-weight: 500;">
@@ -792,3 +798,5 @@ gateForm.addEventListener("submit", e => {
 </script>
 </body>
 </html>
+
+```
