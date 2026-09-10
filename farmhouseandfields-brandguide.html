@@ -26,9 +26,9 @@
   /* Dynamic Color & Font Variables */
   --red: #8A1211;            
   --red-hover: #6B0C0A;
-  --dusty-blue: #72808A;     
-  --dusty-blue-light: #EBF0F3;
-  --dusty-blue-dark: #4F5C65; 
+  --dusty-blue: #4A7B82;     
+  --dusty-blue-light: #E8F2F3;
+  --dusty-blue-dark: #2C5157; 
   
   --font-heading: "Aubrey", Georgia, serif;
   --font-body: "DM Sans", Arial, sans-serif;
@@ -442,22 +442,22 @@ a{color:inherit}
     </div>
 
     <div class="color-tester-card" style="margin-top:20px;">
-      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Secondary Accent Option (Blue &amp; Foggy Teal):</h3>
+      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Secondary Accent Option (Foggy Teal, Navy &amp; Blue):</h3>
       <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
-        <button type="button" class="tester-btn active" onclick="setBlue('#72808A', '#EBF0F3', '#4F5C65', '1. Weathered Slate', this)">
-          <span class="tester-swatch" style="background:#72808A;"></span>
-          <span class="tester-label">1. Weathered Slate</span>
-          <span class="tester-hex">#72808A</span>
-        </button>
-        <button type="button" class="tester-btn" onclick="setBlue('#4A7B82', '#E8F2F3', '#2C5157', '2. Foggy Teal', this)">
+        <button type="button" class="tester-btn active" onclick="setBlue('#4A7B82', '#E8F2F3', '#2C5157', '1. Foggy Teal', this)">
           <span class="tester-swatch" style="background:#4A7B82;"></span>
-          <span class="tester-label">2. Foggy Teal</span>
+          <span class="tester-label">1. Foggy Teal</span>
           <span class="tester-hex">#4A7B82</span>
         </button>
-        <button type="button" class="tester-btn" onclick="setBlue('#85949E', '#EFF4F7', '#5A6770', '3. Soft Fog Blue', this)">
-          <span class="tester-swatch" style="background:#85949E;"></span>
-          <span class="tester-label">3. Soft Fog Blue</span>
-          <span class="tester-hex">#85949E</span>
+        <button type="button" class="tester-btn" onclick="setBlue('#1D3557', '#EAEFF5', '#0E1E38', '2. Heritage Navy', this)">
+          <span class="tester-swatch" style="background:#1D3557;"></span>
+          <span class="tester-label">2. Heritage Navy</span>
+          <span class="tester-hex">#1D3557</span>
+        </button>
+        <button type="button" class="tester-btn" onclick="setBlue('#4A90E2', '#EBF3FB', '#215FB0', '3. Coastal Sky', this)">
+          <span class="tester-swatch" style="background:#4A90E2;"></span>
+          <span class="tester-label">3. Coastal Sky</span>
+          <span class="tester-hex">#4A90E2</span>
         </button>
         <button type="button" class="tester-btn" onclick="setBlue('#4A5A66', '#E2E7EB', '#2C3842', '4. Midnight Slate', this)">
           <span class="tester-swatch" style="background:#4A5A66;"></span>
@@ -489,10 +489,10 @@ a{color:inherit}
         <p class="color-desc">Main accent. Warm and strong enough to draw the eye without taking over.</p>
       </div>
       <div class="color-card">
-        <div class="swatch" id="mainBlueSwatch" style="background: #72808A;"></div>
-        <div class="color-name">Dusty blue / Teal</div>
-        <div class="color-hex" id="mainBlueHex">#72808A</div>
-        <p class="color-desc">A soft, weathered tone. Quieter second accent balancing warmer tones.</p>
+        <div class="swatch" id="mainBlueSwatch" style="background: #4A7B82;"></div>
+        <div class="color-name">Foggy Teal / Navy</div>
+        <div class="color-hex" id="mainBlueHex">#4A7B82</div>
+        <p class="color-desc">A muted coastal accent. Quieter second accent balancing warmer tones.</p>
       </div>
       <div class="color-card">
         <div class="swatch" style="background: #E7DDCD;"></div>
@@ -521,7 +521,7 @@ a{color:inherit}
 
     <div class="color-tester-card">
       <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Font Pairing Option:</h3>
-      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
         <button type="button" class="tester-btn active" onclick="setFonts('Aubrey, serif', 'DM Sans, sans-serif', 'none', '0.015em', '400', '1. Aubrey + DM Sans', 'Uploaded Custom Font', 'Clean &amp; Friendly Sans', this)">
           <span class="tester-label" style="font-family:'Aubrey', serif; font-size:1.05rem;">1. Aubrey + DM Sans</span>
           <span class="tester-hex">Uploaded Custom Font</span>
