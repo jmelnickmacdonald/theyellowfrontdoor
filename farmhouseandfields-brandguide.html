@@ -1,8 +1,3 @@
-Got it! Updated the `@font-face` declaration to use `AUBREY1__.woff2` directly as the primary font source.
-
-Here is the complete, updated HTML code:
-
-```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -438,26 +433,26 @@ a{color:inherit}
       </div>
 
       <div class="thick-preview-bar red-bar" id="thickRedBar">
-        <div class="preview-heading" style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Farmhouse Red Text &amp; Component Preview</div>
-        <p style="margin:0; font-size:0.85rem;">This block shows how headings, buttons, and badges render in your selected red shade against white or colored backgrounds.</p>
+        <div class="preview-heading" style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Warmth in Action</div>
+        <p style="margin:0; font-size:0.85rem;">Bold accents, buttons, and badges that draw the eye cleanly without overwhelming your photos.</p>
         <div>
-          <span class="tagline-pill" style="background:var(--red); color:#fff; display:inline-block; transition:background 0.2s ease;">Red Badge Specimen</span>
+          <span class="tagline-pill" style="background:var(--red); color:#fff; display:inline-block; transition:background 0.2s ease;">Red Accent Specimen</span>
         </div>
       </div>
     </div>
 
     <div class="color-tester-card" style="margin-top:20px;">
-      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Dusty Blue Option (4 Variations):</h3>
+      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Secondary Accent Option (Blue &amp; Foggy Teal):</h3>
       <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
         <button type="button" class="tester-btn active" onclick="setBlue('#72808A', '#EBF0F3', '#4F5C65', '1. Weathered Slate', this)">
           <span class="tester-swatch" style="background:#72808A;"></span>
           <span class="tester-label">1. Weathered Slate</span>
           <span class="tester-hex">#72808A</span>
         </button>
-        <button type="button" class="tester-btn" onclick="setBlue('#5C6E78', '#E6ECF0', '#3B4852', '2. Deep Country Blue', this)">
-          <span class="tester-swatch" style="background:#5C6E78;"></span>
-          <span class="tester-label">2. Country Blue</span>
-          <span class="tester-hex">#5C6E78</span>
+        <button type="button" class="tester-btn" onclick="setBlue('#4A7B82', '#E8F2F3', '#2C5157', '2. Foggy Teal', this)">
+          <span class="tester-swatch" style="background:#4A7B82;"></span>
+          <span class="tester-label">2. Foggy Teal</span>
+          <span class="tester-hex">#4A7B82</span>
         </button>
         <button type="button" class="tester-btn" onclick="setBlue('#85949E', '#EFF4F7', '#5A6770', '3. Soft Fog Blue', this)">
           <span class="tester-swatch" style="background:#85949E;"></span>
@@ -472,8 +467,8 @@ a{color:inherit}
       </div>
 
       <div class="thick-preview-bar blue-bar" id="thickBlueBar">
-        <div style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Dusty Blue Solid Background Preview</div>
-        <p style="margin:0; font-size:0.85rem; opacity:0.95;">How your farmhouseandfields.png logo sits over your selected dusty blue tone (with a white card vs transparent PNG):</p>
+        <div style="font-family:var(--font-heading); font-size:1.3rem; font-weight:var(--heading-weight); letter-spacing:var(--heading-spacing);">Secondary Accent Background Preview</div>
+        <p style="margin:0; font-size:0.85rem; opacity:0.95;">How your farmhouseandfields.png logo sits over your selected accent tone (with a white card vs transparent PNG):</p>
         
         <div class="logo-preview-row">
           <div class="logo-card-wrap">
@@ -495,9 +490,9 @@ a{color:inherit}
       </div>
       <div class="color-card">
         <div class="swatch" id="mainBlueSwatch" style="background: #72808A;"></div>
-        <div class="color-name">Dusty blue</div>
+        <div class="color-name">Dusty blue / Teal</div>
         <div class="color-hex" id="mainBlueHex">#72808A</div>
-        <p class="color-desc">A soft, weathered blue-grey. Quieter second accent balancing warmer tones.</p>
+        <p class="color-desc">A soft, weathered tone. Quieter second accent balancing warmer tones.</p>
       </div>
       <div class="color-card">
         <div class="swatch" style="background: #E7DDCD;"></div>
@@ -522,23 +517,28 @@ a{color:inherit}
 
   <section class="section-block bg-warm-white">
     <h2 class="section-title"><span class="section-number">3</span> Typography</h2>
-    <p class="section-intro">Warm headings. Clear everything else. Your logo already has its own personality and script, so the website type should complement it rather than compete with it. Test 3 font pairing options below:</p>
+    <p class="section-intro">Warm headings. Clear everything else. Your logo already has its own personality and script, so the website type should complement it rather than compete with it. Test 4 font pairing options below:</p>
 
     <div class="color-tester-card">
       <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Font Pairing Option:</h3>
-      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
         <button type="button" class="tester-btn active" onclick="setFonts('Aubrey, serif', 'DM Sans, sans-serif', 'none', '0.015em', '400', '1. Aubrey + DM Sans', 'Uploaded Custom Font', 'Clean &amp; Friendly Sans', this)">
           <span class="tester-label" style="font-family:'Aubrey', serif; font-size:1.05rem;">1. Aubrey + DM Sans</span>
           <span class="tester-hex">Uploaded Custom Font</span>
         </button>
 
-        <button type="button" class="tester-btn" onclick="setFonts('Arvo, Georgia, serif', 'Work Sans, sans-serif', 'none', 'normal', '700', '2. Arvo + Work Sans', 'Woodblock Slab-Serif', 'Functional Screen Sans', this)">
-          <span class="tester-label" style="font-family:'Arvo', serif; font-size:1rem;">2. Arvo + Work Sans</span>
+        <button type="button" class="tester-btn" onclick="setFonts('Fraunces, Georgia, serif', 'DM Sans, sans-serif', 'none', 'normal', '600', '2. Fraunces + DM Sans', 'Warm Storyteller Serif', 'Clean &amp; Friendly Sans', this)">
+          <span class="tester-label" style="font-family:'Fraunces', serif; font-size:1rem;">2. Fraunces + DM Sans</span>
+          <span class="tester-hex">Warm Storyteller Serif</span>
+        </button>
+
+        <button type="button" class="tester-btn" onclick="setFonts('Arvo, Georgia, serif', 'Work Sans, sans-serif', 'none', 'normal', '700', '3. Arvo + Work Sans', 'Woodblock Slab-Serif', 'Functional Screen Sans', this)">
+          <span class="tester-label" style="font-family:'Arvo', serif; font-size:1rem;">3. Arvo + Work Sans</span>
           <span class="tester-hex">Woodblock Country Press</span>
         </button>
 
-        <button type="button" class="tester-btn" onclick="setFonts('Arial Black, Impact, sans-serif', 'Lora, serif', 'uppercase', '0.06em', '900', '3. Arial Black + Lora', 'Bold Signage All-Caps', 'Fine Editorial Serif', this)">
-          <span class="tester-label" style="font-family:'Arial Black', sans-serif; font-size:0.85rem; text-transform:uppercase;">3. Arial Black + Lora</span>
+        <button type="button" class="tester-btn" onclick="setFonts('Arial Black, Impact, sans-serif', 'Lora, serif', 'uppercase', '0.06em', '900', '4. Arial Black + Lora', 'Bold Signage All-Caps', 'Fine Editorial Serif', this)">
+          <span class="tester-label" style="font-family:'Arial Black', sans-serif; font-size:0.85rem; text-transform:uppercase;">4. Arial Black + Lora</span>
           <span class="tester-hex">Bold Signage + Fine Serif</span>
         </button>
       </div>
@@ -798,5 +798,3 @@ gateForm.addEventListener("submit", e => {
 </script>
 </body>
 </html>
-
-```
