@@ -7,19 +7,22 @@
 <title>Farmhouse & Fields Brand Direction | The Yellow Front Door</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:"TYFD Hand";src:url("CasualHandwriting.woff2") format("woff2"),url("CasualHandwriting.woff") format("woff");font-display:swap}
 
 :root {
-  /* Default Red Variable (Dynamically updated via buttons) */
+  /* Dynamic Variables (Updated by Tester) */
   --red: #8A1211;            
   --red-hover: #6B0C0A;
-  
   --dusty-blue: #72808A;     
   --dusty-blue-light: #EBF0F3;
   --dusty-blue-dark: #4F5C65; 
-  --oat: #F3ECE1;            
+  
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+
+  --oat: #E7DDCD;            
   --warm-white: #FCFBF8;     
   --ink: #2A2926;            
   
@@ -37,14 +40,14 @@ body{
   margin:0;
   background:#f3f4f7;
   color:var(--ink);
-  font-family:"DM Sans", Arial, sans-serif;
+  font-family:var(--font-body);
   font-size:15px;
   line-height:1.5;
   -webkit-font-smoothing:antialiased
 }
 
 h1, h2, h3, .brand-heading {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   color: var(--ink);
 }
@@ -66,7 +69,7 @@ a{color:inherit}
 .client-logo-wrap{margin:24px 0 20px;text-align:left}
 .client-logo-wrap img{max-width:280px;height:auto;display:block}
 
-.proposal-title{margin:0 0 8px;font-size:clamp(2rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}.subtitle{font-family:"DM Sans", sans-serif;font-size:1.1rem;color:var(--dusty-blue);margin:0 0 24px;font-weight:500}.intro{max-width:800px;color:var(--ink);margin:0;font-size:.95rem;line-height:1.6}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:20px 0 0;color:var(--dusty-blue-dark);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+.proposal-title{margin:0 0 8px;font-size:clamp(2rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}.subtitle{font-family:var(--font-body);font-size:1.1rem;color:var(--dusty-blue);margin:0 0 24px;font-weight:500}.intro{max-width:800px;color:var(--ink);margin:0;font-size:.95rem;line-height:1.6}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:20px 0 0;color:var(--dusty-blue-dark);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
 
 /* Section Blocks */
 .section-block {
@@ -122,7 +125,7 @@ a{color:inherit}
   display: inline-block;
   background: var(--red);
   color: #fff;
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 700;
   padding: 2px 11px;
@@ -146,29 +149,28 @@ a{color:inherit}
   max-width: 760px;
 }
 
-/* Red Interactive Picker */
-.red-tester-box {
+/* Palette Tester Blocks */
+.color-tester-card {
   background: #fff;
-  border: 2px solid var(--red);
+  border: 1px solid rgba(114, 128, 138, 0.25);
   padding: 20px;
   border-radius: 8px;
   margin: 20px 0;
-  transition: border-color 0.2s ease;
 }
 
-.red-options-grid {
+.tester-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.red-btn {
+.tester-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 12px;
+  gap: 4px;
+  padding: 10px 8px;
   border: 2px solid transparent;
   border-radius: 6px;
   background: var(--warm-white);
@@ -176,28 +178,68 @@ a{color:inherit}
   transition: all 0.2s ease;
 }
 
-.red-btn.active {
+.tester-btn.active {
   border-color: var(--ink);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
   background: #fff;
 }
 
-.red-swatch-circle {
-  width: 32px;
-  height: 32px;
+.tester-swatch {
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
-.red-label {
+.tester-label {
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--ink);
 }
 
-.red-hex {
-  font-size: 0.7rem;
+.tester-hex {
+  font-size: 0.68rem;
   color: var(--dusty-blue-dark);
   font-family: monospace;
+}
+
+/* Thick Visual Preview Bars */
+.thick-preview-bar {
+  padding: 28px;
+  border-radius: 8px;
+  margin-top: 16px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.thick-preview-bar.red-bar {
+  background: var(--red);
+  color: #fff;
+}
+
+.thick-preview-bar.red-text-mode {
+  background: #fff;
+  border: 2px solid var(--red);
+  color: var(--ink);
+}
+
+.thick-preview-bar.red-text-mode .preview-heading {
+  color: var(--red) !important;
+}
+
+.thick-preview-bar.blue-bar {
+  background: var(--dusty-blue);
+  color: #fff;
+}
+
+.thick-preview-bar img {
+  max-width: 220px;
+  height: auto;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
 }
 
 /* Palette Row */
@@ -230,21 +272,21 @@ a{color:inherit}
 
 /* Tagline Pills */
 .tagline-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;margin:20px 0}
-.tagline-pill{background:#fff;border:1px solid rgba(114, 128, 138, 0.3);padding:14px 18px;border-radius:30px;font-family:"Fraunces", Georgia, serif;font-size:.95rem;color:var(--red);text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.02);transition: color 0.2s ease;}
+.tagline-pill{background:#fff;border:1px solid rgba(114, 128, 138, 0.3);padding:14px 18px;border-radius:30px;font-family:var(--font-heading);font-size:.95rem;color:var(--red);text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.02);transition: color 0.2s ease;}
 .tagline-pill.blue-pill{color:var(--dusty-blue-dark);border-color:var(--dusty-blue)}
 
 /* Web Architecture Table */
 .nav-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border:1px solid rgba(114,128,138,0.25);border-radius:8px;overflow:hidden}
-.nav-table th{background:var(--dusty-blue);color:#fff;text-align:left;padding:12px 16px;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;font-family:"DM Sans", sans-serif}
+.nav-table th{background:var(--dusty-blue);color:#fff;text-align:left;padding:12px 16px;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;font-family:var(--font-body)}
 .nav-table td{padding:14px 16px;border-top:1px solid rgba(114,128,138,0.15);font-size:.85rem;color:var(--slate)}
 .nav-table td strong{color:var(--ink)}
 
 /* Action Buttons & Footer */
-.button{min-height:48px;border:0;border-radius:5px;padding:0 24px;background:var(--red);color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .18s ease;font-family:"DM Sans", sans-serif}.button:hover{background:var(--red-hover);transform:translateY(-1px)}
+.button{min-height:48px;border:0;border-radius:5px;padding:0 24px;background:var(--red);color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .18s ease;font-family:var(--font-body)}.button:hover{background:var(--red-hover);transform:translateY(-1px)}
 .footer{margin-top:48px;padding-top:20px;border-top:1px solid rgba(114,128,138,0.25);display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--dusty-blue-dark);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase}.footer-brand{display:flex;align-items:center;gap:8px;color:var(--ink);font-weight:700}.footer-brand img{width:24px;height:24px;object-fit:contain}
 
 :focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
-@media(max-width:760px){body{background:#fff}.page-wrap{padding:0}.proposal{border:0;min-height:100vh;padding:44px 24px 34px;box-shadow:none}.grid-2col,.palette-grid,.tagline-grid,.font-weights-grid,.red-options-grid{grid-template-columns:1fr}.section-block{padding:20px 16px}.footer{align-items:flex-start;flex-direction:column}}
+@media(max-width:760px){body{background:#fff}.page-wrap{padding:0}.proposal{border:0;min-height:100vh;padding:44px 24px 34px;box-shadow:none}.grid-2col,.palette-grid,.tagline-grid,.font-weights-grid,.tester-grid{grid-template-columns:1fr}.section-block{padding:20px 16px}.footer{align-items:flex-start;flex-direction:column}}
 @media print{body{background:#fff}.page-wrap{padding:0}.proposal{width:100%;border:1.5pt solid var(--purple);box-shadow:none}.gate{display:none!important}}
 </style>
 </head>
@@ -272,13 +314,13 @@ a{color:inherit}
   </div>
   
   <div class="client-logo-wrap">
-    <img src="farmhouseandfields.jpg" alt="Farmhouse &amp; Fields Dog Daycare">
+    <img src="farmhouseandfields.png" alt="Farmhouse &amp; Fields Dog Daycare">
   </div>
 
   <h1 class="proposal-title">Brand Direction</h1>
   <div class="subtitle">A first look at Farmhouse &amp; Fields</div>
   
-  <p class="intro">The colours, type, photography, voice, and a few lines we can start building from. The goal is simple: when someone lands on the site, they should understand what the Farmhouse is, how it works, and why people trust Melissa with their dogs.</p>
+  <p class="intro">The colours, type, photography, voice, and a few lines we can start building from[cite: 6]. The goal is simple: when someone lands on the site, they should understand what the Farmhouse is, how it works, and why people trust Melissa with their dogs[cite: 30].</p>
   
   <div class="proposal-meta">
     <span>Prepared for Farmhouse &amp; Fields</span>
@@ -290,57 +332,115 @@ a{color:inherit}
 
   <section class="section-block bg-warm-white">
     <h2 class="section-title"><span class="section-number">1</span> What Makes Farmhouse &amp; Fields Special</h2>
-    <p class="section-intro">The Farmhouse already has a very clear feel to it. The website does not need to invent one. It needs to show what Melissa has built: a small, consistent group of dogs, a place that feels comfortable and familiar, lots of room to play, and someone who knows and loves the dogs like her own.</p>
+    <p class="section-intro">The Farmhouse already has a very clear feel to it[cite: 10]. The website does not need to invent one[cite: 10]. It needs to show what Melissa has built: a small, consistent group of dogs, a place that feels comfortable and familiar, lots of room to play, and someone who knows and loves the dogs like her own[cite: 11].</p>
     
     <div class="grid-2col">
       <div class="feature-card blue-card">
         <h3>At the Centre</h3>
-        <p>Low, consistent numbers. Familiar dogs. Lots of room.</p>
-        <p>Farmhouse &amp; Fields keeps the group small and familiar. Melissa gets to know each dog incredibly well: who they play with, how they settle in, what they love, and when they need a little space.</p>
+        <p>Low, consistent numbers. Familiar dogs. Lots of room[cite: 14].</p>
+        <p>Farmhouse &amp; Fields keeps the group small and familiar[cite: 17]. Melissa gets to know each dog incredibly well: who they play with, how they settle in, what they love, and when they need a little space[cite: 17].</p>
       </div>
       <div class="feature-card">
         <h3>Melissa Knows These Dogs</h3>
-        <p>That comes through all over her Facebook page. She knows their friendships, routines, quirks and personalities, and she clearly loves having them there.</p>
-        <p>That connection is one of the strongest parts of the business and it should be visible.</p>
+        <p>That comes through all over her Facebook page[cite: 22]. She knows their friendships, routines, quirks and personalities, and she clearly loves having them there[cite: 22].</p>
+        <p>That connection is one of the strongest parts of the business and it should be visible[cite: 23].</p>
       </div>
       <div class="feature-card">
         <h3>The Farmhouse Itself</h3>
-        <p>The house, yard, barn and fields are part of the experience. It is the "home away from home" for these pups and is a big part of what makes the experience unique.</p>
+        <p>The house, yard, barn and fields are part of the experience[cite: 26]. It is the "home away from home" for these pups and is a big part of what makes the experience unique[cite: 27].</p>
       </div>
       <div class="feature-card blue-card">
         <h3>Warm and Easy</h3>
-        <p>People should feel welcome here, but they should also be able to find what they need without digging: how daycare works, what the day looks like, pricing, the wait-list, policies, and what happens next.</p>
+        <p>People should feel welcome here, but they should also be able to find what they need without digging: how daycare works, what the day looks like, pricing, the wait-list, policies, and what happens next[cite: 29].</p>
       </div>
     </div>
   </section>
 
   <section class="section-block bg-blue-tint">
     <h2 class="section-title"><span class="section-number blue-num">2</span> Colour</h2>
-    <p class="section-intro">Mostly white, with a little warmth and colour. The sites Melissa liked were all light and simple. Keeping white as the main background gives us that clarity, while the red, green, logo, and real photography keep it from feeling plain.</p>
+    <p class="section-intro">Mostly white, with a little warmth and colour[cite: 32]. The sites Melissa liked were all light and simple[cite: 33]. Keeping white as the main background gives us that clarity, while the red, green, logo, and real photography keep it from feeling plain[cite: 33].</p>
 
-    <div class="red-tester-box">
-      <h3 style="margin:0; font-size:0.95rem; color:var(--ink);">Click a Red Shade Below to Test the Whole Page:</h3>
-      <div class="red-options-grid">
-        <button type="button" class="red-btn active" onclick="setRed('#8A1211', '#6B0C0A', 'Cool Crimson', this)">
-          <span class="red-swatch-circle" style="background:#8A1211;"></span>
-          <span class="red-label">1. Cool Crimson</span>
-          <span class="red-hex">#8A1211</span>
+    <div class="color-tester-card">
+      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Red Option (6 Variations):</h3>
+      <div class="tester-grid">
+        <button type="button" class="tester-btn active" onclick="setRed('#8A1211', '#6B0C0A', '1. Cool Crimson', this)">
+          <span class="tester-swatch" style="background:#8A1211;"></span>
+          <span class="tester-label">1. Cool Crimson</span>
+          <span class="tester-hex">#8A1211</span>
         </button>
-        <button type="button" class="red-btn" onclick="setRed('#B21E1A', '#8F1512', 'Primary Red', this)">
-          <span class="red-swatch-circle" style="background:#B21E1A;"></span>
-          <span class="red-label">2. Primary Red</span>
-          <span class="red-hex">#B21E1A</span>
+        <button type="button" class="tester-btn" onclick="setRed('#B21E1A', '#8F1512', '2. Primary Red', this)">
+          <span class="tester-swatch" style="background:#B21E1A;"></span>
+          <span class="tester-label">2. Primary Red</span>
+          <span class="tester-hex">#B21E1A</span>
         </button>
-        <button type="button" class="red-btn" onclick="setRed('#6E1413', '#4E0C0B', 'Heritage Maroon', this)">
-          <span class="red-swatch-circle" style="background:#6E1413;"></span>
-          <span class="red-label">3. Heritage Maroon</span>
-          <span class="red-hex">#6E1413</span>
+        <button type="button" class="tester-btn" onclick="setRed('#6E1413', '#4E0C0B', '3. Heritage Wine', this)">
+          <span class="tester-swatch" style="background:#6E1413;"></span>
+          <span class="tester-label">3. Heritage Wine</span>
+          <span class="tester-hex">#6E1413</span>
         </button>
-        <button type="button" class="red-btn" onclick="setRed('#992E21', '#752118', 'Rustic Brick', this)">
-          <span class="red-swatch-circle" style="background:#992E21;"></span>
-          <span class="red-label">4. Rustic Brick</span>
-          <span class="red-hex">#992E21</span>
+        <button type="button" class="tester-btn" onclick="setRed('#992E21', '#752118', '4. Rustic Brick', this)">
+          <span class="tester-swatch" style="background:#992E21;"></span>
+          <span class="tester-label">4. Rustic Brick</span>
+          <span class="tester-hex">#992E21</span>
         </button>
+        <button type="button" class="tester-btn" onclick="setRed('#C42B28', '#A11E1C', '5. Poppy Red', this)">
+          <span class="tester-swatch" style="background:#C42B28;"></span>
+          <span class="tester-label">5. Poppy Red</span>
+          <span class="tester-hex">#C42B28</span>
+        </button>
+        <button type="button" class="tester-btn" onclick="setRed('#7A1C1D', '#591213', '6. Deep Oxblood', this)">
+          <span class="tester-swatch" style="background:#7A1C1D;"></span>
+          <span class="tester-label">6. Oxblood</span>
+          <span class="tester-hex">#7A1C1D</span>
+        </button>
+      </div>
+
+      <div style="margin-top:15px; text-align:right;">
+        <button type="button" class="button" style="min-height:36px; padding:0 14px; font-size:0.78rem;" onclick="toggleRedTextMode(this)">
+          Toggle: Test Red Text on White Card
+        </button>
+      </div>
+
+      <div class="thick-preview-bar red-bar" id="thickRedBar">
+        <div class="preview-heading" style="font-family:var(--font-heading); font-size:1.3rem; font-weight:600;">Farmhouse Red Text &amp; Component Preview</div>
+        <p style="margin:0; font-size:0.85rem;">This block shows how headings, buttons, and badges render in your selected red shade against white or colored backgrounds.</p>
+        <div>
+          <span class="tagline-pill" style="background:var(--red); color:#fff; display:inline-block; transition:background 0.2s ease;">Red Badge Specimen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-tester-card" style="margin-top:20px;">
+      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Dusty Blue Option (4 Variations):</h3>
+      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+        <button type="button" class="tester-btn active" onclick="setBlue('#72808A', '#EBF0F3', '#4F5C65', '1. Weathered Slate', this)">
+          <span class="tester-swatch" style="background:#72808A;"></span>
+          <span class="tester-label">1. Weathered Slate</span>
+          <span class="tester-hex">#72808A</span>
+        </button>
+        <button type="button" class="tester-btn" onclick="setBlue('#5C6E78', '#E6ECF0', '#3B4852', '2. Deep Country Blue', this)">
+          <span class="tester-swatch" style="background:#5C6E78;"></span>
+          <span class="tester-label">2. Country Blue</span>
+          <span class="tester-hex">#5C6E78</span>
+        </button>
+        <button type="button" class="tester-btn" onclick="setBlue('#85949E', '#EFF4F7', '#5A6770', '3. Soft Fog Blue', this)">
+          <span class="tester-swatch" style="background:#85949E;"></span>
+          <span class="tester-label">3. Soft Fog Blue</span>
+          <span class="tester-hex">#85949E</span>
+        </button>
+        <button type="button" class="tester-btn" onclick="setBlue('#4A5A66', '#E2E7EB', '#2C3842', '4. Midnight Slate', this)">
+          <span class="tester-swatch" style="background:#4A5A66;"></span>
+          <span class="tester-label">4. Midnight Slate</span>
+          <span class="tester-hex">#4A5A66</span>
+        </button>
+      </div>
+
+      <div class="thick-preview-bar blue-bar" id="thickBlueBar">
+        <div style="font-family:var(--font-heading); font-size:1.3rem; font-weight:600;">Dusty Blue Solid Background Preview</div>
+        <p style="margin:0; font-size:0.85rem; opacity:0.95;">How the farmhouseandfields.png logo sits over your selected dusty blue tone:</p>
+        <div>
+          <img src="farmhouseandfields.png" alt="Farmhouse &amp; Fields Logo on Blue">
+        </div>
       </div>
     </div>
 
@@ -349,222 +449,167 @@ a{color:inherit}
         <div class="swatch" id="mainRedSwatch" style="background: #8A1211;"></div>
         <div class="color-name">Farmhouse red</div>
         <div class="color-hex" id="mainRedHex">#8A1211</div>
-        <p class="color-desc">Main accent. Draws the eye cleanly to buttons, links, and numbers.</p>
+        <p class="color-desc">Our main accent[cite: 36]. Warm and strong enough to draw the eye without taking over[cite: 36].</p>
       </div>
       <div class="color-card">
-        <div class="swatch" style="background: #72808A;"></div>
+        <div class="swatch" id="mainBlueSwatch" style="background: #72808A;"></div>
         <div class="color-name">Dusty blue</div>
-        <div class="color-hex">#72808A</div>
-        <p class="color-desc">A soft, weathered blue-grey. Provides balanced structure and secondary highlights.</p>
+        <div class="color-hex" id="mainBlueHex">#72808A</div>
+        <p class="color-desc">A soft, weathered blue-grey[cite: 39]. Quieter second accent balancing warmer tones[cite: 39].</p>
       </div>
       <div class="color-card">
-        <div class="swatch" style="background: #F3ECE1;"></div>
+        <div class="swatch" style="background: #E7DDCD;"></div>
         <div class="color-name">Oat</div>
         <div class="color-hex">#E7DDCD</div>
-        <p class="color-desc">A warm neutral for occasional cards or subtle contrast breaks.</p>
+        <p class="color-desc">A warm neutral for the occasional section, card, or background when white needs a little break[cite: 42].</p>
       </div>
       <div class="color-card">
         <div class="swatch" style="background: #FCFBF8; border: 1px solid #e2dfd8;"></div>
         <div class="color-name">Warm white</div>
         <div class="color-hex">#FCFBF8</div>
-        <p class="color-desc">Main backdrop. Clean and light with warmth beside photos.</p>
+        <p class="color-desc">The main backdrop[cite: 45]. Clean and light with enough warmth beside photography[cite: 45].</p>
       </div>
       <div class="color-card">
         <div class="swatch" style="background: #2A2926;"></div>
         <div class="color-name">Ink</div>
         <div class="color-hex">#2A2926</div>
-        <p class="color-desc">Main text colour. Softer than true black, but strong and easy to read.</p>
-      </div>
-    </div>
-
-    <div class="grid-2col">
-      <div class="feature-card">
-        <h3>In Practice: Red &amp; Ink</h3>
-        <ul>
-          <li><strong>Red for key moments:</strong> Buttons, links, small accents, and the occasional detail we want people to notice first.</li>
-          <li><strong>Ink for reading:</strong> Navigation, body copy, forms, pricing, instructions, and anything that needs to be immediately clear.</li>
-        </ul>
-      </div>
-      <div class="feature-card blue-card">
-        <h3>In Practice: Blue, Oat &amp; Photos</h3>
-        <ul>
-          <li><strong>Blue and oat in supporting roles:</strong> Useful for quieter backgrounds, small sections, cards, or details. Neither needs to compete with the red.</li>
-          <li><strong>Let the photos bring colour:</strong> We do not need to force every image into the palette or make the whole site look "rustic." The real place already does that.</li>
-        </ul>
+        <p class="color-desc">Our main text colour[cite: 47]. Softer than true black, but still strong and easy to read[cite: 47].</p>
       </div>
     </div>
   </section>
 
   <section class="section-block bg-warm-white">
     <h2 class="section-title"><span class="section-number">3</span> Typography</h2>
-    <p class="section-intro">Warm headings. Clear everything else. The logo already has its own personality and script, so the website type should complement it rather than compete with it.</p>
+    <p class="section-intro">Warm headings[cite: 66]. Clear everything else[cite: 66]. The logo already has its own personality and script, so the website type should complement it rather than compete with it[cite: 67]. Test 3 font pairing options below:</p>
+
+    <div class="color-tester-card">
+      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Font Pairing Option:</h3>
+      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+        <button type="button" class="tester-btn active" onclick="setFonts('Fraunces, Georgia, serif', 'DM Sans, sans-serif', 'Option A: Warm & Clean', this)">
+          <span class="tester-label" style="font-family:'Fraunces', serif; font-size:1rem;">Fraunces + DM Sans</span>
+          <span class="tester-hex">Option A: Warm Serif + Clean Sans</span>
+        </button>
+        <button type="button" class="tester-btn" onclick="setFonts('Playfair Display, Georgia, serif', 'Lora, serif', 'Option B: Classic Country', this)">
+          <span class="tester-label" style="font-family:'Playfair Display', serif; font-size:1rem;">Playfair + Lora</span>
+          <span class="tester-hex">Option B: Classic Country Serif</span>
+        </button>
+        <button type="button" class="tester-btn" onclick="setFonts('Outfit, sans-serif', 'Inter, sans-serif', 'Option C: Modern Friendly', this)">
+          <span class="tester-label" style="font-family:'Outfit', sans-serif; font-size:1rem;">Outfit + Inter</span>
+          <span class="tester-hex">Option C: Modern Friendly Sans</span>
+        </button>
+      </div>
+    </div>
 
     <div class="grid-2col">
       <div class="font-specimen-card">
-        <div class="font-name-title" style="font-family:'Fraunces', serif;">Fraunces</div>
-        <div class="font-role-tag">Headings, page titles, and short feature lines</div>
+        <div class="font-name-title" id="fontTitle1" style="font-family:var(--font-heading);">Heading Font Preview</div>
+        <div class="font-role-tag">Headings, page titles, and short feature lines [cite: 72]</div>
         
-        <div class="font-sample-headline" style="font-family:'Fraunces', serif; font-weight: 600;">
+        <div class="font-sample-headline" id="fontSample1" style="font-family:var(--font-heading); font-weight: 600;">
           Welcome to the Farmhouse.<br>
           Small numbers. Big days.
         </div>
 
-        <div class="font-alphabet-block" style="font-family:'Fraunces', serif;">
+        <div class="font-alphabet-block" id="fontAlpha1" style="font-family:var(--font-heading);">
           ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
           abcdefghijklmnopqrstuvwxyz<br>
           0123456789 (!@#$%&amp;*.,?)
-        </div>
-
-        <div class="font-weights-grid">
-          <div class="weight-box" style="font-family:'Fraunces', serif; font-weight:400;">
-            <strong>Regular (400)</strong>
-            Warm &amp; distinctive
-          </div>
-          <div class="weight-box" style="font-family:'Fraunces', serif; font-weight:700;">
-            <strong>Bold (700)</strong>
-            Strong character
-          </div>
         </div>
       </div>
 
       <div class="font-specimen-card">
-        <div class="font-name-title blue-title" style="font-family:'DM Sans', sans-serif; font-weight:700;">DM Sans</div>
-        <div class="font-role-tag">Body copy, navigation, buttons, forms, pricing, and captions</div>
+        <div class="font-name-title blue-title" id="fontTitle2" style="font-family:var(--font-body); font-weight:700;">Body Font Preview</div>
+        <div class="font-role-tag">Body copy, navigation, buttons, forms, pricing, and captions [cite: 76]</div>
         
-        <div class="font-sample-headline" style="font-family:'DM Sans', sans-serif; font-weight: 500;">
-          Clean and friendly. Practical and doesn't call attention to itself. Clear information should stay easy to read.
+        <div class="font-sample-headline" id="fontSample2" style="font-family:var(--font-body); font-weight: 500;">
+          Clean and friendly[cite: 74]. Practical and doesn't call attention to itself[cite: 74]. Clear information stays easy to read[cite: 73].
         </div>
 
-        <div class="font-alphabet-block" style="font-family:'DM Sans', sans-serif;">
+        <div class="font-alphabet-block" id="fontAlpha2" style="font-family:var(--font-body);">
           ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
           abcdefghijklmnopqrstuvwxyz<br>
           0123456789 (!@#$%&amp;*.,?)
         </div>
-
-        <div class="font-weights-grid">
-          <div class="weight-box" style="font-family:'DM Sans', sans-serif; font-weight:400;">
-            <strong>Regular (400)</strong>
-            Readable body copy
-          </div>
-          <div class="weight-box" style="font-family:'DM Sans', sans-serif; font-weight:700;">
-            <strong>Bold (700)</strong>
-            Clear navigation &amp; UI
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-2col" style="margin-top: 20px;">
-      <div class="feature-card">
-        <h3>How We Use Fraunces &amp; DM Sans</h3>
-        <ul>
-          <li><strong>Fraunces for headings:</strong> Page titles, section headings, and short lines where a little personality helps.</li>
-          <li><strong>DM Sans for the rest:</strong> Anything people need to scan, understand, fill out, or click.</li>
-        </ul>
-      </div>
-      <div class="feature-card blue-card">
-        <h3>Script Logo &amp; Editable Guidelines</h3>
-        <ul>
-          <li><strong>Let the logo keep its script:</strong> We do not know the exact script from the low-resolution logo file we have. For now, keep script inside the logo rather than adding another handwritten font.</li>
-          <li><strong>Keep it simple in Canva:</strong> The editable text in this guide is set to Fraunces and DM Sans. Once we have the original logo file, we can see whether its script can be identified.</li>
-        </ul>
       </div>
     </div>
   </section>
 
   <section class="section-block bg-red-tint">
     <h2 class="section-title"><span class="section-number">4</span> Photography</h2>
-    <p class="section-intro">Her photos are one of the best parts of the brand. Melissa is fabulous at capturing the dogs as they actually are. Her Facebook page already tells the story of the Farmhouse through play, friendships, seasons, funny moments, the property, and the dogs' individual personalities. We should use that. So rich and fun and brings in an amazing storytelling element.</p>
+    <p class="section-intro">Her photos are one of the best parts of the brand[cite: 93]. Melissa is fabulous at capturing the dogs as they actually are[cite: 94]. Her Facebook page already tells the story of the Farmhouse through play, friendships, seasons, funny moments, the property, and the dogs' individual personalities[cite: 95]. We should use that[cite: 96]. So rich and fun and brings in an amazing storytelling element[cite: 96].</p>
 
     <div class="grid-2col">
       <div class="feature-card">
         <h3>1. Use real photos throughout</h3>
-        <p>Not just in a gallery at the end, but work them into the home page, About page, daycare information, and anywhere they help show what a day actually looks like.</p>
+        <p>Not just in a gallery at the end, but work them into the home page, About page, daycare information, and anywhere they help show what a day actually looks like[cite: 101].</p>
         
         <h3>2. Let the photos tell stories</h3>
-        <p>Use the muddy ones, the goofy ones, the beautiful ones, group shots, quiet moments, and dogs with their favourite friends. They do not all need to look polished.</p>
+        <p>Use the muddy ones, the goofy ones, the beautiful ones, group shots, quiet moments, and dogs with their favourite friends[cite: 104]. They do not all need to look polished[cite: 105].</p>
       </div>
       <div class="feature-card blue-card">
         <h3>3. Keep editing light (but primarily zero)</h3>
-        <p>Crop for layout and make small corrections when needed, but everything else stays the same.</p>
+        <p>Crop for layout and make small corrections when needed, but everything else stays the same[cite: 107].</p>
 
         <h3>4. No stock photos, ever</h3>
-        <p>Tons of amazing photos makes the job so much easier. Use the photos throughout the site, build a standalone gallery, and pull in a box from Facebook for the day-to-day stories.</p>
+        <p>Tons of amazing photos makes the job so much easier[cite: 110]. Use the photos throughout the site, build a standalone gallery, and pull in a box from Facebook for the day-to-day stories[cite: 97].</p>
       </div>
     </div>
   </section>
 
   <section class="section-block bg-blue-accent">
     <h2 class="section-title"><span class="section-number">5</span> Voice</h2>
-    <p class="section-intro">The website should sound like Melissa. Her Facebook page already has the right voice. It is warm, direct, and full of little stories because she actually knows these dogs—their friends, their habits, their quirks, what they love, and what makes them themselves. She clearly loves what she does, and that should come through without dressing it up.</p>
+    <p class="section-intro">The website should sound like Melissa[cite: 112]. Her Facebook page already has the right voice[cite: 113]. It is warm, direct, and full of little stories because she actually knows these dogs—their friends, their habits, their quirks, what they love, and what makes them themselves[cite: 113]. She clearly loves what she does, and that should come through without dressing it up[cite: 114].</p>
 
     <div class="grid-2col">
       <div class="feature-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
         <h3>What We Carry Into The Website</h3>
-        <p>Specific dogs, real moments and down to earth language. A little humour when the moment calls for it. There is so much material to weave a beautiful little story.</p>
-        <p>Melissa knows and loves these dogs like her own. We want that to come through in the stories and details, not in a pile of marketing words.</p>
+        <p>Specific dogs, real moments and down to earth language[cite: 117]. A little humour when the moment calls for it[cite: 117]. There is so much material to weave a beautiful little story[cite: 119].</p>
+        <p>Melissa knows and loves these dogs like her own[cite: 115]. We want that to come through in the stories and details, not in a pile of marketing words[cite: 115].</p>
       </div>
       <div class="feature-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
         <h3>What We Avoid</h3>
-        <p>No lofty pet-care language, no trying to sound luxe, and no endless dog puns.</p>
-        <p>Skip words like "premium," "curated," and "exceptional" when plain language says it better.</p>
-      </div>
-    </div>
-
-    <div class="grid-2col" style="margin-top:20px;">
-      <div class="feature-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
-        <h3>1. Tell real stories</h3>
-        <p>Her Facebook works because she tells us what actually happened: who found a friend, who lives for the pool, who came in ready to wrestle, or who had a very strong opinion about a costume.</p>
-        
-        <h3>2. Let the connection show</h3>
-        <p>Melissa knows and loves these dogs like her own. We do not need to announce that on every page; the stories and specifics should make it obvious.</p>
-      </div>
-      <div class="feature-card" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
-        <h3>3. Keep the language normal</h3>
-        <p>Warm and confident, but never lofty.</p>
-
-        <h3>4. Be clear when it matters</h3>
-        <p>Pricing, hours, policies, wait-list information, and next steps can simply be written plainly.</p>
+        <p>No lofty pet-care language, no trying to sound luxe, and no endless dog puns[cite: 118].</p>
+        <p>Skip words like "premium," "curated," and "exceptional" when plain language says it better[cite: 131].</p>
       </div>
     </div>
   </section>
 
   <section class="section-block bg-warm-white">
     <h2 class="section-title"><span class="section-number">6</span> Words to Try</h2>
-    <p class="section-intro">A few tagline ideas to consider. These are just a few examples that help as we work through the website details. Take them, leave them, mix them up, or come back with something completely different. Even as working lines, they help us keep the website and visual pieces moving in the same direction. Melissa may already have a tagline she loves; these are simply a few directions to react to as we start building the website and online pieces.</p>
+    <p class="section-intro">A few tagline ideas to consider[cite: 134]. These are just a few examples that help as we work through the website details[cite: 135]. Take them, leave them, mix them up, or come back with something completely different[cite: 136]. Even as working lines, they help us keep the website and visual pieces moving in the same direction[cite: 137].</p>
     
     <div class="tagline-grid">
-      <div class="tagline-pill">"Welcome to the Farmhouse."</div>
-      <div class="tagline-pill blue-pill">"Small pack. Big personalities."</div>
-      <div class="tagline-pill">"Your pup's home away from home."</div>
-      <div class="tagline-pill blue-pill">"Small numbers. Big days."</div>
-      <div class="tagline-pill">"A little country. A lot of dog."</div>
-      <div class="tagline-pill blue-pill">"Come play at the Farmhouse."</div>
-      <div class="tagline-pill">"A good day to be a dog."</div>
+      <div class="tagline-pill">"Welcome to the Farmhouse." [cite: 138]</div>
+      <div class="tagline-pill blue-pill">"Small pack. Big personalities." [cite: 139]</div>
+      <div class="tagline-pill">"Your pup's home away from home." [cite: 140]</div>
+      <div class="tagline-pill blue-pill">"Small numbers. Big days." [cite: 141]</div>
+      <div class="tagline-pill">"A little country. A lot of dog." [cite: 142]</div>
+      <div class="tagline-pill blue-pill">"Come play at the Farmhouse." [cite: 144]</div>
+      <div class="tagline-pill">"A good day to be a dog." [cite: 145]</div>
     </div>
   </section>
 
   <section class="section-block bg-blue-tint">
     <h2 class="section-title"><span class="section-number blue-num">7</span> Keeping It Consistent</h2>
-    <p class="section-intro">A few things worth keeping consistent. Nothing here needs to be complicated. These are just the choices that give us a solid starting point for the website and anything Melissa makes later.</p>
+    <p class="section-intro">A few things worth keeping consistent[cite: 149]. Nothing here needs to be complicated[cite: 150]. These are just the choices that give us a solid starting point for the website and anything Melissa makes later[cite: 150].</p>
 
     <div class="grid-2col">
       <div class="feature-card">
-        <p><strong>1. Keep the site light:</strong> White first, with red as the strongest accent. Let the photos carry a lot of the colour.</p>
-        <p><strong>2. Use the real place:</strong> Farmhouse, yard, barn, fields, seasons, and dogs. We don't need extra "farmhouse" decoration.</p>
-        <p><strong>3. Keep type simple:</strong> Fraunces for headings, DM Sans for everything people need to read quickly. Let the logo keep its own script.</p>
+        <p><strong>1. Keep the site light:</strong> White first, with red as the strongest accent[cite: 155]. Let the photos carry a lot of the colour[cite: 155].</p>
+        <p><strong>2. Use the real place:</strong> Farmhouse, yard, barn, fields, seasons, and dogs[cite: 156]. We don't need extra "farmhouse" decoration[cite: 156].</p>
+        <p><strong>3. Keep type simple:</strong> Fraunces for headings, DM Sans for everything people need to read quickly[cite: 159]. Let the logo keep its own script[cite: 159].</p>
       </div>
       <div class="feature-card">
-        <p><strong>4. Use real photos only:</strong> Build from Melissa's gallery.</p>
-        <p><strong>5. Keep the words warm and real:</strong> Specific stories, normal language, and no lofty pet-care copy.</p>
-        <p><strong>6. Make the practical stuff easy:</strong> Pricing, hours, services, wait-list, policies, and next steps should always be easy to find.</p>
+        <p><strong>4. Use real photos only:</strong> Build from Melissa's gallery[cite: 165].</p>
+        <p><strong>5. Keep the words warm and real:</strong> Specific stories, normal language, and no lofty pet-care copy[cite: 162].</p>
+        <p><strong>6. Make the practical stuff easy:</strong> Pricing, hours, services, wait-list, policies, and next steps should always be easy to find[cite: 168].</p>
       </div>
     </div>
   </section>
 
   <section class="section-block bg-warm-white">
     <h2 class="section-title"><span class="section-number">8</span> Website Direction &amp; Potential Pages</h2>
-    <p class="section-intro">How the website could come together so Farmhouse &amp; Fields feels like itself: Melissa, the dogs, the Farmhouse, and the photos. White stays dominant, the practical information stays easy to find, and the warmer storytelling has room to live throughout. The personality can live in the photos, writing, and details on each page. The navigation itself can stay very simple.</p>
+    <p class="section-intro">How the website could come together so Farmhouse &amp; Fields feels like itself: Melissa, the dogs, the Farmhouse, and the photos[cite: 174]. White stays dominant, the practical information stays easy to find, and the warmer storytelling has room to live throughout[cite: 175].</p>
 
     <table class="nav-table">
       <thead>
@@ -576,42 +621,42 @@ a{color:inherit}
       <tbody>
         <tr>
           <td><strong>1. Home</strong></td>
-          <td>A first look at the Farmhouse, the daycare, and what makes it special, with great photos and clear ways to explore the rest of the site.</td>
+          <td>A first look at the Farmhouse, the daycare, and what makes it special, with great photos and clear ways to explore the rest of the site[cite: 182].</td>
         </tr>
         <tr>
           <td><strong>2. The Farmhouse</strong></td>
-          <td>Melissa's story, the house, yard, barn, and fields, and a little more about how Farmhouse &amp; Fields came to be.</td>
+          <td>Melissa's story, the house, yard, barn, and fields, and a little more about how Farmhouse &amp; Fields came to be[cite: 184].</td>
         </tr>
         <tr>
           <td><strong>3. Daycare</strong></td>
-          <td>How daycare works, hours, pricing, group size, routines, requirements, and what families should know before their dog starts.</td>
+          <td>How daycare works, hours, pricing, group size, routines, requirements, and what families should know before their dog starts[cite: 186].</td>
         </tr>
         <tr>
           <td><strong>4. Gallery</strong></td>
-          <td>A home for Melissa's photography: everyday play, friendships, quiet moments, muddy days, changing seasons, and life around the Farmhouse.</td>
+          <td>A home for Melissa's photography: everyday play, friendships, quiet moments, muddy days, changing seasons, and life around the Farmhouse[cite: 188].</td>
         </tr>
         <tr>
           <td><strong>5. FAQs</strong></td>
-          <td>Straightforward answers to the things families are most likely to wonder about before getting in touch.</td>
+          <td>Straightforward answers to the things families are most likely to wonder about before getting in touch[cite: 191].</td>
         </tr>
         <tr>
           <td><strong>6. Join the Wait-list</strong></td>
-          <td>A clear explanation of the process, what happens next, and a simple way for families to tell Melissa about their dog.</td>
+          <td>A clear explanation of the process, what happens next, and a simple way for families to tell Melissa about their dog[cite: 195].</td>
         </tr>
         <tr>
           <td><strong>7. Current Clients</strong></td>
-          <td>An easy route to Time To Pet and any other information existing families need regularly. Can sit separately in navigation as a quick link.</td>
+          <td>An easy route to Time To Pet and any other information existing families need regularly[cite: 197]. Can sit separately in navigation as a quick link[cite: 202].</td>
         </tr>
         <tr>
           <td><strong>8. Contact</strong></td>
-          <td>A simple way to reach Melissa.</td>
+          <td>A simple way to reach Melissa[cite: 200].</td>
         </tr>
       </tbody>
     </table>
 
     <div class="feature-card blue-card" style="margin-top:24px;">
       <h3>First Pass</h3>
-      <p>This is our starting point. Melissa can tell us what feels right, what does not, and what she wants to push further before we build the full site.</p>
+      <p>This is our starting point[cite: 170]. Melissa can tell us what feels right, what does not, and what she wants to push further before we build the full site[cite: 170].</p>
     </div>
   </section>
 
@@ -640,8 +685,39 @@ function setRed(hex, hoverHex, name, btn) {
   document.getElementById('mainRedSwatch').style.background = hex;
   document.getElementById('mainRedHex').textContent = hex;
   
-  const btns = document.querySelectorAll('.red-btn');
-  btns.forEach(b => b.classList.remove('active'));
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function toggleRedTextMode(btn) {
+  const bar = document.getElementById('thickRedBar');
+  bar.classList.toggle('red-text-mode');
+  if(bar.classList.contains('red-text-mode')){
+    btn.textContent = "Toggle: Solid Red Fill Mode";
+  } else {
+    btn.textContent = "Toggle: Test Red Text on White Card";
+  }
+}
+
+function setBlue(hex, lightHex, darkHex, name, btn) {
+  document.documentElement.style.setProperty('--dusty-blue', hex);
+  document.documentElement.style.setProperty('--dusty-blue-light', lightHex);
+  document.documentElement.style.setProperty('--dusty-blue-dark', darkHex);
+  document.getElementById('mainBlueSwatch').style.background = hex;
+  document.getElementById('mainBlueHex').textContent = hex;
+  
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function setFonts(headingFont, bodyFont, name, btn) {
+  document.documentElement.style.setProperty('--font-heading', headingFont);
+  document.documentElement.style.setProperty('--font-body', bodyFont);
+  
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 }
 
