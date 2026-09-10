@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Farmhouse & Fields Brand Direction | The Yellow Front Door</title>
+<title>Farmhouse & Fields Brand Direction - Paid Record | The Yellow Front Door</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,10 +12,10 @@
 @font-face{font-family:"TYFD Hand";src:url("CasualHandwriting.woff2") format("woff2"),url("CasualHandwriting.woff") format("woff");font-display:swap}
 
 :root {
-  /* Updated Brand Colors */
-  --red: #C21C18;            /* Vibrant farmhouse red */
-  --red-hover: #9E1310;
-  --dusty-blue: #72808A;     /* Soft blue-grey */
+  /* Updated Brand Colors - Deep Cool Barn Red (No Orange) */
+  --red: #9E1B18;            /* Deep, cool, authentic barn red */
+  --red-hover: #7A1210;
+  --dusty-blue: #72808A;     
   --dusty-blue-light: #EBF0F3;
   --dusty-blue-dark: #4F5C65; 
   --oat: #F3ECE1;            
@@ -27,6 +27,8 @@
   --slate: #596674;
   --yellow: #fcd346;
   --purple: #8c52ff;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
   --max: 980px;
 }
 
@@ -59,13 +61,79 @@ a{color:inherit}
 .gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 18%,rgba(252,211,70,.12),transparent 28%),#fff}.gate-card{width:min(510px,100%);text-align:center;padding:42px 28px 32px}.gate-logo{width:66px;height:66px;object-fit:contain;margin:0 auto 26px}.eyebrow{margin:0 0 12px;color:var(--red);font-size:.7rem;line-height:1;letter-spacing:.18em;font-weight:700;text-transform:uppercase}.gate h1{margin:0 0 12px;font-size:clamp(2rem,6vw,3.3rem);line-height:1;letter-spacing:-.04em}.gate p{color:var(--slate);max-width:420px;margin:0 auto 27px}.gate-form{display:grid;grid-template-columns:1fr auto;gap:10px;max-width:420px;margin:auto}.gate-form input{min-height:52px;border:1px solid #cfd3db;border-radius:7px;padding:0 15px;color:var(--navy);background:#fff}.gate-error{min-height:22px;margin-top:10px!important;color:var(--red)!important;font-size:.86rem}
 
 /* Main Container */
-.page-wrap{padding:32px}.page-wrap.reveal{animation:pageIn .42s ease both}.proposal{width:min(var(--max),100%);margin:0 auto;background:var(--warm-white);border:3px solid var(--dusty-blue);min-height:calc(100vh - 64px);padding:clamp(54px,7vw,86px) clamp(34px,7vw,82px) 42px;box-shadow:0 18px 65px rgba(19,36,71,.08)}.proposal-brand{display:flex;align-items:center;gap:11px;margin:0 0 15px}.proposal-brand img{width:46px;height:46px;object-fit:contain;flex:0 0 auto}.proposal-brand .eyebrow{margin:0}
+.page-wrap{padding:32px}.page-wrap.reveal{animation:pageIn .42s ease both}.proposal{width:min(var(--max),100%);margin:0 auto;background:var(--warm-white);border:3px solid var(--dusty-blue);min-height:calc(100vh - 64px);padding:clamp(54px,7vw,86px) clamp(34px,7vw,82px) 42px;box-shadow:0 18px 65px rgba(19,36,71,.08);position:relative}.proposal-brand{display:flex;align-items:center;gap:11px;margin:0 0 15px}.proposal-brand img{width:46px;height:46px;object-fit:contain;flex:0 0 auto}.proposal-brand .eyebrow{margin:0}
 
 /* Client Header Logo */
 .client-logo-wrap{margin:24px 0 20px;text-align:left}
 .client-logo-wrap img{max-width:280px;height:auto;display:block}
 
-.proposal-title{margin:0 0 8px;font-size:clamp(2rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}.subtitle{font-family:"DM Sans", sans-serif;font-size:1.1rem;color:var(--dusty-blue);margin:0 0 24px;font-weight:500}.intro{max-width:800px;color:var(--ink);margin:0;font-size:.95rem;line-height:1.6}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:20px 0 0;color:var(--dusty-blue);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+/* Header & Paid Stamp */
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.paid-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green-bg);
+  color: var(--green);
+  border: 2px solid var(--green);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.proposal-title{margin:0 0 8px;font-size:clamp(2rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}.subtitle{font-family:"DM Sans", sans-serif;font-size:1.1rem;color:var(--dusty-blue);margin:0 0 24px;font-weight:500}.intro{max-width:800px;color:var(--ink);margin:0;font-size:.95rem;line-height:1.6}.proposal-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin:20px 0 0;color:var(--dusty-blue-dark);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+
+/* Payment Status Table */
+.invoice-summary {
+  margin: 30px 0;
+  background: #fff;
+  border: 1px solid rgba(114, 128, 138, 0.25);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.invoice-table th, .invoice-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(114, 128, 138, 0.15);
+  font-size: 0.88rem;
+}
+
+.invoice-table th {
+  color: var(--dusty-blue-dark);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.invoice-table tr.total-row td {
+  border-bottom: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.invoice-table tr.paid-row td {
+  color: var(--green);
+  font-weight: 700;
+  background: var(--green-bg);
+}
 
 /* Section Blocks */
 .section-block {
@@ -104,8 +172,8 @@ a{color:inherit}
 }
 
 .section-block.bg-red-tint {
-  background-color: rgba(194, 28, 24, 0.04);
-  border: 1px solid rgba(194, 28, 24, 0.2);
+  background-color: rgba(158, 27, 24, 0.04);
+  border: 1px solid rgba(158, 27, 24, 0.2);
 }
 
 .section-title {
@@ -216,20 +284,57 @@ a{color:inherit}
   </div>
   
   <div class="client-logo-wrap">
-    <img src="farmhouseandfields.png" alt="Farmhouse &amp; Fields Dog Daycare">
+    <img src="farmhouseandfields.jpg" alt="Farmhouse &amp; Fields Dog Daycare">
   </div>
 
-  <h1 class="proposal-title">Brand Direction</h1>
-  <div class="subtitle">A first look at Farmhouse &amp; Fields</div>
+  <div class="header-flex">
+    <div>
+      <h1 class="proposal-title">Brand Direction &amp; Project Invoice</h1>
+      <div class="subtitle">Farmhouse &amp; Fields Dog Daycare</div>
+    </div>
+    <div class="paid-badge">
+      ✓ PAID IN FULL
+    </div>
+  </div>
   
-  <p class="intro">The colours, type, photography, voice, and a few lines we can start building from. The goal is simple: when someone lands on the site, they should understand what the Farmhouse is, how it works, and why people trust Melissa with their dogs.</p>
+  <p class="intro">Payment confirmed! We are officially locked and loaded. Below is your complete brand direction document along with the project financial summary record.</p>
   
   <div class="proposal-meta">
     <span>Prepared for Farmhouse &amp; Fields</span>
     <span>•</span>
-    <span>September 2026</span>
+    <span>Invoice ID: <strong>FF-2026-0906-01</strong></span>
     <span>•</span>
-    <span>The Yellow Front Door</span>
+    <span>Status: Paid</span>
+  </div>
+
+  <div class="invoice-summary">
+    <h3 style="margin:0 0 10px; font-size:1.1rem; color:var(--ink);">Project Financial Record</h3>
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th style="text-align:right;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Website Build &amp; Brand Setup</td>
+          <td style="text-align:right;">$900.00</td>
+        </tr>
+        <tr>
+          <td>Matched Project Work (Wait-list + Welcome Flow)</td>
+          <td style="text-align:right; color:var(--dusty-blue-dark);">+$900.00 (Included)</td>
+        </tr>
+        <tr class="total-row">
+          <td>Total Project Value</td>
+          <td style="text-align:right;">$1,800.00</td>
+        </tr>
+        <tr class="paid-row">
+          <td><strong>Balance Due</strong></td>
+          <td style="text-align:right;"><strong>$0.00 (Paid in Full)</strong></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <section class="section-block bg-warm-white">
@@ -264,10 +369,10 @@ a{color:inherit}
 
     <div class="palette-grid">
       <div class="color-card">
-        <div class="swatch" style="background: #C21C18;"></div>
+        <div class="swatch" style="background: #9E1B18;"></div>
         <div class="color-name">Farmhouse red</div>
-        <div class="color-hex">#C21C18</div>
-        <p class="color-desc">Main accent. True vibrant crimson to draw the eye cleanly without taking over.</p>
+        <div class="color-hex">#9E1B18</div>
+        <p class="color-desc">Main accent. Cool, deep barn red that draws the eye cleanly with zero orange undertones.</p>
       </div>
       <div class="color-card">
         <div class="swatch" style="background: #72808A;"></div>
@@ -528,8 +633,8 @@ a{color:inherit}
     </table>
 
     <div class="feature-card blue-card" style="margin-top:24px;">
-      <h3>First Pass</h3>
-      <p>This is our starting point. Melissa can tell us what feels right, what does not, and what she wants to push further before we build the full site.</p>
+      <h3>Next Step: Behind the Website Questionnaire</h3>
+      <p>Now that the project is locked in, the next step is completing the quick onboarding form so we can gather the photos, pricing, and policies needed for the initial build.</p>
     </div>
   </section>
 
@@ -538,7 +643,7 @@ a{color:inherit}
       <img src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
       <span>The Yellow Front Door</span>
     </div>
-    <span>Farmhouse &amp; Fields Dog Daycare Brand Direction</span>
+    <span>Farmhouse &amp; Fields Dog Daycare · Paid Invoice &amp; Brand Direction</span>
   </footer>
 </main>
 </div>
