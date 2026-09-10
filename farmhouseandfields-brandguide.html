@@ -68,7 +68,7 @@ h1, h2, h3, .brand-heading {
   color: var(--ink);
 }
 
-button,input{font:inherit}
+button,input,textarea{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
 .hidden{display:none!important}
@@ -79,7 +79,7 @@ a{color:inherit}
 .gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 18%,rgba(252,211,70,.12),transparent 28%),#fff}.gate-card{width:min(510px,100%);text-align:center;padding:42px 28px 32px}.gate-logo{width:66px;height:66px;object-fit:contain;margin:0 auto 26px}.eyebrow{margin:0 0 12px;color:var(--red);font-size:.7rem;line-height:1;letter-spacing:.18em;font-weight:700;text-transform:uppercase}.gate h1{margin:0 0 12px;font-size:clamp(2rem,6vw,3.3rem);line-height:1;letter-spacing:-.04em}.gate p{color:var(--slate);max-width:420px;margin:0 auto 27px}.gate-form{display:grid;grid-template-columns:1fr auto;gap:10px;max-width:420px;margin:auto}.gate-form input{min-height:52px;border:1px solid #cfd3db;border-radius:7px;padding:0 15px;color:var(--navy);background:#fff}.gate-error{min-height:22px;margin-top:10px!important;color:var(--red)!important;font-size:.86rem}
 
 /* Main Container */
-.page-wrap{padding:32px}.page-wrap.reveal{animation:pageIn .42s ease both}.proposal{width:min(var(--max),100%);margin:0 auto;background:var(--warm-white);border:3px solid var(--dusty-blue);min-height:calc(100vh - 64px);padding:clamp(54px,7vw,86px) clamp(34px,7vw,82px) 42px;box-shadow:0 18px 65px rgba(19,36,71,.08)}.proposal-brand{display:flex;align-items:center;gap:11px;margin:0 0 15px}.proposal-brand img{width:46px;height:46px;object-fit:contain;flex:0 0 auto}.proposal-brand .eyebrow{margin:0}
+.page-wrap{padding:32px 32px 100px}.page-wrap.reveal{animation:pageIn .42s ease both}.proposal{width:min(var(--max),100%);margin:0 auto;background:var(--warm-white);border:3px solid var(--dusty-blue);min-height:calc(100vh - 64px);padding:clamp(54px,7vw,86px) clamp(34px,7vw,82px) 42px;box-shadow:0 18px 65px rgba(19,36,71,.08)}.proposal-brand{display:flex;align-items:center;gap:11px;margin:0 0 15px}.proposal-brand img{width:46px;height:46px;object-fit:contain;flex:0 0 auto}.proposal-brand .eyebrow{margin:0}
 
 /* Client Header Logo */
 .client-logo-wrap{margin:24px 0 20px;text-align:left}
@@ -312,12 +312,92 @@ a{color:inherit}
 .nav-table td{padding:14px 16px;border-top:1px solid rgba(114,128,138,0.15);font-size:.85rem;color:var(--slate)}
 .nav-table td strong{color:var(--ink)}
 
+/* Feedback & Notes Section */
+.notes-card {
+  background: #fff;
+  border: 2px solid var(--dusty-blue);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 36px 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+}
+
+.notes-card textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid rgba(114, 128, 138, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--ink);
+  margin-top: 8px;
+  resize: vertical;
+}
+
+/* Floating Action Lock Bar */
+.floating-lock-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 2px solid var(--dusty-blue);
+  padding: 14px 24px;
+  box-shadow: 0 -6px 25px rgba(0,0,0,0.1);
+  z-index: 9900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.lock-bar-info {
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.lock-bar-info strong {
+  color: var(--red);
+}
+
+/* Modal Popup */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 580px;
+  width: 100%;
+  padding: 32px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+.modal-summary-box {
+  background: var(--warm-white);
+  border: 1px solid rgba(114, 128, 138, 0.25);
+  padding: 16px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  margin: 16px 0;
+  white-space: pre-wrap;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
 /* Action Buttons & Footer */
 .button{min-height:48px;border:0;border-radius:5px;padding:0 24px;background:var(--red);color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .18s ease;font-family:var(--font-body)}.button:hover{background:var(--red-hover);transform:translateY(-1px)}
 .footer{margin-top:48px;padding-top:20px;border-top:1px solid rgba(114,128,138,0.25);display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--dusty-blue-dark);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase}.footer-brand{display:flex;align-items:center;gap:8px;color:var(--ink);font-weight:700}.footer-brand img{width:24px;height:24px;object-fit:contain}
 
 :focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
-@media(max-width:760px){body{background:#fff}.page-wrap{padding:0}.proposal{border:0;min-height:100vh;padding:44px 24px 34px;box-shadow:none}.grid-2col,.palette-grid,.tagline-grid,.tester-grid{grid-template-columns:1fr}.section-block{padding:20px 16px}.footer{align-items:flex-start;flex-direction:column}}
+@media(max-width:760px){body{background:#fff}.page-wrap{padding:0}.proposal{border:0;min-height:100vh;padding:44px 24px 34px;box-shadow:none}.grid-2col,.palette-grid,.tagline-grid,.tester-grid{grid-template-columns:1fr}.section-block{padding:20px 16px}.floating-lock-bar{flex-direction:column;align-items:stretch;text-align:center}.footer{align-items:flex-start;flex-direction:column}}
 @media print{body{background:#fff}.page-wrap{padding:0}.proposal{width:100%;border:1.5pt solid var(--purple);box-shadow:none}.gate{display:none!important}}
 </style>
 </head>
@@ -442,27 +522,42 @@ a{color:inherit}
     </div>
 
     <div class="color-tester-card" style="margin-top:20px;">
-      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Secondary Accent Option (Foggy Teal, Navy &amp; Blue):</h3>
-      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+      <h3 style="margin:0; font-size:0.9rem; color:var(--ink);">Select a Secondary Accent Option (6 Refined Variations):</h3>
+      <div class="tester-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
         <button type="button" class="tester-btn active" onclick="setBlue('#4A7B82', '#E8F2F3', '#2C5157', '1. Foggy Teal', this)">
           <span class="tester-swatch" style="background:#4A7B82;"></span>
           <span class="tester-label">1. Foggy Teal</span>
           <span class="tester-hex">#4A7B82</span>
         </button>
+
         <button type="button" class="tester-btn" onclick="setBlue('#1D3557', '#EAEFF5', '#0E1E38', '2. Heritage Navy', this)">
           <span class="tester-swatch" style="background:#1D3557;"></span>
           <span class="tester-label">2. Heritage Navy</span>
           <span class="tester-hex">#1D3557</span>
         </button>
-        <button type="button" class="tester-btn" onclick="setBlue('#4A90E2', '#EBF3FB', '#215FB0', '3. Coastal Sky', this)">
-          <span class="tester-swatch" style="background:#4A90E2;"></span>
-          <span class="tester-label">3. Coastal Sky</span>
-          <span class="tester-hex">#4A90E2</span>
+
+        <button type="button" class="tester-btn" onclick="setBlue('#385D6B', '#E7EEF1', '#1F3C47', '3. Deep River', this)">
+          <span class="tester-swatch" style="background:#385D6B;"></span>
+          <span class="tester-label">3. Deep River</span>
+          <span class="tester-hex">#385D6B</span>
         </button>
-        <button type="button" class="tester-btn" onclick="setBlue('#4A5A66', '#E2E7EB', '#2C3842', '4. Midnight Slate', this)">
-          <span class="tester-swatch" style="background:#4A5A66;"></span>
-          <span class="tester-label">4. Midnight Slate</span>
-          <span class="tester-hex">#4A5A66</span>
+
+        <button type="button" class="tester-btn" onclick="setBlue('#5F7992', '#EEF2F6', '#3E5368', '4. Misty Slate', this)">
+          <span class="tester-swatch" style="background:#5F7992;"></span>
+          <span class="tester-label">4. Misty Slate</span>
+          <span class="tester-hex">#5F7992</span>
+        </button>
+
+        <button type="button" class="tester-btn" onclick="setBlue('#405755', '#E8EFEF', '#243A3A', '5. Vintage Spruce', this)">
+          <span class="tester-swatch" style="background:#405755;"></span>
+          <span class="tester-label">5. Vintage Spruce</span>
+          <span class="tester-hex">#405755</span>
+        </button>
+
+        <button type="button" class="tester-btn" onclick="setBlue('#81B0B2', '#EFF6F6', '#527B7D', '6. Soft Seafoam', this)">
+          <span class="tester-swatch" style="background:#81B0B2;"></span>
+          <span class="tester-label">6. Soft Seafoam</span>
+          <span class="tester-hex">#81B0B2</span>
         </button>
       </div>
 
@@ -704,6 +799,17 @@ a{color:inherit}
     </div>
   </section>
 
+  <section class="notes-card">
+    <h2 class="section-title" style="margin-bottom:12px;"><span class="section-number">9</span> Your Feedback &amp; Notes</h2>
+    <p class="section-intro" style="margin-bottom:16px;">Leave any thoughts, tagline preferences, or questions here as you review:</p>
+    
+    <label style="font-weight:700; font-size:0.85rem; display:block; margin-top:12px;">General Thoughts &amp; Direction Feedback:</label>
+    <textarea id="generalNotes" placeholder="Type any thoughts or changes you'd like to see..."></textarea>
+    
+    <label style="font-weight:700; font-size:0.85rem; display:block; margin-top:16px;">Favorite Tagline Picks (from Section 6):</label>
+    <textarea id="taglineNotes" placeholder="Which taglines do you like best? E.g., 'Small numbers. Big days.'"></textarea>
+  </section>
+
   <footer class="footer">
     <div class="footer-brand">
       <img src="roundlogo2.png" alt="The Yellow Front Door" onerror="this.style.display='none'">
@@ -714,8 +820,33 @@ a{color:inherit}
 </main>
 </div>
 
+<div class="floating-lock-bar hidden" id="lockBar">
+  <div class="lock-bar-info">
+    Active Selections: <strong id="selectedRedText">1. Cool Crimson (#8A1211)</strong> • <strong id="selectedBlueText">1. Foggy Teal (#4A7B82)</strong> • <strong id="selectedFontText">1. Aubrey + DM Sans</strong>
+  </div>
+  <button type="button" class="button" onclick="openLockModal()">Lock In My Choices</button>
+</div>
+
+<div class="modal-overlay hidden" id="lockModal">
+  <div class="modal-card">
+    <h2 style="margin:0 0 8px; font-size:1.5rem; color:var(--ink);">Your Locked Selections</h2>
+    <p style="margin:0 0 16px; font-size:0.85rem; color:var(--slate);">Here is the summary of your selected brand direction and feedback. You can copy this text to email back or save for reference:</p>
+
+    <div class="modal-summary-box" id="modalSummaryContent">Generating summary...</div>
+
+    <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:16px;">
+      <button type="button" class="button" style="background:var(--slate);" onclick="closeLockModal()">Back to Guide</button>
+      <button type="button" class="button" onclick="copySummaryText()">Copy Summary Text</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const ACCESS_CODE = "Melissa";
+
+let currentRedName = "1. Cool Crimson (#8A1211)";
+let currentBlueName = "1. Foggy Teal (#4A7B82)";
+let currentFontName = "1. Aubrey + DM Sans";
 
 const gate = document.getElementById("accessGate");
 const proposalPage = document.getElementById("proposalPage");
@@ -723,15 +854,25 @@ const gateForm = document.getElementById("gateForm");
 const accessCode = document.getElementById("accessCode");
 const gateError = document.getElementById("gateError");
 
+function updateLockBar() {
+  document.getElementById('selectedRedText').textContent = currentRedName;
+  document.getElementById('selectedBlueText').textContent = currentBlueName;
+  document.getElementById('selectedFontText').textContent = currentFontName;
+  document.getElementById('lockBar').classList.remove('hidden');
+}
+
 function setRed(hex, hoverHex, name, btn) {
   document.documentElement.style.setProperty('--red', hex);
   document.documentElement.style.setProperty('--red-hover', hoverHex);
   document.getElementById('mainRedSwatch').style.background = hex;
   document.getElementById('mainRedHex').textContent = hex;
   
+  currentRedName = name + " (" + hex + ")";
+  
   const parent = btn.parentElement;
   parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  updateLockBar();
 }
 
 function toggleRedTextMode(btn) {
@@ -751,9 +892,12 @@ function setBlue(hex, lightHex, darkHex, name, btn) {
   document.getElementById('mainBlueSwatch').style.background = hex;
   document.getElementById('mainBlueHex').textContent = hex;
   
+  currentBlueName = name + " (" + hex + ")";
+  
   const parent = btn.parentElement;
   parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  updateLockBar();
 }
 
 function setFonts(headingFont, bodyFont, transform, spacing, weight, name, headingTag, bodyTag, btn) {
@@ -769,9 +913,41 @@ function setFonts(headingFont, bodyFont, transform, spacing, weight, name, headi
   document.getElementById('fontTitle2').textContent = bodyFont.split(',')[0].replace(/'/g, '');
   document.getElementById('fontTag2').textContent = bodyTag;
 
+  currentFontName = name;
+
   const parent = btn.parentElement;
   parent.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  updateLockBar();
+}
+
+function openLockModal() {
+  const generalNotes = document.getElementById('generalNotes').value.trim();
+  const taglineNotes = document.getElementById('taglineNotes').value.trim();
+
+  let summary = `FARMHOUSE & FIELDS BRAND SELECTIONS SUMMARY\n`;
+  summary += `-----------------------------------------\n`;
+  summary += `• Red Accent: ${currentRedName}\n`;
+  summary += `• Secondary Accent: ${currentBlueName}\n`;
+  summary += `• Font Pairing: ${currentFontName}\n\n`;
+  summary += `GENERAL FEEDBACK & NOTES:\n`;
+  summary += `${generalNotes ? generalNotes : '(No notes entered)'}\n\n`;
+  summary += `PREFERRED TAGLINES:\n`;
+  summary += `${taglineNotes ? taglineNotes : '(No taglines specified)'}\n`;
+
+  document.getElementById('modalSummaryContent').textContent = summary;
+  document.getElementById('lockModal').classList.remove('hidden');
+}
+
+function closeLockModal() {
+  document.getElementById('lockModal').classList.add('hidden');
+}
+
+function copySummaryText() {
+  const text = document.getElementById('modalSummaryContent').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Summary copied to clipboard! You can paste it into an email or text message.");
+  });
 }
 
 function unlockProposal(){
@@ -779,6 +955,7 @@ function unlockProposal(){
   gate.classList.add("hidden");
   proposalPage.classList.remove("hidden");
   requestAnimationFrame(() => proposalPage.classList.add("reveal"));
+  updateLockBar();
 }
 
 if(sessionStorage.getItem("ffBrandGuideAccess") === "yes") {
