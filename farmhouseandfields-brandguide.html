@@ -13,11 +13,11 @@
 
 :root {
   /* Updated Brand Colors */
-  --red: #C21C18;            /* Bright, true vibrant farmhouse red */
+  --red: #C21C18;            /* Vibrant farmhouse red */
   --red-hover: #9E1310;
-  --dusty-blue: #72808A;     /* Her soft signature blue-grey */
-  --dusty-blue-light: #EBF0F3;/* Soft tint for backgrounds */
-  --dusty-blue-dark: #4F5C65; /* Darker blue for contrast headings */
+  --dusty-blue: #72808A;     /* Soft blue-grey */
+  --dusty-blue-light: #EBF0F3;
+  --dusty-blue-dark: #4F5C65; 
   --oat: #F3ECE1;            
   --warm-white: #FCFBF8;     
   --ink: #2A2926;            
@@ -201,11 +201,10 @@ a{color:inherit}
     <h1 id="gateTitle">Welcome to your brand guide.</h1>
     <p>Enter the access code to view the Farmhouse &amp; Fields brand direction.</p>
     <form class="gate-form" id="gateForm">
-      <input id="accessCode" type="text" placeholder="Access code" aria-label="Access code" required>
+      <input id="accessCode" type="password" autocomplete="current-password" placeholder="Access code" aria-label="Access code" required>
       <button class="button" type="submit">View guide</button>
     </form>
     <p class="gate-error" id="gateError" role="alert"></p>
-    <p style="margin-top:15px;"><button type="button" onclick="unlockProposal()" style="background:none;border:none;color:var(--slate);text-decoration:underline;font-size:0.8rem;cursor:pointer;">Instant Bypass / Skip Password</button></p>
   </div>
 </section>
 
@@ -545,20 +544,33 @@ a{color:inherit}
 </div>
 
 <script>
+const ACCESS_CODE = "Melissa";
+
+const gate = document.getElementById("accessGate");
+const proposalPage = document.getElementById("proposalPage");
+const gateForm = document.getElementById("gateForm");
+const accessCode = document.getElementById("accessCode");
+const gateError = document.getElementById("gateError");
+
 function unlockProposal(){
-  document.getElementById("accessGate").style.display = "none";
-  document.getElementById("proposalPage").classList.remove("hidden");
-  document.getElementById("proposalPage").classList.add("reveal");
+  sessionStorage.setItem("ffBrandGuideAccess","yes");
+  gate.classList.add("hidden");
+  proposalPage.classList.remove("hidden");
+  requestAnimationFrame(() => proposalPage.classList.add("reveal"));
 }
 
-document.getElementById("gateForm").addEventListener("submit", function(e) {
+if(sessionStorage.getItem("ffBrandGuideAccess") === "yes") {
+  unlockProposal();
+}
+
+gateForm.addEventListener("submit", e => {
   e.preventDefault();
-  var inputVal = document.getElementById("accessCode").value.trim();
-  if (inputVal.toLowerCase() === "melissa") {
-    document.getElementById("gateError").textContent = "";
+  if(accessCode.value.trim().toLowerCase() === ACCESS_CODE.toLowerCase()){
+    gateError.textContent = "";
     unlockProposal();
   } else {
-    document.getElementById("gateError").textContent = "Access code does not match. Try typing Melissa or click Instant Bypass below.";
+    gateError.textContent = "That access code doesn’t match. Please try again.";
+    accessCode.select();
   }
 });
 </script>
