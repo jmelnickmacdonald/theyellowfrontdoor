@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 
-<title>Invoice TYFD-2026-001 | The Yellow Front Door</title>
+<title>Paid Invoice TYFD-2026-001 | The Yellow Front Door</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,7 @@ button{
   background:#fff;
   border:3px solid var(--purple);
   min-height:calc(100vh - 64px);
-  padding:clamp(52px,7vw,78px) clamp(34px,7vw,76px) 40px;
+  padding:clamp(42px,5.8vw,62px) clamp(34px,6vw,64px) 34px;
   box-shadow:0 18px 65px rgba(19,36,71,.08);
 }
 
@@ -73,7 +73,7 @@ button{
   display:flex;
   align-items:center;
   gap:11px;
-  margin-bottom:15px;
+  margin-bottom:11px;
 }
 
 .invoice-brand img{
@@ -97,7 +97,7 @@ button{
   justify-content:space-between;
   align-items:flex-end;
   gap:30px;
-  padding-bottom:27px;
+  padding-bottom:21px;
   border-bottom:1px solid var(--stone);
 }
 
@@ -130,12 +130,14 @@ button{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:30px;
-  padding:26px 0 24px;
+  padding:20px 0 18px;
 }
 
 .meta-block:last-child{
   text-align:right;
 }
+
+.meta .meta-block:nth-child(2){text-align:left;}
 
 .meta-label{
   display:block;
@@ -164,8 +166,8 @@ button{
 /* AMOUNT */
 
 .amount-panel{
-  margin:6px 0 31px;
-  padding:28px 24px 27px;
+  margin:4px 0 23px;
+  padding:22px 22px 21px;
   background:var(--soft);
   border-left:4px solid var(--yellow);
   text-align:center;
@@ -282,8 +284,8 @@ button{
 /* PAYMENT */
 
 .payment{
-  margin-top:37px;
-  padding-top:28px;
+  margin-top:27px;
+  padding-top:22px;
   border-top:1px solid var(--stone);
 }
 
@@ -343,7 +345,7 @@ button{
 /* BALANCE NOTE */
 
 .balance-note{
-  margin-top:25px;
+  margin-top:18px;
   color:var(--slate);
   font-size:.72rem;
   line-height:1.55;
@@ -357,7 +359,7 @@ button{
 /* ACTION */
 
 .actions{
-  margin-top:30px;
+  margin-top:22px;
   display:flex;
   justify-content:flex-end;
 }
@@ -385,7 +387,7 @@ button{
 /* FOOTER */
 
 .footer{
-  margin-top:37px;
+  margin-top:27px;
   padding-top:18px;
   border-top:1px solid #ebe9e4;
   display:flex;
@@ -494,7 +496,7 @@ button{
     min-height:10in;
     border:1.5pt solid var(--purple);
     box-shadow:none;
-    padding:38pt 44pt 28pt;
+    padding:30pt 38pt 22pt;
   }
 
   .actions{
@@ -503,6 +505,36 @@ button{
 
   .amount-panel,
   .payment-box{
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+}
+
+
+/* STATUS */
+.status-row{
+  display:flex;
+  justify-content:flex-end;
+  margin:18px 0 -6px;
+}
+
+.status-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:0 13px;
+  border-radius:999px;
+  background:#edf7ee;
+  color:#2f6b3d;
+  font-size:.64rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+@media print{
+  .status-badge{
     print-color-adjust:exact;
     -webkit-print-color-adjust:exact;
   }
@@ -525,6 +557,8 @@ button{
 
 
   <!-- TITLE -->
+  <div class="status-row"><span class="status-badge">Paid</span></div>
+
   <div class="invoice-title-row">
 
     <h1 class="invoice-title">Invoice</h1>
@@ -538,18 +572,29 @@ button{
 
 
   <!-- CLIENT / DATE -->
-  <section class="meta">
+  <section class="meta" style="grid-template-columns:1.15fr 1fr 1fr;gap:22px;">
 
     <div class="meta-block">
-      <span class="meta-label">Prepared for</span>
+      <span class="meta-label">From</span>
+      <p class="meta-primary">The Yellow Front Door</p>
+      <p class="meta-secondary">379 Meadowvale Rd.</p>
+      <p class="meta-secondary">Meadowvale, NS B0P 1R0</p>
+      <p class="meta-secondary">hello@theyellowfrontdoor.ca</p>
+      <p class="meta-secondary">theyellowfrontdoor.ca</p>
+    </div>
+
+    <div class="meta-block" style="text-align:left;">
+      <span class="meta-label">Bill to</span>
       <p class="meta-primary">Melissa</p>
       <p class="meta-secondary">Farmhouse &amp; Fields Dog Daycare</p>
+      <p class="meta-secondary">Canning, Nova Scotia</p>
     </div>
 
     <div class="meta-block">
       <span class="meta-label">Invoice details</span>
-      <p class="meta-primary">September 7, 2026</p>
-      <p class="meta-secondary">Due upon receipt</p>
+      <p class="meta-primary">TYFD-2026-001</p>
+      <p class="meta-secondary">Issued September 7, 2026</p>
+      <p class="meta-secondary">Paid September 8, 2026</p>
     </div>
 
   </section>
@@ -558,12 +603,12 @@ button{
   <!-- AMOUNT DUE -->
   <section class="amount-panel">
 
-    <div class="amount-label">Amount due</div>
+    <div class="amount-label">Paid in full</div>
 
     <div class="amount">$450</div>
 
     <div class="amount-note">
-      Initial project deposit
+      Payment received September 8, 2026
     </div>
 
   </section>
@@ -601,7 +646,7 @@ button{
 
   <!-- TOTAL -->
   <div class="total-row">
-    <span class="total-label">Amount due</span>
+    <span class="total-label">Invoice total</span>
     <span class="total-amount">$450.00</span>
   </div>
 
@@ -613,29 +658,30 @@ button{
 
       <div>
         <p class="eyebrow">Payment</p>
-        <h2 class="payment-heading">Let’s get started.</h2>
+        <h2 class="payment-heading">Payment received.</h2>
 
         <p class="payment-intro">
-          The initial deposit reserves the project and gets
-          Farmhouse &amp; Fields officially underway.
+          Thank you. The initial project deposit was received
+          on September 8, 2026.
         </p>
       </div>
 
       <div class="payment-box">
 
         <p class="payment-box-label">
-          Interac e-Transfer
+          Payment status
         </p>
 
-        <p>Please send payment to:</p>
+        <p>
+          <strong>Paid September 8, 2026</strong>
+        </p>
 
         <span class="payment-email">
-          hello@theyellowfrontdoor.ca
+          Balance owing: $0.00
         </span>
 
         <p>
-          If your bank asks you to create a security question,
-          just send the answer separately.
+          This invoice is retained as the receipt for the first $450 payment toward the $900 website project.
         </p>
 
       </div>
@@ -645,23 +691,25 @@ button{
   </section>
 
 
-  <!-- REMAINING BALANCE -->
-  <p class="balance-note">
-    <strong>Remaining project balance:</strong>
-    $450, due once the website is complete and ready to launch,
-    as outlined in the accepted proposal.
-  </p>
+  <!-- PROJECT SUMMARY -->
+  <div class="payment-summary">
+    <div class="payment-summary-row"><span>Website project total</span><strong>$900.00</strong></div>
+    <div class="payment-summary-row"><span>Payment received September 8, 2026</span><strong>-$450.00</strong></div>
+    <div class="payment-summary-row"><span>Remaining project balance</span><strong>$450.00</strong></div>
+  </div>
 
 
   <!-- PRINT -->
   <div class="actions">
     <button class="print-btn" type="button" onclick="window.print()">
-      Print / save invoice
+      Download / save paid invoice
     </button>
   </div>
 
 
   <!-- FOOTER -->
+  <p class="balance-note" style="margin-top:18px;">No HST charged.</p>
+
   <footer class="footer">
 
     <div class="footer-brand">
