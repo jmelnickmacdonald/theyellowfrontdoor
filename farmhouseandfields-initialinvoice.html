@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 
-<title>Invoice TYFD-2026-001 | The Yellow Front Door</title>
+<title>Paid Invoice TYFD-2026-001 | The Yellow Front Door</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -508,6 +508,36 @@ button{
   }
 }
 
+
+/* STATUS */
+.status-row{
+  display:flex;
+  justify-content:flex-end;
+  margin:18px 0 -6px;
+}
+
+.status-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:0 13px;
+  border-radius:999px;
+  background:#edf7ee;
+  color:#2f6b3d;
+  font-size:.64rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+@media print{
+  .status-badge{
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+}
+
 </style>
 </head>
 
@@ -525,6 +555,8 @@ button{
 
 
   <!-- TITLE -->
+  <div class="status-row"><span class="status-badge">Paid</span></div>
+
   <div class="invoice-title-row">
 
     <h1 class="invoice-title">Invoice</h1>
@@ -549,7 +581,7 @@ button{
     <div class="meta-block">
       <span class="meta-label">Invoice details</span>
       <p class="meta-primary">September 7, 2026</p>
-      <p class="meta-secondary">Due upon receipt</p>
+      <p class="meta-secondary">Paid September 8, 2026</p>
     </div>
 
   </section>
@@ -558,12 +590,12 @@ button{
   <!-- AMOUNT DUE -->
   <section class="amount-panel">
 
-    <div class="amount-label">Amount due</div>
+    <div class="amount-label">Paid in full</div>
 
     <div class="amount">$450</div>
 
     <div class="amount-note">
-      Initial project deposit
+      Payment received September 8, 2026
     </div>
 
   </section>
@@ -601,7 +633,7 @@ button{
 
   <!-- TOTAL -->
   <div class="total-row">
-    <span class="total-label">Amount due</span>
+    <span class="total-label">Invoice total</span>
     <span class="total-amount">$450.00</span>
   </div>
 
@@ -613,29 +645,30 @@ button{
 
       <div>
         <p class="eyebrow">Payment</p>
-        <h2 class="payment-heading">Let’s get started.</h2>
+        <h2 class="payment-heading">Payment received.</h2>
 
         <p class="payment-intro">
-          The initial deposit reserves the project and gets
-          Farmhouse &amp; Fields officially underway.
+          Thank you. The initial project deposit was received
+          on September 8, 2026.
         </p>
       </div>
 
       <div class="payment-box">
 
         <p class="payment-box-label">
-          Interac e-Transfer
+          Payment status
         </p>
 
-        <p>Please send payment to:</p>
+        <p>
+          <strong>Paid September 8, 2026</strong>
+        </p>
 
         <span class="payment-email">
-          hello@theyellowfrontdoor.ca
+          Balance owing: $0.00
         </span>
 
         <p>
-          If your bank asks you to create a security question,
-          just send the answer separately.
+          This invoice is retained as the receipt for the first $450 payment toward the $900 website project.
         </p>
 
       </div>
@@ -647,16 +680,16 @@ button{
 
   <!-- REMAINING BALANCE -->
   <p class="balance-note">
-    <strong>Remaining project balance:</strong>
-    $450, due once the website is complete and ready to launch,
-    as outlined in the accepted proposal.
+    <strong>Project total:</strong> $900.00 &nbsp;·&nbsp;
+    <strong>Paid to date:</strong> $450.00 &nbsp;·&nbsp;
+    <strong>Remaining project balance:</strong> $450.00
   </p>
 
 
   <!-- PRINT -->
   <div class="actions">
     <button class="print-btn" type="button" onclick="window.print()">
-      Print / save invoice
+      Download / save paid invoice
     </button>
   </div>
 
