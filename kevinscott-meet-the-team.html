@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="robots" content="noindex,nofollow">
+
+  <title>Meet the Team | Kevin Scott Real Estate Team</title>
+
+  <style>
+    :root {
+      --navy: #0B1B35;
+      --navy-light: #142F54;
+      --blue: #1C6A94;
+      --pale-blue: #CAD5E3;
+      --grey: #AFB6B8;
+      --cream: #F7F6F3;
+      --white: #FFFFFF;
+      --text: #212121;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-light) 100%
+        );
+      color: white;
+      padding: 70px 24px 64px;
+    }
+
+    .hero-inner,
+    .form-wrap {
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--pale-blue);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 680px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 7vw, 62px);
+      font-weight: normal;
+      line-height: 1.02;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 24px 0 0;
+      font-size: 17px;
+      color: rgba(255,255,255,0.87);
+    }
+
+    .form-wrap {
+      padding: 42px 20px 80px;
+    }
+
+    .section {
+      background: var(--white);
+      padding: 30px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(11,27,53,0.08);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(11,27,53,0.045);
+    }
+
+    .section-number {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: normal;
+    }
+
+    .section-intro {
+      margin: 0 0 22px;
+      color: #5a5f65;
+      font-size: 15px;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0 7px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d5d9df;
+      border-radius: 7px;
+      background: white;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(28,106,148,0.10);
+    }
+
+    input[type="file"] {
+      padding: 12px;
+      background: var(--cream);
+    }
+
+    .hint {
+      margin: 7px 0 0;
+      color: #696d72;
+      font-size: 13px;
+    }
+
+    .quote {
+      margin: 20px 0 0;
+      padding: 18px 20px;
+      background: rgba(202,213,227,0.25);
+      border-left: 3px solid var(--navy-light);
+      border-radius: 0 7px 7px 0;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+    }
+
+    .upload-box {
+      margin-top: 16px;
+      padding: 18px;
+      background: #f5f7f9;
+      border: 1px dashed #c7cdd5;
+      border-radius: 8px;
+    }
+
+    .submit-wrap {
+      margin-top: 28px;
+    }
+
+    button {
+      width: 100%;
+      padding: 17px 24px;
+      border: 0;
+      border-radius: 7px;
+      background: var(--navy);
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+    }
+
+    button:hover {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: 0.6;
+      transform: none;
+    }
+
+    #status {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      color: #777;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .honeypot {
+      position: absolute !important;
+      left: -10000px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    .success {
+      padding: 44px 30px;
+      background: white;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .success h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 48px 22px;
+      }
+
+      .form-wrap {
+        padding-top: 25px;
+      }
+
+      .section {
+        padding: 23px 20px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <header class="hero">
+
+    <div class="hero-inner">
+
+      <div class="eyebrow">
+        Kevin Scott Real Estate Team
+      </div>
+
+      <h1>
+        Meet the Team
+      </h1>
+
+      <p>
+        We’re putting together a fun Meet the Team series over the
+        next few weeks and need a little help from you.
+        Short answers are perfect. First thing that comes to mind
+        is usually better than a polished answer, so please don’t
+        overthink it.
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <main class="form-wrap">
+
+    <form id="teamForm">
+
+
+      <!-- NAME -->
+
+      <section class="section">
+
+        <span class="section-number">
+          First things first
+        </span>
+
+        <h2>
+          Who are you?
+        </h2>
+
+        <label for="name">
+          Your name *
+        </label>
+
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+        >
+
+      </section>
+
+
+      <!-- 01 -->
+
+      <section class="section">
+
+        <span class="section-number">
+          01
+        </span>
+
+        <h2>
+          Your corner of Nova Scotia
+        </h2>
+
+        <p class="section-intro">
+          Give us a little local context.
+        </p>
+
+        <label for="area">
+          What area do you mainly work in?
+        </label>
+
+        <input
+          id="area"
+          name="area"
+          type="text"
+        >
+
+
+        <label for="coffee">
+          Favourite coffee shop or coffee stop?
+        </label>
+
+        <input
+          id="coffee"
+          name="coffee"
+          type="text"
+        >
+
+
+        <label for="localPlace">
+          Favourite local place?
+        </label>
+
+        <input
+          id="localPlace"
+          name="localPlace"
+          type="text"
+        >
+
+
+        <label for="areaGreat">
+          In a sentence or two, what makes your area so great?
+        </label>
+
+        <textarea
+          id="areaGreat"
+          name="areaGreat"
+        ></textarea>
+
+      </section>
+
+
+      <!-- 02 -->
+
+      <section class="section">
+
+        <span class="section-number">
+          02
+        </span>
+
+        <h2>
+          Strong opinions
+        </h2>
+
+        <p class="section-intro">
+          Give us two completely harmless opinions you feel
+          strongly about. The less REALTOR®-y, the better.
+        </p>
+
+        <div class="quote">
+          Pineapple belongs on pizza. Vanilla is better than
+          chocolate. Summer is overrated. The book is always
+          better. You get the idea.
+        </div>
+
+
+        <label for="opinion1">
+          Strong opinion #1
+        </label>
+
+        <input
+          id="opinion1"
+          name="opinion1"
+          type="text"
+        >
+
+
+        <label for="opinion2">
+          Strong opinion #2
+        </label>
+
+        <input
+          id="opinion2"
+          name="opinion2"
+          type="text"
+        >
+
+      </section>
+
+
+      <!-- 03 -->
+
+      <section class="section">
+
+        <span class="section-number">
+          03
+        </span>
+
+        <h2>
+          In the group chat…
+        </h2>
+
+        <p class="section-intro">
+          What role are you usually playing?
+        </p>
+
+        <label for="groupChat">
+          Describe yourself in the group chat.
+        </label>
+
+        <textarea
+          id="groupChat"
+          name="groupChat"
+          placeholder="First to reply? Silent reader? Voice-note person? Problem solver? Meme sender? The one who says 'I'll look into it'? Something else?"
+        ></textarea>
+
+      </section>
+
+
+      <!-- 04 -->
+
+      <section class="section">
+
+        <span class="section-number">
+          04
+        </span>
+
+        <h2>
+          What’s in your car?
+        </h2>
+
+        <p class="section-intro">
+          We want the real workday version.
+        </p>
+
+
+        <label for="car1">
+          One thing we’d almost always find:
+        </label>
+
+        <input
+          id="car1"
+          name="car1"
+          type="text"
+        >
+
+
+        <label for="car2">
+          Another one:
+        </label>
+
+        <input
+          id="car2"
+          name="car2"
+          type="text"
+        >
+
+
+        <label for="carWeird">
+          And now the slightly weird or random one:
+        </label>
+
+        <input
+          id="carWeird"
+          name="carWeird"
+          type="text"
+        >
+
+        <p class="hint">
+          This is the one we’re really interested in. 😂
+        </p>
+
+      </section>
+
+
+      <!-- 05 -->
+
+      <section class="section">
+
+        <span class="section-number">
+          05
+        </span>
+
+        <h2>
+          Off the clock
+        </h2>
+
+        <label for="offClock">
+          What are one or two things we should know about you
+          outside of real estate?
+        </label>
+
+        <textarea
+          id="offClock"
+          name="offClock"
+          placeholder="Pets, hobbies, former jobs, random talents, current obsessions... whatever feels like you."
+        ></textarea>
+
+      </section>
+
+
+      <!-- 06 -->
+
+      <section class="section">
+
+        <span class="section-number">
+          06
+        </span>
+
+        <h2>
+          Only a local would know…
+        </h2>
+
+        <label for="localKnow">
+          What’s something about your area you’d probably only
+          know from actually living or working there?
+        </label>
+
+        <textarea
+          id="localKnow"
+          name="localKnow"
+          placeholder="A hidden gem, local quirk, seasonal tip, little-known stop, tradition, shortcut, or something newcomers are always surprised by."
+        ></textarea>
+
+      </section>
+
+
+      <!-- 07 -->
+
+      <section class="section">
+
+        <span class="section-number">
+          07
+        </span>
+
+        <h2>
+          Photos + video
+        </h2>
+
+        <p class="section-intro">
+          This part is completely informal. Phone photos and
+          phone video are perfect.
+        </p>
+
+        <div class="quote">
+          If you’re able, please send a quick video of yourself
+          saying: <strong>“Trusted Here. From Anywhere.”</strong>
+        </div>
+
+
+        <label for="existingVideo">
+          Already have a good video somewhere?
+        </label>
+
+        <textarea
+          id="existingVideo"
+          name="existingVideo"
+          placeholder="Tell me where it is and I'll grab what I need from there."
+        ></textarea>
+
+
+        <label for="files">
+          Upload photos or short video clips
+        </label>
+
+        <div class="upload-box">
+
+          <input
+            id="files"
+            name="files"
+            type="file"
+            accept="image/*,video/*"
+            multiple
+          >
+
+          <p class="hint">
+            Feel free to send pets, hobbies, favourite local
+            spots, workday clips, car chaos, or even video
+            answers to any of the questions above.
+          </p>
+
+          <p class="hint">
+            For a large video, it’s better to tell me where I
+            can find it in the box above.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- SPAM TRAP -->
+
+      <div class="honeypot" aria-hidden="true">
+
+        <label for="website">
+          Website
+        </label>
+
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <!-- SUBMIT -->
+
+      <div class="submit-wrap">
+
+        <button
+          id="submitButton"
+          type="submit"
+        >
+          Send my answers
+        </button>
+
+        <div id="status"></div>
+
+      </div>
+
+
+      <div class="footer-note">
+        Responses are being collected by The Yellow Front Door
+        for the Kevin Scott Real Estate Team.
+      </div>
+
+    </form>
+
+  </main>
+
+
+  <script>
+
+    const ENDPOINT =
+      'https://script.google.com/a/macros/ravenhouseco.com/s/AKfycbwVJmkTAm-yPdD969OtY-SIVFPzNzmO86HWoSv27hM14ooL04xm9k_pOxZ3IKDmKO6b/exec';
+
+
+    const form =
+      document.getElementById('teamForm');
+
+    const button =
+      document.getElementById('submitButton');
+
+    const status =
+      document.getElementById('status');
+
+
+    form.addEventListener(
+      'submit',
+      async function(event) {
+
+        event.preventDefault();
+
+        button.disabled = true;
+        button.textContent = 'Sending…';
+
+        status.textContent = '';
+
+
+        try {
+
+          const formData =
+            new FormData(form);
+
+
+          const payload = {
+
+            name:
+              formData.get('name'),
+
+            area:
+              formData.get('area'),
+
+            coffee:
+              formData.get('coffee'),
+
+            localPlace:
+              formData.get('localPlace'),
+
+            areaGreat:
+              formData.get('areaGreat'),
+
+            opinion1:
+              formData.get('opinion1'),
+
+            opinion2:
+              formData.get('opinion2'),
+
+            groupChat:
+              formData.get('groupChat'),
+
+            car1:
+              formData.get('car1'),
+
+            car2:
+              formData.get('car2'),
+
+            carWeird:
+              formData.get('carWeird'),
+
+            offClock:
+              formData.get('offClock'),
+
+            localKnow:
+              formData.get('localKnow'),
+
+            existingVideo:
+              formData.get('existingVideo'),
+
+            website:
+              formData.get('website'),
+
+            files: []
+
+          };
+
+
+          const files =
+            document.getElementById('files').files;
+
+
+          let totalUploadSize = 0;
+
+
+          for (const file of files) {
+
+            totalUploadSize += file.size;
+
+
+            if (
+              file.size >
+              15 * 1024 * 1024
+            ) {
+
+              throw new Error(
+                '"' +
+                file.name +
+                '" is too large for this form. ' +
+                'Please tell Julianna where she can find ' +
+                'that video instead.'
+              );
+
+            }
+
+
+            const base64 =
+              await fileToBase64(file);
+
+
+            payload.files.push({
+
+              name: file.name,
+              type: file.type,
+              base64: base64
+
+            });
+
+          }
+
+
+          if (
+            totalUploadSize >
+            25 * 1024 * 1024
+          ) {
+
+            throw new Error(
+              'Those files are a little too large together. ' +
+              'Please upload fewer files, or tell Julianna ' +
+              'where she can find the larger video.'
+            );
+
+          }
+
+
+          await fetch(
+            ENDPOINT,
+            {
+              method: 'POST',
+
+              mode: 'no-cors',
+
+              headers: {
+                'Content-Type':
+                  'text/plain;charset=utf-8'
+              },
+
+              body:
+                JSON.stringify(payload)
+            }
+          );
+
+
+          form.innerHTML = `
+            <div class="success">
+
+              <span class="section-number">
+                All done
+              </span>
+
+              <h2>
+                Thank you!
+              </h2>
+
+              <p>
+                Your answers have been sent to
+                The Yellow Front Door.
+              </p>
+
+              <p>
+                We’ll take it from here.
+              </p>
+
+            </div>
+          `;
+
+
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          status.textContent =
+            error.message ||
+            'Something went wrong. Please try again.';
+
+          button.disabled = false;
+          button.textContent =
+            'Send my answers';
+
+        }
+
+      }
+    );
+
+
+    function fileToBase64(file) {
+
+      return new Promise(
+        function(resolve, reject) {
+
+          const reader =
+            new FileReader();
+
+
+          reader.onload =
+            function() {
+
+              const result =
+                reader.result;
+
+              resolve(
+                result.split(',')[1]
+              );
+
+            };
+
+
+          reader.onerror =
+            reject;
+
+
+          reader.readAsDataURL(file);
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
