@@ -12,482 +12,283 @@
 
   <title>Meet the Team | Kevin Scott Real Estate Team</title>
 
-  <!-- Pretty, readable fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
   <style>
-
     :root {
       --navy: #0B1B35;
-      --navy-soft: #142F54;
+      --navy-two: #142F54;
       --blue: #1C6A94;
-      --powder: #CAD5E3;
-      --mist: #EEF2F5;
-      --cream: #F8F6F1;
-      --paper: #FFFDF9;
-      --ink: #17202B;
-      --muted: #68727D;
-      --line: #DCE1E4;
-      --white: #FFFFFF;
-    }
+      --pale-blue: #CAD5E3;
 
+      --warm-white: #FBFAF7;
+      --paper: #FFFFFF;
+      --text: #20242A;
+      --muted: #6B727A;
+      --line: #D9DEE3;
+    }
 
     * {
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
       margin: 0;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: "DM Sans", sans-serif;
-      line-height: 1.6;
+      background: var(--warm-white);
+      color: var(--text);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
 
-
-    /* ========================================
-       HERO
-       ======================================== */
-
     .hero {
-      position: relative;
-      overflow: hidden;
       background:
-        radial-gradient(
-          circle at 85% 5%,
-          rgba(108, 156, 190, 0.22),
-          transparent 36%
-        ),
         linear-gradient(
-          135deg,
-          #09182e 0%,
-          #142f54 100%
+          120deg,
+          var(--navy) 0%,
+          var(--navy-two) 100%
         );
       color: white;
-      padding: 78px 24px 120px;
+      padding: 54px 24px 58px;
     }
-
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 50%;
-      right: -120px;
-      bottom: -230px;
-    }
-
 
     .hero-inner {
       width: min(820px, 100%);
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
     }
 
-
-    .brand {
-      margin-bottom: 44px;
-      font-size: 12px;
+    .team-name {
+      margin-bottom: 22px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.72);
     }
 
-
     h1 {
       margin: 0;
-      max-width: 720px;
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: clamp(48px, 7vw, 74px);
-      font-weight: 400;
-      letter-spacing: -0.035em;
-      line-height: 1.04;
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: clamp(46px, 7vw, 68px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.025em;
     }
 
-
-    .hero-copy {
-      max-width: 680px;
-      margin: 26px 0 0;
-      font-size: 17px;
-      color: rgba(255,255,255,0.83);
+    .hero p {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 16px;
     }
-
-
-    .hero-copy em {
-      color: white;
-      font-family: "Libre Baskerville", Georgia, serif;
-    }
-
-
-
-    /* ========================================
-       FORM SHELL
-       ======================================== */
 
     .page {
-      width: min(860px, calc(100% - 32px));
-      margin: -62px auto 90px;
-      position: relative;
-      z-index: 5;
+      width: min(820px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 52px 0 80px;
     }
 
-
-    .form-card {
-      background: var(--paper);
-      border: 1px solid rgba(11,27,53,0.07);
-      border-radius: 20px;
-      box-shadow:
-        0 24px 70px rgba(11,27,53,0.10);
-      overflow: hidden;
-    }
-
-
-    .form-intro {
-      padding: 42px 48px 36px;
-      background: #ffffff;
+    .intro {
+      padding-bottom: 34px;
       border-bottom: 1px solid var(--line);
     }
 
-
-    .form-intro p {
+    .intro p {
+      max-width: 650px;
       margin: 0;
-      max-width: 670px;
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 18px;
-      line-height: 1.7;
+      font-family: "EB Garamond", Georgia, serif;
       color: var(--navy);
+      font-size: 22px;
+      line-height: 1.5;
     }
-
-
-    .tiny-note {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 9px 13px;
-      background: var(--mist);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-
-
-    /* ========================================
-       SECTIONS
-       ======================================== */
 
     .section {
-      padding: 46px 48px;
+      padding: 42px 0;
       border-bottom: 1px solid var(--line);
     }
-
 
     .section:last-of-type {
       border-bottom: 0;
     }
 
-
-    .section-heading {
-      max-width: 640px;
-      margin-bottom: 28px;
-    }
-
-
-    .section-heading h2 {
+    .section h2 {
       margin: 0 0 8px;
+      font-family: "EB Garamond", Georgia, serif;
       color: var(--navy);
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 30px;
-      font-weight: 400;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
+      font-size: 31px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
     }
 
-
-    .section-heading p {
-      margin: 0;
+    .section-description {
+      max-width: 650px;
+      margin: 0 0 26px;
       color: var(--muted);
       font-size: 14px;
     }
 
-
-    .section-heading .aside {
-      margin-top: 10px;
-      color: var(--blue);
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 14px;
-      font-style: italic;
-    }
-
-
-
-    /* ========================================
-       FIELDS
-       ======================================== */
-
     .field {
-      margin-top: 23px;
+      margin-top: 22px;
     }
 
-
-    .field:first-child {
+    .field:first-of-type {
       margin-top: 0;
     }
 
-
-    .two-column {
+    .two-columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
+    .three-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
 
     label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       color: var(--navy);
       font-size: 14px;
       font-weight: 600;
     }
 
-
     input,
     textarea {
-      display: block;
       width: 100%;
-      padding: 14px 15px;
-      border: 1px solid #D5DADF;
-      border-radius: 9px;
-      background: white;
-      color: var(--ink);
-      font-family: "DM Sans", sans-serif;
+      border: 1px solid #CDD3D9;
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--text);
+      padding: 13px 14px;
+      font-family: "DM Sans", Arial, sans-serif;
       font-size: 16px;
       line-height: 1.5;
       transition:
-        border-color .15s ease,
-        box-shadow .15s ease,
-        background .15s ease;
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
     }
-
-
-    input:hover,
-    textarea:hover {
-      border-color: #BBC4CC;
-    }
-
 
     input:focus,
     textarea:focus {
       outline: none;
       border-color: var(--blue);
       box-shadow:
-        0 0 0 4px rgba(28,106,148,0.09);
-      background: white;
+        0 0 0 3px rgba(28,106,148,0.08);
     }
 
-
     textarea {
-      min-height: 110px;
+      min-height: 105px;
       resize: vertical;
     }
 
-
-    .short-textarea {
-      min-height: 88px;
+    .short {
+      min-height: 82px;
     }
 
-
-    .hint {
-      margin: 7px 0 0;
+    .example {
+      margin: -10px 0 24px;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
     }
 
-
-
-    /* ========================================
-       FUN CALLOUT
-       ======================================== */
-
-    .example-note {
-      margin: 22px 0 2px;
-      padding: 18px 20px;
-      background: #EFF3F6;
-      border-radius: 10px;
-      color: #52606C;
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 14px;
-      font-style: italic;
-      line-height: 1.7;
+    .tagline {
+      margin: 24px 0;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-family: "EB Garamond", Georgia, serif;
+      color: var(--navy);
+      font-size: 20px;
     }
 
-
-
-    /* ========================================
-       CAR FIELDS
-       ======================================== */
-
-    .car-grid {
-      display: grid;
-      grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr)
-        minmax(0, 1.25fr);
-      gap: 16px;
+    .upload-area {
+      margin-top: 24px;
     }
-
-
-    .weird-field {
-      background: #F1F5F7;
-      padding: 16px;
-      border-radius: 11px;
-    }
-
-
-    .weird-field label {
-      color: var(--blue);
-    }
-
-
-
-    /* ========================================
-       UPLOADS
-       ======================================== */
-
-    .video-line {
-      margin: 22px 0;
-      padding: 22px 24px;
-      background: var(--navy);
-      border-radius: 12px;
-      color: white;
-    }
-
-
-    .video-line small {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--powder);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-
-    .video-line span {
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 19px;
-    }
-
-
-    .upload-box {
-      margin-top: 22px;
-      padding: 22px;
-      border: 1px dashed #B9C3CB;
-      border-radius: 11px;
-      background: #F7F8F8;
-    }
-
 
     input[type="file"] {
-      padding: 0;
       border: 0;
+      padding: 0;
       background: transparent;
       font-size: 14px;
     }
 
-
     input[type="file"]::file-selector-button {
       margin-right: 12px;
-      padding: 10px 14px;
-      border: 0;
-      border-radius: 7px;
-      background: var(--navy);
-      color: white;
-      cursor: pointer;
-      font-family: "DM Sans", sans-serif;
+      border: 1px solid var(--navy);
+      border-radius: 5px;
+      background: white;
+      color: var(--navy);
+      padding: 9px 13px;
+      font-family: "DM Sans", Arial, sans-serif;
       font-weight: 600;
+      cursor: pointer;
     }
 
-
-
-    /* ========================================
-       SUBMIT
-       ======================================== */
+    .upload-note {
+      max-width: 620px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
 
     .submit-area {
-      padding: 40px 48px 46px;
-      background: #F0F3F5;
+      padding-top: 42px;
     }
-
 
     button {
       width: 100%;
-      padding: 17px 24px;
       border: 0;
-      border-radius: 9px;
+      border-radius: 6px;
       background: var(--navy);
       color: white;
-      cursor: pointer;
-      font-family: "DM Sans", sans-serif;
-      font-size: 16px;
+      padding: 16px 22px;
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 15px;
       font-weight: 600;
+      cursor: pointer;
       transition:
-        background .15s ease,
-        transform .15s ease;
+        background 0.15s ease,
+        transform 0.15s ease;
     }
 
-
     button:hover {
-      background: var(--navy-soft);
+      background: var(--navy-two);
       transform: translateY(-1px);
     }
 
-
     button:disabled {
+      opacity: 0.55;
       cursor: wait;
-      opacity: .6;
       transform: none;
     }
-
 
     #status {
       margin-top: 14px;
       text-align: center;
       color: var(--navy);
       font-size: 13px;
-      font-weight: 500;
     }
 
-
-    .footer-note {
-      margin-top: 17px;
-      color: #7B838A;
+    .footer {
+      margin-top: 18px;
       text-align: center;
+      color: #858B91;
       font-size: 11px;
     }
-
-
-
-    /* ========================================
-       HONEYPOT
-       ======================================== */
 
     .honeypot {
       position: absolute !important;
@@ -497,171 +298,93 @@
       overflow: hidden !important;
     }
 
-
-
-    /* ========================================
-       SUCCESS
-       ======================================== */
-
     .success {
-      padding: 70px 35px;
+      padding: 70px 0;
       text-align: center;
     }
 
-
     .success h2 {
-      margin: 0 0 13px;
+      margin: 0 0 12px;
+      font-family: "EB Garamond", Georgia, serif;
       color: var(--navy);
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 42px;
-      font-weight: 400;
+      font-size: 44px;
+      font-weight: 500;
     }
-
 
     .success p {
       margin: 6px 0;
       color: var(--muted);
     }
 
-
-
-    /* ========================================
-       MOBILE
-       ======================================== */
-
     @media (max-width: 680px) {
-
       .hero {
-        padding: 56px 22px 100px;
+        padding: 42px 22px 46px;
       }
-
-
-      .brand {
-        margin-bottom: 28px;
-      }
-
-
-      .hero-copy {
-        font-size: 15px;
-      }
-
 
       .page {
-        width: min(
-          100% - 22px,
-          860px
-        );
-        margin-top: -52px;
+        width: min(100% - 40px, 820px);
+        padding-top: 40px;
       }
-
-
-      .form-intro,
-      .section,
-      .submit-area {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-
-      .form-intro {
-        padding-top: 31px;
-        padding-bottom: 29px;
-      }
-
 
       .section {
-        padding-top: 37px;
-        padding-bottom: 37px;
+        padding: 34px 0;
       }
 
-
-      .two-column,
-      .car-grid {
+      .two-columns,
+      .three-columns {
         grid-template-columns: 1fr;
+        gap: 0;
       }
 
-
-      .section-heading h2 {
-        font-size: 26px;
+      .section h2 {
+        font-size: 28px;
       }
 
+      .intro p {
+        font-size: 20px;
+      }
     }
-
   </style>
 </head>
 
-
 <body>
 
-
   <header class="hero">
-
     <div class="hero-inner">
 
-      <div class="brand">
+      <div class="team-name">
         Kevin Scott Real Estate Team
       </div>
 
-      <h1>
-        Meet the Team
-      </h1>
+      <h1>Meet the Team</h1>
 
-      <p class="hero-copy">
-        We’re getting to know the people behind the team a little
-        better. Give us the <em>real</em> answers — short,
-        specific, funny, random… all of it works.
+      <p>
+        A few quick questions so we have what we need for the
+        next few weeks of content.
       </p>
 
     </div>
-
   </header>
-
 
 
   <main class="page">
 
-    <form
-      id="teamForm"
-      class="form-card"
-    >
+    <form id="teamForm">
 
-
-      <!-- INTRO -->
-
-      <div class="form-intro">
-
+      <div class="intro">
         <p>
-          This isn’t a test and nobody needs a polished REALTOR®
-          answer. First thing that comes to mind is probably the
-          better answer.
+          Short answers are perfect. Don’t worry about making
+          anything sound polished — we’ll take care of that part.
         </p>
-
-        <div class="tiny-note">
-          A sentence or two is plenty.
-        </div>
-
       </div>
 
 
-
-      <!-- NAME -->
-
       <section class="section">
 
-        <div class="section-heading">
-
-          <h2>
-            First, who’s filling this out?
-          </h2>
-
-        </div>
-
+        <h2>Your name</h2>
 
         <div class="field">
-
-          <label for="name">
-            Your name *
-          </label>
+          <label for="name">Name *</label>
 
           <input
             id="name"
@@ -669,28 +392,18 @@
             type="text"
             required
           >
-
         </div>
 
       </section>
 
 
-
-      <!-- LOCAL -->
-
       <section class="section">
 
-        <div class="section-heading">
+        <h2>Your area</h2>
 
-          <h2>
-            Tell us about your corner of Nova Scotia
-          </h2>
-
-          <p>
-            The places you actually know, love, and recommend.
-          </p>
-
-        </div>
+        <p class="section-description">
+          A little context about the part of Nova Scotia you know best.
+        </p>
 
 
         <div class="field">
@@ -708,12 +421,12 @@
         </div>
 
 
-        <div class="two-column">
+        <div class="two-columns">
 
           <div class="field">
 
             <label for="coffee">
-              Favourite coffee shop or coffee stop?
+              Favourite coffee spot?
             </label>
 
             <input
@@ -745,13 +458,13 @@
         <div class="field">
 
           <label for="areaGreat">
-            What makes your area such a great place?
+            What do you love most about the area?
           </label>
 
           <textarea
             id="areaGreat"
             name="areaGreat"
-            class="short-textarea"
+            class="short"
           ></textarea>
 
         </div>
@@ -759,38 +472,26 @@
       </section>
 
 
-
-      <!-- STRONG OPINIONS -->
-
       <section class="section">
 
-        <div class="section-heading">
+        <h2>Strong opinions</h2>
 
-          <h2>
-            Now give us your hot takes
-          </h2>
+        <p class="section-description">
+          Give us two harmless opinions you feel strongly about.
+        </p>
 
-          <p>
-            Two completely harmless opinions you feel
-            disproportionately strongly about.
-          </p>
-
-        </div>
+        <p class="example">
+          Pineapple on pizza, vanilla vs. chocolate, summer vs. fall,
+          books vs. movies — anything goes.
+        </p>
 
 
-        <div class="example-note">
-          Pineapple belongs on pizza. Vanilla beats chocolate.
-          Summer is overrated. The book is always better.
-          That kind of thing.
-        </div>
-
-
-        <div class="two-column">
+        <div class="two-columns">
 
           <div class="field">
 
             <label for="opinion1">
-              Strong opinion
+              Opinion one
             </label>
 
             <input
@@ -805,7 +506,7 @@
           <div class="field">
 
             <label for="opinion2">
-              And one more
+              Opinion two
             </label>
 
             <input
@@ -821,27 +522,18 @@
       </section>
 
 
-
-      <!-- GROUP CHAT -->
-
       <section class="section">
 
-        <div class="section-heading">
+        <h2>Group chat</h2>
 
-          <h2>
-            In a group chat, who are you?
-          </h2>
+        <p class="section-description">
+          In a group chat, what are you usually like?
+        </p>
 
-          <p>
-            No need to know everyone on the team well for this one.
-          </p>
-
-          <div class="aside">
-            First to reply? Silent reader? Voice-note person?
-            Meme sender? Problem solver?
-          </div>
-
-        </div>
+        <p class="example">
+          First to reply, silent reader, voice-note person,
+          problem solver, meme sender, or something completely different.
+        </p>
 
 
         <div class="field">
@@ -849,8 +541,7 @@
           <textarea
             id="groupChat"
             name="groupChat"
-            class="short-textarea"
-            placeholder="I am definitely the..."
+            class="short"
           ></textarea>
 
         </div>
@@ -858,25 +549,17 @@
       </section>
 
 
-
-      <!-- CAR -->
-
       <section class="section">
 
-        <div class="section-heading">
+        <h2>What’s in your car?</h2>
 
-          <h2>
-            What’s riding around in your car?
-          </h2>
-
-          <p>
-            Two everyday things, then give us the weird one.
-          </p>
-
-        </div>
+        <p class="section-description">
+          Two things that are almost always there, plus one
+          weird or random thing we might not expect.
+        </p>
 
 
-        <div class="car-grid">
+        <div class="three-columns">
 
           <div class="field">
 
@@ -896,7 +579,7 @@
           <div class="field">
 
             <label for="car2">
-              Also always there
+              Also there
             </label>
 
             <input
@@ -908,10 +591,10 @@
           </div>
 
 
-          <div class="field weird-field">
+          <div class="field">
 
             <label for="carWeird">
-              Now the weird/random one
+              The random one
             </label>
 
             <input
@@ -920,10 +603,6 @@
               type="text"
             >
 
-            <p class="hint">
-              This is the one we really want. 😂
-            </p>
-
           </div>
 
         </div>
@@ -931,27 +610,15 @@
       </section>
 
 
-
-      <!-- OFF CLOCK -->
-
       <section class="section">
 
-        <div class="section-heading">
+        <h2>Off the clock</h2>
 
-          <h2>
-            When you’re not working…
-          </h2>
-
-          <p>
-            What should we know about you outside real estate?
-          </p>
-
-          <div class="aside">
-            Pets, hobbies, former jobs, random talents,
-            current obsessions — whatever feels like you.
-          </div>
-
-        </div>
+        <p class="section-description">
+          What should we know about you outside of real estate?
+          Pets, hobbies, former jobs, random talents, current
+          obsessions — whatever feels relevant.
+        </p>
 
 
         <div class="field">
@@ -966,28 +633,20 @@
       </section>
 
 
-
-      <!-- LOCAL KNOWLEDGE -->
-
       <section class="section">
 
-        <div class="section-heading">
+        <h2>Only a local would know</h2>
 
-          <h2>
-            What’s something only a local would know?
-          </h2>
+        <p class="section-description">
+          What’s something about your area you’d probably only
+          know from living or working there?
+        </p>
 
-          <p>
-            Something you learn from actually living or working
-            in your area.
-          </p>
-
-          <div class="aside">
-            A hidden gem, local quirk, seasonal trick,
-            little-known stop, tradition, shortcut…
-          </div>
-
-        </div>
+        <p class="example">
+          A hidden gem, local quirk, seasonal tip, little-known
+          stop, tradition, shortcut, or something newcomers often
+          don’t know.
+        </p>
 
 
         <div class="field">
@@ -1002,35 +661,19 @@
       </section>
 
 
-
-      <!-- MEDIA -->
-
       <section class="section">
 
-        <div class="section-heading">
+        <h2>Photos + video</h2>
 
-          <h2>
-            Send us the good stuff
-          </h2>
-
-          <p>
-            Phone photos and casual video are exactly what we want.
-          </p>
-
-        </div>
+        <p class="section-description">
+          If you have anything we might be able to use with the
+          series, send it along.
+        </p>
 
 
-        <div class="video-line">
-
-          <small>
-            One tiny favour
-          </small>
-
-          <span>
-            If you can, send us a quick clip saying
-            “Trusted Here. From Anywhere.”
-          </span>
-
+        <div class="tagline">
+          If you can, please send a quick video of yourself saying:
+          <strong>“Trusted Here. From Anywhere.”</strong>
         </div>
 
 
@@ -1043,14 +686,14 @@
           <textarea
             id="existingVideo"
             name="existingVideo"
-            class="short-textarea"
-            placeholder="Tell Julianna where it is and she’ll grab what she needs."
+            class="short"
+            placeholder="Tell me where it is and I’ll grab what I need."
           ></textarea>
 
         </div>
 
 
-        <div class="upload-box">
+        <div class="field upload-area">
 
           <label for="files">
             Upload photos or short video clips
@@ -1064,14 +707,10 @@
             multiple
           >
 
-          <p class="hint">
-            Pets, hobbies, coffee stops, local places,
-            workday clips, car chaos — anything useful.
-            Video answers to any question are welcome too.
-          </p>
-
-          <p class="hint">
-            Large video? Just tell Julianna where to find it above.
+          <p class="upload-note">
+            Photos, pets, hobbies, favourite places, workday clips,
+            or video answers are all useful. For large videos,
+            just tell me where to find them above.
           </p>
 
         </div>
@@ -1079,14 +718,10 @@
       </section>
 
 
-
-      <!-- HONEYPOT -->
-
       <div
         class="honeypot"
         aria-hidden="true"
       >
-
         <label for="website">
           Website
         </label>
@@ -1098,12 +733,8 @@
           tabindex="-1"
           autocomplete="off"
         >
-
       </div>
 
-
-
-      <!-- SUBMIT -->
 
       <div class="submit-area">
 
@@ -1111,12 +742,12 @@
           id="submitButton"
           type="submit"
         >
-          Send it to Julianna
+          Submit
         </button>
 
         <div id="status"></div>
 
-        <div class="footer-note">
+        <div class="footer">
           Collected by The Yellow Front Door for the
           Kevin Scott Real Estate Team.
         </div>
@@ -1126,7 +757,6 @@
     </form>
 
   </main>
-
 
 
   <script>
@@ -1152,8 +782,7 @@
         event.preventDefault();
 
         button.disabled = true;
-        button.textContent = 'Sending…';
-
+        button.textContent = 'Submitting…';
         status.textContent = '';
 
 
@@ -1229,14 +858,13 @@
 
             if (
               file.size >
-              15 * 1024 * 1024
+              10 * 1024 * 1024
             ) {
 
               throw new Error(
-                '"' +
                 file.name +
-                '" is too large for this form. ' +
-                'Tell Julianna where she can find that video instead.'
+                ' is too large to upload here. ' +
+                'Please tell me where I can find it instead.'
               );
 
             }
@@ -1264,13 +892,13 @@
 
           if (
             totalUploadSize >
-            25 * 1024 * 1024
+            18 * 1024 * 1024
           ) {
 
             throw new Error(
-              'Those files are a little too large together. ' +
-              'Please upload fewer files or tell Julianna ' +
-              'where she can find the larger video.'
+              'Those files are too large together. ' +
+              'Please upload fewer files or tell me where ' +
+              'I can find the larger videos.'
             );
 
           }
@@ -1302,16 +930,10 @@
 
             <div class="success">
 
-              <h2>
-                You’re done.
-              </h2>
+              <h2>Thank you.</h2>
 
               <p>
-                Thank you — your answers are headed to Julianna.
-              </p>
-
-              <p>
-                She’ll take it from here.
+                Your answers have been submitted.
               </p>
 
             </div>
@@ -1334,9 +956,7 @@
             'Something went wrong. Please try again.';
 
           button.disabled = false;
-
-          button.textContent =
-            'Send it to Julianna';
+          button.textContent = 'Submit';
 
         }
 
@@ -1370,9 +990,7 @@
             reject;
 
 
-          reader.readAsDataURL(
-            file
-          );
+          reader.readAsDataURL(file);
 
         }
       );
